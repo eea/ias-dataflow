@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="https://dd.info-rac.org/schemas/nbb-dataflow/nbb-dataflow-2018.xsd"  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="NBB_Report">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="country"/>
+        <xs:element name="contacting_party">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="partyname"/>
+              <xs:element type="xs:string" name="rep_period_from"/>
+              <xs:element type="xs:string" name="rep_period_to"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="region" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:byte" name="region_id"/>
+              <xs:element name="record" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:integer" name="pollutant_id"/>
+                    <xs:element type="xs:integer" name="budget_year"/>
+                    <xs:element type="xs:integer" name="sector_id"/>
+                    <xs:element type="xs:integer" name="subsector_id"/>
+                    <xs:element type="xs:integer" name="process_id"/>
+                    <xs:element type="xs:integer" name="facility"/>
+                    <xs:element type="xs:boolean" name="from_prtr"/>
+                    <xs:element type="xs:integer" name="estimated_on_id"/>
+                    <xs:element type="xs:double" name="emission_factor_value"/>
+                    <xs:element type="xs:integer" name="emission_factor_unit_id"/>
+                    <xs:element type="xs:double" name="production_value"/>
+                    <xs:element type="xs:integer" name="production_unit_id"/>
+                    <xs:element type="xs:double" name="total_release_value"/>
+                    <xs:element type="xs:integer" name="total_release_unit_id"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

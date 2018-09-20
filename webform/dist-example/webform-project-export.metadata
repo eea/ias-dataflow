@@ -1,0 +1,83 @@
+{
+  "projectFiles": [
+  {
+    "title": "app.js",
+    "file":
+    {
+      "name": "app.js"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "app.css",
+    "file":
+    {
+      "name": "app.css"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "manifest.js",
+    "file":
+    {
+      "name": "manifest.js"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "vendor.js",
+    "file":
+    {
+      "name": "vendor.js"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "empty.xml",
+    "file":
+    {
+      "name": "empty.xml"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "schema.xsd",
+    "file":
+    {
+      "name": "schema.xsd"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "National Baseline Budget Report (NBB)",
+    "file":
+    {
+      "name": "index.html"
+    },
+    "newXmlFileName": "nbb_report.xml",
+    "emptyInstanceUrl": "https://webforms.info-rac.org/download/project/nbb/file/empty.xml",
+    "xmlSchema": "https://dd.info-rac.org/v2/dataset/15/schema-dst-15.xsd",
+    "active": true,
+    "localForm": true,
+    "remoteForm": true,
+    "fileType": "WEBFORM"
+  }]
+}

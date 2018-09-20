@@ -1,0 +1,14 @@
+{
+  "NBB_Report": {
+    "@xmlns": "https://dd.info-rac.org/schemas/nbb-dataflow/",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xsi:schemaLocation": "https://dd.info-rac.org/schemas/nbb-dataflow/ https://dd.info-rac.org/schemas/nbb-dataflow/nbb-dataflow-2018.xsd",
+    "country": null,
+    "contacting_party": {
+      "partyname": "AL",
+      "rep_period_from": "0011-11-11",
+      "rep_period_to": "0222-11-12"
+    }
+  }
+
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "estimation_type_id":1,
+    "name":"monitoring data measurements",
+    "code":"M"
+  },
+  {
+    "estimation_type_id":2,
+    "name":"mass balance calculations",
+    "code":"C"
+  },
+  {
+    "estimation_type_id":3,
+    "name":"published emission factors",
+    "code":"E"
+  },
+  {
+    "estimation_type_id":4,
+    "name":"other approaches",
+    "code":"O"
+  }
+]

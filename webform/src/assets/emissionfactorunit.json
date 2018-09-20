@@ -1,0 +1,15 @@
+[
+  {
+    "emission_factor_unit_id":1,
+    "name":"Kg/Tons"
+  },
+  {
+    "emission_factor_unit_id":2,
+    "name":"Kg/1000L"
+  },
+  {
+    "emission_factor_unit_id":3,
+    "name":"Kg/1000m²"
+  }
+]
+

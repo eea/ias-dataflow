@@ -1,0 +1,986 @@
+[
+  {
+    "pollutant_id":129,
+    "pollutant_name":"Aldrine [air]",
+    "prtr_pollutant_code":"ALDRIN",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":1,
+    "pollutant_name":"Aldrine [liq]",
+    "prtr_pollutant_code":"ALDRIN",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":2,
+    "pollutant_name":"Aluminium [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":3,
+    "pollutant_name":"Aluminium [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":4,
+    "pollutant_name":"Anthracene [gas]",
+    "prtr_pollutant_code":"ANTHRACENE",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":5,
+    "pollutant_name":"Anthracene [liq]",
+    "prtr_pollutant_code":"ANTHRACENE",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":6,
+    "pollutant_name":"AOX [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":130,
+    "pollutant_name":"Asbestos [gas]",
+    "prtr_pollutant_code":"ASBESTOS",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":131,
+    "pollutant_name":"Asbestos [liq]",
+    "prtr_pollutant_code":"ASBESTOS",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":7,
+    "pollutant_name":"As [gas]",
+    "prtr_pollutant_code":"AS AND COMPOUNDS",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":8,
+    "pollutant_name":"As [liq]",
+    "prtr_pollutant_code":"AS AND COMPOUNDS",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":9,
+    "pollutant_name":"Atrazine [liq]",
+    "prtr_pollutant_code":"ATRAZINE",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":10,
+    "pollutant_name":"Benzene [gas]",
+    "prtr_pollutant_code":"BENZENE",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":11,
+    "pollutant_name":"Benzene [liq]",
+    "prtr_pollutant_code":"BENZENE",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":12,
+    "pollutant_name":"Benzo(a)anthracene [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":13,
+    "pollutant_name":"Benzo(a)pyrene [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":14,
+    "pollutant_name":"Benzo(a)pyrene [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":144,
+    "pollutant_name":"Benzo(b)fluoranthene [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":145,
+    "pollutant_name":"Benzo(b,j,k)fluoranthene [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":15,
+    "pollutant_name":"Benzo(b,k)fluoranthene [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":16,
+    "pollutant_name":"Benzo(b,k)fluoranthene [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":17,
+    "pollutant_name":"Benzo(g,h,i)perylene [gas]",
+    "prtr_pollutant_code":"BENZO(G,H,I)PERYLENE",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":18,
+    "pollutant_name":"Benzo(g,h,i)perylene [liq]",
+    "prtr_pollutant_code":"BENZO(G,H,I)PERYLENE",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":19,
+    "pollutant_name":"Biphenyls [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":20,
+    "pollutant_name":"BOD5 [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":21,
+    "pollutant_name":"Boron [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":22,
+    "pollutant_name":"BTEX [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":23,
+    "pollutant_name":"Butylin compounds [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":24,
+    "pollutant_name":"Carbon dioxide [gas]",
+    "prtr_pollutant_code":"CO2",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":25,
+    "pollutant_name":"Carbon monoxide [gas]",
+    "prtr_pollutant_code":"CO",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":146,
+    "pollutant_name":"Carbon tetrachloride [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":26,
+    "pollutant_name":"Carbon tetrachloride [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":27,
+    "pollutant_name":"Cd [gas]",
+    "prtr_pollutant_code":"CD AND COMPOUNDS",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":28,
+    "pollutant_name":"Cd [liq]",
+    "prtr_pollutant_code":"CD AND COMPOUNDS",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":29,
+    "pollutant_name":"Chlorinated Compound [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":30,
+    "pollutant_name":"Chlorinated Compound [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":31,
+    "pollutant_name":"Chlorobenzene [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":147,
+    "pollutant_name":"Chloroform [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":32,
+    "pollutant_name":"Chloroform [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":33,
+    "pollutant_name":"Cobalt [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":34,
+    "pollutant_name":"Cobalt [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":35,
+    "pollutant_name":"COD [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":149,
+    "pollutant_name":"Cr2O3 [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":36,
+    "pollutant_name":"Cr [gas]",
+    "prtr_pollutant_code":"CR AND COMPOUNDS",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":37,
+    "pollutant_name":"Cr [liq]",
+    "prtr_pollutant_code":"CR AND COMPOUNDS",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":148,
+    "pollutant_name":"Cr (VI) [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":38,
+    "pollutant_name":"Cu [gas]",
+    "prtr_pollutant_code":"CU AND COMPOUNDS",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":39,
+    "pollutant_name":"Cu [liq]",
+    "prtr_pollutant_code":"CU AND COMPOUNDS",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":40,
+    "pollutant_name":"Cyanide [gas]",
+    "prtr_pollutant_code":"CYANIDES",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":41,
+    "pollutant_name":"Cyanide [liq]",
+    "prtr_pollutant_code":"CYANIDES",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":42,
+    "pollutant_name":"DDT [liq]",
+    "prtr_pollutant_code":"DDT",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":43,
+    "pollutant_name":"DEHP [gas]",
+    "prtr_pollutant_code":"DEHP",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":44,
+    "pollutant_name":"DEHP [liq]",
+    "prtr_pollutant_code":"DEHP",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":45,
+    "pollutant_name":"Dichloroethane-1,2 [gas]",
+    "prtr_pollutant_code":"DICHLOROETHANE-1,2 (DCE)",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":46,
+    "pollutant_name":"Dichloroethane-1,2 [liq]",
+    "prtr_pollutant_code":"DICHLOROETHANE-1,2 (DCE)",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":47,
+    "pollutant_name":"Dichloromethane [gas]",
+    "prtr_pollutant_code":"DICHLOROMETHANE (DCM)",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":48,
+    "pollutant_name":"Dichloromethane [liq]",
+    "prtr_pollutant_code":"DICHLOROMETHANE (DCM)",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":49,
+    "pollutant_name":"Dieldrine [liq]",
+    "prtr_pollutant_code":"DIELDRIN",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":50,
+    "pollutant_name":"Diuron [liq]",
+    "prtr_pollutant_code":"DIURON",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":51,
+    "pollutant_name":"Endosulphan [liq]",
+    "prtr_pollutant_code":"ENDOSULPHAN",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":52,
+    "pollutant_name":"Endrine [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":53,
+    "pollutant_name":"Ethylbenzene [liq]",
+    "prtr_pollutant_code":"ETHYLBENZENE",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":132,
+    "pollutant_name":"Ethylene oxide [air]",
+    "prtr_pollutant_code":"ETHYLENE OXIDE",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":133,
+    "pollutant_name":"Ethylene oxide [liq]",
+    "prtr_pollutant_code":"ETHYLENE OXIDE",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":54,
+    "pollutant_name":"Fe [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":55,
+    "pollutant_name":"Fe [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":56,
+    "pollutant_name":"Fluoranthene [gas]",
+    "prtr_pollutant_code":"FLUORANTHENE",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":57,
+    "pollutant_name":"Fluoranthene [liq]",
+    "prtr_pollutant_code":"FLUORANTHENE",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":58,
+    "pollutant_name":"Fluoride [gas]",
+    "prtr_pollutant_code":"FLUORIDES",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":59,
+    "pollutant_name":"Fluoride [liq]",
+    "prtr_pollutant_code":"FLUORIDES",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":150,
+    "pollutant_name":"Formaldehyde [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":151,
+    "pollutant_name":"Freons [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":152,
+    "pollutant_name":"H2S [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":153,
+    "pollutant_name":"Hcl (esp) [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":154,
+    "pollutant_name":"Hcl (ff) [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":60,
+    "pollutant_name":"Heptachlor [liq]",
+    "prtr_pollutant_code":"HEPTACHLOR",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":134,
+    "pollutant_name":"Hexabromobiphenyl [air]",
+    "prtr_pollutant_code":"HEXABROMOBIPHENYL",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":135,
+    "pollutant_name":"Hexabromobiphenyl [liq]",
+    "prtr_pollutant_code":"HEXABROMOBIPHENYL",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":61,
+    "pollutant_name":"Hexachlorobenzene [gas]",
+    "prtr_pollutant_code":"HEXACHLOROBENZENE (HCB)",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":62,
+    "pollutant_name":"Hexachlorobenzene [liq]",
+    "prtr_pollutant_code":"HEXACHLOROBENZENE (HCB)",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":63,
+    "pollutant_name":"Hexachlorobutadiene [liq]",
+    "prtr_pollutant_code":"HEXACHLOROBUTADIENE (HCBD)",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":64,
+    "pollutant_name":"Hexachlorocyclohexane [gas]",
+    "prtr_pollutant_code":"HEXACHLOROCYCLOHEXANE(HCH)",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":65,
+    "pollutant_name":"Hexachlorocyclohexane [liq]",
+    "prtr_pollutant_code":"HEXACHLOROCYCLOHEXANE(HCH)",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":66,
+    "pollutant_name":"Hg [gas]",
+    "prtr_pollutant_code":"HG AND COMPOUNDS",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":67,
+    "pollutant_name":"Hg [liq]",
+    "prtr_pollutant_code":"HG AND COMPOUNDS",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":68,
+    "pollutant_name":"Hydrocarbons (minerals) [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":69,
+    "pollutant_name":"Hydrofluorocarbons [gas]",
+    "prtr_pollutant_code":"HFCS",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":70,
+    "pollutant_name":"Indeno(1,2,3-CD)pyrene [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":71,
+    "pollutant_name":"Indeno(1,2,3-CD)pyrene [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":136,
+    "pollutant_name":"Isoproturon [air]",
+    "prtr_pollutant_code":"ISOPROTURON",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":137,
+    "pollutant_name":"Isoproturon [liq]",
+    "prtr_pollutant_code":"ISOPROTURON",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":72,
+    "pollutant_name":"Methane [gas]",
+    "prtr_pollutant_code":"CH4",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":73,
+    "pollutant_name":"Mn [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":74,
+    "pollutant_name":"Mn [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":75,
+    "pollutant_name":"Naphtalene [gas]",
+    "prtr_pollutant_code":"NAPHTHALENE",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":76,
+    "pollutant_name":"Naphtalene [liq]",
+    "prtr_pollutant_code":"NAPHTHALENE",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":77,
+    "pollutant_name":"NH3 [gas]",
+    "prtr_pollutant_code":"NH3",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":78,
+    "pollutant_name":"NH3 [liq]",
+    "prtr_pollutant_code":"NH3",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":79,
+    "pollutant_name":"Ni [gas]",
+    "prtr_pollutant_code":"NI AND COMPOUNDS",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":80,
+    "pollutant_name":"Ni [liq]",
+    "prtr_pollutant_code":"NI AND COMPOUNDS",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":81,
+    "pollutant_name":"Nitrogen oxide [gas]",
+    "prtr_pollutant_code":"NOX",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":82,
+    "pollutant_name":"Nonylphenols [liq]",
+    "prtr_pollutant_code":"NP/NPES",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":83,
+    "pollutant_name":"Octylphenols [liq]",
+    "prtr_pollutant_code":"OCTYLPHENOLS AND OCTYLPHENOL ETHOXYLATES",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":155,
+    "pollutant_name":"Oil [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":84,
+    "pollutant_name":"Oils and greases (organic) [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":138,
+    "pollutant_name":"Organotin compounds [air]",
+    "prtr_pollutant_code":"ORGANOTIN - COMPOUNDS",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":139,
+    "pollutant_name":"Organotin compounds [liq]",
+    "prtr_pollutant_code":"ORGANOTIN - COMPOUNDS",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":85,
+    "pollutant_name":"Other Chlorinated Pesticides [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":86,
+    "pollutant_name":"Other Chlorinated Pesticides [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":156,
+    "pollutant_name":"PAH (15 PAHs) [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":87,
+    "pollutant_name":"PAH [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":88,
+    "pollutant_name":"PAH [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":157,
+    "pollutant_name":"Particulate fluoride [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":91,
+    "pollutant_name":"PBDE [liq]",
+    "prtr_pollutant_code":"BROMINATED DIPHENYLETHER",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":89,
+    "pollutant_name":"Pb [gas]",
+    "prtr_pollutant_code":"PB AND COMPOUNDS",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":90,
+    "pollutant_name":"Pb [liq]",
+    "prtr_pollutant_code":"PB AND COMPOUNDS",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":92,
+    "pollutant_name":"PCB / PCT [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":93,
+    "pollutant_name":"PCB / PCT [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":94,
+    "pollutant_name":"PCDD / PCDF [gas]",
+    "prtr_pollutant_code":"PCDD+PCDF (DIOXINS+FURANS)",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":95,
+    "pollutant_name":"PCDD / PCDF [liq]",
+    "prtr_pollutant_code":"PCDD+PCDF (DIOXINS+FURANS)",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":158,
+    "pollutant_name":"PCDD / PDCDF [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":96,
+    "pollutant_name":"Pentachlorophenol [liq]",
+    "prtr_pollutant_code":"PENTACHLOROPHENOL (PCP)",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":97,
+    "pollutant_name":"Perchloroethylene [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":98,
+    "pollutant_name":"Perchloroethylene [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":99,
+    "pollutant_name":"Petroleum Hydrocarbons [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":100,
+    "pollutant_name":"Phenanthrene [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":159,
+    "pollutant_name":"Phenols [gas]",
+    "prtr_pollutant_code":"PHENOLS",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":101,
+    "pollutant_name":"Phenols [liq]",
+    "prtr_pollutant_code":"PHENOLS",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":102,
+    "pollutant_name":"Phosphates [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":103,
+    "pollutant_name":"PM10 [gas]",
+    "prtr_pollutant_code":"PM10",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":104,
+    "pollutant_name":"Selenium [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":105,
+    "pollutant_name":"Sulfur oxide [gas]",
+    "prtr_pollutant_code":"SOX",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":140,
+    "pollutant_name":"Sulphur hexafluoride (SF6) [air]",
+    "prtr_pollutant_code":"SF6",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":141,
+    "pollutant_name":"Sulphur hexafluoride (SF6) [liq]",
+    "prtr_pollutant_code":"SF6",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":106,
+    "pollutant_name":"Tin [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":107,
+    "pollutant_name":"TOC [gas]",
+    "prtr_pollutant_code":"TOTAL ORGANIC CARBON (TOC)",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":108,
+    "pollutant_name":"TOC [liq]",
+    "prtr_pollutant_code":"TOTAL ORGANIC CARBON (TOC)",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":160,
+    "pollutant_name":"Toluene [gas]",
+    "prtr_pollutant_code":"TOLUENE",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":109,
+    "pollutant_name":"Toluene [liq]",
+    "prtr_pollutant_code":"TOLUENE",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":110,
+    "pollutant_name":"Total N [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":161,
+    "pollutant_name":"Total organic compounds [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":111,
+    "pollutant_name":"Total Organic Matter [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":162,
+    "pollutant_name":"Total PCDD (ff) [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":163,
+    "pollutant_name":"Total PCDF (ff) [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":112,
+    "pollutant_name":"Total P [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":113,
+    "pollutant_name":"Total Suspended Particulates [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":114,
+    "pollutant_name":"Trichlorobenzenes (TCB) [gas]",
+    "prtr_pollutant_code":"TRICHLOROBENZENES (TCB)",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":115,
+    "pollutant_name":"Trichlorobenzenes (TCB) [liq]",
+    "prtr_pollutant_code":"TRICHLOROBENZENES (TCB)",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":116,
+    "pollutant_name":"Trichloroethane-1,1,1 [gas]",
+    "prtr_pollutant_code":"TRICHLOROETHANE-1,1,1 (TCE)",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":164,
+    "pollutant_name":"Trichloroethane [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":117,
+    "pollutant_name":"Trichloroethylene [gas]",
+    "prtr_pollutant_code":"TRICHLOROETHYLENE (TRI)",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":118,
+    "pollutant_name":"Trichloroethylene [liq]",
+    "prtr_pollutant_code":"TRICHLOROETHYLENE (TRI)",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":119,
+    "pollutant_name":"Trichloromethane [gas]",
+    "prtr_pollutant_code":"TRICHLOROMETHANE",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":120,
+    "pollutant_name":"Trichloromethane [liq]",
+    "prtr_pollutant_code":"TRICHLOROMETHANE",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":142,
+    "pollutant_name":"Trifluralin [air]",
+    "prtr_pollutant_code":"TRIFLURALIN",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":143,
+    "pollutant_name":"Trifluralin [liq]",
+    "prtr_pollutant_code":"TRIFLURALIN",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":165,
+    "pollutant_name":"Trimethylamine [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":121,
+    "pollutant_name":"TSS [liq]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":122,
+    "pollutant_name":"Vinyl chloride [gas]",
+    "prtr_pollutant_code":"VINYL CHLORIDE",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":123,
+    "pollutant_name":"Vinyl chloride [liq]",
+    "prtr_pollutant_code":"VINYL CHLORIDE",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":124,
+    "pollutant_name":"VOC [gas]",
+    "prtr_pollutant_code":null,
+    "prtr_medium_code":null
+  },
+  {
+    "pollutant_id":125,
+    "pollutant_name":"Xylenes [liq]",
+    "prtr_pollutant_code":"XYLENES",
+    "prtr_medium_code":"LIQ"
+  },
+  {
+    "pollutant_id":126,
+    "pollutant_name":"Zn [gas]",
+    "prtr_pollutant_code":"ZN AND COMPOUNDS",
+    "prtr_medium_code":"AIR"
+  },
+  {
+    "pollutant_id":127,
+    "pollutant_name":"Zn [liq]",
+    "prtr_pollutant_code":"ZN AND COMPOUNDS",
+    "prtr_medium_code":"LIQ"
+  }
+]

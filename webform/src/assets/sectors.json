@@ -1,0 +1,2156 @@
+[
+  {
+    "sector_id":8,
+    "sector_name":"Agriculture",
+    "subsectors" : [
+      {
+        "subsector_id":1,
+        "subsector_name":"Growing of cereals (wheat, rice, maize, soyabeans, other)",
+        "processes" : [
+          {
+            "process_id":35,
+            "process_name":"cotton processing"
+          },
+          {
+            "process_id":36,
+            "process_name":"plant processing"
+          }
+        ]
+      },
+      {
+        "subsector_id":2,
+        "subsector_name":"Growing of fruit and vegetables",
+        "processes" : [
+          {
+            "process_id":37,
+            "process_name":"Growing Vegetables"
+          }
+        ]
+      },
+      {
+        "subsector_id":3,
+        "subsector_name":"Horticultural specialities, nurseries",
+        "processes" : []
+      },
+      {
+        "subsector_id":4,
+        "subsector_name":"Industrial crops (cotton, tobacco, sugar cane, sugar beet, potatoes, other)",
+        "processes" : [
+          {
+            "process_id":38,
+            "process_name":"Flour Production"
+          },
+          {
+            "process_id":42,
+            "process_name":"plant processing"
+          },
+          {
+            "process_id":39,
+            "process_name":"Production of cotton"
+          },
+          {
+            "process_id":40,
+            "process_name":"Starch production"
+          },
+          {
+            "process_id":41,
+            "process_name":"Tobacco processing"
+          }
+        ]
+      },
+      {
+        "subsector_id":5,
+        "subsector_name":"Manufacture of wines",
+        "processes" : [
+          {
+            "process_id":355,
+            "process_name":"Cleaning of vats"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sector_id":13,
+    "sector_name":"Aquaculture",
+    "subsectors" : [
+      {
+        "subsector_id":6,
+        "subsector_name":"Fish breeding",
+        "processes" : [
+          {
+            "process_id":24,
+            "process_name":"Fish breeding"
+          }
+        ]
+      },
+      {
+        "subsector_id":7,
+        "subsector_name":"Fish processing",
+        "processes" : [
+          {
+            "process_id":187,
+            "process_name":"Cookers, scrap - fresh fish"
+          },
+          {
+            "process_id":186,
+            "process_name":"Cookers, scrap - Stale fish"
+          },
+          {
+            "process_id":188,
+            "process_name":"Crabs"
+          },
+          {
+            "process_id":25,
+            "process_name":"Fish processing"
+          },
+          {
+            "process_id":26,
+            "process_name":"Sardines"
+          },
+          {
+            "process_id":189,
+            "process_name":"Shrimp"
+          },
+          {
+            "process_id":27,
+            "process_name":"Tuna"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sector_id":21,
+    "sector_name":"Building and repairing of ships and boats",
+    "subsectors" : [
+      {
+        "subsector_id":8,
+        "subsector_name":"Drydocks",
+        "processes" : []
+      },
+      {
+        "subsector_id":9,
+        "subsector_name":"Shipyards",
+        "processes" : [
+          {
+            "process_id":172,
+            "process_name":"ship dismantling"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sector_id":32,
+    "sector_name":"Factories that cause physical changes to the environment",
+    "subsectors" : [
+      {
+        "subsector_id":10,
+        "subsector_name":"Seawater desalination plants",
+        "processes" : [
+          {
+            "process_id":167,
+            "process_name":"Seawater desalination"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sector_id":4,
+    "sector_name":"Farming of animals",
+    "subsectors" : [
+      {
+        "subsector_id":11,
+        "subsector_name":"Farming of animals (cattle, sheep, swine, poultry) and slaughterhouses",
+        "processes" : [
+          {
+            "process_id":17,
+            "process_name":"Cattle breeding"
+          },
+          {
+            "process_id":190,
+            "process_name":"Cattle breeding (Beef)"
+          },
+          {
+            "process_id":18,
+            "process_name":"Dairy cattle breeding"
+          },
+          {
+            "process_id":19,
+            "process_name":"Pig breeding"
+          },
+          {
+            "process_id":20,
+            "process_name":"Poultry breeding"
+          },
+          {
+            "process_id":21,
+            "process_name":"Sheep breeding"
+          },
+          {
+            "process_id":22,
+            "process_name":"Slaughterhouses (cattle/pigs)"
+          },
+          {
+            "process_id":23,
+            "process_name":"Slaughterhouses (poultry)"
+          }
+        ]
+      },
+      {
+        "subsector_id":12,
+        "subsector_name":"Farming of special animals (rabbits, goats, horses, asses, mules and hinnies, other)",
+        "processes" : []
+      }
+    ]
+  },
+  {
+    "sector_id":5,
+    "sector_name":"Food packing",
+    "subsectors" : [
+      {
+        "subsector_id":13,
+        "subsector_name":"Animal feeds",
+        "processes" : [
+          {
+            "process_id":2,
+            "process_name":"animal feeds production"
+          },
+          {
+            "process_id":1,
+            "process_name":"Animal feeds products with physical treatment"
+          },
+          {
+            "process_id":3,
+            "process_name":"production of animal feeds"
+          }
+        ]
+      },
+      {
+        "subsector_id":14,
+        "subsector_name":"Animal raw materials,Vegetable raw materials",
+        "processes" : []
+      },
+      {
+        "subsector_id":15,
+        "subsector_name":"Dairy industry",
+        "processes" : [
+          {
+            "process_id":13,
+            "process_name":"Dairy products"
+          },
+          {
+            "process_id":14,
+            "process_name":"Dairy products production"
+          }
+        ]
+      },
+      {
+        "subsector_id":16,
+        "subsector_name":"Manufacture of beer",
+        "processes" : [
+          {
+            "process_id":80,
+            "process_name":"Total brewer"
+          }
+        ]
+      },
+      {
+        "subsector_id":17,
+        "subsector_name":"Manufacture of non-alcoholic beverages",
+        "processes" : [
+          {
+            "process_id":100,
+            "process_name":"Including syrup production"
+          },
+          {
+            "process_id":101,
+            "process_name":"Not including syrup production"
+          },
+          {
+            "process_id":102,
+            "process_name":"Production of beverages"
+          }
+        ]
+      },
+      {
+        "subsector_id":18,
+        "subsector_name":"Manufacture of olive oil",
+        "processes" : [
+          {
+            "process_id":103,
+            "process_name":"Continue System"
+          },
+          {
+            "process_id":191,
+            "process_name":"Oil mill (total plant)"
+          },
+          {
+            "process_id":104,
+            "process_name":"Oilseed crushing mill (total factory)"
+          }
+        ]
+      },
+      {
+        "subsector_id":19,
+        "subsector_name":"Manufacture of other vegetable oils (other than olive oil)",
+        "processes" : [
+          {
+            "process_id":109,
+            "process_name":"Manufacture of oil (total factory)"
+          },
+          {
+            "process_id":110,
+            "process_name":"manufacture of oil (total factory) with secondary ww treatment"
+          }
+        ]
+      },
+      {
+        "subsector_id":20,
+        "subsector_name":"Manufacture of sugar beet",
+        "processes" : [
+          {
+            "process_id":192,
+            "process_name":"Coal-fired pulp dryer"
+          },
+          {
+            "process_id":136,
+            "process_name":"Effluent highly polluted by the manufacturing process"
+          },
+          {
+            "process_id":193,
+            "process_name":"Fuel oil - fired pulp dryer"
+          }
+        ]
+      },
+      {
+        "subsector_id":21,
+        "subsector_name":"Manufacture of wines and spirits",
+        "processes" : [
+          {
+            "process_id":137,
+            "process_name":"Cleaning of vats"
+          },
+          {
+            "process_id":139,
+            "process_name":"Transfer of wine (sludge retention) White/red"
+          },
+          {
+            "process_id":140,
+            "process_name":"Transfer of wine (without sludge retention) Red wine"
+          },
+          {
+            "process_id":138,
+            "process_name":"Transfer of wine ( without sludge retention) White wine"
+          }
+        ]
+      },
+      {
+        "subsector_id":22,
+        "subsector_name":"Other prepared foods",
+        "processes" : [
+          {
+            "process_id":152,
+            "process_name":"prepared foods"
+          }
+        ]
+      },
+      {
+        "subsector_id":23,
+        "subsector_name":"Preserving fruit and vegetables",
+        "processes" : [
+          {
+            "process_id":165,
+            "process_name":"Preserving Fruit and Vegetables"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sector_id":14,
+    "sector_name":"Management of urban solid waste",
+    "subsectors" : [
+      {
+        "subsector_id":24,
+        "subsector_name":"Waste dumps",
+        "processes" : []
+      }
+    ]
+  },
+  {
+    "sector_id":27,
+    "sector_name":"Manufacture and formulation of biocides",
+    "subsectors" : [
+      {
+        "subsector_id":25,
+        "subsector_name":"Formulation of pesticides",
+        "processes" : []
+      },
+      {
+        "subsector_id":26,
+        "subsector_name":"Synthesis of phytosanitary products",
+        "processes" : []
+      }
+    ]
+  },
+  {
+    "sector_id":1,
+    "sector_name":"Manufacture of cement",
+    "subsectors" : [
+      {
+        "subsector_id":27,
+        "subsector_name":"Manufacture of cement",
+        "processes" : [
+          {
+            "process_id":81,
+            "process_name":"Cloth filter"
+          },
+          {
+            "process_id":82,
+            "process_name":"Electrostatic precipator"
+          }
+        ]
+      },
+      {
+        "subsector_id":28,
+        "subsector_name":"Manufacture of lime and plaster",
+        "processes" : [
+          {
+            "process_id":96,
+            "process_name":"Manufacture of lime - Total factory (cyclone dust collector)"
+          },
+          {
+            "process_id":97,
+            "process_name":"Manufacture of lime - Total factory (dust reduction)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sector_id":30,
+    "sector_name":"Manufacture of electronics products",
+    "subsectors" : [
+      {
+        "subsector_id":29,
+        "subsector_name":"Manufacture of electric machines and appliances (condensers, transformers)",
+        "processes" : [
+          {
+            "process_id":88,
+            "process_name":"Manufacture of electric motors, condensers and transformers"
+          },
+          {
+            "process_id":89,
+            "process_name":"Treated wastewater"
+          }
+        ]
+      },
+      {
+        "subsector_id":30,
+        "subsector_name":"Manufacture of integrated circuits",
+        "processes" : [
+          {
+            "process_id":94,
+            "process_name":"amount of wastewater"
+          }
+        ]
+      },
+      {
+        "subsector_id":31,
+        "subsector_name":"Manufacture of radio, television and communications equipment",
+        "processes" : []
+      }
+    ]
+  },
+  {
+    "sector_id":17,
+    "sector_name":"Manufacture of fertilizers",
+    "subsectors" : [
+      {
+        "subsector_id":32,
+        "subsector_name":"Nitrogenous fertilizers",
+        "processes" : [
+          {
+            "process_id":194,
+            "process_name":"Carbon dioxide regenerator"
+          },
+          {
+            "process_id":195,
+            "process_name":"Condensate stream stripper"
+          },
+          {
+            "process_id":196,
+            "process_name":"Desulfurization unit regeneration"
+          },
+          {
+            "process_id":197,
+            "process_name":"Drum granulation"
+          },
+          {
+            "process_id":198,
+            "process_name":"Fluid bed dryers - Controlled"
+          },
+          {
+            "process_id":199,
+            "process_name":"Fluid bed dryers - Uncontrolled"
+          },
+          {
+            "process_id":200,
+            "process_name":"Fluidized bed prilling - Agricultural grade"
+          },
+          {
+            "process_id":201,
+            "process_name":"Fluidized bed prilling - Feed grade"
+          },
+          {
+            "process_id":202,
+            "process_name":"Non fluidized bed prilling - Agricultural grade"
+          },
+          {
+            "process_id":147,
+            "process_name":"Production of ammonia"
+          },
+          {
+            "process_id":148,
+            "process_name":"Production of nitric acid"
+          },
+          {
+            "process_id":146,
+            "process_name":"Production of SSP"
+          },
+          {
+            "process_id":203,
+            "process_name":"Rotary drum cooler"
+          },
+          {
+            "process_id":204,
+            "process_name":"Rotary dryers - Controlled"
+          },
+          {
+            "process_id":205,
+            "process_name":"Rotary dryers - Uncontrolled"
+          },
+          {
+            "process_id":206,
+            "process_name":"Solution formation and concentration"
+          },
+          {
+            "process_id":149,
+            "process_name":"Synthesized ammonia - Total factory"
+          },
+          {
+            "process_id":207,
+            "process_name":"Total plant"
+          }
+        ]
+      },
+      {
+        "subsector_id":33,
+        "subsector_name":"Phosphate fertilizers and phosphoric acid",
+        "processes" : [
+          {
+            "process_id":157,
+            "process_name":"Phosphate Fertilizer"
+          },
+          {
+            "process_id":158,
+            "process_name":"Phosphate Fertilizer 2"
+          },
+          {
+            "process_id":208,
+            "process_name":"Phosphate fertilizers - Exhaust stack"
+          },
+          {
+            "process_id":209,
+            "process_name":"Phosphate fertilizers - Scrubber"
+          },
+          {
+            "process_id":214,
+            "process_name":"Phosphoric acid Belt filter controlled"
+          },
+          {
+            "process_id":215,
+            "process_name":"Phosphoric acid Belt filter uncontrolled"
+          },
+          {
+            "process_id":216,
+            "process_name":"Phosphoric acid Belt filter vaccum pump - controlled"
+          },
+          {
+            "process_id":217,
+            "process_name":"Phosphoric acid Belt filter vaccum pump - uncontrolled"
+          },
+          {
+            "process_id":210,
+            "process_name":"Phosphoric acid - Evaporator Controlled"
+          },
+          {
+            "process_id":211,
+            "process_name":"Phosphoric acid - Evaporator Uncontrolled"
+          },
+          {
+            "process_id":218,
+            "process_name":"Phosphoric acid production"
+          },
+          {
+            "process_id":212,
+            "process_name":"Phosphoric acid - Reactor Controlled"
+          },
+          {
+            "process_id":213,
+            "process_name":"Phosphoric acid - Reactor Uncontrolled"
+          },
+          {
+            "process_id":159,
+            "process_name":"Production of phosphoric acid"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sector_id":9,
+    "sector_name":"Manufacture of metals",
+    "subsectors" : [
+      {
+        "subsector_id":34,
+        "subsector_name":"Casting of grey iron",
+        "processes" : [
+          {
+            "process_id":4,
+            "process_name":"Blast furnace - Scrubber (untreated)"
+          },
+          {
+            "process_id":219,
+            "process_name":"Cold rolling Untreated"
+          },
+          {
+            "process_id":220,
+            "process_name":"Coupola Uncontrolled"
+          },
+          {
+            "process_id":5,
+            "process_name":"Electric induction"
+          },
+          {
+            "process_id":6,
+            "process_name":"Hot rolling (untreated)"
+          },
+          {
+            "process_id":7,
+            "process_name":"Manufactor of hand tools"
+          },
+          {
+            "process_id":8,
+            "process_name":"Sintering plant"
+          }
+        ]
+      },
+      {
+        "subsector_id":35,
+        "subsector_name":"Casting of other non-ferrous metals",
+        "processes" : []
+      },
+      {
+        "subsector_id":36,
+        "subsector_name":"Casting of steel",
+        "processes" : [
+          {
+            "process_id":221,
+            "process_name":"Iron and steel production"
+          },
+          {
+            "process_id":9,
+            "process_name":"Production of steel rim"
+          }
+        ]
+      },
+      {
+        "subsector_id":37,
+        "subsector_name":"Electroplating",
+        "processes" : [
+          {
+            "process_id":222,
+            "process_name":"Cadmium plating"
+          },
+          {
+            "process_id":223,
+            "process_name":"Chromium plating"
+          },
+          {
+            "process_id":224,
+            "process_name":"Copper plating"
+          },
+          {
+            "process_id":15,
+            "process_name":"Nickel plating"
+          },
+          {
+            "process_id":16,
+            "process_name":"Zinc plating"
+          }
+        ]
+      },
+      {
+        "subsector_id":38,
+        "subsector_name":"First-stage aluminium smelting",
+        "processes" : [
+          {
+            "process_id":225,
+            "process_name":"Alumina from bauxite"
+          },
+          {
+            "process_id":226,
+            "process_name":"Anode baking furnace - Electrostatic precipitators (ESP)"
+          },
+          {
+            "process_id":227,
+            "process_name":"Anode baking furnace - Spray tower"
+          },
+          {
+            "process_id":228,
+            "process_name":"Anode baking furnace - Uncontrolled"
+          },
+          {
+            "process_id":229,
+            "process_name":"Anode prebaking"
+          },
+          {
+            "process_id":230,
+            "process_name":"Blast Furnace Centrifugal collector"
+          },
+          {
+            "process_id":232,
+            "process_name":"Blast Furnaceor"
+          },
+          {
+            "process_id":233,
+            "process_name":"Blast Furnaceor  Fabric filter"
+          },
+          {
+            "process_id":231,
+            "process_name":"Blast Furnace Uncontrolled"
+          },
+          {
+            "process_id":234,
+            "process_name":"Dross Reverbatory Furnace Centrifugal Collector"
+          },
+          {
+            "process_id":235,
+            "process_name":"Dross Reverbatory Furnace Fabric filter"
+          },
+          {
+            "process_id":236,
+            "process_name":"Dross Reverbatory Furnace Uncontrolled"
+          },
+          {
+            "process_id":237,
+            "process_name":"Fugitive emissions"
+          },
+          {
+            "process_id":242,
+            "process_name":"Horizontal Soderberg stud cell Dry alumina scrubber"
+          },
+          {
+            "process_id":238,
+            "process_name":"Horizontal Soderberg stud cell - Emissions  to collector"
+          },
+          {
+            "process_id":239,
+            "process_name":"Horizontal Soderberg stud cell - Fugitive"
+          },
+          {
+            "process_id":243,
+            "process_name":"Horizontal Soderberg stud cell Scrubber plus wet ESP"
+          },
+          {
+            "process_id":240,
+            "process_name":"Horizontal Soderberg stud cell - Spray tower"
+          },
+          {
+            "process_id":241,
+            "process_name":"Horizontal Soderberg stud cell - Uncontrolled"
+          },
+          {
+            "process_id":245,
+            "process_name":"Ore crushing Controlled"
+          },
+          {
+            "process_id":244,
+            "process_name":"Ore crushing  Uncontrolled"
+          },
+          {
+            "process_id":246,
+            "process_name":"Ore screening Controlled"
+          },
+          {
+            "process_id":247,
+            "process_name":"Prebake cell - Dry alumina scrubber"
+          },
+          {
+            "process_id":248,
+            "process_name":"Prebake cell - Emissions to collector"
+          },
+          {
+            "process_id":249,
+            "process_name":"Prebake cell - Fugitive"
+          },
+          {
+            "process_id":250,
+            "process_name":"Prebake cell - Spray tower"
+          },
+          {
+            "process_id":251,
+            "process_name":"Prebake cell - Uncontrolled"
+          },
+          {
+            "process_id":252,
+            "process_name":"Reduction cells"
+          },
+          {
+            "process_id":253,
+            "process_name":"Sinter building fugitives"
+          },
+          {
+            "process_id":254,
+            "process_name":"Sintering"
+          },
+          {
+            "process_id":255,
+            "process_name":"Vertical Soderberg stud cell - Dry alumina scrubber"
+          },
+          {
+            "process_id":256,
+            "process_name":"Vertical Soderberg stud cell - Emissions to collector"
+          },
+          {
+            "process_id":257,
+            "process_name":"Vertical Soderberg stud cell - Fugitive"
+          },
+          {
+            "process_id":258,
+            "process_name":"Vertical Soderberg stud cell - Spray tower"
+          },
+          {
+            "process_id":259,
+            "process_name":"Vertical Soderberg stud cell - Uncontrolled"
+          },
+          {
+            "process_id":260,
+            "process_name":"Vertical Soderberg stud cell - Ventouri scrubber"
+          }
+        ]
+      },
+      {
+        "subsector_id":39,
+        "subsector_name":"First-stage copper smelting",
+        "processes" : [
+          {
+            "process_id":261,
+            "process_name":"Converting"
+          },
+          {
+            "process_id":262,
+            "process_name":"Roasting"
+          },
+          {
+            "process_id":263,
+            "process_name":"Smelting"
+          }
+        ]
+      },
+      {
+        "subsector_id":40,
+        "subsector_name":"Manufacture of accumulators",
+        "processes" : [
+          {
+            "process_id":264,
+            "process_name":"Lead oxide mill"
+          },
+          {
+            "process_id":265,
+            "process_name":"Small parts casting"
+          },
+          {
+            "process_id":68,
+            "process_name":"Total production"
+          }
+        ]
+      },
+      {
+        "subsector_id":41,
+        "subsector_name":"Manufacture of basic iron and steel",
+        "processes" : [
+          {
+            "process_id":69,
+            "process_name":"Blast furnace - Scrubber waste (untreated)"
+          },
+          {
+            "process_id":70,
+            "process_name":"Dirty waste (without antipoll. device)"
+          },
+          {
+            "process_id":266,
+            "process_name":"Electric induction"
+          },
+          {
+            "process_id":71,
+            "process_name":"Galvanization (without antipoll. device)"
+          },
+          {
+            "process_id":267,
+            "process_name":"Galvanizing untreated"
+          },
+          {
+            "process_id":72,
+            "process_name":"Hot rolling (untreated)"
+          },
+          {
+            "process_id":73,
+            "process_name":"Iron and steel production"
+          },
+          {
+            "process_id":74,
+            "process_name":"Mecanic traitment of metals (Iron)"
+          },
+          {
+            "process_id":268,
+            "process_name":"Open hearth furnace"
+          },
+          {
+            "process_id":76,
+            "process_name":"Production of steel"
+          },
+          {
+            "process_id":79,
+            "process_name":"Production of steel- Electrical steelwork"
+          },
+          {
+            "process_id":77,
+            "process_name":"Production of steel - Hot roller"
+          },
+          {
+            "process_id":78,
+            "process_name":"Production of steel - Roller with concrete"
+          }
+        ]
+      },
+      {
+        "subsector_id":42,
+        "subsector_name":"Manufacture of lead oxides and lead-based colouring matter",
+        "processes" : [
+          {
+            "process_id":269,
+            "process_name":"Calcining  Baghouse inlet"
+          },
+          {
+            "process_id":270,
+            "process_name":"Calcining  Baghouse outlet"
+          },
+          {
+            "process_id":271,
+            "process_name":"Chrome pigments"
+          },
+          {
+            "process_id":95,
+            "process_name":"Manufacture of lead oxide - Barton crucible"
+          },
+          {
+            "process_id":272,
+            "process_name":"Pigment production Red lead"
+          },
+          {
+            "process_id":273,
+            "process_name":"Pigment production White lead"
+          }
+        ]
+      },
+      {
+        "subsector_id":43,
+        "subsector_name":"Manufacture of other non-ferrous metals",
+        "processes" : [
+          {
+            "process_id":105,
+            "process_name":"Manufacture of metal goods"
+          },
+          {
+            "process_id":106,
+            "process_name":"Production of cooper"
+          }
+        ]
+      },
+      {
+        "subsector_id":44,
+        "subsector_name":"Manufacture of zinc or tin",
+        "processes" : [
+          {
+            "process_id":141,
+            "process_name":"manufacture of tin"
+          }
+        ]
+      },
+      {
+        "subsector_id":45,
+        "subsector_name":"Second-stage aluminium smelting",
+        "processes" : [
+          {
+            "process_id":168,
+            "process_name":"If process used to the maximum"
+          },
+          {
+            "process_id":169,
+            "process_name":"If properly adjusted"
+          },
+          {
+            "process_id":274,
+            "process_name":"Optimized process"
+          },
+          {
+            "process_id":170,
+            "process_name":"Total factory - Al atm"
+          },
+          {
+            "process_id":275,
+            "process_name":"Total plant"
+          },
+          {
+            "process_id":276,
+            "process_name":"Total plant dust removal"
+          },
+          {
+            "process_id":277,
+            "process_name":"Well controlled"
+          }
+        ]
+      },
+      {
+        "subsector_id":46,
+        "subsector_name":"Second-stage copper smelting",
+        "processes" : [
+          {
+            "process_id":280,
+            "process_name":"Reverbatory furnace high lead alloy 58%"
+          },
+          {
+            "process_id":278,
+            "process_name":"Reverbatory furnace Other alloy 7%"
+          },
+          {
+            "process_id":279,
+            "process_name":"Reverbatory furnace Red/yellow brass"
+          },
+          {
+            "process_id":171,
+            "process_name":"Total factory - Cu"
+          },
+          {
+            "process_id":282,
+            "process_name":"Total plant basic technology"
+          },
+          {
+            "process_id":281,
+            "process_name":"Total plant PCDD/F control"
+          },
+          {
+            "process_id":283,
+            "process_name":"Total plant well controlled"
+          }
+        ]
+      },
+      {
+        "subsector_id":47,
+        "subsector_name":"Second-stage lead smelting",
+        "processes" : [
+          {
+            "process_id":284,
+            "process_name":"Blast smelting cupola Controlled"
+          },
+          {
+            "process_id":285,
+            "process_name":"Blast smelting cupola Uncontrolled"
+          },
+          {
+            "process_id":286,
+            "process_name":"Casting Uncontrolled"
+          },
+          {
+            "process_id":287,
+            "process_name":"From PVC battery separators"
+          },
+          {
+            "process_id":288,
+            "process_name":"From PVC/Cl2 free scrap blast furnaces"
+          },
+          {
+            "process_id":289,
+            "process_name":"Kettle refining Uncontrolled"
+          },
+          {
+            "process_id":290,
+            "process_name":"Reverbatory smelting Uncontrolled"
+          },
+          {
+            "process_id":291,
+            "process_name":"Total plant"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sector_id":18,
+    "sector_name":"Manufacture of other inorganic chemicals",
+    "subsectors" : [
+      {
+        "subsector_id":48,
+        "subsector_name":"Industrial gases",
+        "processes" : []
+      },
+      {
+        "subsector_id":49,
+        "subsector_name":"Manufacture of ceramic products",
+        "processes" : [
+          {
+            "process_id":84,
+            "process_name":"ceramic product"
+          }
+        ]
+      },
+      {
+        "subsector_id":50,
+        "subsector_name":"Manufacture of glass and glass products",
+        "processes" : [
+          {
+            "process_id":292,
+            "process_name":"Forming and finishing- Container"
+          },
+          {
+            "process_id":293,
+            "process_name":"Forming and finishing- Pressed and Blown"
+          },
+          {
+            "process_id":294,
+            "process_name":"Lead glass manufacturing All processes"
+          },
+          {
+            "process_id":91,
+            "process_name":"Liquid emissions / All processes"
+          },
+          {
+            "process_id":295,
+            "process_name":"Melting furnace Container- Scrubber"
+          },
+          {
+            "process_id":296,
+            "process_name":"Melting furnace Container- Uncontrolled"
+          },
+          {
+            "process_id":297,
+            "process_name":"Pressed and blown - Baghouse"
+          },
+          {
+            "process_id":299,
+            "process_name":"Pressed and blown - ESP"
+          },
+          {
+            "process_id":298,
+            "process_name":"Pressed and blown - Scrubber"
+          },
+          {
+            "process_id":300,
+            "process_name":"Pressed and blown - Uncontrolled"
+          },
+          {
+            "process_id":92,
+            "process_name":"Synthesized ammonia - Regeneration of carbon dioxide (without antipoll. device)"
+          },
+          {
+            "process_id":93,
+            "process_name":"Total PCDD/F factory - Glassware"
+          }
+        ]
+      },
+      {
+        "subsector_id":51,
+        "subsector_name":"Other (activated carbon, composed of Al, Ba, Ca, Ni, ...)",
+        "processes" : []
+      },
+      {
+        "subsector_id":52,
+        "subsector_name":"Synthesis of pigments",
+        "processes" : []
+      }
+    ]
+  },
+  {
+    "sector_id":7,
+    "sector_name":"Manufacture of other organic chemicals",
+    "subsectors" : [
+      {
+        "subsector_id":99,
+        "subsector_name":"Lead Alkyl",
+        "processes" : [
+          {
+            "process_id":356,
+            "process_name":"Electrolytic"
+          },
+          {
+            "process_id":351,
+            "process_name":"Sodium lead alloy Process vessels,TEL"
+          },
+          {
+            "process_id":352,
+            "process_name":"Sodium lead alloy Process vessels,TML"
+          },
+          {
+            "process_id":353,
+            "process_name":"Sodium lead alloy Recovery furnace"
+          },
+          {
+            "process_id":354,
+            "process_name":"Sodium lead alloy Sludge pits"
+          }
+        ]
+      },
+      {
+        "subsector_id":53,
+        "subsector_name":"Manufacture of explosives, glues, gelatine, essential oils",
+        "processes" : [
+          {
+            "process_id":90,
+            "process_name":"Glue production"
+          }
+        ]
+      },
+      {
+        "subsector_id":54,
+        "subsector_name":"Other chemicals",
+        "processes" : [
+          {
+            "process_id":150,
+            "process_name":"Production of tire"
+          },
+          {
+            "process_id":151,
+            "process_name":"Valex Production"
+          }
+        ]
+      },
+      {
+        "subsector_id":55,
+        "subsector_name":"Paints and varnishes",
+        "processes" : [
+          {
+            "process_id":156,
+            "process_name":"manufacture of paint without ww treatment"
+          },
+          {
+            "process_id":155,
+            "process_name":"manufacture of paint with secondary ww treatment"
+          },
+          {
+            "process_id":153,
+            "process_name":"Paints"
+          },
+          {
+            "process_id":301,
+            "process_name":"Varnish Acrylic"
+          },
+          {
+            "process_id":302,
+            "process_name":"Varnish Alkyd"
+          },
+          {
+            "process_id":303,
+            "process_name":"Varnish Bodying oil"
+          },
+          {
+            "process_id":304,
+            "process_name":"Varnish Oleoresinous"
+          }
+        ]
+      },
+      {
+        "subsector_id":56,
+        "subsector_name":"Plastics, rubber, synthetic resins",
+        "processes" : [
+          {
+            "process_id":160,
+            "process_name":"Manufacture of plastics without ww tretament"
+          },
+          {
+            "process_id":161,
+            "process_name":"manufacture of plastics with physical ww treatment"
+          }
+        ]
+      },
+      {
+        "subsector_id":57,
+        "subsector_name":"Polyethylene tetraphtalate",
+        "processes" : [
+          {
+            "process_id":162,
+            "process_name":"Pand : Total factory (with atomizer-condenser)"
+          },
+          {
+            "process_id":305,
+            "process_name":"Total plant (no spray condensers)"
+          }
+        ]
+      },
+      {
+        "subsector_id":58,
+        "subsector_name":"Polyvinyl chloride",
+        "processes" : [
+          {
+            "process_id":163,
+            "process_name":"Polyvinyl chloride : Total production (atm)"
+          },
+          {
+            "process_id":164,
+            "process_name":"Polyvinyl chloride : Total production (liq)"
+          }
+        ]
+      },
+      {
+        "subsector_id":59,
+        "subsector_name":"Synthesis of pigments",
+        "processes" : []
+      }
+    ]
+  },
+  {
+    "sector_id":16,
+    "sector_name":"Manufacture of paper",
+    "subsectors" : [
+      {
+        "subsector_id":60,
+        "subsector_name":"Manufacture of articles of paper or paperboard",
+        "processes" : [
+          {
+            "process_id":306,
+            "process_name":"Brown stock washer"
+          },
+          {
+            "process_id":307,
+            "process_name":"Lime klin"
+          },
+          {
+            "process_id":308,
+            "process_name":"Miscellaneous"
+          },
+          {
+            "process_id":309,
+            "process_name":"Multiple effect evaporator"
+          },
+          {
+            "process_id":310,
+            "process_name":"Noncontact recovery boiler without direct contact evaporator"
+          },
+          {
+            "process_id":311,
+            "process_name":"Recovery boiler & direct evaporator"
+          },
+          {
+            "process_id":312,
+            "process_name":"Smelt dissolving tank"
+          },
+          {
+            "process_id":313,
+            "process_name":"Turpentine condenser"
+          }
+        ]
+      },
+      {
+        "subsector_id":61,
+        "subsector_name":"Manufacture of paper and pulp",
+        "processes" : [
+          {
+            "process_id":111,
+            "process_name":"Boilers"
+          },
+          {
+            "process_id":314,
+            "process_name":"Digester relief and blow tank"
+          },
+          {
+            "process_id":112,
+            "process_name":"Manufacture of paper - Toilet paper"
+          },
+          {
+            "process_id":113,
+            "process_name":"Manufacture of paper - Total mill"
+          },
+          {
+            "process_id":114,
+            "process_name":"Manufacture of paper - Wrapping paper"
+          },
+          {
+            "process_id":115,
+            "process_name":"Manufacture of paper - Writing and printing paper (with cleaning)"
+          },
+          {
+            "process_id":116,
+            "process_name":"Manufacture of pulp - Semi-chemical process"
+          },
+          {
+            "process_id":315,
+            "process_name":"Sulfate pulp (kraft method)"
+          },
+          {
+            "process_id":316,
+            "process_name":"Sulfite method"
+          },
+          {
+            "process_id":117,
+            "process_name":"Total PCDD/F paper mill"
+          },
+          {
+            "process_id":317,
+            "process_name":"Total plant"
+          },
+          {
+            "process_id":318,
+            "process_name":"Writing & printing paper with inc. removal"
+          },
+          {
+            "process_id":319,
+            "process_name":"Writing & printing paper without inc. removal"
+          }
+        ]
+      },
+      {
+        "subsector_id":62,
+        "subsector_name":"Printing activities",
+        "processes" : [
+          {
+            "process_id":166,
+            "process_name":"printing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sector_id":15,
+    "sector_name":"Manufacture of pharmaceuticals",
+    "subsectors" : [
+      {
+        "subsector_id":63,
+        "subsector_name":"Cosmetics and perfumes",
+        "processes" : []
+      },
+      {
+        "subsector_id":64,
+        "subsector_name":"Pharmaceuticals",
+        "processes" : []
+      },
+      {
+        "subsector_id":65,
+        "subsector_name":"Soaps, detergents and sanitary preparations",
+        "processes" : [
+          {
+            "process_id":174,
+            "process_name":"Soap process with secondary ww treatment"
+          },
+          {
+            "process_id":173,
+            "process_name":"Soap Production"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sector_id":10,
+    "sector_name":"Manufacture of refined petroleum products",
+    "subsectors" : [
+      {
+        "subsector_id":66,
+        "subsector_name":"Manufacture of petrochemicals",
+        "processes" : [
+          {
+            "process_id":122,
+            "process_name":"petrochemical products"
+          },
+          {
+            "process_id":118,
+            "process_name":"Petrochemical products"
+          },
+          {
+            "process_id":120,
+            "process_name":"Production of LPG (Liquid Butane)"
+          },
+          {
+            "process_id":119,
+            "process_name":"Production of LPG ( Liquid propane)"
+          },
+          {
+            "process_id":121,
+            "process_name":"Production of LPG (Liquid Propane)"
+          }
+        ]
+      },
+      {
+        "subsector_id":67,
+        "subsector_name":"Manufacture of refined petroleum products",
+        "processes" : [
+          {
+            "process_id":123,
+            "process_name":"Atmospheric distillation refineries"
+          },
+          {
+            "process_id":320,
+            "process_name":"Blowdown systems (Uncontrolled)"
+          },
+          {
+            "process_id":321,
+            "process_name":"Blowdown systems (vapor recovery system and flaring)"
+          },
+          {
+            "process_id":124,
+            "process_name":"Combustion of hydrocarbons"
+          },
+          {
+            "process_id":322,
+            "process_name":"Compressor engines Reciprocating engines"
+          },
+          {
+            "process_id":125,
+            "process_name":"Compressor motor (gas turbine)"
+          },
+          {
+            "process_id":126,
+            "process_name":"Compressorng motor (alternating)"
+          },
+          {
+            "process_id":323,
+            "process_name":"Cracking refineries"
+          },
+          {
+            "process_id":127,
+            "process_name":"Fluid catalytic cracking unit"
+          },
+          {
+            "process_id":128,
+            "process_name":"Fugitive emissions"
+          },
+          {
+            "process_id":324,
+            "process_name":"Integrated Refinery (cracking, Lub Oil, Petrochemicals)"
+          },
+          {
+            "process_id":129,
+            "process_name":"Jigged bed catalytic cracking unit"
+          },
+          {
+            "process_id":130,
+            "process_name":"Lubrifying oil refineries"
+          },
+          {
+            "process_id":131,
+            "process_name":"Petrochemical refineries"
+          },
+          {
+            "process_id":132,
+            "process_name":"Petrochemicals refineries"
+          },
+          {
+            "process_id":133,
+            "process_name":"Rapid purging system (recovery of gaseous phase, flare burning)"
+          },
+          {
+            "process_id":134,
+            "process_name":"Rapid purging system (without antipoll. device)"
+          },
+          {
+            "process_id":325,
+            "process_name":"Vacuum distillation column condensers (Uncontrolled)"
+          },
+          {
+            "process_id":135,
+            "process_name":"Vacuum distillation column condenser (without purification)"
+          }
+        ]
+      },
+      {
+        "subsector_id":68,
+        "subsector_name":"Transport and marketing of petroleum products",
+        "processes" : [
+          {
+            "process_id":326,
+            "process_name":"Gasoline loading operation at marine terminals -Vessel tank condition: Any condition- previous cargo: volatile"
+          },
+          {
+            "process_id":327,
+            "process_name":"Gasoline loading operation at marine terminals -Vessel tank condition: Ballasted- previous cargo: volatile"
+          },
+          {
+            "process_id":328,
+            "process_name":"Gasoline loading operation at marine terminals -Vessel tank condition: Clean- previous cargo: volatile"
+          },
+          {
+            "process_id":329,
+            "process_name":"Gasoline loading operation at marine terminals -Vessel tank condition: Gas-free- previous cargo: volatile"
+          },
+          {
+            "process_id":330,
+            "process_name":"Gasoline loading operation at marine terminals -Vessel tank condition: Unclean - previous cargo: volatile"
+          },
+          {
+            "process_id":181,
+            "process_name":"Marketing of petroleum products"
+          },
+          {
+            "process_id":182,
+            "process_name":"Transport and storage of hydrocarbons"
+          },
+          {
+            "process_id":331,
+            "process_name":"Typical overall situation - Any cargo"
+          },
+          {
+            "process_id":183,
+            "process_name":"Washing&oiling primary treated ww"
+          },
+          {
+            "process_id":184,
+            "process_name":"washing&oiling secondary treated ww"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sector_id":19,
+    "sector_name":"Manufacture of textiles",
+    "subsectors" : [
+      {
+        "subsector_id":69,
+        "subsector_name":"Manufacture and dyeing of textiles",
+        "processes" : [
+          {
+            "process_id":44,
+            "process_name":"Bleaching - Acetate"
+          },
+          {
+            "process_id":45,
+            "process_name":"Bleaching - Cotton"
+          },
+          {
+            "process_id":46,
+            "process_name":"Bleaching - Wool"
+          },
+          {
+            "process_id":67,
+            "process_name":"carpet finishing"
+          },
+          {
+            "process_id":47,
+            "process_name":"Carpet Washing"
+          },
+          {
+            "process_id":48,
+            "process_name":"Dyeing - Acetate"
+          },
+          {
+            "process_id":49,
+            "process_name":"Dyeing - Acrylic"
+          },
+          {
+            "process_id":50,
+            "process_name":"Dyeing - Cotton"
+          },
+          {
+            "process_id":54,
+            "process_name":"Dyeing-Cotton with secondary ww treatment"
+          },
+          {
+            "process_id":51,
+            "process_name":"Dyeing - Polyester"
+          },
+          {
+            "process_id":52,
+            "process_name":"Dyeing - Rayon"
+          },
+          {
+            "process_id":53,
+            "process_name":"Dyeing - Wool"
+          },
+          {
+            "process_id":55,
+            "process_name":"Finishing - Acetate"
+          },
+          {
+            "process_id":56,
+            "process_name":"Finishing - Acrylic"
+          },
+          {
+            "process_id":57,
+            "process_name":"Finishing - Nylon"
+          },
+          {
+            "process_id":58,
+            "process_name":"Finishing - Polyester"
+          },
+          {
+            "process_id":59,
+            "process_name":"Finishing - Rayon"
+          },
+          {
+            "process_id":60,
+            "process_name":"Manufacture of textiles"
+          },
+          {
+            "process_id":332,
+            "process_name":"Roller"
+          },
+          {
+            "process_id":61,
+            "process_name":"Rotary screening"
+          },
+          {
+            "process_id":62,
+            "process_name":"Washing and damping - Acrylic"
+          },
+          {
+            "process_id":63,
+            "process_name":"Washing and damping - Cotton"
+          },
+          {
+            "process_id":64,
+            "process_name":"Washing and damping - Polyester"
+          },
+          {
+            "process_id":65,
+            "process_name":"Washing and damping - Rayon"
+          },
+          {
+            "process_id":66,
+            "process_name":"Washing and damping - Wool"
+          }
+        ]
+      },
+      {
+        "subsector_id":70,
+        "subsector_name":"Manufacture of clothing and other finished products made of fabric",
+        "processes" : [
+          {
+            "process_id":333,
+            "process_name":"Bleaching - Acetate"
+          },
+          {
+            "process_id":334,
+            "process_name":"Bleaching - Wool"
+          },
+          {
+            "process_id":86,
+            "process_name":"confection"
+          },
+          {
+            "process_id":335,
+            "process_name":"Finishing - Acetate"
+          },
+          {
+            "process_id":336,
+            "process_name":"Finishing - Acrylic"
+          },
+          {
+            "process_id":337,
+            "process_name":"Flat screen"
+          },
+          {
+            "process_id":87,
+            "process_name":"knitted fabric and finishing"
+          },
+          {
+            "process_id":338,
+            "process_name":"Rotary screening"
+          },
+          {
+            "process_id":339,
+            "process_name":"Washing and damping - Acrylic"
+          },
+          {
+            "process_id":340,
+            "process_name":"Washing and damping - Cotton"
+          },
+          {
+            "process_id":341,
+            "process_name":"Washing and damping - Polyester"
+          },
+          {
+            "process_id":342,
+            "process_name":"Washing and damping - Rayon"
+          },
+          {
+            "process_id":343,
+            "process_name":"Washing and damping - Wool"
+          },
+          {
+            "process_id":85,
+            "process_name":"Yarn & fiber production and finishing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sector_id":28,
+    "sector_name":"Mining and quarrying",
+    "subsectors" : [
+      {
+        "subsector_id":71,
+        "subsector_name":"Extraction of petroleum and gas",
+        "processes" : []
+      },
+      {
+        "subsector_id":72,
+        "subsector_name":"Metal mining",
+        "processes" : [
+          {
+            "process_id":142,
+            "process_name":"Lignite coal mining"
+          },
+          {
+            "process_id":143,
+            "process_name":"Manufacture of brick"
+          },
+          {
+            "process_id":145,
+            "process_name":"marble processing"
+          },
+          {
+            "process_id":144,
+            "process_name":"Metal Mining"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sector_id":23,
+    "sector_name":"Other",
+    "subsectors" : [
+      {
+        "subsector_id":73,
+        "subsector_name":"Installations for melting mineral substances",
+        "processes" : []
+      },
+      {
+        "subsector_id":74,
+        "subsector_name":"Manufacture of Wood",
+        "processes" : []
+      },
+      {
+        "subsector_id":75,
+        "subsector_name":"Other",
+        "processes" : []
+      }
+    ]
+  },
+  {
+    "sector_id":6,
+    "sector_name":"Port services",
+    "subsectors" : [
+      {
+        "subsector_id":76,
+        "subsector_name":"Gasoline Loading",
+        "processes" : []
+      },
+      {
+        "subsector_id":77,
+        "subsector_name":"Port handling (cargo)",
+        "processes" : []
+      }
+    ]
+  },
+  {
+    "sector_id":11,
+    "sector_name":"Production of energy",
+    "subsectors" : [
+      {
+        "subsector_id":78,
+        "subsector_name":"Combustion of heating oil",
+        "processes" : [
+          {
+            "process_id":10,
+            "process_name":"Combustion of heating oil"
+          }
+        ]
+      },
+      {
+        "subsector_id":79,
+        "subsector_name":"Combustion of lignite",
+        "processes" : [
+          {
+            "process_id":12,
+            "process_name":"domestic wastewater"
+          },
+          {
+            "process_id":11,
+            "process_name":"Lignite if antipollution device"
+          }
+        ]
+      },
+      {
+        "subsector_id":80,
+        "subsector_name":"Gaz production",
+        "processes" : [
+          {
+            "process_id":28,
+            "process_name":"Liquid nitrogen"
+          },
+          {
+            "process_id":30,
+            "process_name":"Production of butane"
+          },
+          {
+            "process_id":31,
+            "process_name":"Production of gazoline"
+          },
+          {
+            "process_id":32,
+            "process_name":"Production of liquid Butane"
+          },
+          {
+            "process_id":33,
+            "process_name":"Production of liquid propane"
+          },
+          {
+            "process_id":34,
+            "process_name":"Production of natural gaz"
+          },
+          {
+            "process_id":29,
+            "process_name":"Production of Propane"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sector_id":29,
+    "sector_name":"Recycling activities",
+    "subsectors" : [
+      {
+        "subsector_id":81,
+        "subsector_name":"Recycling of lubrifying oils",
+        "processes" : []
+      },
+      {
+        "subsector_id":82,
+        "subsector_name":"Recycling of metal waste and scrap",
+        "processes" : []
+      },
+      {
+        "subsector_id":83,
+        "subsector_name":"Recycling of non-metal waste and scrap (paper, glass)",
+        "processes" : []
+      }
+    ]
+  },
+  {
+    "sector_id":12,
+    "sector_name":"Tanning and dressing of leather",
+    "subsectors" : [
+      {
+        "subsector_id":84,
+        "subsector_name":"Tanning and dressing of leather",
+        "processes" : [
+          {
+            "process_id":175,
+            "process_name":"Butt leather for soles 2"
+          },
+          {
+            "process_id":176,
+            "process_name":"Chrome tanning"
+          },
+          {
+            "process_id":344,
+            "process_name":"Croupon (cow skins) for shoe soles"
+          },
+          {
+            "process_id":345,
+            "process_name":"Goat skins for shoemaking"
+          },
+          {
+            "process_id":347,
+            "process_name":"Hair pulp, chrome tan, retan wet finish"
+          },
+          {
+            "process_id":346,
+            "process_name":"Hair pulp or shave, chrome tan, no finish"
+          },
+          {
+            "process_id":348,
+            "process_name":"Hair save, vegetable tan, retan, wet finish"
+          },
+          {
+            "process_id":349,
+            "process_name":"No beamhouse tanneries (tan, retan, wet finish)"
+          },
+          {
+            "process_id":177,
+            "process_name":"Only finishing"
+          },
+          {
+            "process_id":350,
+            "process_name":"Pig skins for clothes"
+          },
+          {
+            "process_id":178,
+            "process_name":"Sheep skins for clothing and leather goods"
+          },
+          {
+            "process_id":179,
+            "process_name":"Sheep skins for clothing and leather goods 2"
+          },
+          {
+            "process_id":180,
+            "process_name":"Trimming, chrome tanning, retainning, damp finishing 2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sector_id":20,
+    "sector_name":"Tourism",
+    "subsectors" : [
+      {
+        "subsector_id":85,
+        "subsector_name":"Hotel, food and beverage services",
+        "processes" : []
+      },
+      {
+        "subsector_id":86,
+        "subsector_name":"Recreational activities",
+        "processes" : []
+      }
+    ]
+  },
+  {
+    "sector_id":3,
+    "sector_name":"Transport",
+    "subsectors" : [
+      {
+        "subsector_id":87,
+        "subsector_name":"Manufacture of aircraft and spacecraft",
+        "processes" : []
+      },
+      {
+        "subsector_id":88,
+        "subsector_name":"Manufacture of motor vehicles",
+        "processes" : [
+          {
+            "process_id":99,
+            "process_name":"Manufacture Of Motor Vehicles"
+          }
+        ]
+      },
+      {
+        "subsector_id":89,
+        "subsector_name":"Manufacture of other transport equipment",
+        "processes" : [
+          {
+            "process_id":107,
+            "process_name":"Manufacture of agricultural equipment"
+          },
+          {
+            "process_id":108,
+            "process_name":"Manufacture of motorcysles and bicycles"
+          }
+        ]
+      },
+      {
+        "subsector_id":90,
+        "subsector_name":"Rail transport",
+        "processes" : []
+      },
+      {
+        "subsector_id":91,
+        "subsector_name":"Urban road transport (automobiles and buses)",
+        "processes" : [
+          {
+            "process_id":185,
+            "process_name":"Manufacture of automobiles and buses"
+          }
+        ]
+      },
+      {
+        "subsector_id":92,
+        "subsector_name":"Water transport (freight, passengers)",
+        "processes" : []
+      }
+    ]
+  },
+  {
+    "sector_id":24,
+    "sector_name":"Treatment and storage of hazardous wastes",
+    "subsectors" : [
+      {
+        "subsector_id":93,
+        "subsector_name":"Technical centres for landfill and storage",
+        "processes" : []
+      }
+    ]
+  },
+  {
+    "sector_id":31,
+    "sector_name":"Treatment of sewage sludge",
+    "subsectors" : [
+      {
+        "subsector_id":94,
+        "subsector_name":"Compost production",
+        "processes" : []
+      }
+    ]
+  },
+  {
+    "sector_id":2,
+    "sector_name":"Treatment of urban wastewater",
+    "subsectors" : [
+      {
+        "subsector_id":95,
+        "subsector_name":"Industrial wastewater treatment plant",
+        "processes" : [
+          {
+            "process_id":43,
+            "process_name":"Mixed Industrial Activity Zone"
+          }
+        ]
+      },
+      {
+        "subsector_id":96,
+        "subsector_name":"Treatment plants",
+        "processes" : []
+      }
+    ]
+  },
+  {
+    "sector_id":25,
+    "sector_name":"Waste incineration and management of its residues",
+    "subsectors" : [
+      {
+        "subsector_id":97,
+        "subsector_name":"Urban waste incineration plants",
+        "processes" : []
+      }
+    ]
+  },
+  {
+    "sector_id":26,
+    "sector_name":"Waste management activities",
+    "subsectors" : [
+      {
+        "subsector_id":98,
+        "subsector_name":"Refuse collection, depollution and similar activities",
+        "processes" : []
+      }
+    ]
+  }
+]
