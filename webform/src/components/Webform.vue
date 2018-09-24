@@ -10,13 +10,13 @@
               <countrytab tabId="0" :info.sync="form.country"></countrytab>
             </b-tab>
             <b-tab :title="doTitle(form.tab_1.label)">
-     			    <lrmeasures tabId="1" :info.sync="form.tab_1"></lrmeasures>
+     			    <sectiona tabId="1" :info.sync="form.tab_1"></sectiona>
             </b-tab>
             <b-tab :title="doTitle(form.tab_2.label)" >
-              <opmeasures tabId="2" :info.sync="form.tab_2"></opmeasures>
+              <sectionb tabId="2" :info.sync="form.tab_2"></sectionb>
             </b-tab>
             <b-tab :title="doTitle(form.tab_3.label)" >
-              <polincidents tabId="3" :info.sync="form.tab_3"></polincidents>
+              <sectionc tabId="3" :info.sync="form.tab_3"></sectionc>
             </b-tab>
           </b-tabs>
         </b-form>
@@ -34,9 +34,9 @@
 
 import {getInstance, getCountry} from '../api.js';
 
-import LRMeasures from './LRMeasures.vue'
-import OpMeasures from './OpMeasures.vue'
-import PolIncidents from './PolIncidents.vue'
+import SectionA from './SectionA.vue'
+import SectionB from './SectionB.vue'
+import SectionC from './SectionC.vue'
 import Countrytab from './Country.vue'
 // import incidentJson from '../assets/incident.js';
 
@@ -49,9 +49,9 @@ export default {
 
   name: 'Webform',
   components: {
-    lrmeasures: LRMeasures,
-    opmeasures: OpMeasures,
-    polincidents: PolIncidents,
+    sectiona: SectionA,
+    sectionb: SectionB,
+    sectionc: SectionC,
   	formsubmit: FormSubmit,
     countrytab: Countrytab
   },

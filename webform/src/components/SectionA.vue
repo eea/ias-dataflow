@@ -95,28 +95,37 @@
               <table  v-for="sub_section in table_section.table_fields.fields" class="table">
                 <thead>
                   <tr>
-                    <th>{{sub_section.label}}</th>
-                    <th  v-if="sub_section.type != 'add'"></th>
-                    <th v-else>
+                    <th style="max-width: 50px" >{{sub_section.label}}</th>
+                    <!-- <th ></th> -->
+                    <th v-if="sub_section.type === 'add'">
                       <b-btn variant="primary" @click="addSpecies(sub_section)">Add</b-btn>
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                     <tr v-for="row in sub_section.fields">
-                      <td v-if="row.label">{{row.label}}</td>
+                      <td style="width: 120px" v-if="row.label">{{row.label}}</td>
                       <td  v-if="sub_section.type != 'add'">
                         <fieldGenerator :field="row"></fieldGenerator>
                       </td>
-                      <td colspan="5" v-else>
-                          <fieldGenerator :field="row"></fieldGenerator>
-                          <label>{{row.inner_field.label}}</label>
-                          <fieldGenerator :field="row.inner_field"></fieldGenerator>
-                          <b-btn variant="danger" @click="removeSpecies(sub_section, row)" v-if="sub_section.type === 'add'">Remove</b-btn>
+                      <td v-else>
+                        <b-row>
+                          <b-col>
+                            <fieldGenerator :field="row"></fieldGenerator>
+                          </b-col>
+                          <b-col lg="2">
+                            <label>{{row.inner_field.label}}</label>
+                          </b-col>
+                          <b-col>
+                            <fieldGenerator :field="row.inner_field"></fieldGenerator>
+                          </b-col>    
+                          <b-col lg="2">
+                            <b-btn variant="danger" @click="removeSpecies(sub_section, row)" v-if="sub_section.type === 'add'">Remove</b-btn>
+                          </b-col>
+                        </b-row>
                       </td>
                     </tr>
                 </tbody>
-
               </table>
               <div>
                   <div>
