@@ -68,11 +68,17 @@
                   </tr>
                 </tbody>
               </table>
+              <div>
+                  <div>
+                    <label>{{table_section.additional_info.label}}</label>
+                  </div>
+                  <textarea class="form-control" v-model="table_section.additional_info.selected"></textarea>
+              </div>
             </div>
           </div>
         </b-card>
 
-<!-- 
+
         <b-card v-if="section.mandatory_item.selected === true" class="inner-card">
           <div class="card-section">
             <h5>{{section.tables.table_2.label}}</h5>
@@ -86,32 +92,41 @@
             </b-row>
             <div class="table-section" v-for="table_section in section.tables.table_2.table_sections" v-if="section.tables.table_2.question.selected === true">
               <h6>{{table_section.label}}</h6>
-              <b-row>
-                <b-col>
-                  <b-input-group :prepend="table_section.field.label">  
-                    <b-form-input v-model="table_section.field.selected" :type="table_section.field.type"></b-form-input>
-                  </b-input-group>
-                </b-col>
-              </b-row>
-              <table class="table">
+              <table  v-for="sub_section in table_section.table_fields.fields" class="table">
                 <thead>
                   <tr>
-                    <th>{{table_section.table_fields.header}}</th>
-                    <th v-for="header in table_section.table_fields.fields[0].fields">{{header.label}}</th>
+                    <th>{{sub_section.label}}</th>
+                    <th  v-if="sub_section.type != 'add'"></th>
+                    <th v-else>
+                      <b-btn variant="primary" @click="addSpecies(sub_section)">Add</b-btn>
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="row in table_section.table_fields.fields">
-                    <td>{{row.label}}</td>
-                    <td v-for="field in row.fields">
-                      <fieldGenerator :field="field"></fieldGenerator>
-                    </td>
-                  </tr>
+                    <tr v-for="row in sub_section.fields">
+                      <td v-if="row.label">{{row.label}}</td>
+                      <td  v-if="sub_section.type != 'add'">
+                        <fieldGenerator :field="row"></fieldGenerator>
+                      </td>
+                      <td colspan="5" v-else>
+                          <fieldGenerator :field="row"></fieldGenerator>
+                          <label>{{row.inner_field.label}}</label>
+                          <fieldGenerator :field="row.inner_field"></fieldGenerator>
+                          <b-btn variant="danger" @click="removeSpecies(sub_section, row)" v-if="sub_section.type === 'add'">Remove</b-btn>
+                      </td>
+                    </tr>
                 </tbody>
+
               </table>
+              <div>
+                  <div>
+                    <label>{{table_section.additional_info.label}}</label>
+                  </div>
+                  <textarea class="form-control" v-model="table_section.additional_info.selected"></textarea>
+              </div>
             </div>
           </div>
-        </b-card> -->
+        </b-card>
 
       </b-card>
 
@@ -144,6 +159,26 @@ export default {
   methods: {
     titleSlugify(text) {
       return slugify(text)
+    },
+    addSpecies(field){
+      console.log(field)
+      let empty_field = {
+                  label: 'Impacted non-targeted species',
+                  type: 'text',
+                  selected: '',
+                  name: 'impacted_nontargeted_species',
+                  inner_field: {
+                    label: 'Impact per species',
+                    type: 'text',
+                    selected: '',
+                    name: 'impact_per_species',
+                  }  
+                }
+      field.fields.push(empty_field)
+    },
+
+    removeSpecies(parent, field){
+      parent.fields.splice(parent.fields.indexOf(field), 1)
     }
   },
 }
