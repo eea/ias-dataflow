@@ -29,7 +29,7 @@ export default {
   props: {
     info: null,
     country: null,
-    region: null,
+
   },
 
   updated() {
@@ -37,6 +37,7 @@ export default {
 
   created() {
     this.dataset = this.info
+    this.validate()
   },
 
   data () {
@@ -44,7 +45,7 @@ export default {
       dataset: null,
       validation: [],
       jsonemptyinstance: {
-          "NBB_Report": {
+          "BC_PEP": {
               "@xmlns": "https://dd.info-rac.org/namespaces/4",
               "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
               "@xsi:schemaLocation": "https://dd.info-rac.org/namespaces/4 https://dd.info-rac.org/v2/dataset/15/schema-dst-15.xsd",
@@ -53,28 +54,31 @@ export default {
                 "partyname":null,
                 "rep_period_from":null,
                 "rep_period_to":null,
+                "institution_name":null,
+                "officer_name":null,
+                "mailing_address":null,
+                "tel":null,
+                "fax":null,
+                "email":null,
+                "contact_point":null,
+                "instituion_full_name":null,
+                "national_mailing_address":null,
+                "national_tel":null,
+                "national_fax":null,
+                "national_email":null,
+                "national_signature":null,
+                "national_date":null,
+                "org_name":null,
+                "org_contact_point":null,
+                "org_tel":null,
+                "org_fax":null,
+                "org_email":null,
+
               },
-              "region": [
-                {
-                  "region_id": null,
-                  "record": {
-                    "pollutant_id": null,
-                    "budget_year": null,
-                    "sector_id": null,
-                    "subsector_id": null,
-                    "process_id": null,
-                    "facility": null,
-                    "from_prtr": null,
-                    "estimated_on_id": null,
-                    "emission_factor_value": null,
-                    "emission_factor_unit_id": null,
-                    "production_value": null,
-                    "production_unit_id": null,
-                    "total_release_value": null,
-                    "total_release_unit_id": null,
-                  }                  
-                }
-              ]
+              "measuresdata": {Row:[]},
+              "measuredata_difficulty": {Row:[]},
+              "pollincidents": {Row:[]},
+              "pollincidentsInfo": null,
           }
       },
       dismissSecs: 2,
@@ -88,19 +92,19 @@ export default {
       window.location.replace(envelope)
     },
 
-      showAlert () {
+       showAlert () {
       console.log('showingalert')
       this.dismissCountDown = this.dismissSecs
-      },
+    },
 
        countDownChanged (dismissCountDown) {
       this.dismissCountDown = dismissCountDown
-      },
+    },
 
-      doStuff(){
+    doStuff(){
 
       this.jsonemptyinstance = {
-          "NBB_Report": {
+          "BC_PEP": {
               "@xmlns": "https://dd.info-rac.org/namespaces/4",
               "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
               "@xsi:schemaLocation": "https://dd.info-rac.org/namespaces/4 https://dd.info-rac.org/v2/dataset/15/schema-dst-15.xsd",
@@ -109,108 +113,210 @@ export default {
                 "partyname":null,
                 "rep_period_from":null,
                 "rep_period_to":null,
+                "institution_name":null,
+                "officer_name":null,
+                "mailing_address":null,
+                "tel":null,
+                "fax":null,
+                "email":null,
+                "contact_point":null,
+                "instituion_full_name":null,
+                "national_mailing_address":null,
+                "national_tel":null,
+                "national_fax":null,
+                "national_email":null,
+                "national_signature":null,
+                "national_date":null,
+                "org_name":null,
+                "org_contact_point":null,
+                "org_tel":null,
+                "org_fax":null,
+                "org_email":null,
               },
-              "region": []
+              "measuresdata": {Row:[]},
+              "measuredata_difficulty": {Row:[]},
+              "pollincidents": {Row:[]},
+              "pollincidentsInfo": null,
           }
       }
-          
-      let country_tab = this.dataset.country.tables
 
-        for(let value of country_tab) {
-              this.jsonemptyinstance.NBB_Report.contacting_party[value.name] = value.selected
-        }
+    let country_tab = this.dataset.country.tables
+
+      for(let table in country_tab) {
+          for (let value of country_tab[table]) {
+            this.jsonemptyinstance.BC_PEP.contacting_party[value.name] = value.selected
+          }
+      }
 
 
-        for(let pollutants of this.dataset.content.data.table.pollutants) {
-          console.log(pollutants)
-          let pollutantSubmitItem = {
-                  "region_id": pollutants.region,
-                  "record": {
-                    "pollutant_id": pollutants.pollutant_title.selected,
-                    "budget_year": null,
-                    "sector_id": null,
-                    "subsector_id": null,
-                    "process_id": null,
-                    "facility": null,
-                    "from_prtr": null,
-                    "estimated_on_id": null,
-                    "emission_factor_value": null,
-                    "emission_factor_unit_id": null,
-                    "production_value": null,
-                    "production_unit_id": null,
-                    "total_release_value": null,
-                    "total_release_unit_id": null,
-                  }                  
+      let tab_1 = this.dataset.tab_1.data;
+      for (let article of tab_1.articles) {
+        for (let article_item of article.article_items){
+          let collection_id = article_item.collection_id || null;
+          let parent_collection_id = article_item.parent_collection_id || null
+          let description = article_item.description
+          let row =  {
+                      "description": description,
+                      "parent_collection_id": parent_collection_id,
+                      "collection_id": collection_id,
+                      "changes": null,
+                      "difficulties": null,
+                      "difficulties_comments": null,
+                      "status":null,
+                      "status_comments": null,
+                  }
+            for(let item of article_item.items) {
+              if(item.type ==='changes') {
+                row.changes = item.selected
+              } else if (item.type === 'status') {
+                row.status = item.selected;
+                row.status_comments = item.comments
+              } else {
+                // row.difficulties = item.selected
+                row.difficulties_comments = item.comments
+                if(item.selected.length){
+                  for(let difficulty of item.selected) {
+                      this.jsonemptyinstance.BC_PEP.measuredata_difficulty.Row.push(
+                          {
+                                    "collection_id": collection_id || null,
+                                    "difficulty": difficulty
+                                }
+                        )
+                  }
+                }
+
+              }
             }
-            for(let pollutant of pollutants.pollutant_items) {
-              pollutantSubmitItem.record[pollutant.name] = pollutant.selected
+          this.jsonemptyinstance.BC_PEP.measuresdata.Row.push(row)
+        }
+      }
+
+
+
+      let tab_2 = this.dataset.tab_2.data;
+      for (let article of tab_2.articles) {
+        for (let article_item of article.article_items){
+          let collection_id = article_item.collection_id || null;
+          let parent_collection_id = article_item.parent_collection_id || null
+          let description = article_item.description
+          let row =  {
+                      "description": description,
+                      "parent_collection_id": parent_collection_id,
+                      "collection_id": collection_id,
+                      "changes": null,
+                      "difficulties": null,
+                      "difficulties_comments": null,
+                      "status":null,
+                      "status_comments": null,
+                      "contingency_plan":null,
+                  }
+            for(let item of article_item.items) {
+              if(item.type ==='changes') {
+                row.changes = item.selected
+              } else if (item.type === 'status') {
+                row.status = item.selected;
+                row.status_comments = item.comments
+              } else if (item.type === 'special') {
+                row.contingency_plan = item.selected
+              } else {
+                // row.difficulties = item.selected
+                row.difficulties_comments = item.comments
+                if(item.selected.length){
+                  for(let difficulty of item.selected) {
+                      this.jsonemptyinstance.BC_PEP.measuredata_difficulty.Row.push(
+                          {
+                                    "collection_id": collection_id || null,
+                                    "difficulty": difficulty
+                                }
+                        )
+                  }
+                }
+
+              }
             }
-            this.jsonemptyinstance.NBB_Report.region.push(pollutantSubmitItem)
+          this.jsonemptyinstance.BC_PEP.measuresdata.Row.push(row)
+        }
+      }
+
+      console.log(this.jsonemptyinstance.BC_PEP.measuresdata)
+
+
+      let showtab3 = this.dataset.tab_3.data.question.selected;
+
+      this.jsonemptyinstance.BC_PEP.pollincidentsInfo = showtab3
+
+      let tab_3 = this.dataset.tab_3.data;
+      for (let article of tab_3.articles) {
+        let collection_id = article.collection_id || null;
+        let parent_collection_id = article.parent_collection_id || null
+        let description = article.description || null
+        let ship_name = article.article_title.value || null
+        let row = {
+          collection_id : collection_id,
+          parent_collection_id: parent_collection_id,
+          description: description,
+          ship_name: ship_name,
+          latitude: null,
+          longitude: null,
+          geo_info: null,
+          country: null,
+          accident: null,
+          accident_comments: null,
+          date: null,
+          pollution: null,
+          pollution_type: null,
+          ship_category: null,
+          ship_category_comments: null,
+          ship_flag: null,
+          offshore_name_id: null,
+          installation_type: null,
+          installation_type_comments: null,
+          oil_name_id: null,
+          oil_type: null,
+          actions: null,
+          actions_taken: null
+        }
+        for (let article_item of article.article_items){
+          // let row = {};
+          // console.log(article_item)
+          if(article_item.name === "accident" || article_item.name === "ship_category" || article_item.name === "installation_type") {
+            row[article_item.name + "_comments"] = article_item.comments
+          }
+          row[article_item.name] = article_item.selected
+
         }
 
-        console.log(this.jsonemptyinstance)
-        saveInstance(this.jsonemptyinstance)
-        this.showAlert();
+        this.jsonemptyinstance.BC_PEP.pollincidents.Row.push(row);
+
+      }
+      
+
+      this.jsonemptyinstance.BC_PEP.country = this.country
 
 
-      },
+      console.log(this.jsonemptyinstance)
+
+       saveInstance(this.jsonemptyinstance)
+      this.showAlert();
 
 
-      getBaselineName(name) {
-        switch (name) {
-          case 'pollutant':
-            return 'pollutant_id'
-            break;
-          case 'year':
-            return 'budget_year'
-            break;
-          case 'sector':
-            return 'sector_id'
-            break;
-          case 'subsector':
-            return 'subsector_id'
-            break;
-          case 'process':
-            return 'process_id'
-            break;
-          case 'facility':
-            return 'facility'
-            break;
-          case 'from_prtr':
-            return 'from_prtr'
-            break;
-          case 'estimated':
-            return 'estimated_on_id'
-            break;
-          case 'emission_factor':
-            return 'emission_factor_value'
-            break;
-          case 'emission_factor_unit':
-            return 'emission_factor_unit_id'
-            break;
-          case 'production':
-            return 'production_value'
-            break;
-          case 'production_unit':
-            return 'production_unit_id'
-            break;
-          case 'total_releases':
-            return 'total_release_value'
-            break;
-          case 'total_releases_unit':
-            return 'total_release_unit_id'
-            break;
-          default:
-            return ''
-            break;
-        }
-      },
 
     },
+
+    validate() {
+    }
+  },
     watch: {
+    info: {
+      handler: function(old_val,new_val) {
+        this.validate()
+      },
+      deep: true,
+      immediate: true,
+    },
     country: {
       handler: function(old_val,new_val) {
-        this.jsonemptyinstance.NBB_Report.contacting_party.partyname = new_val
+        this.jsonemptyinstance.BC_PEP.country = new_val
       },
       deep: true,
       immediate: true,

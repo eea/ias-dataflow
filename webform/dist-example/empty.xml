@@ -1,28 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NBB_Report>
-  <country></country>
+<BC_PEP xmlns="https://dd.info-rac.org/namespaces/4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://dd.info-rac.org/namespaces/4 https://dd.info-rac.org/v2/dataset/15/schema-dst-15.xsd">
+  <country/>
   <contacting_party>
-    <partyname></partyname>
-    <rep_period_from></rep_period_from>
-    <rep_period_to></rep_period_to>
+    <partyname/>
+    <rep_period_from/>
+    <rep_period_to/>
+    <institution_name/>
+    <officer_name/>
+    <mailing_address/>
+    <tel/>
+    <fax/>
+    <email/>
+    <contact_point/>
+    <instituion_full_name/>
+    <national_mailing_address/>
+    <national_tel/>
+    <national_fax/>
+    <national_email/>
+    <national_signature/>
+    <national_date/>
+    <org_name/>
+    <org_contact_point/>
+    <org_tel/>
+    <org_fax/>
+    <org_email/>
   </contacting_party>
-  <region>
-    <region_id></region_id>
-    <record>
-      <pollutant_id></pollutant_id>
-      <budget_year></budget_year>
-      <sector_id></sector_id>
-      <subsector_id></subsector_id>
-      <process_id></process_id>
-      <facility></facility>
-      <from_prtr></from_prtr>
-      <estimated_on_id></estimated_on_id>
-      <emission_factor_value></emission_factor_value>
-      <emission_factor_unit_id></emission_factor_unit_id>
-      <production_value></production_value>
-      <production_unit_id></production_unit_id>
-      <total_release_value></total_release_value>
-      <total_release_unit_id></total_release_unit_id>
-    </record>
-  </region>
-</NBB_Report>
+  <measuresdata>
+    <Row>
+      <changes/>
+      <collection_id/>
+      <difficulties_comments/>
+      <description/>
+      <status_comments/>
+      <status/>
+      <parent_collection_id/>
+    </Row>
+  </measuresdata>
+  <measuredata_difficulty>
+    <Row>
+      <collection_id/>
+      <difficulty/>
+    </Row>
+  </measuredata_difficulty>
+  <dumping_at_sea_permits>
+  </dumping_at_sea_permits>
+  <quantities_dry_weight_of_dredged_material>
+  </quantities_dry_weight_of_dredged_material>
+  <biennieal_summary_wastes>
+  </biennieal_summary_wastes>
+  <dump_sites_coordinates>
+  </dump_sites_coordinates>
+  <monitoring>
+  </monitoring>
+  <placement>
+  </placement>
+</BC_PEP>

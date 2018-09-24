@@ -1,33 +1,27 @@
 <template>
 	<b-container style="position: relative">
-    <center><h1 class="mb-3 mt-2">National Baseline Budget Report (NBB)</h1></center>
-    <center><h5><small class="text-muted">NBB/PRTR component allows the Contracting Parties to submit the data related to national loads of pollutants discharged directly or indirectly into the Mediterranean Sea.</small></h5></center>
+    <center><h1 class="mb-3 mt-2">Prevention and Emergency Protocol</h1></center>
+    <center><h5><small class="text-muted">IMPLEMENTATION OF THE PROTOCOL CONCERNING COOPERATION IN PREVENTING POLLUTION FROM SHIPS AND, IN CASES OF EMERGENCY,
+      COMBATING POLLUTION OF THE MEDITERRANEAN SEA (PREVENTION AND EMERGENCY PROTOCOL)</small></h5></center>
       <b-card v-if="prefilled" no-body>
         <b-form validated novalidate @submit="onSubmit">
-          <b-card header="Report details">
-            <b-col v-for="table in form.country.tables" lg="6">
-                <label>{{table.label}}</label>
-              <div v-if="table.name ==='partyname'">
-                <b-input required :id="table.name" :type="table.type" disabled v-model="table.selected"></b-input>
-              </div>
-              <div v-else-if="table.name === 'region'">
-                <b-form-select v-model="selectedRegion" @change="getSelectedRegionName($event)" :options="regionOptions">
-                  <template slot="first">
-                    <option :value="null" disabled>-- Please select a region --</option>
-                  </template>
-                </b-form-select>
-              </div>
-              <div v-else>
-                <b-input required :id="table.name" :type="table.type" v-model="table.selected"></b-input>
-              </div>
-            </b-col>
-            <b-col>
-              <baselines v-if="selectedRegion" :regionName="selectedRegionName" :region="selectedRegion" :country="country" :info.sync="form.content"></baselines>
-            </b-col>
-          </b-card>
+          <b-tabs card>
+            <b-tab title="Reporting party" active>
+              <countrytab tabId="0" :info.sync="form.country"></countrytab>
+            </b-tab>
+            <b-tab :title="doTitle(form.tab_1.label)">
+     			    <lrmeasures tabId="1" :info.sync="form.tab_1"></lrmeasures>
+            </b-tab>
+            <b-tab :title="doTitle(form.tab_2.label)" >
+              <opmeasures tabId="2" :info.sync="form.tab_2"></opmeasures>
+            </b-tab>
+            <b-tab :title="doTitle(form.tab_3.label)" >
+              <polincidents tabId="3" :info.sync="form.tab_3"></polincidents>
+            </b-tab>
+          </b-tabs>
         </b-form>
-   			<formsubmit :region="selectedRegion" :country.sync="country" :info.sync="form"></formsubmit>
-
+   			<formsubmit :country.sync="country" :info.sync="form"></formsubmit>
+        
       </b-card>
       <div v-if="!prefilled" class="spinner">
         <div class="loader"></div>
@@ -40,8 +34,12 @@
 
 import {getInstance, getCountry} from '../api.js';
 
-import Baselines from './Baselines.vue'
-import countries from '../assets/countries.js'
+import LRMeasures from './LRMeasures.vue'
+import OpMeasures from './OpMeasures.vue'
+import PolIncidents from './PolIncidents.vue'
+import Countrytab from './Country.vue'
+// import incidentJson from '../assets/incident.js';
+
 
 import FormSubmit from './FormSubmit.vue'
 import form from '../assets/form.js'
@@ -51,8 +49,11 @@ export default {
 
   name: 'Webform',
   components: {
-    baselines: Baselines,
-    formsubmit: FormSubmit
+    lrmeasures: LRMeasures,
+    opmeasures: OpMeasures,
+    polincidents: PolIncidents,
+  	formsubmit: FormSubmit,
+    countrytab: Countrytab
   },
 
   data () {
@@ -61,10 +62,6 @@ export default {
       form: {},
       button_text: 'Hide list',
       country: '',
-      countryData: null,
-      regionOptions: [],
-      selectedRegion: null,
-      selectedRegionName: null,
       prefilled: false,
     }
   },
@@ -77,56 +74,20 @@ export default {
       getCountry().then((response) => {
           this.country = response.data
           this.prefill(instance_data)
-          this.getRegionOptions(countries, response.data);
         })
     })
+
   },
 
   methods: {
 
 
     prefill(data){
-      for(let value of this.form.country.tables) {
-            value.selected = data.NBB_Report.contacting_party[value.name]
-            if(value.name === 'partyname') {
-              value.selected = this.country;
-            }
-      }
 
-
-
-
-
+    
       this.prefilled = true;
 
 
-    },
-
-
-    getSelectedRegionName(region) {
-
-      for(let option of this.regionOptions) {
-        if(option.value === region) {
-          this.selectedRegionName = option.text
-        }
-      }
-
-      console.log(this.selectedRegionName)
-    },
-
-    getRegionOptions(countries, current_country) {
-      for(let country of countries) {
-        if(country.country_code_iso2 === current_country) {
-          this.countryData = country
-        }
-      }
-      this.makeRegionOptions(this.countryData)
-    },
-
-    makeRegionOptions(country) {
-      for(let region of country.regions) {
-        this.regionOptions.push({text: region.region_name, value: region.region_id})
-      }
     },
 
     doTitle(title) {
@@ -145,10 +106,10 @@ export default {
 .subtitle {
   max-width: 488px;margin: auto;display: block;
 }
-
+/*
 .container {
   max-width: 700px;
-}
+}*/
 
 .spinner {
     z-index: 1;

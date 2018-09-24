@@ -40,7 +40,7 @@
 					"status_comments": "gasgas"
 				},
 				{
-					"description": "Designation of a national authority or authorities responsible for the implementation of the ",
+					"description": "Designation of a national authority or authorities responsible for the implementation of the Prevention and Emergency Protocol",
 					"parent_collection_id": null,
 					"collection_id": null,
 					"changes": true,
@@ -50,7 +50,7 @@
 					"status_comments": null
 				},
 				{
-					"description": "Informing the Regional Centre (REMPEC) every two years of the measures taken for the implementation of the ",
+					"description": "Informing the Regional Centre (REMPEC) every two years of the measures taken for the implementation of the Prevention and Emergency Protocol",
 					"parent_collection_id": null,
 					"collection_id": null,
 					"changes": null,

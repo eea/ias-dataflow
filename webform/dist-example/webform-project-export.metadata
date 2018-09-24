@@ -67,13 +67,13 @@
     "fileType": "FILE"
   },
   {
-    "title": "National Baseline Budget Report (NBB)",
+    "title": "Prevention and Emergency Protocol",
     "file":
     {
       "name": "index.html"
     },
-    "newXmlFileName": "nbb_report.xml",
-    "emptyInstanceUrl": "https://webforms.info-rac.org/download/project/nbb/file/empty.xml",
+    "newXmlFileName": "lbs.xml",
+    "emptyInstanceUrl": "https://webforms.info-rac.org/download/project/pep/file/empty.xml",
     "xmlSchema": "https://dd.info-rac.org/v2/dataset/15/schema-dst-15.xsd",
     "active": true,
     "localForm": true,
