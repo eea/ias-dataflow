@@ -1,8 +1,7 @@
 <template>
 	<b-container style="position: relative">
-    <center><h1 class="mb-3 mt-2">Prevention and Emergency Protocol</h1></center>
-    <center><h5><small class="text-muted">IMPLEMENTATION OF THE PROTOCOL CONCERNING COOPERATION IN PREVENTING POLLUTION FROM SHIPS AND, IN CASES OF EMERGENCY,
-      COMBATING POLLUTION OF THE MEDITERRANEAN SEA (PREVENTION AND EMERGENCY PROTOCOL)</small></h5></center>
+    <center><h1 class="mb-3 mt-2">IAS dataflow</h1></center>
+    <center><h5><small class="text-muted">Dataflow description</small></h5></center>
       <b-card v-if="prefilled" no-body>
         <b-form validated novalidate @submit="onSubmit">
           <b-tabs card>

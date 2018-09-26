@@ -52,10 +52,6 @@
 
       </b-card>
 
-<!--       <pre>
-        {{info}}
-      </pre> -->
-
       <b-card class="mt-5 mb-5" v-for="(section, section_index) in info.sections">
         <h3><small>{{section.scientific_name.label}}: </small>{{section.scientific_name.selected}}</h3>
         <h4><small>{{section.common_name.label}}: </small>{{section.common_name.selected}}</h4>        
@@ -84,22 +80,24 @@
           </b-col>
         </b-row>
       
-      <h4>{{section.section.label}}</h4>
-      <div v-for="field in section.section.fields">
-        <div class="checkbox-wrapper" v-if="field.type != 'textarea'" lg="12">
-          <input :id="`${field.name}_${section_index}_${tabId}`" type="checkbox" v-model="field.selected" ></input>
-          <label :for="`${field.name}_${section_index}_${tabId}`">{{field.label}}</label>
+      <div v-if="section.mandatory_item.selected === true">
+        
+        <h4>{{section.section.label}}</h4>
+        <div v-for="field in section.section.fields">
+          <div class="checkbox-wrapper" v-if="field.type != 'textarea'" lg="12">
+            <input :id="`${field.name}_${section_index}_${tabId}`" type="checkbox" v-model="field.selected" ></input>
+            <label :for="`${field.name}_${section_index}_${tabId}`">{{field.label}}</label>
+          </div>
+      
+          <b-col lg="12" v-else>
+              <label>{{field.label}}</label>
+              <textarea class="form-control" v-model="field.selected" ></textarea>
+          </b-col>
         </div>
-    
-        <b-col lg="12" v-else>
-            <label>{{field.label}}</label>
-            <textarea class="form-control" v-model="field.selected" ></textarea>
-        </b-col>
       </div>
 
-      </b-card>
-  
 
+      </b-card>
        
       </div>
   </div>
