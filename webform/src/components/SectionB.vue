@@ -20,7 +20,7 @@
             <label>{{info.scientific_name.label}}</label>
           </b-col>
           <b-col lg="7">
-              <b-form-select v-model="info.scientific_name.selected" :options="info.scientific_name.options"></b-form-select>
+              <b-form-select v-model="info.scientific_name.selected" @change="fillCommon($event)" :options="info.scientific_name.options"></b-form-select>
           </b-col>
           <b-col lg="2">
             <b-btn @click="addBySelection(info.scientific_name.selected)" variant="primary">add</b-btn>
@@ -134,6 +134,14 @@ export default {
       for(let specie of speciesB) {
         if(specie.scientific_name === sci_name) {
           this.addSpecies(sci_name, specie.common_name)
+        }
+      }
+    },
+
+    fillCommon(sci_name){
+      for(let specie of speciesB) {
+        if(sci_name === specie.scientific_name) {
+          this.info.common_name.selected = specie.common_name
         }
       }
     },

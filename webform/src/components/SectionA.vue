@@ -5,8 +5,9 @@
       <p>{{info.question}}</p>
 
       <b-card class="mt-5 mb-5" v-for="section in info.sections">
-        <h3><small>{{section.scientific_name.label}}: </small>{{section.scientific_name.selected}}</h3>
-        <h4><small>{{section.common_name.label}}: </small>{{section.common_name.selected}}</h4>        
+        <h4>
+          {{section.scientific_name.selected}} ({{section.common_name.selected}})    
+        </h4>
         <b-row>
           <b-col>
             <b-input-group :prepend="section.mandatory_item.label">  
