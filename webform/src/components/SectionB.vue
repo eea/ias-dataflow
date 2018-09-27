@@ -62,15 +62,29 @@
             </b-input-group>
           </b-col>
         </b-row>
-        <b-row class="mt-3" v-if="section.mandatory_item.selected === true">
-          <b-col lg="3">
-            {{section.depending_on_manadatory.label}}
-          </b-col> 
-          <b-col lg='9'>
-              <textarea class="form-control" v-model="section.depending_on_manadatory.selected"></textarea>
-          </b-col>
-        </b-row>
+        <div class="mt-4" v-if="section.mandatory_item.selected === true">
+          <hr>
+           <h6>
+             {{section.depending_on_manadatory.label}} 
+           </h6>
+           <div class="mb-2" v-for="field in section.depending_on_manadatory.fields">
+   
+              <b-input-group  v-if="field.type === 'select'" :prepend="field.label">
+                  <b-form-select :options="field.options" v-model="field.selected">
+                  </b-form-select>
+                <b-input-group-append>
+                  <b-btn variant="primary" @click="addCustomField(field)">Add new</b-btn>
+                </b-input-group-append>
+              </b-input-group>
 
+              <b-input-group  v-else :prepend="field.label">
+                  <b-form-file v-model="field.selected"></b-form-file>
+                <b-input-group-append>
+                  <b-btn variant="success">Upload</b-btn>
+                </b-input-group-append>
+              </b-input-group>
+           </div> 
+        </div>
         <b-row class="mt-3" v-if="section.mandatory_item.selected === true">
           <b-col lg="3">
             {{section.additional_info.label}}
@@ -130,8 +144,9 @@ export default {
 
     addBySelection(sci_name) {
       for(let specie of speciesB) {
-        if(specie.scientific_name === sci_name) {
-          this.addSpecies(sci_name, specie.common_name)
+        if(specie.speciesNameLegis === sci_name) {
+          this.addSpecies(specie.speciesNameLegis, specie.common_name)
+          break;
         }
       }
     },
@@ -177,10 +192,76 @@ export default {
         },
         depending_on_manadatory: {
           label: 'Distribution of the species, including information on its spread and reproductive patterns (to be completed only if the answer to question 3 above is ‘Yes’',
-          selected: '',
-          type: 'textarea',
           index: 4,
-          name: 'distribution_of_species'
+          name: 'distribution_of_species',
+          fields: [
+            {
+              label: 'Distribution maps',
+              type: 'file',
+              name: 'distribution_maps',
+              selected: null,
+            },
+            {
+              label: 'Reproduction patterns',
+              type: 'select',
+              add: true,
+              name: 'reproduction patterns',
+              selected: '',
+              options:[
+                {
+                  text: 'sexual', value: 0,
+                },
+                { 
+                  text: 'asexusal', value: 1,
+                },
+                {
+                  text: 'both (sexual and asexual)', value : 2,
+                },
+                {
+                  text: 'unclear (sexual or asexual) ', value: 3,
+                },
+                {
+                  text: 'not reproducing in the Member State', value: 4,
+                },
+                {
+                  text: 'unknown whether the species reproduces in the Member State', value: 5,
+                }
+              ]
+            },
+            {
+              label: 'Spread patterns',
+              type: 'select',
+              name: 'spread_patterns',
+              add: true,
+              selected: '',
+              options:[
+                {
+                  text: 'Diffuse spread /travelling/moving population front (predominantly)', value: 0,
+                },
+                { 
+                  text: 'Linear terrestrial spread (predominantly)', value: 1,
+                },
+                {
+                  text: 'Linear aquatic spread (predominantly)', value : 2,
+                },
+                {
+                  text: 'Patchy spread / Long distance jumps (predominantly) ', value: 3,
+                },
+                {
+                  text: 'Combination of diffuse and patchy spread/long distance jumps', value: 4,
+                },
+                {
+                  text: 'Stable, not spreading', value: 5,
+                },
+                {
+                  text: 'Unknown', value: 6,
+                },
+                {
+                  text: 'Other', value: 7,
+                },
+              ]
+            },
+          ]
         },
         additional_info: {
           label: 'Additional information (optional)',

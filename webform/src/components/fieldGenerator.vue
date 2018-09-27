@@ -15,18 +15,16 @@
           <b-form-input v-model="field.comments"></b-form-input>
         </b-input-group>
     </div>
-    <multiselect multiple="true" track-by="text" label="text" v-else-if="field.type ==='multiselect'" v-model="field.selected" :options="field.options"></multiselect>
+    <multiselect  :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" multiple="true" track-by="text" label="text" v-else-if="field.type ==='multiselect'" v-model="field.selected" :options="field.options"></multiselect>
 	</div>
 </template>
 
 <script>
 
-import Multiselect from 'vue-multiselect'
 export default {
 
   name: 'fieldGenerator',
   props: {field: Object, disabled: false},
-  components: { Multiselect },
   created(){
 
   },
@@ -41,6 +39,5 @@ export default {
   }
 }
 </script>
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style lang="css" scoped>
 </style>
