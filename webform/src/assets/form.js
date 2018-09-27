@@ -150,7 +150,7 @@ let tab_1_section = {
                   {
                     label: 'Total number or volume of permitted specimens corresponding to the permits issued',
                     name: 'total_permited_spciments',
-                    type: 'number',
+                    type: 'text',
                     selected: '',
                   }
                 ]
@@ -166,7 +166,7 @@ let tab_1_section = {
                   {
                     label: 'Total number or volume of permitted specimens corresponding to the permits issued',
                     name: 'total_permited_spciments',
-                    type: 'number',
+                    type: 'text',
                     selected: '',
                   }
                 ]
@@ -182,7 +182,7 @@ let tab_1_section = {
                   {
                     label: 'Total number or volume of permitted specimens corresponding to the permits issued',
                     name: 'total_permited_spciments',
-                    type: 'number',
+                    type: 'text',
                     selected: '',
                   }
                 ]
@@ -198,7 +198,7 @@ let tab_1_section = {
                   {
                     label: 'Total number or volume of permitted specimens corresponding to the permits issued',
                     name: 'total_permited_spciments',
-                    type: 'number',
+                    type: 'text',
                     selected: '',
                   }
                 ]
@@ -371,32 +371,48 @@ let tab_1_section = {
                 {
                   label: 'End date',
                   name: 'duration_or_end',
-                  type: 'text',
+                  type: 'date',
                   selected: '',
                 },
                 {
                   label: 'Part of the territory',
                   name: 'part_territory',
-                  type: 'text',
+                  type: 'file',
                   selected: '',
+                  comments:'',
                 },
                 {
                   label: 'Biogeographical region(s)',
                   name: 'biogeographical_region',
-                  type: 'text',
+                  type: 'multiselect',
                   selected: '',
+                  options: [
+                    {text: 'first option', value: 0},
+                    {text: 'second option', value: 1},
+                    {text: 'third option', value: 2},
+                  ]
                 },
                 {
                   label: 'River basin sub-unit(s)',
                   name: 'river_basin_subunits',
-                  type: 'text',
+                  type: 'select',
                   selected: '',
+                  options: [
+                    {text: 'first option', value: 0},
+                    {text: 'second option', value: 1},
+                    {text: 'third option', value: 2},
+                  ]
                 },
                 {
                   label: 'Marine sub-region(s)',
                   name: 'river_basin_subunits',
-                  type: 'text',
+                  type: 'select',
                   selected: '',
+                  options: [
+                    {text: 'first option', value: 0},
+                    {text: 'second option', value: 1},
+                    {text: 'third option', value: 2},
+                  ]
                 },
                 {
                   label: 'Method(s) used',
@@ -479,7 +495,7 @@ let tab_1_section = {
                 {
                   label: 'End date',
                   name: 'duration_or_end',
-                  type: 'text',
+                  type: 'date',
                   selected: '',
                 },
                 {
@@ -502,20 +518,35 @@ let tab_1_section = {
                 {
                   label: 'Biogeographical region(s)',
                   name: 'biogeographical_region',
-                  type: 'text',
+                  type: 'multiselect',
                   selected: '',
+                  options: [
+                    {text: 'first option', value: 0},
+                    {text: 'second option', value: 1},
+                    {text: 'third option', value: 2},
+                  ]
                 },
                 {
                   label: 'River basin sub-unit(s)',
                   name: 'river_basin_subunits',
-                  type: 'text',
+                  type: 'select',
                   selected: '',
+                  options: [
+                    {text: 'first option', value: 0},
+                    {text: 'second option', value: 1},
+                    {text: 'third option', value: 2},
+                  ]
                 },
                 {
                   label: 'Marine sub-region(s)',
                   name: 'river_basin_subunits',
-                  type: 'text',
+                  type: 'select',
                   selected: '',
+                  options: [
+                    {text: 'first option', value: 0},
+                    {text: 'second option', value: 1},
+                    {text: 'third option', value: 2},
+                  ]
                 },
                 {
                   label: 'Method(s) used',

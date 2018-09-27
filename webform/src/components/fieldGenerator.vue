@@ -7,15 +7,26 @@
 		<b-form-checkbox-group :disabled="disabled" v-else-if="field.type === 'checkbox'" v-model="field.selected" :options="field.options"></b-form-checkbox-group>
 		<b-form-select :disabled="disabled" v-else-if="field.type === 'select'" v-model="field.selected" :options="field.options"></b-form-select>
 		<textarea v-else-if="field.type === 'textarea'" v-model="field.selected"></textarea>
+    <div v-else-if="field.type ==='file'">
+        <b-input-group class="mb-2" prepend="Shapefile,Geojson or GML file">
+          <b-form-file  v-model="field.selected"></b-form-file>
+        </b-input-group>
+        <b-input-group prepend="comments">
+          <b-form-input v-model="field.comments"></b-form-input>
+        </b-input-group>
+    </div>
+    <multiselect multiple="true" track-by="text" label="text" v-else-if="field.type ==='multiselect'" v-model="field.selected" :options="field.options"></multiselect>
 	</div>
 </template>
 
 <script>
+
+import Multiselect from 'vue-multiselect'
 export default {
 
   name: 'fieldGenerator',
   props: {field: Object, disabled: false},
-
+  components: { Multiselect },
   created(){
 
   },
@@ -30,6 +41,6 @@ export default {
   }
 }
 </script>
-
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style lang="css" scoped>
 </style>

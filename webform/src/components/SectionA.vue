@@ -48,11 +48,11 @@
           <b-col lg="3">
             {{section.additional_info.label}}
           </b-col> 
-          <b-col lg='9'>
+          <b-col lg='12'>
               <textarea class="form-control" v-model="section.additional_info.selected"></textarea>
           </b-col>
         </b-row>
-
+        <hr>
         <b-card v-if="section.mandatory_item.selected === true" class="inner-card">
           <div class="card-section">
             <center><h5>{{section.tables.table_1.label}}</h5></center>
