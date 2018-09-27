@@ -693,6 +693,12 @@ var form = {
             selected: '',
           },
           {
+            type: "file",
+            name: "web_link_file",
+            label: "File regaring the permits issued as required under Article 8(7) of Regulation (EU) No 1143/2014",
+            selected: '',
+          },
+          {
             type: "textarea",
             name: "action_plans_art13",
             label: "Action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014  ",

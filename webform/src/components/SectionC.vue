@@ -14,7 +14,7 @@
           <label>{{field.label}}</label>
           <b-form-input v-if="field.type === 'text'" :type="field.type" v-model="field.selected" ></b-form-input>
           <textarea class="form-control" v-else-if="field.type === 'textarea'" v-model="field.selected" ></textarea>
-          <div class="add-section" v-else>
+          <div class="add-section" v-else-if="field.type === 'add'">
             <b-btn variant="primary" @click="addPathway(field)">Add</b-btn>
             <b-row v-for="addField in field.fields">
               <b-col>
@@ -34,6 +34,12 @@
               </b-col>
             </b-row>
           </div>
+          <b-input-group v-else>
+            <b-form-file v-model="field.selected"></b-form-file>
+            <b-input-group-append>
+              <b-btn variant="success">Upload</b-btn>
+            </b-input-group-append>
+          </b-input-group>
 
         </b-col>
         <hr>

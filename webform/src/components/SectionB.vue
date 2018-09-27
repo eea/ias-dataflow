@@ -13,7 +13,6 @@
       </b-row>
       <b-card v-if="info.mandatory_item.selected === true" class="fields-add-wrapper">
         <h4>Chose how you want to add a species</h4>
-
         <h5>Add by selectting a scientific name from the predefined list</h5>
         <b-row>
           <b-col lg="3">
@@ -27,7 +26,6 @@
           </b-col>
         </b-row>
         <hr>
-
         <h5>Add manually</h5>
         <b-row>
           <b-col lg="3">
@@ -47,9 +45,7 @@
           <b-col lg="7">
               <b-input v-model="info.common_name.selected"></b-input>
           </b-col>
-       
         </b-row>
-
       </b-card>
 
       <b-card class="mt-5 mb-5" v-for="(section, section_index) in info.sections">
@@ -68,7 +64,6 @@
              {{section.depending_on_manadatory.label}} 
            </h6>
            <div class="mb-2" v-for="field in section.depending_on_manadatory.fields">
-   
               <b-input-group  v-if="field.type === 'select'" :prepend="field.label">
                   <b-form-select :options="field.options" v-model="field.selected">
                   </b-form-select>
@@ -95,22 +90,18 @@
         </b-row>
       
       <div v-if="section.mandatory_item.selected === true">
-        
         <h4>{{section.section.label}}</h4>
         <div v-for="field in section.section.fields">
           <div class="checkbox-wrapper" v-if="field.type != 'textarea'" lg="12">
             <input :id="`${field.name}_${section_index}_${tabId}`" type="checkbox" v-model="field.selected" ></input>
             <label :for="`${field.name}_${section_index}_${tabId}`">{{field.label}}</label>
           </div>
-      
           <b-col lg="12" v-else>
               <label>{{field.label}}</label>
               <textarea class="form-control" v-model="field.selected" ></textarea>
           </b-col>
         </div>
       </div>
-
-
       </b-card>
        
       </div>
