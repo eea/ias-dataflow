@@ -57,22 +57,22 @@ let tab_1_section = {
         selected: '',
         options:[
           {
-            text: 'sexual', value: 0,
-          },
-          { 
-            text: 'asexusal', value: 1,
+            text: 'Sexual', value: 0,
           },
           {
-            text: 'both (sexual and asexual)', value : 2,
+            text: 'Asexusal', value: 1,
           },
           {
-            text: 'unclear (sexual or asexual) ', value: 3,
+            text: 'Both (sexual and asexual)', value : 2,
           },
           {
-            text: 'not reproducing in the Member State', value: 4,
+            text: 'Unclear (sexual or asexual) ', value: 3,
           },
           {
-            text: 'unknown whether the species reproduces in the Member State', value: 5,
+            text: 'Not reproducing in the Member State', value: 4,
+          },
+          {
+            text: 'Unknown whether the species reproduces in the Member State', value: 5,
           }
         ]
       },
@@ -86,7 +86,7 @@ let tab_1_section = {
           {
             text: 'Diffuse spread /travelling/moving population front (predominantly)', value: 0,
           },
-          { 
+          {
             text: 'Linear terrestrial spread (predominantly)', value: 1,
           },
           {

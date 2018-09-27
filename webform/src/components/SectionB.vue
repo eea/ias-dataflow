@@ -200,22 +200,22 @@ export default {
               selected: '',
               options:[
                 {
-                  text: 'sexual', value: 0,
+                  text: 'Sexual', value: 0,
                 },
                 {
-                  text: 'asexusal', value: 1,
+                  text: 'Asexusal', value: 1,
                 },
                 {
-                  text: 'both (sexual and asexual)', value : 2,
+                  text: 'Both (sexual and asexual)', value : 2,
                 },
                 {
-                  text: 'unclear (sexual or asexual) ', value: 3,
+                  text: 'Unclear (sexual or asexual) ', value: 3,
                 },
                 {
-                  text: 'not reproducing in the Member State', value: 4,
+                  text: 'Not reproducing in the Member State', value: 4,
                 },
                 {
-                  text: 'unknown whether the species reproduces in the Member State', value: 5,
+                  text: 'Unknown whether the species reproduces in the Member State', value: 5,
                 }
               ]
             },
