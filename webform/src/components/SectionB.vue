@@ -50,10 +50,10 @@
 
       <b-card class="mt-5 mb-5" v-for="(section, section_index) in info.sections">
         <h3><small>{{section.scientific_name.label}}: </small>{{section.scientific_name.selected}}</h3>
-        <h4><small>{{section.common_name.label}}: </small>{{section.common_name.selected}}</h4>        
+        <h4><small>{{section.common_name.label}}: </small>{{section.common_name.selected}}</h4>
         <b-row>
           <b-col>
-            <b-input-group :prepend="section.mandatory_item.label">  
+            <b-input-group :prepend="section.mandatory_item.label">
               <b-form-select v-model="section.mandatory_item.selected" :options="section.mandatory_item.options"></b-form-select>
             </b-input-group>
           </b-col>
@@ -61,7 +61,7 @@
         <div class="mt-4" v-if="section.mandatory_item.selected === true">
           <hr>
            <h6>
-             {{section.depending_on_manadatory.label}} 
+             {{section.depending_on_manadatory.label}}
            </h6>
            <div class="mb-2" v-for="field in section.depending_on_manadatory.fields">
               <b-input-group  v-if="field.type === 'select'" :prepend="field.label">
@@ -78,17 +78,17 @@
                   <b-btn variant="success">Upload</b-btn>
                 </b-input-group-append>
               </b-input-group>
-           </div> 
+           </div>
         </div>
         <b-row class="mt-3" v-if="section.mandatory_item.selected === true">
           <b-col lg="3">
             {{section.additional_info.label}}
-          </b-col> 
+          </b-col>
           <b-col lg='9'>
               <textarea class="form-control" v-model="section.additional_info.selected"></textarea>
           </b-col>
         </b-row>
-      
+
       <div v-if="section.mandatory_item.selected === true">
         <h4>{{section.section.label}}</h4>
         <div v-for="field in section.section.fields">
@@ -103,7 +103,7 @@
         </div>
       </div>
       </b-card>
-       
+
       </div>
   </div>
 </template>
@@ -177,7 +177,7 @@ export default {
           label: 'Is the species present in the territory of the Member State?',
           type: 'select',
           selected: 1,
-          options: [{ value: true, text: "yes" }, { value: false, text: "no" }, { value: 'unknown', text: "Currently unknown" }],
+          options: [{ value: true, text: "Yes" }, { value: false, text: "No" }, { value: 'unknown', text: "Currently unknown" }],
           index: 3,
           name: 'mandatory_question',
         },
@@ -202,7 +202,7 @@ export default {
                 {
                   text: 'sexual', value: 0,
                 },
-                { 
+                {
                   text: 'asexusal', value: 1,
                 },
                 {
@@ -229,7 +229,7 @@ export default {
                 {
                   text: 'Diffuse spread /travelling/moving population front (predominantly)', value: 0,
                 },
-                { 
+                {
                   text: 'Linear terrestrial spread (predominantly)', value: 1,
                 },
                 {
