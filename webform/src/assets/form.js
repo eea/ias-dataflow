@@ -150,7 +150,7 @@ let tab_1_section = {
                   {
                     label: 'Total number or volume of permitted specimens corresponding to the permits issued',
                     name: 'total_permited_spciments',
-                    type: 'number',
+                    type: 'text',
                     selected: '',
                   }
                 ]
@@ -166,7 +166,7 @@ let tab_1_section = {
                   {
                     label: 'Total number or volume of permitted specimens corresponding to the permits issued',
                     name: 'total_permited_spciments',
-                    type: 'number',
+                    type: 'text',
                     selected: '',
                   }
                 ]
@@ -182,7 +182,7 @@ let tab_1_section = {
                   {
                     label: 'Total number or volume of permitted specimens corresponding to the permits issued',
                     name: 'total_permited_spciments',
-                    type: 'number',
+                    type: 'text',
                     selected: '',
                   }
                 ]
@@ -198,7 +198,7 @@ let tab_1_section = {
                   {
                     label: 'Total number or volume of permitted specimens corresponding to the permits issued',
                     name: 'total_permited_spciments',
-                    type: 'number',
+                    type: 'text',
                     selected: '',
                   }
                 ]
@@ -371,32 +371,48 @@ let tab_1_section = {
                 {
                   label: 'End date',
                   name: 'duration_or_end',
-                  type: 'text',
+                  type: 'date',
                   selected: '',
                 },
                 {
                   label: 'Part of the territory',
                   name: 'part_territory',
-                  type: 'text',
+                  type: 'file',
                   selected: '',
+                  comments:'',
                 },
                 {
                   label: 'Biogeographical region(s)',
                   name: 'biogeographical_region',
-                  type: 'text',
+                  type: 'multiselect',
                   selected: '',
+                  options: [
+                    {text: 'first option', value: 0},
+                    {text: 'second option', value: 1},
+                    {text: 'third option', value: 2},
+                  ]
                 },
                 {
                   label: 'River basin sub-unit(s)',
                   name: 'river_basin_subunits',
-                  type: 'text',
+                  type: 'select',
                   selected: '',
+                  options: [
+                    {text: 'first option', value: 0},
+                    {text: 'second option', value: 1},
+                    {text: 'third option', value: 2},
+                  ]
                 },
                 {
                   label: 'Marine sub-region(s)',
                   name: 'river_basin_subunits',
-                  type: 'text',
+                  type: 'select',
                   selected: '',
+                  options: [
+                    {text: 'first option', value: 0},
+                    {text: 'second option', value: 1},
+                    {text: 'third option', value: 2},
+                  ]
                 },
                 {
                   label: 'Method(s) used',
@@ -479,7 +495,7 @@ let tab_1_section = {
                 {
                   label: 'End date',
                   name: 'duration_or_end',
-                  type: 'text',
+                  type: 'date',
                   selected: '',
                 },
                 {
@@ -502,20 +518,35 @@ let tab_1_section = {
                 {
                   label: 'Biogeographical region(s)',
                   name: 'biogeographical_region',
-                  type: 'text',
+                  type: 'multiselect',
                   selected: '',
+                  options: [
+                    {text: 'first option', value: 0},
+                    {text: 'second option', value: 1},
+                    {text: 'third option', value: 2},
+                  ]
                 },
                 {
                   label: 'River basin sub-unit(s)',
                   name: 'river_basin_subunits',
-                  type: 'text',
+                  type: 'select',
                   selected: '',
+                  options: [
+                    {text: 'first option', value: 0},
+                    {text: 'second option', value: 1},
+                    {text: 'third option', value: 2},
+                  ]
                 },
                 {
                   label: 'Marine sub-region(s)',
                   name: 'river_basin_subunits',
-                  type: 'text',
+                  type: 'select',
                   selected: '',
+                  options: [
+                    {text: 'first option', value: 0},
+                    {text: 'second option', value: 1},
+                    {text: 'third option', value: 2},
+                  ]
                 },
                 {
                   label: 'Method(s) used',
@@ -630,7 +661,7 @@ var form = {
         name: "scientific_name",
         label: 'Species scientific name ',
         options: [],
-        type: 'select',
+        type: 'multiselect',
         selected: ''
       },
       common_name: {
@@ -640,6 +671,14 @@ var form = {
         type: 'text',
         disabled: true,
         selected: ''
+      },
+      species_code: {
+        label: "EASIN identifier",
+        selected: '',
+        disabled: true,
+        name: 'species_code',
+        type: 'text',
+        index: 2,
       },
       sections: []
     },
@@ -711,7 +750,7 @@ var form = {
     }
 
     for (let specie of speciesB) {
-      form.tab_2.scientific_name.options.push({ text: specie.scientific_name, value: specie.scientific_name })
+      form.tab_2.scientific_name.options.push({ text: specie.speciesNameLegis, value: specie.speciesNameLegis, country: specie.country})
     }
 
 
