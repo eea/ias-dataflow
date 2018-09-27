@@ -6,7 +6,11 @@
 
       <b-card class="mt-5 mb-5" v-for="section in info.sections">
         <h4>
-          {{section.scientific_name.selected}} ({{section.common_name.selected}})    
+          {{section.scientific_name.selected}}   
+          <br>
+          <small>EASIN identifier: {{section.species_code.selected}}</small>
+          <br>
+          <small>Common name: {{section.common_name.selected}}</small>
         </h4>
         <b-row>
           <b-col>
@@ -15,14 +19,30 @@
             </b-input-group>
           </b-col>
         </b-row>
-        <b-row class="mt-3" v-if="section.mandatory_item.selected === true">
-          <b-col lg="3">
-            {{section.depending_on_manadatory.label}}
-          </b-col> 
-          <b-col lg='9'>
-              <textarea class="form-control" v-model="section.depending_on_manadatory.selected"></textarea>
-          </b-col>
-        </b-row>
+        <div class="mt-4" v-if="section.mandatory_item.selected === true">
+          <hr>
+           <h6>
+             {{section.depending_on_manadatory.label}} 
+           </h6>
+           <div class="mb-2" v-for="field in section.depending_on_manadatory.fields">
+   
+              <b-input-group  v-if="field.type === 'select'" :prepend="field.label">
+                  <b-form-select :options="field.options" v-model="field.selected">
+                  </b-form-select>
+                <b-input-group-append>
+                  <b-btn variant="primary" @click="addCustomField(field)">Add new</b-btn>
+                </b-input-group-append>
+              </b-input-group>
+
+              <b-input-group  v-else :prepend="field.label">
+                  <b-form-file v-model="field.selected"></b-form-file>
+                <b-input-group-append>
+                  <b-btn variant="success">Upload</b-btn>
+                </b-input-group-append>
+              </b-input-group>
+
+           </div> 
+        </div>
 
         <b-row class="mt-3" v-if="section.mandatory_item.selected === true">
           <b-col lg="3">
@@ -35,7 +55,7 @@
 
         <b-card v-if="section.mandatory_item.selected === true" class="inner-card">
           <div class="card-section">
-            <h5>{{section.tables.table_1.label}}</h5>
+            <center><h5>{{section.tables.table_1.label}}</h5></center>
             <hr>
             <b-row>
               <b-col>
@@ -82,7 +102,9 @@
 
         <b-card v-if="section.mandatory_item.selected === true" class="inner-card">
           <div class="card-section">
-            <h5>{{section.tables.table_2.label}}</h5>
+           <center>
+             <h5>{{section.tables.table_2.label}}</h5> 
+           </center>
             <hr>
             <b-row>
               <b-col>
@@ -140,7 +162,18 @@
 
       </b-card>
 
-
+    <b-modal hide-footer ref="customFieldModal">
+      <div v-if="customField" slot="modal-title">{{customField.label}}</div>
+      <div v-if="customField">
+        <b-input-group class="mb-3" prepend="Name">
+          <b-form-input v-model="addCustom.text"></b-form-input>
+        </b-input-group>
+         <b-input-group prepend="Code">
+          <b-form-input v-model="addCustom.value"></b-form-input>
+        </b-input-group>
+      <b-btn class="mt-3" variant="outline-primary" @click="saveCustomField" block>Add</b-btn>
+      </div>
+    </b-modal>
        
       </div>
   </div>
@@ -162,13 +195,30 @@ export default {
 
   data () {
     return {
-
+      customField: null,
+      addCustom: {
+        text: null,
+        value: null,
+      }
     }
   },
 
   methods: {
     titleSlugify(text) {
       return slugify(text)
+    },
+    addCustomField(field){
+      this.customField = field
+      this.$refs.customFieldModal.show()
+    },
+    saveCustomField(){
+      let addField = JSON.parse(JSON.stringify(this.addCustom))
+
+      this.customField.options.push(addField); 
+      this.customField.selected = addField.value;
+      this.addCustom.text = null
+      this.addCustom.value = null
+      this.$refs.customFieldModal.hide()
     },
     addSpecies(field){
       console.log(field)

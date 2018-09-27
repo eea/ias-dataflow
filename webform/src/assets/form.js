@@ -21,20 +21,95 @@ let tab_1_section = {
     type: 'text',
     index: 2,
   },
+
+  species_code: {
+    label: "EASIN identifier",
+    selected: '',
+    disabled: true,
+    name: 'species_code',
+    type: 'text',
+    index: 2,
+  },
   mandatory_item: {
     label: 'Is the species present in the territory of the Member State?',
     type: 'select',
     selected: 1,
-    options: [{ value: true, text: "yes" }, { value: false, text: "no" }, { value: 'unknown', text: "Currently unknown" }],
+    options: [{ value: true, text: "Yes" }, { value: false, text: "No" }, { value: 'unknown', text: "Currently unknown" }],
     index: 3,
     name: 'mandatory_question',
   },
   depending_on_manadatory: {
     label: 'Distribution of the species, including information on its spread and reproductive patterns (to be completed only if the answer to question 3 above is ‘Yes’',
-    selected: '',
-    type: 'textarea',
     index: 4,
-    name: 'distribution_of_species'
+    name: 'distribution_of_species',
+    fields: [
+      {
+        label: 'Distribution maps',
+        type: 'file',
+        name: 'distribution_maps',
+        selected: null,
+      },
+      {
+        label: 'Reproduction patterns',
+        type: 'select',
+        add: true,
+        name: 'reproduction patterns',
+        selected: '',
+        options:[
+          {
+            text: 'sexual', value: 0,
+          },
+          { 
+            text: 'asexusal', value: 1,
+          },
+          {
+            text: 'both (sexual and asexual)', value : 2,
+          },
+          {
+            text: 'unclear (sexual or asexual) ', value: 3,
+          },
+          {
+            text: 'not reproducing in the Member State', value: 4,
+          },
+          {
+            text: 'unknown whether the species reproduces in the Member State', value: 5,
+          }
+        ]
+      },
+      {
+        label: 'Spread patterns',
+        type: 'select',
+        name: 'spread_patterns',
+        add: true,
+        selected: '',
+        options:[
+          {
+            text: 'Diffuse spread /travelling/moving population front (predominantly)', value: 0,
+          },
+          { 
+            text: 'Linear terrestrial spread (predominantly)', value: 1,
+          },
+          {
+            text: 'Linear aquatic spread (predominantly)', value : 2,
+          },
+          {
+            text: 'Patchy spread / Long distance jumps (predominantly) ', value: 3,
+          },
+          {
+            text: 'Combination of diffuse and patchy spread/long distance jumps', value: 4,
+          },
+          {
+            text: 'Stable, not spreading', value: 5,
+          },
+          {
+            text: 'Unknown', value: 6,
+          },
+          {
+            text: 'Other', value: 7,
+          },
+        ]
+      },
+    ]
   },
   additional_info: {
     label: 'Additional information (optional)',
@@ -50,7 +125,7 @@ let tab_1_section = {
         label: 'Have permits been issued for this species during the reporting period? ',
         type: 'select',
         index: 6,
-        options: [{ value: true, text: "yes" }, { value: false, text: "no" }],
+        options: [{ value: true, text: "Yes" }, { value: false, text: "No" }],
       },
       table_sections: [{
           label: '',
@@ -279,7 +354,7 @@ let tab_1_section = {
         label: 'Has the species been subject to rapid eradication measures during the reporting period?',
         type: 'select',
         index: 11,
-        options: [{ value: true, text: "yes" }, { value: false, text: "no" }],
+        options: [{ value: true, text: "Yes" }, { value: false, text: "No" }],
       },
       table_sections: [{
         label: '',
@@ -294,7 +369,7 @@ let tab_1_section = {
                   selected: '',
                 },
                 {
-                  label: 'Estimated duration or end date of application of measure(s)',
+                  label: 'End date',
                   name: 'duration_or_end',
                   type: 'text',
                   selected: '',
@@ -386,7 +461,7 @@ let tab_1_section = {
         label: 'Has the species been subject to management measures during the reporting period?',
         type: 'select',
         index: 14,
-        options: [{ value: true, text: "yes" }, { value: false, text: "no" }],
+        options: [{ value: true, text: "Yes" }, { value: false, text: "No" }],
       },
       table_sections: [{
         label: '',
@@ -402,7 +477,7 @@ let tab_1_section = {
                   selected: '',
                 },
                 {
-                  label: 'Estimated duration or end date of application of measure(s)',
+                  label: 'End date',
                   name: 'duration_or_end',
                   type: 'text',
                   selected: '',
@@ -516,15 +591,17 @@ var form = {
             },
             {
               name: 'rep_period_from',
-              type: 'number',
+              type: 'text',
               label: 'Reporting period from (year)',
-              selected: '',
+              selected: '2015-01-01',
+              disabled: true,
             },
             {
               name: 'rep_period_to',
-              type: 'number',
+              type: 'text',
               label: 'Reporting period to (year)',
-              selected: '',
+              selected: '2018-12-31',
+              disabled: true,
             }
           ]
         }
@@ -545,7 +622,7 @@ var form = {
         label: 'Has the Member State established a national list of invasive alien species of Member State concern? If yes, questions 2 to 5 below have to be answered for each of the species on this list',
         type: 'select',
         selected: true,
-        options: [{ value: true, text: "yes" }, { value: false, text: "no" }, { value: 'unknown', text: "Currently unknown" }],
+        options: [{ value: true, text: "Yes" }, { value: false, text: "No" }, { value: 'unknown', text: "Currently unknown" }],
         index: 3,
         name: 'mandatory_question',
       },
@@ -640,8 +717,10 @@ var form = {
 
     for (let specie of species) {
       let current_section = JSON.parse(JSON.stringify(tab_1_section))
-      current_section.scientific_name.selected = specie.scientific_name
-      current_section.common_name.selected = specie.common_name
+      current_section.scientific_name.selected = specie.speciesNameLegi
+      current_section.common_name.selected = specie.speciesCNameEN
+      current_section.species_code.selected = specie.speciesCode
+
       form.tab_1.sections.push(current_section)
     }
 
