@@ -19,12 +19,20 @@
             <label>{{info.scientific_name.label}}</label>
           </b-col>
           <b-col lg="7">
-            <!--   -->
-              <multiselect v-model="info.scientific_name.selected"
-                           :options="info.scientific_name.options" :custom-label="customLabel" :multiple="true"
-              :close-on-select="false" :clear-on-select="false" :preserve-search="true" @select="fillCommon($event)"
-              @remove="remove($event)"
-              ></multiselect>
+            <div>sfname: {{info.scientific_name.selected.length}}</div>
+            ####
+            <div>common: {{info.common_name.selected.length}}</div>
+            ####
+            <div>value: {{value}}</div>
+
+            <!--  @select="fillCommon($event)" :custom-label="customLabel" @remove="remove($event)"-->
+              <multiselect v-model="value" :options="info.scientific_name.options"  :multiple="true"
+              :close-on-select="false" :clear-on-select="false" :preserve-search="true" track-by="text"
+              @select="fillCommon($event)" :custom-label="customLabel" @remove="remove($event)"
+              >
+                <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span></template>
+              </multiselect>
+
           </b-col>
           <b-col lg="2">
             <b-btn @click="addBySelection(info.scientific_name.selected)" variant="primary">add</b-btn>
@@ -33,17 +41,17 @@
         <hr>
         <h5>Add manually</h5>
 
-        <div v-for="(selval, selkey, selindex) in info.scientific_name.selected" v-if="info.scientific_name.selected.length">
+        <div v-for="(selval, selkey, selindex) in value" v-if="value.length">
           <b-row>
             <b-col lg="3">
               <label>{{info.scientific_name.label}}</label>
             </b-col>
             <b-col lg="7">
-              <b-input v-model="info.scientific_name.selected[selkey]['value']" :options="info.scientific_name.options"
+              <b-input v-if="value[selkey]['value']" v-model="value[selkey]['value']" :options="info.scientific_name.options"
                        ></b-input>
             </b-col>
             <b-col lg="2">
-              <b-btn  @click="addManually(info.scientific_name.selected, info.common_name.selected, selkey)"
+              <b-btn  @click="addManually(value, info.common_name.selected, selkey)"
                       style="margin-bottom: -3rem" variant="primary">add</b-btn>
             </b-col>
           </b-row>
@@ -157,9 +165,10 @@
 import {slugify} from '../utils.js';
 import speciesB from '../assets/speciesB.js';
 import FieldGenerator from "./fieldGenerator";
+import Multiselect from 'vue-multiselect';
 
 export default {
-  components: {FieldGenerator},
+  components: {FieldGenerator, Multiselect},
   props: {
     info: null,
     tabId:null
@@ -167,9 +176,16 @@ export default {
 
   data () {
     return {
-
+      value: this.info.scientific_name.selected,
     }
   },
+  /*watch: {
+    value: function (newV, oldV) {
+      //this.info.scientific_name.selected = newV;
+      //this.forceUpdate();
+      //console.log(this.info.scientific_name.selected);
+    }
+  },*/
 
   methods: {
     titleSlugify(text) {
@@ -194,12 +210,32 @@ export default {
       }
     },
     remove(sci_name){
-      for(let specie of this.info.scientific_name.selected) {
-        if(sci_name.value === specie.value) {
-          this.info.scientific_name.selected.splice(this.info.scientific_name.selected.indexOf(specie),1);
-          this.info.common_name.selected.splice(this.info.common_name.selected.indexOf(specie),1);
+      /*for(let specie of this.info.scientific_name.selected) {
+        console.log(specie);
+        if("undefined" !== typeof specie.value && "undefined" !== typeof sci_name.value){
+          if(sci_name.value === specie.value) {
+            //this.info.scientific_name.selected.splice(this.info.scientific_name.selected.indexOf(specie),1);
+            //this.info.common_name.selected.splice(this.info.common_name.selected.indexOf(specie),1);
+            this.$delete(this.info.scientific_name.selected, this.info.scientific_name.selected.indexOf(specie));
+            this.$delete(this.info.common_name.selected, this.info.common_name.selected.indexOf(specie));
+          }
         }
-      }
+      }*/
+      var vm = this;
+      vm.info.scientific_name.selected = this.value;
+      this.info.scientific_name.selected = this.$data.value;
+      /*this.info.scientific_name.selected.forEach(function (val, ix, arr) {
+        if(sci_name.value === val.value) {
+          vm.$delete(vm.info.scientific_name.selected,ix);
+        }
+      });*/
+
+      this.info.common_name.selected.forEach(function (val, ix, arr) {
+        if(sci_name.value === val.value) {
+          vm.$delete(that.info.common_name.selected, ix);
+        }
+      });
+
     },
 
     addManually(sci_name, com_name, key) {
@@ -410,7 +446,8 @@ export default {
     customLabel({country, text, value}){
       return `${text}`
     },
-  },
+  }
+
 }
 </script>
 
