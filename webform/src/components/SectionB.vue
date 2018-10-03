@@ -19,7 +19,12 @@
             <label>{{info.scientific_name.label}}</label>
           </b-col>
           <b-col lg="7">
-              <b-form-select v-model="info.scientific_name.selected" @change="fillCommon($event)" :options="info.scientific_name.options"></b-form-select>
+            <!--   -->
+              <multiselect v-model="info.scientific_name.selected"
+                           :options="info.scientific_name.options" :custom-label="customLabel" :multiple="true"
+              :close-on-select="false" :clear-on-select="false" :preserve-search="true" @select="fillCommon($event)"
+              @remove="remove($event)"
+              ></multiselect>
           </b-col>
           <b-col lg="2">
             <b-btn @click="addBySelection(info.scientific_name.selected)" variant="primary">add</b-btn>
@@ -27,82 +32,120 @@
         </b-row>
         <hr>
         <h5>Add manually</h5>
-        <b-row>
-          <b-col lg="3">
-            <label>{{info.scientific_name.label}}</label>
-          </b-col>
-          <b-col lg="7">
-              <b-input v-model="info.scientific_name.selected" :options="info.scientific_name.options"></b-input>
-          </b-col>
-          <b-col lg="2">
-            <b-btn  @click="addManually(info.scientific_name.selected, info.common_name.selected)" style="margin-bottom: -3rem" variant="primary">add</b-btn>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col lg="3">
-            <label>{{info.common_name.label}}</label>
-          </b-col>
-          <b-col lg="7">
-              <b-input v-model="info.common_name.selected"></b-input>
-          </b-col>
-        </b-row>
-      </b-card>
 
-      <b-card class="mt-5 mb-5" v-for="(section, section_index) in info.sections">
-        <h3><small>{{section.scientific_name.label}}: </small>{{section.scientific_name.selected}}</h3>
-        <h4><small>{{section.common_name.label}}: </small>{{section.common_name.selected}}</h4>
-        <b-row>
-          <b-col>
-            <b-input-group :prepend="section.mandatory_item.label">
-              <b-form-select v-model="section.mandatory_item.selected" :options="section.mandatory_item.options"></b-form-select>
-            </b-input-group>
-          </b-col>
-        </b-row>
-        <div class="mt-4" v-if="section.mandatory_item.selected === true">
-          <hr>
-           <h6>
-             {{section.depending_on_manadatory.label}}
-           </h6>
-           <div class="mb-2" v-for="field in section.depending_on_manadatory.fields">
-              <b-input-group  v-if="field.type === 'select'" :prepend="field.label">
+        <div v-for="(selval, selkey, selindex) in info.scientific_name.selected" v-if="info.scientific_name.selected.length">
+          <b-row>
+            <b-col lg="3">
+              <label>{{info.scientific_name.label}}</label>
+            </b-col>
+            <b-col lg="7">
+              <b-input v-model="info.scientific_name.selected[selkey]['value']" :options="info.scientific_name.options"
+                       ></b-input>
+            </b-col>
+            <b-col lg="2">
+              <b-btn  @click="addManually(info.scientific_name.selected, info.common_name.selected, selkey)"
+                      style="margin-bottom: -3rem" variant="primary">add</b-btn>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col lg="3">
+              <label>{{info.common_name.label}}</label>
+            </b-col>
+            <b-col lg="7">
+              <b-input v-model="info.common_name.selected[selkey]['value']"></b-input>
+            </b-col>
+          </b-row>
+
+          <b-card class="mt-5 mb-5" v-for="(section, section_index) in info.sections">
+            <h3><small>{{section.scientific_name.label}}: </small>{{section.scientific_name.selected[selkey]['text']}}</h3>
+            <h4><small>{{section.common_name.label}}: </small>{{section.common_name.selected[selkey]['common_name']}}</h4>
+            <b-row>
+              <b-col>
+                <b-input-group :prepend="section.mandatory_item.label">
+                  <b-form-select v-model="section.mandatory_item.selected" :options="section.mandatory_item.options"></b-form-select>
+                </b-input-group>
+              </b-col>
+            </b-row>
+            <div class="mt-4" v-if="section.mandatory_item.selected === true">
+              <hr>
+              <h6>
+                {{section.depending_on_manadatory.label}}
+              </h6>
+              <div class="mb-2" v-for="field in section.depending_on_manadatory.fields">
+                <b-input-group  v-if="field.type === 'select'" :prepend="field.label">
                   <b-form-select :options="field.options" v-model="field.selected">
                   </b-form-select>
-                <b-input-group-append>
-                  <b-btn variant="primary" @click="addCustomField(field)">Add new</b-btn>
-                </b-input-group-append>
-              </b-input-group>
+                  <b-input-group-append>
+                    <b-btn variant="primary" @click="addCustomField(field)">Add new</b-btn>
+                  </b-input-group-append>
+                </b-input-group>
 
-              <b-input-group  v-else :prepend="field.label">
+                <b-input-group  v-else :prepend="field.label">
                   <b-form-file v-model="field.selected"></b-form-file>
-                <b-input-group-append>
-                  <b-btn variant="success">Upload</b-btn>
-                </b-input-group-append>
-              </b-input-group>
-           </div>
-        </div>
-        <b-row class="mt-3" v-if="section.mandatory_item.selected === true">
-          <b-col lg="3">
-            {{section.additional_info.label}}
-          </b-col>
-          <b-col lg='9'>
-              <textarea class="form-control" v-model="section.additional_info.selected"></textarea>
-          </b-col>
-        </b-row>
+                  <b-input-group-append>
+                    <b-btn variant="success">Upload</b-btn>
+                  </b-input-group-append>
+                </b-input-group>
+              </div>
+            </div>
+            <b-row class="mt-3" v-if="section.mandatory_item.selected === true">
+              <b-col lg="3">
+                {{section.additional_info.label}}
+              </b-col>
+              <b-col lg='9'>
+                <textarea class="form-control" v-model="section.additional_info.selected"></textarea>
+              </b-col>
+            </b-row>
 
-      <div v-if="section.mandatory_item.selected === true">
-        <h4>{{section.section.label}}</h4>
-        <div v-for="field in section.section.fields">
-          <div class="checkbox-wrapper" v-if="field.type != 'textarea'" lg="12">
-            <input :id="`${field.name}_${section_index}_${tabId}`" type="checkbox" v-model="field.selected" ></input>
-            <label :for="`${field.name}_${section_index}_${tabId}`">{{field.label}}</label>
-          </div>
-          <b-col lg="12" v-else>
-              <label>{{field.label}}</label>
-              <textarea class="form-control" v-model="field.selected" ></textarea>
-          </b-col>
+            <div v-if="section.mandatory_item.selected === true">
+              <h4>{{section.section.label}}</h4>
+              <div v-for="field in section.section.fields">
+                <div class="checkbox-wrapper" v-if="field.type != 'textarea'" lg="12">
+                  <input :id="`${field.name}_${section_index}_${tabId}`" type="checkbox" v-model="field.selected" ></input>
+                  <label :for="`${field.name}_${section_index}_${tabId}`">{{field.label}}</label>
+                </div>
+                <b-col lg="12" v-else>
+                  <label>{{field.label}}</label>
+                  <textarea class="form-control" v-model="field.selected" ></textarea>
+                </b-col>
+              </div>
+            </div>
+          </b-card>
+
+
         </div>
-      </div>
+
+        <div v-show="info.scientific_name.selected.length === 0">
+          <b-row>
+            <b-col lg="3">
+              <label>{{info.scientific_name.label}}</label>
+            </b-col>
+            <b-col lg="7">
+              <b-input v-model="info.scientific_name.selected" :options="info.scientific_name.options"></b-input>
+              <!--<b-input v-model="info.scientific_name.selected" :options="info.scientific_name.options"></b-input>-->
+              <!--<div v-for="(selval, selkey, selindex) in info.scientific_name.selected">
+                <b-input  v-model="info.scientific_name.selected[selkey].text" :options="info.scientific_name.options"></b-input>
+              </div>-->
+            </b-col>
+            <b-col lg="2">
+              <b-btn  @click="addManually(info.scientific_name.selected, info.common_name.selected)" style="margin-bottom: -3rem" variant="primary">add</b-btn>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col lg="3">
+              <label>{{info.common_name.label}}</label>
+            </b-col>
+
+            <b-col lg="7">
+              <b-input v-model="info.common_name.selected"></b-input>
+            </b-col>
+          </b-row>
+        </div>
+
+
       </b-card>
+
+
 
       </div>
   </div>
@@ -112,11 +155,11 @@
 <script>
 
 import {slugify} from '../utils.js';
-import speciesB from '../assets/speciesB.js'
+import speciesB from '../assets/speciesB.js';
+import FieldGenerator from "./fieldGenerator";
 
 export default {
-
-
+  components: {FieldGenerator},
   props: {
     info: null,
     tabId:null
@@ -135,8 +178,8 @@ export default {
 
     addBySelection(sci_name) {
       for(let specie of speciesB) {
-        if(specie.speciesNameLegis === sci_name) {
-          this.addSpecies(specie.speciesNameLegis, specie.common_name)
+        if(specie.speciesNameLegis === sci_name.text) {
+          this.addSpecies(specie.speciesNameLegis, specie.common_name);
           break;
         }
       }
@@ -144,15 +187,23 @@ export default {
 
     fillCommon(sci_name){
       for(let specie of speciesB) {
-        if(sci_name === specie.scientific_name) {
-          this.info.common_name.selected = specie.common_name
+        if(sci_name.value === specie.speciesNameLegis) {
+          this.info.common_name.selected.push(specie);
+          break;
+        }
+      }
+    },
+    remove(sci_name){
+      for(let specie of this.info.scientific_name.selected) {
+        if(sci_name.value === specie.value) {
+          this.info.scientific_name.selected.splice(this.info.scientific_name.selected.indexOf(specie),1);
+          this.info.common_name.selected.splice(this.info.common_name.selected.indexOf(specie),1);
         }
       }
     },
 
-
-    addManually(sci_name, com_name) {
-      this.addSpecies(sci_name, com_name)
+    addManually(sci_name, com_name, key) {
+      this.addSpecies(sci_name[key], com_name[key]);
     },
 
     addSpecies(sci_name, com_name){
@@ -354,6 +405,10 @@ export default {
 
       this.info.sections.push(tab_1_section)
 
+    },
+
+    customLabel({country, text, value}){
+      return `${text}`
     },
   },
 }

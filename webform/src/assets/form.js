@@ -662,7 +662,7 @@ var form = {
         label: 'Species scientific name ',
         options: [],
         type: 'multiselect',
-        selected: ''
+        selected: []
       },
       common_name: {
         name: "common_name",
@@ -670,7 +670,7 @@ var form = {
         options: '',
         type: 'text',
         disabled: true,
-        selected: ''
+        selected: []
       },
       species_code: {
         label: "EASIN identifier",
