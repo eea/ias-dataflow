@@ -28,7 +28,7 @@
             <!--  @select="fillCommon($event)" :custom-label="customLabel" @remove="remove($event)"-->
               <multiselect v-model="value" :options="info.scientific_name.options"  :multiple="true"
               :close-on-select="false" :clear-on-select="false" :preserve-search="true" track-by="text"
-              @select="fillCommon($event)" :custom-label="customLabel" @remove="remove($event)"
+              @select="fillCommon($event)" :custom-label="customLabel" @remove="remove($event)" @input="updateSelected(value, id)"
               >
                 <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span></template>
               </multiselect>
@@ -210,32 +210,19 @@ export default {
       }
     },
     remove(sci_name){
-      /*for(let specie of this.info.scientific_name.selected) {
-        console.log(specie);
-        if("undefined" !== typeof specie.value && "undefined" !== typeof sci_name.value){
-          if(sci_name.value === specie.value) {
-            //this.info.scientific_name.selected.splice(this.info.scientific_name.selected.indexOf(specie),1);
-            //this.info.common_name.selected.splice(this.info.common_name.selected.indexOf(specie),1);
-            this.$delete(this.info.scientific_name.selected, this.info.scientific_name.selected.indexOf(specie));
-            this.$delete(this.info.common_name.selected, this.info.common_name.selected.indexOf(specie));
-          }
-        }
-      }*/
+      debugger;
       var vm = this;
-      vm.info.scientific_name.selected = this.value;
-      this.info.scientific_name.selected = this.$data.value;
-      /*this.info.scientific_name.selected.forEach(function (val, ix, arr) {
+
+      //TODO
+      /*this.info.common_name.selected.forEach(function (val, ix, arr) {
         if(sci_name.value === val.value) {
-          vm.$delete(vm.info.scientific_name.selected,ix);
+          vm.$delete(vm.info.common_name.selected, ix);
         }
       });*/
 
-      this.info.common_name.selected.forEach(function (val, ix, arr) {
-        if(sci_name.value === val.value) {
-          vm.$delete(that.info.common_name.selected, ix);
-        }
-      });
-
+    },
+    updateSelected(value, id){
+      this.info.scientific_name.selected = this.value;
     },
 
     addManually(sci_name, com_name, key) {
