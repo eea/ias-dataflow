@@ -35,7 +35,7 @@
           <h5>Add manually</h5>
 
           <!-- for multiselect -->
-          <div v-for="(selval, selkey, selindex) in value" v-if="value.length">
+          <!--<div v-for="(selval, selkey, selindex) in value" v-if="value.length">
             <b-row>
               <b-col lg="3">
                 <label>{{info.scientific_name.label}}</label>
@@ -61,7 +61,7 @@
               </b-col>
             </b-row>
 
-            <!-- v-for="(section, section_index) in info.sections" -->
+            &lt;!&ndash; v-for="(section, section_index) in info.sections" &ndash;&gt;
             <b-card class="mt-5 mb-5" v-if="info.sections[selkey]">
               <h3><small>{{info.scientific_name.label}}: </small>{{ info.sections[selkey].scientific_name.selected.text }}</h3>
               <h4><small>{{info.common_name.label}}: </small>{{info.sections[selkey].common_name.selected.value}}</h4>
@@ -123,10 +123,10 @@
 
             </b-card>
 
-          </div>
+          </div>-->
 
           <!-- for manual entry -->
-          <div>
+          <div style="margin-bottom: 20px">
             <b-row>
               <b-col lg="3">
                 <label>{{info.scientific_name.label}}</label>
@@ -151,8 +151,8 @@
               </b-col>
             </b-row>
           </div>
-          ###d
-          <hr>
+
+
 
           <div v-if="info.sections" v-for="(selval, selkey, selindex) in info.sections">
 
@@ -333,8 +333,8 @@ export default {
         };
         let selkey = this.info.sections.length;
 
-        //this.$set(this.info.common_name.selected, selkey, com_name );
-        //this.$set(this.info.scientific_name.selected, selkey, sci_name );
+        this.$set(this.info.common_name.selected, selkey, com_name );
+        this.$set(this.info.scientific_name.selected, selkey, sci_name );
 
         this.selected.common_name = '';
         this.selected.sci_name = '';
