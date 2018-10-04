@@ -41,11 +41,14 @@
               <label>{{info.scientific_name.label}}</label>
             </b-col>
             <b-col lg="7">
-              <b-input v-if="value[selkey]['value']" v-model="value[selkey]['value']" :options="info.scientific_name.options"
-                       ></b-input>
+              <b-input v-if="value[selkey]['value']"
+                       v-model="value[selkey]['value']"
+                       :options="info.scientific_name.options"
+                       @change="updateSFName($event, selkey)"
+              ></b-input>
             </b-col>
             <b-col lg="2">
-              <b-btn  @click="addManually(info.scientific_name.selected[selkey], info.common_name.selected[selkey])"
+              <b-btn  @click="addManually(info.scientific_name.selected[selkey], info.common_name.selected[selkey], selkey)"
                       style="margin-bottom: -3rem" variant="primary">add</b-btn>
             </b-col>
           </b-row>
@@ -60,7 +63,7 @@
 
           <!-- v-for="(section, section_index) in info.sections" -->
           <b-card class="mt-5 mb-5" v-if="info.sections[selkey]">
-            <h3><small>{{info.scientific_name.label}}: </small>{{info.sections[selkey].scientific_name.selected.text}}</h3>
+            <h3><small>{{info.scientific_name.label}}: </small>{{ info.sections[selkey].scientific_name.selected.text }}</h3>
             <h4><small>{{info.common_name.label}}: </small>{{info.sections[selkey].common_name.selected.value}}</h4>
 
             <b-row>
@@ -122,17 +125,13 @@
 
         </div>
 
-        <div v-show="info.scientific_name.selected.length === 0">
+        <div v-show="value.length === 0">
           <b-row>
             <b-col lg="3">
               <label>{{info.scientific_name.label}}</label>
             </b-col>
             <b-col lg="7">
               <b-input v-model="info.scientific_name.selected" :options="info.scientific_name.options"></b-input>
-              <!--<b-input v-model="info.scientific_name.selected" :options="info.scientific_name.options"></b-input>-->
-              <!--<div v-for="(selval, selkey, selindex) in info.scientific_name.selected">
-                <b-input  v-model="info.scientific_name.selected[selkey].text" :options="info.scientific_name.options"></b-input>
-              </div>-->
             </b-col>
             <b-col lg="2">
               <b-btn  @click="addManually(info.scientific_name.selected, info.common_name.selected)" style="margin-bottom: -3rem" variant="primary">add</b-btn>
@@ -178,7 +177,6 @@ export default {
       value: this.info.scientific_name.selected,
     }
   },
-
   methods: {
     titleSlugify(text) {
       return slugify(text)
@@ -202,23 +200,37 @@ export default {
       }
     },
     remove(sci_name){
-      var vm = this;
+      let vm = this;
 
       this.info.common_name.selected.forEach(function (val, ix) {
         if(sci_name.value === val.speciesNameLegis) {
           vm.$delete(vm.info.common_name.selected, ix);
+          vm.$delete(vm.info.sections, ix);
+          vm.forceUpdate();
         }
       });
+
     },
     updateSelected(){
       this.info.scientific_name.selected = this.value;
     },
 
-    addManually(sci_name, com_name) {
-      this.addSpecies( sci_name, com_name);
+    addManually(sci_name, com_name, selkey) {
+      if(selkey){
+        this.addSpecies( sci_name, com_name, selkey);
+      } else {
+        this.addSpecies( sci_name, com_name);
+      }
+
+    },
+    updateSFName(val, selkey){
+      if( this.info.sections[selkey]){
+        this.info.sections[selkey].scientific_name.selected.value = val;
+        this.info.sections[selkey].scientific_name.selected.text = val;
+      }
     },
 
-    addSpecies(sci_name, com_name){
+    addSpecies(sci_name, com_name,selkey){
       let tab_1_section = {
         scientific_name: {
           label: 'Species scientific name',
@@ -415,7 +427,13 @@ export default {
         }
       };
 
-      this.info.sections.push(tab_1_section);
+      if(selkey){
+        this.$set(this.info.sections, selkey, tab_1_section);
+      } else {
+        this.info.sections.push(tab_1_section);
+        this.forceUpdate();
+      }
+
     },
 
     customLabel({country, text, value}){
