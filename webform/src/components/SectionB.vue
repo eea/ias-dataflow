@@ -29,7 +29,7 @@
 
           </b-col>
           <b-col lg="2">
-            <b-btn @click="addBySelection(info.scientific_name.selected)" variant="primary">add</b-btn>
+            <b-btn @click="addBySelection()" variant="primary">add</b-btn>
           </b-col>
         </b-row>
         <hr>
@@ -131,10 +131,11 @@
               <label>{{info.scientific_name.label}}</label>
             </b-col>
             <b-col lg="7">
-              <b-input v-model="info.scientific_name.selected" :options="info.scientific_name.options"></b-input>
+              <b-input v-model="selected['value']" :options="info.scientific_name.options"></b-input>
             </b-col>
             <b-col lg="2">
-              <b-btn  @click="addManually(info.scientific_name.selected, info.common_name.selected)" style="margin-bottom: -3rem" variant="primary">add</b-btn>
+              <b-btn  @click="addManually(selected['value'], selected['common_name'])"
+                      style="margin-bottom: -3rem" variant="primary">add</b-btn>
             </b-col>
           </b-row>
           <b-row>
@@ -143,7 +144,7 @@
             </b-col>
 
             <b-col lg="7">
-              <b-input v-model="info.common_name.selected"></b-input>
+              <b-input v-model="selected['common_name']"></b-input>
             </b-col>
           </b-row>
         </div>
@@ -175,6 +176,11 @@ export default {
   data () {
     return {
       value: this.info.scientific_name.selected,
+      selected: {
+        value: '',
+        text: '',
+        common_name: '',
+      },
     }
   },
   methods: {
@@ -182,13 +188,13 @@ export default {
       return slugify(text)
     },
 
-    addBySelection(sci_name) {
-      for(let specie of speciesB) {
-        if(specie.speciesNameLegis === sci_name.text) {
-          this.addSpecies(specie.speciesNameLegis, specie.common_name);
-          break;
-        }
-      }
+    addBySelection() {
+      var vm = this;
+
+      this.info.scientific_name.selected.forEach(function (item, ix) {
+        vm.addSpecies( vm.info.scientific_name.selected[ix], vm.info.common_name.selected[ix], ix);
+      });
+
     },
 
     fillCommon(sci_name){
@@ -206,7 +212,7 @@ export default {
         if(sci_name.value === val.speciesNameLegis) {
           vm.$delete(vm.info.common_name.selected, ix);
           vm.$delete(vm.info.sections, ix);
-          vm.forceUpdate();
+          vm.$forceUpdate();
         }
       });
 
@@ -219,7 +225,8 @@ export default {
       if(selkey){
         this.addSpecies( sci_name, com_name, selkey);
       } else {
-        this.addSpecies( sci_name, com_name);
+        // no multiselect
+        this.addSpecies( sci_name, com_name, 0);
       }
 
     },
@@ -230,7 +237,7 @@ export default {
       }
     },
 
-    addSpecies(sci_name, com_name,selkey){
+    addSpecies(sci_name, com_name, selkey){
       let tab_1_section = {
         scientific_name: {
           label: 'Species scientific name',
@@ -427,12 +434,11 @@ export default {
         }
       };
 
-      if(selkey){
-        this.$set(this.info.sections, selkey, tab_1_section);
-      } else {
-        this.info.sections.push(tab_1_section);
-        this.forceUpdate();
-      }
+      this.$set(this.info.sections, selkey, tab_1_section);
+
+        //this.info.sections.push(tab_1_section);
+        //this.forceUpdate();
+
 
     },
 
