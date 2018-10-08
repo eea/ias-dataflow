@@ -34,98 +34,6 @@
           <hr>
           <h5>Add manually</h5>
 
-          <!-- for multiselect -->
-          <!--<div v-for="(selval, selkey, selindex) in value" v-if="value.length">
-            <b-row>
-              <b-col lg="3">
-                <label>{{info.scientific_name.label}}</label>
-              </b-col>
-              <b-col lg="7">
-                <b-input v-if="value[selkey]['value']"
-                         v-model="value[selkey]['value']"
-                         :options="info.scientific_name.options"
-                         @change="updateSFName($event, selkey)"
-                ></b-input>
-              </b-col>
-              <b-col lg="2">
-                <b-btn  @click="addManually(info.scientific_name.selected[selkey], info.common_name.selected[selkey], selkey)"
-                        style="margin-bottom: -3rem" variant="primary">add</b-btn>
-              </b-col>
-            </b-row>
-            <b-row>
-              <b-col lg="3">
-                <label>{{info.common_name.label}}</label>
-              </b-col>
-              <b-col lg="7">
-                <b-input v-model="info.common_name.selected[selkey]['value']"></b-input>
-              </b-col>
-            </b-row>
-
-            &lt;!&ndash; v-for="(section, section_index) in info.sections" &ndash;&gt;
-            <b-card class="mt-5 mb-5" v-if="info.sections[selkey]">
-              <h3><small>{{info.scientific_name.label}}: </small>{{ info.sections[selkey].scientific_name.selected.text }}</h3>
-              <h4><small>{{info.common_name.label}}: </small>{{info.sections[selkey].common_name.selected.value}}</h4>
-
-              <b-row>
-                <b-col>
-                  <b-input-group :prepend="info.sections[selkey].mandatory_item.label">
-                    <b-form-select v-model="info.sections[selkey].mandatory_item.selected"
-                                   :options="info.sections[selkey].mandatory_item.options"></b-form-select>
-                  </b-input-group>
-                </b-col>
-              </b-row>
-              <div class="mt-4" v-if="info.sections[selkey].mandatory_item.selected === true">
-                <hr>
-                <h6>
-                  {{info.sections[selkey].depending_on_manadatory.label}}
-                </h6>
-                <div class="mt-4" v-if="info.sections[selkey].mandatory_item.selected === true">
-                  <div class="mb-2" v-for="field in info.sections[selkey].depending_on_manadatory.fields">
-                    <b-input-group  v-if="field.type === 'select'" :prepend="field.label">
-                      <b-form-select :options="field.options" v-model="field.selected">
-                      </b-form-select>
-                      <b-input-group-append>
-                        <b-btn variant="primary" @click="addCustomField(field)">Add new</b-btn>
-                      </b-input-group-append>
-                    </b-input-group>
-
-                    <b-input-group  v-else :prepend="field.label">
-                      <b-form-file v-model="field.selected"></b-form-file>
-                      <b-input-group-append>
-                        <b-btn variant="success">Upload</b-btn>
-                      </b-input-group-append>
-                    </b-input-group>
-                  </div>
-                </div>
-              </div>
-              <b-row class="mt-3" v-if="info.sections[selkey].mandatory_item.selected === true">
-                <b-col lg="3">
-                  {{info.sections[selkey].additional_info.label}}
-                </b-col>
-                <b-col lg='9'>
-                  <textarea class="form-control" v-model="info.sections[selkey].additional_info.selected"></textarea>
-                </b-col>
-              </b-row>
-              <div v-if="info.sections[selkey].mandatory_item.selected === true">
-                <h4>{{info.sections[selkey].section.label}}</h4>
-
-                <div v-for="field in info.sections[selkey].section.fields">
-                  <div class="checkbox-wrapper" v-if="field.type !== 'textarea'" lg="12">
-                    <input :id="`${field.name}_${selkey}_${tabId}`" type="checkbox" v-model="field.selected" ></input>
-                    <label :for="`${field.name}_${selkey}_${tabId}`">{{field.label}}</label>
-                  </div>
-                  <b-col lg="12" v-else>
-                    <label>{{field.label}}</label>
-                    <textarea class="form-control" v-model="field.selected" ></textarea>
-                  </b-col>
-                </div>
-              </div>
-
-            </b-card>
-
-          </div>-->
-
-          <!-- for manual entry -->
           <div style="margin-bottom: 50px">
             <b-row>
               <b-col lg="3">
@@ -165,21 +73,20 @@
                   ></b-input>
                 </b-col>
                 <b-col lg="2">
-                  <!--<b-btn  @click="addManually(info.scientific_name.selected[selkey], info.common_name.selected[selkey], selkey)"
-                          style="margin-bottom: -3rem" variant="primary">add</b-btn>-->
                   <b-btn
                     style="margin-bottom: -3rem" variant="danger" @click="removeSection(selkey)"
                   >remove</b-btn>
                 </b-col>
               </b-row>
 
-              <b-row  v-if="info.sections[selkey].common_name.selected.value">
+              <b-row  v-if="info.sections[selkey].common_name.selected.value || info.sections[selkey].common_name.selected.speciesNameLegis">
                 <b-col lg="3">
                   <label>{{info.common_name.label}}</label>
                 </b-col>
 
                 <b-col lg="7">
-                  <b-input v-model="info.sections[selkey].common_name.selected.value" ></b-input>
+                  <b-input v-model="info.sections[selkey].common_name.selected.value"></b-input>
+
                 </b-col>
               </b-row>
 
@@ -211,11 +118,28 @@
                       </b-input-group>
 
                       <b-input-group  v-else :prepend="field.label">
-                        <b-form-file v-model="field.selected"></b-form-file>
+
+                        <b-input-group-prepend>
+                          <!--  && doneUpload[selkey] === false -->
+
+                          <b-badge class="upload-badge" variant="success" v-show="field.selected && fileIsUploading[selkey] === false && doneUpload[selkey] === true">✓ Uploaded</b-badge>
+                          <b-badge class="upload-badge" variant="info" v-show="fileIsUploading[selkey] === true ">Uploading</b-badge>
+                          <b-badge class="upload-badge" variant="danger" v-show="errorUpload[selkey] === true">Error could not upload</b-badge>
+                        </b-input-group-prepend>
+                        <b-form-file v-model="files[selkey]"></b-form-file>
                         <b-input-group-append>
-                          <b-btn variant="success">Upload</b-btn>
+                          <b-btn @click="uploadFormFile(field.selected, field, selkey)" variant="success">Upload</b-btn>
                         </b-input-group-append>
+
                       </b-input-group>
+                      <!--<div v-if="field.type == 'file'">
+                        fileIsUploading: {{ fileIsUploading[selkey] }}
+                        <hr>
+                        doneUpload: {{ doneUpload[selkey] }}
+                        <hr>
+                        errorUpload: {{ errorUpload[selkey] }}
+                      </div>-->
+
                     </div>
                   </div>
                 </div>
@@ -255,6 +179,7 @@ import {slugify} from '../utils.js';
 import speciesB from '../assets/speciesB.js';
 import FieldGenerator from "./fieldGenerator";
 import Multiselect from 'vue-multiselect';
+import {deleteFile, uploadFile, getSupportingFiles, envelope} from '../api.js';
 
 export default {
   components: {FieldGenerator, Multiselect},
@@ -271,6 +196,10 @@ export default {
         text: '',
         common_name: '',
       },
+      files: [],
+      fileIsUploading: [],
+      doneUpload: [],
+      errorUpload: [],
     }
   },
   methods: {
@@ -299,42 +228,23 @@ export default {
       let vm = this;
       let key = null;
       this.info.common_name.selected.forEach(function (val, ix) {
-        //console.log(val.value);
-        //console.log(val.speciesNameLegis);
-        //console.log(vm.info.scientific_name.selected[ix].value);
         if("undefined" !== typeof vm.info.scientific_name.selected[ix]){
           if(sci_name.value === vm.info.scientific_name.selected[ix].value){
-            /*vm.$delete(vm.info.common_name.selected, ix);
-            vm.$delete(vm.info.scientific_name.selected, ix);
-            vm.$delete(vm.info.sections, ix);
-            vm.$delete(vm.value, ix);
-            vm.$forceUpdate();*/
             key = ix;
             return false;
           }
         } else if(sci_name.value === val.speciesNameLegis ) {
-          /*vm.$delete(vm.info.common_name.selected, ix);
-          vm.$delete(vm.info.scientific_name.selected, ix);
-          vm.$delete(vm.info.sections, ix);
-          vm.$delete(vm.value, ix);*/
-          //vm.$forceUpdate();
           key = ix;
           return false;
         }
       });
-
-      //vm.$delete(vm.info.common_name.selected, key);
-      //vm.$delete(vm.info.scientific_name.selected, key);
       vm.$delete(vm.info.sections, key);
       vm.$delete(vm.info.common_name.selected, key);
-
-      //vm.$delete(vm.value, key);
       vm.$forceUpdate();
     },
 
     removeSection(key){
       this.$delete(this.info.sections, key);
-//      this.$delete(this.info.scientific_name.selected, key);
       this.$delete(this.info.common_name.selected, key);
       this.$delete(this.value, key);
       this.$forceUpdate();
@@ -381,6 +291,41 @@ export default {
         this.info.sections[selkey].scientific_name.selected.value = val;
         this.info.sections[selkey].scientific_name.selected.text = val;
       }
+    },
+
+    uploadFormFile(userfile, formfield, selkey){
+      this.fileIsUploading[selkey] = true;
+      this.$forceUpdate();
+
+      let file = new FormData();
+      file.append('userfile', userfile);
+      let vm = this;
+      uploadFile(file).then((response) => {
+        //testing purposes
+        setTimeout(function () {
+
+          vm.doneUpload[selkey] = false;
+          vm.$forceUpdate();
+          getSupportingFiles().then((response) => {
+            vm.files[selkey] = null;
+
+            formfield.selected = envelope + '/' + response.data[response.data.length - 1];
+            vm.fileIsUploading[selkey] = false;
+            vm.doneUpload[selkey] = true;
+            vm.$forceUpdate();
+          }).catch((error) =>{
+            console.error(error);
+            vm.errorUpload[selkey] = true;
+            vm.$forceUpdate();
+          });
+
+        },5000);
+
+      }).catch((error) => {
+        console.error(error);
+        vm.errorUpload[selkey] = true;
+        vm.$forceUpdate();
+      });
     },
 
     addSpecies(sci_name, com_name, selkey){
