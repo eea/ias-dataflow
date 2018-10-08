@@ -126,7 +126,7 @@
           </div>-->
 
           <!-- for manual entry -->
-          <div style="margin-bottom: 20px">
+          <div style="margin-bottom: 50px">
             <b-row>
               <b-col lg="3">
                 <label>{{info.scientific_name.label}}</label>
@@ -151,11 +151,9 @@
               </b-col>
             </b-row>
           </div>
-
-
+          <hr>
 
           <div v-if="info.sections" v-for="(selval, selkey, selindex) in info.sections">
-
               <b-row v-if="info.sections[selkey].scientific_name.selected.text">
                 <b-col lg="3">
                   <label>{{info.scientific_name.label}}</label>
@@ -246,8 +244,6 @@
               </b-card>
             </div>
 
-
-
         </b-card>
     </div>
   </div>
@@ -301,13 +297,47 @@ export default {
     },
     remove(sci_name){
       let vm = this;
+      let key = null;
       this.info.common_name.selected.forEach(function (val, ix) {
-        if(sci_name.value === val.speciesNameLegis) {
-          vm.$delete(vm.info.common_name.selected, ix);
+        //console.log(val.value);
+        //console.log(val.speciesNameLegis);
+        //console.log(vm.info.scientific_name.selected[ix].value);
+        if("undefined" !== typeof vm.info.scientific_name.selected[ix]){
+          if(sci_name.value === vm.info.scientific_name.selected[ix].value){
+            /*vm.$delete(vm.info.common_name.selected, ix);
+            vm.$delete(vm.info.scientific_name.selected, ix);
+            vm.$delete(vm.info.sections, ix);
+            vm.$delete(vm.value, ix);
+            vm.$forceUpdate();*/
+            key = ix;
+            return false;
+          }
+        } else if(sci_name.value === val.speciesNameLegis ) {
+          /*vm.$delete(vm.info.common_name.selected, ix);
+          vm.$delete(vm.info.scientific_name.selected, ix);
           vm.$delete(vm.info.sections, ix);
-          vm.$forceUpdate();
+          vm.$delete(vm.value, ix);*/
+          //vm.$forceUpdate();
+          key = ix;
+          return false;
         }
       });
+
+      //vm.$delete(vm.info.common_name.selected, key);
+      //vm.$delete(vm.info.scientific_name.selected, key);
+      vm.$delete(vm.info.sections, key);
+      vm.$delete(vm.info.common_name.selected, key);
+
+      //vm.$delete(vm.value, key);
+      vm.$forceUpdate();
+    },
+
+    removeSection(key){
+      this.$delete(this.info.sections, key);
+//      this.$delete(this.info.scientific_name.selected, key);
+      this.$delete(this.info.common_name.selected, key);
+      this.$delete(this.value, key);
+      this.$forceUpdate();
     },
 
     updateSelected(){
@@ -351,12 +381,6 @@ export default {
         this.info.sections[selkey].scientific_name.selected.value = val;
         this.info.sections[selkey].scientific_name.selected.text = val;
       }
-    },
-
-    removeSection(selkey){
-      this.$delete(this.info.sections, selkey);
-      this.$delete(this.info.common_name.selected, selkey);
-      this.$delete(this.info.sections, selkey);
     },
 
     addSpecies(sci_name, com_name, selkey){
