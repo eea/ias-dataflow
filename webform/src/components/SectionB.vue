@@ -245,9 +245,10 @@ export default {
     },
 
     addBySelection() {
-      var vm = this;
-      this.info.scientific_name.selected.forEach(function (item, ix) {
-        vm.addSpecies( vm.info.scientific_name.selected[ix], vm.info.common_name.selected[ix], ix);
+      this.info.scientific_name.selected.forEach((item, ix) => {
+        if(!this.info.sections[ix]){
+          this.addSpecies( this.info.scientific_name.selected[ix], this.info.common_name.selected[ix], ix);
+        }
       });
     },
 
@@ -334,27 +335,21 @@ export default {
 
       let file = new FormData();
       file.append('userfile', userfile);
-      let vm = this;
+      let self = this;
       uploadFile(file).then((response) => {
-        //testing purposes
-        setTimeout(function () {
-
-          vm.doneUpload[selkey] = false;
-          vm.$forceUpdate();
-          getSupportingFiles().then((response) => {
-            vm.files[selkey] = null;
-
-            formfield.selected = envelope + '/' + response.data[response.data.length - 1];
-            vm.fileIsUploading[selkey] = false;
-            vm.doneUpload[selkey] = true;
-            vm.$forceUpdate();
-          }).catch((error) =>{
-            console.error(error);
-            vm.errorUpload[selkey] = true;
-            vm.$forceUpdate();
-          });
-
-        },5000);
+        self.doneUpload[selkey] = false;
+        self.$forceUpdate();
+        getSupportingFiles().then((response) => {
+          self.files[selkey] = null;
+          formfield.selected = envelope + '/' + response.data[response.data.length - 1];
+          self.fileIsUploading[selkey] = false;
+          self.doneUpload[selkey] = true;
+          self.$forceUpdate();
+        }).catch((error) =>{
+          console.error(error);
+          self.errorUpload[selkey] = true;
+          self.$forceUpdate();
+        });
 
       }).catch((error) => {
         console.error(error);
@@ -369,7 +364,7 @@ export default {
       deleteFile(finalId).then((response) => {
         field.selected = null;
       }).catch((error) => {
-        console.log(error)
+        console.log(error);
       })
 
     },
