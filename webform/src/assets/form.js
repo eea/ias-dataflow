@@ -120,7 +120,7 @@ let tab_1_section = {
   },
   tables: {
     table_1: {
-      label: 'Information on the permits issued for this species To be completed only for invasive alien species of Union concern',
+      label: 'Information on the permits issued for this species to be completed only for invasive alien species of Union concern',
       question: {
         label: 'Have permits been issued for this species during the reporting period? ',
         type: 'select',
@@ -213,7 +213,7 @@ let tab_1_section = {
           },
         },
         {
-          label: 'Information on inspections To be completed only for invasive alien species of Union concern and if the answer to question 6 above is ‘Yes’',
+          label: 'Information on inspections to be completed only for invasive alien species of Union concern and if the answer to question 6 above is ‘Yes’',
           field: {
             label: 'Calendar year concerned',
             name: 'year',
