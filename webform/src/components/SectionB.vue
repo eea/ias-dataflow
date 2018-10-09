@@ -108,7 +108,9 @@
                     {{info.sections[selkey].depending_on_manadatory.label}}
                   </h6>
                   <div class="mt-4" v-if="info.sections[selkey].mandatory_item.selected === true">
+
                     <div class="mb-2" v-for="field in info.sections[selkey].depending_on_manadatory.fields">
+
                       <b-input-group  v-if="field.type === 'select'" :prepend="field.label">
                         <b-form-select :options="field.options" v-model="field.selected">
                         </b-form-select>
@@ -122,27 +124,30 @@
                         <b-input-group-prepend>
                           <!--  && doneUpload[selkey] === false -->
 
-                          <b-badge class="upload-badge" variant="success" v-show="field.selected && fileIsUploading[selkey] === false && doneUpload[selkey] === true">✓ Uploaded</b-badge>
-                          <b-badge class="upload-badge" variant="info" v-show="fileIsUploading[selkey] === true ">Uploading</b-badge>
-                          <b-badge class="upload-badge" variant="danger" v-show="errorUpload[selkey] === true">Error could not upload</b-badge>
+                          <b-badge class="upload-badge" variant="success" v-show="field.selected && fileIsUploading[selkey] === false && doneUpload[selkey] === true"
+                          style="line-height: 3;"
+                          >✓ Uploaded</b-badge>
+                          <b-badge class="upload-badge" variant="info" v-show="fileIsUploading[selkey] === true "
+                                   style="line-height: 3;" >Uploading</b-badge>
+                          <b-badge class="upload-badge" variant="danger" v-show="errorUpload[selkey] === true"
+                                   style="line-height: 3;">Error could not upload</b-badge>
                         </b-input-group-prepend>
-                        <b-form-file v-model="files[selkey]"></b-form-file>
+
+                        <b-form-file v-model="files[selkey]" :state="Boolean(files[selkey])" ></b-form-file>
                         <b-input-group-append>
                           <b-btn @click="uploadFormFile(field.selected, field, selkey)" variant="success">Upload</b-btn>
                         </b-input-group-append>
 
                       </b-input-group>
-                      <!--<div v-if="field.type == 'file'">
-                        fileIsUploading: {{ fileIsUploading[selkey] }}
-                        <hr>
-                        doneUpload: {{ doneUpload[selkey] }}
-                        <hr>
-                        errorUpload: {{ errorUpload[selkey] }}
-                      </div>-->
+                      <div v-if="field.selected && field.type === 'file'">File uploaded: <a :href="field.selected" blank="_true">{{field.selected}}</a>
+                        <b-badge style="cursor: pointer; margin-left: 0.5rem;margin-bottom: 20px;margin-top: 10px;padding: 0.5rem;"
+                                 variant="danger" @click="deleteFormFile(field.selected, field)">Delete file</b-badge>
+                      </div>
 
                     </div>
                   </div>
                 </div>
+
                 <b-row class="mt-3" v-if="info.sections[selkey].mandatory_item.selected === true">
                   <b-col lg="3">
                     {{info.sections[selkey].additional_info.label}}
@@ -169,6 +174,19 @@
             </div>
 
         </b-card>
+
+        <b-modal hide-footer ref="customFieldModal">
+          <div v-if="customField" slot="modal-title">{{customField.label}}</div>
+          <div v-if="customField">
+            <b-input-group class="mb-3" prepend="Name">
+              <b-form-input v-model="addCustom.text"></b-form-input>
+            </b-input-group>
+            <b-input-group prepend="Code">
+              <b-form-input v-model="addCustom.value"></b-form-input>
+            </b-input-group>
+            <b-btn class="mt-3" variant="outline-primary" @click="saveCustomField" block>Add</b-btn>
+          </div>
+        </b-modal>
     </div>
   </div>
 </template>
@@ -200,20 +218,37 @@ export default {
       fileIsUploading: [],
       doneUpload: [],
       errorUpload: [],
+
+      customField: null,
+      addCustom: {
+        text: null,
+        value: null
+      }
     }
   },
   methods: {
     titleSlugify(text) {
       return slugify(text)
     },
+    addCustomField(field){
+      this.customField = field;
+
+      if("undefined" !== typeof this.$refs.customFieldModal) this.$refs.customFieldModal.show();
+    },
+    saveCustomField(){
+      let addField = JSON.parse(JSON.stringify(this.addCustom));
+      this.customField.options.push(addField);
+      this.customField.selected = addField.value;
+      this.addCustom.text = null;
+      this.addCustom.value = null;
+      this.$refs.customFieldModal.hide();
+    },
 
     addBySelection() {
       var vm = this;
-
       this.info.scientific_name.selected.forEach(function (item, ix) {
         vm.addSpecies( vm.info.scientific_name.selected[ix], vm.info.common_name.selected[ix], ix);
       });
-
     },
 
     fillCommon(sci_name){
@@ -326,6 +361,17 @@ export default {
         vm.errorUpload[selkey] = true;
         vm.$forceUpdate();
       });
+    },
+
+    deleteFormFile(fileId, field){
+      let id = fileId.split('/');
+      let finalId = id[id.length - 1];
+      deleteFile(finalId).then((response) => {
+        field.selected = null;
+      }).catch((error) => {
+        console.log(error)
+      })
+
     },
 
     addSpecies(sci_name, com_name, selkey){

@@ -141,3 +141,27 @@ let testCompanyId = getParameterByName('testCompanyId');
       })
     }
 
+    export function deleteFile(fileName) {
+      if(isTestSession) {
+        return axios({
+          method: "get",
+          withCredentials: true,
+          cache: false,
+          url: "http://localhost:8080/static/files.json"
+        })
+      } else {
+
+        var deleteData = encodeURIComponent(`ids:list=${fileName}&manage_delObjects:method=Delete`)
+
+        return axios({
+          method: 'post',
+          withCredentials: true,
+          cache: false,
+          headers: {'content-type': 'application/x-www-form-urlencoded'},
+          // contentType: "multipart/form-data",
+          url: envelope,
+          data: deleteData
+        })
+      }
+
+    }
