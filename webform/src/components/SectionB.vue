@@ -1,8 +1,9 @@
 <template>
   <div v-if="info">
     <div class="question-wrapper">
-        <h1>{{info.table_label}}</h1>
-        <p>{{info.question}}</p>
+      <h1><center>{{info.question}}</center></h1>
+      <br/>
+      <h3><i><center>{{info.table_label}}</center></i></h3>
         <b-row>
           <b-col>
             <label>{{info.mandatory_item.label}}</label>

@@ -1,12 +1,13 @@
 <template>
   <div v-if="info">
   <div class="question-wrapper">
-      <h1>{{info.table_label}}</h1>
-      <p>{{info.question}}</p>
+    <h1><center>{{info.question}}</center></h1>
+    <br/>
+    <h3><i><center>{{info.table_label}}</center></i></h3>
 
       <b-card class="mt-5 mb-5" v-for="section in info.sections">
         <h4>
-          {{section.scientific_name.selected}}   
+          {{section.scientific_name.selected}}
           <br>
           <small>EASIN identifier: {{section.species_code.selected}}</small>
           <br>
@@ -14,7 +15,7 @@
         </h4>
         <b-row>
           <b-col>
-            <b-input-group :prepend="section.mandatory_item.label">  
+            <b-input-group :prepend="section.mandatory_item.label">
               <b-form-select v-model="section.mandatory_item.selected" :options="section.mandatory_item.options"></b-form-select>
             </b-input-group>
           </b-col>
@@ -22,10 +23,10 @@
         <div class="mt-4" v-if="section.mandatory_item.selected === true">
           <hr>
            <h6>
-             {{section.depending_on_manadatory.label}} 
+             {{section.depending_on_manadatory.label}}
            </h6>
            <div class="mb-2" v-for="field in section.depending_on_manadatory.fields">
-   
+
               <b-input-group  v-if="field.type === 'select'" :prepend="field.label">
                   <b-form-select :options="field.options" v-model="field.selected">
                   </b-form-select>
@@ -41,13 +42,13 @@
                 </b-input-group-append>
               </b-input-group>
 
-           </div> 
+           </div>
         </div>
 
         <b-row class="mt-3" v-if="section.mandatory_item.selected === true">
           <b-col lg="3">
             {{section.additional_info.label}}
-          </b-col> 
+          </b-col>
           <b-col lg='12'>
               <textarea class="form-control" v-model="section.additional_info.selected"></textarea>
           </b-col>
@@ -59,7 +60,7 @@
             <hr>
             <b-row>
               <b-col>
-                <b-input-group :prepend="section.tables.table_1.question.label">  
+                <b-input-group :prepend="section.tables.table_1.question.label">
                   <b-form-select v-model="section.tables.table_1.question.selected" :options="section.tables.table_1.question.options"></b-form-select>
                 </b-input-group>
               </b-col>
@@ -68,7 +69,7 @@
               <h6>{{table_section.label}}</h6>
               <b-row>
                 <b-col>
-                  <b-input-group :prepend="table_section.field.label">  
+                  <b-input-group :prepend="table_section.field.label">
                     <b-form-input v-model="table_section.field.selected" :type="table_section.field.type"></b-form-input>
                   </b-input-group>
                 </b-col>
@@ -103,12 +104,12 @@
         <b-card v-if="section.mandatory_item.selected === true" class="inner-card">
           <div class="card-section">
            <center>
-             <h5>{{section.tables.table_2.label}}</h5> 
+             <h5>{{section.tables.table_2.label}}</h5>
            </center>
             <hr>
             <b-row>
               <b-col>
-                <b-input-group :prepend="section.tables.table_2.question.label">  
+                <b-input-group :prepend="section.tables.table_2.question.label">
                   <b-form-select v-model="section.tables.table_2.question.selected" :options="section.tables.table_2.question.options"></b-form-select>
                 </b-input-group>
               </b-col>
@@ -141,7 +142,7 @@
                           </b-col>
                           <b-col>
                             <fieldGenerator :field="row.inner_field"></fieldGenerator>
-                          </b-col>    
+                          </b-col>
                           <b-col lg="2">
                             <b-btn variant="danger" @click="removeSpecies(sub_section, row)" v-if="sub_section.type === 'add'">Remove</b-btn>
                           </b-col>
@@ -174,7 +175,7 @@
       <b-btn class="mt-3" variant="outline-primary" @click="saveCustomField" block>Add</b-btn>
       </div>
     </b-modal>
-       
+
       </div>
   </div>
 </template>
@@ -214,7 +215,7 @@ export default {
     saveCustomField(){
       let addField = JSON.parse(JSON.stringify(this.addCustom))
 
-      this.customField.options.push(addField); 
+      this.customField.options.push(addField);
       this.customField.selected = addField.value;
       this.addCustom.text = null
       this.addCustom.value = null
@@ -232,7 +233,7 @@ export default {
                     type: 'text',
                     selected: '',
                     name: 'impact_per_species',
-                  }  
+                  }
                 }
       field.fields.push(empty_field)
     },

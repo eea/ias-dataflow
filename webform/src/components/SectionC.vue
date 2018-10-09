@@ -1,13 +1,7 @@
 <template>
   <div v-if="info">
   <div class="question-wrapper">
-      <h1>{{info.label}}</h1>
-      <p>{{info.question}}</p>
-
-<!--       <pre>
-        {{info}}
-      </pre> -->
-
+    <h1><center>{{info.question}}</center></h1>
       <b-card class="mt-5 mb-5">
       <div v-for="field in info.section.fields">
         <b-col>
@@ -22,7 +16,7 @@
               </b-col>
               <b-col>
                 <b-form-input :type="addField.type" v-model="addField.selected" ></b-form-input>
-              </b-col>  
+              </b-col>
               <b-col>
                 {{addField.inner_field.label}}
               </b-col>
@@ -43,13 +37,13 @@
 
         </b-col>
         <hr>
-    
+
       </div>
 
       </b-card>
-  
 
-       
+
+
       </div>
   </div>
 </template>

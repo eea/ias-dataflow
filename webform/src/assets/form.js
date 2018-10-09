@@ -642,7 +642,7 @@ var form = {
     tab_1: {
       label: 'SECTION A',
       question: 'Information to be submitted for each of the invasive alien species of Union concern and for each invasive alien species of regional concern subject to measures as provided for in Article 11(2) of Regulation (EU) No 1143/2014',
-      table_label: 'Information on the species, its distribution, spread and reproductive patterns ',
+      table_label: 'Information on the species, its distribution, spread and reproductive patterns',
       sections: []
     },
     tab_2: {
