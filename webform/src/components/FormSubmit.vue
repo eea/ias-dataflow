@@ -245,9 +245,6 @@ export default {
         }
       }
 
-      console.log(this.jsonemptyinstance.BC_PEP.measuresdata)
-
-
       let showtab3 = this.dataset.tab_3.data.question.selected;
 
       this.jsonemptyinstance.BC_PEP.pollincidentsInfo = showtab3
