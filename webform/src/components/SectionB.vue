@@ -79,8 +79,7 @@
                   >remove</b-btn>
                 </b-col>
               </b-row>
-
-              <b-row  v-if="info.sections[selkey].common_name.selected.value || info.sections[selkey].common_name.selected.speciesNameLegis">
+              <b-row  >
                 <b-col lg="3">
                   <label>{{info.common_name.label}}</label>
                 </b-col>
