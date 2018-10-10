@@ -7,7 +7,7 @@
     top: 5px;
     right: 85px;" @click="exitForm">Back to envelope</b-btn>
 
-    
+
     <b-alert :show="dismissCountDown"
        variant="success"
        @dismissed="dismissCountDown=0"
@@ -140,76 +140,82 @@ export default {
           }
       }
 
-    let country_tab = this.dataset.country.tables
-
-      for(let table in country_tab) {
-          for (let value of country_tab[table]) {
-            this.jsonemptyinstance.BC_PEP.contacting_party[value.name] = value.selected
-          }
-      }
-
-
-      let tab_1 = this.dataset.tab_1.data;
-      for (let article of tab_1.articles) {
-        for (let article_item of article.article_items){
-          let collection_id = article_item.collection_id || null;
-          let parent_collection_id = article_item.parent_collection_id || null
-          let description = article_item.description
-          let row =  {
-                      "description": description,
-                      "parent_collection_id": parent_collection_id,
-                      "collection_id": collection_id,
-                      "changes": null,
-                      "difficulties": null,
-                      "difficulties_comments": null,
-                      "status":null,
-                      "status_comments": null,
-                  }
-            for(let item of article_item.items) {
-              if(item.type ==='changes') {
-                row.changes = item.selected
-              } else if (item.type === 'status') {
-                row.status = item.selected;
-                row.status_comments = item.comments
-              } else {
-                // row.difficulties = item.selected
-                row.difficulties_comments = item.comments
-                if(item.selected.length){
-                  for(let difficulty of item.selected) {
-                      this.jsonemptyinstance.BC_PEP.measuredata_difficulty.Row.push(
-                          {
-                                    "collection_id": collection_id || null,
-                                    "difficulty": difficulty
-                                }
-                        )
-                  }
-                }
-
-              }
+    let country_tab = this.dataset.country.tables;
+      if(typeof country_tab === "object"){
+        for(let table in country_tab) {
+          if(typeof table === "object"){
+            for (let value of country_tab[table]) {
+              this.jsonemptyinstance.BC_PEP.contacting_party[value.name] = value.selected
             }
-          this.jsonemptyinstance.BC_PEP.measuresdata.Row.push(row)
+          }
         }
       }
 
+      let tab_1 = this.dataset.tab_1.data;
+      if("undefined" !== typeof tab_1){
+        for (let article of tab_1.articles) {
+          if("undefined" !== typeof article.article_items){
+            for (let article_item of article.article_items){
+              let collection_id = article_item.collection_id || null;
+              let parent_collection_id = article_item.parent_collection_id || null
+              let description = article_item.description
+              let row =  {
+                "description": description,
+                "parent_collection_id": parent_collection_id,
+                "collection_id": collection_id,
+                "changes": null,
+                "difficulties": null,
+                "difficulties_comments": null,
+                "status":null,
+                "status_comments": null,
+              }
+              for(let item of article_item.items) {
+                if(item.type ==='changes') {
+                  row.changes = item.selected
+                } else if (item.type === 'status') {
+                  row.status = item.selected;
+                  row.status_comments = item.comments
+                } else {
+                  // row.difficulties = item.selected
+                  row.difficulties_comments = item.comments
+                  if(item.selected.length){
+                    for(let difficulty of item.selected) {
+                      this.jsonemptyinstance.BC_PEP.measuredata_difficulty.Row.push(
+                        {
+                          "collection_id": collection_id || null,
+                          "difficulty": difficulty
+                        }
+                      )
+                    }
+                  }
 
+                }
+              }
+              this.jsonemptyinstance.BC_PEP.measuresdata.Row.push(row)
+            }
+          }
+
+        }
+      }
 
       let tab_2 = this.dataset.tab_2.data;
-      for (let article of tab_2.articles) {
-        for (let article_item of article.article_items){
-          let collection_id = article_item.collection_id || null;
-          let parent_collection_id = article_item.parent_collection_id || null
-          let description = article_item.description
-          let row =  {
-                      "description": description,
-                      "parent_collection_id": parent_collection_id,
-                      "collection_id": collection_id,
-                      "changes": null,
-                      "difficulties": null,
-                      "difficulties_comments": null,
-                      "status":null,
-                      "status_comments": null,
-                      "contingency_plan":null,
-                  }
+      if("undefined" !== typeof tab_1){
+        for (let article of tab_2.articles) {
+          for (let article_item of article.article_items){
+            let collection_id = article_item.collection_id || null;
+            let parent_collection_id = article_item.parent_collection_id || null
+            let description = article_item.description
+            let row =  {
+              "description": description,
+              "parent_collection_id": parent_collection_id,
+              "collection_id": collection_id,
+              "changes": null,
+              "difficulties": null,
+              "difficulties_comments": null,
+              "status":null,
+              "status_comments": null,
+              "contingency_plan":null,
+            }
             for(let item of article_item.items) {
               if(item.type ==='changes') {
                 row.changes = item.selected
@@ -223,18 +229,19 @@ export default {
                 row.difficulties_comments = item.comments
                 if(item.selected.length){
                   for(let difficulty of item.selected) {
-                      this.jsonemptyinstance.BC_PEP.measuredata_difficulty.Row.push(
-                          {
-                                    "collection_id": collection_id || null,
-                                    "difficulty": difficulty
-                                }
-                        )
+                    this.jsonemptyinstance.BC_PEP.measuredata_difficulty.Row.push(
+                      {
+                        "collection_id": collection_id || null,
+                        "difficulty": difficulty
+                      }
+                    )
                   }
                 }
 
               }
             }
-          this.jsonemptyinstance.BC_PEP.measuresdata.Row.push(row)
+            this.jsonemptyinstance.BC_PEP.measuresdata.Row.push(row)
+          }
         }
       }
 
@@ -289,7 +296,7 @@ export default {
         this.jsonemptyinstance.BC_PEP.pollincidents.Row.push(row);
 
       }
-      
+
 
       this.jsonemptyinstance.BC_PEP.country = this.country
 
