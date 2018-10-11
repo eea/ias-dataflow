@@ -94,16 +94,34 @@ let testCompanyId = getParameterByName('testCompanyId');
         return fetch(envelope + '/get_fgas_deliveries')
     }
 
-
-
-    export function uploadFile(file) {
+    export function uploadFile(file, progress) {
       if(isTestSession){
-        return axios({
-          method: "get",
-          withCredentials: true,
-          cache: false,
-          url: "http://localhost:8080/static/files.json"
+        // progressEvent simulation
+        let total = 5000;
+        let loaded = 0;
+        let inter = setInterval(()=>{
+          loaded += 1000;
+          if ("undefined" !== typeof progress && progress !== null){
+            progress({
+              loaded: loaded,
+              total: total
+            });
+          }
+          if(loaded === total ) clearInterval(inter);
+        }, 1000);
+
+        // file upload simulation
+        return  new Promise(function(resolve, reject) {
+          window.setTimeout(function() {
+            resolve(axios({
+              method: "get",
+              withCredentials: true,
+              cache: false,
+              url: "http://localhost:8080/static/files.json",
+            }));
+          }, 5100);
         });
+
       } else {
         var uploadUri;
         var domain = getDomain(window.location.href);
@@ -118,7 +136,12 @@ let testCompanyId = getParameterByName('testCompanyId');
           contentType: false,
           processData: false,
           url: uploadUri,
-          data: file
+          data: file,
+          onUploadProgress: function (progressEvent) {
+            if (progressEvent.lengthComputable) {
+              progress(progressEvent);
+            }
+          },
         })
       }
     };

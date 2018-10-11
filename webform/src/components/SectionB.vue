@@ -128,10 +128,7 @@
                         </b-input-group>
 
                         <b-input-group  v-else :prepend="field.label">
-
                           <b-input-group-prepend>
-                            <!--  && doneUpload[selkey] === false -->
-
                             <b-badge class="upload-badge" variant="success" v-show="field.selected && fileIsUploading[selkey] === false && doneUpload[selkey] === true"
                                      style="line-height: 3;"
                             >✓ Uploaded</b-badge>
@@ -141,9 +138,9 @@
                                      style="line-height: 3;">Error could not upload</b-badge>
                           </b-input-group-prepend>
 
-                          <b-form-file v-model="files[selkey]" :state="Boolean(files[selkey])" ></b-form-file>
+                          <b-form-file v-model="files[selkey]" :state="Boolean(files[selkey])" :ref="'fileinput' + selkey"></b-form-file>
                           <b-input-group-append>
-                            <b-btn @click="uploadFormFile(field.selected, field, selkey)" variant="success">Upload</b-btn>
+                            <b-btn @click="uploadFormFile(files[selkey], field, selkey)" variant="success">Upload</b-btn>
                           </b-input-group-append>
 
                         </b-input-group>
@@ -180,8 +177,6 @@
                   </div>
                 </b-collapse>
               </b-card>
-
-
             </div>
 
         </b-card>
@@ -347,11 +342,17 @@ export default {
       let file = new FormData();
       file.append('userfile', userfile);
       let self = this;
+
       uploadFile(file).then((response) => {
         self.doneUpload[selkey] = false;
         self.$forceUpdate();
         getSupportingFiles().then((response) => {
-          self.files[selkey] = null;
+          self.$delete(self.files, selkey);
+
+          if(self.$refs["fileinput" + selkey]){
+            self.$refs["fileinput" + selkey][0].reset();
+          }
+
           formfield.selected = envelope + '/' + response.data[response.data.length - 1];
           self.fileIsUploading[selkey] = false;
           self.doneUpload[selkey] = true;
@@ -374,6 +375,7 @@ export default {
       let finalId = id[id.length - 1];
       deleteFile(finalId).then((response) => {
         field.selected = null;
+
       }).catch((error) => {
         console.log(error);
       })

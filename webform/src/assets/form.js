@@ -687,7 +687,7 @@ var form = {
       question: 'Horizontal information',
       section: {
         fields: [{
-            type: "text",
+            type: "textarea",
             name: "web_link",
             label: "Web link to information on the internet regarding the permits issued as required under Article 8(7) of Regulation (EU) No 1143/2014",
             selected: '',
@@ -696,7 +696,7 @@ var form = {
             type: "file",
             name: "web_link_file",
             label: "File regaring the permits issued as required under Article 8(7) of Regulation (EU) No 1143/2014",
-            selected: '',
+            selected: [],
           },
           {
             type: "textarea",
