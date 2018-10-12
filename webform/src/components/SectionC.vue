@@ -56,7 +56,7 @@
             <div v-if="files[fkey] && counter[fkey] !== max[fkey]">
               <b-row>
                 <b-col>
-                  <h5 v-if="Boolean(files.length)">{{ file.name }}</h5>
+                  <span v-if="Boolean(files.length)">{{ file.name }}</span>
                 </b-col>
               </b-row>
               <b-row>

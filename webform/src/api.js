@@ -97,17 +97,17 @@ let testCompanyId = getParameterByName('testCompanyId');
     export function uploadFile(file, progress) {
       if(isTestSession){
         // progressEvent simulation
-        let total = 5000;
+        let TOTAL = 10000;
         let loaded = 0;
         let inter = setInterval(()=>{
           loaded += 1000;
           if ("undefined" !== typeof progress && progress !== null){
             progress({
               loaded: loaded,
-              total: total
+              total: TOTAL
             });
           }
-          if(loaded === total ) clearInterval(inter);
+          if(loaded === TOTAL ) clearInterval(inter);
         }, 1000);
 
         // file upload simulation
@@ -119,7 +119,7 @@ let testCompanyId = getParameterByName('testCompanyId');
               cache: false,
               url: "http://localhost:8080/static/files.json",
             }));
-          }, 5100);
+          }, TOTAL+100);
         });
 
       } else {

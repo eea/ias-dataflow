@@ -128,22 +128,24 @@
                         </b-input-group>
 
                         <b-input-group  v-else :prepend="field.label">
-                          <b-input-group-prepend>
-                            <b-badge class="upload-badge" variant="success" v-show="field.selected && fileIsUploading[selkey] === false && doneUpload[selkey] === true"
-                                     style="line-height: 3;"
-                            >✓ Uploaded</b-badge>
-                            <b-badge class="upload-badge" variant="info" v-show="fileIsUploading[selkey] === true "
-                                     style="line-height: 3;" >Uploading</b-badge>
-                            <b-badge class="upload-badge" variant="danger" v-show="errorUpload[selkey] === true"
-                                     style="line-height: 3;">Error could not upload</b-badge>
-                          </b-input-group-prepend>
-
                           <b-form-file v-model="files[selkey]" :state="Boolean(files[selkey])" :ref="'fileinput' + selkey"></b-form-file>
                           <b-input-group-append>
                             <b-btn @click="uploadFormFile(files[selkey], field, selkey)" variant="success">Upload</b-btn>
                           </b-input-group-append>
 
                         </b-input-group>
+                        <div v-if="field.type === 'file' && files[selkey] && progress.counter[selkey] !== progress.max[selkey]">
+                          <b-row>
+                            <b-col>
+                              <span v-if="Boolean(files[selkey])">{{ files[selkey].name }}</span>
+                            </b-col>
+                          </b-row>
+                          <b-progress :value="progress.counter[selkey]" :max="progress.max[selkey]" show-progress animated>
+                            <b-progress-bar :value="progress.counter[selkey]">
+                              <strong>{{ progress.counter[selkey] / progress.max[selkey] * 100 + '%' }}</strong>
+                            </b-progress-bar>
+                          </b-progress>
+                        </div>
                         <div v-if="field.selected && field.type === 'file'">File uploaded: <a :href="field.selected" blank="_true">{{field.selected}}</a>
                           <b-badge style="cursor: pointer; margin-left: 0.5rem;margin-bottom: 20px;margin-top: 10px;padding: 0.5rem;"
                                    variant="danger" @click="deleteFormFile(field.selected, field)">Delete file</b-badge>
@@ -230,7 +232,11 @@ export default {
         text: null,
         value: null
       },
-      expanded: []
+      expanded: [],
+      progress: {
+        counter: [],
+        max: [],
+      }
     }
   },
   methods: {
@@ -343,11 +349,18 @@ export default {
       file.append('userfile', userfile);
       let self = this;
 
-      uploadFile(file).then((response) => {
+      uploadFile(file,(uploadProgressEvent) =>{
+        // upload progress updating
+        self.progress.max[selkey] = uploadProgressEvent.total;
+        self.progress.counter[selkey] = uploadProgressEvent.loaded;
+        self.$forceUpdate();
+      }).then((response) => {
         self.doneUpload[selkey] = false;
         self.$forceUpdate();
         getSupportingFiles().then((response) => {
           self.$delete(self.files, selkey);
+          self.$delete(self.progress.counter, selkey);
+          self.$delete(self.progress.max, selkey);
 
           if(self.$refs["fileinput" + selkey]){
             self.$refs["fileinput" + selkey][0].reset();
