@@ -29,59 +29,10 @@
             </b-row>
           </div>
 
-          <b-input-group v-if="field.type === 'file'">
-              <b-input-group-prepend>
-                <!-- v-show="field.selected && fileIsUploading[selkey] === false && doneUpload[selkey] === true" -->
-                <!--<b-badge class="upload-badge" variant="success"
-                         style="line-height: 3;"
-                >✓ Uploaded</b-badge>-->
-                <!-- v-show="fileIsUploading[selkey] === true " -->
-                <!--<b-badge class="upload-badge" variant="info"
-                         style="line-height: 3;" >Uploading</b-badge>-->
-                <!-- v-show="errorUpload[selkey] === true" -->
-                <!--<b-badge class="upload-badge" variant="danger"
-                         style="line-height: 3;">Error could not upload</b-badge>-->
-
-              </b-input-group-prepend>
-
-              <b-form-file v-model="files" :state="Boolean(files)" multiple :ref="'fileinput' + fieldkey"></b-form-file>
-              <b-input-group-append>
-                <b-btn @click="uploadFormFile(files, field, 'fileinput' + fieldkey)" variant="success">Upload</b-btn>
-              </b-input-group-append>
-
-          </b-input-group >
-
-          <div v-show="field.type === 'file' && files.length > 0 "
-               v-for="(file, fkey, findex) in files">
-            <div v-if="files[fkey] && counter[fkey] !== max[fkey]">
-              <b-row>
-                <b-col>
-                  <span v-if="Boolean(files.length)">{{ file.name }}</span>
-                </b-col>
-              </b-row>
-              <b-row>
-                <b-col>
-                  <b-progress :value="counter[fkey]" :max="max[fkey]" show-progress animated>
-
-                    <b-progress-bar :value="counter[fkey]">
-                      <strong>{{ counter[fkey] / max[fkey] * 100 + '%' }}</strong>
-                    </b-progress-bar>
-                  </b-progress>
-                </b-col>
-
-              </b-row>
-
-            </div>
-
-              <br>
+          <div v-if="field.type === 'file'">
+            <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
+                            :multiple=true @form-file-uploaded="addFilesToSelected" @form-file-delete="deleteFormFile"></FormFileUpload>
           </div>
-
-          <div v-if="field.selected && field.type === 'file'" v-for="fileName in field.selected">File uploaded: <a :href="fileName" blank="_true">{{fileName}}</a>
-            <b-badge style="cursor: pointer; margin-left: 0.5rem;margin-bottom: 20px;margin-top: 10px;padding: 0.5rem;"
-                     variant="danger" @click="deleteFormFile(fileName, field)">Delete file</b-badge>
-          </div>
-
-
 
         </b-col>
         <hr>
@@ -100,12 +51,12 @@
 <script>
 
 import {slugify} from '../utils.js';
-import speciesB from '../assets/speciesB.js'
-import {deleteFile, uploadFile, getSupportingFiles, envelope} from '../api.js';
+import speciesB from '../assets/speciesB.js';
+import { getSupportingFiles, envelope} from '../api.js';
+import FormFileUpload from "./FormFileUpload";
 
 export default {
-
-
+  components: {FormFileUpload},
   props: {
     info: null,
     tabId:null
@@ -113,7 +64,7 @@ export default {
 
   data () {
     return {
-      files: [],
+      //files: [],
       fileIsUploading: [],
       doneUpload: [],
       errorUpload: [],
@@ -148,82 +99,19 @@ export default {
       parent.fields.splice(parent.fields.indexOf(field), 1)
     },
 
-    processFile(fileData, index, formfield, fileinputref){
+    addFilesToSelected(fieldkey,index,field){
       let self = this;
-      self.fileIsUploading[index] = true;
-
-      self.$forceUpdate();
-
-      let file = new FormData();
-      file.append('file', fileData);
-
-      uploadFile(file, (uploadProgressEvent) =>{
-        // upload progress updating
-        self.max[index] = uploadProgressEvent.total;
-        self.counter[index] = uploadProgressEvent.loaded;
+      getSupportingFiles().then((response) => {
+        self.$set(field.selected, index, envelope + '/' + response.data[response.data.length - 1]);
         self.$forceUpdate();
-      }).then((response)=>{
-        self.doneUpload[index] = false;
-        self.$forceUpdate();
-        getSupportingFiles().then((response) => {
-          //self.$set(self.files, index, null);
-          self.files.splice(index, 1);
-          self.$delete(self.counter, index);
-          self.$delete(self.max, index);
-
-          formfield.selected[index] = envelope + '/' + response.data[response.data.length - 1];
-
-          self.fileIsUploading[index] = false;
-          self.doneUpload[index] = true;
-          self.$forceUpdate();
-
-          let remainstobeUploaded = self.fileIsUploading.filter((val,i)=>{
-            return val !== false;
-          });
-          if(remainstobeUploaded.length === 0){
-            self.fileIsUploading = [];
-          }
-          let doneUpload =  self.fileIsUploading.filter((val,i)=>{
-            return val === false;
-          });
-          if(doneUpload.length === 0){
-            if(self.$refs[fileinputref]){
-              self.$refs[fileinputref][0].reset();
-            }
-            self.doneUpload = [];
-          }
-
-        }).catch((error) =>{
-          console.error(error);
-          self.errorUpload[index] = true;
-          self.$forceUpdate();
-        });
-      }).catch((error)=>{
+      }).catch((error) =>{
         console.error(error);
-        self.errorUpload[index] = true;
-        self.$forceUpdate();
       });
+
     },
 
-    uploadFormFile(userfiles, formfield, fileinputref){
-      let self = this;
-      userfiles.forEach((fileData, ix) => {
-        //console.log(fileData);
-        self.processFile(fileData, ix, formfield, fileinputref);
-      });
-    },
-
-    deleteFormFile(fileId, field){
-      let id = fileId.split('/');
-      let finalId = id[id.length - 1];
-      let found = field.selected.length > 0 ? field.selected.indexOf(fileId) : -1;
-
-      deleteFile(finalId).then((response) => {
-        if(found !== -1) field.selected.splice(found, 1);
-      }).catch((error) => {
-        console.log(error);
-      })
-
+    deleteFormFile(found, fieldkey){
+        this.info.section.fields[fieldkey].selected.splice(found, 1);
     },
   },
 }

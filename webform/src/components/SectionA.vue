@@ -32,7 +32,7 @@
             <h6>
               {{section.depending_on_manadatory.label}}
             </h6>
-            <div class="mb-2" v-for="field in section.depending_on_manadatory.fields">
+            <div class="mb-2" v-for="(field,fieldkey,fieldindex) in section.depending_on_manadatory.fields">
 
               <b-input-group  v-if="field.type === 'select'" :prepend="field.label">
                 <b-form-select :options="field.options" v-model="field.selected">
@@ -42,12 +42,10 @@
                 </b-input-group-append>
               </b-input-group>
 
-              <b-input-group  v-else :prepend="field.label">
-                <b-form-file v-model="field.selected"></b-form-file>
-                <b-input-group-append>
-                  <b-btn variant="success">Upload</b-btn>
-                </b-input-group-append>
-              </b-input-group>
+              <div  v-if="field.type === 'file'" :prepend="field.label">
+                <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" @form-file-uploaded="addFilesToSelected"
+                                @form-file-delete="deleteFormFile" :multiple=false></FormFileUpload>
+              </div>
 
             </div>
           </div>
@@ -134,7 +132,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr v-for="row in sub_section.fields">
+                  <tr v-for="(row, rowkey, rowindex) in sub_section.fields">
                     <td style="width: 120px" v-if="row.label">{{row.label}}</td>
                     <td  v-if="sub_section.type != 'add'">
                       <fieldGenerator :field="row"></fieldGenerator>
@@ -142,7 +140,7 @@
                     <td v-else>
                       <b-row>
                         <b-col>
-                          <fieldGenerator :field="row"></fieldGenerator>
+                          <fieldGenerator :field="row" :fieldkey="rowkey"></fieldGenerator>
                         </b-col>
                         <b-col lg="2">
                           <label>{{row.inner_field.label}}</label>
@@ -190,11 +188,13 @@
 <script>
 
 import {slugify} from '../utils.js';
-import fieldGenerator from './fieldGenerator'
+import fieldGenerator from './fieldGenerator';
+import FormFileUpload from "./FormFileUpload";
+import {getSupportingFiles, envelope} from '../api.js';
 
 export default {
 
-  components: {fieldGenerator},
+  components: {fieldGenerator, FormFileUpload},
 
   props: {
     info: null,
@@ -208,7 +208,9 @@ export default {
       addCustom: {
         text: null,
         value: null,
-      }
+      },
+      files: [],
+
     }
   },
 
@@ -217,17 +219,17 @@ export default {
       return slugify(text)
     },
     addCustomField(field){
-      this.customField = field
-      this.$refs.customFieldModal.show()
+      this.customField = field;
+      this.$refs.customFieldModal.show();
     },
     saveCustomField(){
-      let addField = JSON.parse(JSON.stringify(this.addCustom))
+      let addField = JSON.parse(JSON.stringify(this.addCustom));
 
       this.customField.options.push(addField);
       this.customField.selected = addField.value;
-      this.addCustom.text = null
-      this.addCustom.value = null
-      this.$refs.customFieldModal.hide()
+      this.addCustom.text = null;
+      this.addCustom.value = null;
+      this.$refs.customFieldModal.hide();
     },
     addSpecies(field){
       console.log(field)
@@ -248,7 +250,19 @@ export default {
 
     removeSpecies(parent, field){
       parent.fields.splice(parent.fields.indexOf(field), 1)
-    }
+    },
+    addFilesToSelected(fieldkey,index,field){
+      let self = this;
+      getSupportingFiles().then((response) => {
+        field.selected = envelope + '/' + response.data[response.data.length - 1];
+        self.$forceUpdate();
+      }).catch((error) =>{
+        console.error(error);
+      });
+    },
+    deleteFormFile(found, fieldkey, field){
+      field.selected = null;
+    },
   },
 }
 </script>

@@ -8,34 +8,48 @@
 		<b-form-select :disabled="disabled" v-else-if="field.type === 'select'" v-model="field.selected" :options="field.options"></b-form-select>
 		<textarea v-else-if="field.type === 'textarea'" v-model="field.selected"></textarea>
     <div v-else-if="field.type ==='file'">
-        <b-input-group class="mb-2" prepend="Shapefile,Geojson or GML file">
-          <b-form-file  v-model="field.selected"></b-form-file>
-        </b-input-group>
-        <b-input-group prepend="comments">
-          <b-form-input v-model="field.comments"></b-form-input>
-        </b-input-group>
+       <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" :prepend="'Shapefile,Geojson or GML file'"
+                       @form-file-uploaded="addFilesToSelected" @form-file-delete="deleteFormFile" :multiple=false >
+       </FormFileUpload>
     </div>
-    <multiselect  :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" multiple="true" track-by="text" label="text" v-else-if="field.type ==='multiselect'" v-model="field.selected" :options="field.options"></multiselect>
+    <multiselect  :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" :multiple=true track-by="text" label="text" v-else-if="field.type ==='multiselect'" v-model="field.selected" :options="field.options"></multiselect>
 	</div>
 </template>
 
 <script>
+import FormFileUpload from "./FormFileUpload";
+import {getSupportingFiles, envelope} from '../api.js';
 
 export default {
 
   name: 'fieldGenerator',
-  props: {field: Object, disabled: false},
-  created(){
-
+  components: {FormFileUpload},
+  props: {
+    field: Object,
+    fieldkey: Number
   },
-
-  methods: {
+  created(){
 
   },
 
   data () {
     return {
+      disabled: false,
     }
+  },
+  methods: {
+    addFilesToSelected(fieldkey,index,field){
+      let self = this;
+      getSupportingFiles().then((response) => {
+        field.selected = envelope + '/' + response.data[response.data.length - 1];
+        self.$forceUpdate();
+      }).catch((error) =>{
+        console.error(error);
+      });
+    },
+    deleteFormFile(found, fieldkey, field){
+      field.selected = null;
+    },
   }
 }
 </script>

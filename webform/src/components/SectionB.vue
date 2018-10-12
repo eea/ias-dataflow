@@ -94,8 +94,6 @@
                 <div class="panel-heading" @click="(expanded.indexOf(selkey) === -1) && info.sections[selkey].mandatory_item.selected ?
                  expanded.push(selkey) : expanded.splice(expanded.indexOf(selkey), 1)">
                   <h3>
-
-
                     <font-awesome-icon v-bind:icon="expanded.indexOf(selkey) !== -1 ? 'chevron-down' : 'chevron-right'"
                      v-show="info.sections[selkey].mandatory_item.selected !== 1 && info.sections[selkey].mandatory_item.selected !== false"  style="font-size: 60%; margin-right: 1rem;" />
                     <small>{{info.scientific_name.label}}: </small>{{ info.sections[selkey].scientific_name.selected.text }}</h3>
@@ -117,7 +115,7 @@
                     </h6>
                     <div class="mt-4" v-if="info.sections[selkey].mandatory_item.selected === true">
 
-                      <div class="mb-2" v-for="field in info.sections[selkey].depending_on_manadatory.fields">
+                      <div class="mb-2" v-for="(field,fieldkey, fieldindex) in info.sections[selkey].depending_on_manadatory.fields">
 
                         <b-input-group  v-if="field.type === 'select'" :prepend="field.label">
                           <b-form-select :options="field.options" v-model="field.selected">
@@ -127,28 +125,11 @@
                           </b-input-group-append>
                         </b-input-group>
 
-                        <b-input-group  v-else :prepend="field.label">
-                          <b-form-file v-model="files[selkey]" :state="Boolean(files[selkey])" :ref="'fileinput' + selkey"></b-form-file>
-                          <b-input-group-append>
-                            <b-btn @click="uploadFormFile(files[selkey], field, selkey)" variant="success">Upload</b-btn>
-                          </b-input-group-append>
+                        <div v-if="field.type === 'file'">
+                          <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
+                                          @form-file-uploaded="addFilesToSelected" :multiple=false @form-file-delete="deleteFormFile">
 
-                        </b-input-group>
-                        <div v-if="field.type === 'file' && files[selkey] && progress.counter[selkey] !== progress.max[selkey]">
-                          <b-row>
-                            <b-col>
-                              <span v-if="Boolean(files[selkey])">{{ files[selkey].name }}</span>
-                            </b-col>
-                          </b-row>
-                          <b-progress :value="progress.counter[selkey]" :max="progress.max[selkey]" show-progress animated>
-                            <b-progress-bar :value="progress.counter[selkey]">
-                              <strong>{{ progress.counter[selkey] / progress.max[selkey] * 100 + '%' }}</strong>
-                            </b-progress-bar>
-                          </b-progress>
-                        </div>
-                        <div v-if="field.selected && field.type === 'file'">File uploaded: <a :href="field.selected" blank="_true">{{field.selected}}</a>
-                          <b-badge style="cursor: pointer; margin-left: 0.5rem;margin-bottom: 20px;margin-top: 10px;padding: 0.5rem;"
-                                   variant="danger" @click="deleteFormFile(field.selected, field)">Delete file</b-badge>
+                          </FormFileUpload>
                         </div>
 
                       </div>
@@ -205,10 +186,11 @@ import {slugify} from '../utils.js';
 import speciesB from '../assets/speciesB.js';
 import FieldGenerator from "./fieldGenerator";
 import Multiselect from 'vue-multiselect';
-import {deleteFile, uploadFile, getSupportingFiles, envelope} from '../api.js';
+import {getSupportingFiles, envelope} from '../api.js';
+import FormFileUpload from "./FormFileUpload";
 
 export default {
-  components: {FieldGenerator, Multiselect},
+  components: {FieldGenerator, Multiselect, FormFileUpload},
   props: {
     info: null,
     tabId:null
@@ -222,21 +204,12 @@ export default {
         text: '',
         common_name: '',
       },
-      files: [],
-      fileIsUploading: [],
-      doneUpload: [],
-      errorUpload: [],
-
       customField: null,
       addCustom: {
         text: null,
         value: null
       },
       expanded: [],
-      progress: {
-        counter: [],
-        max: [],
-      }
     }
   },
   methods: {
@@ -341,58 +314,18 @@ export default {
       }
     },
 
-    uploadFormFile(userfile, formfield, selkey){
-      this.fileIsUploading[selkey] = true;
-      this.$forceUpdate();
-
-      let file = new FormData();
-      file.append('userfile', userfile);
+    addFilesToSelected(fieldkey,index,field){
       let self = this;
-
-      uploadFile(file,(uploadProgressEvent) =>{
-        // upload progress updating
-        self.progress.max[selkey] = uploadProgressEvent.total;
-        self.progress.counter[selkey] = uploadProgressEvent.loaded;
+      getSupportingFiles().then((response) => {
+        field.selected = envelope + '/' + response.data[response.data.length - 1];
         self.$forceUpdate();
-      }).then((response) => {
-        self.doneUpload[selkey] = false;
-        self.$forceUpdate();
-        getSupportingFiles().then((response) => {
-          self.$delete(self.files, selkey);
-          self.$delete(self.progress.counter, selkey);
-          self.$delete(self.progress.max, selkey);
-
-          if(self.$refs["fileinput" + selkey]){
-            self.$refs["fileinput" + selkey][0].reset();
-          }
-
-          formfield.selected = envelope + '/' + response.data[response.data.length - 1];
-          self.fileIsUploading[selkey] = false;
-          self.doneUpload[selkey] = true;
-          self.$forceUpdate();
-        }).catch((error) =>{
-          console.error(error);
-          self.errorUpload[selkey] = true;
-          self.$forceUpdate();
-        });
-
-      }).catch((error) => {
+      }).catch((error) =>{
         console.error(error);
-        vm.errorUpload[selkey] = true;
-        vm.$forceUpdate();
       });
     },
 
-    deleteFormFile(fileId, field){
-      let id = fileId.split('/');
-      let finalId = id[id.length - 1];
-      deleteFile(finalId).then((response) => {
-        field.selected = null;
-
-      }).catch((error) => {
-        console.log(error);
-      })
-
+    deleteFormFile(found, fieldkey, field){
+      field.selected = null;
     },
 
     addSpecies(sci_name, com_name, selkey){
