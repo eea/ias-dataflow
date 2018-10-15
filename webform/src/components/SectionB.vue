@@ -86,7 +86,7 @@
               </b-col>
 
               <b-col lg="7">
-                <b-input v-model="info.sections[selkey].common_name.selected.value"></b-input>
+                <b-input v-model="info.sections[selkey].common_name.selected.value" @change="updateSectionCommonName($event,selkey)"></b-input>
 
               </b-col>
             </b-row>
@@ -312,6 +312,40 @@ export default {
         this.info.sections[selkey].scientific_name.selected.value = val;
         this.info.sections[selkey].scientific_name.selected.text = val;
       }
+    },
+
+    updateSectionCommonName($event,selkey){
+      //TODO: validation
+      let reg = /(.*?)\[(.*?)\]/;
+      let temp = {
+        "none": []
+      };
+
+      let more = $event.split(";");
+      console.log(more);
+      if(more.length === 0){
+        this.info.sections[selkey].common_name.selected.common_names = $event;
+        return true;
+      }
+
+      more.map((item)=>{
+        let match =  item.trim().match(reg);
+        if(match === null){
+          if("undefined" !== typeof temp["none"]){
+            temp["none"] = [];
+          }
+          temp["none"].push(item);
+          return true;
+        }
+        let country = match[2].toUpperCase();
+
+        if("undefined" === typeof temp[country] ){
+          temp[country] = [];
+        }
+        if("undefined" !== typeof match[1]) temp[country].push( match[1]);
+      });
+      this.info.sections[selkey].common_name.selected.common_names = temp;
+
     },
 
     addFilesToSelected(fieldkey,index,field){
