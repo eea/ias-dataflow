@@ -25,7 +25,6 @@ export default {
 
   name: 'FormSubmit',
 
-
   props: {
     info: null,
     country: null,
@@ -36,7 +35,7 @@ export default {
   },
 
   created() {
-    this.dataset = this.info
+    this.dataset = this.info;
     this.validate()
   },
 
@@ -102,7 +101,6 @@ export default {
     },
 
     doStuff(){
-
       this.jsonemptyinstance = {
           "BC_PEP": {
               "@xmlns": "https://dd.info-rac.org/namespaces/4",
@@ -138,14 +136,14 @@ export default {
               "pollincidents": {Row:[]},
               "pollincidentsInfo": null,
           }
-      }
+      };
 
-    let country_tab = this.dataset.country.tables;
+      let country_tab = this.dataset.country.tables;
       if(typeof country_tab === "object"){
         for(let table in country_tab) {
           if(typeof table === "object"){
             for (let value of country_tab[table]) {
-              this.jsonemptyinstance.BC_PEP.contacting_party[value.name] = value.selected
+              this.jsonemptyinstance.BC_PEP.contacting_party[value.name] = value.selected;
             }
           }
         }
@@ -157,8 +155,8 @@ export default {
           if("undefined" !== typeof article.article_items){
             for (let article_item of article.article_items){
               let collection_id = article_item.collection_id || null;
-              let parent_collection_id = article_item.parent_collection_id || null
-              let description = article_item.description
+              let parent_collection_id = article_item.parent_collection_id || null;
+              let description = article_item.description;
               let row =  {
                 "description": description,
                 "parent_collection_id": parent_collection_id,
@@ -168,16 +166,17 @@ export default {
                 "difficulties_comments": null,
                 "status":null,
                 "status_comments": null,
-              }
+              };
+
               for(let item of article_item.items) {
                 if(item.type ==='changes') {
-                  row.changes = item.selected
+                  row.changes = item.selected;
                 } else if (item.type === 'status') {
                   row.status = item.selected;
-                  row.status_comments = item.comments
+                  row.status_comments = item.comments;
                 } else {
                   // row.difficulties = item.selected
-                  row.difficulties_comments = item.comments
+                  row.difficulties_comments = item.comments;
                   if(item.selected.length){
                     for(let difficulty of item.selected) {
                       this.jsonemptyinstance.BC_PEP.measuredata_difficulty.Row.push(
@@ -185,16 +184,15 @@ export default {
                           "collection_id": collection_id || null,
                           "difficulty": difficulty
                         }
-                      )
+                      );
                     }
                   }
 
                 }
               }
-              this.jsonemptyinstance.BC_PEP.measuresdata.Row.push(row)
+              this.jsonemptyinstance.BC_PEP.measuresdata.Row.push(row);
             }
           }
-
         }
       }
 
@@ -203,8 +201,8 @@ export default {
         for (let article of tab_2.articles) {
           for (let article_item of article.article_items){
             let collection_id = article_item.collection_id || null;
-            let parent_collection_id = article_item.parent_collection_id || null
-            let description = article_item.description
+            let parent_collection_id = article_item.parent_collection_id || null;
+            let description = article_item.description;
             let row =  {
               "description": description,
               "parent_collection_id": parent_collection_id,
@@ -215,18 +213,19 @@ export default {
               "status":null,
               "status_comments": null,
               "contingency_plan":null,
-            }
+            };
+
             for(let item of article_item.items) {
               if(item.type ==='changes') {
-                row.changes = item.selected
+                row.changes = item.selected;
               } else if (item.type === 'status') {
                 row.status = item.selected;
                 row.status_comments = item.comments
               } else if (item.type === 'special') {
-                row.contingency_plan = item.selected
+                row.contingency_plan = item.selected;
               } else {
                 // row.difficulties = item.selected
-                row.difficulties_comments = item.comments
+                row.difficulties_comments = item.comments;
                 if(item.selected.length){
                   for(let difficulty of item.selected) {
                     this.jsonemptyinstance.BC_PEP.measuredata_difficulty.Row.push(
@@ -234,77 +233,73 @@ export default {
                         "collection_id": collection_id || null,
                         "difficulty": difficulty
                       }
-                    )
+                    );
                   }
                 }
-
               }
             }
-            this.jsonemptyinstance.BC_PEP.measuresdata.Row.push(row)
+
+            this.jsonemptyinstance.BC_PEP.measuresdata.Row.push(row);
           }
         }
       }
 
-      let showtab3 = this.dataset.tab_3.data.question.selected;
+      if("undefined" !== typeof this.dataset.tab_3.data){
+        let showtab3 = this.dataset.tab_3.data.question.selected;
 
-      this.jsonemptyinstance.BC_PEP.pollincidentsInfo = showtab3
+        this.jsonemptyinstance.BC_PEP.pollincidentsInfo = showtab3;
+      }
 
       let tab_3 = this.dataset.tab_3.data;
-      for (let article of tab_3.articles) {
-        let collection_id = article.collection_id || null;
-        let parent_collection_id = article.parent_collection_id || null
-        let description = article.description || null
-        let ship_name = article.article_title.value || null
-        let row = {
-          collection_id : collection_id,
-          parent_collection_id: parent_collection_id,
-          description: description,
-          ship_name: ship_name,
-          latitude: null,
-          longitude: null,
-          geo_info: null,
-          country: null,
-          accident: null,
-          accident_comments: null,
-          date: null,
-          pollution: null,
-          pollution_type: null,
-          ship_category: null,
-          ship_category_comments: null,
-          ship_flag: null,
-          offshore_name_id: null,
-          installation_type: null,
-          installation_type_comments: null,
-          oil_name_id: null,
-          oil_type: null,
-          actions: null,
-          actions_taken: null
-        }
-        for (let article_item of article.article_items){
-          // let row = {};
-          // console.log(article_item)
-          if(article_item.name === "accident" || article_item.name === "ship_category" || article_item.name === "installation_type") {
-            row[article_item.name + "_comments"] = article_item.comments
+      if("undefined" !== typeof tab_3){
+        for (let article of tab_3.articles) {
+          let collection_id = article.collection_id || null;
+          let parent_collection_id = article.parent_collection_id || null;
+          let description = article.description || null;
+          let ship_name = article.article_title.value || null;
+          let row = {
+            collection_id : collection_id,
+            parent_collection_id: parent_collection_id,
+            description: description,
+            ship_name: ship_name,
+            latitude: null,
+            longitude: null,
+            geo_info: null,
+            country: null,
+            accident: null,
+            accident_comments: null,
+            date: null,
+            pollution: null,
+            pollution_type: null,
+            ship_category: null,
+            ship_category_comments: null,
+            ship_flag: null,
+            offshore_name_id: null,
+            installation_type: null,
+            installation_type_comments: null,
+            oil_name_id: null,
+            oil_type: null,
+            actions: null,
+            actions_taken: null
+          };
+          for (let article_item of article.article_items){
+            // let row = {};
+            // console.log(article_item)
+            if(article_item.name === "accident" || article_item.name === "ship_category" || article_item.name === "installation_type") {
+              row[article_item.name + "_comments"] = article_item.comments;
+            }
+            row[article_item.name] = article_item.selected;
           }
-          row[article_item.name] = article_item.selected
-
+          this.jsonemptyinstance.BC_PEP.pollincidents.Row.push(row);
         }
-
-        this.jsonemptyinstance.BC_PEP.pollincidents.Row.push(row);
-
       }
 
+      this.jsonemptyinstance.BC_PEP.country = this.country;
 
-      this.jsonemptyinstance.BC_PEP.country = this.country
+      console.log(this.jsonemptyinstance);
 
-
-      console.log(this.jsonemptyinstance)
-
-       saveInstance(this.jsonemptyinstance)
+      saveInstance(this.jsonemptyinstance);
       this.showAlert();
-
-
-
     },
 
     validate() {
