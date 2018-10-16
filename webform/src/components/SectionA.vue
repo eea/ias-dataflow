@@ -232,7 +232,6 @@ export default {
       this.$refs.customFieldModal.hide();
     },
     addSpecies(field){
-      console.log(field)
       let empty_field = {
                   label: 'Impacted non-targeted species',
                   type: 'text',
@@ -244,12 +243,12 @@ export default {
                     selected: '',
                     name: 'impact_per_species',
                   }
-                }
-      field.fields.push(empty_field)
+                };
+      field.fields.push(empty_field);
     },
 
     removeSpecies(parent, field){
-      parent.fields.splice(parent.fields.indexOf(field), 1)
+      parent.fields.splice(parent.fields.indexOf(field), 1);
     },
     addFilesToSelected(fieldkey,index,field){
       let self = this;

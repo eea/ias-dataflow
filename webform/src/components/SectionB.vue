@@ -246,6 +246,7 @@ export default {
         }
       }
     },
+
     remove(sci_name){
       let vm = this;
       let key = null;
@@ -322,7 +323,7 @@ export default {
       };
 
       let more = $event.split(";");
-      console.log(more);
+
       if(more.length === 0){
         this.info.sections[selkey].common_name.selected.common_names = $event;
         return true;
