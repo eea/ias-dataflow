@@ -1,18 +1,21 @@
 <template>
   <div>
+    <b-badge  v-if="errors.items.length > 0" variant="danger">{{ errors.items[0].msg }}</b-badge >
     <b-input-group>
       <b-input-group-prepend>
         <div v-if="prepend" class="input-group-text">{{ prepend }}</div>
         <b-badge class="upload-badge" variant="danger" v-show="Boolean(errorUpload.length)"
                  style="line-height: 3;">Error could not upload</b-badge>
+
       </b-input-group-prepend>
-      <span>{{ errors }}</span>
+
+
       <!-- TODO: validation of file extension : v-validate="'ext:jpeg,jpg'" data-vv-as="field" v-validate="'filesAllowed'" -->
       <b-form-file v-model="files" v-validate="'filesAllowed:'+ filesAllowed" data-vv-as="file" :state="Boolean(files)"
                    :multiple="Boolean(multiple)" :ref="'fileinputref' + fieldkey" key="files-input"
       ></b-form-file>
       <b-input-group-append>
-        <b-btn @click="uploadFormFile(files, field, fieldkey)" variant="success">Upload</b-btn>
+        <b-btn v-show="errors.items.length === 0" @click="uploadFormFile(files, field, fieldkey)" variant="success">Upload</b-btn>
       </b-input-group-append>
 
     </b-input-group >
@@ -158,14 +161,10 @@
         if(userfiles.length === 0) return false;
         if("undefined" !== typeof userfiles.forEach){
           userfiles.forEach((fileData, ix) => {
-            if(self.errors.length === 0){
-              self.processFile(fileData, ix, formfield, fieldkey);
-            }
+            self.processFile(fileData, ix, formfield, fieldkey);
           });
         } else {
-          if(self.errors.length === 0){
             self.processFile(userfiles, 0, formfield, fieldkey);
-          }
         }
 
       },

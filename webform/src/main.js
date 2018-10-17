@@ -45,17 +45,11 @@ let filesAllowed = {
 
       // is array
       if("undefined" !== typeof value.splice){
-        let res = false;
+        let res = [];
         value.forEach((file, ix)=>{
-          if(validateExtension(file, exts)){
-            console.log(true);
-            res = true;
-          } else {
-            console.log(false);
-            res = false;
-          }
+          res.push(validateExtension(file, exts))
         });
-        return res;
+        return res.filter((val)=>{ return !val}).length === 0;
 
       } else if(value instanceof  File){
         return validateExtension(value, exts);

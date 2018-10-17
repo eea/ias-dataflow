@@ -9,7 +9,7 @@
             <label>{{info.mandatory_item.label}}</label>
           </b-col>
           <b-col>
-              <b-form-select v-model="info.mandatory_item.selected" :options="info.mandatory_item.options"></b-form-select>
+              <b-form-select v-model="info.mandatory_item.selected" v-validate="'required'" :options="info.mandatory_item.options"></b-form-select>
           </b-col>
         </b-row>
         <b-card v-if="info.mandatory_item.selected === true" class="fields-add-wrapper">
@@ -63,15 +63,18 @@
           <hr>
 
           <div v-if="info.sections" v-for="(selval, selkey, selindex) in info.sections">
+            <!-- + ':' + 'scientific_name_' + selkey -->
+            <b-badge variant="danger" v-show="errors.has('scientific_name_' + selkey + '.' + 'scientific_name_' + selkey )"
+                     style="line-height: 3;">{{ errors.first('scientific_name_' + selkey + '.' + 'scientific_name_' + selkey ) }}</b-badge>
 
-            <b-row v-if="info.sections[selkey].scientific_name.selected.text">
+            <b-row  > <!-- v-if="info.sections[selkey].scientific_name.selected.text" -->
               <b-col lg="3">
                 <label>{{info.scientific_name.label}}</label>
               </b-col>
               <b-col lg="7">
-                <!--  -->
                 <b-input v-model="info.sections[selkey].scientific_name.selected.text" :options="info.scientific_name.options"
-                         @change="updateSFName($event, selkey)"
+                         @change="updateSFName($event, selkey)" v-validate="'required'" data-vv-as="Scientific name"
+                         v-bind:data-vv-scope="'scientific_name_' + selkey" v-bind:name="'scientific_name_' + selkey"
                 ></b-input>
               </b-col>
               <b-col lg="2">
@@ -86,8 +89,8 @@
               </b-col>
 
               <b-col lg="7">
-                <b-input v-model="info.sections[selkey].common_name.selected.value" @change="updateSectionCommonName($event,selkey)"></b-input>
-
+                <b-input v-model="info.sections[selkey].common_name.selected.value"
+                         @change="updateSectionCommonName($event,selkey)"></b-input>
               </b-col>
             </b-row>
               <b-card class="mt-5 mb-5" v-if="info.sections[selkey]">
@@ -99,10 +102,11 @@
                     <small>{{info.scientific_name.label}}: </small>{{ info.sections[selkey].scientific_name.selected.text }}</h3>
                   <h4><small>{{info.common_name.label}}: </small>{{info.sections[selkey].common_name.selected.value}}</h4>
                   <b-row>
+                    {{ errors.has('mandatory_' + selkey) }}
                     <b-col>
                       <b-input-group :prepend="info.sections[selkey].mandatory_item.label">
-                        <b-form-select v-model="info.sections[selkey].mandatory_item.selected"
-                                       :options="info.sections[selkey].mandatory_item.options"></b-form-select>
+                        <b-form-select v-model="info.sections[selkey].mandatory_item.selected" v-validate="'required'"
+                                       v-bind:data-vv-scope="'mandatory_'+selkey" :options="info.sections[selkey].mandatory_item.options"></b-form-select>
                       </b-input-group>
                     </b-col>
                   </b-row>
