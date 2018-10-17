@@ -126,7 +126,8 @@
                         </b-input-group>
 
                         <div v-if="field.type === 'file'">
-                          <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
+
+                          <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="jpeg,jpg"
                                           @form-file-uploaded="addFilesToSelected" :multiple=false @form-file-delete="deleteFormFile">
 
                           </FormFileUpload>
