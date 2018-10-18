@@ -114,7 +114,6 @@
                   <b-row>
                     <b-col>
                       <b-input-group :prepend="info.sections[selkey].mandatory_item.label">
-
                         <b-form-select v-model="info.sections[selkey].mandatory_item.selected" v-validate="'selectRequired:1'"
                           data-vv-as="Mandatory item" v-bind:key="'mandatory-item-' + selkey" v-bind:data-vv-scope="'mandatory_item_'+ selkey"
                           v-bind:name="'mandatory_item_' + selkey" :options="info.sections[selkey].mandatory_item.options">
@@ -137,7 +136,10 @@
                       <div class="mb-2" v-for="(field,fieldkey, fieldindex) in info.sections[selkey].depending_on_manadatory.fields">
 
                         <b-input-group  v-if="field.type === 'select'" :prepend="field.label">
-                          <b-form-select :options="field.options" v-model="field.selected">
+                          ###{{ field.selected === "" }}
+                          <b-form-select :options="field.options" v-model="field.selected" v-validate="'selectRequired'"
+
+                          >
                           </b-form-select>
                           <b-input-group-append>
                             <b-btn variant="primary" @click="addCustomField(field)">Add new</b-btn>
@@ -590,8 +592,8 @@ export default {
 
     validateForm(){
       this.$validator.validate().then((result)=>{
-        console.log(result);
-        console.log(this.$validator.errors.items);
+        //console.log(result);
+        //console.log(this.$validator.errors.items);
         /*if (result) {
           // do axois or whatever on validate true
           console.log('All is well');

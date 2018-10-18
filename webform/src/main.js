@@ -64,6 +64,10 @@ let selectRequired = {
     return field + " required: yes or no or Unknown";
   },
   validate(value, args) {
+    //if(!value) return false;
+    console.log("#####");
+    console.log(typeof value);
+    console.log("#####");
     if(value.toString() === args[0]){
       return false;
     }
