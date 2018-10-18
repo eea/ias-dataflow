@@ -27,7 +27,6 @@ let filesAllowed = {
       // Returns a message.
       return field + " extension not allowed";
     },
-
     validate(value, args) {
       function validateExtension(file, allowed) {
         let reg = /\.([0-9a-z]+)(?:[\?#]|$)/;
@@ -59,12 +58,27 @@ let filesAllowed = {
     }
 };
 
+/* if select is empty ( args[0] === 1 for example) */
+let selectRequired = {
+  getMessage(field, args) {
+    return field + " required: yes or no or Unknown";
+  },
+  validate(value, args) {
+    if(value.toString() === args[0]){
+      return false;
+    }
+    return true;
+  }
+};
+
+
 // import Promise from './polyfills.js'
 Vue.component('multiselect', Multiselect);
 Vue.use(BootstrapVue);
 Vue.use(VeeValidate);
 
 Validator.extend('filesAllowed', filesAllowed );
+Validator.extend('selectRequired', selectRequired);
 // Vue.config.productionTip = false
 
 new Vue({

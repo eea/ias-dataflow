@@ -1,5 +1,10 @@
 <template>
   <div v-if="info">
+    <b-btn variant="primary" @click="validateForm">Validate</b-btn>
+    <div v-for="er in errors.items">
+      <b-badge variant="danger">{{ er }}</b-badge>
+    </div>
+
     <div class="question-wrapper">
       <h1><center>{{info.question}}</center></h1>
       <br/>
@@ -9,7 +14,7 @@
             <label>{{info.mandatory_item.label}}</label>
           </b-col>
           <b-col>
-              <b-form-select v-model="info.mandatory_item.selected" v-validate="'required'" :options="info.mandatory_item.options"></b-form-select>
+              <b-form-select v-model="info.mandatory_item.selected" :options="info.mandatory_item.options"></b-form-select>
           </b-col>
         </b-row>
         <b-card v-if="info.mandatory_item.selected === true" class="fields-add-wrapper">
@@ -63,11 +68,8 @@
           <hr>
 
           <div v-if="info.sections" v-for="(selval, selkey, selindex) in info.sections">
-            <!-- + ':' + 'scientific_name_' + selkey -->
-            <b-badge variant="danger" v-show="errors.has('scientific_name_' + selkey + '.' + 'scientific_name_' + selkey )"
-                     style="line-height: 3;">{{ errors.first('scientific_name_' + selkey + '.' + 'scientific_name_' + selkey ) }}</b-badge>
 
-            <b-row  > <!-- v-if="info.sections[selkey].scientific_name.selected.text" -->
+            <b-row> <!-- v-if="info.sections[selkey].scientific_name.selected.text" -->
               <b-col lg="3">
                 <label>{{info.scientific_name.label}}</label>
               </b-col>
@@ -76,11 +78,11 @@
                          @change="updateSFName($event, selkey)" v-validate="'required'" data-vv-as="Scientific name"
                          v-bind:data-vv-scope="'scientific_name_' + selkey" v-bind:name="'scientific_name_' + selkey"
                 ></b-input>
+                <b-badge variant="danger" v-show="errors.has('scientific_name_' + selkey + '.' + 'scientific_name_' + selkey )"
+                         style="line-height: 3;">{{ errors.first('scientific_name_' + selkey + '.' + 'scientific_name_' + selkey ) }}</b-badge>
               </b-col>
               <b-col lg="2">
-                <b-btn
-                  style="margin-bottom: -3rem" variant="danger" @click="removeSection(selkey)"
-                >remove</b-btn>
+                <b-btn style="margin-bottom: -3rem" variant="danger" @click="removeSection(selkey)">remove</b-btn>
               </b-col>
             </b-row>
             <b-row  >
@@ -98,19 +100,32 @@
                  expanded.push(selkey) : expanded.splice(expanded.indexOf(selkey), 1)">
                   <h3>
                     <font-awesome-icon v-bind:icon="expanded.indexOf(selkey) !== -1 ? 'chevron-down' : 'chevron-right'"
-                     v-show="info.sections[selkey].mandatory_item.selected !== 1 && info.sections[selkey].mandatory_item.selected !== false"  style="font-size: 60%; margin-right: 1rem;" />
+                     v-show="info.sections[selkey].mandatory_item.selected !== 1 && info.sections[selkey].mandatory_item.selected !== false"
+                    style="font-size: 60%; margin-right: 1rem;" />
                     <small>{{info.scientific_name.label}}: </small>{{ info.sections[selkey].scientific_name.selected.text }}</h3>
                   <h4><small>{{info.common_name.label}}: </small>{{info.sections[selkey].common_name.selected.value}}</h4>
                   <b-row>
-                    {{ errors.has('mandatory_' + selkey) }}
                     <b-col>
-                      <b-input-group :prepend="info.sections[selkey].mandatory_item.label">
-                        <b-form-select v-model="info.sections[selkey].mandatory_item.selected" v-validate="'required'"
-                                       v-bind:data-vv-scope="'mandatory_'+selkey" :options="info.sections[selkey].mandatory_item.options"></b-form-select>
-                      </b-input-group>
+                      <b-badge variant="danger" v-if="errors.has('mandatory_item_'+ selkey + '.mandatory_item_' + selkey)">
+                        {{ errors.first('mandatory_item_'+ selkey + '.mandatory_item_' + selkey) }}
+                      </b-badge>
                     </b-col>
                   </b-row>
+                  <b-row>
+                    <b-col>
+                      <b-input-group :prepend="info.sections[selkey].mandatory_item.label">
+
+                        <b-form-select v-model="info.sections[selkey].mandatory_item.selected" v-validate="'selectRequired:1'"
+                          data-vv-as="Mandatory item" v-bind:key="'mandatory-item-' + selkey" v-bind:data-vv-scope="'mandatory_item_'+ selkey"
+                          v-bind:name="'mandatory_item_' + selkey" :options="info.sections[selkey].mandatory_item.options">
+                        </b-form-select>
+                      </b-input-group>
+                    </b-col>
+
+                  </b-row>
                 </div>
+                <!--<div>{{ errors }}</div>-->
+
                 <b-collapse :id="'collapse' + selkey" :visible="expanded.indexOf(selkey) !== -1">
                 <div class="mt-4" v-if="info.sections[selkey].mandatory_item.selected === true">
                     <hr>
@@ -572,6 +587,22 @@ export default {
     customLabel({country, text, value}){
       return `${text}`
     },
+
+    validateForm(){
+      this.$validator.validate().then((result)=>{
+        console.log(result);
+        console.log(this.$validator.errors.items);
+        /*if (result) {
+          // do axois or whatever on validate true
+          console.log('All is well');
+          return;
+        }
+        if(!result){
+          console.log('Oops!');
+          console.log(this.errors);
+        }*/
+      });
+    }
   }
 
 }

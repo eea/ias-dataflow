@@ -1,6 +1,8 @@
 <template>
   <div>
-    <b-badge  v-if="errors.items.length > 0" variant="danger">{{ errors.items[0].msg }}</b-badge >
+    <b-badge  v-if="errors.has('files-input-' + fieldkey + '.' +'files-input-' + fieldkey )" variant="danger">
+      {{ errors.first('files-input-' + fieldkey + "." +'files-input-' + fieldkey ) }}
+    </b-badge >
     <b-input-group>
       <b-input-group-prepend>
         <div v-if="prepend" class="input-group-text">{{ prepend }}</div>
@@ -8,11 +10,11 @@
                  style="line-height: 3;">Error could not upload</b-badge>
 
       </b-input-group-prepend>
-
-
       <!-- TODO: validation of file extension : v-validate="'ext:jpeg,jpg'" data-vv-as="field" v-validate="'filesAllowed'" -->
       <b-form-file v-model="files" v-validate="'filesAllowed:'+ filesAllowed" data-vv-as="file" :state="Boolean(files)"
-                   :multiple="Boolean(multiple)" :ref="'fileinputref' + fieldkey" key="files-input"
+                   :multiple="Boolean(multiple)" :ref="'fileinputref' + fieldkey"
+                   v-bind:name="'files-input-' + fieldkey" v-bind:key="'files-input-' + fieldkey"
+                   v-bind:data-vv-scope="'files-input-' + fieldkey"
       ></b-form-file>
       <b-input-group-append>
         <b-btn v-show="errors.items.length === 0" @click="uploadFormFile(files, field, fieldkey)" variant="success">Upload</b-btn>
