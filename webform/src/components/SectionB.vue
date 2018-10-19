@@ -416,15 +416,15 @@ export default {
           name: 'mandatory_question',
         },
         depending_on_manadatory: {
-          label: 'Distribution of the species, including information on its spread and reproductive patterns (to be completed only if the answer to question 3 above is ‘Yes’',
+          label: 'A distribution map for this species is included in the file which will be uploaded in the \'Distribution map for SECTION B\' field available on \'DISTRIBUTION MAP\' section.',
           index: 4,
           name: 'distribution_of_species',
           fields: [
             {
-              label: 'Distribution maps',
-              type: 'file',
-              name: 'distribution_maps',
-              selected: null,
+              label: 'Tick if yes',
+              type: 'checkbox',
+              name: 'distribution_maps_check',
+              selected: false,
             },
             {
               label: 'Reproduction patterns',
