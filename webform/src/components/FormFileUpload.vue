@@ -68,7 +68,7 @@
 
     <div v-if="field.selected && field.type === 'file'" >
       <div v-if="multiple === true" >
-        <div v-for="fileName in field.selected" >
+        <div v-show="field.selected.length > 0" v-for="fileName in field.selected" >
           File uploaded: <a :href="fileName" blank="_true">{{fileName}}</a>
           <b-badge style="cursor: pointer; margin-left: 0.5rem;margin-bottom: 20px;margin-top: 10px;padding: 0.5rem;"
                    variant="danger" @click="deleteFormFile(fileName, field, fieldkey)">Delete file</b-badge>
@@ -80,11 +80,6 @@
           <b-badge style="cursor: pointer; margin-left: 0.5rem;margin-bottom: 20px;margin-top: 10px;padding: 0.5rem;"
                    variant="danger" @click="deleteFormFile(field.selected, field, fieldkey)">Delete file</b-badge>
         </div>
-      </div>
-      <div v-else>
-        File uploaded: <a :href="field.selected" blank="_true">{{field.selected}}</a>
-        <b-badge style="cursor: pointer; margin-left: 0.5rem;margin-bottom: 20px;margin-top: 10px;padding: 0.5rem;"
-                 variant="danger" @click="deleteFormFile(field.selected, field, fieldkey)">Delete file</b-badge>
       </div>
     </div>
   </div>
