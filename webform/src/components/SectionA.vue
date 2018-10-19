@@ -34,7 +34,7 @@
             </h6>
             <div class="mb-2" v-for="(field,fieldkey) in section.depending_on_manadatory.fields">
 
-              <div v-if="field.type === 'select'">
+              <div v-if="field.type === 'select'" :ref=" field.name + fieldkey">
                 <b-input-group  :prepend="field.label">
                   <b-form-select :options="field.options" v-model="field.selected">
                   </b-form-select>
@@ -45,6 +45,10 @@
                   <b-btn variant="primary" @click="addNewRow(section.depending_on_manadatory.fields, field, fieldkey)"
                          style="margin-top: 0.5rem;margin-bottom: 1rem;"
                     >Add new row</b-btn>
+                  {{ fieldkey }}
+                  <b-btn variant="primary" @click="removeRow(section.depending_on_manadatory.fields, field, fieldkey)"
+                         style="margin-top: 0.5rem;margin-bottom: 1rem;"
+                  >Remove row</b-btn>
                 </div>
               </div>
 
@@ -231,6 +235,12 @@ export default {
       let newrow = JSON.parse(JSON.stringify(field));
       newrow.selected = '';
       fields.splice(fieldkey + 1, 0, newrow );
+    },
+    removeRow(fields, field, fieldkey){
+      let sameF = fields.filter((item) => {return item.name === field.name});
+      //console.log(this.$refs[field.name + fieldkey]);
+      console.log(sameF);
+      //fieldkey !== 0 ? fields.splice(fieldkey, 1 ) : false;
     },
 
     addCustomField(field){
