@@ -1,13 +1,13 @@
 <template>
   <div v-if="info">
     <b-btn variant="primary" @click="validateForm">Validate</b-btn>
-    <div v-for="er in errors.items">
+    <!--<div v-for="er in errors.items">
       <b-badge variant="danger">{{ er }}</b-badge>
     </div>
 
     <div v-for="fiel in fields">
       {{ fiel }}
-    </div>
+    </div>-->
 
     <div class="question-wrapper">
       <h1><center>{{info.question}}</center></h1>
@@ -135,11 +135,10 @@
                     </h6>
                     <div class="mt-4" v-if="info.sections[selkey].mandatory_item.selected === true">
 
-                      <div class="mb-2" v-for="(field, fieldkey, fieldindex) in info.sections[selkey].depending_on_manadatory.fields"
-                      :key="'depending_on_manadatory_' + selkey + '_' + fieldkey" >
+                      <!-- :key="'depending_on_manadatory_' + selkey + '_' + fieldkey" -->
+                      <div class="mb-2" v-for="(field, fieldkey, fieldindex) in info.sections[selkey].depending_on_manadatory.fields">
 
                         <b-input-group  v-if="field.type === 'select'" :prepend="field.label">
-                            ###{{ field.selected }}###
                           <b-form-select :options="field.options" v-model="field.selected"
                              v-validate="'selectRequiredBoolean:bool'"
                              v-bind:name="'depending_on_manadatory_' + selkey + '_' + fieldkey"
