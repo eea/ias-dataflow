@@ -30,8 +30,8 @@
           </div>
 
           <div v-if="field.type === 'file'">
-            <!-- files-allowed="jpeg,jpg" -->
-            <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
+            
+            <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="zip,geojson"
                             :multiple=false @form-file-uploaded="addFilesToSelected" @form-file-delete="deleteFormFile">
             </FormFileUpload>
           </div>
