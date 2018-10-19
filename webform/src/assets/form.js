@@ -14,7 +14,7 @@ let tab_1_section = {
     index: 1,
   },
   common_name: {
-    label: "Common name of the species (optional)",
+    label: "Common name of the species",
     selected: '',
     disabled: true,
     name: 'common_name',
@@ -750,6 +750,24 @@ var form = {
               label: "Additional information (optional)",
               selected: '',
             },
+          ]
+        }
+      },
+      tab_4: {
+        label: 'DISTRIBUTION MAPS',
+        question: 'Lore ipsum help text ...',
+        section: {
+          fields: [{
+              type: "file",
+              name: "section_a_distribution_file",
+              label: "Distribution map for SECTION A",
+              selected: [],
+            },{
+            type: "file",
+            name: "section_b_distribution_file",
+            label: "Distribution map for SECTION B",
+            selected: [],
+          }
           ]
         }
       },
