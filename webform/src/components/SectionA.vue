@@ -32,22 +32,31 @@
             <h6>
               {{section.depending_on_manadatory.label}}
             </h6>
-            <div class="mb-2" v-for="(field,fieldkey,fieldindex) in section.depending_on_manadatory.fields">
+            <div class="mb-2" v-for="(field,fieldkey) in section.depending_on_manadatory.fields">
 
-              <b-input-group  v-if="field.type === 'select'" :prepend="field.label">
-                <b-form-select :options="field.options" v-model="field.selected">
-                </b-form-select>
-                <b-input-group-append>
-                  <b-btn variant="primary" @click="addCustomField(field)">Add new</b-btn>
-                </b-input-group-append>
-              </b-input-group>
+              <div v-if="field.type === 'select'">
+                <b-input-group  :prepend="field.label">
+                  <b-form-select :options="field.options" v-model="field.selected">
+                  </b-form-select>
+                </b-input-group>
 
-              <div  v-if="field.type === 'file'" :prepend="field.label">
-                <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" @form-file-uploaded="addFilesToSelected"
-                                @form-file-delete="deleteFormFile" :multiple=false></FormFileUpload>
+                <div>
+                  <!-- @click="addCustomField(field)"-->
+                  <b-btn variant="primary" @click="addNewRow(section.depending_on_manadatory.fields, field, fieldkey)"
+                         style="margin-top: 0.5rem;margin-bottom: 1rem;"
+                    >Add new row</b-btn>
+                </div>
+              </div>
+
+              <div v-if="field.type === 'file'" :prepend="field.label">
+                <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
+                                @form-file-uploaded="addFilesToSelected"
+                                @form-file-delete="deleteFormFile" :multiple=false>
+                </FormFileUpload>
               </div>
 
             </div>
+
           </div>
 
           <b-row class="mt-3" v-if="section.mandatory_item.selected === true">
@@ -218,6 +227,12 @@ export default {
     titleSlugify(text) {
       return slugify(text)
     },
+    addNewRow(fields, field, fieldkey){
+      let newrow = JSON.parse(JSON.stringify(field));
+      newrow.selected = '';
+      fields.splice(fieldkey + 1, 0, newrow );
+    },
+
     addCustomField(field){
       this.customField = field;
       this.$refs.customFieldModal.show();
@@ -261,7 +276,8 @@ export default {
     },
     deleteFormFile(found, fieldkey, field){
       field.selected = null;
-    },
+    }
+
   },
 }
 </script>
