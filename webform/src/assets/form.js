@@ -753,6 +753,24 @@ var form = {
           ]
         }
       },
+      tab_4: {
+        label: 'DISTRIBUTION MAPS',
+        question: 'Lore ipsum help text ...',
+        section: {
+          fields: [{
+              type: "file",
+              name: "section_a_distribution_file",
+              label: "Distribution map for SECTION A",
+              selected: [],
+            },{
+            type: "file",
+            name: "section_b_distribution_file",
+            label: "Distribution map for SECTION B",
+            selected: [],
+          }
+          ]
+        }
+      },
     }
 
     for (let specie of speciesB) {

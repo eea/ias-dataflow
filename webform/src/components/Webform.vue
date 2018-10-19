@@ -17,10 +17,13 @@
             <b-tab :title="doTitle(form.tab_3.label)" >
               <sectionc tabId="3" :info.sync="form.tab_3"></sectionc>
             </b-tab>
+            <b-tab :title="doTitle(form.tab_4.label)" >
+              <distributionmap tabId="4" :info.sync="form.tab_4"></distributionmap>
+            </b-tab>
           </b-tabs>
         </b-form>
    			<formsubmit :country.sync="country" :info.sync="form"></formsubmit>
-        
+
       </b-card>
       <div v-if="!prefilled" class="spinner">
         <div class="loader"></div>
@@ -36,6 +39,7 @@ import {getInstance, getCountry} from '../api.js';
 import SectionA from './SectionA.vue'
 import SectionB from './SectionB.vue'
 import SectionC from './SectionC.vue'
+import DistributionMap from './DistributionMap.vue'
 import Countrytab from './Country.vue'
 // import incidentJson from '../assets/incident.js';
 
@@ -51,6 +55,7 @@ export default {
     sectiona: SectionA,
     sectionb: SectionB,
     sectionc: SectionC,
+    distributionmap: DistributionMap,
   	formsubmit: FormSubmit,
     countrytab: Countrytab
   },
@@ -83,7 +88,7 @@ export default {
 
     prefill(data){
 
-    
+
       this.prefilled = true;
 
 
