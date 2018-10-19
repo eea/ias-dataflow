@@ -14,7 +14,7 @@ let tab_1_section = {
     index: 1,
   },
   common_name: {
-    label: "Common name of the species (optional)",
+    label: "Common name of the species",
     selected: '',
     disabled: true,
     name: 'common_name',
