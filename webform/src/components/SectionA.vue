@@ -16,7 +16,7 @@
             <br>
           </h4>
           <h4>
-            <small>Common name: {{section.common_name.selected}}</small>
+            <small>{{section.common_name.label}}: {{section.common_name.selected}}</small>
           </h4>
         </div>
         <b-collapse :id="'collapse' + seckey" :visible="expanded.indexOf(seckey) !== -1">
