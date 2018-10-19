@@ -3,7 +3,7 @@
   <div class="question-wrapper">
     <h1><center>{{info.question}}</center></h1>
       <b-card class="mt-5 mb-5">
-      <div v-for="(field,fieldkey,fieldindex ) in info.section.fields">
+      <div v-for="(field, fieldkey, fieldindex ) in info.section.fields">
         <b-col>
           <label>{{field.label}}</label>
           <b-form-input v-if="field.type === 'text'" :type="field.type" v-model="field.selected" ></b-form-input>
@@ -30,8 +30,9 @@
           </div>
 
           <div v-if="field.type === 'file'">
-            <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="jpeg,jpg"
-                            :multiple=true @form-file-uploaded="addFilesToSelected" @form-file-delete="deleteFormFile"></FormFileUpload>
+            <!-- files-allowed="jpeg,jpg" -->
+            <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
+                            :multiple=false @form-file-uploaded="addFilesToSelected" @form-file-delete="deleteFormFile"></FormFileUpload>
           </div>
 
         </b-col>
@@ -99,7 +100,7 @@ export default {
       parent.fields.splice(parent.fields.indexOf(field), 1)
     },
 
-    addFilesToSelected(fieldkey,index,field){
+    addFilesToSelected(fieldkey, index, field){
       let self = this;
       getSupportingFiles().then((response) => {
         self.$set(field.selected, index, envelope + '/' + response.data[response.data.length - 1]);

@@ -74,6 +74,13 @@
                    variant="danger" @click="deleteFormFile(fileName, field, fieldkey)">Delete file</b-badge>
         </div>
       </div>
+      <div v-if="multiple === false" >
+        <div v-show="field.selected.length > 0">
+          File uploaded: <a :href="field.selected[0]" blank="_true">{{field.selected[0]}}</a>
+          <b-badge style="cursor: pointer; margin-left: 0.5rem;margin-bottom: 20px;margin-top: 10px;padding: 0.5rem;"
+                   variant="danger" @click="deleteFormFile(field.selected, field, fieldkey)">Delete file</b-badge>
+        </div>
+      </div>
       <div v-else>
         File uploaded: <a :href="field.selected" blank="_true">{{field.selected}}</a>
         <b-badge style="cursor: pointer; margin-left: 0.5rem;margin-bottom: 20px;margin-top: 10px;padding: 0.5rem;"
@@ -172,16 +179,30 @@
       },
 
       deleteFormFile(fileId, field, fieldkey){
-        let id = fileId.split('/');
-        let finalId = id[id.length - 1];
-        let found = field.selected.length > 0 ? field.selected.indexOf(fileId) : -1;
+        if("undefined" !== typeof fileId.split){
+          let id = fileId.split('/');
+          let finalId = id[id.length - 1];
+          let found = field.selected.length > 0 ? field.selected.indexOf(fileId) : -1;
 
-        deleteFile(finalId).then((response) => {
-          if(found !== -1) this.$emit("form-file-delete",found, fieldkey, field);
-        }).catch((error) => {
-          console.log(error);
-        })
+          deleteFile(finalId).then((response) => {
+            if(found !== -1) this.$emit("form-file-delete",found, fieldkey, field);
+          }).catch((error) => {
+            console.log(error);
+          })
+        } else if(fileId.length > 0) {
+          // is array
+          fileId.forEach((fileID)=>{
+            let id = fileID.split('/');
+            let finalId = id[id.length - 1];
+            let found = field.selected.length > 0 ? field.selected.indexOf(fileID) : -1;
 
+            deleteFile(finalId).then((response) => {
+              if(found !== -1) this.$emit("form-file-delete",found, fieldkey, field);
+            }).catch((error) => {
+              console.log(error);
+            })
+          });
+        }
       },
     }
   }
