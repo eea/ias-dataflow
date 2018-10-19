@@ -59,30 +59,42 @@ let filesAllowed = {
 };
 
 /* if select is empty ( args[0] === 1 for example) */
-let selectRequired = {
+let selectRequiredNumber = {
   getMessage(field, args) {
     return field + " required: yes or no or Unknown";
   },
   validate(value, args) {
-    //if(!value) return false;
-    console.log("#####");
-    console.log(typeof value);
-    console.log("#####");
-    if(value.toString() === args[0]){
-      return false;
+    //console.log(value);
+    if(typeof value === "number"){
+      if(value === args[0]){
+        return false;
+      }
     }
     return true;
   }
 };
 
+let selectRequiredBoolean = {
+  getMessage(field, args) {
+    return field + " required: yes or no or Unknown";
+  },
+  validate(value, args) {
+    console.log(value);
+    console.log(args);
+    debugger;
+    return true;
+  }
+};
 
 // import Promise from './polyfills.js'
 Vue.component('multiselect', Multiselect);
 Vue.use(BootstrapVue);
 Vue.use(VeeValidate);
 
-Validator.extend('filesAllowed', filesAllowed );
-Validator.extend('selectRequired', selectRequired);
+Validator.extend('filesAllowed', filesAllowed);
+Validator.extend('selectRequiredBoolean', selectRequiredBoolean);
+Validator.extend('selectRequiredNumber', selectRequiredNumber);
+
 // Vue.config.productionTip = false
 
 new Vue({

@@ -5,6 +5,10 @@
       <b-badge variant="danger">{{ er }}</b-badge>
     </div>
 
+    <div v-for="fiel in fields">
+      {{ fiel }}
+    </div>
+
     <div class="question-wrapper">
       <h1><center>{{info.question}}</center></h1>
       <br/>
@@ -114,16 +118,14 @@
                   <b-row>
                     <b-col>
                       <b-input-group :prepend="info.sections[selkey].mandatory_item.label">
-                        <b-form-select v-model="info.sections[selkey].mandatory_item.selected" v-validate="'selectRequired:1'"
+                        <b-form-select v-model="info.sections[selkey].mandatory_item.selected" v-validate="{ selectRequiredNumber: 1 }"
                           data-vv-as="Mandatory item" v-bind:key="'mandatory-item-' + selkey" v-bind:data-vv-scope="'mandatory_item_'+ selkey"
                           v-bind:name="'mandatory_item_' + selkey" :options="info.sections[selkey].mandatory_item.options">
                         </b-form-select>
                       </b-input-group>
                     </b-col>
-
                   </b-row>
                 </div>
-                <!--<div>{{ errors }}</div>-->
 
                 <b-collapse :id="'collapse' + selkey" :visible="expanded.indexOf(selkey) !== -1">
                 <div class="mt-4" v-if="info.sections[selkey].mandatory_item.selected === true">
@@ -133,24 +135,27 @@
                     </h6>
                     <div class="mt-4" v-if="info.sections[selkey].mandatory_item.selected === true">
 
-                      <div class="mb-2" v-for="(field,fieldkey, fieldindex) in info.sections[selkey].depending_on_manadatory.fields">
+                      <div class="mb-2" v-for="(field, fieldkey, fieldindex) in info.sections[selkey].depending_on_manadatory.fields"
+                      :key="'depending_on_manadatory_' + selkey + '_' + fieldkey" >
 
                         <b-input-group  v-if="field.type === 'select'" :prepend="field.label">
-                          ###{{ field.selected === "" }}
-                          <b-form-select :options="field.options" v-model="field.selected" v-validate="'selectRequired'"
+                            ###{{ field.selected }}###
+                          <b-form-select :options="field.options" v-model="field.selected"
+                             v-validate="'selectRequiredBoolean:bool'"
+                             v-bind:name="'depending_on_manadatory_' + selkey + '_' + fieldkey"
+                             v-bind:key="'depending_on_manadatory_' + selkey + '_' + fieldkey "
+                             v-bind:data-vv-scope="'depending_on_manadatory_' + selkey + '_' + fieldkey"
+                             data-vv-as="Depending on mandatory"
+                          ></b-form-select>
 
-                          >
-                          </b-form-select>
                           <b-input-group-append>
                             <b-btn variant="primary" @click="addCustomField(field)">Add new</b-btn>
                           </b-input-group-append>
                         </b-input-group>
 
                         <div v-if="field.type === 'file'">
-
                           <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="jpeg,jpg"
                                           @form-file-uploaded="addFilesToSelected" :multiple=false @form-file-delete="deleteFormFile">
-
                           </FormFileUpload>
                         </div>
 
