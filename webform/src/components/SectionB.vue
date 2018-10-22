@@ -134,11 +134,10 @@
                       {{info.sections[selkey].depending_on_manadatory.label}}
                     </h6>
                     <div class="mt-4" v-if="info.sections[selkey].mandatory_item.selected === true">
-
                       <!-- :key="'depending_on_manadatory_' + selkey + '_' + fieldkey" -->
                       <div class="mb-2" v-for="(field, fieldkey, fieldindex) in info.sections[selkey].depending_on_manadatory.fields">
-
-                        <b-input-group  v-if="field.type === 'select'" :prepend="field.label">
+                        <b-input-group v-if="field.type === 'select' && 'undefined' === typeof field.selected.region"
+                                        :prepend="field.label">
                           <b-form-select :options="field.options" v-model="field.selected"
                              v-validate="'selectRequiredBoolean:bool'"
                              v-bind:name="'depending_on_manadatory_' + selkey + '_' + fieldkey"
@@ -151,6 +150,25 @@
                             <b-btn variant="primary" @click="addCustomField(field)">Add new</b-btn>
                           </b-input-group-append>
                         </b-input-group>
+
+                        <div v-if="field.type === 'select' && 'undefined' !== typeof field.selected.region">
+                          <b-input-group  :prepend="field.label">
+                            <b-form-select :options="field.options" v-model="field.selected.pattern">
+                            </b-form-select>
+                          </b-input-group>
+                          <b-input-group  :prepend="'Region'" style="margin-top: 5px;">
+                            <b-form-select :options="field.regionOptions" v-model="field.selected.region">
+                            </b-form-select>
+                          </b-input-group>
+                          <div>
+                            <!-- @click="addCustomField(field)"-->
+                            <b-btn variant="primary" @click="addNewRow(info.sections[selkey].depending_on_manadatory.fields, field, fieldkey)"
+                                   style="margin-top: 0.5rem;margin-bottom: 1rem;">Add new row</b-btn>
+                            <b-btn variant="danger" @click="removeRow(info.sections[selkey].depending_on_manadatory.fields, field, fieldkey)"
+                                   style="margin-top: 0.5rem;margin-bottom: 1rem;">Remove row</b-btn>
+                          </div>
+                        </div>
+
 
                         <div v-if="field.type === 'file'">
                           <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="jpeg,jpg"
@@ -236,6 +254,14 @@ export default {
         value: null
       },
       expanded: [],
+      regionOptions: [
+        {
+          text: 'Romania', value: 'RO',
+        },
+        {
+          text: 'France', value: 'FR',
+        },
+      ]
     }
   },
   methods: {
@@ -254,6 +280,19 @@ export default {
       this.addCustom.text = null;
       this.addCustom.value = null;
       this.$refs.customFieldModal.hide();
+    },
+
+    addNewRow(fields, field, fieldkey){
+      let newrow = JSON.parse(JSON.stringify(field));
+      newrow.selected = {
+        region: null,
+        pattern: null
+      };
+      fields.splice(fieldkey + 1, 0, newrow );
+    },
+
+    removeRow(fields, field, fieldkey){
+      fields.splice(fieldkey, 1);
     },
 
     addBySelection() {
@@ -431,7 +470,10 @@ export default {
               type: 'select',
               add: true,
               name: 'reproduction patterns',
-              selected: '',
+              selected: {
+                region: null,
+                pattern: null
+              },
               options:[
                 {
                   text: 'Sexual', value: 0,
@@ -451,14 +493,19 @@ export default {
                 {
                   text: 'Unknown whether the species reproduces in the Member State', value: 5,
                 }
-              ]
+              ],
+              //TODO : remove
+              regionOptions: this.regionOptions
             },
             {
               label: 'Spread patterns',
               type: 'select',
               name: 'spread_patterns',
               add: true,
-              selected: '',
+              selected: {
+                region: null,
+                pattern: null
+              },
               options:[
                 {
                   text: 'Diffuse spread /travelling/moving population front (predominantly)', value: 0,
@@ -484,7 +531,9 @@ export default {
                 {
                   text: 'Other', value: 7,
                 },
-              ]
+              ],
+              //TODO : remove
+              regionOptions: this.regionOptions
             },
           ]
         },
