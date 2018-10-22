@@ -54,7 +54,10 @@ let tab_1_section = {
         type: 'select',
         add: true,
         name: 'reproduction patterns',
-        selected: '',
+        selected: {
+          region: null,
+          pattern: null
+        },
         options:[
           {
             text: 'Sexual', value: 0,
@@ -74,6 +77,15 @@ let tab_1_section = {
           {
             text: 'Unknown whether the species reproduces in the Member State', value: 5,
           }
+        ],
+        //TODO : remove
+        regionOptions: [
+          {
+            text: 'Romania', value: 'RO',
+          },
+          {
+            text: 'France', value: 'FR',
+          },
         ]
       },
       {
@@ -81,7 +93,10 @@ let tab_1_section = {
         type: 'select',
         name: 'spread_patterns',
         add: true,
-        selected: '',
+        selected: {
+          region: null,
+          pattern: null
+        },
         options:[
           {
             text: 'Diffuse spread /travelling/moving population front (predominantly)', value: 0,
@@ -106,6 +121,15 @@ let tab_1_section = {
           },
           {
             text: 'Other', value: 7,
+          },
+        ],
+        //TODO : remove
+        regionOptions: [
+          {
+            text: 'Romania', value: 'RO',
+          },
+          {
+            text: 'France', value: 'FR',
           },
         ]
       },
@@ -223,8 +247,14 @@ let tab_1_section = {
           field: {
             label: 'Calendar year concerned',
             name: 'year',
-            type: 'number',
+            type: 'select',
             selected: '',
+            options: [
+              { text: '2015', value: 2015 },
+              { text: '2016', value: 2016 },
+              { text: '2017', value: 2017 },
+              { text: '2018', value: 2018 },
+            ],
             name: 'calendar_year',
             index: 9,
           },

@@ -1,25 +1,26 @@
 <template>
   <div v-if="info">
-  <div class="question-wrapper">
-    <h1><center>{{info.question}}</center></h1>
-    <br/>
-    <h3><i><center>{{info.table_label}}</center></i></h3>
+    <div class="question-wrapper">
+      <h1><center>{{info.question}}</center></h1>
+      <br/>
+      <h3><i><center>{{info.table_label}}</center></i></h3>
 
       <b-card class="mt-5 mb-5" v-for="(section,seckey, secindex) in info.sections">
         <div class="panel-heading"
-             @click="expanded.indexOf(seckey) === -1 ? expanded.push(seckey) : expanded.splice(expanded.indexOf(seckey), 1)" >
-
-          <h4 class="name-easin">
-            <font-awesome-icon v-bind:icon="expanded.indexOf(seckey) !== -1 ? 'chevron-down' : 'chevron-right'" />
-            <span class="name">{{section.scientific_name.selected}}</span>
-            <small class="easin">EASIN identifier: {{section.species_code.selected}}</small>
-            <br>
-          </h4>
-          <h4>
-            <small>{{section.common_name.label}}: {{section.common_name.selected}}</small>
-          </h4>
+               @click="expanded.indexOf(seckey) === -1 ? expanded.push(seckey) : expanded.splice(expanded.indexOf(seckey), 1)" >
+            <h4 class="name-easin">
+              <font-awesome-icon v-bind:icon="expanded.indexOf(seckey) !== -1 ? 'chevron-down' : 'chevron-right'" />
+              <span class="name">{{section.scientific_name.selected}}</span>
+              <small class="easin">EASIN identifier: {{section.species_code.selected}}</small>
+              <br>
+            </h4>
+            <h4>
+              <small>{{section.common_name.label}}: {{section.common_name.selected}}</small>
+            </h4>
         </div>
+
         <b-collapse :id="'collapse' + seckey" :visible="expanded.indexOf(seckey) !== -1">
+
           <b-row>
             <b-col>
               <b-input-group :prepend="section.mandatory_item.label">
@@ -27,6 +28,7 @@
               </b-input-group>
             </b-col>
           </b-row>
+
           <div class="mt-4" v-if="section.mandatory_item.selected === true">
             <hr>
             <h6>
@@ -35,18 +37,38 @@
             <div class="mb-2" v-for="(field,fieldkey) in section.depending_on_manadatory.fields">
 
               <div v-if="field.type === 'select'" :ref=" field.name + fieldkey">
-                <b-input-group  :prepend="field.label">
-                  <b-form-select :options="field.options" v-model="field.selected">
-                  </b-form-select>
-                </b-input-group>
 
-                <div>
-                  <!-- @click="addCustomField(field)"-->
-                  <b-btn variant="primary" @click="addNewRow(section.depending_on_manadatory.fields, field, fieldkey)"
-                         style="margin-top: 0.5rem;margin-bottom: 1rem;">Add new row</b-btn>
-                  <b-btn variant="danger" @click="removeRow(section.depending_on_manadatory.fields, field, fieldkey)"
-                         style="margin-top: 0.5rem;margin-bottom: 1rem;">Remove row</b-btn>
+                <div v-if="'undefined' !== typeof field.selected.region">
+                  <b-input-group  :prepend="field.label">
+                    <b-form-select :options="field.options" v-model="field.selected.pattern">
+                    </b-form-select>
+                  </b-input-group>
+                  <b-input-group  :prepend="'Region'" style="margin-top: 5px;">
+                    <b-form-select :options="field.regionOptions" v-model="field.selected.region">
+                    </b-form-select>
+                  </b-input-group>
+                  <div>
+                    <!-- @click="addCustomField(field)"-->
+                    <b-btn variant="primary" @click="addNewRow(section.depending_on_manadatory.fields, field, fieldkey)"
+                           style="margin-top: 0.5rem;margin-bottom: 1rem;">Add new row</b-btn>
+                    <b-btn variant="danger" @click="removeRow(section.depending_on_manadatory.fields, field, fieldkey)"
+                           style="margin-top: 0.5rem;margin-bottom: 1rem;">Remove row</b-btn>
+                  </div>
                 </div>
+                <!--<div v-else>
+                  <b-input-group  :prepend="field.label">
+                    <b-form-select :options="field.options" v-model="field.selected">
+                    </b-form-select>
+                  </b-input-group>
+                  <div>
+                    &lt;!&ndash; @click="addCustomField(field)"&ndash;&gt;
+                    <b-btn variant="primary" @click="addNewRow(section.depending_on_manadatory.fields, field, fieldkey)"
+                           style="margin-top: 0.5rem;margin-bottom: 1rem;">Add new row</b-btn>
+                    <b-btn variant="danger" @click="removeRow(section.depending_on_manadatory.fields, field, fieldkey)"
+                           style="margin-top: 0.5rem;margin-bottom: 1rem;">Remove row</b-btn>
+                  </div>
+                </div>-->
+
               </div>
 
               <div v-if="field.type === 'file'" :prepend="field.label">
@@ -55,9 +77,7 @@
                                 @form-file-delete="deleteFormFile" :multiple=false>
                 </FormFileUpload>
               </div>
-
             </div>
-
           </div>
 
           <b-row class="mt-3" v-if="section.mandatory_item.selected === true">
@@ -68,11 +88,14 @@
               <textarea class="form-control" v-model="section.additional_info.selected"></textarea>
             </b-col>
           </b-row>
+
           <hr>
+
           <b-card v-if="section.mandatory_item.selected === true" class="inner-card">
             <div class="card-section">
               <center><h5>{{section.tables.table_1.label}}</h5></center>
               <hr>
+
               <b-row>
                 <b-col>
                   <b-input-group :prepend="section.tables.table_1.question.label">
@@ -80,12 +103,19 @@
                   </b-input-group>
                 </b-col>
               </b-row>
+
               <div class="table-section" v-for="table_section in section.tables.table_1.table_sections" v-if="section.tables.table_1.question.selected === true">
                 <h6>{{table_section.label}}</h6>
                 <b-row>
                   <b-col>
-                    <b-input-group :prepend="table_section.field.label">
-                      <b-form-input v-model="table_section.field.selected" :type="table_section.field.type"></b-form-input>
+
+                    <b-input-group :prepend="table_section.field.label" v-if="table_section.field.type === 'select'">
+                      <!-- :type="table_section.field.type" -->
+                      <b-form-select v-model="table_section.field.selected" :options="table_section.field.options"></b-form-select>
+                    </b-input-group>
+                    <b-input-group :prepend="table_section.field.label" v-if="table_section.field.type !== 'select'">
+                      <!-- :type="table_section.field.type" -->
+                      <b-form-input v-model="table_section.field.selected" ></b-form-input>
                     </b-input-group>
                   </b-col>
                 </b-row>
@@ -115,13 +145,13 @@
             </div>
           </b-card>
 
-
           <b-card v-if="section.mandatory_item.selected === true" class="inner-card">
             <div class="card-section">
               <center>
                 <h5>{{section.tables.table_2.label}}</h5>
               </center>
               <hr>
+
               <b-row>
                 <b-col>
                   <b-input-group :prepend="section.tables.table_2.question.label">
@@ -175,23 +205,24 @@
               </div>
             </div>
           </b-card>
+
         </b-collapse>
       </b-card>
 
-    <b-modal hide-footer ref="customFieldModal">
-      <div v-if="customField" slot="modal-title">{{customField.label}}</div>
-      <div v-if="customField">
-        <b-input-group class="mb-3" prepend="Name">
-          <b-form-input v-model="addCustom.text"></b-form-input>
-        </b-input-group>
-         <b-input-group prepend="Code">
-          <b-form-input v-model="addCustom.value"></b-form-input>
-        </b-input-group>
-      <b-btn class="mt-3" variant="outline-primary" @click="saveCustomField" block>Add</b-btn>
-      </div>
-    </b-modal>
+      <b-modal hide-footer ref="customFieldModal">
+        <div v-if="customField" slot="modal-title">{{customField.label}}</div>
+        <div v-if="customField">
+          <b-input-group class="mb-3" prepend="Name">
+            <b-form-input v-model="addCustom.text"></b-form-input>
+          </b-input-group>
+           <b-input-group prepend="Code">
+            <b-form-input v-model="addCustom.value"></b-form-input>
+          </b-input-group>
+        <b-btn class="mt-3" variant="outline-primary" @click="saveCustomField" block>Add</b-btn>
+        </div>
+      </b-modal>
 
-      </div>
+    </div>
   </div>
 </template>
 
@@ -203,7 +234,6 @@ import FormFileUpload from "./FormFileUpload";
 import {getSupportingFiles, envelope} from '../api.js';
 
 export default {
-
   components: {fieldGenerator, FormFileUpload},
 
   props: {
@@ -230,11 +260,13 @@ export default {
     },
     addNewRow(fields, field, fieldkey){
       let newrow = JSON.parse(JSON.stringify(field));
-      newrow.selected = '';
+      newrow.selected = {
+        region: null,
+        pattern: null
+      };
       fields.splice(fieldkey + 1, 0, newrow );
     },
     removeRow(fields, field, fieldkey){
-      //let sameF = fields.filter((item) => {return item.name === field.name});
       fields.splice(fieldkey, 1);
     },
 
@@ -253,17 +285,17 @@ export default {
     },
     addSpecies(field){
       let empty_field = {
-                  label: 'Impacted non-targeted species',
-                  type: 'text',
-                  selected: '',
-                  name: 'impacted_nontargeted_species',
-                  inner_field: {
-                    label: 'Impact per species',
-                    type: 'text',
-                    selected: '',
-                    name: 'impact_per_species',
-                  }
-                };
+        label: 'Impacted non-targeted species',
+        type: 'text',
+        selected: '',
+        name: 'impacted_nontargeted_species',
+        inner_field: {
+          label: 'Impact per species',
+          type: 'text',
+          selected: '',
+          name: 'impact_per_species',
+        }
+      };
       field.fields.push(empty_field);
     },
 
@@ -282,7 +314,6 @@ export default {
     deleteFormFile(found, fieldkey, field){
       field.selected = null;
     }
-
   },
 }
 </script>
