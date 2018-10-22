@@ -132,8 +132,14 @@ let tab_1_section = {
           field: {
             label: 'Calendar year concerned',
             name: 'year',
-            type: 'number',
+            type: 'select',
             selected: '',
+            options: [
+              { text: '2015', value: 2015 },
+              { text: '2016', value: 2016 },
+              { text: '2017', value: 2017 },
+              { text: '2018', value: 2018 },
+            ],
             name: 'calendar_year',
             index: 7,
           },
