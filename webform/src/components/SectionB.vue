@@ -153,7 +153,11 @@
 
                         <div v-if="field.type === 'select' && 'undefined' !== typeof field.selected.region">
                           <b-input-group  :prepend="field.label">
-                            <b-form-select :options="field.options" v-model="field.selected.pattern">
+                            <b-form-select :options="field.options" v-validate="'selectRequiredBoolean:bool'"
+                                           v-bind:name="'depending_on_manadatory_' + selkey + '_' + fieldkey"
+                                           v-bind:key="'depending_on_manadatory_' + selkey + '_' + fieldkey "
+                                           v-bind:data-vv-scope="'depending_on_manadatory_' + selkey + '_' + fieldkey"
+                                           data-vv-as="Depending on mandatory" v-model="field.selected.pattern">
                             </b-form-select>
                           </b-input-group>
                           <b-input-group  :prepend="'Region'" style="margin-top: 5px;">

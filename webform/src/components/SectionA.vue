@@ -11,7 +11,7 @@
             <h4 class="name-easin">
               <font-awesome-icon v-bind:icon="expanded.indexOf(seckey) !== -1 ? 'chevron-down' : 'chevron-right'" />
               <span class="name">{{section.scientific_name.selected}}</span>
-              <small class="easin">EASIN identifier: {{section.species_code.selected}}</small>
+              <small class="easin">EASIN identifier: <strong>{{section.species_code.selected}}</strong></small>
               <br>
             </h4>
             <h4>
@@ -55,19 +55,19 @@
                            style="margin-top: 0.5rem;margin-bottom: 1rem;">Remove row</b-btn>
                   </div>
                 </div>
-                <!--<div v-else>
+                <div v-else>
                   <b-input-group  :prepend="field.label">
                     <b-form-select :options="field.options" v-model="field.selected">
                     </b-form-select>
                   </b-input-group>
                   <div>
-                    &lt;!&ndash; @click="addCustomField(field)"&ndash;&gt;
+                    <!-- @click="addCustomField(field)"-->
                     <b-btn variant="primary" @click="addNewRow(section.depending_on_manadatory.fields, field, fieldkey)"
                            style="margin-top: 0.5rem;margin-bottom: 1rem;">Add new row</b-btn>
                     <b-btn variant="danger" @click="removeRow(section.depending_on_manadatory.fields, field, fieldkey)"
                            style="margin-top: 0.5rem;margin-bottom: 1rem;">Remove row</b-btn>
                   </div>
-                </div>-->
+                </div>
 
               </div>
 
