@@ -65,6 +65,7 @@
           <hr>
 
           <b-card v-if="section.mandatory_item.selected === true" class="inner-card">
+
             <div class="card-section">
               <center><h5>{{section.tables.table_1.label}}</h5></center>
               <hr>
@@ -77,7 +78,7 @@
                 </b-col>
               </b-row>
 
-              <div class="table-section" v-for="table_section in section.tables.table_1.table_sections" v-if="section.tables.table_1.question.selected === true">
+              <div class="table-section" v-for="(table_section, table_key) in section.tables.table_1.table_sections" v-if="section.tables.table_1.question.selected === true">
                 <h6>{{table_section.label}}</h6>
                 <b-row>
                   <b-col>
@@ -92,6 +93,7 @@
                     </b-input-group>
                   </b-col>
                 </b-row>
+                ###
                 <table class="table">
                   <thead>
                   <tr>
@@ -102,10 +104,37 @@
                   <tbody>
                   <tr v-for="row in table_section.table_fields.fields">
                     <td>{{row.label}}</td>
-                    <td v-for="field in row.fields">
-                      <fieldGenerator :field="field"></fieldGenerator>
+                    <!--<td>{{ row }}</td>-->
+                    <td v-for="(field, fkey) in row.fields">
+                      <!--<fieldGenerator :field="field"></fieldGenerator>-->
+                      {{ fkey }}:{{ field }}
                     </td>
                   </tr>
+                  <tr>
+                    <td>
+                      <b-form-select v-if="'undefined' !== table_section.table_fields.fields.map"
+                                     :options="table_section.table_fields.fields.map((item, ix)=>{
+                        return { text: item.label, value: item.name + '-' + table_key + '-' + ix };
+                      })" v-model="table_fields[table_key]" ></b-form-select>
+                    </td>
+                    <td>
+                      <b-form-input :ref="'table_fields'" v-model="table_fields[table_key]"></b-form-input>
+                    </td>
+                  </tr>
+                  <!--<tr>
+                    <td>
+                      &lt;!&ndash; @onChange="changeTableField($event)" &ndash;&gt;
+                      &lt;!&ndash;<b-form-select :options="table_section.table_fields.fields.fields.map((item, ix)=>{
+                        return {text: item.label, value: item.name + '-' + table_key + '-' + ix };
+                      })" v-model="table_fields[table_key]" >
+                      </b-form-select>&ndash;&gt;
+                      {{ table_section.table_fields.fields.length }}
+                    </td>
+
+                    <td>
+                      &lt;!&ndash;<b-form-input :ref="'table_fields'" v-model="table_fields[table_key]"></b-form-input>&ndash;&gt;
+                    </td>
+                  </tr>-->
                   </tbody>
                 </table>
                 <div>
@@ -225,6 +254,9 @@ export default {
         value: null,
       },
       files: [],
+      table_fields:[
+
+      ],
 
     }
   },
@@ -286,6 +318,10 @@ export default {
     },
     deleteFormFile(found, fieldkey, field){
       field.selected = null;
+    },
+
+    changeTableField($event){
+
     }
   },
 }
