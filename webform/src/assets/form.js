@@ -49,10 +49,13 @@ let tab_1_section = {
         name: 'distribution_maps_check',
         selected: false,
       },
+    ],
+    reproduction_patterns: [
       {
         label: 'Reproduction patterns',
         type: 'select',
         add: true,
+        patternType: 'reproduction',
         name: 'reproduction patterns',
         selected: {
           region: null,
@@ -87,10 +90,13 @@ let tab_1_section = {
             text: 'France', value: 'FR',
           },
         ]
-      },
+      }
+    ],
+    spread_pattterns:[
       {
         label: 'Spread patterns',
         type: 'select',
+        patternType: 'spread',
         name: 'spread_patterns',
         add: true,
         selected: {

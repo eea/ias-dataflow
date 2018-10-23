@@ -34,43 +34,16 @@
             <h6>
               {{section.depending_on_manadatory.label}}
             </h6>
+
+            <PatternField :patternfields="section.depending_on_manadatory.reproduction_patterns"
+                          @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
+            </PatternField>
+
+            <PatternField :patternfields="section.depending_on_manadatory.spread_pattterns"
+                          @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
+            </PatternField>
+
             <div class="mb-2" v-for="(field,fieldkey) in section.depending_on_manadatory.fields">
-
-              <div v-if="field.type === 'select'" :ref=" field.name + fieldkey">
-
-                <div v-if="'undefined' !== typeof field.selected.region">
-                  <b-input-group  :prepend="field.label">
-                    <b-form-select :options="field.options" v-model="field.selected.pattern">
-                    </b-form-select>
-                  </b-input-group>
-                  <b-input-group  :prepend="'Region'" style="margin-top: 5px;">
-                    <b-form-select :options="field.regionOptions" v-model="field.selected.region">
-                    </b-form-select>
-                  </b-input-group>
-                  <div>
-                    <!-- @click="addCustomField(field)"-->
-                    <b-btn variant="primary" @click="addNewRow(section.depending_on_manadatory.fields, field, fieldkey)"
-                           style="margin-top: 0.5rem;margin-bottom: 1rem;">Add new row</b-btn>
-                    <b-btn variant="danger" @click="removeRow(section.depending_on_manadatory.fields, field, fieldkey)"
-                           style="margin-top: 0.5rem;margin-bottom: 1rem;">Remove row</b-btn>
-                  </div>
-                </div>
-                <div v-else>
-                  <b-input-group  :prepend="field.label">
-                    <b-form-select :options="field.options" v-model="field.selected">
-                    </b-form-select>
-                  </b-input-group>
-                  <div>
-                    <!-- @click="addCustomField(field)"-->
-                    <b-btn variant="primary" @click="addNewRow(section.depending_on_manadatory.fields, field, fieldkey)"
-                           style="margin-top: 0.5rem;margin-bottom: 1rem;">Add new row</b-btn>
-                    <b-btn variant="danger" @click="removeRow(section.depending_on_manadatory.fields, field, fieldkey)"
-                           style="margin-top: 0.5rem;margin-bottom: 1rem;">Remove row</b-btn>
-                  </div>
-                </div>
-
-              </div>
-
               <div v-if="field.type === 'file'" :prepend="field.label">
                 <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
                                 @form-file-uploaded="addFilesToSelected"
@@ -231,10 +204,12 @@
 import {slugify} from '../utils.js';
 import fieldGenerator from './fieldGenerator';
 import FormFileUpload from "./FormFileUpload";
+import PatternField from "./PatternField";
+
 import {getSupportingFiles, envelope} from '../api.js';
 
 export default {
-  components: {fieldGenerator, FormFileUpload},
+  components: {fieldGenerator, FormFileUpload, PatternField},
 
   props: {
     info: null,
@@ -258,16 +233,14 @@ export default {
     titleSlugify(text) {
       return slugify(text)
     },
-    addNewRow(fields, field, fieldkey){
-      let newrow = JSON.parse(JSON.stringify(field));
-      newrow.selected = {
-        region: null,
-        pattern: null
-      };
-      fields.splice(fieldkey + 1, 0, newrow );
+    addNewPattern(fields){
+      let newField = JSON.parse(JSON.stringify(fields[0]));
+      newField.selected.pattern = null;
+      newField.selected.region = null;
+      fields.push(newField);
     },
-    removeRow(fields, field, fieldkey){
-      fields.splice(fieldkey, 1);
+    removePattern(fields, fieldkey){
+      if(fieldkey !== 0) fields.splice(fieldkey, 1);
     },
 
     addCustomField(field){
