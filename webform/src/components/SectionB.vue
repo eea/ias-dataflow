@@ -131,11 +131,19 @@
                 <div class="mt-4" v-if="info.sections[selkey].mandatory_item.selected === true">
                     <hr>
                     <h6>
-                      {{info.sections[selkey].depending_on_manadatory.label}}
+                      {{info.sections[selkey].depending_on_mandatory.label}}
                     </h6>
                     <div class="mt-4" v-if="info.sections[selkey].mandatory_item.selected === true">
+                      <PatternField :patternfields="info.sections[selkey].depending_on_mandatory.reproduction_patterns"
+                                    @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
+                      </PatternField>
+
+                      <PatternField :patternfields="info.sections[selkey].depending_on_mandatory.spread_pattterns"
+                                    @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
+                      </PatternField>
+
                       <!-- :key="'depending_on_manadatory_' + selkey + '_' + fieldkey" -->
-                      <div class="mb-2" v-for="(field, fieldkey, fieldindex) in info.sections[selkey].depending_on_manadatory.fields">
+                      <div class="mb-2" v-for="(field, fieldkey, fieldindex) in info.sections[selkey].depending_on_mandatory.fields">
                         <b-input-group v-if="field.type === 'select' && 'undefined' === typeof field.selected.region"
                                         :prepend="field.label">
                           <b-form-select :options="field.options" v-model="field.selected"
@@ -151,27 +159,7 @@
                           </b-input-group-append>
                         </b-input-group>
 
-                        <div v-if="field.type === 'select' && 'undefined' !== typeof field.selected.region">
-                          <b-input-group  :prepend="field.label">
-                            <b-form-select :options="field.options" v-validate="'selectRequiredBoolean:bool'"
-                                           v-bind:name="'depending_on_manadatory_' + selkey + '_' + fieldkey"
-                                           v-bind:key="'depending_on_manadatory_' + selkey + '_' + fieldkey "
-                                           v-bind:data-vv-scope="'depending_on_manadatory_' + selkey + '_' + fieldkey"
-                                           data-vv-as="Depending on mandatory" v-model="field.selected.pattern">
-                            </b-form-select>
-                          </b-input-group>
-                          <b-input-group  :prepend="'Region'" style="margin-top: 5px;">
-                            <b-form-select :options="field.regionOptions" v-model="field.selected.region">
-                            </b-form-select>
-                          </b-input-group>
-                          <div>
-                            <!-- @click="addCustomField(field)"-->
-                            <b-btn variant="primary" @click="addNewRow(info.sections[selkey].depending_on_manadatory.fields, field, fieldkey)"
-                                   style="margin-top: 0.5rem;margin-bottom: 1rem;">Add new row</b-btn>
-                            <b-btn variant="danger" @click="removeRow(info.sections[selkey].depending_on_manadatory.fields, field, fieldkey)"
-                                   style="margin-top: 0.5rem;margin-bottom: 1rem;">Remove row</b-btn>
-                          </div>
-                        </div>
+
 
 
                         <div v-if="field.type === 'file'">
@@ -236,9 +224,10 @@ import FieldGenerator from "./fieldGenerator";
 import Multiselect from 'vue-multiselect';
 import {getSupportingFiles, envelope} from '../api.js';
 import FormFileUpload from "./FormFileUpload";
+import PatternField from "./PatternField";
 
 export default {
-  components: {FieldGenerator, Multiselect, FormFileUpload},
+  components: {FieldGenerator, Multiselect, FormFileUpload, PatternField},
   props: {
     info: null,
     tabId:null
@@ -285,18 +274,14 @@ export default {
       this.addCustom.value = null;
       this.$refs.customFieldModal.hide();
     },
-
-    addNewRow(fields, field, fieldkey){
-      let newrow = JSON.parse(JSON.stringify(field));
-      newrow.selected = {
-        region: null,
-        pattern: null
-      };
-      fields.splice(fieldkey + 1, 0, newrow );
+    addNewPattern(fields){
+      let newField = JSON.parse(JSON.stringify(fields[0]));
+      newField.selected.pattern = null;
+      newField.selected.region = null;
+      fields.push(newField);
     },
-
-    removeRow(fields, field, fieldkey){
-      fields.splice(fieldkey, 1);
+    removePattern(fields, fieldkey){
+      if(fieldkey !== 0) fields.splice(fieldkey, 1);
     },
 
     addBySelection() {
@@ -458,7 +443,7 @@ export default {
           index: 3,
           name: 'mandatory_question',
         },
-        depending_on_manadatory: {
+        depending_on_mandatory: {
           label: 'A distribution map for this species is included in the file which will be uploaded in the \'Distribution map for SECTION B\' field available on \'DISTRIBUTION MAP\' section.',
           index: 4,
           name: 'distribution_of_species',
@@ -469,10 +454,13 @@ export default {
               name: 'distribution_maps_check',
               selected: false,
             },
+          ],
+          reproduction_patterns: [
             {
               label: 'Reproduction patterns',
               type: 'select',
               add: true,
+              patternType: 'reproduction',
               name: 'reproduction patterns',
               selected: {
                 region: null,
@@ -499,11 +487,21 @@ export default {
                 }
               ],
               //TODO : remove
-              regionOptions: this.regionOptions
-            },
+              regionOptions: [
+                {
+                  text: 'Romania', value: 'RO',
+                },
+                {
+                  text: 'France', value: 'FR',
+                },
+              ]
+            }
+          ],
+          spread_pattterns:[
             {
               label: 'Spread patterns',
               type: 'select',
+              patternType: 'spread',
               name: 'spread_patterns',
               add: true,
               selected: {
@@ -537,7 +535,14 @@ export default {
                 },
               ],
               //TODO : remove
-              regionOptions: this.regionOptions
+              regionOptions: [
+                {
+                  text: 'Romania', value: 'RO',
+                },
+                {
+                  text: 'France', value: 'FR',
+                },
+              ]
             },
           ]
         },

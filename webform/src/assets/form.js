@@ -38,7 +38,7 @@ let tab_1_section = {
     index: 3,
     name: 'mandatory_question',
   },
-  depending_on_manadatory: {
+  depending_on_mandatory: {
     label: 'A distribution map for this species is included in the file which will be uploaded in the \'Distribution map for SECTION A\' field available on \'DISTRIBUTION MAP\' section.',
     index: 4,
     name: 'distribution_of_species',

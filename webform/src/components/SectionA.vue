@@ -32,18 +32,18 @@
           <div class="mt-4" v-if="section.mandatory_item.selected === true">
             <hr>
             <h6>
-              {{section.depending_on_manadatory.label}}
+              {{section.depending_on_mandatory.label}}
             </h6>
 
-            <PatternField :patternfields="section.depending_on_manadatory.reproduction_patterns"
+            <PatternField :patternfields="section.depending_on_mandatory.reproduction_patterns"
                           @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
             </PatternField>
 
-            <PatternField :patternfields="section.depending_on_manadatory.spread_pattterns"
+            <PatternField :patternfields="section.depending_on_mandatory.spread_pattterns"
                           @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
             </PatternField>
 
-            <div class="mb-2" v-for="(field,fieldkey) in section.depending_on_manadatory.fields">
+            <div class="mb-2" v-for="(field,fieldkey) in section.depending_on_mandatory.fields">
               <div v-if="field.type === 'file'" :prepend="field.label">
                 <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
                                 @form-file-uploaded="addFilesToSelected"
