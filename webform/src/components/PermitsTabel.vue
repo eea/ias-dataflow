@@ -23,13 +23,12 @@
         <td><b-btn variant="danger" @click="removeRow(rkey)">X</b-btn></td>
       </tr>
 
-      <tr v-for="row in rows">
+      <!--<tr v-for="row in rows">
         <td>{{row.label}}</td>
         <td v-for="field in row.fields">
           {{ field.selected }}
         </td>
-      </tr>
-      {{ index }}
+      </tr>-->
 
       </tbody>
 
@@ -84,6 +83,7 @@
           let last = this.rows.length - 1;
           let newRow = JSON.parse(JSON.stringify(this.rows[last]));
           this.rows.push(newRow);
+          this.index[this.rows.length-1] = null;
           this.$forceUpdate();
 
       },
