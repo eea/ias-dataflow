@@ -175,9 +175,17 @@ let tab_1_section = {
           },
           table_fields: {
             header: 'Purpose of permit',
-            fields: [{
+            fields: [
+              {
                 label: 'Permits for research',
-                fields: [{
+                fields: [
+                  {
+                    label: "Year",
+                    name: "year",
+                    type: 'number',
+                    selected: '',
+                  },
+                  {
                     label: 'Number of permits issued',
                     name: 'permits_number',
                     type: 'number',
@@ -193,7 +201,14 @@ let tab_1_section = {
               },
               {
                 label: 'Permits for ex situ conservation',
-                fields: [{
+                fields: [
+                  {
+                    label: "Year",
+                    name: "year",
+                    type: 'number',
+                    selected: '',
+                  },
+                  {
                     label: 'Number of permits issued',
                     name: 'permits_number',
                     type: 'number',
@@ -209,7 +224,14 @@ let tab_1_section = {
               },
               {
                 label: 'Permits for scientific production and subsequent medicinal use to advance human health',
-                fields: [{
+                fields: [
+                  {
+                    label: "Year",
+                    name: "year",
+                    type: 'number',
+                    selected: '',
+                  },
+                  {
                     label: 'Number of permits issued',
                     name: 'permits_number',
                     type: 'number',
@@ -225,7 +247,14 @@ let tab_1_section = {
               },
               {
                 label: 'Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)',
-                fields: [{
+                fields: [
+                  {
+                    label: "Year",
+                    name: "year",
+                    type: 'number',
+                    selected: '',
+                  },
+                  {
                     label: 'Number of permits issued',
                     name: 'permits_number',
                     type: 'number',
@@ -268,7 +297,14 @@ let tab_1_section = {
             header: 'Purpose of permit',
             fields: [{
                 label: 'Permits for research',
-                fields: [{
+                fields: [
+                  {
+                    label: "Year",
+                    name: "year",
+                    type: 'number',
+                    selected: '',
+                  },
+                  {
                     label: 'Number of establishments subjected to the inspections',
                     name: 'number_establishments_inspctions',
                     type: 'number',
@@ -296,7 +332,14 @@ let tab_1_section = {
               },
               {
                 label: 'Permits for ex situ conservation',
-                fields: [{
+                fields: [
+                  {
+                    label: "Year",
+                    name: "year",
+                    type: 'number',
+                    selected: '',
+                  },
+                  {
                     label: 'Number of establishments subjected to the inspections',
                     name: 'number_establishments_inspctions',
                     type: 'number',
@@ -324,7 +367,14 @@ let tab_1_section = {
               },
               {
                 label: 'Permits for scientific production and subsequent medicinal use to advance human health',
-                fields: [{
+                fields: [
+                  {
+                    label: "Year",
+                    name: "year",
+                    type: 'number',
+                    selected: '',
+                  },
+                  {
                     label: 'Number of establishments subjected to the inspections',
                     name: 'number_establishments_inspctions',
                     type: 'number',
@@ -352,7 +402,14 @@ let tab_1_section = {
               },
               {
                 label: 'Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)',
-                fields: [{
+                fields: [
+                  {
+                    label: "Year",
+                    name: "year",
+                    type: 'number',
+                    selected: '',
+                  },
+                  {
                     label: 'Number of establishments subjected to the inspections',
                     name: 'number_establishments_inspctions',
                     type: 'number',

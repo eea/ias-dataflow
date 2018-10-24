@@ -93,50 +93,9 @@
                     </b-input-group>
                   </b-col>
                 </b-row>
-                ###
-                <table class="table">
-                  <thead>
-                  <tr>
-                    <th>{{table_section.table_fields.header}}</th>
-                    <th v-for="header in table_section.table_fields.fields[0].fields">{{header.label}}</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr v-for="row in table_section.table_fields.fields">
-                    <td>{{row.label}}</td>
-                    <!--<td>{{ row }}</td>-->
-                    <td v-for="(field, fkey) in row.fields">
-                      <!--<fieldGenerator :field="field"></fieldGenerator>-->
-                      {{ fkey }}:{{ field }}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <b-form-select v-if="'undefined' !== table_section.table_fields.fields.map"
-                                     :options="table_section.table_fields.fields.map((item, ix)=>{
-                        return { text: item.label, value: item.name + '-' + table_key + '-' + ix };
-                      })" v-model="table_fields[table_key]" ></b-form-select>
-                    </td>
-                    <td>
-                      <b-form-input :ref="'table_fields'" v-model="table_fields[table_key]"></b-form-input>
-                    </td>
-                  </tr>
-                  <!--<tr>
-                    <td>
-                      &lt;!&ndash; @onChange="changeTableField($event)" &ndash;&gt;
-                      &lt;!&ndash;<b-form-select :options="table_section.table_fields.fields.fields.map((item, ix)=>{
-                        return {text: item.label, value: item.name + '-' + table_key + '-' + ix };
-                      })" v-model="table_fields[table_key]" >
-                      </b-form-select>&ndash;&gt;
-                      {{ table_section.table_fields.fields.length }}
-                    </td>
 
-                    <td>
-                      &lt;!&ndash;<b-form-input :ref="'table_fields'" v-model="table_fields[table_key]"></b-form-input>&ndash;&gt;
-                    </td>
-                  </tr>-->
-                  </tbody>
-                </table>
+                <PermitsTabel :table_section="table_section" :yearoptions="table_section.field.options"></PermitsTabel>
+
                 <div>
                   <div>
                     <label>{{table_section.additional_info.label}}</label>
@@ -234,11 +193,12 @@ import {slugify} from '../utils.js';
 import fieldGenerator from './fieldGenerator';
 import FormFileUpload from "./FormFileUpload";
 import PatternField from "./PatternField";
+import PermitsTabel from "./PermitsTabel";
 
 import {getSupportingFiles, envelope} from '../api.js';
 
 export default {
-  components: {fieldGenerator, FormFileUpload, PatternField},
+  components: {PermitsTabel, fieldGenerator, FormFileUpload, PatternField},
 
   props: {
     info: null,
@@ -254,11 +214,35 @@ export default {
         value: null,
       },
       files: [],
-      table_fields:[
-
-      ],
+      table_fields: [],
 
     }
+  },
+  created: function(){
+    this.info.sections.forEach((section, seckey) => {
+      /*section.tables.forEach((table, table_key)=> {
+        this.table_fields[seckey][table_key] = {};
+      });*/
+
+      /*for(let [table, table_key] of section.tables){
+        this.table_fields[seckey][table_key] = {};
+      }*/
+
+      if('undefined' === typeof this.table_fields[seckey]){
+        this.table_fields[seckey]=  {};
+      }
+
+      if(section.tables != null){
+        for(let table in section.tables){
+          if(table.indexOf("table") !== -1){
+            this.table_fields[seckey][table] = {
+              value: null
+            };
+          }
+        }
+      }
+
+    });
   },
 
   methods: {
