@@ -85,7 +85,8 @@
 
                     <b-input-group :prepend="table_section.field.label" v-if="table_section.field.type === 'select'">
                       <!-- :type="table_section.field.type" -->
-                      <b-form-select v-model="table_section.field.selected" :options="table_section.field.options"></b-form-select>
+                      <b-form-select v-model="table_section.field.selected" :options="table_section.field.options"
+                                     @change="changeFields($event, table_section)"></b-form-select>
                     </b-input-group>
                     <b-input-group :prepend="table_section.field.label" v-if="table_section.field.type !== 'select'">
                       <!-- :type="table_section.field.type" -->
@@ -214,35 +215,8 @@ export default {
         value: null,
       },
       files: [],
-      table_fields: [],
 
     }
-  },
-  created: function(){
-    this.info.sections.forEach((section, seckey) => {
-      /*section.tables.forEach((table, table_key)=> {
-        this.table_fields[seckey][table_key] = {};
-      });*/
-
-      /*for(let [table, table_key] of section.tables){
-        this.table_fields[seckey][table_key] = {};
-      }*/
-
-      if('undefined' === typeof this.table_fields[seckey]){
-        this.table_fields[seckey]=  {};
-      }
-
-      if(section.tables != null){
-        for(let table in section.tables){
-          if(table.indexOf("table") !== -1){
-            this.table_fields[seckey][table] = {
-              value: null
-            };
-          }
-        }
-      }
-
-    });
   },
 
   methods: {
@@ -304,8 +278,12 @@ export default {
       field.selected = null;
     },
 
-    changeTableField($event){
-
+    changeFields($event, table_section){
+      /*table_section.table_fields.fields.forEach((row,rkey)=>{
+        row.fields.forEach((field,fkey) => {
+          if(field.name === 'year') field.selected = $event;
+        });
+      });*/
     }
   },
 }
