@@ -1,10 +1,11 @@
 <template>
-  <div style="margin-bottom: 2rem;">
-    <table class="table table-striped" style="margin-top: 2rem;margin-bottom: 0;">
+  <div style="margin-bottom: 2rem;overflow: auto;border-radius: 0.25rem;">
+    <table class="table table-striped" style="margin-top: 2rem;margin-bottom: 0;
+    border-collapse:collapse;border-spacing: 0;border-style: hidden;width:100%;max-width: 100%;">
       <thead class="bg-info" style="color: white">
-      <th>Year</th>
-      <th>{{table_section.table_fields.header}}</th>
-      <th v-for="header in table_section.table_fields.fields[0].fields" v-if="header.label !=='Year' ">{{ header.label  }}</th>
+      <th style="max-width: 10%">Year</th>
+      <th style="min-width: 30%;max-width: 50%">{{table_section.table_fields.header}}</th>
+      <th style="max-width: 15%;width: 10%;" v-for="header in table_section.table_fields.fields[0].fields" v-if="header.label !=='Year' ">{{ header.label  }}</th>
       <th><span>Actions</span></th>
       </thead>
       <tbody>
@@ -19,8 +20,17 @@
         <td v-for="(field,fkey) in row.fields" v-if="field.name !== 'year'">
           <b-form-input  v-model="field.selected" ></b-form-input>
         </td>
-        <td><b-btn variant="danger" @click="removeRow(fieldkey)">X</b-btn></td>
+        <td><b-btn variant="danger" @click="removeRow(rkey)">X</b-btn></td>
       </tr>
+
+      <tr v-for="row in rows">
+        <td>{{row.label}}</td>
+        <td v-for="field in row.fields">
+          {{ field.selected }}
+        </td>
+      </tr>
+      {{ index }}
+
       </tbody>
 
     </table>
@@ -31,6 +41,7 @@
              variant="default"
              @click="addRow">Add row</b-btn>
     </b-input-group>
+
 
   </div>
 </template>
@@ -46,6 +57,7 @@
       return {
         index: [],
         options: [],
+        initialRows: [],
         rows: this.table_section.table_fields.fields,
       }
     },
@@ -57,15 +69,12 @@
 
         this.options = [];
         let arr = [];
-        let temp  = this.table_section.table_fields.fields
-          .map((item, ix)=>{
-            if(arr.filter((it)=>{ return it.label === item.label }).length === 0){
-              arr.push({ text: item.label, value: ix});
-            }
+        this.initialRows = JSON.parse(JSON.stringify(this.table_section.table_fields.fields));
+        let temp  = this.initialRows.map((item, ix)=>{
           return { text: item.label, value: ix};
         });
 
-        this.options = arr;
+        this.options = temp;
       }
 
     },
@@ -79,10 +88,17 @@
 
       },
       changeRow($event, rkey){
-        let newlabel = this.table_section.table_fields.fields[$event].label;
+        let newlabel = this.initialRows[$event].label;
         this.rows[rkey].label = newlabel;
         console.log(this.rows[rkey].label);
-
+      },
+      removeRow(fieldkey){
+        if(this.rows.length === 1){
+          return false;
+        }
+        this.rows.splice(fieldkey, 1);
+        this.index.splice(fieldkey, 1);
+        this.$forceUpdate();
       }
 
     }

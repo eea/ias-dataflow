@@ -1,6 +1,6 @@
 <template>
-  <div style="margin-bottom: 2rem;">
-    <table class="table table-striped" style="margin-bottom: 0;">
+  <div style="margin-bottom: 2rem;overflow: auto;border-radius: 0.25rem;">
+    <table class="table table-striped" style="margin-bottom: 0;border-spacing: 0;border-style: hidden;width:100%;max-width: 100%;" >
       <thead class="bg-primary" style="color: white">
       <th><span v-html="patternfields[0].label"></span></th>
       <th>Region</th>
