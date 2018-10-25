@@ -1,14 +1,13 @@
 <template>
-  <div style="margin-bottom: 2rem;overflow: auto;border-radius: 0.25rem;">
-    <table class="table table-striped" style="margin-bottom: 0;border-spacing: 0;border-style: hidden;width:100%;max-width: 100%;" >
-      <thead class="bg-primary" style="color: white">
+  <div class="table-wrapper">
+    <table class="table table-striped">
+      <thead class="bg-primary">
       <th><span v-html="patternfields[0].label"></span></th>
       <th>Region</th>
       <th><span>Actions</span></th>
       </thead>
       <tbody>
       <tr v-for="(field,fieldkey) in patternfields">
-
         <td>
           <b-input-group>
             <b-form-select :options="field.options" v-model="field.selected.pattern">
@@ -26,18 +25,12 @@
       </tr>
       </tbody>
     </table>
-    <b-btn
-      style="width: 100%;
-                    border-top-left-radius: 0;
-                    border-top-right-radius: 0;"
-      variant="default"
-      @click="addNewRow">
+    <b-btn variant="default" class="addnew" @click="addNewRow">
       + Add another pattern
     </b-btn>
   </div>
 
 </template>
-
 
 <script>
   export default {
@@ -59,3 +52,29 @@
     }
   }
 </script>
+
+<style scoped>
+  .table-wrapper {
+    margin-bottom: 2rem;
+    overflow: auto;
+    border-radius: 0.25rem;
+  }
+
+  .table {
+    margin-bottom: 0;
+    border-spacing: 0;
+    border-style: hidden;
+    width:100%;
+    max-width: 100%;
+  }
+
+  thead {
+    color: white
+  }
+
+  .addnew {
+    width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+</style>

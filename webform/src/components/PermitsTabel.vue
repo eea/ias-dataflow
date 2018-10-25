@@ -1,10 +1,10 @@
 <template>
-  <div style="" class="table-wrapper">
-    <table class="table table-striped" style="">
-      <thead class="bg-info" style="color: white">
-      <th style="min-width:12%;width: 12%">Year</th>
-      <th style="min-width: 30%;max-width: 50%;width: auto;">{{table_section.table_fields.header}}</th>
-      <th style="max-width: 10%;width: 10%;" v-for="header in table_section.table_fields.fields[0].fields" v-if="header.label !=='Year' ">{{ header.label  }}</th>
+  <div class="table-wrapper">
+    <table class="table table-striped">
+      <thead class="bg-info">
+      <th class="year-column" >Year</th>
+      <th class="permits-column">{{table_section.table_fields.header}}</th>
+      <th class="header-column" v-for="header in table_section.table_fields.fields[0].fields" v-if="header.label !=='Year' ">{{ header.label  }}</th>
       <th><span>Actions</span></th>
       </thead>
       <tbody>
@@ -110,6 +110,10 @@
     max-width: 100%;
   }
 
+  thead {
+    color: white
+  }
+
   thead th {
     vertical-align: middle;
   }
@@ -117,6 +121,22 @@
   .btnAdd {
     width: 100%;
     border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  .year-column {
+    min-width:12%;
+    width: 12%
+  }
+
+  .permits-column {
+    min-width: 30%;
+    max-width: 50%;
+    width: auto;
+  }
+
+  .header-column {
+    max-width: 10%;
+    width: 10%;
   }
 
 </style>

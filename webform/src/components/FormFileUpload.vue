@@ -6,8 +6,7 @@
     <b-input-group>
       <b-input-group-prepend>
         <div v-if="prepend" class="input-group-text">{{ prepend }}</div>
-        <b-badge class="upload-badge" variant="danger" v-show="Boolean(errorUpload.length)"
-                 style="line-height: 3;">Error could not upload</b-badge>
+        <b-badge class="upload-badge" variant="danger" v-show="Boolean(errorUpload.length)">Error could not upload</b-badge>
 
       </b-input-group-prepend>
       <!-- TODO: validation of file extension : v-validate="'ext:jpeg,jpg'" data-vv-as="field" v-validate="'filesAllowed'" -->
@@ -70,15 +69,13 @@
       <div v-if="multiple === true" >
         <div v-show="field.selected.length > 0" v-for="fileName in field.selected" >
           File uploaded: <a :href="fileName" blank="_true">{{fileName}}</a>
-          <b-badge style="cursor: pointer; margin-left: 0.5rem;margin-bottom: 20px;margin-top: 10px;padding: 0.5rem;"
-                   variant="danger" @click="deleteFormFile(fileName, field, fieldkey)">Delete file</b-badge>
+          <b-badge class="deletefileBtn" variant="danger" @click="deleteFormFile(fileName, field, fieldkey)">Delete file</b-badge>
         </div>
       </div>
       <div v-if="multiple === false" >
         <div v-show="field.selected.length > 0">
           File uploaded: <a :href="field.selected[0]" blank="_true">{{field.selected[0]}}</a>
-          <b-badge style="cursor: pointer; margin-left: 0.5rem;margin-bottom: 20px;margin-top: 10px;padding: 0.5rem;"
-                   variant="danger" @click="deleteFormFile(field.selected, field, fieldkey)">Delete file</b-badge>
+          <b-badge class="deletefileBtn" variant="danger" @click="deleteFormFile(field.selected, field, fieldkey)">Delete file</b-badge>
         </div>
       </div>
     </div>
@@ -202,3 +199,17 @@
     }
   }
 </script>
+
+<style scoped>
+  .upload-badge {
+    line-height: 3;
+  }
+
+  .deletefileBtn {
+    cursor: pointer;
+    margin-left: 0.5rem;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding: 0.5rem;
+  }
+</style>

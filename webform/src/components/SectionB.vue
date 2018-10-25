@@ -180,7 +180,7 @@
                       <textarea class="form-control" v-model="info.sections[selkey].additional_info.selected"></textarea>
                     </b-col>
                   </b-row>
-                  <div v-if="info.sections[selkey].mandatory_item.selected === true">
+                  <div v-if="info.sections[selkey].mandatory_item.selected === true" style="margin-top: 1rem;">
                     <h4>{{info.sections[selkey].section.label}}</h4>
 
                     <div v-for="field in info.sections[selkey].section.fields">
@@ -188,10 +188,10 @@
                         <input :id="`${field.name}_${selkey}_${tabId}`" type="checkbox" v-model="field.selected" ></input>
                         <label :for="`${field.name}_${selkey}_${tabId}`">{{field.label}}</label>
                       </div>
-                      <b-col lg="12" v-else>
+                      <div lg="12" v-else >
                         <label>{{field.label}}</label>
                         <textarea class="form-control" v-model="field.selected" ></textarea>
-                      </b-col>
+                      </div>
                     </div>
                   </div>
                 </b-collapse>
