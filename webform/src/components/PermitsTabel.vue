@@ -2,9 +2,9 @@
   <div style="" class="table-wrapper">
     <table class="table table-striped" style="">
       <thead class="bg-info" style="color: white">
-      <th style="min-width:15%">Year</th>
-      <th style="min-width: 30%;max-width: 50%">{{table_section.table_fields.header}}</th>
-      <th style="max-width: 15%;width: 10%;" v-for="header in table_section.table_fields.fields[0].fields" v-if="header.label !=='Year' ">{{ header.label  }}</th>
+      <th style="min-width:12%;width: 12%">Year</th>
+      <th style="min-width: 30%;max-width: 50%;width: auto;">{{table_section.table_fields.header}}</th>
+      <th style="max-width: 10%;width: 10%;" v-for="header in table_section.table_fields.fields[0].fields" v-if="header.label !=='Year' ">{{ header.label  }}</th>
       <th><span>Actions</span></th>
       </thead>
       <tbody>
