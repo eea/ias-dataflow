@@ -334,4 +334,22 @@ export default {
     }
   }
 
+
+
+</style>
+
+<style>
+  @media screen and (max-width: 768px){
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    .input-group-text {
+      white-space: initial;
+    }
+  }
 </style>

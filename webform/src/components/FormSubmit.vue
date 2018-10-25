@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <b-btn variant="success" style="position: absolute;
     top: 5px;
     right: 5px;" @click="doStuff">Save</b-btn>
@@ -331,5 +331,13 @@ export default {
   top:3rem;
   left: 20%;
   right: 20%;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.03);
+    height: 3rem;
+  }
 }
 </style>

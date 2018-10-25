@@ -1,11 +1,11 @@
 import Vue from 'vue'
+import BootstrapVue from 'bootstrap-vue'
 import App from './App.vue'
 
 import 'date-input-polyfill';
 import Multiselect from 'vue-multiselect'
 import VeeValidate from 'vee-validate'
 
-import BootstrapVue from 'bootstrap-vue'
 import './css/main.scss'
 
 import { library } from '@fortawesome/fontawesome-svg-core'

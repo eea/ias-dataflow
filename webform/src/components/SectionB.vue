@@ -37,7 +37,7 @@
                 </multiselect>
 
             </b-col>
-            <b-col lg="2">
+            <b-col lg="2" class="addbyselection_wrapper">
               <b-btn @click="addBySelection()" variant="primary">add</b-btn>
             </b-col>
           </b-row>
@@ -53,9 +53,9 @@
                 <b-input v-model="selected['sci_name']" :options="info.scientific_name.options"
                 ></b-input>
               </b-col>
-              <b-col lg="2">
+              <b-col lg="2" class="d-none d-md-block d-lg-block d-xl-block">
                 <b-btn  @click="addManually(selected['sci_name'], selected['common_name'])"
-                        style="margin-bottom: -3rem" variant="primary">add</b-btn>
+                        style="margin-bottom: -3rem" variant="primary" class="">add</b-btn>
 
               </b-col>
             </b-row>
@@ -66,6 +66,11 @@
 
               <b-col lg="7">
                 <b-input v-model="selected['common_name']"></b-input>
+              </b-col>
+              <b-col lg="2" class="d-xs-block d-md-none d-lg-none d-xl-none">
+                <b-btn  @click="addManually(selected['sci_name'], selected['common_name'])"
+                        style="margin-bottom: -3rem" variant="primary" >add</b-btn>
+
               </b-col>
             </b-row>
           </div>
@@ -85,8 +90,8 @@
                 <b-badge variant="danger" v-show="errors.has('scientific_name_' + selkey + '.' + 'scientific_name_' + selkey )"
                          style="line-height: 3;">{{ errors.first('scientific_name_' + selkey + '.' + 'scientific_name_' + selkey ) }}</b-badge>
               </b-col>
-              <b-col lg="2">
-                <b-btn style="margin-bottom: -3rem" variant="danger" @click="removeSection(selkey)">remove</b-btn>
+              <b-col lg="2" class="d-none d-md-block d-lg-block d-xl-block">
+                <b-btn style="margin-bottom: -3rem" variant="danger" @click="removeSection(selkey)" >remove</b-btn>
               </b-col>
             </b-row>
             <b-row  >
@@ -98,6 +103,9 @@
                 <b-input v-model="info.sections[selkey].common_name.selected.value"
                          @change="updateSectionCommonName($event,selkey)"></b-input>
               </b-col>
+              <b-col lg="2" class="d-xs-block d-md-none d-lg-none d-xl-none">
+                <b-btn style="margin-bottom: -3rem" variant="danger" @click="removeSection(selkey)">remove</b-btn>
+              </b-col>
             </b-row>
               <b-card class="mt-5 mb-5" v-if="info.sections[selkey]">
                 <div class="panel-heading" @click="(expanded.indexOf(selkey) === -1) && info.sections[selkey].mandatory_item.selected ?
@@ -105,7 +113,7 @@
                   <h3>
                     <font-awesome-icon v-bind:icon="expanded.indexOf(selkey) !== -1 ? 'chevron-down' : 'chevron-right'"
                      v-show="info.sections[selkey].mandatory_item.selected !== 1 && info.sections[selkey].mandatory_item.selected !== false"
-                    style="font-size: 60%; margin-right: 1rem;" />
+                     class="fachevron" />
                     <small>{{info.scientific_name.label}}: </small>{{ info.sections[selkey].scientific_name.selected.text }}</h3>
                   <h4><small>{{info.common_name.label}}: </small>{{info.sections[selkey].common_name.selected.value}}</h4>
                   <b-row>
@@ -699,6 +707,17 @@ export default {
 
 .panel-heading {
   cursor: pointer;
+}
+
+.fachevron {
+  font-size: 60%;
+  margin-right: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .addbyselection_wrapper {
+    margin-top: 1rem;
+  }
 }
 
 </style>
