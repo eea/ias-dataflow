@@ -48,6 +48,7 @@
     },
     created: function(){
       if('undefined' !== typeof this.table_section.table_fields.fields){
+
         this.table_section.table_fields.fields.forEach((field, ix)=>{
           this.index[ix] = ix;
         });
@@ -58,7 +59,7 @@
         let temp  = this.initialRows.map((item, ix)=>{
           return { text: item.label, value: ix};
         });
-
+        this.table_section.table_fields.fields[0] = JSON.parse(JSON.stringify(this.initialRows[0]));
         this.options = temp;
       }
 
@@ -67,6 +68,7 @@
 
       addRow(){
           let newRow = JSON.parse(JSON.stringify(this.initialRows[0]));
+
           this.rows.push(newRow);
           this.index[this.rows.length-1] = null;
           this.$forceUpdate();

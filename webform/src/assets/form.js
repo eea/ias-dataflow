@@ -2,7 +2,15 @@ import species from './species.js'
 import speciesB from './speciesB.js'
 
 
-
+let measurement_units = [
+  {
+    text: 'kg',
+    value: 'kg'
+  },{
+    text: 'pcs',
+    value: 'pcs',
+  }
+];
 
 let tab_1_section = {
   scientific_name: {
@@ -176,29 +184,6 @@ let tab_1_section = {
           table_fields: {
             header: 'Purpose of permit',
             fields: [
-              {
-                label: 'Permits for research',
-                fields: [
-                  {
-                    label: "Year",
-                    name: "year",
-                    type: 'number',
-                    selected: '',
-                  },
-                  {
-                    label: 'Number of permits issued',
-                    name: 'permits_number',
-                    type: 'number',
-                    selected: '',
-                  },
-                  {
-                    label: 'Total number or volume of permitted specimens corresponding to the permits issued',
-                    name: 'total_permited_spciments',
-                    type: 'text',
-                    selected: '',
-                  }
-                ]
-              }
             ],
             optionsFields:[
               {
@@ -221,6 +206,13 @@ let tab_1_section = {
                     name: 'total_permited_spciments',
                     type: 'text',
                     selected: '',
+                  },
+                  {
+                    label: 'Unit of measurement',
+                    name: 'measurement',
+                    type: 'select',
+                    selected: '',
+                    options: measurement_units,
                   }
                 ]
               },
@@ -244,6 +236,13 @@ let tab_1_section = {
                     name: 'total_permited_spciments',
                     type: 'text',
                     selected: '',
+                  },
+                  {
+                    label: 'Unit of measurement',
+                    name: 'measurement',
+                    type: 'select',
+                    selected: '',
+                    options: measurement_units
                   }
                 ]
               },
@@ -267,6 +266,13 @@ let tab_1_section = {
                     name: 'total_permited_spciments',
                     type: 'text',
                     selected: '',
+                  },
+                  {
+                    label: 'Unit of measurement',
+                    name: 'measurement',
+                    type: 'select',
+                    selected: '',
+                    options: measurement_units
                   }
                 ]
               },
@@ -290,6 +296,13 @@ let tab_1_section = {
                     name: 'total_permited_spciments',
                     type: 'text',
                     selected: '',
+                  },
+                  {
+                    label: 'Unit of measurement',
+                    name: 'measurement',
+                    type: 'select',
+                    selected: '',
+                    options: measurement_units
                   }
                 ]
               },
@@ -322,41 +335,6 @@ let tab_1_section = {
           table_fields: {
             header: 'Purpose of permit',
             fields: [
-              {
-                label: 'Permits for research',
-                fields: [
-                  {
-                    label: "Year",
-                    name: "year",
-                    type: 'number',
-                    selected: '',
-                  },
-                  {
-                    label: 'Number of establishments subjected to the inspections',
-                    name: 'number_establishments_inspctions',
-                    type: 'number',
-                    selected: '',
-                  },
-                  {
-                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
-                    name: 'total_permited_spciments_held',
-                    type: 'number',
-                    selected: '',
-                  },
-                  {
-                    label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
-                    name: 'establishments_non_compliant',
-                    type: 'number',
-                    selected: '',
-                  },
-                  {
-                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
-                    name: 'number_speciments_held_by_non_compliant_establishments',
-                    type: 'number',
-                    selected: '',
-                  },
-                ]
-              },
             ],
             optionsFields: [
               {
@@ -381,6 +359,13 @@ let tab_1_section = {
                     selected: '',
                   },
                   {
+                    label: 'Unit of measurement',
+                    name: 'measurement',
+                    type: 'select',
+                    selected: '',
+                    options: measurement_units
+                  },
+                  {
                     label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
                     name: 'establishments_non_compliant',
                     type: 'number',
@@ -392,6 +377,14 @@ let tab_1_section = {
                     type: 'number',
                     selected: '',
                   },
+                  {
+                    label: 'Unit of measurement',
+                    name: 'measurement_noncompliant',
+                    type: 'select',
+                    selected: '',
+                    options: measurement_units
+                  },
+
                 ]
               },
               {
@@ -416,6 +409,13 @@ let tab_1_section = {
                     selected: '',
                   },
                   {
+                    label: 'Unit of measurement',
+                    name: 'measurement',
+                    type: 'select',
+                    selected: '',
+                    options: measurement_units
+                  },
+                  {
                     label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
                     name: 'establishments_non_compliant',
                     type: 'number',
@@ -426,6 +426,13 @@ let tab_1_section = {
                     name: 'number_speciments_held_by_non_compliant_establishments',
                     type: 'number',
                     selected: '',
+                  },
+                  {
+                    label: 'Unit of measurement',
+                    name: 'measurement_noncompliant',
+                    type: 'select',
+                    selected: '',
+                    options: measurement_units
                   },
                 ]
               },
@@ -451,6 +458,13 @@ let tab_1_section = {
                     selected: '',
                   },
                   {
+                    label: 'Unit of measurement',
+                    name: 'measurement',
+                    type: 'select',
+                    selected: '',
+                    options: measurement_units
+                  },
+                  {
                     label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
                     name: 'establishments_non_compliant',
                     type: 'number',
@@ -461,6 +475,13 @@ let tab_1_section = {
                     name: 'number_speciments_held_by_non_compliant_establishments',
                     type: 'number',
                     selected: '',
+                  },
+                  {
+                    label: 'Unit of measurement',
+                    name: 'measurement_noncompliant',
+                    type: 'select',
+                    selected: '',
+                    options: measurement_units
                   },
                 ]
               },
@@ -486,6 +507,13 @@ let tab_1_section = {
                     selected: '',
                   },
                   {
+                    label: 'Unit of measurement',
+                    name: 'measurement',
+                    type: 'select',
+                    selected: '',
+                    options: measurement_units
+                  },
+                  {
                     label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
                     name: 'establishments_non_compliant',
                     type: 'number',
@@ -496,6 +524,13 @@ let tab_1_section = {
                     name: 'number_speciments_held_by_non_compliant_establishments',
                     type: 'number',
                     selected: '',
+                  },
+                  {
+                    label: 'Unit of measurement',
+                    name: 'measurement_noncompliant',
+                    type: 'select',
+                    selected: '',
+                    options: measurement_units
                   },
                 ]
               },
