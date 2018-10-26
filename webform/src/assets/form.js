@@ -198,6 +198,31 @@ let tab_1_section = {
                     selected: '',
                   }
                 ]
+              }
+            ],
+            optionsFields:[
+              {
+                label: 'Permits for research',
+                fields: [
+                  {
+                    label: "Year",
+                    name: "year",
+                    type: 'number',
+                    selected: '',
+                  },
+                  {
+                    label: 'Number of permits issued',
+                    name: 'permits_number',
+                    type: 'number',
+                    selected: '',
+                  },
+                  {
+                    label: 'Total number or volume of permitted specimens corresponding to the permits issued',
+                    name: 'total_permited_spciments',
+                    type: 'text',
+                    selected: '',
+                  }
+                ]
               },
               {
                 label: 'Permits for ex situ conservation',
@@ -268,7 +293,8 @@ let tab_1_section = {
                   }
                 ]
               },
-            ]
+            ],
+
           },
           additional_info: {
             label: 'Additional information (optional)',
@@ -295,7 +321,45 @@ let tab_1_section = {
           },
           table_fields: {
             header: 'Purpose of permit',
-            fields: [{
+            fields: [
+              {
+                label: 'Permits for research',
+                fields: [
+                  {
+                    label: "Year",
+                    name: "year",
+                    type: 'number',
+                    selected: '',
+                  },
+                  {
+                    label: 'Number of establishments subjected to the inspections',
+                    name: 'number_establishments_inspctions',
+                    type: 'number',
+                    selected: '',
+                  },
+                  {
+                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                    name: 'total_permited_spciments_held',
+                    type: 'number',
+                    selected: '',
+                  },
+                  {
+                    label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
+                    name: 'establishments_non_compliant',
+                    type: 'number',
+                    selected: '',
+                  },
+                  {
+                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
+                    name: 'number_speciments_held_by_non_compliant_establishments',
+                    type: 'number',
+                    selected: '',
+                  },
+                ]
+              },
+            ],
+            optionsFields: [
+              {
                 label: 'Permits for research',
                 fields: [
                   {
@@ -435,7 +499,7 @@ let tab_1_section = {
                   },
                 ]
               },
-            ]
+            ],
           },
           additional_info: {
             label: 'Additional information (optional)',

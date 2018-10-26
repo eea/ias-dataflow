@@ -17,7 +17,7 @@
           <td><b-form-select :options="options" v-model="index[rkey]" @change="changeRow($event, rkey)"></b-form-select></td>
 
           <td v-for="(field,fkey) in row.fields" v-if="field.name !== 'year'">
-            <b-form-input  v-model="field.selected" ></b-form-input>
+            <field-generator :field="field"></field-generator>
           </td>
           <td><b-btn variant="danger" @click="removeRow(rkey)">X</b-btn></td>
         </tr>
@@ -54,7 +54,7 @@
 
         this.options = [];
         let arr = [];
-        this.initialRows = JSON.parse(JSON.stringify(this.table_section.table_fields.fields));
+        this.initialRows = JSON.parse(JSON.stringify(this.table_section.table_fields.optionsFields));
         let temp  = this.initialRows.map((item, ix)=>{
           return { text: item.label, value: ix};
         });
@@ -66,8 +66,7 @@
     methods: {
 
       addRow(){
-          let last = this.rows.length - 1;
-          let newRow = JSON.parse(JSON.stringify(this.rows[last]));
+          let newRow = JSON.parse(JSON.stringify(this.initialRows[0]));
           this.rows.push(newRow);
           this.index[this.rows.length-1] = null;
           this.$forceUpdate();

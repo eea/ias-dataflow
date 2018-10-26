@@ -77,7 +77,6 @@
           <hr>
 
           <div v-if="info.sections" v-for="(selval, selkey, selindex) in info.sections">
-
             <b-row> <!-- v-if="info.sections[selkey].scientific_name.selected.text" -->
               <b-col lg="3">
                 <label>{{info.scientific_name.label}}</label>
@@ -107,87 +106,85 @@
                 <b-btn style="margin-bottom: -3rem" variant="danger" @click="removeSection(selkey)">remove</b-btn>
               </b-col>
             </b-row>
-              <b-card class="mt-5 mb-5" v-if="info.sections[selkey]">
-                <div class="panel-heading" @click="(expanded.indexOf(selkey) === -1) && info.sections[selkey].mandatory_item.selected ?
-                 expanded.push(selkey) : expanded.splice(expanded.indexOf(selkey), 1)">
-                  <h3>
-                    <font-awesome-icon v-bind:icon="expanded.indexOf(selkey) !== -1 ? 'chevron-down' : 'chevron-right'"
-                     v-show="info.sections[selkey].mandatory_item.selected !== 1 && info.sections[selkey].mandatory_item.selected !== false"
-                     class="fachevron" />
-                    <small>{{info.scientific_name.label}}: </small>{{ info.sections[selkey].scientific_name.selected.text }}</h3>
-                  <h4><small>{{info.common_name.label}}: </small>{{info.sections[selkey].common_name.selected.value}}</h4>
-                  <b-row>
-                    <b-col>
-                      <b-badge variant="danger" v-if="errors.has('mandatory_item_'+ selkey + '.mandatory_item_' + selkey)">
-                        {{ errors.first('mandatory_item_'+ selkey + '.mandatory_item_' + selkey) }}
-                      </b-badge>
-                    </b-col>
-                  </b-row>
-                  <b-row>
-                    <b-col>
-                      <b-input-group :prepend="info.sections[selkey].mandatory_item.label">
-                        <b-form-select v-model="info.sections[selkey].mandatory_item.selected" v-validate="{ selectRequiredNumber: 1 }"
-                          data-vv-as="Mandatory item" v-bind:key="'mandatory-item-' + selkey" v-bind:data-vv-scope="'mandatory_item_'+ selkey"
-                          v-bind:name="'mandatory_item_' + selkey" :options="info.sections[selkey].mandatory_item.options">
-                        </b-form-select>
-                      </b-input-group>
-                    </b-col>
-                  </b-row>
-                </div>
 
-                <b-collapse :id="'collapse' + selkey" :visible="expanded.indexOf(selkey) !== -1">
+            <b-card class="mt-5 mb-5" v-if="info.sections[selkey]">
+              <div class="panel-heading" @click="(expanded.indexOf(selkey) === -1) && info.sections[selkey].mandatory_item.selected ?
+               expanded.push(selkey) : expanded.splice(expanded.indexOf(selkey), 1)">
+                <h3>
+                  <font-awesome-icon v-bind:icon="expanded.indexOf(selkey) !== -1 ? 'chevron-down' : 'chevron-right'"
+                   v-show="info.sections[selkey].mandatory_item.selected !== 1 && info.sections[selkey].mandatory_item.selected !== false"
+                   class="fachevron" />
+                  <small>{{info.scientific_name.label}}: </small>{{ info.sections[selkey].scientific_name.selected.text }}</h3>
+                <h4><small>{{info.common_name.label}}: </small>{{info.sections[selkey].common_name.selected.value}}</h4>
+                <b-row>
+                  <b-col>
+                    <b-badge variant="danger" v-if="errors.has('mandatory_item_'+ selkey + '.mandatory_item_' + selkey)">
+                      {{ errors.first('mandatory_item_'+ selkey + '.mandatory_item_' + selkey) }}
+                    </b-badge>
+                  </b-col>
+                </b-row>
+                <b-row>
+                  <b-col>
+                    <b-input-group :prepend="info.sections[selkey].mandatory_item.label">
+                      <b-form-select v-model="info.sections[selkey].mandatory_item.selected" v-validate="{ selectRequiredNumber: 1 }"
+                        data-vv-as="Mandatory item" v-bind:key="'mandatory-item-' + selkey" v-bind:data-vv-scope="'mandatory_item_'+ selkey"
+                        v-bind:name="'mandatory_item_' + selkey" :options="info.sections[selkey].mandatory_item.options">
+                      </b-form-select>
+                    </b-input-group>
+                  </b-col>
+                </b-row>
+              </div>
+
+              <b-collapse :id="'collapse' + selkey" :visible="expanded.indexOf(selkey) !== -1">
                 <div class="mt-4" v-if="info.sections[selkey].mandatory_item.selected === true">
-                    <hr>
-                    <h6>
-                      {{info.sections[selkey].depending_on_mandatory.label}}
-                    </h6>
-                    <div class="mt-4" v-if="info.sections[selkey].mandatory_item.selected === true">
-                      <PatternField :patternfields="info.sections[selkey].depending_on_mandatory.reproduction_patterns"
-                                    @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
-                      </PatternField>
+                  <hr>
+                  <h6>
+                    {{info.sections[selkey].depending_on_mandatory.label}}
+                  </h6>
+                  <div class="mt-4" v-if="info.sections[selkey].mandatory_item.selected === true">
+                    <PatternField :patternfields="info.sections[selkey].depending_on_mandatory.reproduction_patterns"
+                                  @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
+                    </PatternField>
 
-                      <PatternField :patternfields="info.sections[selkey].depending_on_mandatory.spread_pattterns"
-                                    @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
-                      </PatternField>
+                    <PatternField :patternfields="info.sections[selkey].depending_on_mandatory.spread_pattterns"
+                                  @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
+                    </PatternField>
 
-                      <!-- :key="'depending_on_manadatory_' + selkey + '_' + fieldkey" -->
-                      <div class="mb-2" v-for="(field, fieldkey, fieldindex) in info.sections[selkey].depending_on_mandatory.fields">
-                        <b-input-group v-if="field.type === 'select' && 'undefined' === typeof field.selected.region"
-                                        :prepend="field.label">
-                          <b-form-select :options="field.options" v-model="field.selected"
-                             v-validate="'selectRequiredBoolean:bool'"
-                             v-bind:name="'depending_on_manadatory_' + selkey + '_' + fieldkey"
-                             v-bind:key="'depending_on_manadatory_' + selkey + '_' + fieldkey "
-                             v-bind:data-vv-scope="'depending_on_manadatory_' + selkey + '_' + fieldkey"
-                             data-vv-as="Depending on mandatory"
-                          ></b-form-select>
+                    <!-- :key="'depending_on_manadatory_' + selkey + '_' + fieldkey" -->
+                    <div class="mb-2" v-for="(field, fieldkey, fieldindex) in info.sections[selkey].depending_on_mandatory.fields">
+                      <b-input-group v-if="field.type === 'select' && 'undefined' === typeof field.selected.region"
+                                      :prepend="field.label">
+                        <b-form-select :options="field.options" v-model="field.selected"
+                           v-validate="'selectRequiredBoolean:bool'"
+                           v-bind:name="'depending_on_manadatory_' + selkey + '_' + fieldkey"
+                           v-bind:key="'depending_on_manadatory_' + selkey + '_' + fieldkey "
+                           v-bind:data-vv-scope="'depending_on_manadatory_' + selkey + '_' + fieldkey"
+                           data-vv-as="Depending on mandatory"
+                        ></b-form-select>
 
-                          <b-input-group-append>
-                            <b-btn variant="primary" @click="addCustomField(field)">Add new</b-btn>
-                          </b-input-group-append>
-                        </b-input-group>
+                        <b-input-group-append>
+                          <b-btn variant="primary" @click="addCustomField(field)">Add new</b-btn>
+                        </b-input-group-append>
+                      </b-input-group>
 
-
-
-
-                        <div v-if="field.type === 'file'">
-                          <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="jpeg,jpg"
-                                          @form-file-uploaded="addFilesToSelected" :multiple=false @form-file-delete="deleteFormFile">
-                          </FormFileUpload>
-                        </div>
-
+                      <div v-if="field.type === 'file'">
+                        <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="jpeg,jpg"
+                                        @form-file-uploaded="addFilesToSelected" :multiple=false @form-file-delete="deleteFormFile">
+                        </FormFileUpload>
                       </div>
+
                     </div>
                   </div>
+                </div>
 
                 <b-row class="mt-3" v-if="info.sections[selkey].mandatory_item.selected === true">
-                    <b-col lg="3">
-                      {{info.sections[selkey].additional_info.label}}
-                    </b-col>
-                    <b-col lg='9'>
-                      <textarea class="form-control" v-model="info.sections[selkey].additional_info.selected"></textarea>
-                    </b-col>
-                  </b-row>
+                  <b-col lg="3">
+                    {{info.sections[selkey].additional_info.label}}
+                  </b-col>
+                  <b-col lg='9'>
+                    <textarea class="form-control" v-model="info.sections[selkey].additional_info.selected"></textarea>
+                  </b-col>
+                </b-row>
                   <div v-if="info.sections[selkey].mandatory_item.selected === true" style="margin-top: 1rem;">
                     <h4>{{info.sections[selkey].section.label}}</h4>
 
@@ -202,9 +199,9 @@
                       </div>
                     </div>
                   </div>
-                </b-collapse>
-              </b-card>
-            </div>
+              </b-collapse>
+            </b-card>
+          </div>
 
         </b-card>
 
