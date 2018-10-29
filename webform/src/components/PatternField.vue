@@ -3,7 +3,7 @@
     <table class="table table-striped">
       <thead class="bg-primary">
       <th><span v-html="patternfields[0].label"></span></th>
-      <th>Region</th>
+      <th>Biogeographical region</th>
       <th><span>Actions</span></th>
       </thead>
       <tbody>
