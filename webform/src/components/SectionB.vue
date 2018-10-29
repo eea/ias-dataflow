@@ -77,146 +77,15 @@
           <hr>
 
           <div v-if="info.sections" v-for="(selval, selkey, selindex) in info.sections">
-            <b-row> <!-- v-if="info.sections[selkey].scientific_name.selected.text" -->
-              <b-col lg="3">
-                <label>{{info.scientific_name.label}}</label>
-              </b-col>
-              <b-col lg="7">
-                <b-input v-model="info.sections[selkey].scientific_name.selected.text" :options="info.scientific_name.options"
-                         @change="updateSFName($event, selkey)" v-validate="'required'" data-vv-as="Scientific name"
-                         v-bind:data-vv-scope="'scientific_name_' + selkey" v-bind:name="'scientific_name_' + selkey"
-                ></b-input>
-                <b-badge variant="danger" v-show="errors.has('scientific_name_' + selkey + '.' + 'scientific_name_' + selkey )"
-                         style="line-height: 3;">{{ errors.first('scientific_name_' + selkey + '.' + 'scientific_name_' + selkey ) }}</b-badge>
-              </b-col>
-              <b-col lg="2" class="d-none d-md-block d-lg-block d-xl-block">
-                <b-btn style="margin-bottom: -3rem" variant="danger" @click="removeSection(selkey)" >remove</b-btn>
-              </b-col>
-            </b-row>
-            <b-row  >
-              <b-col lg="3">
-                <label>{{info.common_name.label}}</label>
-              </b-col>
+            <SectionBsection :sectionProp="info.sections[selkey]" :selkey="selkey" :info="info"
+            @remove-section="removeSection" :tabId="tabId"
+            ></SectionBsection>
 
-              <b-col lg="7">
-                <b-input v-model="info.sections[selkey].common_name.selected.value"
-                         @change="updateSectionCommonName($event,selkey)"></b-input>
-              </b-col>
-              <b-col lg="2" class="d-xs-block d-md-none d-lg-none d-xl-none">
-                <b-btn style="margin-bottom: -3rem" variant="danger" @click="removeSection(selkey)">remove</b-btn>
-              </b-col>
-            </b-row>
-
-            <b-card class="mt-5 mb-5" v-if="info.sections[selkey]">
-              <div class="panel-heading" @click="(expanded.indexOf(selkey) === -1) && info.sections[selkey].mandatory_item.selected ?
-               expanded.push(selkey) : expanded.splice(expanded.indexOf(selkey), 1)">
-                <h3>
-                  <font-awesome-icon v-bind:icon="expanded.indexOf(selkey) !== -1 ? 'chevron-down' : 'chevron-right'"
-                   v-show="info.sections[selkey].mandatory_item.selected !== 1 && info.sections[selkey].mandatory_item.selected !== false"
-                   class="fachevron" />
-                  <small>{{info.scientific_name.label}}: </small>{{ info.sections[selkey].scientific_name.selected.text }}</h3>
-                <h4><small>{{info.common_name.label}}: </small>{{info.sections[selkey].common_name.selected.value}}</h4>
-                <b-row>
-                  <b-col>
-                    <b-badge variant="danger" v-if="errors.has('mandatory_item_'+ selkey + '.mandatory_item_' + selkey)">
-                      {{ errors.first('mandatory_item_'+ selkey + '.mandatory_item_' + selkey) }}
-                    </b-badge>
-                  </b-col>
-                </b-row>
-                <b-row>
-                  <b-col>
-                    <b-input-group :prepend="info.sections[selkey].mandatory_item.label">
-                      <b-form-select v-model="info.sections[selkey].mandatory_item.selected" v-validate="{ selectRequiredNumber: 1 }"
-                        data-vv-as="Mandatory item" v-bind:key="'mandatory-item-' + selkey" v-bind:data-vv-scope="'mandatory_item_'+ selkey"
-                        v-bind:name="'mandatory_item_' + selkey" :options="info.sections[selkey].mandatory_item.options">
-                      </b-form-select>
-                    </b-input-group>
-                  </b-col>
-                </b-row>
-              </div>
-
-              <b-collapse :id="'collapse' + selkey" :visible="expanded.indexOf(selkey) !== -1">
-                <div class="mt-4" v-if="info.sections[selkey].mandatory_item.selected === true">
-                  <hr>
-                  <h6>
-                    {{info.sections[selkey].depending_on_mandatory.label}}
-                  </h6>
-                  <div class="mt-4" v-if="info.sections[selkey].mandatory_item.selected === true">
-                    <PatternField :patternfields="info.sections[selkey].depending_on_mandatory.reproduction_patterns"
-                                  @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
-                    </PatternField>
-
-                    <PatternField :patternfields="info.sections[selkey].depending_on_mandatory.spread_pattterns"
-                                  @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
-                    </PatternField>
-
-                    <!-- :key="'depending_on_manadatory_' + selkey + '_' + fieldkey" -->
-                    <div class="mb-2" v-for="(field, fieldkey, fieldindex) in info.sections[selkey].depending_on_mandatory.fields">
-                      <b-input-group v-if="field.type === 'select' && 'undefined' === typeof field.selected.region"
-                                      :prepend="field.label">
-                        <b-form-select :options="field.options" v-model="field.selected"
-                           v-validate="'selectRequiredBoolean:bool'"
-                           v-bind:name="'depending_on_manadatory_' + selkey + '_' + fieldkey"
-                           v-bind:key="'depending_on_manadatory_' + selkey + '_' + fieldkey "
-                           v-bind:data-vv-scope="'depending_on_manadatory_' + selkey + '_' + fieldkey"
-                           data-vv-as="Depending on mandatory"
-                        ></b-form-select>
-
-                        <b-input-group-append>
-                          <b-btn variant="primary" @click="addCustomField(field)">Add new</b-btn>
-                        </b-input-group-append>
-                      </b-input-group>
-
-                      <div v-if="field.type === 'file'">
-                        <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="jpeg,jpg"
-                                        @form-file-uploaded="addFilesToSelected" :multiple=false @form-file-delete="deleteFormFile">
-                        </FormFileUpload>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-
-                <b-row class="mt-3" v-if="info.sections[selkey].mandatory_item.selected === true">
-                  <b-col lg="3">
-                    {{info.sections[selkey].additional_info.label}}
-                  </b-col>
-                  <b-col lg='9'>
-                    <textarea class="form-control" v-model="info.sections[selkey].additional_info.selected"></textarea>
-                  </b-col>
-                </b-row>
-                  <div v-if="info.sections[selkey].mandatory_item.selected === true" style="margin-top: 1rem;">
-                    <h4>{{info.sections[selkey].section.label}}</h4>
-
-                    <div v-for="field in info.sections[selkey].section.fields">
-                      <div class="checkbox-wrapper" v-if="field.type !== 'textarea'" lg="12">
-                        <input :id="`${field.name}_${selkey}_${tabId}`" type="checkbox" v-model="field.selected" ></input>
-                        <label :for="`${field.name}_${selkey}_${tabId}`">{{field.label}}</label>
-                      </div>
-                      <div lg="12" v-else >
-                        <label>{{field.label}}</label>
-                        <textarea class="form-control" v-model="field.selected" ></textarea>
-                      </div>
-                    </div>
-                  </div>
-              </b-collapse>
-            </b-card>
           </div>
 
         </b-card>
 
-        <b-modal hide-footer ref="customFieldModal">
-          <div v-if="customField" slot="modal-title">{{customField.label}}</div>
-          <div v-if="customField">
-            <b-input-group class="mb-3" prepend="Name">
-              <b-form-input v-model="addCustom.text"></b-form-input>
-            </b-input-group>
-            <b-input-group prepend="Code">
-              <b-form-input v-model="addCustom.value"></b-form-input>
-            </b-input-group>
-            <b-btn class="mt-3" variant="outline-primary" @click="saveCustomField" block>Add</b-btn>
-          </div>
-        </b-modal>
+
     </div>
   </div>
 </template>
@@ -227,12 +96,10 @@ import {slugify} from '../utils.js';
 import speciesB from '../assets/speciesB.js';
 import FieldGenerator from "./fieldGenerator";
 import Multiselect from 'vue-multiselect';
-import {getSupportingFiles, envelope} from '../api.js';
-import FormFileUpload from "./FormFileUpload";
-import PatternField from "./PatternField";
+import SectionBsection  from "./SectionBsection";
 
 export default {
-  components: {FieldGenerator, Multiselect, FormFileUpload, PatternField},
+  components: {FieldGenerator, Multiselect, SectionBsection},
   props: {
     info: null,
     tabId:null
@@ -265,28 +132,6 @@ export default {
   methods: {
     titleSlugify(text) {
       return slugify(text)
-    },
-    addCustomField(field){
-      this.customField = field;
-
-      if("undefined" !== typeof this.$refs.customFieldModal) this.$refs.customFieldModal.show();
-    },
-    saveCustomField(){
-      let addField = JSON.parse(JSON.stringify(this.addCustom));
-      this.customField.options.push(addField);
-      this.customField.selected = addField.value;
-      this.addCustom.text = null;
-      this.addCustom.value = null;
-      this.$refs.customFieldModal.hide();
-    },
-    addNewPattern(fields){
-      let newField = JSON.parse(JSON.stringify(fields[0]));
-      newField.selected.pattern = null;
-      newField.selected.region = null;
-      fields.push(newField);
-    },
-    removePattern(fields, fieldkey){
-      if(fieldkey !== 0) fields.splice(fieldkey, 1);
     },
 
     addBySelection() {
@@ -326,11 +171,11 @@ export default {
       vm.$forceUpdate();
     },
 
-    removeSection(key){
-      this.$delete(this.info.sections, key);
-      this.$delete(this.info.common_name.selected, key);
-      this.$delete(this.value, key);
-      this.$delete(this.expanded, key);
+    removeSection(selkey){
+      this.$delete(this.info.sections, selkey);
+      this.$delete(this.info.common_name.selected, selkey);
+      this.$delete(this.value, selkey);
+      this.$delete(this.expanded, selkey);
       this.$forceUpdate();
     },
 
@@ -372,54 +217,6 @@ export default {
         this.info.sections[selkey].scientific_name.selected.value = val;
         this.info.sections[selkey].scientific_name.selected.text = val;
       }
-    },
-
-    updateSectionCommonName($event,selkey){
-      //TODO: validation
-      let reg = /(.*?)\[(.*?)\]/;
-      let temp = {
-        "none": []
-      };
-
-      let more = $event.split(";");
-
-      if(more.length === 0){
-        this.info.sections[selkey].common_name.selected.common_names = $event;
-        return true;
-      }
-
-      more.map((item)=>{
-        let match =  item.trim().match(reg);
-        if(match === null){
-          if("undefined" !== typeof temp["none"]){
-            temp["none"] = [];
-          }
-          temp["none"].push(item);
-          return true;
-        }
-        let country = match[2].toUpperCase();
-
-        if("undefined" === typeof temp[country] ){
-          temp[country] = [];
-        }
-        if("undefined" !== typeof match[1]) temp[country].push( match[1]);
-      });
-      this.info.sections[selkey].common_name.selected.common_names = temp;
-
-    },
-
-    addFilesToSelected(fieldkey,index,field){
-      let self = this;
-      getSupportingFiles().then((response) => {
-        field.selected = envelope + '/' + response.data[response.data.length - 1];
-        self.$forceUpdate();
-      }).catch((error) =>{
-        console.error(error);
-      });
-    },
-
-    deleteFormFile(found, fieldkey, field){
-      field.selected = null;
     },
 
     addSpecies(sci_name, com_name, selkey){
@@ -678,17 +475,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.checkbox-wrapper {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: .5rem 0;
-    font-size: 1rem;
-}
 
-.checkbox-wrapper:hover {
-  text-shadow: 1px 1px 3px #aaa;
-}
 
 .checkbox-wrapper * {
     cursor: pointer;
@@ -702,14 +489,7 @@ export default {
   margin-bottom: 0;
 }
 
-.panel-heading {
-  cursor: pointer;
-}
 
-.fachevron {
-  font-size: 60%;
-  margin-right: 1rem;
-}
 
 @media screen and (max-width: 768px) {
   .addbyselection_wrapper {

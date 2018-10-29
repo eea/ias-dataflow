@@ -12,6 +12,23 @@ let measurement_units = [
   }
 ];
 
+let years = [
+  { text: '2015', value: 2015 },
+  { text: '2016', value: 2016 },
+  { text: '2017', value: 2017 },
+  { text: '2018', value: 2018 },
+];
+
+let regionOptions = [
+  {
+    text: 'Romania', value: 'RO',
+  },
+  {
+    text: 'France', value: 'FR',
+  },
+];
+
+
 let tab_1_section = {
   scientific_name: {
     label: 'Species scientific name',
@@ -90,14 +107,7 @@ let tab_1_section = {
           }
         ],
         //TODO : remove
-        regionOptions: [
-          {
-            text: 'Romania', value: 'RO',
-          },
-          {
-            text: 'France', value: 'FR',
-          },
-        ]
+        regionOptions: regionOptions
       }
     ],
     spread_pattterns:[
@@ -138,14 +148,7 @@ let tab_1_section = {
           },
         ],
         //TODO : remove
-        regionOptions: [
-          {
-            text: 'Romania', value: 'RO',
-          },
-          {
-            text: 'France', value: 'FR',
-          },
-        ]
+        regionOptions: regionOptions
       },
     ]
   },
@@ -172,12 +175,7 @@ let tab_1_section = {
             name: 'year',
             type: 'select',
             selected: '',
-            options: [
-              { text: '2015', value: 2015 },
-              { text: '2016', value: 2016 },
-              { text: '2017', value: 2017 },
-              { text: '2018', value: 2018 },
-            ],
+            options: years,
             name: 'calendar_year',
             index: 7,
           },
@@ -192,8 +190,9 @@ let tab_1_section = {
                   {
                     label: "Year",
                     name: "year",
-                    type: 'number',
+                    type: 'select',
                     selected: '',
+                    options: years,
                   },
                   {
                     label: 'Number of permits issued',
@@ -204,7 +203,7 @@ let tab_1_section = {
                   {
                     label: 'Total number or volume of permitted specimens corresponding to the permits issued',
                     name: 'total_permited_spciments',
-                    type: 'text',
+                    type: 'number',
                     selected: '',
                   },
                   {
@@ -222,8 +221,9 @@ let tab_1_section = {
                   {
                     label: "Year",
                     name: "year",
-                    type: 'number',
+                    type: 'select',
                     selected: '',
+                    options: years,
                   },
                   {
                     label: 'Number of permits issued',
@@ -234,7 +234,7 @@ let tab_1_section = {
                   {
                     label: 'Total number or volume of permitted specimens corresponding to the permits issued',
                     name: 'total_permited_spciments',
-                    type: 'text',
+                    type: 'number',
                     selected: '',
                   },
                   {
@@ -252,8 +252,9 @@ let tab_1_section = {
                   {
                     label: "Year",
                     name: "year",
-                    type: 'number',
+                    type: 'select',
                     selected: '',
+                    options: years,
                   },
                   {
                     label: 'Number of permits issued',
@@ -264,7 +265,7 @@ let tab_1_section = {
                   {
                     label: 'Total number or volume of permitted specimens corresponding to the permits issued',
                     name: 'total_permited_spciments',
-                    type: 'text',
+                    type: 'number',
                     selected: '',
                   },
                   {
@@ -282,8 +283,9 @@ let tab_1_section = {
                   {
                     label: "Year",
                     name: "year",
-                    type: 'number',
+                    type: 'select',
                     selected: '',
+                    options: years,
                   },
                   {
                     label: 'Number of permits issued',
@@ -294,7 +296,7 @@ let tab_1_section = {
                   {
                     label: 'Total number or volume of permitted specimens corresponding to the permits issued',
                     name: 'total_permited_spciments',
-                    type: 'text',
+                    type: 'number',
                     selected: '',
                   },
                   {
@@ -323,12 +325,7 @@ let tab_1_section = {
             name: 'year',
             type: 'select',
             selected: '',
-            options: [
-              { text: '2015', value: 2015 },
-              { text: '2016', value: 2016 },
-              { text: '2017', value: 2017 },
-              { text: '2018', value: 2018 },
-            ],
+            options: years,
             name: 'calendar_year',
             index: 9,
           },
@@ -343,8 +340,9 @@ let tab_1_section = {
                   {
                     label: "Year",
                     name: "year",
-                    type: 'number',
+                    type: 'select',
                     selected: '',
+                    options: years,
                   },
                   {
                     label: 'Number of establishments subjected to the inspections',
@@ -393,8 +391,9 @@ let tab_1_section = {
                   {
                     label: "Year",
                     name: "year",
-                    type: 'number',
+                    type: 'select',
                     selected: '',
+                    options: years,
                   },
                   {
                     label: 'Number of establishments subjected to the inspections',
@@ -442,8 +441,9 @@ let tab_1_section = {
                   {
                     label: "Year",
                     name: "year",
-                    type: 'number',
+                    type: 'select',
                     selected: '',
+                    options: years,
                   },
                   {
                     label: 'Number of establishments subjected to the inspections',
@@ -491,8 +491,9 @@ let tab_1_section = {
                   {
                     label: "Year",
                     name: "year",
-                    type: 'number',
+                    type: 'select',
                     selected: '',
+                    options: years,
                   },
                   {
                     label: 'Number of establishments subjected to the inspections',

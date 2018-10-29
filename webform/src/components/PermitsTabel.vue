@@ -11,16 +11,18 @@
       <!-- TODO: add validation so that each same name has unique year -->
         <tr v-for="(row,rkey) in rows">
           <td v-for="(field,fkey) in row.fields" v-if="field.name === 'year'">
-            <b-form-select  v-model="field.selected" :options="yearoptions"></b-form-select>
+            <field-generator :field="field"></field-generator>
           </td>
 
           <td><b-form-select :options="options" v-model="index[rkey]" @change="changeRow($event, rkey)"></b-form-select></td>
 
-          <td v-for="(field,fkey) in row.fields" v-if="field.name !== 'year'">
+          <td v-for="(field,fkey) in row.fields"  v-if="field.name !== 'year'">
             <field-generator :field="field"></field-generator>
           </td>
+
           <td><b-btn variant="danger" @click="removeRow(rkey)">X</b-btn></td>
         </tr>
+
       </tbody>
     </table>
     <b-input-group>
@@ -77,7 +79,6 @@
       changeRow($event, rkey){
         let newlabel = this.initialRows[$event].label;
         this.rows[rkey].label = newlabel;
-        console.log(this.rows[rkey].label);
       },
       removeRow(fieldkey){
         if(this.rows.length === 1){
