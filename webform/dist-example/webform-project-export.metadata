@@ -72,7 +72,7 @@
     {
       "name": "index.html"
     },
-    "newXmlFileName": "lbs.xml",
+    "newXmlFileName": "ias-report-2018.xml",
     "emptyInstanceUrl": "http://webq2test.eionet.europa.eu/download/project/ias/file/empty.xml",
     "xmlSchema": "http://converterstest.eionet.europa.eu/schemas/IAS/2018",
     "active": true,

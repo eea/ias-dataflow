@@ -32,7 +32,6 @@ export let envelope = getParameterByName('envelope');
 let sessionId = getParameterByName('sessionid');
 let testCompanyId = getParameterByName('testCompanyId');
 
-
     function getParameterByName(name) {
       let  searchArr = window.location.search.split('?');
       let search = '?' + searchArr[searchArr.length - 1];
@@ -86,7 +85,10 @@ let testCompanyId = getParameterByName('testCompanyId');
       if(isTestSession){
         return fetch('http://localhost:8080/static/country.html')
       }else {
-        return fetch(envelope + '/country_name')
+        return new Promise(function(resolve, reject) {
+          let countryCode = getParameterByName('countrycode');
+          resolve(countryCode);
+        });
       }
     }
 

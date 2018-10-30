@@ -77,8 +77,9 @@ export default {
     this.form = form;
     getInstance().then((response) => {
       let instance_data = response.data
-      getCountry().then((response) => {
-          this.country = response.data
+      getCountry().then((result) => {
+        console.dir(result);
+          this.country = result
           this.prefill(instance_data)
         })
     })
@@ -115,10 +116,6 @@ export default {
 .subtitle {
   max-width: 488px;margin: auto;display: block;
 }
-/*
-.container {
-  max-width: 700px;
-}*/
 
 .spinner {
     z-index: 1;
