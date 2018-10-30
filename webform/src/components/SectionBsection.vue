@@ -10,8 +10,8 @@
                  v-bind:data-vv-scope="'sectionb_' + 'scientific_name_' + selkey" v-bind:name="'scientific_name_' + selkey"
                  @change="updateSFName($event, selkey)"
         ></b-input>
-        <b-badge variant="danger" v-show="errors.has('scientific_name_' + selkey + '.' + 'scientific_name_' + selkey )"
-                 style="line-height: 3;">{{ errors.first('scientific_name_' + selkey + '.' + 'scientific_name_' + selkey ) }}</b-badge>
+        <b-badge variant="danger" v-show="errors.has('sectionb_scientific_name_' + selkey + '.' + 'scientific_name_' + selkey )"
+                 style="line-height: 3;">{{ errors.first('sectionb_scientific_name_' + selkey + '.' + 'scientific_name_' + selkey ) }}</b-badge>
       </b-col>
       <b-col lg="2" class="d-none d-md-block d-lg-block d-xl-block">
         <b-btn style="margin-bottom: -3rem" variant="danger" @click="removeSection(selkey)" >remove</b-btn>
@@ -49,13 +49,17 @@
           </b-col>
         </b-row>
         <b-row>
+
           <b-col>
+
             <b-input-group :prepend="sectionProp.mandatory_item.label">
-              <b-form-select v-model="sectionProp.mandatory_item.selected" v-validate="{ selectRequiredNumber: 1 }"
+              <b-form-select v-model="sectionProp.mandatory_item.selected"
+                             v-validate="'selectRequiredNumber:1'"
                              data-vv-as="Mandatory item"
-                             v-bind:key="'sectionb_' +  'mandatory-item-' + selkey"
-                             v-bind:data-vv-scope="'sectionb_' +  'mandatory_item_'+ selkey"
-                             v-bind:name="'mandatory_item_' + selkey" :options="sectionProp.mandatory_item.options">
+                             v-bind:key="'mandatory_item_' + selkey"
+                             v-bind:data-vv-scope="'mandatory_item_'+ selkey"
+                             v-bind:name="'mandatory_item_' + selkey"
+                             :options="sectionProp.mandatory_item.options">
               </b-form-select>
             </b-input-group>
           </b-col>
@@ -137,6 +141,8 @@
         name: "SectionBsection",
         props: ['sectionProp', 'selkey','info','tabId'],
         components: {PatternField , FormFileUpload},
+        inject: ['$validator'],
+
         data(){
           return {
             expanded: false,

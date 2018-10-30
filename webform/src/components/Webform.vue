@@ -44,7 +44,6 @@ import DistributionMap from './DistributionMap.vue'
 import Countrytab from './Country.vue'
 // import incidentJson from '../assets/incident.js';
 
-
 import FormSubmit from './FormSubmit.vue'
 import form from '../assets/form.js'
 
@@ -76,11 +75,11 @@ export default {
   created() {
     this.form = form;
     getInstance().then((response) => {
-      let instance_data = response.data
+      let instance_data = response.data;
       getCountry().then((result) => {
-        console.dir(result);
-          this.country = result
-          this.prefill(instance_data)
+        //console.dir(result);
+          this.country = result;
+          this.prefill(instance_data);
         })
     })
 
@@ -100,12 +99,23 @@ export default {
     },
     validateSections(){
       let sections = this.$refs;
+      let promises = [];
       for(let section in sections) {
-        //console.log( sections[section].$validator.validate() );
+        if(this.$refs.hasOwnProperty(section)){
+          if( 'undefined' !== typeof this.$refs[section].validate ) {
+            promises.push( this.$refs[section].validate() );
+          }
+          promises.push( this.$refs[section].$validator.validate() );
+
+
+        }
       }
 
-      this.$set(this.$refs.formsubmit.$data, 'valid' , true);
-      debugger;
+      Promise.all(promises).then((res) => {
+        console.log(res);
+      }).catch((e) => {
+        console.error(e);
+      })
     }
   },
 

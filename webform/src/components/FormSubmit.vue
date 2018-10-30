@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div style="position: absolute;top: 5px;right: 5px;">
-      <b-btn variant="success" style="" @click="doStuff" v-show="valid">Save</b-btn>
+      <b-btn variant="success" style="" @click="doStuff" :disabled="!valid">Save</b-btn>
       <b-btn variant="primary" @click="validateSections" style="">Validate</b-btn>
       <b-btn variant="danger" style="" @click="exitForm">Back to envelope</b-btn>
     </div>
@@ -32,6 +32,7 @@ export default {
     this.dataset = this.info;
     this.validate()
   },
+  inject: ['$validator'],
 
   data () {
     return {
@@ -291,7 +292,7 @@ export default {
 
       this.jsonemptyinstance.BC_PEP.country = this.country;
 
-      console.log(this.jsonemptyinstance);
+      //console.log(this.jsonemptyinstance);
 
       saveInstance(this.jsonemptyinstance);
       this.showAlert();

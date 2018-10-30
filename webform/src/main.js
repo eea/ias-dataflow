@@ -13,7 +13,6 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-
 import { Validator } from 'vee-validate'
 
 library.add(faChevronRight);
@@ -64,9 +63,15 @@ let selectRequiredNumber = {
     return field + " required: yes or no or Unknown";
   },
   validate(value, args) {
-    //console.log(value);
     if(typeof value === "number"){
+      if(value === parseInt(args[0])){
+        return false;
+      }
+    } else {
       if(value === args[0]){
+        return false;
+      }
+      if(value.toString() === args[0]){
         return false;
       }
     }
@@ -81,7 +86,6 @@ let selectRequiredBoolean = {
   validate(value, args) {
     console.log(value);
     console.log(args);
-    debugger;
     return true;
   }
 };
@@ -92,7 +96,7 @@ Vue.use(BootstrapVue);
 Vue.use(VeeValidate);
 
 Validator.extend('filesAllowed', filesAllowed);
-Validator.extend('selectRequiredBoolean', selectRequiredBoolean);
+//Validator.extend('selectRequiredBoolean', selectRequiredBoolean);
 Validator.extend('selectRequiredNumber', selectRequiredNumber);
 
 // Vue.config.productionTip = false

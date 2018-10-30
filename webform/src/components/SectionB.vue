@@ -1,6 +1,5 @@
 <template>
   <div v-if="info">
-
     <!--<div v-for="er in errors.items">
       <b-badge variant="danger">{{ er }}</b-badge>
     </div>
@@ -81,6 +80,7 @@
           <div v-if="info.sections" v-for="(selval, selkey, selindex) in info.sections">
             <SectionBsection :sectionProp="info.sections[selkey]" :selkey="selkey" :info="info"
                              @remove-section="removeSection" :tabId="tabId"
+                             v-bind:key="'sectionb_sections_' + selkey" :ref="'section_' + selkey"
             ></SectionBsection>
           </div>
 
@@ -104,9 +104,6 @@ export default {
   props: {
     info: null,
     tabId:null
-  },
-  $_veeValidate: {
-    validator: 'new' // give me my own validator scope.
   },
 
   data () {
@@ -458,21 +455,23 @@ export default {
       return `${text}`
     },
 
-    validateSection(){
-      this.$validator.validate().then((result)=>{
-        //console.log(result);
-        //console.log(this.$validator.errors.items);
-        /*if (result) {
-          // do axois or whatever on validate true
-          console.log('All is well');
-          return;
-        }
-        if(!result){
-          console.log('Oops!');
-          console.log(this.errors);
-        }*/
+    validate(){
+      let promises = [];
+      for( let section in this.$refs){
+        if(this.$refs.hasOwnProperty(section)) promises.push(this.$refs[section][0].$validator.validate());
+      }
+      var promise1 = new Promise(function(resolve, reject) {
+        let rez = [];
+        Promise.all(promises).then((res) => {
+          rez.push(res)
+        }).catch((e) => {
+          reject(e);
+        });
+        resolve(rez);
       });
-    }
+      return promise1;
+    },
+
   }
 
 }
