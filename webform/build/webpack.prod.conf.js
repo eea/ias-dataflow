@@ -90,7 +90,11 @@ var webpackConfig = merge(baseWebpackConfig, {
       {
         from: path.resolve(__dirname, '../static'),
         to: config.build.assetsSubDirectory,
-        ignore: ['.*']
+        ignore: ['.*','files.json','prefill.json']
+      },{
+        from: path.resolve(__dirname, '../dist-example'),
+        to: config.build.assetsSubDirectory,
+        ignore: ['.*','*.js','*.css','*.zip','*.html','*.json']
       }
     ])
   ]
