@@ -34,7 +34,7 @@
                 @select="fillCommon($event)" :custom-label="customLabel" @input="updateSelected()" @remove="remove($event)"
                 >
                   <template slot="selection" slot-scope="{ values, search, isOpen }">
-                    <span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span>
+                    <span class="multiselect__single" v-if="values.length && !isOpen">{{ values.length }} options selected</span>
                   </template>
                 </multiselect>
 

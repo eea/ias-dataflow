@@ -1,11 +1,10 @@
 <template>
-
 	<b-container style="position: relative">
     {{ errors }}
     <center><h1 class="mb-3 mt-2">IAS dataflow</h1></center>
     <center><h5><small class="text-muted">Technical formats to be used by the Member States for transmitting to the Commission the information pursuant to paragraph 1 of Article 24 of Regulation (EU) No 1143/2014 on the prevention and management of the introduction of invasive alien species</small></h5></center>
       <b-card v-if="prefilled" no-body>
-        <formsubmit :country.sync="country" :info.sync="form" @validate-components="validateSections" :validated="validated"></formsubmit>
+        <formsubmit :country.sync="country" :info.sync="form" @validate-components="validateSections" :validated="validated" ref="formsubmit"></formsubmit>
         <b-form validated novalidate @submit="onSubmit">
           <b-tabs card>
             <b-tab title="Reporting party" active>
@@ -101,9 +100,11 @@ export default {
     validateSections(){
       let sections = this.$refs;
       for(let section in sections) {
-        console.log( sections[section].$validator.validate() );
+        //console.log( sections[section].$validator.validate() );
       }
 
+      this.$set(this.$refs.formsubmit.$data, 'valid' , true);
+      debugger;
     }
   },
 

@@ -7,7 +7,7 @@
       <b-col lg="7">
         <b-input v-model="sectionProp.scientific_name.selected.text" :options="info.scientific_name.options"
                  v-validate="'required'" data-vv-as="Scientific name"
-                 v-bind:data-vv-scope="'scientific_name_' + selkey" v-bind:name="'scientific_name_' + selkey"
+                 v-bind:data-vv-scope="'sectionb_' + 'scientific_name_' + selkey" v-bind:name="'scientific_name_' + selkey"
                  @change="updateSFName($event, selkey)"
         ></b-input>
         <b-badge variant="danger" v-show="errors.has('scientific_name_' + selkey + '.' + 'scientific_name_' + selkey )"
@@ -53,8 +53,8 @@
             <b-input-group :prepend="sectionProp.mandatory_item.label">
               <b-form-select v-model="sectionProp.mandatory_item.selected" v-validate="{ selectRequiredNumber: 1 }"
                              data-vv-as="Mandatory item"
-                             v-bind:key="'mandatory-item-' + selkey"
-                             v-bind:data-vv-scope="'mandatory_item_'+ selkey"
+                             v-bind:key="'sectionb_' +  'mandatory-item-' + selkey"
+                             v-bind:data-vv-scope="'sectionb_' +  'mandatory_item_'+ selkey"
                              v-bind:name="'mandatory_item_' + selkey" :options="sectionProp.mandatory_item.options">
               </b-form-select>
             </b-input-group>
