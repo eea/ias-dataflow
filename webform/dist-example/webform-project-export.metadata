@@ -67,14 +67,14 @@
     "fileType": "FILE"
   },
   {
-    "title": "Prevention and Emergency Protocol",
+    "title": "IAS",
     "file":
     {
       "name": "index.html"
     },
     "newXmlFileName": "lbs.xml",
-    "emptyInstanceUrl": "https://webforms.info-rac.org/download/project/pep/file/empty.xml",
-    "xmlSchema": "https://dd.info-rac.org/v2/dataset/15/schema-dst-15.xsd",
+    "emptyInstanceUrl": "http://webq2test.eionet.europa.eu/download/project/ias/file/empty.xml",
+    "xmlSchema": "http://converterstest.eionet.europa.eu/schemas/IAS/2018",
     "active": true,
     "localForm": true,
     "remoteForm": true,
