@@ -460,14 +460,19 @@ export default {
       for( let section in this.$refs){
         if(this.$refs.hasOwnProperty(section)) promises.push(this.$refs[section][0].$validator.validate());
       }
+      let self = this;
       var promise1 = new Promise(function(resolve, reject) {
         let rez = [];
         Promise.all(promises).then((res) => {
-          rez.push(res)
+          if(res.filter((it)=>{ return it === false}).length === 0){
+            resolve(res);
+          } else {
+            reject(res);
+          }
+
         }).catch((e) => {
           reject(e);
         });
-        resolve(rez);
       });
       return promise1;
     },

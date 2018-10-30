@@ -106,14 +106,15 @@ export default {
             promises.push( this.$refs[section].validate() );
           }
           promises.push( this.$refs[section].$validator.validate() );
-
-
         }
       }
 
       Promise.all(promises).then((res) => {
+       this.$set(this.$refs.formsubmit.$data , 'valid', true);
+        console.log("res");
         console.log(res);
       }).catch((e) => {
+        console.log("errors");
         console.error(e);
       })
     }
