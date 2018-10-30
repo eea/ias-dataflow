@@ -87,10 +87,6 @@
                                v-bind:data-vv-scope="'depending_on_manadatory_' + selkey + '_' + fieldkey"
                                data-vv-as="Depending on mandatory"
                 ></b-form-select>
-
-                <!--<b-input-group-append>
-                  <b-btn variant="primary" @click="addCustomField(field)">Add new</b-btn>
-                </b-input-group-append>-->
               </b-input-group>
 
               <div v-if="field.type === 'file'">
@@ -111,9 +107,9 @@
             <textarea class="form-control" v-model="sectionProp.additional_info.selected"></textarea>
           </b-col>
         </b-row>
+
         <div v-if="sectionProp.mandatory_item.selected === true" style="margin-top: 1rem;">
           <h4>{{sectionProp.section.label}}</h4>
-
           <div v-for="field in sectionProp.section.fields">
             <div class="checkbox-wrapper" v-if="field.type !== 'textarea'" lg="12">
               <input :id="`${field.name}_${selkey}_${tabId}`" type="checkbox" v-model="field.selected" />

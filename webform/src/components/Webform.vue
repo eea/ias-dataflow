@@ -1,31 +1,32 @@
 <template>
+
 	<b-container style="position: relative">
+    {{ errors }}
     <center><h1 class="mb-3 mt-2">IAS dataflow</h1></center>
     <center><h5><small class="text-muted">Technical formats to be used by the Member States for transmitting to the Commission the information pursuant to paragraph 1 of Article 24 of Regulation (EU) No 1143/2014 on the prevention and management of the introduction of invasive alien species</small></h5></center>
       <b-card v-if="prefilled" no-body>
-        <formsubmit :country.sync="country" :info.sync="form"></formsubmit>
+        <formsubmit :country.sync="country" :info.sync="form" @validate-components="validateSections" :validated="validated"></formsubmit>
         <b-form validated novalidate @submit="onSubmit">
           <b-tabs card>
             <b-tab title="Reporting party" active>
-              <countrytab tabId="0" :info.sync="form.country"></countrytab>
+              <countrytab tabId="0" :info.sync="form.country" ref="countrytab"></countrytab>
             </b-tab>
             <b-tab :title="doTitle(form.tab_1.label)">
-     			    <sectiona tabId="1" :info.sync="form.tab_1"></sectiona>
+     			    <sectiona tabId="1" :info.sync="form.tab_1" ref="sectiona"></sectiona>
             </b-tab>
             <b-tab :title="doTitle(form.tab_2.label)" >
-              <sectionb tabId="2" :info.sync="form.tab_2"></sectionb>
+              <sectionb v-bind:data-vv-scope="'sectionb'" tabId="2" :info.sync="form.tab_2" ref="sectionb"></sectionb>
             </b-tab>
             <b-tab :title="doTitle(form.tab_3.label)" >
-              <sectionc tabId="3" :info.sync="form.tab_3"></sectionc>
+              <sectionc tabId="3" :info.sync="form.tab_3" ref="sectionc"></sectionc>
             </b-tab>
             <b-tab :title="doTitle(form.tab_4.label)" >
-              <distributionmap tabId="4" :info.sync="form.tab_4"></distributionmap>
+              <distributionmap tabId="4" :info.sync="form.tab_4" ref="distributionmap"></distributionmap>
             </b-tab>
           </b-tabs>
         </b-form>
-
-
       </b-card>
+
       <div v-if="!prefilled" class="spinner">
         <div class="loader"></div>
       </div>
@@ -58,7 +59,7 @@ export default {
     sectionc: SectionC,
     distributionmap: DistributionMap,
   	formsubmit: FormSubmit,
-    countrytab: Countrytab
+    countrytab: Countrytab,
   },
 
   data () {
@@ -68,6 +69,7 @@ export default {
       button_text: 'Hide list',
       country: '',
       prefilled: false,
+      validated: false,
     }
   },
 
@@ -85,14 +87,8 @@ export default {
   },
 
   methods: {
-
-
     prefill(data){
-
-
-      this.prefilled = true;
-
-
+       this.prefilled = true;
     },
 
     doTitle(title) {
@@ -102,6 +98,13 @@ export default {
     onSubmit (evt) {
        evt.preventDefault();
     },
+    validateSections(){
+      let sections = this.$refs;
+      for(let section in sections) {
+        console.log( sections[section].$validator.validate() );
+      }
+
+    }
   },
 
 }

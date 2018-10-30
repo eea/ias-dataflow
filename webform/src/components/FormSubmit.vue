@@ -1,12 +1,10 @@
 <template>
   <div class="wrapper">
-    <b-btn variant="success" style="position: absolute;
-    top: 5px;
-    right: 5px;" @click="doStuff">Save</b-btn>
-    <b-btn variant="danger" style="position: absolute;
-    top: 5px;
-    right: 85px;" @click="exitForm">Back to envelope</b-btn>
-
+    <div style="position: absolute;top: 5px;right: 5px;">
+      <b-btn variant="success" style="" @click="doStuff" v-show="valid">Save</b-btn>
+      <b-btn variant="primary" @click="validateSections" style="">Validate</b-btn>
+      <b-btn variant="danger" style="" @click="exitForm">Back to envelope</b-btn>
+    </div>
 
     <b-alert :show="dismissCountDown"
        variant="success"
@@ -25,11 +23,7 @@ export default {
 
   name: 'FormSubmit',
 
-  props: {
-    info: null,
-    country: null,
-
-  },
+  props: ['info', 'country', 'validated'],
 
   updated() {
   },
@@ -43,6 +37,7 @@ export default {
     return {
       dataset: null,
       validation: [],
+      valid: this.validated,
       jsonemptyinstance: {
           "BC_PEP": {
               "@xmlns": "https://dd.info-rac.org/namespaces/4",
@@ -91,12 +86,12 @@ export default {
       window.location.replace(envelope)
     },
 
-       showAlert () {
+    showAlert () {
       console.log('showingalert')
       this.dismissCountDown = this.dismissSecs
     },
 
-       countDownChanged (dismissCountDown) {
+    countDownChanged (dismissCountDown) {
       this.dismissCountDown = dismissCountDown
     },
 
@@ -302,7 +297,13 @@ export default {
       this.showAlert();
     },
 
-    validate() {
+    validate(){
+
+    },
+
+    validateSections(){
+      //this.valid = true;
+      this.$emit("validate-components");
     }
   },
     watch: {

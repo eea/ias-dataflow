@@ -30,7 +30,7 @@
           </div>
 
           <div v-if="field.type === 'file'">
-            
+
             <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="zip,geojson"
                             :multiple=false @form-file-uploaded="addFilesToSelected" @form-file-delete="deleteFormFile">
             </FormFileUpload>
@@ -62,6 +62,9 @@ export default {
   props: {
     info: null,
     tabId:null
+  },
+  $_veeValidate: {
+    validator: 'new' // give me my own validator scope.
   },
 
   data () {

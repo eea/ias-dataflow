@@ -1,6 +1,6 @@
 <template>
   <div v-if="info">
-    <b-btn variant="primary" @click="validateForm">Validate</b-btn>
+
     <!--<div v-for="er in errors.items">
       <b-badge variant="danger">{{ er }}</b-badge>
     </div>
@@ -33,7 +33,9 @@
                 :close-on-select="false" :clear-on-select="false" :preserve-search="true" track-by="text"
                 @select="fillCommon($event)" :custom-label="customLabel" @input="updateSelected()" @remove="remove($event)"
                 >
-                  <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span></template>
+                  <template slot="selection" slot-scope="{ values, search, isOpen }">
+                    <span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span>
+                  </template>
                 </multiselect>
 
             </b-col>
@@ -78,9 +80,8 @@
 
           <div v-if="info.sections" v-for="(selval, selkey, selindex) in info.sections">
             <SectionBsection :sectionProp="info.sections[selkey]" :selkey="selkey" :info="info"
-            @remove-section="removeSection" :tabId="tabId"
+                             @remove-section="removeSection" :tabId="tabId"
             ></SectionBsection>
-
           </div>
 
         </b-card>
@@ -103,6 +104,9 @@ export default {
   props: {
     info: null,
     tabId:null
+  },
+  $_veeValidate: {
+    validator: 'new' // give me my own validator scope.
   },
 
   data () {
@@ -454,7 +458,7 @@ export default {
       return `${text}`
     },
 
-    validateForm(){
+    validateSection(){
       this.$validator.validate().then((result)=>{
         //console.log(result);
         //console.log(this.$validator.errors.items);

@@ -3,7 +3,7 @@
       <div class="question-wrapper">
         <h3>INFORMATION ON THE REPORTING PARTY</h3>
         <div class="question">
-          
+
         </div>
         <div v-for="(tables,index) in info.tables" class="table table-striped answer">
           <div class="table-head">
@@ -46,6 +46,10 @@ export default {
     info: null,
     tabId:null
   },
+  $_veeValidate: {
+    validator: 'new' // give me my own validator scope.
+  },
+
 
   data () {
     return {

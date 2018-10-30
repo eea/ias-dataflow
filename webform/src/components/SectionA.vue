@@ -205,6 +205,9 @@ export default {
     info: null,
     tabId:null
   },
+  $_veeValidate: {
+    validator: 'new' // give me my own validator scope.
+  },
 
   data () {
     return {
