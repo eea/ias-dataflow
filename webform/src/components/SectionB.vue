@@ -458,12 +458,18 @@ export default {
     validate(){
       let promises = [];
       for( let section in this.$refs){
-        if(this.$refs.hasOwnProperty(section)) promises.push(this.$refs[section][0].$validator.validate());
+        if(this.$refs.hasOwnProperty(section)) {
+          promises.push(this.$refs[section][0].$validator.validate());
+
+          if('undefined' !== typeof this.$refs[section][0].validate){
+            promises.push(this.$refs[section][0].validate());
+          }
+        }
       }
-      let self = this;
-      var promise1 = new Promise(function(resolve, reject) {
-        let rez = [];
+      return new Promise(function(resolve, reject) {
         Promise.all(promises).then((res) => {
+
+          // if no errors
           if(res.filter((it)=>{ return it === false}).length === 0){
             resolve(res);
           } else {
@@ -474,7 +480,6 @@ export default {
           reject(e);
         });
       });
-      return promise1;
     },
 
   }

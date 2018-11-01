@@ -43,8 +43,8 @@
         <h4><small>{{info.common_name.label}}: </small>{{ sectionProp.common_name.selected.value}}</h4>
         <b-row>
           <b-col>
-            <b-badge variant="danger" v-if="errors.has('mandatory_item_'+ selkey + '.mandatory_item_' + selkey)">
-              {{ errors.first('mandatory_item_'+ selkey + '.mandatory_item_' + selkey) }}
+            <b-badge variant="danger" v-if="errors.has('sectionb_mandatory_item_'+ selkey + '.mandatory_item_' + selkey)">
+              {{ errors.first('sectionb_mandatory_item_'+ selkey + '.mandatory_item_' + selkey) }}
             </b-badge>
           </b-col>
         </b-row>
@@ -57,7 +57,7 @@
                              v-validate="'selectRequiredNumber:1'"
                              data-vv-as="Mandatory item"
                              v-bind:key="'mandatory_item_' + selkey"
-                             v-bind:data-vv-scope="'mandatory_item_'+ selkey"
+                             v-bind:data-vv-scope="'sectionb_mandatory_item_'+ selkey"
                              v-bind:name="'mandatory_item_' + selkey"
                              :options="sectionProp.mandatory_item.options">
               </b-form-select>
@@ -74,10 +74,14 @@
           </h6>
           <div class="mt-4" v-if="sectionProp.mandatory_item.selected === true">
             <PatternField :patternfields="sectionProp.depending_on_mandatory.reproduction_patterns"
+                          :scope="'sectionb_reproduction'"
+                          :ref="'reproduction'"
                           @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
             </PatternField>
 
             <PatternField :patternfields="sectionProp.depending_on_mandatory.spread_pattterns"
+                          :scope="'sectionb_spread'"
+                          :ref="'spread'"
                           @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
             </PatternField>
 
@@ -149,6 +153,30 @@
           }
         },
         methods: {
+          validate(){
+
+            let self = this;
+            let promises = [];
+            for( let child in this.$refs){
+              if(this.$refs.hasOwnProperty(child) && 'undefined' !== typeof this.$refs[child].$validator) {
+                promises.push(this.$refs[child].$validator.validate());
+              }
+            }
+
+            return new Promise(function(resolve, reject) {
+              Promise.all(promises).then((res) => {
+                // if no errors
+                if(res.filter((it)=>{ return it === false}).length === 0){
+                  resolve(res);
+                } else {
+                  reject(res);
+                }
+              }).catch((e) => {
+                reject(e);
+              });
+            });
+          },
+
           updateSFName(val, selkey){
             if( this.info.sections[selkey]){
               this.info.sections[selkey].scientific_name.selected.value = val;
@@ -192,7 +220,12 @@
           },
 
           removePattern(fields, fieldkey){
-            if(fieldkey !== 0) fields.splice(fieldkey, 1);
+            if(fieldkey !== 0) {
+              fields.splice(fieldkey, 1);
+            } else {
+              fields[fieldkey].selected.region = null;
+              fields[fieldkey].selected.pattern = null;
+            }
           },
 
           addNewPattern(fields){
