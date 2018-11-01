@@ -1,25 +1,33 @@
 <template>
-	<b-container style="position: relative">
-    {{ errors }}
+	<b-container style="position: relative" >
+    <div v-for="error in errors.items">
+      <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;">
+        <b-link v-bind:href="'[name=' + error.field +']'" @click="scrollIntoView($event, error)"
+          style="color: #fff;"
+        >{{ error.scope.split("_")[0] }} : {{ error.msg }}</b-link>
+      </b-badge>
+    </div>
+
     <center><h1 class="mb-3 mt-2">IAS dataflow</h1></center>
     <center><h5><small class="text-muted">Technical formats to be used by the Member States for transmitting to the Commission the information pursuant to paragraph 1 of Article 24 of Regulation (EU) No 1143/2014 on the prevention and management of the introduction of invasive alien species</small></h5></center>
-      <b-card v-if="prefilled" no-body>
+
+    <b-card v-if="prefilled" no-body style="overflow-y: auto;" ref="content">
         <formsubmit :country.sync="country" :info.sync="form" @validate-components="validateSections" :validated="validated" ref="formsubmit"></formsubmit>
-        <b-form validated novalidate @submit="onSubmit">
-          <b-tabs card>
-            <b-tab title="Reporting party" active>
-              <countrytab tabId="0" :info.sync="form.country" ref="countrytab"></countrytab>
+        <b-form validated novalidate @submit="onSubmit" >
+          <b-tabs card v-model="tabIndex"  >
+            <b-tab title="Reporting party" active ref="country_tab" style="overflow-y: auto;">
+              <countrytab tabId="0" :info.sync="form.country" ref="country"></countrytab>
             </b-tab>
-            <b-tab :title="doTitle(form.tab_1.label)">
+            <b-tab :title="doTitle(form.tab_1.label)" ref="sectiona_tab" style="overflow-y: auto;">
      			    <sectiona tabId="1" :info.sync="form.tab_1" ref="sectiona"></sectiona>
             </b-tab>
-            <b-tab :title="doTitle(form.tab_2.label)" >
+            <b-tab :title="doTitle(form.tab_2.label)" ref="sectionb_tab" style="overflow-y: auto;">
               <sectionb v-bind:data-vv-scope="'sectionb'" tabId="2" :info.sync="form.tab_2" ref="sectionb"></sectionb>
             </b-tab>
-            <b-tab :title="doTitle(form.tab_3.label)" >
+            <b-tab :title="doTitle(form.tab_3.label)" ref="sectionc_tab" style="overflow-y: auto;">
               <sectionc tabId="3" :info.sync="form.tab_3" ref="sectionc"></sectionc>
             </b-tab>
-            <b-tab :title="doTitle(form.tab_4.label)" >
+            <b-tab :title="doTitle(form.tab_4.label)" ref="distributionmap_tab"style="overflow-y: auto;">
               <distributionmap tabId="4" :info.sync="form.tab_4" ref="distributionmap"></distributionmap>
             </b-tab>
           </b-tabs>
@@ -68,6 +76,14 @@ export default {
       country: '',
       prefilled: false,
       validated: false,
+      tabIndex: 0,
+      tabMapping: {
+    	  countrytab: 0,
+    	  sectiona: 1,
+        sectionb: 2,
+        sectionc: 3,
+        distributionmap: 4,
+      }
     }
   },
 
@@ -99,15 +115,19 @@ export default {
     },
     validateSections(){
       let sections = this.$refs;
+
       let promises = [];
-      for(let section in sections) {
-        if(this.$refs.hasOwnProperty(section)){
+
+      Object.keys(sections).filter((item) => {
+        return 'undefined' !== typeof sections[item].$validator || sections[item].validate ;
+      }).map((section) => {
+        if(this.$refs.hasOwnProperty(section) ){
           if( 'undefined' !== typeof this.$refs[section].validate ) {
             promises.push( this.$refs[section].validate() );
           }
-          promises.push( this.$refs[section].$validator.validate() );
+          if('undefined' !== this.$refs[section].$validator) promises.push( this.$refs[section].$validator.validate() );
         }
-      }
+      });
 
       Promise.all(promises).then((res) => {
        this.$set(this.$refs.formsubmit.$data , 'valid', true);
@@ -116,6 +136,29 @@ export default {
         //console.log("errors");
         console.error(e);
       })
+    },
+
+    scrollIntoView ($event, error) {
+
+      $event.preventDefault();
+
+      let href = $event.target.getAttribute('href');
+
+      let section = error.scope.split("_")[0];
+      this.tabIndex = this.tabMapping[section];
+
+      let el = href ? this.$el.querySelector(href).closest(".card") : null;
+
+      if (el) {
+        console.log(el);
+        //this.$scrollTo(element, duration, options)
+        //document.querySelectorAll(".question-wrapper")[this.tabMapping[section]].scrollTop = el.offsetTop;
+        //console.log(el);
+
+        //this.$refs.content.$scrollTo( document.querySelectorAll(".question-wrapper")[this.tabMapping[section]], 1000);
+        this.$refs.content.$scrollTo( document.querySelectorAll(".question-wrapper")[this.tabMapping[section]], 1000);
+      }
+
     }
   },
 

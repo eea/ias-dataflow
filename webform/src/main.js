@@ -5,6 +5,9 @@ import App from './App.vue'
 import 'date-input-polyfill';
 import Multiselect from 'vue-multiselect'
 import VeeValidate from 'vee-validate'
+import vueScrollto from 'vue-scrollto'
+
+
 
 import './css/main.scss'
 
@@ -94,6 +97,7 @@ let selectRequiredBoolean = {
 Vue.component('multiselect', Multiselect);
 Vue.use(BootstrapVue);
 Vue.use(VeeValidate);
+Vue.use(vueScrollto);
 
 Validator.extend('filesAllowed', filesAllowed);
 //Validator.extend('selectRequiredBoolean', selectRequiredBoolean);

@@ -18,13 +18,22 @@
               <small>{{section.common_name.label}}: {{section.common_name.selected}}</small>
             </h4>
         </div>
-
+        <b-badge variant="danger" v-if="errors.has('sectiona_mandatory_item_'+ seckey + '.mandatory_item_' + seckey)">
+          {{ errors.first('sectiona_mandatory_item_'+ seckey + '.mandatory_item_' + seckey) }}
+        </b-badge>
         <b-collapse :id="'collapse' + seckey" :visible="expanded.indexOf(seckey) !== -1">
 
           <b-row>
             <b-col>
               <b-input-group :prepend="section.mandatory_item.label">
-                <b-form-select v-model="section.mandatory_item.selected" :options="section.mandatory_item.options"></b-form-select>
+
+                <b-form-select v-model="section.mandatory_item.selected" :options="section.mandatory_item.options"
+                               v-validate="'selectRequiredNumber:1'"
+                               :data-vv-as="'Species presence for '  + section.scientific_name.selected "
+                               v-bind:key="'mandatory_item_' + seckey"
+                               v-bind:data-vv-scope="'sectiona_mandatory_item_'+ seckey"
+                               v-bind:name="'mandatory_item_' + seckey"
+                ></b-form-select>
               </b-input-group>
             </b-col>
           </b-row>
@@ -36,10 +45,14 @@
             </h6>
 
             <PatternField :patternfields="section.depending_on_mandatory.reproduction_patterns"
+                          :scope="'sectiona_reproduction_' + seckey"
+                          :ref="'reproduction_' + seckey"
                           @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
             </PatternField>
 
             <PatternField :patternfields="section.depending_on_mandatory.spread_pattterns"
+                          :scope="'sectiona_spread_' + seckey"
+                          :ref="'spread_'+ seckey"
                           @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
             </PatternField>
 
@@ -283,7 +296,33 @@ export default {
           if(field.name === 'year') field.selected = $event;
         });
       });*/
-    }
+    },
+
+    validate(){
+      let self = this;
+      let promises = [];
+
+      for( let child in this.$refs){
+        if(this.$refs.hasOwnProperty(child) &&  'undefined' !== typeof this.$refs[child][0]
+          &&'undefined' !== typeof this.$refs[child][0].$validator) {
+          promises.push(this.$refs[child][0].$validator.validate());
+        }
+      }
+
+      return new Promise(function(resolve, reject) {
+        Promise.all(promises).then((res) => {
+          // if no errors
+          if(res.filter((it)=>{ return it === false}).length === 0){
+            resolve(res);
+          } else {
+            reject(res);
+          }
+        }).catch((e) => {
+          reject(e);
+        });
+      });
+    },
+
   },
 }
 </script>
