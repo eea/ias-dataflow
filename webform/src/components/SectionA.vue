@@ -85,22 +85,56 @@
 
               <b-row>
                 <b-col>
+                  <b-badge variant="danger" v-if="errors.has('table_1_question_' + seckey ,'sectiona_table_1_'+ seckey )">
+                    {{ errors.first('table_1_question_' + seckey , 'sectiona_table_1_'+ seckey )}}
+                  </b-badge>
+                </b-col>
+              </b-row>
+              <b-row>
+                <b-col>
                   <b-input-group :prepend="section.tables.table_1.question.label">
-                    <b-form-select v-model="section.tables.table_1.question.selected" :options="section.tables.table_1.question.options"></b-form-select>
+                    <b-form-select v-model="section.tables.table_1.question.selected" :options="section.tables.table_1.question.options"
+                                   v-validate.continues="'required'"
+                                   :data-vv-as="'permits issued'"
+                                   v-bind:key="'table_1_question_' + seckey"
+                                   v-bind:data-vv-scope="'sectiona_table_1_'+ seckey"
+                                   v-bind:name="'table_1_question_' + seckey"
+                    ></b-form-select>
                   </b-input-group>
                 </b-col>
               </b-row>
 
-              <div class="table-section" v-for="(table_section, table_key) in section.tables.table_1.table_sections" v-if="section.tables.table_1.question.selected === true">
+              <div class="table-section" v-for="(table_section, table_key) in section.tables.table_1.table_sections"
+                   v-if="section.tables.table_1.question.selected === true">
                 <h6>{{table_section.label}}</h6>
-                <b-row>
+
+
+                  <b-row>
+                    <b-col>
+                      <b-badge variant="danger"
+                        v-if="errors.has('table_'+ table_key +'_' + table_section.field.name + '_' + seckey ,
+                         'sectiona_table_' + table_key + '_' + table_section.field.name + '_' + seckey  + '_' + table_key)">
+                        {{ errors.first('table_'+ table_key +'_' + table_section.field.name + '_' + seckey ,
+                        'sectiona_table_' +  table_key + '_' + table_section.field.name + '_' + seckey + '_' + table_key )}}
+                      </b-badge>
+                    </b-col>
+                  </b-row>
+                  <b-row>
                   <b-col>
 
                     <b-input-group :prepend="table_section.field.label" v-if="table_section.field.type === 'select'">
                       <!-- :type="table_section.field.type" -->
-                      <b-form-select v-model="table_section.field.selected" :options="table_section.field.options"
-                                     @change="changeFields($event, table_section)"></b-form-select>
+                      <b-form-select v-model="table_section.field.selected"
+                                     :options="table_section.field.options"
+                                     @change="changeFields($event, table_section)"
+                                     v-validate.continues ="'selectRequired'"
+                                     :data-vv-as="'calendar year'"
+                                     v-bind:key="'table_' + table_key+ '_' + table_section.field.name + '_' + seckey"
+                                     v-bind:name="'table_' + table_key+ '_' + table_section.field.name + '_' + seckey"
+                                     v-bind:data-vv-scope="'sectiona_table_' + table_key + '_' + table_section.field.name + '_' +  seckey + '_' + table_key"
+                      ></b-form-select>
                     </b-input-group>
+
                     <b-input-group :prepend="table_section.field.label" v-if="table_section.field.type !== 'select'">
                       <!-- :type="table_section.field.type" -->
                       <b-form-input v-model="table_section.field.selected" ></b-form-input>
@@ -108,7 +142,9 @@
                   </b-col>
                 </b-row>
 
-                <PermitsTabel :table_section="table_section" :yearoptions="table_section.field.options"></PermitsTabel>
+                <PermitsTabel :table_section="table_section" :yearoptions="table_section.field.options" :scope="'table_' + table_key "
+                              :ref="'permits_table_' + table_key"
+                ></PermitsTabel>
 
                 <div>
                   <div>
@@ -126,11 +162,24 @@
                 <h5>{{section.tables.table_2.label}}</h5>
               </center>
               <hr>
+              <b-row>
+                <b-col>
+                  <b-badge variant="danger" v-if="errors.has('*','sectiona_table_2_'+ seckey )">
+                    {{ errors.first('table_2_question_' + seckey , 'sectiona_table_2_'+ seckey )}}
+                  </b-badge>
+                </b-col>
+              </b-row>
 
               <b-row>
                 <b-col>
                   <b-input-group :prepend="section.tables.table_2.question.label">
-                    <b-form-select v-model="section.tables.table_2.question.selected" :options="section.tables.table_2.question.options"></b-form-select>
+                    <b-form-select v-model="section.tables.table_2.question.selected" :options="section.tables.table_2.question.options"
+                                   v-validate.continues="'required'"
+                                   :data-vv-as="'eradication measures'"
+                                   v-bind:key="'table_2_question_' + seckey"
+                                   v-bind:data-vv-scope="'sectiona_table_2_'+ seckey"
+                                   v-bind:name="'table_2_question_' + seckey">
+                    </b-form-select>
                   </b-input-group>
                 </b-col>
               </b-row>
@@ -304,7 +353,7 @@ export default {
 
       for( let child in this.$refs){
         if(this.$refs.hasOwnProperty(child) &&  'undefined' !== typeof this.$refs[child][0]
-          &&'undefined' !== typeof this.$refs[child][0].$validator) {
+          && 'undefined' !== typeof this.$refs[child][0].$validator) {
           promises.push(this.$refs[child][0].$validator.validate());
         }
       }

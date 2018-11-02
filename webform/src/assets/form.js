@@ -167,6 +167,7 @@ let tab_1_section = {
         type: 'select',
         index: 6,
         options: [{ value: true, text: "Yes" }, { value: false, text: "No" }],
+        selected: '',
       },
       table_sections: [{
           label: '',

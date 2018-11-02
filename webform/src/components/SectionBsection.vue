@@ -89,7 +89,7 @@
               <b-input-group v-if="field.type === 'select' && 'undefined' === typeof field.selected.region"
                              :prepend="field.label">
                 <b-form-select :options="field.options" v-model="field.selected"
-                               v-validate="'selectRequiredBoolean:bool'"
+                               v-validate="'selectRequiredBoolean'"
                                v-bind:name="'depending_on_manadatory_' + selkey + '_' + fieldkey"
                                v-bind:key="'depending_on_manadatory_' + selkey + '_' + fieldkey "
                                v-bind:data-vv-scope="'depending_on_manadatory_' + selkey + '_' + fieldkey"

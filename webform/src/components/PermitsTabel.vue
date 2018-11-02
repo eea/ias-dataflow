@@ -11,13 +11,42 @@
       <!-- TODO: add validation so that each same name has unique year -->
         <tr v-for="(row,rkey) in rows">
           <td v-for="(field,fkey) in row.fields" v-if="field.name === 'year'">
-            <field-generator :field="field"></field-generator>
+            <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey )"
+                     variant="danger"
+                    class="error-badge"
+                    v-b-tooltip.hover
+            :title="errors.first('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey  )">
+              {{ errors.first('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey ) }}
+            </b-badge>
+
+            <b-form-select  v-model="field.selected" :options="field.options"
+                            v-validate.continues ="'required'"
+                            :data-vv-as="field.label"
+                            v-bind:key="'permits_' + field.name + '_' + rkey"
+                            v-bind:name="'permits_' + field.name + '_' + rkey"
+                            v-bind:data-vv-scope="'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey"
+            ></b-form-select>
           </td>
 
           <td><b-form-select :options="options" v-model="index[rkey]" @change="changeRow($event, rkey)"></b-form-select></td>
 
+
+          <!-- TODO: add validation so that total number is not less than permits issued -->
           <td v-for="(field,fkey) in row.fields"  v-if="field.name !== 'year'">
-            <field-generator :field="field"></field-generator>
+            <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey )"
+                     variant="danger"
+                     class="error-badge"
+                     :id="'permits_' + field.name + '_' + rkey + 'badge'"
+                     :title="errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey).join('\n')"
+                     v-b-tooltip.hover
+                    >
+              {{ errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey ).join('\n') }}
+            </b-badge>
+            <field-generator :field="field"
+                             :vname="'permits_' + field.name + '_' + rkey"
+                             :vkey="'permits_' + field.name + '_' + rkey"
+                             :vscope="'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey"
+            ></field-generator>
           </td>
 
           <td><b-btn variant="danger" @click="removeRow(rkey)">X</b-btn></td>
@@ -38,7 +67,7 @@
 
   export default {
     name: "PermitsTable",
-    props: ['table_section', 'yearoptions'],
+    props: ['table_section', 'yearoptions', 'scope'],
     components: { fieldGenerator },
     data(){
       return {
@@ -82,6 +111,7 @@
       },
       removeRow(fieldkey){
         if(this.rows.length === 1){
+          console.log(this.rows[0].fields);
           return false;
         }
         this.rows.splice(fieldkey, 1);
@@ -92,8 +122,28 @@
     }
   }
 </script>
+<style>
+  /* tooltip background color */
+  .tooltip-inner {
+    background-color: #cc0000;
+    opacity: 100%;
+  }
+  .tooltip.bs-tooltip-right .arrow:before {
+    border-right-color: #cc0000 !important;
+  }
+  .tooltip.bs-tooltip-left .arrow:before {
+    border-left-color: #cc0000 !important;
+  }
+  .tooltip.bs-tooltip-bottom .arrow:before {
+    border-bottom-color: #cc0000 !important;
+  }
+  .tooltip.bs-tooltip-top .arrow:before {
+    border-top-color: #cc0000 !important;
+  }
+</style>
 
 <style scoped>
+
 
   .table-wrapper {
     margin-bottom: 2rem;
@@ -139,6 +189,21 @@
   .header-column {
     max-width: 10%;
     width: 10%;
+  }
+
+  td {
+    position: relative;
+  }
+
+  .error-badge {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 85%;
+    position: absolute;
+    max-width: 85%;
+    top: -1px;
   }
 
 </style>

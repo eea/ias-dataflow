@@ -87,8 +87,25 @@ let selectRequiredBoolean = {
     return field + " required: yes or no or Unknown";
   },
   validate(value, args) {
+
+    console.log("@#@####");
     console.log(value);
     console.log(args);
+    return true;
+  }
+};
+
+let selectRequired = {
+  getMessage(field, args){
+    return field + " required: yes or no or Unknown";
+  },
+  validate(value, args){
+   /* console.log("#####");
+    console.log(value);
+    //console.log(value === '');
+    console.log("#####");*/
+
+    if(value === "") return false;
     return true;
   }
 };
@@ -100,8 +117,9 @@ Vue.use(VeeValidate);
 Vue.use(vueScrollto);
 
 Validator.extend('filesAllowed', filesAllowed);
-//Validator.extend('selectRequiredBoolean', selectRequiredBoolean);
+Validator.extend('selectRequiredBoolean', selectRequiredBoolean);
 Validator.extend('selectRequiredNumber', selectRequiredNumber);
+Validator.extend('selectRequired', selectRequired);
 
 // Vue.config.productionTip = false
 
