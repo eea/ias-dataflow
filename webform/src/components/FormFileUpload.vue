@@ -1,20 +1,29 @@
 <template>
   <div>
-    <b-badge  v-if="errors.has('files-input-' + fieldkey + '.' +'files-input-' + fieldkey )" variant="danger">
-      {{ errors.first('files-input-' + fieldkey + "." +'files-input-' + fieldkey ) }}
+    <b-btn @click="btnValidate()">validate</b-btn>
+
+    <b-badge  v-if="errors.has('*' , scope +'_' + 'files-input-' + fieldkey )" variant="danger">
+      {{ errors.first('*' , scope +'_' + 'files-input-' + fieldkey ) }}
     </b-badge >
     <b-input-group>
+
       <b-input-group-prepend>
         <div v-if="prepend" class="input-group-text">{{ prepend }}</div>
         <b-badge class="upload-badge" variant="danger" v-show="Boolean(errorUpload.length)">Error could not upload</b-badge>
 
       </b-input-group-prepend>
       <!-- TODO: validation of file extension : v-validate="'ext:jpeg,jpg'" data-vv-as="field" v-validate="'filesAllowed'" -->
-      <b-form-file v-model="files" v-validate="'filesAllowed:'+ filesAllowed" data-vv-as="file" :state="Boolean(files)"
-                   :multiple="Boolean(multiple)" :ref="'fileinputref' + fieldkey"
-                   v-bind:name="'files-input-' + fieldkey" v-bind:key="'files-input-' + fieldkey"
-                   v-bind:data-vv-scope="'files-input-' + fieldkey"
-      ></b-form-file>
+      <b-form-file v-model="files"
+                   v-validate="'filesAllowed:'+ filesAllowed"
+                   data-vv-as="file"
+                   :multiple="Boolean(multiple)"
+                   :ref="'fileinputref' + fieldkey"
+                   v-bind:name="vname"
+                   v-bind:key="vkey"
+                   v-bind:data-vv-scope="scope +'_' + 'files-input-' + fieldkey"
+       >
+        <!-- @change="changeSelect($event)" :state="Boolean(files)" -->
+      </b-form-file>
       <b-input-group-append>
         <b-btn v-show="errors.items.length === 0" @click="uploadFormFile(files, field, fieldkey)" variant="success">Upload</b-btn>
       </b-input-group-append>
@@ -87,10 +96,25 @@
 
   export default {
     name: 'FormFileUpload',
-    props: ['field', 'fieldkey', 'multiple', 'selected', 'prepend','filesAllowed'],
+    props: ['field', 'fieldkey', 'multiple', 'selected', 'prepend','filesAllowed','scope','vname','vkey'],
+    inject: ['$validator'],
+    /*$_veeValidate: {
+      // value getter
+      value () {
+        return this.$el.value;
+      },
+      // name getter
+      name () {
+        return this.field.name;
+      }
+    },*/
+    mounted () {
+      //console.log(this.$el.value);
+      //this.$el.value = this.field.selected;
+    },
     data(){
       return {
-        files: [],
+        files: null,
         fileIsUploading: [],
         doneUpload: [],
         errorUpload: [],
@@ -196,6 +220,17 @@
           });
         }
       },
+
+      changeSelect($event){
+
+        //this.files = $event.target.files;
+        //this.$emit('input', $event.target.files);
+        //this.$validator.validate();
+      },
+      btnValidate(){
+        console.log(this.files);
+        //this.$validator.validate();
+      }
     }
   }
 </script>

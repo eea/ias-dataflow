@@ -78,11 +78,9 @@
           <hr>
 
           <b-card v-if="section.mandatory_item.selected === true" class="inner-card">
-
             <div class="card-section">
               <center><h5>{{section.tables.table_1.label}}</h5></center>
               <hr>
-
               <b-row>
                 <b-col>
                   <b-badge variant="danger" v-if="errors.has('table_1_question_' + seckey ,'sectiona_table_1_'+ seckey )">
@@ -108,7 +106,6 @@
                    v-if="section.tables.table_1.question.selected === true">
                 <h6>{{table_section.label}}</h6>
 
-
                   <b-row>
                     <b-col>
                       <b-badge variant="danger"
@@ -123,7 +120,6 @@
                   <b-col>
 
                     <b-input-group :prepend="table_section.field.label" v-if="table_section.field.type === 'select'">
-                      <!-- :type="table_section.field.type" -->
                       <b-form-select v-model="table_section.field.selected"
                                      :options="table_section.field.options"
                                      @change="changeFields($event, table_section)"
@@ -134,9 +130,8 @@
                                      v-bind:data-vv-scope="'sectiona_table_' + table_key + '_' + table_section.field.name + '_' +  seckey + '_' + table_key"
                       ></b-form-select>
                     </b-input-group>
-
                     <b-input-group :prepend="table_section.field.label" v-if="table_section.field.type !== 'select'">
-                      <!-- :type="table_section.field.type" -->
+
                       <b-form-input v-model="table_section.field.selected" ></b-form-input>
                     </b-input-group>
                   </b-col>
@@ -184,7 +179,7 @@
                 </b-col>
               </b-row>
 
-              <div class="table-section" v-for="table_section in section.tables.table_2.table_sections" v-if="section.tables.table_2.question.selected === true">
+              <div class="table-section" v-for="(table_section,table_key) in section.tables.table_2.table_sections" v-if="section.tables.table_2.question.selected === true">
                 <h6>{{table_section.label}}</h6>
                 <table  v-for="sub_section in table_section.table_fields.fields" class="table">
                   <thead>
@@ -197,10 +192,16 @@
                   </tr>
                   </thead>
                   <tbody>
+
                   <tr v-for="(row, rowkey, rowindex) in sub_section.fields">
                     <td style="width: 120px" v-if="row.label">{{row.label}}</td>
                     <td  v-if="sub_section.type != 'add'">
-                      <fieldGenerator :field="row"></fieldGenerator>
+                      <fieldGenerator :field="row"
+                                      :validation="'required|numeric|min_value:1'"
+                                      :vkey="row.name + '_' + rowkey"
+                                      :fieldkey="rowkey"
+                                      :vscope="'sectiona_'+ 'table_' + table_key + '_' + row.name + '_' + rowkey"
+                      ></fieldGenerator>
                     </td>
                     <td v-else>
                       <b-row>

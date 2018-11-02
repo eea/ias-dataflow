@@ -1,5 +1,6 @@
 <template>
 	<div v-if="field">
+<!--    {{ vkey }}.{{ vscope }}-->
 		<div  v-if="field.type === 'text' || field.type === 'number' || field.type === 'date' || field.type ==='email'" >
       <b-form-input :disabled="disabled" :name="field.name" v-model="field.selected" :type="field.type" v-if="field.type === 'number'"
                     @input="changeInput($event)"
@@ -35,7 +36,14 @@
     <textarea v-else-if="field.type === 'textarea'" v-model="field.selected"></textarea>
 
     <div v-else-if="field.type ==='file'">
-       <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" :prepend="'Shapefile,Geojson or GML file'"
+      {{ fieldkey }}
+       <FormFileUpload :selected="field.selected" :field="field"
+                       :filesAllowed="'zip,geojson'"
+                       :fieldkey="fieldkey"
+                       :vname="vname"
+                       :vkey="vkey"
+                       :scope="vscope"
+                       :prepend="'Shapefile,Geojson or GML file'"
                        @form-file-uploaded="addFilesToSelected" @form-file-delete="deleteFormFile" :multiple=false >
        </FormFileUpload>
     </div>
@@ -57,6 +65,7 @@ export default {
     vname: String,
     vkey: String,
     vscope: String,
+    validation: String,
   },
   created(){
 

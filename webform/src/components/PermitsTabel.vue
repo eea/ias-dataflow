@@ -29,7 +29,12 @@
             ></b-form-select>
           </td>
 
-          <td><b-form-select :options="options" v-model="index[rkey]" @change="changeRow($event, rkey)"></b-form-select></td>
+          <td><b-form-select :options="options" v-model="index[rkey]" @change="changeRow($event, rkey)"
+
+                             v-bind:key="'permits_' + 'permit' + '_' + rkey"
+                             v-bind:name="'permits_' + 'permit' + '_' + rkey"
+                             v-bind:data-vv-scope="'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey"
+          ></b-form-select></td>
 
 
           <td v-for="(field,fkey) in row.fields"  v-if="field.name !== 'year'">
@@ -43,6 +48,7 @@
               {{ errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey ).join('\n') }}
             </b-badge>
             <field-generator :field="field"
+                             validation="'required'"
                              :vname="'permits_' + field.name + '_' + rkey"
                              :vkey="'permits_' + field.name + '_' + rkey"
                              :vscope="'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey"
@@ -103,11 +109,14 @@
           this.rows.push(newRow);
           this.index[this.rows.length-1] = null;
           this.$forceUpdate();
+          //this.$validator.validate();
 
       },
       changeRow($event, rkey){
         let newlabel = this.initialRows[$event].label;
         this.rows[rkey].label = newlabel;
+        //this.$emit('input', $event);
+        //this.$validator.validate();
       },
       removeRow(fieldkey){
         if(this.rows.length === 1){
