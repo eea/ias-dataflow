@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div style="position: absolute;top: 5px;right: 5px;">
-      <b-btn variant="success" style="" @click="doStuff" :disabled="!valid">Save</b-btn>
+      <b-btn variant="success" style="" @click="saveForm" :disabled="!valid">Save</b-btn>
       <b-btn variant="primary" @click="validateSections" style="">Validate</b-btn>
       <b-btn variant="danger" style="" @click="exitForm">Back to envelope</b-btn>
     </div>
@@ -96,7 +96,7 @@ export default {
       this.dismissCountDown = dismissCountDown
     },
 
-    doStuff(){
+    saveForm(){
       this.jsonemptyinstance = {
           "BC_PEP": {
               "@xmlns": "https://dd.info-rac.org/namespaces/4",

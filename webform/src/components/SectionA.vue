@@ -183,6 +183,7 @@
                   </b-input-group>
                 </b-col>
               </b-row>
+
               <div class="table-section" v-for="table_section in section.tables.table_2.table_sections" v-if="section.tables.table_2.question.selected === true">
                 <h6>{{table_section.label}}</h6>
                 <table  v-for="sub_section in table_section.table_fields.fields" class="table">

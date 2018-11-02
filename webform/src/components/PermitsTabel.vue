@@ -8,6 +8,7 @@
       <th><span>Actions</span></th>
       </thead>
       <tbody>
+
       <!-- TODO: add validation so that each same name has unique year -->
         <tr v-for="(row,rkey) in rows">
           <td v-for="(field,fkey) in row.fields" v-if="field.name === 'year'">
@@ -31,7 +32,6 @@
           <td><b-form-select :options="options" v-model="index[rkey]" @change="changeRow($event, rkey)"></b-form-select></td>
 
 
-          <!-- TODO: add validation so that total number is not less than permits issued -->
           <td v-for="(field,fkey) in row.fields"  v-if="field.name !== 'year'">
             <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey )"
                      variant="danger"
