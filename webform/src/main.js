@@ -44,6 +44,9 @@ let filesAllowed = {
       let exts = args;
       if(exts[0] === "undefined") return true;
 
+      console.log("$$$$$$$$$$$$");
+      console.log(value);
+      console.log("$$$$$$$$$$$$");
       // is array
       if("undefined" !== typeof value.splice){
         let res = [];
