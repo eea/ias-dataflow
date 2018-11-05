@@ -42,8 +42,8 @@ export default {
       jsonemptyinstance: {
           "BC_PEP": {
               "@xmlns": "https://dd.info-rac.org/namespaces/4",
-              "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-              "@xsi:schemaLocation": "https://dd.info-rac.org/namespaces/4 https://dd.info-rac.org/v2/dataset/15/schema-dst-15.xsd",
+              "@xmlns:xsi": "https://www.w3.org/2001/XMLSchema-instance",
+              "@xsi:schemaLocation": "https://dd.info-rac.org/namespaces/4 https://converterstest.eionet.europa.eu/schemas/IAS/2018",
               "country": null,
               "contacting_party":{
                 "partyname":null,
@@ -101,7 +101,7 @@ export default {
           "BC_PEP": {
               "@xmlns": "https://dd.info-rac.org/namespaces/4",
               "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-              "@xsi:schemaLocation": "https://dd.info-rac.org/namespaces/4 https://dd.info-rac.org/v2/dataset/15/schema-dst-15.xsd",
+              "@xsi:schemaLocation": "https://dd.info-rac.org/namespaces/4 http://converterstest.eionet.europa.eu/schemas/IAS/2018",
               "country": null,
               "contacting_party":{
                 "partyname":null,

@@ -73,8 +73,8 @@
       "name": "index.html"
     },
     "newXmlFileName": "ias-report-2018.xml",
-    "emptyInstanceUrl": "http://webq2test.eionet.europa.eu/download/project/ias/file/empty.xml",
-    "xmlSchema": "http://converterstest.eionet.europa.eu/schemas/IAS/2018",
+    "emptyInstanceUrl": "https://webq2test.eionet.europa.eu/download/project/ias/file/empty.xml",
+    "xmlSchema": "https://converterstest.eionet.europa.eu/schemas/IAS/2018",
     "active": true,
     "localForm": true,
     "remoteForm": true,
