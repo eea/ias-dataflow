@@ -65,7 +65,13 @@
 
     <multiselect v-else-if="field.type ==='multiselect'" :close-on-select="false" :clear-on-select="false"
        :hide-selected="true" :preserve-search="true"
-       :multiple=true track-by="text" label="text" v-model="field.selected" :options="field.options"></multiselect>
+       :multiple=true track-by="text" label="text" v-model="field.selected" :options="field.options"
+       v-bind:key="vname"
+       v-bind:name="vkey"
+       :data-vv-as="field.label"
+       v-bind:data-vv-scope="vscope"
+       v-validate ="'required'"
+    ></multiselect>
 
     <div v-else>
       <b-form-input
