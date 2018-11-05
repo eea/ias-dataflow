@@ -1,53 +1,85 @@
 <template>
 	<div v-if="field">
-<!--    {{ vkey }}.{{ vscope }}-->
-		<div  v-if="field.type === 'text' || field.type === 'number' || field.type === 'date' || field.type ==='email'" >
-      <b-form-input :disabled="disabled" :name="field.name" v-model="field.selected" :type="field.type" v-if="field.type === 'number'"
-                    @input="changeInput($event)"
-                    v-bind:key="vname"
-                    v-bind:name="vkey"
-                    :data-vv-as="field.label"
-                    v-bind:data-vv-scope="vscope"
-                    v-validate.continues="'required|numeric|min_value:1'"
-                    >
-      </b-form-input>
 
-			<b-form-input :disabled="disabled" :name="field.name" v-model="field.selected" :type="field.type" v-if="field.type !== 'number'"
-                    @input="$emit('input', $event)" ></b-form-input>
+		<div v-if="field.type === 'text' || field.type === 'number' || field.type ==='email'" >
+      <b-form-input :disabled="disabled" :name="field.name"
+        v-model="field.selected" :type="field.type" v-if="field.type === 'number'"
+        @input="changeInput($event)"
+        v-bind:key="vname"
+        v-bind:name="vkey"
+        :data-vv-as="field.label"
+        v-bind:data-vv-scope="vscope"
+        v-validate.continues="'required|numeric|min_value:1'"
+      ></b-form-input>
+    </div>
+
+    <div v-else-if="field.type === 'date'">
+      <b-form-input :disabled="disabled" :name="field.name"
+        v-model="field.selected"
+        :type="field.type"
+        :data-vv-as="field.label"
+        v-bind:key="vname"
+        v-bind:name="vkey"
+        v-bind:data-vv-scope="vscope"
+        @input="changeDate($event)"
+        v-validate.continues="'required|date_format:YYYY-MM-DD'"
+      ></b-form-input>
 		</div>
 
-		<b-form-radio-group :disabled="disabled" v-else-if="field.type === 'radio'" v-model="field.selected" :options="field.options">
-    </b-form-radio-group>
+    <div v-else-if="field.type === 'radio'">
+      <b-form-radio-group :disabled="disabled" v-model="field.selected" :options="field.options">
+      </b-form-radio-group>
+    </div>
 
-    <b-form-checkbox-group :disabled="disabled" v-else-if="field.type === 'checkbox'" v-model="field.selected" :options="field.options">
-    </b-form-checkbox-group>
+    <div v-else-if="field.type === 'checkbox'">
+      <b-form-checkbox-group :disabled="disabled" v-model="field.selected" :options="field.options">
+      </b-form-checkbox-group>
+    </div>
 
     <span v-else-if="field.type === 'select'">
-      <b-form-select :disabled="disabled" v-model="field.selected" :options="field.options"
-                     v-bind:key="vname"
-                     v-bind:name="vkey"
-                     :data-vv-as="field.label"
-                     v-bind:data-vv-scope="vscope"
-                     v-validate.continues ="'required'"
-                     @change="changeSelect($event)"
+      <!-- TODO: delay in validation at units of measurement -->
+      <b-form-select
+        :disabled="disabled" v-model="field.selected" :options="field.options"
+        v-bind:key="vname"
+        v-bind:name="vkey"
+        :data-vv-as="field.label"
+        v-bind:data-vv-scope="vscope"
+        v-validate ="'required'"
+        @change="changeSelect($event)"
       ></b-form-select>
     </span>
 
     <textarea v-else-if="field.type === 'textarea'" v-model="field.selected"></textarea>
 
     <div v-else-if="field.type ==='file'">
-      {{ fieldkey }}
-       <FormFileUpload :selected="field.selected" :field="field"
-                       :filesAllowed="'zip,geojson'"
-                       :fieldkey="fieldkey"
-                       :vname="vname"
-                       :vkey="vkey"
-                       :scope="vscope"
-                       :prepend="'Shapefile,Geojson or GML file'"
-                       @form-file-uploaded="addFilesToSelected" @form-file-delete="deleteFormFile" :multiple=false >
+      <FormFileUpload :selected="field.selected" :field="field"
+        :filesAllowed="'zip,geojson'"
+        :fieldkey="fieldkey"
+        :vname="vname"
+        :vkey="vkey"
+        :scope="vscope"
+        :prepend="'Shapefile,Geojson or GML file'"
+        @form-file-uploaded="addFilesToSelected" @form-file-delete="deleteFormFile" :multiple=false >
        </FormFileUpload>
     </div>
-    <multiselect  :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" :multiple=true track-by="text" label="text" v-else-if="field.type ==='multiselect'" v-model="field.selected" :options="field.options"></multiselect>
+
+    <multiselect v-else-if="field.type ==='multiselect'" :close-on-select="false" :clear-on-select="false"
+       :hide-selected="true" :preserve-search="true"
+       :multiple=true track-by="text" label="text" v-model="field.selected" :options="field.options"></multiselect>
+
+    <div v-else>
+      <b-form-input
+        :disabled="disabled"
+        :name="field.name"
+        :fieldkey="fieldkey"
+        :vname="vname"
+        :vkey="vkey"
+        :scope="vscope"
+        v-model="field.selected"
+        :type="field.type"
+        @input="$emit('input', $event)" ></b-form-input>
+    </div>
+
 	</div>
 </template>
 
@@ -59,6 +91,7 @@ export default {
   name: 'fieldGenerator',
   components: {FormFileUpload},
   inject: ['$validator'],
+
   props: {
     field: Object,
     fieldkey: Number,
@@ -105,13 +138,32 @@ export default {
     },
 
     changeSelect($event){
-      this.$emit('input', $event);
+      this.$emit('change', $event);
       this.$validator.validate();
     },
 
     changeInput($event){
       this.$emit('input', $event);
       this.$validator.validate();
+    },
+
+    changeDate($event){
+      this.$emit('change', $event);
+      this.$validator.validate();
+    },
+    validate(){
+      return new Promise(function(resolve, reject) {
+        this.$validator.validate().then((res) => {
+          // if no errors
+          if(res.filter((it)=>{ return it === false}).length === 0){
+            resolve(res);
+          } else {
+            reject(res);
+          }
+        }).catch((e) => {
+          reject(e);
+        });
+      });
     }
   }
 }

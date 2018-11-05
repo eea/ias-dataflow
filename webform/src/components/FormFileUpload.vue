@@ -1,6 +1,5 @@
 <template>
   <div>
-    <b-btn @click="btnValidate()">validate</b-btn>
 
     <b-badge  v-if="errors.has('*' , scope +'_' + 'files-input-' + fieldkey )" variant="danger">
       {{ errors.first('*' , scope +'_' + 'files-input-' + fieldkey ) }}
@@ -222,15 +221,16 @@
       },
 
       changeSelect($event){
-
         //this.files = $event.target.files;
         //this.$emit('input', $event.target.files);
         //this.$validator.validate();
       },
-      btnValidate(){
+
+      /*btnValidate(){
         console.log(this.files);
         //this.$validator.validate();
-      }
+      }*/
+
     }
   }
 </script>

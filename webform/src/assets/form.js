@@ -567,12 +567,14 @@ let tab_1_section = {
                   name: 'starting_date',
                   type: 'date',
                   selected: '',
+                  required: true,
                 },
                 {
                   label: 'End date',
                   name: 'duration_or_end',
                   type: 'date',
                   selected: '',
+                  required: true,
                 },
                 {
                   label: 'Part of the territory',

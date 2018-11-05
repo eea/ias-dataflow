@@ -11,7 +11,7 @@
             <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;">
               <b-link v-bind:href="'[name=' + error.field +']'" @click="scrollIntoView($event, error)"
                       style="color: #fff;"
-              >{{ error.scope.split("_")[0] }} : {{ error.msg }}</b-link>
+              >{{ error.scope.split("_")[0] }} : {{ error.msg }} </b-link>
             </b-badge>
           </div>
         </b-collapse>
