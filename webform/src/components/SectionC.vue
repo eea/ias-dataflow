@@ -3,11 +3,33 @@
   <div class="question-wrapper">
     <h1><center>{{info.question}}</center></h1>
       <b-card class="mt-5 mb-5">
+        <!-- TODO: url validation  -->
       <div v-for="(field,fieldkey,fieldindex ) in info.section.fields">
         <b-col>
           <label>{{field.label}}</label>
           <b-form-input v-if="field.type === 'text'" :type="field.type" v-model="field.selected" ></b-form-input>
-          <textarea class="form-control" v-else-if="field.type === 'textarea'" v-model="field.selected" ></textarea>
+
+          <div v-else-if="field.type === 'textarea'">
+
+            <span v-if="field.name === 'web_link'">
+              <b-badge variant="danger" v-if="errors.has('sectionc_weblinks','sectionc_weblinks')">
+                {{ errors.collect('sectionc_weblinks','sectionc_weblinks').join('\n') }}
+              </b-badge>
+              <textarea class="form-control"
+                v-model="field.selected"
+                :data-vv-as="'weblinks'"
+                v-validate.continues="'weblinks'"
+                v-bind:key="'sectionc_weblinks'"
+                v-bind:data-vv-name="'sectionc_weblinks'"
+                v-bind:data-vv-scope="'sectionc_weblinks'"
+              ></textarea>
+            </span>
+
+            <span v-else>
+              <textarea class="form-control" v-model="field.selected" ></textarea>
+            </span>
+          </div>
+
           <div class="add-section" v-else-if="field.type === 'add'">
             <b-btn variant="primary" @click="addPathway(field)">Add</b-btn>
             <b-row v-for="addField in field.fields">
@@ -112,6 +134,36 @@ export default {
 
     deleteFormFile(found, fieldkey){
         this.info.section.fields[fieldkey].selected.splice(found, 1);
+    },
+
+    validate(){
+      let self = this;
+      let promises = [];
+
+      //console.log(this.$refs);
+
+      for( let child in this.$refs){
+        if(this.$refs.hasOwnProperty(child) &&  'undefined' !== typeof this.$refs[child][0]
+          && 'undefined' !== typeof this.$refs[child][0].$validator) {
+          if('undefined' !== typeof this.$refs[child][0].validate){
+            promises.push( this.$refs[child][0].validate());
+          }
+          promises.push(this.$refs[child][0].$validator.validate());
+        }
+      }
+
+      return new Promise(function(resolve, reject) {
+        Promise.all(promises).then((res) => {
+          // if no errors
+          if(res.filter((it)=>{ return it === false}).length === 0){
+            resolve(res);
+          } else {
+            reject(res);
+          }
+        }).catch((e) => {
+          reject(e);
+        });
+      });
     },
   },
 }

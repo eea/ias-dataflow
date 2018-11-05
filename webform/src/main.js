@@ -105,13 +105,34 @@ let selectRequired = {
   validate(value, args){
    /* console.log("#####");
     console.log(value);
-    //console.log(value === '');
+    //console.log(value ==='');
     console.log("#####");*/
 
     if(value === "") return false;
     return true;
   }
 };
+
+let weblinks = {
+  getMessage(field, args){
+    return field + " required: yes or no or Unknown";
+  },
+  validate(value, args){
+    console.log(value);
+    let arr = value.split(";").filter(Boolean);
+    let res = [];
+    //let reg = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
+    //let reg = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
+    let reg=/^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.​\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[​6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1​,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00​a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u​00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/[^\s]*)?$/i;
+    res = arr.map((item) => {
+      return item.match(reg) === null;
+    });
+    console.log(res);
+    if(res.length > 0) return false;
+
+    return true;
+  }
+}
 
 // import Promise from './polyfills.js'
 Vue.component('multiselect', Multiselect);
@@ -123,6 +144,7 @@ Validator.extend('filesAllowed', filesAllowed);
 Validator.extend('selectRequiredBoolean', selectRequiredBoolean);
 Validator.extend('selectRequiredNumber', selectRequiredNumber);
 Validator.extend('selectRequired', selectRequired);
+Validator.extend('weblinks', weblinks);
 
 // Vue.config.productionTip = false
 
