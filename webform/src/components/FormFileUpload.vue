@@ -12,17 +12,32 @@
 
       </b-input-group-prepend>
       <!-- TODO: validation of file extension : v-validate="'ext:jpeg,jpg'" data-vv-as="field" v-validate="'filesAllowed'" -->
-      <b-form-file v-model="files"
-                   v-validate="'filesAllowed:'+ filesAllowed"
-                   data-vv-as="file"
-                   :multiple="Boolean(multiple)"
-                   :ref="'fileinputref' + fieldkey"
-                   v-bind:name="vname"
-                   v-bind:key="vkey"
-                   v-bind:data-vv-scope="scope +'_' + 'files-input-' + fieldkey"
-       >
-        <!-- @change="changeSelect($event)" :state="Boolean(files)" -->
-      </b-form-file>
+
+        <b-form-file v-model="files"
+                     v-validate="'filesAllowed:'+ filesAllowed"
+                     data-vv-as="file"
+                     :multiple="Boolean(multiple)"
+                     :ref="'fileinputref' + fieldkey"
+                      v-if="!required"
+                     v-bind:name="vname"
+                     v-bind:key="vkey"
+                     v-bind:data-vv-scope="scope +'_' + 'files-input-' + fieldkey"
+        ></b-form-file>
+
+        <b-form-file v-model="files"
+                     v-validate="'required|filesAllowed:'+ filesAllowed"
+                     data-vv-as="file"
+                     :multiple="Boolean(multiple)"
+                     :ref="'fileinputref' + fieldkey"
+                     v-else
+                     v-bind:name="vname"
+                     v-bind:key="vkey"
+                     v-bind:data-vv-scope="scope +'_' + 'files-input-' + fieldkey"
+          ><!-- @change="changeSelect($event)" :state="Boolean(files)" -->
+        </b-form-file>
+
+
+
       <b-input-group-append>
         <b-btn v-show="errors.items.length === 0" @click="uploadFormFile(files, field, fieldkey)" variant="success">Upload</b-btn>
       </b-input-group-append>
@@ -95,7 +110,7 @@
 
   export default {
     name: 'FormFileUpload',
-    props: ['field', 'fieldkey', 'multiple', 'selected', 'prepend','filesAllowed','scope','vname','vkey'],
+    props: ['field', 'fieldkey', 'multiple', 'selected', 'prepend','filesAllowed','scope','vname','vkey','required'],
     inject: ['$validator'],
     /*$_veeValidate: {
       // value getter

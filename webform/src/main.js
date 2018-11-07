@@ -42,11 +42,10 @@ let filesAllowed = {
 
       // Returns a Boolean or a Promise that resolves to a boolean.
       let exts = args;
+      console.log(args);
       if(exts[0] === "undefined") return true;
 
-      console.log("$$$$$$$$$$$$");
-      console.log(value);
-      console.log("$$$$$$$$$$$$");
+
       // is array
       if("undefined" !== typeof value.splice){
         let res = [];
@@ -115,24 +114,37 @@ let selectRequired = {
 
 let weblinks = {
   getMessage(field, args){
-    return field + " required: yes or no or Unknown";
+    return field + " are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable ";
   },
   validate(value, args){
-    console.log(value);
     let arr = value.split(";").filter(Boolean);
     let res = [];
-    //let reg = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
-    //let reg = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
-    let reg=/^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.​\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[​6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1​,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00​a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u​00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/[^\s]*)?$/i;
+    let reg = /(?:(?:https?):\/\/|www\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm;
     res = arr.map((item) => {
-      return item.match(reg) === null;
+      return item.match(reg);
     });
-    console.log(res);
-    if(res.length > 0) return false;
+    //console.log(res);
+
+    if ( res.filter((item)=>{ return item === null;}).length > 0){
+      return false;
+    }
 
     return true;
   }
-}
+};
+
+let linkOrFile = {
+  getMessage(field, args){
+    return "File or link required";
+  },
+  validate(value, otherValue){
+    console.log("$$$$$$");
+    console.log(value);
+    console.log(otherValue);
+    console.log("$$$$$$");
+    return true;
+  }
+};
 
 // import Promise from './polyfills.js'
 Vue.component('multiselect', Multiselect);
@@ -145,6 +157,9 @@ Validator.extend('selectRequiredBoolean', selectRequiredBoolean);
 Validator.extend('selectRequiredNumber', selectRequiredNumber);
 Validator.extend('selectRequired', selectRequired);
 Validator.extend('weblinks', weblinks);
+
+//Validator.extend('linkOrFile', linkOrFile, { hasTarget: true });
+
 
 // Vue.config.productionTip = false
 

@@ -7,26 +7,54 @@
       <div v-for="(field,fieldkey,fieldindex ) in info.section.fields">
         <b-col>
           <label>{{field.label}}</label>
-          <b-form-input v-if="field.type === 'text'" :type="field.type" v-model="field.selected" ></b-form-input>
+
+          <!-- for weblinks -->
+          <div v-if="field.type === 'text'">
+            <span v-if="weblinksFields.indexOf(field.name) !== -1 ">
+
+              <b-badge variant="danger" v-if="errors.has('sectionc_' + field.name , 'sectionc_' + field.name)">
+                {{ errors.collect('sectionc_' + field.name, 'sectionc_' + field.name).join('\n') }}
+              </b-badge>
+              <b-form-input :type="field.type"
+                v-model="field.selected"
+                :data-vv-as="field.label"
+                v-validate.continues="'weblinks'"
+                v-bind:key="'sectionc_' + field.name"
+                v-bind:data-vv-name="'sectionc_' + field.name"
+                v-bind:data-vv-scope="'sectionc_' + field.name"
+                :ref="field.name"
+              >
+              </b-form-input>
+            </span>
+            <b-form-input  v-else :type="field.type" v-model="field.selected"
+                           v-bind:key="'sectionc_' + field.name"
+                           v-bind:data-vv-name="'sectionc_' + field.name"
+                           v-bind:data-vv-scope="'sectionc_' + field.name"
+
+            ></b-form-input>
+          </div>
 
           <div v-else-if="field.type === 'textarea'">
 
-            <span v-if="field.name === 'web_link'">
-              <b-badge variant="danger" v-if="errors.has('sectionc_weblinks','sectionc_weblinks')">
-                {{ errors.collect('sectionc_weblinks','sectionc_weblinks').join('\n') }}
+            <!-- for weblinks -->
+            <span v-if="weblinksFields.indexOf(field.name) !== -1 ">
+              <b-badge variant="danger" v-if="errors.has('sectionc_' + field.name , 'sectionc_' + field.name)">
+                {{ errors.collect('sectionc_' + field.name, 'sectionc_' + field.name).join('\n') }}
+
               </b-badge>
               <textarea class="form-control"
                 v-model="field.selected"
-                :data-vv-as="'weblinks'"
+                :data-vv-as="field.label"
                 v-validate.continues="'weblinks'"
-                v-bind:key="'sectionc_weblinks'"
-                v-bind:data-vv-name="'sectionc_weblinks'"
-                v-bind:data-vv-scope="'sectionc_weblinks'"
+                v-bind:key="'sectionc_' + field.name"
+                v-bind:data-vv-name="'sectionc_' + field.name"
+                v-bind:data-vv-scope="'sectionc_' + field.name"
+                :ref="field.name"
               ></textarea>
             </span>
 
             <span v-else>
-              <textarea class="form-control" v-model="field.selected" ></textarea>
+              <textarea class="form-control" v-model="field.selected" :ref="field.name" ></textarea>
             </span>
           </div>
 
@@ -52,8 +80,14 @@
           </div>
 
           <div v-if="field.type === 'file'">
-            <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="jpeg,jpg"
-                            :multiple=true @form-file-uploaded="addFilesToSelected" @form-file-delete="deleteFormFile"></FormFileUpload>
+            <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
+              :vname="'sectionc_' + 'file' + '_' + fieldkey"
+              :vkey="'sectionc_' + 'file' + '_' + fieldkey"
+              :vscope="'sectionc_files' + '_' + fieldkey"
+              :multiple=true
+              :filesAllowed="'zip,geojson'"
+              @form-file-uploaded="addFilesToSelected" @form-file-delete="deleteFormFile">
+            </FormFileUpload>
           </div>
 
         </b-col>
@@ -77,6 +111,7 @@ import speciesB from '../assets/speciesB.js';
 import { getSupportingFiles, envelope} from '../api.js';
 import FormFileUpload from "./FormFileUpload";
 
+
 export default {
   components: {FormFileUpload},
   props: {
@@ -86,6 +121,15 @@ export default {
 
   data () {
     return {
+      weblinksFields: [
+        'web_link',
+        'action_plans_art13',
+        'official_control_system',
+        'surveillance_system_art14',
+        'measures_to_inform_public',
+        'cost',
+        'additional_info'
+      ],
       //files: [],
       fileIsUploading: [],
       doneUpload: [],
@@ -152,9 +196,67 @@ export default {
         }
       }
 
+      var lorf = [];
+
+      /*this.weblinksFields.forEach((item) => {
+        if("undefined" !== typeof this.$refs[item+'_file']){
+          console.log(this.$refs[item+'_file'][0].$props.field.selected);
+
+         self.$validator.verify(this.$refs[item].value, 'linkOrFile:conf', {
+            bails: true,
+            name: 'linkOrFile',
+            values: { conf: this.$refs[item+'_file'].value }
+          }).then((res) => {
+            console.log("linkOrFile");
+            console.log(res);
+          }).catch((rej) => {
+            console.log("linkOrFile");
+            console.error(rej);
+          });*!/
+
+
+          /!*if(this.$refs[item][0].value.length === 0 && this.$refs[item+'_file'][0].$props.field.selected.length === 0 ){
+
+            lorf.push(false);
+
+            let key = 'sectionc_' + item;
+            let scope = 'sectionc_' + item;
+
+            let field = this.$validator.fields.find({ name: key, scope: scope });
+
+            let error = {
+              id: 'sectionc_' + item,
+              vmId: field.vmId,
+              field: field.name,
+              rule: 'linkOrFile',
+              msg: 'Link or file required ' + field.name,
+              scope: 'sectionc_' + item,
+            };
+
+            //if( fieldErrors.length === 0 ){
+              debugger;
+              this.errors.add(error);
+            //}
+
+            field.setFlags({
+              invalid: true,
+              valid: false,
+              validated: true,
+            });
+
+            this.$forceUpdate();
+
+          } else {
+            lorf.push(true);
+          }
+        }
+      });*/
+      this.$forceUpdate();
+
       return new Promise(function(resolve, reject) {
         Promise.all(promises).then((res) => {
           // if no errors
+          //res = res.concat(lorf);
           if(res.filter((it)=>{ return it === false}).length === 0){
             resolve(res);
           } else {
@@ -165,6 +267,8 @@ export default {
         });
       });
     },
+
+
   },
 }
 </script>

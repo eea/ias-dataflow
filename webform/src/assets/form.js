@@ -897,13 +897,19 @@ var form = {
           {
             type: "file",
             name: "web_link_file",
-            label: "File regaring the permits issued as required under Article 8(7) of Regulation (EU) No 1143/2014",
+            label: "File regarding the permits issued as required under Article 8(7) of Regulation (EU) No 1143/2014",
             selected: [],
           },
           {
             type: "textarea",
             name: "action_plans_art13",
             label: "Action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014  ",
+            selected: '',
+          },
+          {
+            type: "file",
+            name: "action_plans_art13_file",
+            label: "File regarding the action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014  ",
             selected: '',
           },
           {
@@ -929,9 +935,22 @@ var form = {
               selected: '',
             },
             {
+              type: "file",
+              name: "surveillance_system_art14_file",
+              label: "File regarding the description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014",
+              selected: '',
+            },
+
+            {
               type: "textarea",
               name: "official_control_system",
               label: "Description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014  ",
+              selected: '',
+            },
+            {
+              type: "file",
+              name: "official_control_system_file",
+              label: "File regarding the description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014  ",
               selected: '',
             },
             {
@@ -941,9 +960,21 @@ var form = {
               selected: '',
             },
             {
+              type: "file",
+              name: "measures_to_inform_public_file",
+              label: "File regarding the description of measures taken to inform the public  ",
+              selected: '',
+            },
+            {
               type: "text",
               name: "cost",
               label: "Cost of action undertaken to comply with the Regulation (EU) No 1143/2014 ",
+              selected: '',
+            },
+            {
+              type: "file",
+              name: "cost_file",
+              label: "File regarding the cost of action undertaken to comply with the Regulation (EU) No 1143/2014 ",
               selected: '',
             },
             {
@@ -952,6 +983,13 @@ var form = {
               label: "Additional information (optional)",
               selected: '',
             },
+            {
+              type: "file",
+              name: "additional_info_file",
+              label: "File regarding the additional information (optional)",
+              selected: '',
+            },
+
           ]
         }
       },
