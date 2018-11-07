@@ -58,7 +58,7 @@
             </span>
           </div>
 
-          <div class="add-section" v-else-if="field.type === 'add'">
+          <div class="add-section" v-else-if="field.type === 'add'" >
             <b-btn variant="primary" @click="addPathway(field)">Add</b-btn>
 
             <b-row v-for="(addField,fkey) in field.fields" style="margin-bottom: 5px;">
@@ -73,12 +73,18 @@
                 {{addField.inner_field.label}}
               </b-col>
               <b-col>
+                <multiselect v-model="speciesModels[fkey]" :options="speciesOptions"
+                  :multiple="false" :close-on-select="true" :clear-on-select="true" :preserve-search="true" track-by="text"
+                  :custom-label="customLabel" @input="changeSpecie($event, field, fkey)"
+                >
+                  <template slot="selection" slot-scope="{ values, search, isOpen }">
+                    <span class="multiselect__single" v-if="values.length && !isOpen">{{ values.length }} options selected</span>
+                  </template>
+                </multiselect>
 
-                <b-form-select :type="addField.inner_field.type" v-model="addField.inner_field.selected"
-                               :options="speciesOptions" @change="changeSpecie($event, field, fkey)"></b-form-select>
               </b-col>
               <b-col>
-                  <b-btn variant="danger" @click="removePathway(field,addField)">Remove</b-btn>
+                  <b-btn variant="danger" @click="removePathway(field,addField, fkey)">Remove</b-btn>
               </b-col>
             </b-row>
 
@@ -148,11 +154,19 @@ export default {
           text: specie.speciesName,
           code: specie.speciesCode
         };
-      })
+      }),
+      speciesModels: [],
     }
+  },
+  computed: {
+
   },
 
   methods: {
+    customLabel({text, value, code}){
+      return `${text}`
+    },
+
     titleSlugify(text) {
       return slugify(text)
     },
@@ -174,8 +188,36 @@ export default {
       field.fields.push(empty_field);
     },
 
-    removePathway(parent, field){
-      parent.fields.splice(parent.fields.indexOf(field), 1)
+    removePathway(parent, field, fkey){
+      function compare(a, b) {
+        if (a.text < b.text)
+          return -1;
+        if (a.text > b.text)
+          return 1;
+        return 0;
+      }
+
+      let code = parent.fields[fkey].selected;
+      let name = parent.fields[fkey].inner_field.selected;
+
+      let specie = {
+        code: code,
+        text: name,
+        value: name
+      };
+
+      this.speciesOptions.push(specie);
+      this.speciesOptions.sort(compare);
+
+      if(parent.fields.length === 1 || parent.fields.length === 0){
+        parent.fields[fkey].selected = '';
+        parent.fields[fkey].inner_field.selected = '';
+      } else {
+        parent.fields.splice(parent.fields.indexOf(field), 1);
+      }
+
+      this.$delete( this.speciesModels, fkey);
+      this.$forceUpdate();
     },
 
     addFilesToSelected(fieldkey,index,field){
@@ -186,7 +228,6 @@ export default {
       }).catch((error) =>{
         console.error(error);
       });
-
     },
 
     deleteFormFile(found, fieldkey){
@@ -194,12 +235,34 @@ export default {
     },
 
     changeSpecie($event, field, fkey){
-      let found = species.filter((item) => {
-        return item.speciesName === $event;
-      });
-      if(found.length > 0 ){
-        field.fields[fkey].selected = found[0].speciesCode;
+      function compare(a, b) {
+        if (a.text < b.text)
+          return -1;
+        if (a.text > b.text)
+          return 1;
+        return 0;
       }
+
+      if(field.fields[fkey].selected !== ''){
+        let news = JSON.parse(JSON.stringify($event));
+        let olds = JSON.parse(JSON.stringify($event));
+
+        olds.code = field.fields[fkey].selected;
+        olds.value = field.fields[fkey].inner_field.selected;
+        olds.text = field.fields[fkey].inner_field.selected;
+
+        if(olds.code !== '') this.speciesOptions.push(olds);
+
+        this.speciesOptions.sort(compare);
+      }
+
+      field.fields[fkey].selected = $event.code;
+      field.fields[fkey].inner_field.selected = $event.value;
+
+      this.speciesOptions = this.speciesOptions.filter((item) => {
+        return item.code !== $event.code;
+      });
+
     },
 
     validate(){
@@ -296,5 +359,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+</style>
+
+<style>
+
+  .multiselect multiselect--active {
+     z-index: 2000;
+  }
 
 </style>
