@@ -1,9 +1,9 @@
 <template>
   <div v-if="info">
+
   <div class="question-wrapper">
     <h1><center>{{info.question}}</center></h1>
       <b-card class="mt-5 mb-5">
-        <!-- TODO: url validation  -->
       <div v-for="(field,fieldkey,fieldindex ) in info.section.fields">
         <b-col>
           <label>{{field.label}}</label>
@@ -60,23 +60,28 @@
 
           <div class="add-section" v-else-if="field.type === 'add'">
             <b-btn variant="primary" @click="addPathway(field)">Add</b-btn>
-            <b-row v-for="addField in field.fields">
+
+            <b-row v-for="(addField,fkey) in field.fields" style="margin-bottom: 5px;">
               <b-col>
-                {{addField.label}}
+
               </b-col>
               <b-col>
-                <b-form-input :type="addField.type" v-model="addField.selected" ></b-form-input>
+
+                <b-form-input disabled :type="addField.type" v-model="addField.selected" ></b-form-input>
               </b-col>
               <b-col>
                 {{addField.inner_field.label}}
               </b-col>
               <b-col>
-                <b-form-input :type="addField.inner_field.type" v-model="addField.inner_field.selected" ></b-form-input>
+
+                <b-form-select :type="addField.inner_field.type" v-model="addField.inner_field.selected"
+                               :options="speciesOptions" @change="changeSpecie($event, field, fkey)"></b-form-select>
               </b-col>
               <b-col>
                   <b-btn variant="danger" @click="removePathway(field,addField)">Remove</b-btn>
               </b-col>
             </b-row>
+
           </div>
 
           <div v-if="field.type === 'file'">
@@ -108,6 +113,7 @@
 
 import {slugify} from '../utils.js';
 import speciesB from '../assets/speciesB.js';
+import species from '../assets/species';
 import { getSupportingFiles, envelope} from '../api.js';
 import FormFileUpload from "./FormFileUpload";
 
@@ -136,6 +142,13 @@ export default {
       errorUpload: [],
       counter: [],
       max: [],
+      speciesOptions : species.map((specie) => {
+        return {
+          value: specie.speciesName,
+          text: specie.speciesName,
+          code: specie.speciesCode
+        };
+      })
     }
   },
 
@@ -145,7 +158,6 @@ export default {
     },
 
     addPathway(field){
-      console.log(field)
       let empty_field = {
         label: 'Priority pathways addressed ',
         type: 'text',
@@ -156,9 +168,10 @@ export default {
           type: 'text',
           selected: '',
           name: 'species_covered',
+          options: this.speciesOptions,
         }
       };
-      field.fields.push(empty_field)
+      field.fields.push(empty_field);
     },
 
     removePathway(parent, field){
@@ -178,6 +191,15 @@ export default {
 
     deleteFormFile(found, fieldkey){
         this.info.section.fields[fieldkey].selected.splice(found, 1);
+    },
+
+    changeSpecie($event, field, fkey){
+      let found = species.filter((item) => {
+        return item.speciesName === $event;
+      });
+      if(found.length > 0 ){
+        field.fields[fkey].selected = found[0].speciesCode;
+      }
     },
 
     validate(){

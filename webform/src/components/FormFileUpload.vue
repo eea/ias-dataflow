@@ -11,8 +11,6 @@
         <b-badge class="upload-badge" variant="danger" v-show="Boolean(errorUpload.length)">Error could not upload</b-badge>
 
       </b-input-group-prepend>
-      <!-- TODO: validation of file extension : v-validate="'ext:jpeg,jpg'" data-vv-as="field" v-validate="'filesAllowed'" -->
-
         <b-form-file v-model="files"
                      v-validate="'filesAllowed:'+ filesAllowed"
                      data-vv-as="file"

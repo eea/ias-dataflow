@@ -922,10 +922,11 @@ var form = {
                 name: 'priority_pathways_addressed',
                 inner_field: {
                   label: 'Species covered  ',
-                  type: 'text',
+                  type: 'select',
                   selected: '',
                   name: 'species_covered',
-                }
+                },
+
               }],
             },
             {
