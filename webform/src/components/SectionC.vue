@@ -59,32 +59,30 @@
           </div>
 
           <div class="add-section" v-else-if="field.type === 'add'" >
-            <b-btn variant="primary" @click="addPathway(field)">Add</b-btn>
+            <b-btn variant="primary" @click="addPathway(field)" style="margin-bottom: 1rem;">Add</b-btn>
 
             <b-row v-for="(addField,fkey) in field.fields" style="margin-bottom: 5px;">
               <b-col>
+                <b-input-group :prepend="addField.label">
+                    <b-form-input disabled :type="addField.type" v-model="addField.selected" ></b-form-input>
+                </b-input-group>
+              </b-col>
 
+              <b-col style="min-width: 50%;">
+                <b-input-group :prepend="addField.inner_field.label">
+                    <multiselect v-model="speciesModels[fkey]" :options="speciesOptions"
+                                 style="width: 80%;border-top-left-radius: 0;border-bottom-left-radius: 0;"
+                                 :multiple="false" :close-on-select="true" :clear-on-select="true" :preserve-search="true" track-by="text"
+                                 :custom-label="customLabel" @input="changeSpecie($event, field, fkey)"
+                    >
+                      <template slot="selection" slot-scope="{ values, search, isOpen }">
+                        <span class="multiselect__single" v-if="values.length && !isOpen">{{ values.length }} options selected</span>
+                      </template>
+                    </multiselect>
+                </b-input-group>
               </b-col>
               <b-col>
-
-                <b-form-input disabled :type="addField.type" v-model="addField.selected" ></b-form-input>
-              </b-col>
-              <b-col>
-                {{addField.inner_field.label}}
-              </b-col>
-              <b-col>
-                <multiselect v-model="speciesModels[fkey]" :options="speciesOptions"
-                  :multiple="false" :close-on-select="true" :clear-on-select="true" :preserve-search="true" track-by="text"
-                  :custom-label="customLabel" @input="changeSpecie($event, field, fkey)"
-                >
-                  <template slot="selection" slot-scope="{ values, search, isOpen }">
-                    <span class="multiselect__single" v-if="values.length && !isOpen">{{ values.length }} options selected</span>
-                  </template>
-                </multiselect>
-
-              </b-col>
-              <b-col>
-                  <b-btn variant="danger" @click="removePathway(field,addField, fkey)">Remove</b-btn>
+                <b-btn variant="danger" @click="removePathway(field,addField, fkey)">Remove</b-btn>
               </b-col>
             </b-row>
 
@@ -262,7 +260,6 @@ export default {
       this.speciesOptions = this.speciesOptions.filter((item) => {
         return item.code !== $event.code;
       });
-
     },
 
     validate(){
@@ -352,17 +349,21 @@ export default {
         });
       });
     },
-
-
   },
 }
 </script>
 
 <style lang="css" scoped>
-
+  /*.add-section .col {
+    line-height: 2rem;
+  }*/
+  .multiselect {
+    width: auto;
+  }
 </style>
 
 <style>
+
 
   .multiselect multiselect--active {
      z-index: 2000;
