@@ -62,13 +62,13 @@
             <b-btn variant="primary" @click="addPathway(field)" style="margin-bottom: 1rem;">Add</b-btn>
 
             <b-row v-for="(addField,fkey) in field.fields" style="margin-bottom: 5px;">
-              <b-col>
+              <b-col  sm="auto">
                 <b-input-group :prepend="addField.label">
                     <b-form-input disabled :type="addField.type" v-model="addField.selected" ></b-form-input>
                 </b-input-group>
               </b-col>
 
-              <b-col style="min-width: 50%;">
+              <b-col  sm="auto" style="min-width: 50%;">
                 <b-input-group :prepend="addField.inner_field.label">
                     <multiselect v-model="speciesModels[fkey]" :options="speciesOptions"
                                  style="width: 80%;border-top-left-radius: 0;border-bottom-left-radius: 0;"
@@ -81,7 +81,7 @@
                     </multiselect>
                 </b-input-group>
               </b-col>
-              <b-col>
+              <b-col  sm="auto">
                 <b-btn variant="danger" @click="removePathway(field,addField, fkey)">Remove</b-btn>
               </b-col>
             </b-row>

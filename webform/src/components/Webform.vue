@@ -1,54 +1,7 @@
 <template>
 	<b-container fluid>
     <div>
-      <div v-if="errors.items.filter((item) => { return item.scope.indexOf('sectiona') !== -1; }).length > 0" style="margin-bottom: 5px;">
-        <b-btn @click="expandedSecA = !expandedSecA"
-               :class="expandedSecA ? 'collapsed' : null" variant="danger">
-          Section A errors
-        </b-btn>
-        <b-collapse id="secErrorsA" v-model="expandedSecA" style="border: 1px solid #eee;">
-          <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('sectiona') !== -1; })">
-            <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;">
-              <b-link v-bind:href="'[name=' + error.field +']'" @click="scrollIntoView($event, error)"
-                      style="color: #fff;"
-              >{{ error.scope.split("_")[0] }} : {{ error.msg }} </b-link>
-            </b-badge>
-          </div>
-        </b-collapse>
-      </div>
-
-      <div v-if="errors.items.filter((item) => { return item.scope.indexOf('sectionb') !== -1; }).length > 0" style="margin-bottom: 5px;">
-        <b-btn @click="expandedSecB = !expandedSecB"
-               :class="expandedSecB ? 'collapsed' : null"  variant="danger" >
-          Section B errors
-        </b-btn>
-        <b-collapse id="secErrorsB" v-model="expandedSecB" style="border: 1px solid  #eee;">
-          <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('sectionb') !== -1; })">
-            <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;">
-              <b-link v-bind:href="'[name=' + error.field +']'" @click="scrollIntoView($event, error)"
-                      style="color: #fff;"
-              >{{ error.scope.split("_")[0] }} : {{ error.msg }}</b-link>
-            </b-badge>
-          </div>
-        </b-collapse>
-      </div>
-
-      <div v-if="errors.items.filter((item) => { return item.scope.indexOf('sectionc') !== -1; }).length > 0" style="margin-bottom: 5px;">
-        <b-btn @click="expandedSecC = !expandedSecC"
-               :class="expandedSecC ? 'collapsed' : null"  variant="danger">
-          Section C errors
-        </b-btn>
-        <b-collapse id="secErrorsC" v-model="expandedSecC" style="border: 1px solid  #eee;">
-          <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('sectionc') !== -1; })">
-            <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;">
-              <b-link v-bind:href="'[name=' + error.field +']'" @click="scrollIntoView($event, error)"
-                      style="color: #fff;"
-              >{{ error.scope.split("_")[0] }} : {{ error.msg }}</b-link>
-            </b-badge>
-          </div>
-        </b-collapse>
-      </div>
-
+      <b-btn variant="danger" @click="openErrorModal" v-if="errors.items.length > 0">Errors</b-btn>
     </div>
 
     <center><h1 class="mb-3 mt-2">IAS dataflow</h1></center>
@@ -81,6 +34,53 @@
       <div v-if="!prefilled" class="spinner">
         <div class="loader"></div>
       </div>
+
+      <b-modal hide-footer ref="errorsModal">
+        <div v-if="errors.items.filter((item) => { return item.scope.indexOf('sectiona') !== -1; }).length > 0" style="margin-bottom: 5px;">
+          <b-btn @click="expandedSecA = !expandedSecA" :class="expandedSecA ? 'collapsed' : null" variant="danger">
+            Section A errors
+          </b-btn>
+          <b-collapse id="secErrorsA" v-model="expandedSecA" style="border: 1px solid #eee;">
+            <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('sectiona') !== -1; })">
+              <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;">
+                <b-link v-bind:href="'[name=' + error.field +']'" @click="scrollIntoView($event, error)"
+                        style="color: #fff;"
+                >{{ error.scope.split("_")[0] }} : {{ error.msg }} </b-link>
+              </b-badge>
+            </div>
+          </b-collapse>
+        </div>
+
+        <div v-if="errors.items.filter((item) => { return item.scope.indexOf('sectionb') !== -1; }).length > 0" style="margin-bottom: 5px;">
+          <b-btn @click="expandedSecB = !expandedSecB" :class="expandedSecB ? 'collapsed' : null"  variant="danger" >
+            Section B errors
+          </b-btn>
+          <b-collapse id="secErrorsB" v-model="expandedSecB" style="border: 1px solid  #eee;">
+            <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('sectionb') !== -1; })">
+              <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;">
+                <b-link v-bind:href="'[name=' + error.field +']'" @click="scrollIntoView($event, error)"
+                        style="color: #fff;"
+                >{{ error.scope.split("_")[0] }} : {{ error.msg }}</b-link>
+              </b-badge>
+            </div>
+          </b-collapse>
+        </div>
+
+        <div v-if="errors.items.filter((item) => { return item.scope.indexOf('sectionc') !== -1; }).length > 0" style="margin-bottom: 5px;">
+          <b-btn @click="expandedSecC = !expandedSecC"  :class="expandedSecC ? 'collapsed' : null"  variant="danger">
+            Section C errors
+          </b-btn>
+          <b-collapse id="secErrorsC" v-model="expandedSecC" style="border: 1px solid  #eee;">
+            <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('sectionc') !== -1; })">
+              <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;">
+                <b-link v-bind:href="'[name=' + error.field +']'" @click="scrollIntoView($event, error)"
+                        style="color: #fff;"
+                >{{ error.scope.split("_")[0] }} : {{ error.msg }}</b-link>
+              </b-badge>
+            </div>
+          </b-collapse>
+        </div>
+      </b-modal>
 
     </b-container>
 </template>
@@ -150,6 +150,10 @@ export default {
   },
 
   methods: {
+    openErrorModal(){
+      if("undefined" !== typeof this.$refs.errorsModal) this.$refs.errorsModal.show();
+    },
+
     prefill(data){
        this.prefilled = true;
     },
@@ -254,6 +258,13 @@ export default {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+</style>
+<style>
+  @media (min-width: 576px){
+    .modal-dialog {
+      max-width: 1000px;
+    }
+  }
 
 
 </style>
