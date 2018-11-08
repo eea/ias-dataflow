@@ -28,6 +28,7 @@
               <label>{{info.scientific_name.label}}</label>
             </b-col>
             <b-col lg="7">
+
                 <multiselect v-model="value" :options="info.scientific_name.options"  :multiple="true"
                 :close-on-select="false" :clear-on-select="false" :preserve-search="true" track-by="text"
                 @select="fillCommon($event)" :custom-label="customLabel" @input="updateSelected()" @remove="remove($event)"
@@ -127,7 +128,11 @@ export default {
         {
           text: 'France', value: 'FR',
         },
-      ]
+      ],
+      speciesModels: speciesB.map((item) => {
+         item['speciesNameLegis'] = item.name;
+         return item;
+      })
     }
   },
   methods: {
@@ -144,7 +149,7 @@ export default {
     },
 
     fillCommon(sci_name){
-      for(let specie of speciesB) {
+      for(let specie of this.speciesModels) {
         if(sci_name.value === specie.speciesNameLegis) {
           this.info.common_name.selected.push(specie);
           break;
