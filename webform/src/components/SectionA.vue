@@ -283,19 +283,6 @@
         </b-collapse>
       </b-card>
 
-      <b-modal hide-footer ref="customFieldModal">
-        <div v-if="customField" slot="modal-title">{{customField.label}}</div>
-        <div v-if="customField">
-          <b-input-group class="mb-3" prepend="Name">
-            <b-form-input v-model="addCustom.text"></b-form-input>
-          </b-input-group>
-           <b-input-group prepend="Code">
-            <b-form-input v-model="addCustom.value"></b-form-input>
-          </b-input-group>
-        <b-btn class="mt-3" variant="outline-primary" @click="saveCustomField" block>Add</b-btn>
-        </div>
-      </b-modal>
-
     </div>
   </div>
 </template>

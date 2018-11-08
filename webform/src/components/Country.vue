@@ -14,7 +14,7 @@
             </div>
           </div>
           <div style="padding: 1rem" class="table-body">
-            <b-row style="margin-bottom:5px" v-for="table in tables.fields">
+            <b-row style="margin-bottom:5px" v-for="(table,tkey) in tables.fields">
               <b-col style="text-align: right; font-weight: bold;" lg="6">
                 <label style="cursor: pointer;" :for="table.name">
                   {{table.label}}

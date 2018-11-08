@@ -10,7 +10,7 @@
           <textarea class="form-control" v-else-if="field.type === 'textarea'" v-model="field.selected" ></textarea>
           <div class="add-section" v-else-if="field.type === 'add'">
             <b-btn variant="primary" @click="addPathway(field)">Add</b-btn>
-            <b-row v-for="addField in field.fields">
+            <b-row v-for="(addField, addFkey) in field.fields">
               <b-col>
                 {{addField.label}}
               </b-col>
