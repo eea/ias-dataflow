@@ -1,15 +1,12 @@
 <template>
 	<b-container fluid>
-    <div>
-      <b-btn variant="danger" @click="openErrorModal" v-if="errors.items.length > 0">Errors</b-btn>
-    </div>
 
     <center><h1 class="mb-3 mt-2">IAS dataflow</h1></center>
     <center><h5><small class="text-muted">Technical formats to be used by the Member States for transmitting to the Commission the information pursuant to paragraph 1 of Article 24 of Regulation (EU) No 1143/2014 on the prevention and management of the introduction of invasive alien species</small></h5></center>
 
     <b-card v-if="prefilled" no-body ref="content">
         <formsubmit :country.sync="country" :info.sync="form" @validate-components="validateSections"
-                    :validated="validated" ref="formsubmit"></formsubmit>
+                    :validated="validated" ref="formsubmit" @open-error-modal="openErrorModal"></formsubmit>
         <b-form validated novalidate @submit="onSubmit" >
           <b-tabs card v-model="tabIndex"  >
             <b-tab title="Reporting party" active ref="country_tab" style="overflow-y: auto;">
@@ -35,14 +32,15 @@
         <div class="loader"></div>
       </div>
 
-      <b-modal hide-footer ref="errorsModal">
+      <b-modal hide-footer ref="errorsModal" style="max-height: 800px;" id="errorsModal">
+
         <div v-if="errors.items.filter((item) => { return item.scope.indexOf('sectiona') !== -1; }).length > 0" style="margin-bottom: 5px;">
-          <b-btn @click="expandedSecA = !expandedSecA" :class="expandedSecA ? 'collapsed' : null" variant="danger">
+          <b-btn @click="expandedSecA = !expandedSecA" :class="expandedSecA ? 'collapsed' : null" variant="danger" style="width: 100%;">
             Section A errors
           </b-btn>
-          <b-collapse id="secErrorsA" v-model="expandedSecA" style="border: 1px solid #eee;">
+          <b-collapse id="secErrorsA" v-model="expandedSecA" style="border: 1px solid #eee;overflow-y: auto; ">
             <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('sectiona') !== -1; })">
-              <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;">
+              <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;white-space: normal">
                 <b-link v-bind:href="'sectiona|'+'[name=\'' + error.field +'\']'" @click="scrollIntoView($event, error)"
                         style="color: #fff;"
                 >{{ error.scope.split("_")[0] }} : {{ error.msg }} </b-link>
@@ -52,12 +50,12 @@
         </div>
 
         <div v-if="errors.items.filter((item) => { return item.scope.indexOf('sectionb') !== -1; }).length > 0" style="margin-bottom: 5px;">
-          <b-btn @click="expandedSecB = !expandedSecB" :class="expandedSecB ? 'collapsed' : null"  variant="danger" >
+          <b-btn @click="expandedSecB = !expandedSecB" :class="expandedSecB ? 'collapsed' : null"  variant="danger" style="width: 100%;" >
             Section B errors
           </b-btn>
-          <b-collapse id="secErrorsB" v-model="expandedSecB" style="border: 1px solid  #eee;">
+          <b-collapse id="secErrorsB" v-model="expandedSecB" style="border: 1px solid  #eee;overflow-y: auto;">
             <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('sectionb') !== -1; })">
-              <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;">
+              <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;white-space: normal">
                 <b-link v-bind:href="'sectionb|'+'[name=\'' + error.field +'\']'" @click="scrollIntoView($event, error)"
                         style="color: #fff;"
                 >{{ error.scope.split("_")[0] }} : {{ error.msg }}</b-link>
@@ -67,12 +65,12 @@
         </div>
 
         <div v-if="errors.items.filter((item) => { return item.scope.indexOf('sectionc') !== -1; }).length > 0" style="margin-bottom: 5px;">
-          <b-btn @click="expandedSecC = !expandedSecC"  :class="expandedSecC ? 'collapsed' : null"  variant="danger">
+          <b-btn @click="expandedSecC = !expandedSecC"  :class="expandedSecC ? 'collapsed' : null"  variant="danger" style="width: 100%;">
             Section C errors
           </b-btn>
-          <b-collapse id="secErrorsC" v-model="expandedSecC" style="border: 1px solid  #eee;">
+          <b-collapse id="secErrorsC" v-model="expandedSecC" style="border: 1px solid  #eee;overflow-y: auto;">
             <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('sectionc') !== -1; })">
-              <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;">
+              <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;white-space: normal">
                 <b-link v-bind:href="'sectionc|'+'[data-vv-name=\'' + error.field +'\']'" @click="scrollIntoView($event, error)"
                         style="color: #fff;"
                 >{{ error.scope.split("_")[0] }} : {{ error.msg }}</b-link>
@@ -80,6 +78,22 @@
             </div>
           </b-collapse>
         </div>
+
+        <div v-if="errors.items.filter((item) => { return item.scope.indexOf('dmap') !== -1; }).length > 0" style="margin-bottom: 5px;">
+          <b-btn @click="expadedDistMap = !expadedDistMap"  :class="expadedDistMap ? 'collapsed' : null"  variant="danger" style="width: 100%;">
+            Distribution Map errors
+          </b-btn>
+          <b-collapse id="secErrorsC" v-model="expadedDistMap" style="border: 1px solid  #eee;overflow-y: auto;">
+            <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('dmap') !== -1; })">
+              <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;white-space: normal">
+                <b-link v-bind:href="'dmap|'+'[data-vv-name=\'' + error.field +'\']'" @click="scrollIntoView($event, error)"
+                        style="color: #fff;"
+                >{{ error.scope.split("_")[0] }} : {{ error.msg }}</b-link>
+              </b-badge>
+            </div>
+          </b-collapse>
+        </div>
+
       </b-modal>
 
     </b-container>
@@ -126,7 +140,7 @@ export default {
     	  sectiona: 1,
         sectionb: 2,
         sectionc: 3,
-        distributionmap: 4,
+        dmap: 4,
       },
       expandedSecA: false,
       expandedSecB: false,
@@ -247,6 +261,11 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+#errorsModal .modal {
+  max-height: 800px;
+}
+
 .subtitle {
   max-width: 488px;margin: auto;display: block;
 }

@@ -32,6 +32,9 @@
           <div v-if="field.type === 'file'">
 
             <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="zip,geojson"
+                            :vname="'dmap' + 'file' + '_' + fieldkey"
+                            :vkey="'dmap' + 'file' + '_' + fieldkey"
+                            :scope="'dmap' + '_' + fieldkey"
                             :multiple=false @form-file-uploaded="addFilesToSelected" @form-file-delete="deleteFormFile">
             </FormFileUpload>
           </div>
@@ -63,7 +66,7 @@ export default {
     info: null,
     tabId:null
   },
-  inject: ['$validator'],
+  //inject: ['$validator'],
 
   data () {
     return {
@@ -115,6 +118,37 @@ export default {
 
     deleteFormFile(found, fieldkey){
         this.info.section.fields[fieldkey].selected.splice(found, 1);
+    },
+
+    validate(){
+      let self = this;
+      let promises = [];
+
+      for( let child in this.$refs){
+        if(this.$refs.hasOwnProperty(child) &&  'undefined' !== typeof this.$refs[child][0]
+          && 'undefined' !== typeof this.$refs[child][0].$validator) {
+          if('undefined' !== typeof this.$refs[child][0].validate){
+            promises.push( this.$refs[child][0].validate()  );
+          }
+          promises.push( this.$refs[child][0].$validator.validate() );
+        }
+      }
+      this.$forceUpdate();
+
+      return new Promise(function(resolve, reject) {
+        Promise.all(promises).then((res) => {
+          // if no errors
+          //res = res.concat(lorf);
+          if(res.filter((it)=>{ return it === false}).length === 0){
+            resolve(res);
+          } else {
+            reject(res);
+          }
+        }).catch((e) => {
+          reject(e);
+        });
+      });
+
     },
   },
 }

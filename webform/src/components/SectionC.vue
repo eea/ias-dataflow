@@ -92,7 +92,7 @@
             <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
               :vname="'sectionc_' + 'file' + '_' + fieldkey"
               :vkey="'sectionc_' + 'file' + '_' + fieldkey"
-              :vscope="'sectionc_files' + '_' + fieldkey"
+              :scope="'sectionc_files' + '_' + fieldkey"
               :multiple=true
               :filesAllowed="'zip,geojson'"
               @form-file-uploaded="addFilesToSelected" @form-file-delete="deleteFormFile">
