@@ -43,7 +43,7 @@
           <b-collapse id="secErrorsA" v-model="expandedSecA" style="border: 1px solid #eee;">
             <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('sectiona') !== -1; })">
               <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;">
-                <b-link v-bind:href="'[name=' + error.field +']'" @click="scrollIntoView($event, error)"
+                <b-link v-bind:href="'sectiona|'+'[name=\'' + error.field +'\']'" @click="scrollIntoView($event, error)"
                         style="color: #fff;"
                 >{{ error.scope.split("_")[0] }} : {{ error.msg }} </b-link>
               </b-badge>
@@ -58,7 +58,7 @@
           <b-collapse id="secErrorsB" v-model="expandedSecB" style="border: 1px solid  #eee;">
             <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('sectionb') !== -1; })">
               <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;">
-                <b-link v-bind:href="'[name=' + error.field +']'" @click="scrollIntoView($event, error)"
+                <b-link v-bind:href="'sectionb|'+'[name=\'' + error.field +'\']'" @click="scrollIntoView($event, error)"
                         style="color: #fff;"
                 >{{ error.scope.split("_")[0] }} : {{ error.msg }}</b-link>
               </b-badge>
@@ -73,7 +73,7 @@
           <b-collapse id="secErrorsC" v-model="expandedSecC" style="border: 1px solid  #eee;">
             <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('sectionc') !== -1; })">
               <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;">
-                <b-link v-bind:href="'[name=' + error.field +']'" @click="scrollIntoView($event, error)"
+                <b-link v-bind:href="'sectionc|'+'[data-vv-name=\'' + error.field +'\']'" @click="scrollIntoView($event, error)"
                         style="color: #fff;"
                 >{{ error.scope.split("_")[0] }} : {{ error.msg }}</b-link>
               </b-badge>
@@ -191,26 +191,47 @@ export default {
     },
 
     scrollIntoView ($event, error) {
-
       $event.preventDefault();
-
       let href = $event.target.getAttribute('href');
 
       let section = error.scope.split("_")[0];
       this.tabIndex = this.tabMapping[section];
 
-      let el = href ? this.$el.querySelector(href).closest(".card") : null;
+      /*document.querySelectorAll(".card").forEach((elem)=>{
+        if (elem.style.removeProperty) {
+          elem.style.removeProperty('border');
+        } else {
+          elem.style.removeAttribute('border');
+        }
+      });*/
+      let target = href.split("|");
+      let sect = target[0];
+      let elt = target[1];
 
-      if (el) {
-        console.log(el);
-        //this.$scrollTo(element, duration, options)
-        //document.querySelectorAll(".question-wrapper")[this.tabMapping[section]].scrollTop = el.offsetTop;
-        //console.log(el);
-
-        //this.$refs.content.$scrollTo( document.querySelectorAll(".question-wrapper")[this.tabMapping[section]], 1000);
-        this.$refs.content.$scrollTo( document.querySelectorAll(".question-wrapper")[this.tabMapping[section]], 1000);
+      let el = null;
+      if(sect === 'sectionc') {
+        el = this.$refs[sect].$el.querySelector(".card").querySelector(elt);
+      } else {
+        el = this.$refs[sect].$el.querySelector(elt).closest(".card");
       }
 
+      if (el) {
+        setTimeout(function () {
+          function getOffset( el ) {
+            var _x = 0;
+            var _y = 0;
+            while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+              _x += el.offsetLeft - el.scrollLeft;
+              _y += el.offsetTop - el.scrollTop;
+              el = el.offsetParent;
+            }
+            return { top: _y, left: _x };
+          }
+          window.scrollTo( 0, getOffset( el ).top - Math.floor(window.innerHeight/2));
+
+          //el.style.border="1px solid red";
+        } , 1000);
+      }
     }
   },
 
