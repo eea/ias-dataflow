@@ -209,10 +209,14 @@ export default {
       let elt = target[1];
 
       let el = null;
+      let todecollapse = false;
       if(sect === 'sectionc') {
         el = this.$refs[sect].$el.querySelector(".card").querySelector(elt);
       } else {
         el = this.$refs[sect].$el.querySelector(elt).closest(".card");
+        if(!el.querySelector(".show") ){
+          todecollapse = true;
+        }
       }
 
       if (el) {
@@ -228,6 +232,10 @@ export default {
             return { top: _y, left: _x };
           }
           window.scrollTo( 0, getOffset( el ).top - Math.floor(window.innerHeight/2));
+          if(todecollapse){
+            let ph = el.querySelector(".panel-heading");
+            if(ph) ph.click();
+          }
 
           //el.style.border="1px solid red";
         } , 1000);
