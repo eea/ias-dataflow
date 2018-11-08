@@ -1018,7 +1018,7 @@ var form = {
       return item;
     });
 
-    for (let specie of speciesB) {
+    for (let specie of speciesModels) {
       form.tab_2.scientific_name.options.push({ text: specie.speciesNameLegis, value: specie.speciesNameLegis, country: specie.country})
     }
 
