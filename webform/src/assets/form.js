@@ -1012,23 +1012,19 @@ var form = {
           ]
         }
       },
-    }
-    let speciesModels = speciesB.map((item) => {
-      item['speciesNameLegis'] = item.name;
-      return item;
-    });
+    };
 
-    for (let specie of speciesModels) {
-      form.tab_2.scientific_name.options.push({ text: specie.speciesNameLegis, value: specie.speciesNameLegis, country: specie.country})
+    for (let specie of speciesB) {
+      form.tab_2.scientific_name.options.push({ text: specie.name, value: specie.name, country: specie.country})
     }
 
     for (let specie of species) {
-      let current_section = JSON.parse(JSON.stringify(tab_1_section))
+      let current_section = JSON.parse(JSON.stringify(tab_1_section));
       current_section.scientific_name.selected = specie.speciesNameLegi;
       current_section.common_name.selected = specie.speciesCNameEN;
       current_section.species_code.selected = specie.speciesCode;
 
-      form.tab_1.sections.push(current_section)
+      form.tab_1.sections.push(current_section);
     }
 
 

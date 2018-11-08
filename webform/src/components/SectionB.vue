@@ -129,10 +129,7 @@ export default {
           text: 'France', value: 'FR',
         },
       ],
-      speciesModels: speciesB.map((item) => {
-         item['speciesNameLegis'] = item.name;
-         return item;
-      })
+
     }
   },
   methods: {
@@ -149,8 +146,8 @@ export default {
     },
 
     fillCommon(sci_name){
-      for(let specie of this.speciesModels) {
-        if(sci_name.value === specie.speciesNameLegis) {
+      for(let specie of speciesB) {
+        if(sci_name.value === specie.name) {
           this.info.common_name.selected.push(specie);
           break;
         }
@@ -166,7 +163,7 @@ export default {
             key = ix;
             return false;
           }
-        } else if(sci_name.value === val.speciesNameLegis ) {
+        } else if(sci_name.value === val.name ) {
           key = ix;
           return false;
         }
@@ -199,7 +196,7 @@ export default {
           country:"",
           permitsIssued:true,
           speciesCode:"",
-          speciesNameLegis: this.selected['common_name']
+          name: this.selected['common_name']
         };
         sci_name = {
           country: "",
