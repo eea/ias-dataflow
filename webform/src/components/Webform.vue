@@ -1,6 +1,5 @@
 <template>
 	<b-container fluid>
-
     <center><h1 class="mb-3 mt-2">IAS dataflow</h1></center>
     <center><h5><small class="text-muted">Technical formats to be used by the Member States for transmitting to the Commission the information pursuant to paragraph 1 of Article 24 of Regulation (EU) No 1143/2014 on the prevention and management of the introduction of invasive alien species</small></h5></center>
 
@@ -181,22 +180,22 @@ export default {
     },
     validateSections(){
       let sections = this.$refs;
-
+      let self = this;
       let promises = [];
 
       Object.keys(sections).filter((item) => {
         return 'undefined' !== typeof sections[item].$validator || sections[item].validate ;
       }).map((section) => {
-        if(this.$refs.hasOwnProperty(section) ){
-          if( 'undefined' !== typeof this.$refs[section].validate ) {
-            promises.push( this.$refs[section].validate() );
+        if(self.$refs.hasOwnProperty(section) ){
+          if( 'undefined' !== typeof self.$refs[section].validate ) {
+            promises.push( self.$refs[section].validate() );
           }
-          if('undefined' !== this.$refs[section].$validator) promises.push( this.$refs[section].$validator.validate() );
+          if('undefined' !== self.$refs[section].$validator) promises.push( self.$refs[section].$validator.validate() );
         }
       });
 
       Promise.all(promises).then((res) => {
-       this.$set(this.$refs.formsubmit.$data , 'valid', true);
+       self.$set(self.$refs.formsubmit.$data , 'valid', true);
         //console.log(res);
       }).catch((e) => {
         //console.log("errors");

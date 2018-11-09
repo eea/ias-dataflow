@@ -1,5 +1,11 @@
 <template>
   <div class="table-wrapper">
+
+    {{ errors.items
+
+    /*.filter((err) => {
+        return err.rule === "requiredUnique"
+    } )*/ }}
     <table class="table table-striped">
       <thead class="bg-info">
       <th class="year-column" >Year</th>
@@ -13,9 +19,7 @@
         <tr v-for="(row,rkey) in rows">
           <td v-for="(field,fkey) in row.fields" v-if="field.name === 'year'">
             <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey )"
-                     variant="danger"
-                    class="error-badge"
-                    v-b-tooltip.hover
+                     variant="danger" class="error-badge" v-b-tooltip.hover
             :title="errors.first('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey  )">
               {{ errors.first('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey ) }}
             </b-badge>
@@ -23,38 +27,48 @@
             <b-form-select  v-model="field.selected" :options="field.options"
                             v-validate.continues ="'required'"
                             :data-vv-as="field.label"
+                            :ref="'permits_' + field.name + '_' + rkey"
                             v-bind:key="'permits_' + field.name + '_' + rkey"
                             v-bind:name="'permits_' + field.name + '_' + rkey"
                             v-bind:data-vv-scope="'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey"
             ></b-form-select>
           </td>
 
+          <!-- TODO: permits select -->
           <td>
+            <b-badge v-if="errbag.items.filter((err)=> {
+              return err.field === 'permits_' + 'permit' + '_' + rkey && err.scope === 'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey;
+            }).length > 0" variant="danger" class="error-badge">
+              {{ errbag.items.filter((err)=> {
+                return err.field === 'permits_' + 'permit' + '_' + rkey && err.scope === 'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey;
+                })[0].msg
+              }}
+            </b-badge>
+
             <b-badge v-if=" errors.has( 'permits_' + 'permit' + '_' + rkey , 'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey )"
                      variant="danger" class="error-badge" >
               {{ errors.first( 'permits_' + 'permit' + '_' + rkey , 'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey ) }}
             </b-badge>
-            <b-form-select :options="options" v-model="index[rkey]" @change="changeRow($event, rkey)"
+            <b-form-select :options="options" v-model="index[rkey]"
+                           @change="changeRow($event, rkey)"
                              v-bind:key="'permits_' + 'permit' + '_' + rkey"
                              v-bind:name="'permits_' + 'permit' + '_' + rkey"
+                             :ref="'permits_' + 'permit' + '_' + rkey"
                              data-vv-as="permits "
                              v-bind:data-vv-scope="'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey"
                              v-validate="'required'"
           ></b-form-select></td>
 
-
           <td v-for="(field,fkey) in row.fields"  v-if="field.name !== 'year'">
             <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey )"
-                     variant="danger"
-                     class="error-badge"
-                     :id="'permits_' + field.name + '_' + rkey + 'badge'"
+                     variant="danger" class="error-badge" :id="'permits_' + field.name + '_' + rkey + 'badge'"
                      :title="errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey).join('\n')"
                      v-b-tooltip.hover
                     >
               {{ errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey ).join('\n') }}
             </b-badge>
-            <field-generator :field="field"
-                             validation="'required'"
+            <field-generator :field="field" validation="'required'"
+                             :ref="'permits_' + field.name + '_' + rkey"
                              :vname="'permits_' + field.name + '_' + rkey"
                              :vkey="'permits_' + field.name + '_' + rkey"
                              :vscope="'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey"
@@ -76,17 +90,20 @@
 
 <script>
   import fieldGenerator from './fieldGenerator';
+  import { ErrorBag } from 'vee-validate';
 
   export default {
     name: "PermitsTable",
     props: ['table_section', 'yearoptions', 'scope'],
     components: { fieldGenerator },
+    inject: ['$validator'],
     data(){
       return {
         index: [],
         options: [],
         initialRows: [],
         rows: this.table_section.table_fields.fields,
+        errbag: new ErrorBag()
       }
     },
     created: function(){
@@ -108,7 +125,6 @@
 
     },
     methods: {
-
       addRow(){
           let newRow = JSON.parse(JSON.stringify(this.initialRows[0]));
 
@@ -126,13 +142,159 @@
       },
       removeRow(fieldkey){
         if(this.rows.length === 1){
-          console.log(this.rows[0].fields);
+          //console.log(this.rows[0].fields);
           return false;
         }
         this.rows.splice(fieldkey, 1);
         this.index.splice(fieldkey, 1);
         this.$forceUpdate();
-      }
+      },
+
+      compareFields(fields){
+        let uniq = fields.map((item)=>{
+          let selector = "[name='" + item.field + "']";
+          return {count: 1, it: document.querySelector(selector).value };
+        }).reduce((a,b)=>{
+          a[b.it] = ( a[b.it] || 0) + b.count;
+          return a;
+        },{});
+
+        let duplicates = Object.keys(uniq).filter((a) => uniq[a] > 1);
+        return ( duplicates.length > 0 );
+      },
+
+      validateUnique(){
+        let years = [];
+        let permits = [];
+        let self = this;
+
+        function clearErrorsByRule(bag, rule){
+          bag.items.filter((error) => {
+            return error.rule === rule;
+          }).map((err) => {
+            bag.removeById(err.id);
+          });
+        }
+
+        for(let item in this.$refs){
+          if(item.indexOf("permits_year") !== -1){
+            years.push(this.$refs[item]);
+          }
+          if(item.indexOf("permits_permit") !== -1){
+            permits.push(this.$refs[item]);
+          }
+        }
+
+        let uniqY = years
+          .map((item) => {
+            if(item[0]){
+              let permit = item[0].$el.getAttribute("name").replace("year","permit");
+              let permitScope = item[0].$el.getAttribute("data-vv-scope").replace("year","permit");
+              return {count: 1, year: item[0].$el.value, field:item[0], permit:permit, permitScope:permitScope };
+            }
+          })
+          .reduce((a, b) => {
+            a[b.year] = (a[b.year] || 0) + b.count;
+            if('undefined' === typeof a[b.year + "_fields"] ) a[b.year + "_fields"] = [];
+            a[b.year + "_fields"].push(b.field);
+
+            if('undefined' === typeof a[b.year + "_permit_fields"] ) a[b.year + "_permit_fields"] = [];
+            a[b.year + "_permit_fields"].push({ field: b.permit, scope: b.permitScope });
+
+            return a;
+          }, {});
+        let duplicates = Object.keys(uniqY).filter((a) => uniqY[a] > 1);
+
+        let selfParentErrorBag = self.$parent.$validator.errors;
+
+        if(duplicates.length !== 0){
+
+          duplicates.map((year) => {
+
+            // clearing errors from $validator and errorBag
+              clearErrorsByRule(self.errbag, "requiredUnique");
+
+              if( self.compareFields(uniqY[year+"_permit_fields"]) ){
+
+                uniqY[year+"_permit_fields"].map((fieldO) => {
+                  if("undefined" === typeof self.$validator){
+                    return true;
+                  }
+
+                  let field = self.$validator.fields.find({ name: fieldO.name , scope: fieldO.scope });
+
+                  let error = {
+                    field: field.name,
+                    msg: "Unique year and permit type necessary",
+                    scope: field.scope,
+                    rule: 'requiredUnique',
+                    vmId: field.id
+                  };
+
+                  let found = selfParentErrorBag.items.filter((item) => {
+                    return item.field === field.name && item.scope === field.scope;
+                  });
+
+                  if(found.length === 0) {
+                    selfParentErrorBag.add(error);
+                    self.errbag.add(error);
+                  } else {
+                    clearErrorsByRule(selfParentErrorBag, "requiredUnique");
+                    selfParentErrorBag.add(error);
+                  }
+
+                  field.setFlags({
+                    invalid: true,
+                    valid: false,
+                    validated: true,
+                  });
+                  self.$forceUpdate();
+                });
+              }
+          });
+        } else {
+          // clearing errors from $validator and errorBag
+          clearErrorsByRule(self.errbag, "requiredUnique");
+          clearErrorsByRule(selfParentErrorBag, "requiredUnique");
+
+          self.$forceUpdate();
+        }
+      },
+
+      validate(){
+        let promises = [];
+        let self = this;
+
+        this.validateUnique();
+        let lorf = this.errbag.items.map((err) => {
+          return true
+        });
+
+        for( let ref in this.$refs){
+          if(this.$refs.hasOwnProperty(ref)) {
+            promises.push(this.$refs[ref][0].$validator.validate());
+
+            if('undefined' !== typeof this.$refs[ref][0].validate){
+              promises.push(this.$refs[ref][0].validate());
+            }
+          }
+        }
+
+        return new Promise(function(resolve, reject) {
+          Promise.all(promises).then((res) => {
+            // if no errors
+            res = res.concat(lorf);
+            if(res.filter((it)=>{ return it === false}).length === 0){
+              resolve(res);
+            } else {
+              reject(res);
+            }
+
+          }).catch((e) => {
+            reject(e);
+          });
+        });
+      },
 
     }
   }

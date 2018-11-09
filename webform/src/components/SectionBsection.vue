@@ -185,7 +185,7 @@
           },
 
           updateSectionCommonName($event,selkey){
-            //TODO: validation
+            //TODO: validation?
             let reg = /(.*?)\[(.*?)\]/;
             let temp = {
               "none": []

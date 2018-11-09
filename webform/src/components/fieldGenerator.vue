@@ -158,10 +158,11 @@ export default {
       this.$validator.validate();
     },
     validate(){
+      let self = this;
       return new Promise(function(resolve, reject) {
-        this.$validator.validate().then((res) => {
+        self.$validator.validate().then((res) => {
           // if no errors
-          if(res.filter((it)=>{ return it === false}).length === 0){
+          if(res.length > 0 && res.filter((it)=>{ return it === false}).length === 0){
             resolve(res);
           } else {
             reject(res);
