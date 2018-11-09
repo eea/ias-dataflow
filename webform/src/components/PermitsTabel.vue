@@ -1,11 +1,11 @@
 <template>
   <div class="table-wrapper">
 
-    {{ errors.items
+    <!--{{ errors.items
 
     /*.filter((err) => {
         return err.rule === "requiredUnique"
-    } )*/ }}
+    } )*/ }}-->
     <table class="table table-striped">
       <thead class="bg-info">
       <th class="year-column" >Year</th>
@@ -31,6 +31,7 @@
                             v-bind:key="'permits_' + field.name + '_' + rkey"
                             v-bind:name="'permits_' + field.name + '_' + rkey"
                             v-bind:data-vv-scope="'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey"
+                            @change="validate"
             ></b-form-select>
           </td>
 
@@ -57,7 +58,9 @@
                              data-vv-as="permits "
                              v-bind:data-vv-scope="'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey"
                              v-validate="'required'"
-          ></b-form-select></td>
+
+
+            ></b-form-select></td>
 
           <td v-for="(field,fkey) in row.fields"  v-if="field.name !== 'year'">
             <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey )"
@@ -72,6 +75,9 @@
                              :vname="'permits_' + field.name + '_' + rkey"
                              :vkey="'permits_' + field.name + '_' + rkey"
                              :vscope="'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey"
+                             @change="validate"
+                             @input="validate"
+
             ></field-generator>
           </td>
 
@@ -138,7 +144,7 @@
         let newlabel = this.initialRows[$event].label;
         this.rows[rkey].label = newlabel;
         //this.$emit('input', $event);
-        //this.$validator.validate();
+        this.$validator.validate();
       },
       removeRow(fieldkey){
         if(this.rows.length === 1){
@@ -210,7 +216,6 @@
         if(duplicates.length !== 0){
 
           duplicates.map((year) => {
-
             // clearing errors from $validator and errorBag
               clearErrorsByRule(self.errbag, "requiredUnique");
 
@@ -231,16 +236,25 @@
                     vmId: field.id
                   };
 
+                  let errorP = {
+                    field: field.name,
+                    msg: "Unique year and permit type necessary",
+                    scope: field.scope,
+                    rule: 'required',
+                    vmId: field.id
+                  };
+
                   let found = selfParentErrorBag.items.filter((item) => {
                     return item.field === field.name && item.scope === field.scope;
                   });
 
                   if(found.length === 0) {
-                    selfParentErrorBag.add(error);
+                    selfParentErrorBag.add(errorP);
                     self.errbag.add(error);
                   } else {
-                    clearErrorsByRule(selfParentErrorBag, "requiredUnique");
-                    selfParentErrorBag.add(error);
+                    //clearErrorsByRule(selfParentErrorBag, "requiredUnique");
+
+                    //selfParentErrorBag.add(errorP);
                   }
 
                   field.setFlags({
