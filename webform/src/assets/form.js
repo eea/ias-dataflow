@@ -172,13 +172,7 @@ let tab_1_section = {
       table_sections: [{
           label: '',
           field: {
-            label: 'Calendar year concerned',
-            name: 'year',
-            type: 'select',
-            selected: '',
-            options: years,
-            name: 'calendar_year',
-            index: 7,
+
           },
           table_fields: {
             header: 'Purpose of permit',
@@ -322,13 +316,6 @@ let tab_1_section = {
         {
           label: 'Information on inspections to be completed only for invasive alien species of Union concern and if the answer to question 6 above is ‘Yes’',
           field: {
-            label: 'Calendar year concerned',
-            name: 'year',
-            type: 'select',
-            selected: '',
-            options: years,
-            name: 'calendar_year',
-            index: 9,
           },
           table_fields: {
             header: 'Purpose of permit',

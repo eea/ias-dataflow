@@ -107,36 +107,7 @@
                    v-if="section.tables.table_1.question.selected === true">
                 <h6>{{table_section.label}}</h6>
 
-                  <b-row>
-                    <b-col>
-                      <b-badge variant="danger"
-                        v-if="errors.has('table_'+ table_key +'_' + table_section.field.name + '_' + seckey ,
-                         'sectiona_table_1_' + table_key + '_' + table_section.field.name + '_' + seckey  + '_' + table_key)">
-                        {{ errors.first('table_'+ table_key +'_' + table_section.field.name + '_' + seckey ,
-                        'sectiona_table_1_' +  table_key + '_' + table_section.field.name + '_' + seckey + '_' + table_key )}}
-                      </b-badge>
-                    </b-col>
-                  </b-row>
-                  <b-row>
-                  <b-col>
-
-                    <b-input-group :prepend="table_section.field.label" v-if="table_section.field.type === 'select'">
-                      <b-form-select v-model="table_section.field.selected"
-                                     :options="table_section.field.options"
-                                     @change="changeFields($event, table_section)"
-                                     v-validate.continues ="'selectRequired'"
-                                     :data-vv-as="'calendar year'"
-                                     v-bind:key="'table_' + table_key+ '_' + table_section.field.name + '_' + seckey"
-                                     v-bind:name="'table_' + table_key+ '_' + table_section.field.name + '_' + seckey"
-                                     v-bind:data-vv-scope="'sectiona_table_1_' + table_key + '_' + table_section.field.name + '_' +  seckey + '_' + table_key"
-                      ></b-form-select>
-                    </b-input-group>
-                    <b-input-group :prepend="table_section.field.label" v-if="table_section.field.type !== 'select'">
-
-                      <b-form-input v-model="table_section.field.selected" ></b-form-input>
-                    </b-input-group>
-                  </b-col>
-                </b-row>
+                  
 
                 <PermitsTabel :table_section="table_section" :yearoptions="table_section.field.options" :scope="'table_1_' + table_key "
                               :ref="'permits_table_' + table_key"
