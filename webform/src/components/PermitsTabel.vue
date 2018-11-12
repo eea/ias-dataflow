@@ -273,7 +273,7 @@
               // TODO: fix clearing errors from $validator and errorBag
               let duplicatePerm = self.compareFields(uniqY[year+"_permit_fields"]);
               if( duplicatePerm.duplicates.length > 0 ){
-                console.log(duplicatePerm.fields);
+                
                 duplicatePerm.fields.map((filedD) => {
                   filedD.map((fieldO) => {
                     let field = self.$validator.fields.find({ name: fieldO.field , scope: fieldO.scope });

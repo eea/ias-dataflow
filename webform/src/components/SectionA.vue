@@ -360,7 +360,7 @@ export default {
       let foundP = this.errors.items.filter((item) => {
         return item.field === field.name && item.scope === field.scope;
       });
-      console.log(error);
+
       if(error === null){
         self.$validator.errors.removeById(foundP.id);
       }
