@@ -61,6 +61,7 @@
                 <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
                                 :scope="'sectiona_'+ seckey + field.name + '_' + fieldkey"
                                 @form-file-uploaded="addFilesToSelected"
+                                files-allowed="shp, geojson, gml,zip"
                                 @form-file-delete="deleteFormFile" :multiple=false>
                 </FormFileUpload>
               </div>

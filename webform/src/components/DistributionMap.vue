@@ -31,7 +31,7 @@
 
           <div v-if="field.type === 'file'">
 
-            <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="zip,geojson"
+            <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="shp, geojson, gml,zip"
                             :vname="'dmap' + 'file' + '_' + fieldkey"
                             :vkey="'dmap' + 'file' + '_' + fieldkey"
                             :scope="'dmap' + '_' + fieldkey"

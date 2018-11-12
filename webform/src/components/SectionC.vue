@@ -94,7 +94,7 @@
               :vkey="'sectionc_' + 'file' + '_' + fieldkey"
               :scope="'sectionc_files' + '_' + fieldkey"
               :multiple=true
-              :filesAllowed="'zip,geojson'"
+              :filesAllowed="'doc,docx,pdf,geojson,zip,dot,docb,dotx,docm'"
               @form-file-uploaded="addFilesToSelected" @form-file-delete="deleteFormFile">
             </FormFileUpload>
           </div>
