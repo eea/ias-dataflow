@@ -107,10 +107,10 @@
                    v-if="section.tables.table_1.question.selected === true">
                 <h6>{{table_section.label}}</h6>
 
-                  
+
 
                 <PermitsTabel :table_section="table_section" :yearoptions="table_section.field.options" :scope="'table_1_' + table_key "
-                              :ref="'permits_table_' + table_key"
+                              :ref="'permits_table_' + table_key" @add-error="addSuberror"
                 ></PermitsTabel>
 
                 <div>
@@ -355,6 +355,23 @@ export default {
       });*/
     },
 
+    addSuberror(error, field){
+      let self = this;
+      let foundP = this.errors.items.filter((item) => {
+        return item.field === field.name && item.scope === field.scope;
+      });
+      console.log(error);
+      if(error === null){
+        self.$validator.errors.removeById(foundP.id);
+      }
+
+      if(foundP.length === 0 && error !== null){
+        error.rule = 'required';
+        self.$validator.errors.add(error);
+      }
+
+    },
+
     validate(){
       let self = this;
       let promises = [];
@@ -380,8 +397,11 @@ export default {
             reject(res);
           }
         }).catch((e) => {
+          console.error(e);
           reject(e);
         });
+      }).catch((rej) => {
+        console.error(rej);
       });
     },
   },

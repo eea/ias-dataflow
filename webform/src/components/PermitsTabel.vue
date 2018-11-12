@@ -37,19 +37,11 @@
 
           <!-- TODO: permits select -->
           <td>
-            <b-badge v-if="errbag.items.filter((err)=> {
-              return err.field === 'permits_' + 'permit' + '_' + rkey && err.scope === 'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey;
-            }).length > 0" variant="danger" class="error-badge">
-              {{ errbag.items.filter((err)=> {
-                return err.field === 'permits_' + 'permit' + '_' + rkey && err.scope === 'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey;
-                })[0].msg
-              }}
-            </b-badge>
-
             <b-badge v-if=" errors.has( 'permits_' + 'permit' + '_' + rkey , 'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey )"
                      variant="danger" class="error-badge" >
               {{ errors.first( 'permits_' + 'permit' + '_' + rkey , 'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey ) }}
             </b-badge>
+
             <b-form-select :options="options" v-model="index[rkey]"
                            @change="changeRow($event, rkey)"
                              v-bind:key="'permits_' + 'permit' + '_' + rkey"
@@ -60,7 +52,9 @@
                              v-validate="'required'"
 
 
-            ></b-form-select></td>
+            ></b-form-select>
+
+          </td>
 
           <td v-for="(field,fkey) in row.fields"  v-if="field.name !== 'year'">
             <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey )"
@@ -109,7 +103,7 @@
         options: [],
         initialRows: [],
         rows: this.table_section.table_fields.fields,
-        errbag: new ErrorBag()
+        duplicateFields: []
       }
     },
     created: function(){
@@ -130,6 +124,56 @@
       }
 
     },
+    watch: {
+      duplicateFields(fields, oldFields){
+        let self = this;
+        let selfParentErrorBag = self.$parent.$validator.errors;
+        let rule = 'requiredUnique';
+
+        if(fields.length > 0){
+          oldFields.map((field)=> {
+            self.$emit("add-error", null, field);
+          });
+
+          let errors = fields.map((field) => {
+            let error = {
+              field: field.name,
+              msg: "Unique year and permit type necessary",
+              scope: field.scope,
+              rule: rule,
+              vmId: field.vmId
+            };
+
+            let errorP = {
+              field: field.name,
+              msg: "Unique year and permit type necessary",
+              scope: field.scope,
+              rule: rule,
+              vmId: field.vmId
+            };
+
+            //self.errbag.add(error);
+            self.$emit("add-error", errorP, field);
+
+            /*field.setFlags({
+              invalid: true,
+              valid: false,
+              validated: true,
+            });*/
+          });
+
+        } else {
+
+          oldFields.map((field)=> {
+            self.$emit("add-error", null, field);
+          });
+
+        }
+
+
+
+      }
+    },
     methods: {
       addRow(){
           let newRow = JSON.parse(JSON.stringify(this.initialRows[0]));
@@ -143,7 +187,8 @@
       changeRow($event, rkey){
         let newlabel = this.initialRows[$event].label;
         this.rows[rkey].label = newlabel;
-        //this.$emit('input', $event);
+        this.$emit('input', $event);
+        this.validateUnique();
         this.$validator.validate();
       },
       removeRow(fieldkey){
@@ -159,130 +204,107 @@
       compareFields(fields){
         let uniq = fields.map((item)=>{
           let selector = "[name='" + item.field + "']";
-          return {count: 1, it: document.querySelector(selector).value };
+          return {count: 1, it: document.querySelector(selector).value, selector:item.field, field: item };
         }).reduce((a,b)=>{
           a[b.it] = ( a[b.it] || 0) + b.count;
+          if('undefined' === typeof a[b.it + "_fields"] ) a[b.it + "_fields"] = [];
+          a[b.it + "_fields"].push(b.field);
           return a;
         },{});
 
         let duplicates = Object.keys(uniq).filter((a) => uniq[a] > 1);
-        return ( duplicates.length > 0 );
+
+        let temp = [];
+        Object.keys(uniq)
+          .filter((name) => {return name.indexOf("_fields") !== -1; })
+          .map((name) => { temp.push(uniq[name]) });
+
+        return { duplicates: duplicates, fields: temp };
+
       },
 
       validateUnique(){
-        let years = [];
-        let permits = [];
         let self = this;
+        return new Promise(function(resolve, reject) {
+          let years = [];
+          let permits = [];
 
-        function clearErrorsByRule(bag, rule){
-          bag.items.filter((error) => {
-            return error.rule === rule;
-          }).map((err) => {
-            bag.removeById(err.id);
-          });
-        }
-
-        for(let item in this.$refs){
-          if(item.indexOf("permits_year") !== -1){
-            years.push(this.$refs[item]);
+          function clearErrorsByRule(bag, rule){
+            bag.items.filter((error) => {
+              return error.rule === rule;
+            }).map((err) => {
+              bag.removeById(err.id);
+            });
           }
-          if(item.indexOf("permits_permit") !== -1){
-            permits.push(this.$refs[item]);
-          }
-        }
 
-        let uniqY = years
-          .map((item) => {
-            if(item[0]){
-              let permit = item[0].$el.getAttribute("name").replace("year","permit");
-              let permitScope = item[0].$el.getAttribute("data-vv-scope").replace("year","permit");
-              return {count: 1, year: item[0].$el.value, field:item[0], permit:permit, permitScope:permitScope };
+          for(let item in self.$refs){
+            if(item.indexOf("permits_year") !== -1){
+              years.push(self.$refs[item]);
             }
-          })
-          .reduce((a, b) => {
-            a[b.year] = (a[b.year] || 0) + b.count;
-            if('undefined' === typeof a[b.year + "_fields"] ) a[b.year + "_fields"] = [];
-            a[b.year + "_fields"].push(b.field);
+            if(item.indexOf("permits_permit") !== -1){
+              permits.push(self.$refs[item]);
+            }
+          }
 
-            if('undefined' === typeof a[b.year + "_permit_fields"] ) a[b.year + "_permit_fields"] = [];
-            a[b.year + "_permit_fields"].push({ field: b.permit, scope: b.permitScope });
-
-            return a;
-          }, {});
-        let duplicates = Object.keys(uniqY).filter((a) => uniqY[a] > 1);
-
-        let selfParentErrorBag = self.$parent.$validator.errors;
-
-        if(duplicates.length !== 0){
-
-          duplicates.map((year) => {
-            // clearing errors from $validator and errorBag
-              clearErrorsByRule(self.errbag, "requiredUnique");
-
-              if( self.compareFields(uniqY[year+"_permit_fields"]) ){
-
-                uniqY[year+"_permit_fields"].map((fieldO) => {
-                  if("undefined" === typeof self.$validator){
-                    return true;
-                  }
-
-                  let field = self.$validator.fields.find({ name: fieldO.name , scope: fieldO.scope });
-
-                  let error = {
-                    field: field.name,
-                    msg: "Unique year and permit type necessary",
-                    scope: field.scope,
-                    rule: 'requiredUnique',
-                    vmId: field.id
-                  };
-
-                  let errorP = {
-                    field: field.name,
-                    msg: "Unique year and permit type necessary",
-                    scope: field.scope,
-                    rule: 'required',
-                    vmId: field.id
-                  };
-
-                  let found = selfParentErrorBag.items.filter((item) => {
-                    return item.field === field.name && item.scope === field.scope;
-                  });
-
-                  if(found.length === 0) {
-                    selfParentErrorBag.add(errorP);
-                    self.errbag.add(error);
-                  } else {
-                    //clearErrorsByRule(selfParentErrorBag, "requiredUnique");
-
-                    //selfParentErrorBag.add(errorP);
-                  }
-
-                  field.setFlags({
-                    invalid: true,
-                    valid: false,
-                    validated: true,
-                  });
-                  self.$forceUpdate();
-                });
+          let uniqY = years
+            .map((item) => {
+              if(item[0]){
+                let permit = item[0].$el.getAttribute("name").replace("year","permit");
+                let permitScope = item[0].$el.getAttribute("data-vv-scope").replace("year","permit");
+                return {count: 1, year: item[0].$el.value, field:item[0], permit:permit, permitScope:permitScope };
               }
-          });
-        } else {
-          // clearing errors from $validator and errorBag
-          clearErrorsByRule(self.errbag, "requiredUnique");
-          clearErrorsByRule(selfParentErrorBag, "requiredUnique");
+            })
+            .reduce((a, b) => {
+              a[b.year] = (a[b.year] || 0) + b.count;
+              if('undefined' === typeof a[b.year + "_fields"] ) a[b.year + "_fields"] = [];
+              a[b.year + "_fields"].push(b.field);
 
-          self.$forceUpdate();
-        }
+              if('undefined' === typeof a[b.year + "_permit_fields"] ) a[b.year + "_permit_fields"] = [];
+              a[b.year + "_permit_fields"].push({ field: b.permit, scope: b.permitScope });
+
+              return a;
+            }, {});
+          let duplicateYears = Object.keys(uniqY).filter((a) => uniqY[a] > 1);
+
+          let selfParentErrorBag = self.$parent.$validator.errors;
+
+          if(duplicateYears.length !== 0){
+            duplicateYears.map((year) => {
+              // TODO: fix clearing errors from $validator and errorBag
+              let duplicatePerm = self.compareFields(uniqY[year+"_permit_fields"]);
+              if( duplicatePerm.duplicates.length > 0 ){
+                console.log(duplicatePerm.fields);
+                duplicatePerm.fields.map((filedD) => {
+                  filedD.map((fieldO) => {
+                    let field = self.$validator.fields.find({ name: fieldO.field , scope: fieldO.scope });
+                    self.duplicateFields.push(field);
+                  });
+                });
+
+              } else {
+                self.$set( self, "duplicateFields", []);
+              }
+            });
+            self.$forceUpdate();
+            resolve(false);
+          } else {
+            self.duplicateFields = [];
+            self.$forceUpdate();
+            reject(false);
+          }
+        });
+
       },
 
       validate(){
         let promises = [];
         let self = this;
 
-        this.validateUnique();
-        let lorf = this.errbag.items.map((err) => {
+        promises.push(this.validateUnique());
+
+        /*let lorf = this.errbag.items.map((err) => {
           return true
-        });
+        });*/
 
         for( let ref in this.$refs){
           if(this.$refs.hasOwnProperty(ref)) {
@@ -295,6 +317,7 @@
         }
 
         return new Promise(function(resolve, reject) {
+
           Promise.all(promises).then((res) => {
             // if no errors
             res = res.concat(lorf);
@@ -307,6 +330,8 @@
           }).catch((e) => {
             reject(e);
           });
+        }).catch((err) => {
+          console.log(err);
         });
       },
 
