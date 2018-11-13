@@ -408,17 +408,17 @@ let tab_1_section = {
                     type: 'number',
                     selected: '',
                   },
+
                   {
-                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                    //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
                     name: 'total_permited_spciments_held_main',
                     type: 'add',
-                    selected: '',
                     fields: [
                       {
                         name: 'subfield',
                         fields:[
                           {
-                            label: 'Number of permits issued',
+                            label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
                             name: 'total_permited_spciments_held',
                             type: 'number',
                             selected: '',
@@ -433,8 +433,6 @@ let tab_1_section = {
                         ],
                       }
                     ],
-
-
                   },
 
                   {
@@ -444,7 +442,7 @@ let tab_1_section = {
                     selected: '',
                   },
                   {
-                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
+                    //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                     name: 'number_speciments_held_by_non_compliant_establishments_main',
                     type: 'add',
                     selected: '',
@@ -453,7 +451,7 @@ let tab_1_section = {
                         name: 'subfield',
                         fields:[
                           {
-                            label: 'Number of permits issued',
+                            label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                             name: 'number_speciments_held_by_non_compliant_establishments',
                             type: 'number',
                             selected: '',
@@ -488,7 +486,7 @@ let tab_1_section = {
                     selected: '',
                   },
                   {
-                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                    //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
                     name: 'total_permited_spciments_held_main',
                     type: 'add',
                     selected: '',
@@ -497,7 +495,7 @@ let tab_1_section = {
                         name: 'subfield',
                         fields:[
                           {
-                            label: 'Number of permits issued',
+                            label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
                             name: 'total_permited_spciments_held',
                             type: 'number',
                             selected: '',
@@ -520,7 +518,7 @@ let tab_1_section = {
                     selected: '',
                   },
                   {
-                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
+                    //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                     name: 'number_speciments_held_by_non_compliant_establishments_main',
                     type: 'add',
                     selected: '',
@@ -529,7 +527,7 @@ let tab_1_section = {
                         name: 'subfield',
                         fields:[
                           {
-                            label: 'Number of permits issued',
+                            label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                             name: 'number_speciments_held_by_non_compliant_establishments',
                             type: 'number',
                             selected: '',
@@ -564,7 +562,7 @@ let tab_1_section = {
                     selected: '',
                   },
                   {
-                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                    //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
                     name: 'total_permited_spciments_held_main',
                     type: 'add',
                     selected: '',
@@ -573,7 +571,7 @@ let tab_1_section = {
                         name: 'subfield',
                         fields:[
                           {
-                            label: 'Number of permits issued',
+                            label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
                             name: 'total_permited_spciments_held',
                             type: 'number',
                             selected: '',
@@ -596,7 +594,7 @@ let tab_1_section = {
                     selected: '',
                   },
                   {
-                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
+                    //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                     name: 'number_speciments_held_by_non_compliant_establishments_main',
                     type: 'add',
                     selected: '',
@@ -605,7 +603,7 @@ let tab_1_section = {
                         name: 'subfield',
                         fields:[
                           {
-                            label: 'Number of permits issued',
+                            label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                             name: 'number_speciments_held_by_non_compliant_establishments',
                             type: 'number',
                             selected: '',
@@ -640,7 +638,7 @@ let tab_1_section = {
                     selected: '',
                   },
                   {
-                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                    //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
                     name: 'total_permited_spciments_held_main',
                     type: 'add',
                     selected: '',
@@ -649,7 +647,7 @@ let tab_1_section = {
                         name: 'subfield',
                         fields:[
                           {
-                            label: 'Number of permits issued',
+                            label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
                             name: 'total_permited_spciments_held',
                             type: 'number',
                             selected: '',
@@ -672,7 +670,7 @@ let tab_1_section = {
                     selected: '',
                   },
                   {
-                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
+                    //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                     name: 'number_speciments_held_by_non_compliant_establishments_main',
                     type: 'add',
                     selected: '',
@@ -681,7 +679,7 @@ let tab_1_section = {
                         name: 'subfield',
                         fields:[
                           {
-                            label: 'Number of permits issued',
+                            label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                             name: 'number_speciments_held_by_non_compliant_establishments',
                             type: 'number',
                             selected: '',

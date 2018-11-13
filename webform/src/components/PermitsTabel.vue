@@ -10,7 +10,12 @@
       <thead class="bg-info">
       <th class="year-column" >Year</th>
       <th class="permits-column">{{table_section.table_fields.header}}</th>
-      <th class="header-column" v-for="header in table_section.table_fields.fields[0].fields" v-if="header.label !=='Year' ">{{ header.label  }}</th>
+      <th class="header-column" v-for="header in table_section.table_fields.fields[0].fields" v-if="header.label !=='Year' ">
+        <span v-if="header.label" >{{ header.label  }}</span>
+        <span v-else>
+          <span >{{ header.fields[0].fields[0].label }} </span>
+        </span>
+      </th>
       <th><span>Actions</span></th>
       </thead>
       <tbody>
@@ -36,7 +41,7 @@
           </td>
 
           <!-- TODO: permits select -->
-          <td>
+          <td style="max-width: 35%;">
             <b-badge v-if=" errors.has( 'permits_' + 'permit' + '_' + rkey , 'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey )"
                      variant="danger" class="error-badge" >
               {{ errors.first( 'permits_' + 'permit' + '_' + rkey , 'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey ) }}
@@ -55,46 +60,48 @@
 
           </td>
 
-          <td v-for="(field,fkey) in row.fields"  v-if="field.type === 'add'" style="width: 20%">
-            <div v-for="(sfield, sfkey) in field.fields" >
+          <td v-for="(field,fkey) in row.fields" v-if="field.name !== 'year'"
+              v-bind:style="{ width: field.type === 'add' ? '20%' : 'auto' }">
+            <div v-for="(sfield, sfkey) in field.fields" v-if="field.type === 'add'" style="width: 100%;">
 
-              <div v-for="(fiel, fiekey) in sfield.fields" style="width: 30%;float: left;margin-right: 1%;margin-bottom: 5px;">
-                <field-generator :field="fiel" validation="'required'"
-                                 :ref="'permits_' + fiel.name + '_' + fiekey"
-                                 :vname="'permits_' + fiel.name + '_' + fiekey"
-                                 :vkey="'permits_' + fiel.name + '_' + fiekey"
-                                 :vscope="'sectiona_' + scope + '_permits_' + field.name + '_' + rkey"
-
-                ></field-generator>
-
-              </div>
-              <b-btn variant="primary" @click="addSubfield(field)" style="margin-bottom: 5px;">Add</b-btn>
-              <b-btn variant="danger" @click="removeSubfield(field,sfkey)" style="margin-bottom: 5px;" v-if="sfkey !== 0">X</b-btn>
+              <b-row >
+                <b-col v-for="(fiel, fiekey) in sfield.fields" style=" margin-bottom: 5px;">
+                  <field-generator :field="fiel" validation="'required'"
+                                   :ref="'permits_' + fiel.name + '_' + fiekey"
+                                   :vname="'permits_' + fiel.name + '_' + fiekey"
+                                   :vkey="'permits_' + fiel.name + '_' + fiekey"
+                                   :vscope="'sectiona_' + scope + '_permits_' + field.name + '_' + rkey"
+                  ></field-generator>
+                </b-col>
+                <b-col>
+                  <b-btn variant="primary" @click="addSubfield(field)" style="margin-bottom: 5px;">Add</b-btn>
+                </b-col>
+                <b-col>
+                  <b-btn variant="danger" @click="removeSubfield(field,sfkey)" style="margin-bottom: 5px;" v-if="sfkey !== 0">X</b-btn>
+                </b-col>
+              </b-row>
 
             </div>
 
+            <div v-if="field.name !== 'year' && field.type !== 'add'">
+              <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey )"
+                       variant="danger" class="error-badge" :id="'permits_' + field.name + '_' + rkey + 'badge'"
+                       :title="errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey).join('\n')"
+                       v-b-tooltip.hover
+              >
+                {{ errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey ).join('\n') }}
+              </b-badge>
+              <field-generator :field="field" validation="'required'"
+                               :ref="'permits_' + field.name + '_' + rkey"
+                               :vname="'permits_' + field.name + '_' + rkey"
+                               :vkey="'permits_' + field.name + '_' + rkey"
+                               :vscope="'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey"
+                               @change="validate"
+                               @input="validate"
+
+              ></field-generator>
+            </div>
           </td>
-
-          <td v-for="(field,fkey) in row.fields"  v-if="field.name !== 'year' && field.type !== 'add'">
-            <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey )"
-                     variant="danger" class="error-badge" :id="'permits_' + field.name + '_' + rkey + 'badge'"
-                     :title="errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey).join('\n')"
-                     v-b-tooltip.hover
-                    >
-              {{ errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey ).join('\n') }}
-            </b-badge>
-            <field-generator :field="field" validation="'required'"
-                             :ref="'permits_' + field.name + '_' + rkey"
-                             :vname="'permits_' + field.name + '_' + rkey"
-                             :vkey="'permits_' + field.name + '_' + rkey"
-                             :vscope="'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey"
-                             @change="validate"
-                             @input="validate"
-
-            ></field-generator>
-          </td>
-
-
 
           <td><b-btn variant="danger" @click="removeRow(rkey)">X</b-btn></td>
         </tr>
