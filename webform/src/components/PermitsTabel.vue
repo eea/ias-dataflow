@@ -51,12 +51,31 @@
                              v-bind:data-vv-scope="'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey"
                              v-validate="'required'"
 
-
             ></b-form-select>
 
           </td>
 
-          <td v-for="(field,fkey) in row.fields"  v-if="field.name !== 'year'">
+          <td v-for="(field,fkey) in row.fields"  v-if="field.type === 'add'" style="width: 20%">
+            <div v-for="(sfield, sfkey) in field.fields" >
+
+              <div v-for="(fiel, fiekey) in sfield.fields" style="width: 30%;float: left;margin-right: 1%;margin-bottom: 5px;">
+                <field-generator :field="fiel" validation="'required'"
+                                 :ref="'permits_' + fiel.name + '_' + fiekey"
+                                 :vname="'permits_' + fiel.name + '_' + fiekey"
+                                 :vkey="'permits_' + fiel.name + '_' + fiekey"
+                                 :vscope="'sectiona_' + scope + '_permits_' + field.name + '_' + rkey"
+
+                ></field-generator>
+
+              </div>
+              <b-btn variant="primary" @click="addSubfield(field)" style="margin-bottom: 5px;">Add</b-btn>
+              <b-btn variant="danger" @click="removeSubfield(field,sfkey)" style="margin-bottom: 5px;" v-if="sfkey !== 0">X</b-btn>
+
+            </div>
+
+          </td>
+
+          <td v-for="(field,fkey) in row.fields"  v-if="field.name !== 'year' && field.type !== 'add'">
             <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey )"
                      variant="danger" class="error-badge" :id="'permits_' + field.name + '_' + rkey + 'badge'"
                      :title="errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey).join('\n')"
@@ -75,6 +94,8 @@
             ></field-generator>
           </td>
 
+
+
           <td><b-btn variant="danger" @click="removeRow(rkey)">X</b-btn></td>
         </tr>
 
@@ -90,7 +111,6 @@
 
 <script>
   import fieldGenerator from './fieldGenerator';
-  import { ErrorBag } from 'vee-validate';
 
   export default {
     name: "PermitsTable",
@@ -335,6 +355,19 @@
         });
       },
 
+      addSubfield(field){
+        let newSubfield = JSON.parse(JSON.stringify(field.fields[0]));
+        newSubfield.fields.forEach((item) => {
+          item.selected = '';
+        });
+
+        field.fields.push(newSubfield);
+        this.$forceUpdate();
+      },
+      removeSubfield(field, sfkey){
+        field.fields.splice(sfkey, 1);
+        this.$forceUpdate();
+      }
     }
   }
 </script>

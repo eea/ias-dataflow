@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div style="position: absolute;top: 5px;right: 5px;">
-      <b-btn variant="success" style="" @click="saveForm" :disabled="!valid">Save</b-btn>
+      <b-btn variant="success" style="" @click="saveForm">Save</b-btn>
       <b-btn variant="primary" @click="validateSections" style="">Validate</b-btn>
       <b-btn variant="danger" @click="openErrorModal" v-if="errors.items.length > 0">Errors</b-btn>
       <b-btn variant="danger" style="" @click="exitForm">Back to envelope</b-btn>
