@@ -60,7 +60,6 @@
 
           </td>
 
-          <!-- style="padding-left: 1.5rem;" -->
           <td v-for="(field,fkey) in row.fields" v-if="field.name !== 'year'"
               v-bind:style="{ width: field.type === 'add' ? '20%' : 'auto' }" style="padding-left: 25px;padding-right: 25px;" >
             <b-row v-for="(sfield, sfkey) in field.fields" v-if="field.type === 'add'" >
