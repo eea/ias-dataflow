@@ -9,34 +9,29 @@
       <tbody>
       <tr v-for="(field,fieldkey) in patternfields">
         <td>
-
           <b-input-group>
             <b-input-group-prepend v-if="errors.has(scope + '_pattern_' + fieldkey,scope)">
               <b-badge class="error-badge"  variant="danger"
               >{{ errors.first(scope + '_pattern_' + fieldkey, scope) }}</b-badge>
             </b-input-group-prepend>
             <b-form-select :options="field.options" v-model="field.selected.pattern"
-                           v-validate="'required'" data-vv-as="pattern"  v-bind:key="scope + '_pattern_' + fieldkey"
-                           v-bind:data-vv-scope="scope"
-                           v-bind:name="scope + '_pattern_' + fieldkey"
-            >
-            </b-form-select>
+               v-validate="'required'" data-vv-as="pattern"  v-bind:key="scope + '_pattern_' + fieldkey"
+               v-bind:data-vv-scope="scope"
+               v-bind:name="scope + '_pattern_' + fieldkey"
+            ></b-form-select>
           </b-input-group>
         </td>
         <td>
-
           <b-input-group>
             <b-input-group-prepend v-if="errors.has(scope + '_region_' + fieldkey,scope)">
               <b-badge class="error-badge"  variant="danger"
               >{{ errors.first(scope + '_region_' + fieldkey, scope) }}</b-badge>
             </b-input-group-prepend>
             <b-form-select :options="field.regionOptions" v-model="field.selected.region"
-                            v-validate="'required'" data-vv-as="region" v-bind:name="scope + '_region_' + fieldkey"
-                           v-bind:key="scope + '_region_' + fieldkey"
-                           v-bind:data-vv-scope="scope"
-
-            >
-            </b-form-select>
+              v-validate="'required'" data-vv-as="region" v-bind:name="scope + '_region_' + fieldkey"
+              v-bind:key="scope + '_region_' + fieldkey"
+              v-bind:data-vv-scope="scope"
+            ></b-form-select>
           </b-input-group>
         </td>
         <td><b-btn variant="danger" @click="removeRow(fieldkey)">X</b-btn></td>
@@ -47,7 +42,6 @@
       + Add another pattern
     </b-btn>
   </div>
-
 </template>
 
 <script>
@@ -58,7 +52,6 @@
       return {
       }
     },
-
     methods: {
       addNewRow(){
         this.$emit('add-new-pattern', this.patternfields);

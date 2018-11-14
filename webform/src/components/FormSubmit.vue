@@ -1,10 +1,10 @@
 <template>
   <div class="wrapper">
     <div style="position: absolute;top: 5px;right: 5px;">
-      <b-btn variant="success" style="" @click="saveForm">Save</b-btn>
+      <b-btn variant="success" @click="saveForm">Save</b-btn>
       <b-btn variant="primary" @click="validateSections" style="">Validate</b-btn>
       <b-btn variant="danger" @click="openErrorModal" v-if="errors.items.length > 0">Errors</b-btn>
-      <b-btn variant="danger" style="" @click="exitForm">Back to envelope</b-btn>
+      <b-btn variant="danger" @click="exitForm">Back to envelope</b-btn>
     </div>
 
     <b-alert :show="dismissCountDown"
@@ -21,21 +21,15 @@
 import {saveInstance, envelope} from '../api.js';
 
 export default {
-
   name: 'FormSubmit',
-
   props: ['info', 'country', 'validated'],
   inject: ['$validator'],
-
   updated() {
   },
-
   created() {
     this.dataset = this.info;
     this.validate()
   },
-  inject: ['$validator'],
-
   data () {
     return {
       dataset: null,
@@ -298,8 +292,6 @@ export default {
 
       this.jsonemptyinstance.BC_PEP.country = this.country;
 
-      //console.log(this.jsonemptyinstance);
-
       saveInstance(this.jsonemptyinstance);
       this.showAlert();
     },
@@ -309,7 +301,6 @@ export default {
     },
 
     validateSections(){
-      //this.valid = true;
       this.$emit("validate-components");
     }
   },

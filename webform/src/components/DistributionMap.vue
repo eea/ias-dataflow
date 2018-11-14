@@ -3,60 +3,54 @@
   <div class="question-wrapper">
     <h1><center>{{info.question}}</center></h1>
       <b-card class="mt-5 mb-5">
-      <div v-for="(field, fieldkey, fieldindex ) in info.section.fields">
-        <b-col>
-          <label>{{field.label}}</label>
-          <b-form-input v-if="field.type === 'text'" :type="field.type" v-model="field.selected" ></b-form-input>
-          <textarea class="form-control" v-else-if="field.type === 'textarea'" v-model="field.selected" ></textarea>
-          <div class="add-section" v-else-if="field.type === 'add'">
-            <b-btn variant="primary" @click="addPathway(field)">Add</b-btn>
-            <b-row v-for="(addField, addFkey) in field.fields">
-              <b-col>
-                {{addField.label}}
-              </b-col>
-              <b-col>
-                <b-form-input :type="addField.type" v-model="addField.selected" ></b-form-input>
-              </b-col>
-              <b-col>
-                {{addField.inner_field.label}}
-              </b-col>
-              <b-col>
-                <b-form-input :type="addField.inner_field.type" v-model="addField.inner_field.selected" ></b-form-input>
-              </b-col>
-              <b-col>
-                  <b-btn variant="danger" @click="removePathway(field,addField)">Remove</b-btn>
-              </b-col>
-            </b-row>
-          </div>
+        <div v-for="(field, fieldkey, fieldindex ) in info.section.fields">
+          <b-col>
+            <label>{{field.label}}</label>
+            <b-form-input v-if="field.type === 'text'" :type="field.type" v-model="field.selected" ></b-form-input>
+            <textarea class="form-control" v-else-if="field.type === 'textarea'" v-model="field.selected" ></textarea>
+            <div class="add-section" v-else-if="field.type === 'add'">
+              <b-btn variant="primary" @click="addPathway(field)">Add</b-btn>
+              <b-row v-for="(addField, addFkey) in field.fields">
+                <b-col>
+                  {{addField.label}}
+                </b-col>
+                <b-col>
+                  <b-form-input :type="addField.type" v-model="addField.selected" ></b-form-input>
+                </b-col>
+                <b-col>
+                  {{addField.inner_field.label}}
+                </b-col>
+                <b-col>
+                  <b-form-input :type="addField.inner_field.type" v-model="addField.inner_field.selected" ></b-form-input>
+                </b-col>
+                <b-col>
+                    <b-btn variant="danger" @click="removePathway(field,addField)">Remove</b-btn>
+                </b-col>
+              </b-row>
+            </div>
 
-          <div v-if="field.type === 'file'">
-
-            <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="shp, geojson, gml,zip"
-                            :vname="'dmap' + 'file' + '_' + fieldkey"
-                            :vkey="'dmap' + 'file' + '_' + fieldkey"
-                            :scope="'dmap' + '_' + fieldkey"
-                            :multiple=false @form-file-uploaded="addFilesToSelected" @form-file-delete="deleteFormFile">
-            </FormFileUpload>
-          </div>
-
-        </b-col>
-        <hr>
-
-      </div>
-
+            <div v-if="field.type === 'file'">
+              <FormFileUpload :selected="field.selected" :field="field"
+                              :fieldkey="fieldkey"
+                              files-allowed="shp, geojson, gml,zip"
+                              :vname="'dmap' + 'file' + '_' + fieldkey"
+                              :vkey="'dmap' + 'file' + '_' + fieldkey"
+                              :scope="'dmap' + '_' + fieldkey"
+                              :multiple=false
+                              @form-file-uploaded="addFilesToSelected"
+                              @form-file-delete="deleteFormFile">
+              </FormFileUpload>
+            </div>
+          </b-col>
+          <hr>
+        </div>
       </b-card>
-
-
-
       </div>
   </div>
 </template>
 
 
 <script>
-
-import {slugify} from '../utils.js';
-import speciesB from '../assets/speciesB.js';
 import { getSupportingFiles, envelope} from '../api.js';
 import FormFileUpload from "./FormFileUpload";
 
@@ -66,26 +60,14 @@ export default {
     info: null,
     tabId:null
   },
-  //inject: ['$validator'],
 
   data () {
     return {
-      //files: [],
-      fileIsUploading: [],
-      doneUpload: [],
-      errorUpload: [],
-      counter: [],
-      max: [],
     }
   },
 
   methods: {
-    titleSlugify(text) {
-      return slugify(text)
-    },
-
     addPathway(field){
-      console.log(field)
       let empty_field = {
         label: 'Priority pathways addressed ',
         type: 'text',
@@ -113,7 +95,6 @@ export default {
       }).catch((error) =>{
         console.error(error);
       });
-
     },
 
     deleteFormFile(found, fieldkey){
@@ -124,16 +105,16 @@ export default {
       let self = this;
       let promises = [];
 
-      for( let child in this.$refs){
-        if(this.$refs.hasOwnProperty(child) &&  'undefined' !== typeof this.$refs[child][0]
-          && 'undefined' !== typeof this.$refs[child][0].$validator) {
-          if('undefined' !== typeof this.$refs[child][0].validate){
-            promises.push( this.$refs[child][0].validate()  );
+      for( let child in self.$refs){
+        if(self.$refs.hasOwnProperty(child) &&  'undefined' !== typeof self.$refs[child][0]
+          && 'undefined' !== typeof self.$refs[child][0].$validator) {
+          if('undefined' !== typeof self.$refs[child][0].validate){
+            promises.push( self.$refs[child][0].validate()  );
           }
-          promises.push( this.$refs[child][0].$validator.validate() );
+          promises.push( self.$refs[child][0].$validator.validate() );
         }
       }
-      this.$forceUpdate();
+      self.$forceUpdate();
 
       return new Promise(function(resolve, reject) {
         Promise.all(promises).then((res) => {

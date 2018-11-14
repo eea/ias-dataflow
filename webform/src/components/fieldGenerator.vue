@@ -1,6 +1,5 @@
 <template>
 	<div v-if="field">
-
 		<div v-if="field.type === 'text' || field.type === 'number' || field.type ==='email'" >
       <b-form-input :disabled="disabled" :name="field.name"
         v-model="field.selected" :type="field.type" v-if="field.type === 'number'"
@@ -107,7 +106,6 @@ export default {
     validation: String,
   },
   created(){
-
   },
   $_veeValidate: {
     // value getter
@@ -126,7 +124,6 @@ export default {
   data () {
     return {
       disabled: false,
-
     }
   },
   methods: {
@@ -142,17 +139,14 @@ export default {
     deleteFormFile(found, fieldkey, field){
       field.selected = null;
     },
-
     changeSelect($event){
       this.$emit('change', $event);
       this.$validator.validate();
     },
-
     changeInput($event){
       this.$emit('input', $event);
       this.$validator.validate();
     },
-
     changeDate($event){
       this.$emit('change', $event);
       this.$validator.validate();

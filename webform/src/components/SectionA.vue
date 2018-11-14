@@ -7,7 +7,7 @@
 
       <b-card class="mt-5 mb-5" v-for="(section,seckey, secindex) in info.sections">
         <div class="panel-heading"
-               @click="expanded.indexOf(seckey) === -1 ? expanded.push(seckey) : expanded.splice(expanded.indexOf(seckey), 1)" >
+           @click="expanded.indexOf(seckey) === -1 ? expanded.push(seckey) : expanded.splice(expanded.indexOf(seckey), 1)">
             <h4 class="name-easin">
               <font-awesome-icon v-bind:icon="expanded.indexOf(seckey) !== -1 ? 'chevron-down' : 'chevron-right'" />
               <span class="name">{{section.scientific_name.selected}}</span>
@@ -28,11 +28,11 @@
               <b-input-group :prepend="section.mandatory_item.label">
 
                 <b-form-select v-model="section.mandatory_item.selected" :options="section.mandatory_item.options"
-                               v-validate="'selectRequiredNumber:1'"
-                               :data-vv-as="'Species presence for '  + section.scientific_name.selected "
-                               v-bind:key="'mandatory_item_' + seckey"
-                               v-bind:data-vv-scope="'sectiona_mandatory_item_'+ seckey"
-                               v-bind:name="'mandatory_item_' + seckey"
+                   v-validate="'selectRequiredNumber:1'"
+                   :data-vv-as="'Species presence for '  + section.scientific_name.selected "
+                   v-bind:key="'mandatory_item_' + seckey"
+                   v-bind:data-vv-scope="'sectiona_mandatory_item_'+ seckey"
+                   v-bind:name="'mandatory_item_' + seckey"
                 ></b-form-select>
               </b-input-group>
             </b-col>
@@ -45,24 +45,24 @@
             </h6>
 
             <PatternField :patternfields="section.depending_on_mandatory.reproduction_patterns"
-                          :scope="'sectiona_reproduction_' + seckey"
-                          :ref="'reproduction_' + seckey"
-                          @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
+              :scope="'sectiona_reproduction_' + seckey"
+              :ref="'reproduction_' + seckey"
+              @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
             </PatternField>
 
             <PatternField :patternfields="section.depending_on_mandatory.spread_pattterns"
-                          :scope="'sectiona_spread_' + seckey"
-                          :ref="'spread_'+ seckey"
-                          @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
+              :scope="'sectiona_spread_' + seckey"
+              :ref="'spread_'+ seckey"
+              @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
             </PatternField>
 
             <div class="mb-2" v-for="(field,fieldkey) in section.depending_on_mandatory.fields">
               <div v-if="field.type === 'file'" :prepend="field.label">
                 <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
-                                :scope="'sectiona_'+ seckey + field.name + '_' + fieldkey"
-                                @form-file-uploaded="addFilesToSelected"
-                                files-allowed="shp, geojson, gml,zip"
-                                @form-file-delete="deleteFormFile" :multiple=false>
+                  :scope="'sectiona_'+ seckey + field.name + '_' + fieldkey"
+                  @form-file-uploaded="addFilesToSelected"
+                  files-allowed="shp, geojson, gml,zip"
+                  @form-file-delete="deleteFormFile" :multiple=false>
                 </FormFileUpload>
               </div>
             </div>
@@ -94,11 +94,11 @@
                 <b-col>
                   <b-input-group :prepend="section.tables.table_1.question.label">
                     <b-form-select v-model="section.tables.table_1.question.selected" :options="section.tables.table_1.question.options"
-                                   v-validate.continues="'required'"
-                                   :data-vv-as="'permits issued'"
-                                   v-bind:key="'table_1_question_' + seckey"
-                                   v-bind:data-vv-scope="'sectiona_table_1_'+ seckey"
-                                   v-bind:name="'table_1_question_' + seckey"
+                      v-validate.continues="'required'"
+                      :data-vv-as="'permits issued'"
+                      v-bind:key="'table_1_question_' + seckey"
+                      v-bind:data-vv-scope="'sectiona_table_1_'+ seckey"
+                      v-bind:name="'table_1_question_' + seckey"
                     ></b-form-select>
                   </b-input-group>
                 </b-col>
@@ -108,10 +108,10 @@
                    v-if="section.tables.table_1.question.selected === true">
                 <h6>{{table_section.label}}</h6>
 
-
-
-                <PermitsTabel :table_section="table_section" :yearoptions="table_section.field.options" :scope="'table_1_' + table_key "
-                              :ref="'permits_table_' + table_key" @add-error="addSuberror"
+                <PermitsTabel :table_section="table_section"
+                  :yearoptions="table_section.field.options" :scope="'table_1_' + table_key "
+                  :ref="'permits_table_' + table_key"
+                  @add-error="addSuberror"
                 ></PermitsTabel>
 
                 <div>
@@ -157,7 +157,6 @@
                   <thead>
                   <tr>
                     <th style="max-width: 50px" >{{sub_section.label}}</th>
-                    <!-- <th ></th> -->
                     <th v-if="sub_section.type === 'add'">
                       <b-btn variant="primary" @click="addSpecies(sub_section)">Add</b-btn>
                     </th>
@@ -167,6 +166,7 @@
 
                   <tr v-for="(row, rowkey, rowindex) in sub_section.fields">
                     <td style="width: 120px" v-if="row.label">{{row.label}}</td>
+
                     <td  v-if="sub_section.type != 'add'">
                       <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                               && item.scope === 'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey
@@ -196,20 +196,20 @@
                           <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                               && item.scope === 'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey
                               && item.field === row.name + '_' + rowkey;}).length > 0">
-                            {{
-                            errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
+                            <!-- TODO: refactor, move in method -->
+                            <!-- filtering errors for each field and scope-->
+                            {{ errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                             && item.scope === 'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey
                             && item.field === row.name + '_' + rowkey;}).map((item)=>{
                             return item.msg;
-                            }).join('\n')
-                            }}
+                            }).join('\n')  }}
                           </b-badge>
                           <fieldGenerator :field="row"
-                                          :fieldkey="rowkey"
-                                          :vname="row.name + '_' + rowkey"
-                                          :vkey="row.name + '_' + rowkey"
-                                          :ref="'section_' + seckey + '_' + row.name + '_' + rowkey"
-                                          :vscope="'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey"
+                            :fieldkey="rowkey"
+                            :vname="row.name + '_' + rowkey"
+                            :vkey="row.name + '_' + rowkey"
+                            :ref="'section_' + seckey + '_' + row.name + '_' + rowkey"
+                            :vscope="'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey"
                           ></fieldGenerator>
                         </b-col>
                         <b-col lg="2">
@@ -219,13 +219,13 @@
                           <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                               && item.scope === 'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey
                               && item.field === row.name + '_' + rowkey;}).length > 0">
-                            {{
-                            errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
-                            && item.scope === 'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey
-                            && item.field === row.name + '_' + rowkey;}).map((item)=>{
-                            return item.msg;
-                            }).join('\n')
-                            }}
+                            <!-- TODO: refactor, move in method -->
+                            <!-- filtering errors for each field and scope-->
+                            {{ errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
+                              && item.scope === 'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey
+                              && item.field === row.name + '_' + rowkey;}).map((item)=>{
+                              return item.msg;
+                              }).join('\n') }}
                           </b-badge>
                           <fieldGenerator
                             :vname="row.inner_field.name + '_' + rowkey"
@@ -293,6 +293,7 @@ export default {
     titleSlugify(text) {
       return slugify(text)
     },
+
     addNewPattern(fields){
       let newField = JSON.parse(JSON.stringify(fields[0]));
       newField.selected.pattern = null;
@@ -303,7 +304,7 @@ export default {
       if(fieldkey !== 0) fields.splice(fieldkey, 1);
     },
 
-    addCustomField(field){
+    /*addCustomField(field){
       this.customField = field;
       this.$refs.customFieldModal.show();
     },
@@ -315,7 +316,8 @@ export default {
       this.addCustom.text = null;
       this.addCustom.value = null;
       this.$refs.customFieldModal.hide();
-    },
+    },*/
+
     addSpecies(field){
       let empty_field = {
         label: 'Impacted non-targeted species',
@@ -348,14 +350,7 @@ export default {
       field.selected = null;
     },
 
-    changeFields($event, table_section){
-      /*table_section.table_fields.fields.forEach((row,rkey)=>{
-        row.fields.forEach((field,fkey) => {
-          if(field.name === 'year') field.selected = $event;
-        });
-      });*/
-    },
-
+    // geting errors from child component
     addSuberror(error, field){
       let self = this;
       let foundP = this.errors.items.filter((item) => {
@@ -370,22 +365,19 @@ export default {
         error.rule = 'required';
         self.$validator.errors.add(error);
       }
-
     },
 
     validate(){
       let self = this;
       let promises = [];
 
-      //console.log(this.$refs);
-
-      for( let child in this.$refs){
-        if(this.$refs.hasOwnProperty(child) &&  'undefined' !== typeof this.$refs[child][0]
-          && 'undefined' !== typeof this.$refs[child][0].$validator) {
-          if('undefined' !== typeof this.$refs[child][0].validate){
-            promises.push( this.$refs[child][0].validate());
+      for( let child in self.$refs){
+        if(self.$refs.hasOwnProperty(child) &&  'undefined' !== typeof self.$refs[child][0]
+          && 'undefined' !== typeof self.$refs[child][0].$validator) {
+          if('undefined' !== typeof self.$refs[child][0].validate){
+            promises.push( self.$refs[child][0].validate());
           }
-          promises.push(this.$refs[child][0].$validator.validate());
+          promises.push(self.$refs[child][0].$validator.validate());
         }
       }
 

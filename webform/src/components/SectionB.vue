@@ -1,13 +1,5 @@
 <template>
   <div v-if="info">
-    <!--<div v-for="er in errors.items">
-      <b-badge variant="danger">{{ er }}</b-badge>
-    </div>
-
-    <div v-for="fiel in fields">
-      {{ fiel }}
-    </div>-->
-
     <div class="question-wrapper">
       <h1><center>{{info.question}}</center></h1>
       <br/>
@@ -72,7 +64,6 @@
               <b-col lg="2" class="d-xs-block d-md-none d-lg-none d-xl-none">
                 <b-btn  @click="addManually(selected['sci_name'], selected['common_name'])"
                         style="margin-bottom: -3rem" variant="primary" >add</b-btn>
-
               </b-col>
             </b-row>
           </div>
@@ -86,7 +77,6 @@
           </div>
 
         </b-card>
-
 
     </div>
   </div>

@@ -1,40 +1,40 @@
 <template>
   <div>
-
     <b-badge  v-if="errors.has('*' , scope +'_' + 'files-input-' + fieldkey )" variant="danger">
       {{ errors.first('*' , scope +'_' + 'files-input-' + fieldkey ) }}
     </b-badge >
     <b-input-group>
 
+      <!-- Error Badge -->
       <b-input-group-prepend>
         <div v-if="prepend" class="input-group-text">{{ prepend }}</div>
         <b-badge class="upload-badge" variant="danger" v-show="Boolean(errorUpload.length)">Error could not upload</b-badge>
-
       </b-input-group-prepend>
-        <b-form-file v-model="files"
-                     v-validate="'filesAllowed:'+ filesAllowed"
-                     data-vv-as="file"
-                     :multiple="Boolean(multiple)"
-                     :ref="'fileinputref' + fieldkey"
-                      v-if="!required"
-                     v-bind:name="vname"
-                     v-bind:key="vkey"
-                     v-bind:data-vv-scope="scope +'_' + 'files-input-' + fieldkey"
-        ></b-form-file>
 
-        <b-form-file v-model="files"
-                     v-validate="'required|filesAllowed:'+ filesAllowed"
-                     data-vv-as="file"
-                     :multiple="Boolean(multiple)"
-                     :ref="'fileinputref' + fieldkey"
-                     v-else
-                     v-bind:name="vname"
-                     v-bind:key="vkey"
-                     v-bind:data-vv-scope="scope +'_' + 'files-input-' + fieldkey"
-          ><!-- @change="changeSelect($event)" :state="Boolean(files)" -->
-        </b-form-file>
+      <!-- File Input -->
+      <b-form-file v-if="!required"
+                   v-validate="'filesAllowed:'+ filesAllowed"
+                   v-model="files"
+                   data-vv-as="file"
+                   :multiple="Boolean(multiple)"
+                   :ref="'fileinputref' + fieldkey"
+                   v-bind:name="vname"
+                   v-bind:key="vkey"
+                   v-bind:data-vv-scope="scope +'_' + 'files-input-' + fieldkey"
+      ></b-form-file>
 
-
+      <b-form-file v-model="files"
+                   v-validate="'required|filesAllowed:'+ filesAllowed"
+                   data-vv-as="file"
+                   :multiple="Boolean(multiple)"
+                   :ref="'fileinputref' + fieldkey"
+                   v-else
+                   v-bind:name="vname"
+                   v-bind:key="vkey"
+                   v-bind:data-vv-scope="scope +'_' + 'files-input-' + fieldkey"
+        >
+      </b-form-file>
+      <!-- END File Input -->
 
       <b-input-group-append>
         <b-btn v-show="errors.items.length === 0" @click="uploadFormFile(files, field, fieldkey)" variant="success">Upload</b-btn>
@@ -65,7 +65,9 @@
         </div>
       </div>
     </div>
+    <!--END Progress Bars -->
 
+    <!-- File Listing -->
     <div v-if="multiple === false && counter[0] !== max[0]">
       <b-row>
         <b-col>
@@ -84,9 +86,9 @@
 
       </b-row>
     </div>
-    <!-- Progress Bars END-->
 
     <div v-if="field.selected && field.type === 'file'" >
+      <!-- File Listing Multiple -->
       <div v-if="multiple === true" >
         <div v-show="field.selected.length > 0" v-for="fileName in field.selected" >
           File uploaded: <a :href="fileName" blank="_true">{{fileName}}</a>
@@ -94,6 +96,7 @@
         </div>
       </div>
       <div v-if="multiple === false" >
+        <!-- File Listing Single -->
         <div v-show="field.selected.length > 0">
           File uploaded: <a :href="field.selected[0]" blank="_true">{{field.selected[0]}}</a>
           <b-badge class="deletefileBtn" variant="danger" @click="deleteFormFile(field.selected, field, fieldkey)">Delete file</b-badge>
@@ -110,20 +113,7 @@
     name: 'FormFileUpload',
     props: ['field', 'fieldkey', 'multiple', 'selected', 'prepend','filesAllowed','scope','vname','vkey','required'],
     inject: ['$validator'],
-    /*$_veeValidate: {
-      // value getter
-      value () {
-        return this.$el.value;
-      },
-      // name getter
-      name () {
-        return this.field.name;
-      }
-    },*/
-    mounted () {
-      //console.log(this.$el.value);
-      //this.$el.value = this.field.selected;
-    },
+
     data(){
       return {
         files: null,
@@ -232,18 +222,6 @@
           });
         }
       },
-
-      changeSelect($event){
-        //this.files = $event.target.files;
-        //this.$emit('input', $event.target.files);
-        //this.$validator.validate();
-      },
-
-      /*btnValidate(){
-        console.log(this.files);
-        //this.$validator.validate();
-      }*/
-
     }
   }
 </script>
