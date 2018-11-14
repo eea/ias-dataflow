@@ -22,7 +22,7 @@
 
       <!-- TODO: add validation so that each same name has unique year -->
         <tr v-for="(row,rkey) in rows">
-          <td v-for="(field,fkey) in row.fields" v-if="field.name === 'year'">
+          <td v-for="(field,fkey) in row.fields" v-if="field.name === 'year'" >
             <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey )"
                      variant="danger" class="error-badge" v-b-tooltip.hover
             :title="errors.first('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey  )">
@@ -41,7 +41,7 @@
           </td>
 
           <!-- TODO: permits select -->
-          <td style="max-width: 35%;">
+          <td >
             <b-badge v-if=" errors.has( 'permits_' + 'permit' + '_' + rkey , 'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey )"
                      variant="danger" class="error-badge" >
               {{ errors.first( 'permits_' + 'permit' + '_' + rkey , 'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey ) }}
@@ -60,28 +60,31 @@
 
           </td>
 
+          <!-- style="padding-left: 1.5rem;" -->
           <td v-for="(field,fkey) in row.fields" v-if="field.name !== 'year'"
-              v-bind:style="{ width: field.type === 'add' ? '20%' : 'auto' }">
-            <div v-for="(sfield, sfkey) in field.fields" v-if="field.type === 'add'" style="width: 100%;">
+              v-bind:style="{ width: field.type === 'add' ? '20%' : 'auto' }" style="padding-left: 25px;padding-right: 25px;" >
+            <b-row v-for="(sfield, sfkey) in field.fields" v-if="field.type === 'add'" >
 
-              <b-row >
-                <b-col v-for="(fiel, fiekey) in sfield.fields" style=" margin-bottom: 5px;">
-                  <field-generator :field="fiel" validation="'required'"
-                                   :ref="'permits_' + fiel.name + '_' + fiekey"
-                                   :vname="'permits_' + fiel.name + '_' + fiekey"
-                                   :vkey="'permits_' + fiel.name + '_' + fiekey"
-                                   :vscope="'sectiona_' + scope + '_permits_' + field.name + '_' + rkey"
-                  ></field-generator>
-                </b-col>
-                <b-col>
-                  <b-btn variant="primary" @click="addSubfield(field)" style="margin-bottom: 5px;">Add</b-btn>
-                </b-col>
-                <b-col>
-                  <b-btn variant="danger" @click="removeSubfield(field,sfkey)" style="margin-bottom: 5px;" v-if="sfkey !== 0">X</b-btn>
-                </b-col>
-              </b-row>
+              <b-col cols="8">
+                <b-row>
+                  <b-col v-for="(fiel, fiekey) in sfield.fields"  style=" margin-bottom: 5px;padding: 0">
+                    <field-generator :field="fiel" validation="'required'" :ref="'permits_' + fiel.name + '_' + fiekey"
+                       :vname="'permits_' + fiel.name + '_' + fiekey"
+                       :vkey="'permits_' + fiel.name + '_' + fiekey"
+                       :vscope="'sectiona_' + scope + '_permits_' + field.name + '_' + rkey"
+                    ></field-generator>
+                  </b-col>
+                </b-row>
+              </b-col>
 
-            </div>
+              <b-col v-if="sfkey === 0" cols="1">
+                <b-btn variant="primary" @click="addSubfield(field)" style="margin-bottom: 5px;">Add</b-btn>
+              </b-col>
+
+              <b-col v-if="sfkey !== 0"  cols="1">
+                <b-btn variant="danger" @click="removeSubfield(field,sfkey)" style="margin-bottom: 5px;">X</b-btn>
+              </b-col>
+            </b-row>
 
             <div v-if="field.name !== 'year' && field.type !== 'add'">
               <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey )"
@@ -400,7 +403,6 @@
 
 <style scoped>
 
-
   .table-wrapper {
     margin-bottom: 2rem;
     overflow: hidden;
@@ -410,12 +412,12 @@
   }
   table {
     margin-bottom: 0;
-
     border-collapse:collapse;
     border-spacing: 0;
     border-style: hidden;
     width:100%;
     max-width: 100%;
+    overflow-x:auto;
   }
 
   thead {
@@ -445,6 +447,7 @@
   .header-column {
     max-width: 10%;
     width: 10%;
+    margin-left: 1.5rem;
   }
 
   td {
@@ -460,6 +463,25 @@
     position: absolute;
     max-width: 85%;
     top: -1px;
+  }
+
+  @media screen and (max-width: 1024px){
+    .table-wrapper {
+      overflow:auto;
+    }
+
+    /*tbody {
+      display: block;
+    }
+
+    thead tr{
+      display:block;
+    }*/
+
+    table {
+      overflow: auto;
+    }
+
   }
 
 </style>
