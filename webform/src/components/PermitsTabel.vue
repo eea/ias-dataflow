@@ -1,11 +1,6 @@
 <template>
   <div class="table-wrapper">
 
-    <!--{{ errors.items
-
-    /*.filter((err) => {
-        return err.rule === "requiredUnique"
-    } )*/ }}-->
     <table class="table table-striped">
       <thead class="bg-info">
       <th class="year-column" >Year</th>
@@ -30,13 +25,13 @@
             </b-badge>
 
             <b-form-select  v-model="field.selected" :options="field.options"
-                            v-validate.continues ="'required'"
-                            :data-vv-as="field.label"
-                            :ref="'permits_' + field.name + '_' + rkey"
-                            v-bind:key="'permits_' + field.name + '_' + rkey"
-                            v-bind:name="'permits_' + field.name + '_' + rkey"
-                            v-bind:data-vv-scope="'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey"
-                            @change="validate"
+              v-validate.continues ="'required'"
+              :data-vv-as="field.label"
+              :ref="'permits_' + field.name + '_' + rkey"
+              v-bind:key="'permits_' + field.name + '_' + rkey"
+              v-bind:name="'permits_' + field.name + '_' + rkey"
+              v-bind:data-vv-scope="'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey"
+              @change="validate"
             ></b-form-select>
           </td>
 
@@ -48,29 +43,36 @@
             </b-badge>
 
             <b-form-select :options="options" v-model="index[rkey]"
-                           @change="changeRow($event, rkey)"
-                             v-bind:key="'permits_' + 'permit' + '_' + rkey"
-                             v-bind:name="'permits_' + 'permit' + '_' + rkey"
-                             :ref="'permits_' + 'permit' + '_' + rkey"
-                             data-vv-as="permits "
-                             v-bind:data-vv-scope="'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey"
-                             v-validate="'required'"
-
+              @change="changeRow($event, rkey)"
+              v-bind:key="'permits_' + 'permit' + '_' + rkey"
+              v-bind:name="'permits_' + 'permit' + '_' + rkey"
+              :ref="'permits_' + 'permit' + '_' + rkey"
+              data-vv-as="permits "
+              v-bind:data-vv-scope="'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey"
+              v-validate="'required'"
             ></b-form-select>
-
           </td>
 
           <td v-for="(field,fkey) in row.fields" v-if="field.name !== 'year'"
               v-bind:style="{ width: field.type === 'add' ? '20%' : 'auto' }" style="padding-left: 25px;padding-right: 25px;" >
+
             <b-row v-for="(sfield, sfkey) in field.fields" v-if="field.type === 'add'" >
 
               <b-col cols="8">
                 <b-row>
-                  <b-col v-for="(fiel, fiekey) in sfield.fields"  style=" margin-bottom: 5px;padding: 0">
+                  <b-col v-for="(fiel, fiekey) in sfield.fields"  style="margin-bottom: 5px;padding: 0">
+                    <b-badge v-if="errors.has('permits_' + fiel.name + '_' + fiekey, 'sectiona_' + scope + '_permits_' + fiel.name + '_' + rkey )"
+                             variant="danger" class="error-badge"
+                             :id="'permits_' + fiel.name + '_' + fiekey + 'badge'"
+                             :title="errors.collect('permits_' + fiel.name + '_' + fiekey , 'sectiona_' + scope + '_permits_' + fiel.name + '_' + rkey).join('\n')"
+                             v-b-tooltip.hover
+                             >
+                    {{ errors.collect( 'permits_' + fiel.name + '_' + fiekey, 'sectiona_' + scope + '_permits_' + fiel.name + '_' + rkey  ).join('\n') }}
+                    </b-badge>
                     <field-generator :field="fiel" validation="'required'" :ref="'permits_' + fiel.name + '_' + fiekey"
                        :vname="'permits_' + fiel.name + '_' + fiekey"
                        :vkey="'permits_' + fiel.name + '_' + fiekey"
-                       :vscope="'sectiona_' + scope + '_permits_' + field.name + '_' + rkey"
+                       :vscope="'sectiona_' + scope + '_permits_' + fiel.name + '_' + rkey"
                     ></field-generator>
                   </b-col>
                 </b-row>
@@ -90,31 +92,24 @@
                        variant="danger" class="error-badge" :id="'permits_' + field.name + '_' + rkey + 'badge'"
                        :title="errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey).join('\n')"
                        v-b-tooltip.hover
-              >
-                {{ errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey ).join('\n') }}
+              >{{ errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey ).join('\n') }}
               </b-badge>
               <field-generator :field="field" validation="'required'"
-                               :ref="'permits_' + field.name + '_' + rkey"
-                               :vname="'permits_' + field.name + '_' + rkey"
-                               :vkey="'permits_' + field.name + '_' + rkey"
-                               :vscope="'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey"
-                               @change="validate"
-                               @input="validate"
-
+               :ref="'permits_' + field.name + '_' + rkey"
+               :vname="'permits_' + field.name + '_' + rkey"
+               :vkey="'permits_' + field.name + '_' + rkey"
+               :vscope="'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey"
+               @change="validate" @input="validate"
               ></field-generator>
             </div>
           </td>
-
           <td><b-btn variant="danger" @click="removeRow(rkey)">X</b-btn></td>
         </tr>
-
       </tbody>
     </table>
     <b-input-group>
       <b-btn class="btnAdd" variant="default" @click="addRow">Add row</b-btn>
     </b-input-group>
-
-
   </div>
 </template>
 
@@ -137,11 +132,9 @@
     },
     created: function(){
       if('undefined' !== typeof this.table_section.table_fields.fields){
-
         this.table_section.table_fields.fields.forEach((field, ix)=>{
           this.index[ix] = ix;
         });
-
         this.options = [];
         let arr = [];
         this.initialRows = JSON.parse(JSON.stringify(this.table_section.table_fields.optionsFields));
@@ -156,7 +149,6 @@
     watch: {
       duplicateFields(fields, oldFields){
         let self = this;
-        let selfParentErrorBag = self.$parent.$validator.errors;
         let rule = 'requiredUnique';
 
         if(fields.length > 0){
@@ -164,7 +156,7 @@
             self.$emit("add-error", null, field);
           });
 
-          let errors = fields.map((field) => {
+          fields.map((field) => {
             let error = {
               field: field.name,
               msg: "Unique year and permit type necessary",
@@ -181,52 +173,40 @@
               vmId: field.vmId
             };
 
-            //self.errbag.add(error);
             self.$emit("add-error", errorP, field);
-
-            /*field.setFlags({
-              invalid: true,
-              valid: false,
-              validated: true,
-            });*/
           });
 
         } else {
-
           oldFields.map((field)=> {
             self.$emit("add-error", null, field);
           });
-
         }
-
-
-
       }
     },
     methods: {
       addRow(){
           let newRow = JSON.parse(JSON.stringify(this.initialRows[0]));
-
           this.rows.push(newRow);
           this.index[this.rows.length-1] = null;
+          this.validate();
           this.$forceUpdate();
-          //this.$validator.validate();
-
       },
+
       changeRow($event, rkey){
         let newlabel = this.initialRows[$event].label;
         this.rows[rkey].label = newlabel;
         this.$emit('input', $event);
-        this.validateUnique();
         this.$validator.validate();
+        this.validate();
       },
+
       removeRow(fieldkey){
         if(this.rows.length === 1){
-          //console.log(this.rows[0].fields);
           return false;
         }
         this.rows.splice(fieldkey, 1);
         this.index.splice(fieldkey, 1);
+        this.validate();
         this.$forceUpdate();
       },
 
@@ -247,9 +227,7 @@
         Object.keys(uniq)
           .filter((name) => {return name.indexOf("_fields") !== -1; })
           .map((name) => { temp.push(uniq[name]) });
-
         return { duplicates: duplicates, fields: temp };
-
       },
 
       validateUnique(){
@@ -257,14 +235,6 @@
         return new Promise(function(resolve, reject) {
           let years = [];
           let permits = [];
-
-          function clearErrorsByRule(bag, rule){
-            bag.items.filter((error) => {
-              return error.rule === rule;
-            }).map((err) => {
-              bag.removeById(err.id);
-            });
-          }
 
           for(let item in self.$refs){
             if(item.indexOf("permits_year") !== -1){
@@ -295,14 +265,11 @@
             }, {});
           let duplicateYears = Object.keys(uniqY).filter((a) => uniqY[a] > 1);
 
-          let selfParentErrorBag = self.$parent.$validator.errors;
-
           if(duplicateYears.length !== 0){
             duplicateYears.map((year) => {
-              // TODO: fix clearing errors from $validator and errorBag
               let duplicatePerm = self.compareFields(uniqY[year+"_permit_fields"]);
-              if( duplicatePerm.duplicates.length > 0 ){
 
+              if( duplicatePerm.duplicates.length > 0 ){
                 duplicatePerm.fields.map((filedD) => {
                   filedD.map((fieldO) => {
                     let field = self.$validator.fields.find({ name: fieldO.field , scope: fieldO.scope });
@@ -322,31 +289,25 @@
             reject(false);
           }
         });
-
       },
 
       validate(){
         let promises = [];
         let self = this;
 
-        promises.push(this.validateUnique());
+        promises.push(self.validateUnique());
 
-        /*let lorf = this.errbag.items.map((err) => {
-          return true
-        });*/
+        for( let ref in self.$refs){
+          if(self.$refs.hasOwnProperty(ref)) {
+            promises.push(self.$refs[ref][0].$validator.validate());
 
-        for( let ref in this.$refs){
-          if(this.$refs.hasOwnProperty(ref)) {
-            promises.push(this.$refs[ref][0].$validator.validate());
-
-            if('undefined' !== typeof this.$refs[ref][0].validate){
-              promises.push(this.$refs[ref][0].validate());
+            if('undefined' !== typeof self.$refs[ref][0].validate){
+              promises.push(self.$refs[ref][0].validate());
             }
           }
         }
 
         return new Promise(function(resolve, reject) {
-
           Promise.all(promises).then((res) => {
             // if no errors
             res = res.concat(lorf);
@@ -369,10 +330,10 @@
         newSubfield.fields.forEach((item) => {
           item.selected = '';
         });
-
         field.fields.push(newSubfield);
         this.$forceUpdate();
       },
+
       removeSubfield(field, sfkey){
         field.fields.splice(sfkey, 1);
         this.$forceUpdate();
@@ -468,14 +429,6 @@
     .table-wrapper {
       overflow:auto;
     }
-
-    /*tbody {
-      display: block;
-    }
-
-    thead tr{
-      display:block;
-    }*/
 
     table {
       overflow: auto;
