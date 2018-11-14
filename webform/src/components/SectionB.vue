@@ -25,9 +25,9 @@
                 :close-on-select="false" :clear-on-select="false" :preserve-search="true" track-by="text"
                 @select="fillCommon($event)" :custom-label="customLabel" @input="updateSelected()" @remove="remove($event)"
                 >
-                  <template slot="selection" slot-scope="{ values, search, isOpen }">
+                  <!--<template slot="selection" slot-scope="{ values, search, isOpen }">
                     <span class="multiselect__single" v-if="values.length && !isOpen">{{ values.length }} options selected</span>
-                  </template>
+                  </template>-->
                 </multiselect>
 
             </b-col>
@@ -493,7 +493,6 @@ export default {
 .checkbox-wrapper label{
   margin-bottom: 0;
 }
-
 
 
 @media screen and (max-width: 768px) {

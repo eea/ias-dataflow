@@ -51,15 +51,14 @@
         <b-row>
 
           <b-col>
-
             <b-input-group :prepend="sectionProp.mandatory_item.label">
               <b-form-select v-model="sectionProp.mandatory_item.selected"
-                             v-validate="'selectRequiredNumber:1'"
-                             data-vv-as="Mandatory item"
-                             v-bind:key="'mandatory_item_' + selkey"
-                             v-bind:data-vv-scope="'sectionb_mandatory_item_'+ selkey"
-                             v-bind:name="'mandatory_item_' + selkey"
-                             :options="sectionProp.mandatory_item.options">
+                 v-validate="'selectRequiredNumber:1'"
+                 data-vv-as="Mandatory item"
+                 v-bind:key="'mandatory_item_' + selkey"
+                 v-bind:data-vv-scope="'sectionb_mandatory_item_'+ selkey"
+                 v-bind:name="'mandatory_item_' + selkey"
+                 :options="sectionProp.mandatory_item.options">
               </b-form-select>
             </b-input-group>
           </b-col>
@@ -74,32 +73,30 @@
           </h6>
           <div class="mt-4" v-if="sectionProp.mandatory_item.selected === true">
             <PatternField :patternfields="sectionProp.depending_on_mandatory.reproduction_patterns"
-                          :scope="'sectionb_reproduction'"
-                          :ref="'reproduction'"
-                          @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
-            </PatternField>
+              :scope="'sectionb_reproduction'"
+              :ref="'reproduction'"
+              @remove-pattern="removePattern" @add-new-pattern="addNewPattern"></PatternField>
 
             <PatternField :patternfields="sectionProp.depending_on_mandatory.spread_pattterns"
-                          :scope="'sectionb_spread'"
-                          :ref="'spread'"
-                          @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
-            </PatternField>
+              :scope="'sectionb_spread'"
+              :ref="'spread'"
+              @add-new-pattern="addNewPattern" @remove-pattern="removePattern"></PatternField>
 
             <div class="mb-2" v-for="(field, fieldkey, fieldindex) in sectionProp.depending_on_mandatory.fields">
               <b-input-group v-if="field.type === 'select' && 'undefined' === typeof field.selected.region"
-                             :prepend="field.label">
+                :prepend="field.label">
                 <b-form-select :options="field.options" v-model="field.selected"
-                               v-validate="'selectRequiredBoolean'"
-                               v-bind:name="'depending_on_manadatory_' + selkey + '_' + fieldkey"
-                               v-bind:key="'depending_on_manadatory_' + selkey + '_' + fieldkey "
-                               v-bind:data-vv-scope="'depending_on_manadatory_' + selkey + '_' + fieldkey"
-                               data-vv-as="Depending on mandatory"
+                  v-validate="'selectRequiredBoolean'"
+                  v-bind:name="'depending_on_manadatory_' + selkey + '_' + fieldkey"
+                  v-bind:key="'depending_on_manadatory_' + selkey + '_' + fieldkey "
+                  v-bind:data-vv-scope="'depending_on_manadatory_' + selkey + '_' + fieldkey"
+                  data-vv-as="Depending on mandatory"
                 ></b-form-select>
               </b-input-group>
 
               <div v-if="field.type === 'file'">
                 <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="jpeg,jpg"
-                                @form-file-uploaded="addFilesToSelected" :multiple=false @form-file-delete="deleteFormFile">
+                  @form-file-uploaded="addFilesToSelected" :multiple=false @form-file-delete="deleteFormFile">
                 </FormFileUpload>
               </div>
 
