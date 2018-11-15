@@ -112,11 +112,9 @@
 <script>
 
 import {slugify} from '../utils.js';
-import speciesB from '../assets/speciesB.js';
 import species from '../assets/species';
 import { getSupportingFiles, envelope} from '../api.js';
 import FormFileUpload from "./FormFileUpload";
-
 
 export default {
   components: {FormFileUpload},
