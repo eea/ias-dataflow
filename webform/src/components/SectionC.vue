@@ -347,8 +347,6 @@ export default {
         }
       }
 
-      var lorf = [];
-
       this.validateRequired();
 
       this.$forceUpdate();
