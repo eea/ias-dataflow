@@ -10,7 +10,7 @@
           <!-- for weblinks -->
           <div v-if="field.type === 'text'">
             <span v-if="weblinksFields.indexOf(field.name) !== -1 ">
-              {{ 'sectionc_' + field.name + '.' + 'sectionc_' + field.name }}
+              
               <b-badge variant="danger" v-if="errors.has('sectionc_' + field.name , 'sectionc_' + field.name)">
                 {{ errors.collect('sectionc_' + field.name, 'sectionc_' + field.name).join('\n') }}
               </b-badge>
@@ -33,7 +33,7 @@
           </div>
 
           <div v-else-if="field.type === 'textarea'">
-            {{ 'sectionc_' + field.name + '.' + 'sectionc_' + field.name }}
+
             <!-- for weblinks -->
             <span v-if="weblinksFields.indexOf(field.name) !== -1 ">
               <b-badge variant="danger" v-if="errors.has('sectionc_' + field.name , 'sectionc_' + field.name)">
@@ -86,7 +86,6 @@
           </div>
 
           <div v-if="field.type === 'file'">
-            {{ 'sectionc_' + 'file' + '_' + fieldkey + '.' + 'sectionc_files' + '_' + fieldkey }}
             <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
               :vname="'sectionc_' + field.name"
               :vkey="'sectionc_' + field.name"
@@ -162,6 +161,9 @@ export default {
       let self = this;
       let key = null;
       let scope = null;
+
+      let fkey = null;
+      let fscope = null;
       //Returns true if it is a DOM node
       function isNode(o){
         return (
@@ -178,10 +180,21 @@ export default {
           scope =  self.$refs[item.link][0].$el.getAttribute('data-vv-scope');
         }
 
+        if( isNode( self.$refs[item.file][0] )){
+          fkey = self.$refs[item.file][0].getAttribute('data-vv-name');
+          fscope =  self.$refs[item.file][0].getAttribute('data-vv-scope');
+        } else {
+          fkey = self.$refs[item.file][0].$el.querySelector('[name]').getAttribute('name');
+          fscope =  self.$refs[item.file][0].$el.querySelector('[data-vv-scope]').getAttribute('data-vv-scope');
+        }
+
         let field = self.$validator.fields.find({ name: key, scope: scope });
+        let ffield = self.$validator.fields.find({ name: fkey, scope: fscope });
 
         let err = this.errors.first(key, scope);
+        let errF = this.errors.first(fkey, fscope);
         if(self.errors.has(field.name,field.scope )) self.errors.removeById(err.id);
+        if(self.errors.has(ffield.name,ffield.scope )) self.errors.removeById(errF.id);
       });
 
       if( newval.length >= oldval.length ){
@@ -194,7 +207,17 @@ export default {
             scope =  self.$refs[item.link][0].$el.getAttribute('data-vv-scope');
           }
 
+          if( isNode( self.$refs[item.file][0] )){
+            fkey = self.$refs[item.file][0].getAttribute('data-vv-name');
+            fscope =  self.$refs[item.file][0].getAttribute('data-vv-scope');
+          } else {
+            fkey = self.$refs[item.file][0].$el.querySelector('[name]').getAttribute('name');
+            fscope =  self.$refs[item.file][0].$el.querySelector('[data-vv-scope]').getAttribute('data-vv-scope');
+          }
+
           let field = self.$validator.fields.find({ name: key, scope: scope });
+          let ffield = self.$validator.fields.find({ name: fkey, scope: fscope });
+
           let error = {
             id: field.id,
             vmId: field.vmId,
@@ -204,7 +227,17 @@ export default {
             scope: field.scope,
           };
 
+          let errorF = {
+            id: ffield.id,
+            vmId: ffield.vmId,
+            field: ffield.name,
+            rule: 'required',
+            msg: 'Link or file required',
+            scope: ffield.scope,
+          };
+
           if(!self.errors.has(field.name,field.scope )) self.errors.add(error);
+          if(!self.errors.has(ffield.name,ffield.scope )) self.errors.add(errorF);
         });
       }
 
@@ -321,6 +354,7 @@ export default {
 
           if(self.$refs[item][0].value.length === 0 && self.$refs[item+'_file'][0].$props.field.selected.length === 0 ){
             this.linkorFile.push({ link:item, file: item + '_file' });
+
           } else {
             let res = self.linkorFile.filter((it) => {
               return it.link !== item;
