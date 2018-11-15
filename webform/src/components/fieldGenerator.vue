@@ -31,6 +31,7 @@
     </div>
 
     <div v-else-if="field.type === 'checkbox'">
+
       <b-form-checkbox-group :disabled="disabled" v-model="field.selected" :options="field.options">
       </b-form-checkbox-group>
     </div>
@@ -41,14 +42,14 @@
         :disabled="disabled" v-model="field.selected" :options="field.options"
         v-bind:key="vname"
         v-bind:name="vkey"
-        :data-vv-as="field.label"
+        v-bind:data-vv-as="field.label !== '' ? field.label : field "
         v-bind:data-vv-scope="vscope"
         v-validate ="'required'"
         @change="changeSelect($event)"
       ></b-form-select>
     </span>
 
-    <textarea v-else-if="field.type === 'textarea'" v-model="field.selected"></textarea>
+    <textarea v-else-if="field.type === 'textarea'" v-model="field.selected" :data-vv-as="field.label"></textarea>
 
     <div v-else-if="field.type ==='file'">
       <FormFileUpload :selected="field.selected" :field="field"
@@ -81,6 +82,7 @@
         :vkey="vkey"
         :scope="vscope"
         v-model="field.selected"
+        :data-vv-as="field.label"
         :type="field.type"
         @input="$emit('input', $event)" ></b-form-input>
     </div>

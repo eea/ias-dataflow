@@ -38,7 +38,7 @@
             </b-col>
           </b-row>
 
-          <div class="mt-4" v-if="section.mandatory_item.selected === true">
+          <div class="mt-4" v-if="section.mandatory_item.selected === true || section.mandatory_item.selected ==='unknown' ">
             <hr>
             <h6>
               {{section.depending_on_mandatory.label}}
@@ -79,7 +79,7 @@
 
           <hr>
 
-          <b-card v-if="section.mandatory_item.selected === true" class="inner-card">
+          <b-card v-if="section.mandatory_item.selected === true || section.mandatory_item.selected ==='unknown'" class="inner-card">
             <div class="card-section">
               <center><h5>{{section.tables.table_1.label}}</h5></center>
               <hr>
@@ -124,8 +124,7 @@
             </div>
           </b-card>
 
-
-          <b-card v-if="section.mandatory_item.selected === true" class="inner-card">
+          <b-card v-if="section.mandatory_item.selected === true || section.mandatory_item.selected ==='unknown'" class="inner-card">
             <div class="card-section">
               <center>
                 <h5>{{section.tables.table_2.label}}</h5>
@@ -211,6 +210,7 @@
                             :fieldkey="rowkey"
                             :vname="row.name + '_' + rowkey"
                             :vkey="row.name + '_' + rowkey"
+                            :data-vv-as="row.label"
                             :ref="'section_' + seckey + '_' + row.name + '_' + rowkey"
                             :vscope="'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey"
                           ></fieldGenerator>
@@ -230,9 +230,11 @@
                               return item.msg;
                               }).join('\n') }}
                           </b-badge>
+
                           <fieldGenerator
                             :vname="row.inner_field.name + '_' + rowkey"
                             :vkey="row.inner_field.name + '_' + rowkey"
+                            :data-vv-as="row.inner_field.label"
                             :ref="'section_' + seckey + '_' + row.inner_field.name + '_' + rowkey"
                             :vscope="'sectiona_'+ 'table_2_' + table_key  + '_' + row.inner_field.name + '_' + rowkey"
                             :field="row.inner_field"></fieldGenerator>
@@ -255,6 +257,11 @@
             </div>
           </b-card>
 
+          <b-card v-if="section.mandatory_item.selected === false" class="inner-card">
+            <h5>{{ section.nopermits.label }}</h5>
+            <b-form-checkbox-group :options="section.nopermits.options" v-model="section.nopermits.selected">
+            </b-form-checkbox-group>
+          </b-card>
         </b-collapse>
       </b-card>
 

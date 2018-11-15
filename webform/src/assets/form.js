@@ -63,6 +63,7 @@ let tab_1_section = {
     index: 3,
     name: 'mandatory_question',
   },
+
   depending_on_mandatory: {
     label: 'A distribution map for this species is included in the file which will be uploaded in the \'Distribution map for SECTION A\' field available on \'DISTRIBUTION MAP\' section.',
     index: 4,
@@ -152,12 +153,24 @@ let tab_1_section = {
       },
     ]
   },
+
   additional_info: {
     label: 'Additional information (optional)',
     type: 'textarea',
     index: 5,
     selected: '',
     name: 'additional_info'
+  },
+
+  nopermits: {
+    label:'Question',
+    index: 6,
+    type: 'checkbox',
+    selected: '',
+    name: 'nopermits',
+    options: [
+      {text: 'no permits / no inpections', value: 'nopermits'}
+    ],
   },
   tables: {
     table_1: {
@@ -1155,7 +1168,7 @@ var form = {
           ]
         }
       },
-      tab_4: {
+    tab_4: {
         label: 'DISTRIBUTION MAPS',
         question: 'Lore ipsum help text ...',
         section: {

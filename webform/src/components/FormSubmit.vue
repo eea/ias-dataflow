@@ -293,6 +293,7 @@ export default {
       this.jsonemptyinstance.BC_PEP.country = this.country;
 
       saveInstance(this.jsonemptyinstance);
+      console.log(this.jsonemptyinstance);
       this.showAlert();
     },
 
