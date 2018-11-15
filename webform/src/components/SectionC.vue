@@ -10,7 +10,7 @@
           <!-- for weblinks -->
           <div v-if="field.type === 'text'">
             <span v-if="weblinksFields.indexOf(field.name) !== -1 ">
-              
+
               <b-badge variant="danger" v-if="errors.has('sectionc_' + field.name , 'sectionc_' + field.name)">
                 {{ errors.collect('sectionc_' + field.name, 'sectionc_' + field.name).join('\n') }}
               </b-badge>
@@ -240,7 +240,6 @@ export default {
           if(!self.errors.has(ffield.name,ffield.scope )) self.errors.add(errorF);
         });
       }
-
     }
   },
   methods: {
@@ -354,16 +353,13 @@ export default {
 
           if(self.$refs[item][0].value.length === 0 && self.$refs[item+'_file'][0].$props.field.selected.length === 0 ){
             this.linkorFile.push({ link:item, file: item + '_file' });
-
           } else {
             let res = self.linkorFile.filter((it) => {
               return it.link !== item;
             });
             self.$set( self, "linkorFile", res);
           }
-
         }
-
       });
     },
 
@@ -371,19 +367,19 @@ export default {
       let self = this;
       let promises = [];
 
-      for( let child in this.$refs){
-        if(this.$refs.hasOwnProperty(child) &&  'undefined' !== typeof this.$refs[child][0]
-          && 'undefined' !== typeof this.$refs[child][0].$validator) {
-          if('undefined' !== typeof this.$refs[child][0].validate){
-            promises.push( this.$refs[child][0].validate());
+      for( let child in self.$refs){
+        if(self.$refs.hasOwnProperty(child) &&  'undefined' !== typeof self.$refs[child][0]
+          && 'undefined' !== typeof self.$refs[child][0].$validator) {
+          if('undefined' !== typeof self.$refs[child][0].validate){
+            promises.push( self.$refs[child][0].validate());
           }
-          promises.push(this.$refs[child][0].$validator.validate());
+          promises.push(self.$refs[child][0].$validator.validate());
         }
       }
 
-      this.validateRequired();
+      self.validateRequired();
 
-      this.$forceUpdate();
+      self.$forceUpdate();
 
       return new Promise(function(resolve, reject) {
         Promise.all(promises).then((res) => {
