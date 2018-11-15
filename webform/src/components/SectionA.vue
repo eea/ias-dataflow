@@ -124,6 +124,7 @@
             </div>
           </b-card>
 
+
           <b-card v-if="section.mandatory_item.selected === true" class="inner-card">
             <div class="card-section">
               <center>
@@ -179,6 +180,8 @@
                             }).join('\n')
                           }}
                       </b-badge>
+
+                      <!-- TODO: start year and end year validation  -->
                       <fieldGenerator
                         :field="row"
                         :fieldkey="rowkey"
