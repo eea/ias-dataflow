@@ -1,6 +1,5 @@
 <template>
   <div v-if="info">
-
   <div class="question-wrapper">
     <h1><center>{{info.question}}</center></h1>
       <b-card class="mt-5 mb-5">
@@ -11,7 +10,7 @@
           <!-- for weblinks -->
           <div v-if="field.type === 'text'">
             <span v-if="weblinksFields.indexOf(field.name) !== -1 ">
-
+              {{ 'sectionc_' + field.name + '.' + 'sectionc_' + field.name }}
               <b-badge variant="danger" v-if="errors.has('sectionc_' + field.name , 'sectionc_' + field.name)">
                 {{ errors.collect('sectionc_' + field.name, 'sectionc_' + field.name).join('\n') }}
               </b-badge>
@@ -26,21 +25,19 @@
               >
               </b-form-input>
             </span>
-            <b-form-input  v-else :type="field.type" v-model="field.selected"
-                           v-bind:key="'sectionc_' + field.name"
-                           v-bind:data-vv-name="'sectionc_' + field.name"
-                           v-bind:data-vv-scope="'sectionc_' + field.name"
-
+            <b-form-input v-else :type="field.type" v-model="field.selected"
+              v-bind:key="'sectionc_' + field.name"
+              v-bind:data-vv-name="'sectionc_' + field.name"
+              v-bind:data-vv-scope="'sectionc_' + field.name"
             ></b-form-input>
           </div>
 
           <div v-else-if="field.type === 'textarea'">
-
+            {{ 'sectionc_' + field.name + '.' + 'sectionc_' + field.name }}
             <!-- for weblinks -->
             <span v-if="weblinksFields.indexOf(field.name) !== -1 ">
               <b-badge variant="danger" v-if="errors.has('sectionc_' + field.name , 'sectionc_' + field.name)">
                 {{ errors.collect('sectionc_' + field.name, 'sectionc_' + field.name).join('\n') }}
-
               </b-badge>
               <textarea class="form-control"
                 v-model="field.selected"
@@ -71,13 +68,13 @@
               <b-col  sm="auto" style="min-width: 50%;">
                 <b-input-group :prepend="addField.inner_field.label">
                     <multiselect v-model="speciesModels[fkey]" :options="speciesOptions"
-                                 style="width: 80%;border-top-left-radius: 0;border-bottom-left-radius: 0;"
-                                 :multiple="false" :close-on-select="true" :clear-on-select="true" :preserve-search="true" track-by="text"
-                                 :custom-label="customLabel" @input="changeSpecie($event, field, fkey)"
+                      style="width: 80%;border-top-left-radius: 0;border-bottom-left-radius: 0;"
+                      :multiple="false" :close-on-select="true" :clear-on-select="true" :preserve-search="true" track-by="text"
+                      :custom-label="customLabel" @input="changeSpecie($event, field, fkey)"
                     >
-                      <template slot="selection" slot-scope="{ values, search, isOpen }">
+                      <!--<template slot="selection" slot-scope="{ values, search, isOpen }">
                         <span class="multiselect__single" v-if="values.length && !isOpen">{{ values.length }} options selected</span>
-                      </template>
+                      </template>-->
                     </multiselect>
                 </b-input-group>
               </b-col>
@@ -89,10 +86,12 @@
           </div>
 
           <div v-if="field.type === 'file'">
+            {{ 'sectionc_' + 'file' + '_' + fieldkey + '.' + 'sectionc_files' + '_' + fieldkey }}
             <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
-              :vname="'sectionc_' + 'file' + '_' + fieldkey"
-              :vkey="'sectionc_' + 'file' + '_' + fieldkey"
-              :scope="'sectionc_files' + '_' + fieldkey"
+              :vname="'sectionc_' + field.name"
+              :vkey="'sectionc_' + field.name"
+              :scope="'sectionc_' + field.name"
+              :ref="field.name"
               :multiple=true
               :filesAllowed="'doc,docx,pdf,geojson,zip,dot,docb,dotx,docm'"
               @form-file-uploaded="addFilesToSelected" @form-file-delete="deleteFormFile">
@@ -105,8 +104,6 @@
       </div>
 
       </b-card>
-
-
 
       </div>
   </div>
@@ -140,6 +137,7 @@ export default {
         'cost',
         'additional_info'
       ],
+      linkorFile: [],
       //files: [],
       fileIsUploading: [],
       doneUpload: [],
@@ -159,7 +157,59 @@ export default {
   computed: {
 
   },
+  watch: {
+    linkorFile(newval, oldval){
+      let self = this;
+      let key = null;
+      let scope = null;
+      //Returns true if it is a DOM node
+      function isNode(o){
+        return (
+          typeof Node === "object" ? o instanceof Node :
+            o && typeof o === "object" && typeof o.nodeType === "number" && typeof o.nodeName==="string"
+        );
+      }
+      oldval.map((item, ix) => {
+        if( isNode( self.$refs[item.link][0] )){
+          key = self.$refs[item.link][0].getAttribute('data-vv-name');
+          scope =  self.$refs[item.link][0].getAttribute('data-vv-scope');
+        } else {
+          key = self.$refs[item.link][0].$el.getAttribute('data-vv-name');
+          scope =  self.$refs[item.link][0].$el.getAttribute('data-vv-scope');
+        }
 
+        let field = self.$validator.fields.find({ name: key, scope: scope });
+
+        let err = this.errors.first(key, scope);
+        if(self.errors.has(field.name,field.scope )) self.errors.removeById(err.id);
+      });
+
+      if( newval.length >= oldval.length ){
+        newval.map((item, ix) => {
+          if( isNode( self.$refs[item.link][0] )){
+            key = self.$refs[item.link][0].getAttribute('data-vv-name');
+            scope =  self.$refs[item.link][0].getAttribute('data-vv-scope');
+          } else {
+            key = self.$refs[item.link][0].$el.getAttribute('data-vv-name');
+            scope =  self.$refs[item.link][0].$el.getAttribute('data-vv-scope');
+          }
+
+          let field = self.$validator.fields.find({ name: key, scope: scope });
+          let error = {
+            id: field.id,
+            vmId: field.vmId,
+            field: field.name,
+            rule: 'required',
+            msg: 'Link or file required',
+            scope: field.scope,
+          };
+
+          if(!self.errors.has(field.name,field.scope )) self.errors.add(error);
+        });
+      }
+
+    }
+  },
   methods: {
     customLabel({text, value, code}){
       return `${text}`
@@ -262,11 +312,30 @@ export default {
       });
     },
 
+    validateRequired(){
+      let self = this;
+
+      this.weblinksFields.forEach((item,ix) => {
+
+        if("undefined" !== typeof self.$refs[item+'_file']){
+
+          if(self.$refs[item][0].value.length === 0 && self.$refs[item+'_file'][0].$props.field.selected.length === 0 ){
+            this.linkorFile.push({ link:item, file: item + '_file' });
+          } else {
+            let res = self.linkorFile.filter((it) => {
+              return it.link !== item;
+            });
+            self.$set( self, "linkorFile", res);
+          }
+
+        }
+
+      });
+    },
+
     validate(){
       let self = this;
       let promises = [];
-
-      //console.log(this.$refs);
 
       for( let child in this.$refs){
         if(this.$refs.hasOwnProperty(child) &&  'undefined' !== typeof this.$refs[child][0]
@@ -280,59 +349,8 @@ export default {
 
       var lorf = [];
 
-      /*this.weblinksFields.forEach((item) => {
-        if("undefined" !== typeof this.$refs[item+'_file']){
-          console.log(this.$refs[item+'_file'][0].$props.field.selected);
+      this.validateRequired();
 
-         self.$validator.verify(this.$refs[item].value, 'linkOrFile:conf', {
-            bails: true,
-            name: 'linkOrFile',
-            values: { conf: this.$refs[item+'_file'].value }
-          }).then((res) => {
-            console.log("linkOrFile");
-            console.log(res);
-          }).catch((rej) => {
-            console.log("linkOrFile");
-            console.error(rej);
-          });*!/
-
-
-          /!*if(this.$refs[item][0].value.length === 0 && this.$refs[item+'_file'][0].$props.field.selected.length === 0 ){
-
-            lorf.push(false);
-
-            let key = 'sectionc_' + item;
-            let scope = 'sectionc_' + item;
-
-            let field = this.$validator.fields.find({ name: key, scope: scope });
-
-            let error = {
-              id: 'sectionc_' + item,
-              vmId: field.vmId,
-              field: field.name,
-              rule: 'linkOrFile',
-              msg: 'Link or file required ' + field.name,
-              scope: 'sectionc_' + item,
-            };
-
-            //if( fieldErrors.length === 0 ){
-              debugger;
-              this.errors.add(error);
-            //}
-
-            field.setFlags({
-              invalid: true,
-              valid: false,
-              validated: true,
-            });
-
-            this.$forceUpdate();
-
-          } else {
-            lorf.push(true);
-          }
-        }
-      });*/
       this.$forceUpdate();
 
       return new Promise(function(resolve, reject) {
