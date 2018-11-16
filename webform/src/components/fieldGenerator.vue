@@ -48,11 +48,12 @@
 
     <span v-else-if="field.type === 'select'">
       <!-- TODO: delay in validation at units of measurement -->
+
       <b-form-select
         :disabled="disabled" v-model="field.selected" :options="field.options"
         v-bind:key="vname"
         v-bind:name="vkey"
-        v-bind:data-vv-as="field.label !== '' ? field.label : field.label "
+        v-bind:data-vv-as=" (field.label === '' && 'undefined' !== typeof sub_section) ? sub_section.label : field.label "
         v-bind:data-vv-scope="vscope"
         v-validate ="'required'"
         @change="changeSelect($event)"
@@ -116,6 +117,7 @@ export default {
     vkey: String,
     vscope: String,
     validation: String,
+    sub_section: Object,
   },
   created(){
   },

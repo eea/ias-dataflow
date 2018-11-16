@@ -186,6 +186,7 @@
                         :field="row" :fieldkey="rowkey"
                         validation="'required'"
                         :vname="row.name + '_' + rowkey"
+                        :sub_section="sub_section"
                         :vkey="row.name + '_' + rowkey"
                         :ref="'sectiona_' + seckey + '_' + row.name + '_' + rowkey"
                         :vscope="'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + row.name + '_' + rowkey"
