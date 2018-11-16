@@ -109,7 +109,8 @@
                 <h6>{{table_section.label}}</h6>
 
                 <PermitsTabel :table_section="table_section"
-                  :yearoptions="table_section.field.options" :scope="'table_1_' + table_key "
+                  :yearoptions="table_section.field.options"
+                  :scope="'table_1_' + table_key "
                   :ref="'permits_table_' + table_key"
                   @add-error="addSuberror"
                 ></PermitsTabel>
@@ -132,8 +133,8 @@
               <hr>
               <b-row>
                 <b-col>
-                  <b-badge variant="danger" v-if="errors.has('*','sectiona_table_2_'+ seckey )">
-                    {{ errors.first('table_2_question_' + seckey , 'sectiona_table_2_'+ seckey )}}
+                  <b-badge variant="danger" v-if="errors.has('*','sectiona_' + seckey + '_table_2' )">
+                    {{ errors.first('table_2_question_' + seckey , 'sectiona_' + seckey + '_table_2' )}}
                   </b-badge>
                 </b-col>
               </b-row>
@@ -144,7 +145,7 @@
                        v-validate.continues="'required'"
                        :data-vv-as="'eradication measures'"
                        v-bind:key="'table_2_question_' + seckey"
-                       v-bind:data-vv-scope="'sectiona_table_2_'+ seckey"
+                       v-bind:data-vv-scope="'sectiona_' + seckey + '_table_2'"
                        v-bind:name="'table_2_question_' + seckey">
                     </b-form-select>
                   </b-input-group>
@@ -167,13 +168,13 @@
                   <tr v-for="(row, rowkey, rowindex) in sub_section.fields">
                     <td style="width: 120px" v-if="row.label">{{row.label}}</td>
 
-                    <td  v-if="sub_section.type != 'add'">
+                    <td v-if="sub_section.type != 'add'">
                       <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
-                              && item.scope === 'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey
+                              && item.scope === 'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + row.name + '_' + rowkey
                               && item.field === row.name + '_' + rowkey;}).length > 0">
                           {{
                             errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
-                              && item.scope === 'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey
+                              && item.scope === 'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + row.name + '_' + rowkey
                               && item.field === row.name + '_' + rowkey;}).map((item)=>{
                               return item.msg;
                             }).join('\n')
@@ -182,13 +183,16 @@
 
                       <!-- TODO: start year and end year validation  -->
                       <fieldGenerator
-                        :field="row"
-                        :fieldkey="rowkey"
+                        :field="row" :fieldkey="rowkey"
                         validation="'required'"
                         :vname="row.name + '_' + rowkey"
                         :vkey="row.name + '_' + rowkey"
                         :ref="'sectiona_' + seckey + '_' + row.name + '_' + rowkey"
-                        :vscope="'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey"
+                        :vscope="'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + row.name + '_' + rowkey"
+                        @change="row.name === 'starting_date' ? validateDate(row, sub_section, 'sectiona_' + seckey + '_' + row.name + '_' + rowkey , {
+                          field: row.name + '_' + rowkey,
+                          scope:'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + row.name + '_' + rowkey
+                        } ) : null"
                       ></fieldGenerator>
 
                     </td>
@@ -295,7 +299,49 @@ export default {
         value: null,
       },
       files: [],
+      dateErrors: [],
+    }
+  },
+  watch: {
+    dateErrors(fields, oldFields){
+      let self = this;
 
+      if(fields.length > 0){
+        oldFields.map((field)=> {
+          let errs = field.target.$validator.errors.items.filter((err) => { return err.scope === field.scope && err.field === field.name; });
+          errs.map((err)=> {
+            field.target.$validator.errors.removeById(err.id);
+          });
+        });
+
+        fields.map((field) => {
+          let error = {
+            field: field.name,
+            msg: "The start date bust be lower than the end date",
+            scope: field.scope,
+            rule: 'required',
+            vmId: field.vmId,
+            //id: field.id,
+          };
+
+          let errs = field.target.$validator.errors.items.filter((err) => { return err.scope === field.scope && err.field === field.name; });
+
+          if( errs.length === 0 ){
+            field.target.$validator.errors.add(error);
+          }
+          field.target.$forceUpdate();
+
+        });
+
+      } else {
+
+        oldFields.map((field)=> {
+          let errs = field.target.$validator.errors.items.filter((err) => { return err.scope === field.scope && err.field === field.name; });
+          errs.map((err)=> {
+            field.target.$validator.errors.removeById(err.id);
+          });
+        });
+      }
     }
   },
 
@@ -327,6 +373,36 @@ export default {
       this.addCustom.value = null;
       this.$refs.customFieldModal.hide();
     },*/
+
+    validateDate(row, sub_section,ref, obj){
+      let self = this;
+      let value = row.selected;
+      let tover = sub_section.fields.filter((field) => { return field.name==='duration_or_end'})[0];
+
+      let larger = new Date(value).valueOf() > new Date(tover.selected).valueOf();
+      if(larger){
+        let target = this.$refs[ref][0];
+
+        let name = target.$el.querySelector('[name]').getAttribute('name') ;
+        let scope = target.$el.querySelector('[data-vv-scope]').getAttribute('data-vv-scope');
+
+        let field = target.$validator.fields.find({name: name, scope: scope});
+        if(field){
+          /*let error = {
+            field: field.name,
+            msg: "The start date bust be lower than the end date",
+            scope: field.scope,
+            //rule: '',
+            vmId: field.vmId
+          };
+          target.errors.add(error);*/
+          //target.$validator.$forceUpdate();
+          this.dateErrors.push({field: field.name, scope:field.scope, target: target });
+        }
+      } else {
+        this.$set(this,'dateErrors',[] );
+      }
+    },
 
     addSpecies(field){
       let empty_field = {

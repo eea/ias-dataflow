@@ -13,6 +13,15 @@
     </div>
 
     <div v-else-if="field.type === 'date'">
+      <!-- v-if="errors.has(vname, vscope)" -->
+      <b-badge variant="danger" class="error-badge" v-if="errors.items
+      .filter((err) => { return err.scope === vscope && err.msg.indexOf('start date bust be lower') !== -1; }).length > 0">
+        {{
+          errors.items
+        .filter((err) => { return err.scope === vscope && err.msg.indexOf('start date bust be lower') !== -1; })
+        .map((err) => { return err.msg}).join('\n')
+        }}
+      </b-badge>
       <b-form-input :disabled="disabled" :name="field.name"
         v-model="field.selected"
         :type="field.type"
@@ -22,6 +31,7 @@
         v-bind:data-vv-scope="vscope"
         @input="changeDate($event)"
         v-validate.continues="'required|date_format:YYYY-MM-DD'"
+                    date-format="yyyy-mm-dd"
       ></b-form-input>
 		</div>
 
@@ -42,7 +52,7 @@
         :disabled="disabled" v-model="field.selected" :options="field.options"
         v-bind:key="vname"
         v-bind:name="vkey"
-        v-bind:data-vv-as="field.label !== '' ? field.label : field "
+        v-bind:data-vv-as="field.label !== '' ? field.label : field.label "
         v-bind:data-vv-scope="vscope"
         v-validate ="'required'"
         @change="changeSelect($event)"
