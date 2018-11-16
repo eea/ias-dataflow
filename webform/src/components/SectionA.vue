@@ -181,7 +181,6 @@
                           }}
                       </b-badge>
 
-                      <!-- TODO: start year and end year validation  -->
                       <fieldGenerator
                         :field="row" :fieldkey="rowkey"
                         validation="'required'"
@@ -331,7 +330,6 @@ export default {
             field.target.$validator.errors.add(error);
           }
           field.target.$forceUpdate();
-
         });
 
       } else {
@@ -389,15 +387,6 @@ export default {
 
         let field = target.$validator.fields.find({name: name, scope: scope});
         if(field){
-          /*let error = {
-            field: field.name,
-            msg: "The start date bust be lower than the end date",
-            scope: field.scope,
-            //rule: '',
-            vmId: field.vmId
-          };
-          target.errors.add(error);*/
-          //target.$validator.$forceUpdate();
           this.dateErrors.push({field: field.name, scope:field.scope, target: target });
         }
       } else {

@@ -40,7 +40,7 @@
           <b-collapse id="secErrorsA" v-model="expandedSecA" style="border: 1px solid #eee;overflow-y: auto; ">
             <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('sectiona') !== -1; })">
               <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;white-space: normal">
-                <b-link v-bind:href="'sectiona|'+'[name=\'' + error.field +'\']'" @click="scrollIntoView($event, error)"
+                <b-link v-bind:href="'sectiona|'+'[name=\'' + error.field +'\']|scope=' + error.scope" @click="scrollIntoView($event, error)"
                         style="color: #fff;"
                 >{{ error.scope.split("_")[0] }} : {{ error.msg }} </b-link>
               </b-badge>
@@ -55,7 +55,7 @@
           <b-collapse id="secErrorsB" v-model="expandedSecB" style="border: 1px solid  #eee;overflow-y: auto;">
             <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('sectionb') !== -1; })">
               <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;white-space: normal">
-                <b-link v-bind:href="'sectionb|'+'[name=\'' + error.field +'\']'" @click="scrollIntoView($event, error)"
+                <b-link v-bind:href="'sectionb|'+'[name=\'' + error.field +'\']|scope=' + error.scope" @click="scrollIntoView($event, error)"
                         style="color: #fff;"
                 >{{ error.scope.split("_")[0] }} : {{ error.msg }}</b-link>
               </b-badge>
@@ -70,7 +70,7 @@
           <b-collapse id="secErrorsC" v-model="expandedSecC" style="border: 1px solid  #eee;overflow-y: auto;">
             <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('sectionc') !== -1; })">
               <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;white-space: normal">
-                <b-link v-bind:href="'sectionc|'+'[data-vv-name=\'' + error.field +'\']'" @click="scrollIntoView($event, error)"
+                <b-link v-bind:href="'sectionc|'+'[data-vv-name=\'' + error.field  +'\']|scope=' + error.scope" @click="scrollIntoView($event, error)"
                         style="color: #fff;"
                 >{{ error.scope.split("_")[0] }} : {{ error.msg }}</b-link>
               </b-badge>
@@ -85,7 +85,7 @@
           <b-collapse id="secErrorsC" v-model="expadedDistMap" style="border: 1px solid  #eee;overflow-y: auto;">
             <div v-for="error in errors.items.filter((item) => { return item.scope.indexOf('dmap') !== -1; })">
               <b-badge variant="danger" style="padding: 0.5rem;margin-bottom: 0.3rem;white-space: normal">
-                <b-link v-bind:href="'dmap|'+'[data-vv-name=\'' + error.field +'\']'" @click="scrollIntoView($event, error)"
+                <b-link v-bind:href="'dmap|'+'[data-vv-name=\'' + error.field  +'\']|scope=' + error.scope" @click="scrollIntoView($event, error)"
                         style="color: #fff;"
                 >{{ error.scope.split("_")[0] }} : {{ error.msg }}</b-link>
               </b-badge>
@@ -210,24 +210,27 @@ export default {
       let section = error.scope.split("_")[0];
       this.tabIndex = this.tabMapping[section];
 
-      /*document.querySelectorAll(".card").forEach((elem)=>{
-        if (elem.style.removeProperty) {
-          elem.style.removeProperty('border');
-        } else {
-          elem.style.removeAttribute('border');
-        }
-      });*/
       let target = href.split("|");
       let sect = target[0];
       let elt = target[1];
+      let scope = null;
+      target.length > 1 ? scope  = target[2] : scope = null;
 
       let el = null;
       let todecollapse = false;
+
       if(sect === 'sectionc') {
         el = this.$refs[sect].$el.querySelector(".card").querySelector(elt);
       } else {
-        el = this.$refs[sect].$el.querySelector(elt).closest(".card");
-        if(!el.querySelector(".show") ){
+        if(null !== this.$refs[sect].$el.querySelector(elt)){
+          el = this.$refs[sect].$el.querySelector(elt).closest(".card");
+        } else {
+          if(scope !== null){
+            let scopesel = scope.replace('scope=', '');
+            el = this.$refs[sect].$el.querySelector('[data-vv-scope="' + scopesel + '"]').closest(".card");
+          }
+        }
+        if(el && !el.querySelector(".show") ){
           todecollapse = true;
         }
       }
@@ -235,8 +238,8 @@ export default {
       if (el) {
         setTimeout(function () {
           function getOffset( el ) {
-            var _x = 0;
-            var _y = 0;
+            let _x = 0;
+            let _y = 0;
             while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
               _x += el.offsetLeft - el.scrollLeft;
               _y += el.offsetTop - el.scrollTop;
