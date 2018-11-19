@@ -18,8 +18,11 @@
               <small>{{section.common_name.label}}: {{section.common_name.selected}}</small>
             </h4>
         </div>
-        <b-badge variant="danger" v-if="errors.has('sectiona_mandatory_item_'+ seckey + '.mandatory_item_' + seckey)">
-          {{ errors.first('sectiona_mandatory_item_'+ seckey + '.mandatory_item_' + seckey) }}
+
+        <b-badge variant="danger" v-if="errors.items.filter((err) => {
+        return err.scope === 'sectiona_mandatory_item_'+ seckey || err.scope.indexOf('sectiona_' + seckey) !== -1; }).length > 0">
+          {{ errors.items.filter((err) => { return err.scope === 'sectiona_mandatory_item_'+ seckey || err.scope.indexOf('sectiona_' + seckey) !== -1; })
+          .map((err) => {return err.msg}).join('\n') }}
         </b-badge>
         <b-collapse :id="'collapse' + seckey" :visible="expanded.indexOf(seckey) !== -1">
 
@@ -263,7 +266,17 @@
 
           <b-card v-if="section.mandatory_item.selected === false" class="inner-card">
             <h5>{{ section.nopermits.label }}</h5>
-            <b-form-checkbox-group :options="section.nopermits.options" v-model="section.nopermits.selected">
+            <b-badge variant="danger" v-if="errors.has('sectiona_' + seckey + '_' + section.nopermits.name,'sectiona_' + seckey + '_' + section.nopermits.name)" >
+              {{ errors.first('sectiona_' + seckey + '_' + section.nopermits.name,'sectiona_' + seckey + '_' + section.nopermits.name)}}
+            </b-badge>
+
+            <b-form-checkbox-group :options="section.nopermits.options"
+                                   v-validate="'required'"
+                                   v-bind:key="'sectiona_' + seckey + '_' + section.nopermits.name"
+                                   v-bind:data-vv-scope="'sectiona_' + seckey + '_' + section.nopermits.name"
+                                   v-bind:name="'sectiona_' + seckey + '_' + section.nopermits.name"
+                                   :data-vv-as="section.nopermits.label"
+                                   v-model="section.nopermits.selected">
             </b-form-checkbox-group>
           </b-card>
         </b-collapse>
