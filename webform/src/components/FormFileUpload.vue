@@ -37,7 +37,7 @@
       <!-- END File Input -->
 
       <b-input-group-append>
-        <b-btn v-show="errors.items.length === 0" @click="uploadFormFile(files, field, fieldkey)" variant="success">Upload</b-btn>
+        <b-btn v-show="!errors.has(vkey , scope +'_' + 'files-input-' + fieldkey)" @click="uploadFormFile(files, field, fieldkey)" variant="success">Upload</b-btn>
       </b-input-group-append>
 
     </b-input-group >
@@ -185,7 +185,7 @@
 
       uploadFormFile(userfiles, formfield, fieldkey){
         let self = this;
-        if(userfiles.length === 0) return false;
+        if(!userfiles || userfiles.length === 0) return false;
         if("undefined" !== typeof userfiles.forEach){
           userfiles.forEach((fileData, ix) => {
             self.processFile(fileData, ix, formfield, fieldkey);

@@ -301,6 +301,7 @@ export default {
     addFilesToSelected(fieldkey,index,field){
       let self = this;
       getSupportingFiles().then((response) => {
+        if(field.selected === '') field.selected = [];
         self.$set(field.selected, index, envelope + '/' + response.data[response.data.length - 1]);
         self.$forceUpdate();
       }).catch((error) =>{

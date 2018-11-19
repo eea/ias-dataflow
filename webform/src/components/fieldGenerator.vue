@@ -156,14 +156,17 @@ export default {
     changeSelect($event){
       this.$emit('change', $event);
       this.$validator.validate();
+
     },
     changeInput($event){
       this.$emit('input', $event);
       this.$validator.validate();
+
     },
     changeDate($event){
       this.$emit('change', $event);
       this.$validator.validate();
+
     },
     validate(){
       let self = this;
