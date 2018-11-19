@@ -17,10 +17,11 @@
 
         <tr v-for="(row,rkey) in rows">
           <td v-for="(field,fkey) in row.fields" v-if="field.name === 'year'" >
-            <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey )"
+
+            <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey )"
                      variant="danger" class="error-badge" v-b-tooltip.hover
             :title="errors.first('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey  )">
-              {{ errors.first('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey ) }}
+              {{ errors.first('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey ) }}
             </b-badge>
 
             <b-form-select  v-model="field.selected" :options="field.options"
@@ -29,15 +30,15 @@
               :ref="'permits_' + field.name + '_' + rkey"
               v-bind:key="'permits_' + field.name + '_' + rkey"
               v-bind:name="'permits_' + field.name + '_' + rkey"
-              v-bind:data-vv-scope="'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey"
+              v-bind:data-vv-scope="'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey"
               @change="validate"
             ></b-form-select>
           </td>
 
           <td >
-            <b-badge v-if=" errors.has( 'permits_' + 'permit' + '_' + rkey , 'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey )"
+            <b-badge v-if=" errors.has( 'permits_' + 'permit' + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey )"
                      variant="danger" class="error-badge" >
-              {{ errors.first( 'permits_' + 'permit' + '_' + rkey , 'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey ) }}
+              {{ errors.first( 'permits_' + 'permit' + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey ) }}
             </b-badge>
 
             <b-form-select :options="options" v-model="index[rkey]"
@@ -46,7 +47,7 @@
               v-bind:name="'permits_' + 'permit' + '_' + rkey"
               :ref="'permits_' + 'permit' + '_' + rkey"
               data-vv-as="permits "
-              v-bind:data-vv-scope="'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey"
+              v-bind:data-vv-scope="'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey"
               v-validate="'required'"
             ></b-form-select>
           </td>
@@ -59,18 +60,18 @@
               <b-col cols="8">
                 <b-row>
                   <b-col v-for="(fiel, fiekey) in sfield.fields"  style="margin-bottom: 5px;padding: 0">
-                    <b-badge v-if="errors.has('permits_' + fiel.name + '_' + fiekey, 'sectiona_' + scope + '_permits_' + fiel.name + '_' + rkey )"
+                    <b-badge v-if="errors.has('permits_' + fiel.name + '_' + fiekey, 'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey )"
                              variant="danger" class="error-badge"
                              :id="'permits_' + fiel.name + '_' + fiekey + 'badge'"
-                             :title="errors.collect('permits_' + fiel.name + '_' + fiekey , 'sectiona_' + scope + '_permits_' + fiel.name + '_' + rkey).join('\n')"
+                             :title="errors.collect('permits_' + fiel.name + '_' + fiekey , 'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey).join('\n')"
                              v-b-tooltip.hover
                              >
-                    {{ errors.collect( 'permits_' + fiel.name + '_' + fiekey, 'sectiona_' + scope + '_permits_' + fiel.name + '_' + rkey  ).join('\n') }}
+                    {{ errors.collect( 'permits_' + fiel.name + '_' + fiekey, 'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey  ).join('\n') }}
                     </b-badge>
                     <field-generator :field="fiel" validation="'required'" :ref="'permits_' + fiel.name + '_' + fiekey"
                        :vname="'permits_' + fiel.name + '_' + fiekey"
                        :vkey="'permits_' + fiel.name + '_' + fiekey"
-                       :vscope="'sectiona_' + scope + '_permits_' + fiel.name + '_' + rkey"
+                       :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
                     ></field-generator>
                   </b-col>
                 </b-row>
@@ -86,17 +87,17 @@
             </b-row>
 
             <div v-if="field.name !== 'year' && field.type !== 'add'">
-              <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey )"
+              <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey )"
                        variant="danger" class="error-badge" :id="'permits_' + field.name + '_' + rkey + 'badge'"
                        :title="errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey).join('\n')"
                        v-b-tooltip.hover
-              >{{ errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey ).join('\n') }}
+              >{{ errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey ).join('\n') }}
               </b-badge>
               <field-generator :field="field" validation="'required'"
                :ref="'permits_' + field.name + '_' + rkey"
                :vname="'permits_' + field.name + '_' + rkey"
                :vkey="'permits_' + field.name + '_' + rkey"
-               :vscope="'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey"
+               :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey"
                @change="validate" @input="validate"
               ></field-generator>
             </div>
@@ -116,7 +117,7 @@
 
   export default {
     name: "PermitsTable",
-    props: ['table_section', 'yearoptions', 'scope'],
+    props: ['table_section', 'yearoptions', 'scope','seckey'],
     components: { fieldGenerator },
     inject: ['$validator'],
     data(){

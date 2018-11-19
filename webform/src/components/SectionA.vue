@@ -20,21 +20,20 @@
         </div>
 
         <b-badge variant="danger" v-if="errors.items.filter((err) => {
-        return err.scope === 'sectiona_mandatory_item_'+ seckey || err.scope.indexOf('sectiona_' + seckey) !== -1; }).length > 0">
-          {{ errors.items.filter((err) => { return err.scope === 'sectiona_mandatory_item_'+ seckey || err.scope.indexOf('sectiona_' + seckey) !== -1; })
-          .map((err) => {return err.msg}).join('\n') }}
+        return err.scope === 'sectiona_mandatory_item_'+ seckey || err.scope.indexOf('sectiona_' + seckey + '_') !== -1; }).length > 0">
+          {{ errors.items.filter((err) => { return err.scope === 'sectiona_' + seckey + '_mandatory_item' || err.scope.indexOf('sectiona_' + seckey + '_') !== -1; })[0].msg
+           }}
         </b-badge>
         <b-collapse :id="'collapse' + seckey" :visible="expanded.indexOf(seckey) !== -1">
 
           <b-row>
             <b-col>
               <b-input-group :prepend="section.mandatory_item.label">
-
                 <b-form-select v-model="section.mandatory_item.selected" :options="section.mandatory_item.options"
                    v-validate="'selectRequiredNumber:1'"
                    :data-vv-as="'Species presence for '  + section.scientific_name.selected "
                    v-bind:key="'mandatory_item_' + seckey"
-                   v-bind:data-vv-scope="'sectiona_mandatory_item_'+ seckey"
+                   v-bind:data-vv-scope="'sectiona_' + seckey + '_mandatory_item'"
                    v-bind:name="'mandatory_item_' + seckey"
                 ></b-form-select>
               </b-input-group>
@@ -48,13 +47,13 @@
             </h6>
 
             <PatternField :patternfields="section.depending_on_mandatory.reproduction_patterns"
-              :scope="'sectiona_reproduction_' + seckey"
+              :scope="'sectiona_' + seckey + '_reproduction'"
               :ref="'reproduction_' + seckey"
               @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
             </PatternField>
 
             <PatternField :patternfields="section.depending_on_mandatory.spread_pattterns"
-              :scope="'sectiona_spread_' + seckey"
+              :scope="'sectiona_' + seckey + '_spread'"
               :ref="'spread_'+ seckey"
               @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
             </PatternField>
@@ -62,7 +61,7 @@
             <div class="mb-2" v-for="(field,fieldkey) in section.depending_on_mandatory.fields">
               <div v-if="field.type === 'file'" :prepend="field.label">
                 <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
-                  :scope="'sectiona_'+ seckey + field.name + '_' + fieldkey"
+                  :scope="'sectiona_'+ seckey + '_' + field.name + '_' + fieldkey"
                   @form-file-uploaded="addFilesToSelected"
                   files-allowed="shp, geojson, gml,zip"
                   @form-file-delete="deleteFormFile" :multiple=false>
@@ -89,7 +88,7 @@
               <b-row>
                 <b-col>
                   <b-badge variant="danger" v-if="errors.has('table_1_question_' + seckey ,'sectiona_table_1_'+ seckey )">
-                    {{ errors.first('table_1_question_' + seckey , 'sectiona_table_1_'+ seckey )}}
+                    {{ errors.first('table_1_question_' + seckey , 'sectiona_'+ seckey + '_table_1' )}}
                   </b-badge>
                 </b-col>
               </b-row>
@@ -100,7 +99,7 @@
                       v-validate.continues="'required'"
                       :data-vv-as="'permits issued'"
                       v-bind:key="'table_1_question_' + seckey"
-                      v-bind:data-vv-scope="'sectiona_table_1_'+ seckey"
+                      v-bind:data-vv-scope="'sectiona_'+ seckey + '_table_1'"
                       v-bind:name="'table_1_question_' + seckey"
                     ></b-form-select>
                   </b-input-group>
@@ -113,7 +112,8 @@
 
                 <PermitsTabel :table_section="table_section"
                   :yearoptions="table_section.field.options"
-                  :scope="'table_1_' + table_key "
+                  :scope="'table_1_' + table_key"
+                  :seckey="seckey"
                   :ref="'permits_table_' + table_key"
                   @add-error="addSuberror"
                 ></PermitsTabel>
