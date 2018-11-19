@@ -151,7 +151,6 @@
         },
         methods: {
           validate(){
-
             let self = this;
             let promises = [];
             for( let child in this.$refs){

@@ -15,7 +15,6 @@
       </thead>
       <tbody>
 
-      <!-- TODO: add validation so that each same name has unique year -->
         <tr v-for="(row,rkey) in rows">
           <td v-for="(field,fkey) in row.fields" v-if="field.name === 'year'" >
             <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey )"
@@ -35,7 +34,6 @@
             ></b-form-select>
           </td>
 
-          <!-- TODO: permits select -->
           <td >
             <b-badge v-if=" errors.has( 'permits_' + 'permit' + '_' + rkey , 'sectiona_'+ scope + '_permits_' + 'permit' + '_' + rkey )"
                      variant="danger" class="error-badge" >
