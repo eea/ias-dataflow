@@ -7,8 +7,6 @@ import Multiselect from 'vue-multiselect'
 import VeeValidate from 'vee-validate'
 import vueScrollto from 'vue-scrollto'
 
-
-
 import './css/main.scss'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -42,9 +40,8 @@ let filesAllowed = {
 
       // Returns a Boolean or a Promise that resolves to a boolean.
       let exts = args;
-      console.log(args);
-      if(exts[0] === "undefined") return true;
 
+      if(exts[0] === "undefined") return true;
 
       // is array
       if("undefined" !== typeof value.splice){
@@ -102,11 +99,6 @@ let selectRequired = {
     return field + " required: yes or no or Unknown";
   },
   validate(value, args){
-   /* console.log("#####");
-    console.log(value);
-    //console.log(value ==='');
-    console.log("#####");*/
-
     if(value === "") return false;
     return true;
   }
@@ -129,19 +121,6 @@ let weblinks = {
       return false;
     }
 
-    return true;
-  }
-};
-
-let linkOrFile = {
-  getMessage(field, args){
-    return "File or link required";
-  },
-  validate(value, otherValue){
-    console.log("$$$$$$");
-    console.log(value);
-    console.log(otherValue);
-    console.log("$$$$$$");
     return true;
   }
 };

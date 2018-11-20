@@ -451,7 +451,9 @@ export default {
       let promises = [];
       for( let section in this.$refs){
         if(this.$refs.hasOwnProperty(section)) {
-          promises.push(this.$refs[section][0].$validator.validate());
+          if( 'undefined' !== typeof this.$refs[section][0].$validator ){
+            promises.push(this.$refs[section][0].$validator.validate());
+          }
 
           if('undefined' !== typeof this.$refs[section][0].validate){
             promises.push(this.$refs[section][0].validate());
