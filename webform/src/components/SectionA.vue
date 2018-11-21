@@ -44,7 +44,22 @@
             </b-col>
           </b-row>
 
-          <div class="mt-4" v-if="section.mandatory_item.selected === true || section.mandatory_item.selected ==='unknown' ">
+          <div class="mt-4" v-if="section.mandatory_item.selected !== '' ">
+            <b-card v-if="section.mandatory_item.selected === false" class="inner-card">
+              <h5>{{ section.nopermits.label }}</h5>
+              <b-badge variant="danger" v-if="errors.has('sectiona_' + seckey + '_' + section.nopermits.name,'sectiona_' + seckey + '_' + section.nopermits.name)" >
+                {{ errors.first('sectiona_' + seckey + '_' + section.nopermits.name,'sectiona_' + seckey + '_' + section.nopermits.name)}}
+              </b-badge>
+
+              <b-form-checkbox-group :options="section.nopermits.options"
+                                     v-validate="'required'"
+                                     v-bind:key="'sectiona_' + seckey + '_' + section.nopermits.name"
+                                     v-bind:data-vv-scope="'sectiona_' + seckey + '_' + section.nopermits.name"
+                                     v-bind:name="'sectiona_' + seckey + '_' + section.nopermits.name"
+                                     :data-vv-as="section.nopermits.label"
+                                     v-model="section.nopermits.selected">
+              </b-form-checkbox-group>
+            </b-card>
             <hr>
             <h6>
               {{section.depending_on_mandatory.label}}
@@ -269,21 +284,7 @@
             </div>
           </b-card>
 
-          <b-card v-if="section.mandatory_item.selected === false" class="inner-card">
-            <h5>{{ section.nopermits.label }}</h5>
-            <b-badge variant="danger" v-if="errors.has('sectiona_' + seckey + '_' + section.nopermits.name,'sectiona_' + seckey + '_' + section.nopermits.name)" >
-              {{ errors.first('sectiona_' + seckey + '_' + section.nopermits.name,'sectiona_' + seckey + '_' + section.nopermits.name)}}
-            </b-badge>
 
-            <b-form-checkbox-group :options="section.nopermits.options"
-                                   v-validate="'required'"
-                                   v-bind:key="'sectiona_' + seckey + '_' + section.nopermits.name"
-                                   v-bind:data-vv-scope="'sectiona_' + seckey + '_' + section.nopermits.name"
-                                   v-bind:name="'sectiona_' + seckey + '_' + section.nopermits.name"
-                                   :data-vv-as="section.nopermits.label"
-                                   v-model="section.nopermits.selected">
-            </b-form-checkbox-group>
-          </b-card>
         </b-collapse>
       </b-card>
 
