@@ -169,7 +169,7 @@ let tab_1_section = {
     selected: '',
     name: 'nopermits',
     options: [
-      {text: 'no permits / no inpections', value: 'nopermits'}
+      {text: 'no permits / no inpections', value: 'nopermits'},
     ],
   },
   tables: {

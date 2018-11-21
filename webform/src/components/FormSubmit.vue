@@ -97,7 +97,7 @@ export default {
     },
 
     saveForm(){
-      this.jsonemptyinstance = {
+      /*this.jsonemptyinstance = {
           "BC_PEP": {
               "@xmlns": "https://dd.info-rac.org/namespaces/4",
               "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
@@ -292,9 +292,102 @@ export default {
 
       this.jsonemptyinstance.BC_PEP.country = this.country;
 
-      saveInstance(this.jsonemptyinstance);
-      console.log(this.jsonemptyinstance);
+      saveInstance(this.jsonemptyinstance);*/
+      this.prefill();
+
       this.showAlert();
+    },
+    prefill(){
+      let newDataset = JSON.parse(JSON.stringify(this.dataset));
+
+      let country_tab = newDataset.country.tables;
+      if(typeof country_tab === "object"){
+        for(let table in country_tab) {
+          if(typeof country_tab[table] === "object"){
+            for (let value of Object.keys( country_tab[table])) {
+              if(value !== 'fields'){
+                delete country_tab[table][value];
+              }
+            }
+          }
+        }
+      }
+
+      let tab_1 = newDataset.tab_1.sections;
+      for(let val of Object.keys(newDataset.tab_1)){
+        if (val !== 'sections') delete newDataset.tab_1[val];
+      }
+      if("undefined" !== typeof tab_1){
+        for (let article of tab_1) {
+          console.log("###################");
+          let mandatory = null;
+          if(article.mandatory_item.selected !== ''){
+            mandatory = article.mandatory_item.options[article.mandatory_item.selected] || article.mandatory_item.selected  ;
+            if('undefined' !== typeof mandatory) {
+              if('object' === typeof mandatory){
+                mandatory = mandatory.value;
+              }
+            } else {
+              console.log(article);
+            }
+            //console.log(mandatory);
+            //console.log( article.mandatory_item.options[article.depending_on_mandatory.selected] );
+          }
+
+          if(mandatory !== false && mandatory !== null){
+            for(let prop of Object.keys(article)){
+              if(prop !== 'tables'){
+                console.log("########");
+                let field = article[prop];
+                const allowed = [
+                  'name',
+                  'fields',
+                  'selected',
+                  'reproduction_patterns',
+                  'spread_pattterns',
+                  'options'
+                ];
+                for(let fieldProp of Object.keys(field)){
+                  //TODO: cleaning not allowed properties
+                  //if(allowed.indexOf(fieldProp) === -1 ) delete field[fieldProp];
+
+                  if(fieldProp === 'reproduction_patterns') {
+                    // TODO : don't add selected with null values
+                    article['reproduction_patterns'] = JSON.parse(JSON.stringify(field[fieldProp]));
+                    delete field[fieldProp];
+                  }
+                  if(fieldProp === 'spread_pattterns') {
+                    // TODO : don't add selected with null values
+                    article['spread_pattterns'] = JSON.parse(JSON.stringify(field[fieldProp]));
+                    delete field[fieldProp];
+                  }
+                  if(fieldProp === 'options') {
+                    /*console.log(field[fieldProp]);
+                    if(field.selected !== '') console.log(field[fieldProp][field.selected]);*/
+                  }
+
+                }
+                //console.log(article);
+                //TODO: fields processing
+                //TODO: reproduction patterns
+                //TODO: spread patterns
+                //TODO: options.selected
+                console.log(field);
+              } else {
+                //console.log("tables");
+              }
+            }
+
+          } else {
+
+            console.log(article.nopermits);
+          }
+        }
+
+
+      }
+
+      console.log(JSON.stringify(newDataset));
     },
 
     validate(){
