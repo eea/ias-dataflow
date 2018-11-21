@@ -217,6 +217,7 @@
                             return item.msg;
                             }).join('\n')  }}
                           </b-badge>
+
                           <fieldGenerator :field="row"
                             :fieldkey="rowkey"
                             :vname="row.name + '_' + rowkey"
