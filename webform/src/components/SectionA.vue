@@ -28,8 +28,9 @@
           {{ errors.items.filter((err) => { return err.scope === 'sectiona_' + seckey + '_mandatory_item' || err.scope.indexOf('sectiona_' + seckey + '_') !== -1; })[0].msg
            }}
         </b-badge>
-        <b-collapse :id="'collapse' + seckey" :visible="expanded.indexOf(seckey) !== -1">
 
+        <b-collapse :id="'collapse' + seckey" :visible="expanded.indexOf(seckey) !== -1">
+          
           <b-row>
             <b-col>
               <b-input-group :prepend="section.mandatory_item.label">
@@ -44,7 +45,7 @@
             </b-col>
           </b-row>
 
-          <div class="mt-4" v-if="section.mandatory_item.selected !== '' ">
+          <div class="mt-4" v-if="section.mandatory_item.selected !== 1">
             <b-card v-if="section.mandatory_item.selected === false" class="inner-card">
               <h5>{{ section.nopermits.label }}</h5>
               <b-badge variant="danger" v-if="errors.has('sectiona_' + seckey + '_' + section.nopermits.name,'sectiona_' + seckey + '_' + section.nopermits.name)" >
@@ -52,7 +53,6 @@
               </b-badge>
 
               <b-form-checkbox-group :options="section.nopermits.options"
-                                     v-validate="'required'"
                                      v-bind:key="'sectiona_' + seckey + '_' + section.nopermits.name"
                                      v-bind:data-vv-scope="'sectiona_' + seckey + '_' + section.nopermits.name"
                                      v-bind:name="'sectiona_' + seckey + '_' + section.nopermits.name"
@@ -60,9 +60,9 @@
                                      v-model="section.nopermits.selected">
               </b-form-checkbox-group>
             </b-card>
-            {{ section.nopermits.selected }}
 
-            <div v-if="section.nopermits.selected === ''">
+
+            <div v-if="section.nopermits.selected[0] !== 'nopermits'">
               <hr>
               <h6>
                 {{section.depending_on_mandatory.label}}
@@ -91,202 +91,217 @@
                 </div>
               </div>
             </div>
-          </div>
 
-          <b-row class="mt-3" v-if="section.mandatory_item.selected !== '' && section.nopermits.selected === ''">
-            <b-col lg="3">
-              {{section.additional_info.label}}
-            </b-col>
-            <b-col lg='12'>
-              <textarea class="form-control" v-model="section.additional_info.selected"></textarea>
-            </b-col>
-          </b-row>
+            <!--
+            v-if="(section.mandatory_item.selected === true || section.mandatory_item.selected === 'unknown') ||
+             (section.mandatory_item.selected === false && section.nopermits.selected === true)"
+            -->
+            <b-row class="mt-3" v-if="section.nopermits.selected[0] !== 'nopermits'">
+              <b-col lg="3">
+                {{section.additional_info.label}}
+              </b-col>
+              <b-col lg='12'>
+                <textarea class="form-control" v-model="section.additional_info.selected"></textarea>
+              </b-col>
+            </b-row>
 
-          <hr>
+            <hr>
 
-          <b-card v-if="section.mandatory_item.selected === true || section.mandatory_item.selected ==='unknown' && section.nopermits.selected === ''" class="inner-card">
-            <div class="card-section">
-              <center><h5>{{section.tables.table_1.label}}</h5></center>
-              <hr>
-              <b-row>
-                <b-col>
-                  <b-badge variant="danger" v-if="errors.has('table_1_question_' + seckey ,'sectiona_table_1_'+ seckey )">
-                    {{ errors.first('table_1_question_' + seckey , 'sectiona_'+ seckey + '_table_1' )}}
-                  </b-badge>
-                </b-col>
-              </b-row>
-              <b-row>
-                <b-col>
-                  <b-input-group :prepend="section.tables.table_1.question.label">
-                    <b-form-select v-model="section.tables.table_1.question.selected" :options="section.tables.table_1.question.options"
-                      v-validate.continues="'required'"
-                      :data-vv-as="'permits issued'"
-                      v-bind:key="'table_1_question_' + seckey"
-                      v-bind:data-vv-scope="'sectiona_'+ seckey + '_table_1'"
-                      v-bind:name="'table_1_question_' + seckey"
-                    ></b-form-select>
-                  </b-input-group>
-                </b-col>
-              </b-row>
+            <!--
+             v-if="(section.mandatory_item.selected === true || section.mandatory_item.selected === 'unknown') ||
+             (section.mandatory_item.selected === false && section.nopermits.selected === true)"
+             -->
+            <b-card class="inner-card" v-if="section.nopermits.selected[0] !== 'nopermits'">
+              <div class="card-section">
+                <center><h5>{{section.tables.table_1.label}}</h5></center>
+                <hr>
+                <b-row>
+                  <b-col>
+                    <b-badge variant="danger" v-if="errors.has('table_1_question_' + seckey ,'sectiona_table_1_'+ seckey )">
+                      {{ errors.first('table_1_question_' + seckey , 'sectiona_'+ seckey + '_table_1' )}}
+                    </b-badge>
+                  </b-col>
+                </b-row>
+                <b-row>
+                  <b-col>
+                    <b-input-group :prepend="section.tables.table_1.question.label">
+                      <b-form-select v-model="section.tables.table_1.question.selected" :options="section.tables.table_1.question.options"
+                                     v-validate.continues="'required'"
+                                     :data-vv-as="'permits issued'"
+                                     v-bind:key="'table_1_question_' + seckey"
+                                     v-bind:data-vv-scope="'sectiona_'+ seckey + '_table_1'"
+                                     v-bind:name="'table_1_question_' + seckey"
+                      ></b-form-select>
+                    </b-input-group>
+                  </b-col>
+                </b-row>
 
-              <div class="table-section" v-for="(table_section, table_key) in section.tables.table_1.table_sections"
-                   v-if="section.tables.table_1.question.selected === true">
-                <h6>{{table_section.label}}</h6>
+                <div class="table-section" v-for="(table_section, table_key) in section.tables.table_1.table_sections"
+                     v-if="section.tables.table_1.question.selected === true">
+                  <h6>{{table_section.label}}</h6>
 
-                <PermitsTabel :table_section="table_section"
-                  :yearoptions="table_section.field.options"
-                  :scope="'table_1_' + table_key"
-                  :seckey="seckey"
-                  :ref="'permits_table_' + table_key"
-                  @add-error="addSuberror"
-                ></PermitsTabel>
+                  <PermitsTabel :table_section="table_section"
+                                :yearoptions="table_section.field.options"
+                                :scope="'table_1_' + table_key"
+                                :seckey="seckey"
+                                :ref="'permits_table_' + table_key"
+                                @add-error="addSuberror"
+                  ></PermitsTabel>
 
-                <div>
                   <div>
-                    <label>{{table_section.additional_info.label}}</label>
+                    <div>
+                      <label>{{table_section.additional_info.label}}</label>
+                    </div>
+                    <textarea class="form-control" v-model="table_section.additional_info.selected"></textarea>
                   </div>
-                  <textarea class="form-control" v-model="table_section.additional_info.selected"></textarea>
                 </div>
               </div>
-            </div>
-          </b-card>
+            </b-card>
 
-          <b-card v-if="section.mandatory_item.selected === true || section.mandatory_item.selected ==='unknown' && section.nopermits.selected === ''" class="inner-card">
-            <div class="card-section">
-              <center>
-                <h5>{{section.tables.table_2.label}}</h5>
-              </center>
-              <hr>
-              <b-row>
-                <b-col>
-                  <b-badge variant="danger" v-if="errors.has('*','sectiona_' + seckey + '_table_2' )">
-                    {{ errors.first('table_2_question_' + seckey , 'sectiona_' + seckey + '_table_2' )}}
-                  </b-badge>
-                </b-col>
-              </b-row>
-              <b-row>
-                <b-col>
-                  <b-input-group :prepend="section.tables.table_2.question.label">
-                    <b-form-select v-model="section.tables.table_2.question.selected" :options="section.tables.table_2.question.options"
-                       v-validate.continues="'required'"
-                       :data-vv-as="'eradication measures'"
-                       v-bind:key="'table_2_question_' + seckey"
-                       v-bind:data-vv-scope="'sectiona_' + seckey + '_table_2'"
-                       v-bind:name="'table_2_question_' + seckey">
-                    </b-form-select>
-                  </b-input-group>
-                </b-col>
-              </b-row>
+            <!--
+            v-if="(section.mandatory_item.selected === true || section.mandatory_item.selected === 'unknown') ||
+             (section.mandatory_item.selected === false && section.nopermits.selected === true)"
+            -->
 
-              <div class="table-section" v-for="(table_section,table_key) in section.tables.table_2.table_sections" v-if="section.tables.table_2.question.selected === true">
-                <h6>{{table_section.label}}</h6>
-                <table  v-for="sub_section in table_section.table_fields.fields" class="table">
-                  <thead>
-                  <tr>
-                    <th style="max-width: 50px" >{{sub_section.label}}</th>
-                    <th v-if="sub_section.type === 'add'">
-                      <b-btn variant="primary" @click="addSpecies(sub_section)">Add</b-btn>
-                    </th>
-                  </tr>
-                  </thead>
-                  <tbody>
+            <b-card class="inner-card" v-if="section.nopermits.selected[0] !== 'nopermits'">
+              <div class="card-section">
+                <center>
+                  <h5>{{section.tables.table_2.label}}</h5>
+                </center>
+                <hr>
+                <b-row>
+                  <b-col>
+                    <b-badge variant="danger" v-if="errors.has('*','sectiona_' + seckey + '_table_2' )">
+                      {{ errors.first('table_2_question_' + seckey , 'sectiona_' + seckey + '_table_2' )}}
+                    </b-badge>
+                  </b-col>
+                </b-row>
+                <b-row>
+                  <b-col>
+                    <b-input-group :prepend="section.tables.table_2.question.label">
+                      <b-form-select v-model="section.tables.table_2.question.selected" :options="section.tables.table_2.question.options"
+                                     v-validate.continues="'required'"
+                                     :data-vv-as="'eradication measures'"
+                                     v-bind:key="'table_2_question_' + seckey"
+                                     v-bind:data-vv-scope="'sectiona_' + seckey + '_table_2'"
+                                     v-bind:name="'table_2_question_' + seckey">
+                      </b-form-select>
+                    </b-input-group>
+                  </b-col>
+                </b-row>
 
-                  <tr v-for="(row, rowkey, rowindex) in sub_section.fields">
-                    <td style="width: 120px" v-if="row.label">{{row.label}}</td>
+                <div class="table-section" v-for="(table_section,table_key) in section.tables.table_2.table_sections" v-if="section.tables.table_2.question.selected === true">
+                  <h6>{{table_section.label}}</h6>
+                  <table  v-for="sub_section in table_section.table_fields.fields" class="table">
+                    <thead>
+                    <tr>
+                      <th style="max-width: 50px" >{{sub_section.label}}</th>
+                      <th v-if="sub_section.type === 'add'">
+                        <b-btn variant="primary" @click="addSpecies(sub_section)">Add</b-btn>
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
-                    <td v-if="sub_section.type != 'add'">
-                      <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
+                    <tr v-for="(row, rowkey, rowindex) in sub_section.fields">
+                      <td style="width: 120px" v-if="row.label">{{row.label}}</td>
+
+                      <td v-if="sub_section.type != 'add'">
+                        <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                               && item.scope === 'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + row.name + '_' + rowkey
                               && item.field === row.name + '_' + rowkey;}).length > 0">
                           {{
-                            errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
-                              && item.scope === 'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + row.name + '_' + rowkey
-                              && item.field === row.name + '_' + rowkey;}).map((item)=>{
-                              return item.msg;
-                            }).join('\n')
+                          errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
+                          && item.scope === 'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + row.name + '_' + rowkey
+                          && item.field === row.name + '_' + rowkey;}).map((item)=>{
+                          return item.msg;
+                          }).join('\n')
                           }}
-                      </b-badge>
+                        </b-badge>
 
-                      <fieldGenerator
-                        :field="row" :fieldkey="rowkey"
-                        validation="'required'"
-                        :vname="row.name + '_' + rowkey"
-                        :sub_section="sub_section"
-                        :vkey="row.name + '_' + rowkey"
-                        :ref="'sectiona_' + seckey + '_' + row.name + '_' + rowkey"
-                        :vscope="'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + row.name + '_' + rowkey"
-                        @change="row.name === 'starting_date' ? validateDate(row, sub_section, 'sectiona_' + seckey + '_' + row.name + '_' + rowkey , {
+                        <fieldGenerator
+                          :field="row" :fieldkey="rowkey"
+                          validation="'required'"
+                          :vname="row.name + '_' + rowkey"
+                          :sub_section="sub_section"
+                          :vkey="row.name + '_' + rowkey"
+                          :ref="'sectiona_' + seckey + '_' + row.name + '_' + rowkey"
+                          :vscope="'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + row.name + '_' + rowkey"
+                          @change="row.name === 'starting_date' ? validateDate(row, sub_section, 'sectiona_' + seckey + '_' + row.name + '_' + rowkey , {
                           field: row.name + '_' + rowkey,
                           scope:'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + row.name + '_' + rowkey
                         } ) : null"
-                      ></fieldGenerator>
+                        ></fieldGenerator>
 
-                    </td>
-                    <td v-else>
-                      <b-row>
-                        <b-col>
-                          <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
+                      </td>
+                      <td v-else>
+                        <b-row>
+                          <b-col>
+                            <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                               && item.scope === 'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey
                               && item.field === row.name + '_' + rowkey;}).length > 0">
-                            <!-- TODO: refactor, move in method -->
-                            <!-- filtering errors for each field and scope-->
-                            {{ errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
-                            && item.scope === 'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey
-                            && item.field === row.name + '_' + rowkey;}).map((item)=>{
-                            return item.msg;
-                            }).join('\n')  }}
-                          </b-badge>
+                              <!-- TODO: refactor, move in method -->
+                              <!-- filtering errors for each field and scope-->
+                              {{ errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
+                              && item.scope === 'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey
+                              && item.field === row.name + '_' + rowkey;}).map((item)=>{
+                              return item.msg;
+                              }).join('\n')  }}
+                            </b-badge>
 
-                          <fieldGenerator :field="row"
-                            :fieldkey="rowkey"
-                            :vname="row.name + '_' + rowkey"
-                            :vkey="row.name + '_' + rowkey"
-                            :data-vv-as="row.label"
-                            :ref="'section_' + seckey + '_' + row.name + '_' + rowkey"
-                            :vscope="'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey"
-                          ></fieldGenerator>
-                        </b-col>
-                        <b-col lg="2">
-                          <label>{{row.inner_field.label}}</label>
-                        </b-col>
-                        <b-col>
-                          <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
+                            <fieldGenerator :field="row"
+                                            :fieldkey="rowkey"
+                                            :vname="row.name + '_' + rowkey"
+                                            :vkey="row.name + '_' + rowkey"
+                                            :data-vv-as="row.label"
+                                            :ref="'section_' + seckey + '_' + row.name + '_' + rowkey"
+                                            :vscope="'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey"
+                            ></fieldGenerator>
+                          </b-col>
+                          <b-col lg="2">
+                            <label>{{row.inner_field.label}}</label>
+                          </b-col>
+                          <b-col>
+                            <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                               && item.scope === 'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey
                               && item.field === row.name + '_' + rowkey;}).length > 0">
-                            <!-- TODO: refactor, move in method -->
-                            <!-- filtering errors for each field and scope-->
-                            {{ errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
+                              <!-- TODO: refactor, move in method -->
+                              <!-- filtering errors for each field and scope-->
+                              {{ errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                               && item.scope === 'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey
                               && item.field === row.name + '_' + rowkey;}).map((item)=>{
                               return item.msg;
                               }).join('\n') }}
-                          </b-badge>
+                            </b-badge>
 
-                          <fieldGenerator
-                            :vname="row.inner_field.name + '_' + rowkey"
-                            :vkey="row.inner_field.name + '_' + rowkey"
-                            :data-vv-as="row.inner_field.label"
-                            :ref="'section_' + seckey + '_' + row.inner_field.name + '_' + rowkey"
-                            :vscope="'sectiona_'+ 'table_2_' + table_key  + '_' + row.inner_field.name + '_' + rowkey"
-                            :field="row.inner_field"></fieldGenerator>
-                        </b-col>
-                        <b-col lg="2">
-                          <b-btn variant="danger" @click="removeSpecies(sub_section, row)" v-if="sub_section.type === 'add'">Remove</b-btn>
-                        </b-col>
-                      </b-row>
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-                <div>
+                            <fieldGenerator
+                              :vname="row.inner_field.name + '_' + rowkey"
+                              :vkey="row.inner_field.name + '_' + rowkey"
+                              :data-vv-as="row.inner_field.label"
+                              :ref="'section_' + seckey + '_' + row.inner_field.name + '_' + rowkey"
+                              :vscope="'sectiona_'+ 'table_2_' + table_key  + '_' + row.inner_field.name + '_' + rowkey"
+                              :field="row.inner_field"></fieldGenerator>
+                          </b-col>
+                          <b-col lg="2">
+                            <b-btn variant="danger" @click="removeSpecies(sub_section, row)" v-if="sub_section.type === 'add'">Remove</b-btn>
+                          </b-col>
+                        </b-row>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
                   <div>
-                    <label>{{table_section.additional_info.label}}</label>
+                    <div>
+                      <label>{{table_section.additional_info.label}}</label>
+                    </div>
+                    <textarea class="form-control" v-model="table_section.additional_info.selected"></textarea>
                   </div>
-                  <textarea class="form-control" v-model="table_section.additional_info.selected"></textarea>
                 </div>
               </div>
-            </div>
-          </b-card>
+            </b-card>
+
+          </div>
+
 
 
         </b-collapse>
