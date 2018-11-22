@@ -889,7 +889,8 @@ let tab_1_section = {
                   name: 'part_territory',
                   type: 'text',
                   selected: '',
-                  
+                  //TODO: NUTS code
+
                 },
                 {
                   label: 'Biogeographical region(s)',
