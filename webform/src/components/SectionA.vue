@@ -60,36 +60,40 @@
                                      v-model="section.nopermits.selected">
               </b-form-checkbox-group>
             </b-card>
-            <hr>
-            <h6>
-              {{section.depending_on_mandatory.label}}
-            </h6>
+            {{ section.nopermits.selected }}
 
-            <PatternField :patternfields="section.depending_on_mandatory.reproduction_patterns"
-              :scope="'sectiona_' + seckey + '_reproduction'"
-              :ref="'reproduction_' + seckey"
-              @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
-            </PatternField>
+            <div v-if="section.nopermits.selected === ''">
+              <hr>
+              <h6>
+                {{section.depending_on_mandatory.label}}
+              </h6>
 
-            <PatternField :patternfields="section.depending_on_mandatory.spread_pattterns"
-              :scope="'sectiona_' + seckey + '_spread'"
-              :ref="'spread_'+ seckey"
-              @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
-            </PatternField>
+              <PatternField :patternfields="section.depending_on_mandatory.reproduction_patterns"
+                            :scope="'sectiona_' + seckey + '_reproduction'"
+                            :ref="'reproduction_' + seckey"
+                            @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
+              </PatternField>
 
-            <div class="mb-2" v-for="(field,fieldkey) in section.depending_on_mandatory.fields">
-              <div v-if="field.type === 'file'" :prepend="field.label">
-                <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
-                  :scope="'sectiona_'+ seckey + '_' + field.name + '_' + fieldkey"
-                  @form-file-uploaded="addFilesToSelected"
-                  files-allowed="shp, geojson, gml,zip"
-                  @form-file-delete="deleteFormFile" :multiple=false>
-                </FormFileUpload>
+              <PatternField :patternfields="section.depending_on_mandatory.spread_pattterns"
+                            :scope="'sectiona_' + seckey + '_spread'"
+                            :ref="'spread_'+ seckey"
+                            @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
+              </PatternField>
+
+              <div class="mb-2" v-for="(field,fieldkey) in section.depending_on_mandatory.fields">
+                <div v-if="field.type === 'file'" :prepend="field.label">
+                  <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
+                                  :scope="'sectiona_'+ seckey + '_' + field.name + '_' + fieldkey"
+                                  @form-file-uploaded="addFilesToSelected"
+                                  files-allowed="shp, geojson, gml,zip"
+                                  @form-file-delete="deleteFormFile" :multiple=false>
+                  </FormFileUpload>
+                </div>
               </div>
             </div>
           </div>
 
-          <b-row class="mt-3" v-if="section.mandatory_item.selected === true">
+          <b-row class="mt-3" v-if="section.mandatory_item.selected !== '' && section.nopermits.selected === ''">
             <b-col lg="3">
               {{section.additional_info.label}}
             </b-col>
@@ -100,7 +104,7 @@
 
           <hr>
 
-          <b-card v-if="section.mandatory_item.selected === true || section.mandatory_item.selected ==='unknown'" class="inner-card">
+          <b-card v-if="section.mandatory_item.selected === true || section.mandatory_item.selected ==='unknown' && section.nopermits.selected === ''" class="inner-card">
             <div class="card-section">
               <center><h5>{{section.tables.table_1.label}}</h5></center>
               <hr>
@@ -147,7 +151,7 @@
             </div>
           </b-card>
 
-          <b-card v-if="section.mandatory_item.selected === true || section.mandatory_item.selected ==='unknown'" class="inner-card">
+          <b-card v-if="section.mandatory_item.selected === true || section.mandatory_item.selected ==='unknown' && section.nopermits.selected === ''" class="inner-card">
             <div class="card-section">
               <center>
                 <h5>{{section.tables.table_2.label}}</h5>
