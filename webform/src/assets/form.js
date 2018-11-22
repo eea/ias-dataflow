@@ -889,6 +889,7 @@ let tab_1_section = {
                   name: 'part_territory',
                   type: 'text',
                   selected: '',
+                  
                 },
                 {
                   label: 'Biogeographical region(s)',

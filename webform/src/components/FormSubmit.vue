@@ -358,7 +358,6 @@ export default {
               for(let prop of Object.keys(section)){
                 if( all.indexOf(prop) === -1 ) delete section[prop];
               }
-
               /*delete section.nopermits.options;
               delete section.nopermits.type;
               delete section.nopermits.label;
@@ -429,13 +428,27 @@ export default {
                 }
               }
 
-              //TODO: fields processing
-              //console.log(field);
-
             } else {
               // flatten tables
 
-              //console.log("tables");
+              let table_1 = section[prop].table_1;
+              let table_2 = section[prop].table_2;
+
+              if(table_1.question.selected !== true){
+                table_1 = null;
+                delete section[prop].table_1;
+              }
+
+              if(table_2.question.selected !== true){
+                table_2 = null;
+                delete section[prop].table_2;
+              }
+
+              if(table_3.question.selected !== true){
+                table_3 = null;
+                delete section[prop].table_3;
+              }
+              console.log(section);
             }
           }
 
@@ -467,7 +480,7 @@ export default {
       });
 
       //console.log(JSON.stringify(newDataset));
-      console.log(newDataset);
+      //console.log(newDataset);
 
     },
 
