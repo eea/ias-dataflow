@@ -300,6 +300,18 @@ export default {
     prefill(){
       let newDataset = JSON.parse(JSON.stringify(this.dataset));
 
+      function processsPattern( pattern ){
+        let res = pattern.map((pat) => {
+          if(pat.selected.pattern !== null && pat.selected.region !== null){
+            return {patternType: pat.patternType, region:pat.selected.region,pattern: pat.options[pat.selected.pattern].text };
+          } else {
+            return null;
+          }
+        });
+        return res.filter(Boolean);
+      }
+
+
       let country_tab = newDataset.country.tables;
       if(typeof country_tab === "object"){
         for(let table in country_tab) {
@@ -313,81 +325,150 @@ export default {
         }
       }
 
-      let tab_1 = newDataset.tab_1.sections;
+      //TODO: remove
+      delete newDataset.tab_2;
+      delete newDataset.tab_3;
+      delete newDataset.tab_4;
+      delete newDataset.country;
+
+      let sectionA = newDataset.tab_1.sections;
+
       for(let val of Object.keys(newDataset.tab_1)){
         if (val !== 'sections') delete newDataset.tab_1[val];
       }
-      if("undefined" !== typeof tab_1){
-        for (let article of tab_1) {
-          console.log("###################");
-          let mandatory = null;
-          if(article.mandatory_item.selected !== ''){
-            mandatory = article.mandatory_item.options[article.mandatory_item.selected] || article.mandatory_item.selected  ;
-            if('undefined' !== typeof mandatory) {
-              if('object' === typeof mandatory){
-                mandatory = mandatory.value;
-              }
-            } else {
-              console.log(article);
-            }
-            //console.log(mandatory);
-            //console.log( article.mandatory_item.options[article.depending_on_mandatory.selected] );
+      let todelete = [];
+      if("undefined" !== typeof sectionA){
+        const todeleteProps = [
+          //'mandatory_item'
+        ];
+
+        sectionA.forEach((section, k) => {
+          console.log("###################specie############");
+          if(section.mandatory_item.selected === 1){
+            todelete.push(k);
+            newDataset.tab_1.sections[k] = null;
+            return true;
           }
 
-          if(mandatory !== false && mandatory !== null){
-            for(let prop of Object.keys(article)){
-              if(prop !== 'tables'){
-                console.log("########");
-                let field = article[prop];
-                const allowed = [
-                  'name',
-                  'fields',
-                  'selected',
-                  'reproduction_patterns',
-                  'spread_pattterns',
-                  'options'
-                ];
-                for(let fieldProp of Object.keys(field)){
-                  //TODO: cleaning not allowed properties
-                  //if(allowed.indexOf(fieldProp) === -1 ) delete field[fieldProp];
+          if(section.nopermits.selected.length > 0){
+            if(section.nopermits.selected[0] === 'nopermits'){
+              section.nopermits = true;
 
-                  if(fieldProp === 'reproduction_patterns') {
-                    // TODO : don't add selected with null values
-                    article['reproduction_patterns'] = JSON.parse(JSON.stringify(field[fieldProp]));
-                    delete field[fieldProp];
-                  }
-                  if(fieldProp === 'spread_pattterns') {
-                    // TODO : don't add selected with null values
-                    article['spread_pattterns'] = JSON.parse(JSON.stringify(field[fieldProp]));
-                    delete field[fieldProp];
-                  }
-                  if(fieldProp === 'options') {
-                    /*console.log(field[fieldProp]);
-                    if(field.selected !== '') console.log(field[fieldProp][field.selected]);*/
-                  }
-
-                }
-                //console.log(article);
-                //TODO: fields processing
-                //TODO: reproduction patterns
-                //TODO: spread patterns
-                //TODO: options.selected
-                console.log(field);
-              } else {
-                //console.log("tables");
+              let all = ['nopermits','scientific_name','species_code','common_name','mandatory_item'];
+              for(let prop of Object.keys(section)){
+                if( all.indexOf(prop) === -1 ) delete section[prop];
               }
-            }
 
+              /*delete section.nopermits.options;
+              delete section.nopermits.type;
+              delete section.nopermits.label;
+              delete section.nopermits.index;
+              section.nopermits.selected = true;*/
+              //return true;
+            }
           } else {
-
-            console.log(article.nopermits);
+            if(section.mandatory_item.selected === true || section.mandatory_item.selected === 'unknown' ){
+              delete section.nopermits;
+            } else {
+              section.nopermits = false;
+              /*delete section.nopermits.options;
+              delete section.nopermits.type;
+              delete section.nopermits.label;
+              delete section.nopermits.index;*/
+            }
           }
-        }
 
+          for(let prop of Object.keys(section)){
+
+            if(todeleteProps.indexOf(prop) !== -1 ){
+              delete section[prop];
+              continue;
+            }
+
+            if(prop !== 'tables'){
+              let field = section[prop];
+              const allowed = [
+                'name',
+                'fields',
+                'selected',
+                'reproduction_patterns',
+                'spread_pattterns',
+                'options',
+                'nopermits'
+              ];
+
+              const todelete = [
+                'index',
+                'label',
+                'disabled',
+                'type'
+              ];
+
+              if('object' === typeof field.reproduction_patterns ){
+                section['reproduction_patterns'] = processsPattern(field.reproduction_patterns);
+                delete field['reproduction_patterns'];
+              }
+
+              if('object' === typeof field.spread_pattterns ){
+                section['spread_pattterns'] = processsPattern(field.spread_pattterns );
+                delete field['spread_pattterns'];
+              }
+
+              for(let fieldProp of Object.keys(field)){
+                //TODO: cleaning not allowed properties
+                //if(allowed.indexOf(fieldProp) === -1 ) delete field[fieldProp];
+
+                if( todelete.indexOf(fieldProp) !== -1 ) delete field[fieldProp];
+
+                if(fieldProp === 'options') {
+                  if(field.selected !== ''){
+
+                  } else {
+                    delete field.options;
+                  }
+                }
+              }
+
+              //TODO: fields processing
+              //console.log(field);
+
+            } else {
+              // flatten tables
+
+              //console.log("tables");
+            }
+          }
+
+          delete section.depending_on_mandatory;
+
+          // flattening simple { name, selected } object into string
+          section.scientific_name = section.scientific_name.selected;
+          section.species_code = section.species_code.selected;
+          section.common_name = section.common_name.selected;
+
+          if ('undefined' !== typeof section.mandatory_item){
+            if(section.mandatory_item.selected === false){
+              section.mandatory_item = 'no';
+            } else if(section.mandatory_item.selected === true){
+              section.mandatory_item = 'yes';
+            } else if(section.mandatory_item.selected === 'unknown') {
+              section.mandatory_item = 'unknown';
+            }
+          }
+
+        });
 
       }
 
-      console.log(JSON.stringify(newDataset));
+
+
+      todelete.map((k) => {
+        delete newDataset.tab_1.sections[k];
+      });
+
+      //console.log(JSON.stringify(newDataset));
+      console.log(newDataset);
+
     },
 
     validate(){

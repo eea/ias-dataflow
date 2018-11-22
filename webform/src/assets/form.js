@@ -185,7 +185,6 @@ let tab_1_section = {
       table_sections: [{
           label: '',
           field: {
-
           },
           table_fields: {
             header: 'Purpose of permit',

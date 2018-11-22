@@ -10,15 +10,30 @@
         v-bind:data-vv-scope="vscope"
         v-validate.continues="'required|numeric|min_value:1'"
       ></b-form-input>
-      <b-form-input :disabled="disabled" :name="field.name"
-                    v-model="field.selected" :type="field.type" v-if="field.type !== 'number'"
-                    @input="changeInput($event)"
-                    v-bind:key="vname"
-                    v-bind:name="vkey"
-                    :data-vv-as="field.label"
-                    v-bind:data-vv-scope="vscope"
-                    v-validate.continues="'required'"
-      ></b-form-input>
+
+      <span v-if="validation !== 'false'">
+        <b-form-input :disabled="disabled" :name="field.name"
+                      v-model="field.selected" :type="field.type" v-if="field.type !== 'number'"
+                      @input="changeInput($event)"
+                      v-bind:key="vname"
+                      v-bind:name="vkey"
+                      :data-vv-as="field.label"
+                      v-bind:data-vv-scope="vscope"
+                      v-validate.continues="'required'"
+        ></b-form-input>
+      </span>
+      <span v-else>
+
+        <b-form-input :disabled="disabled" :name="field.name"
+                      v-model="field.selected" :type="field.type" v-if="field.type !== 'number'"
+                      @input="changeInput($event)"
+                      v-bind:key="vname"
+                      v-bind:name="vkey"
+                      :data-vv-as="field.label"
+                      v-bind:data-vv-scope="vscope"
+        ></b-form-input>
+      </span>
+
     </div>
 
     <div v-else-if="field.type === 'date'">

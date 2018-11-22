@@ -30,7 +30,7 @@
         </b-badge>
 
         <b-collapse :id="'collapse' + seckey" :visible="expanded.indexOf(seckey) !== -1">
-          
+
           <b-row>
             <b-col>
               <b-input-group :prepend="section.mandatory_item.label">
@@ -68,6 +68,7 @@
                 {{section.depending_on_mandatory.label}}
               </h6>
 
+
               <PatternField :patternfields="section.depending_on_mandatory.reproduction_patterns"
                             :scope="'sectiona_' + seckey + '_reproduction'"
                             :ref="'reproduction_' + seckey"
@@ -92,10 +93,6 @@
               </div>
             </div>
 
-            <!--
-            v-if="(section.mandatory_item.selected === true || section.mandatory_item.selected === 'unknown') ||
-             (section.mandatory_item.selected === false && section.nopermits.selected === true)"
-            -->
             <b-row class="mt-3" v-if="section.nopermits.selected[0] !== 'nopermits'">
               <b-col lg="3">
                 {{section.additional_info.label}}
@@ -107,10 +104,6 @@
 
             <hr>
 
-            <!--
-             v-if="(section.mandatory_item.selected === true || section.mandatory_item.selected === 'unknown') ||
-             (section.mandatory_item.selected === false && section.nopermits.selected === true)"
-             -->
             <b-card class="inner-card" v-if="section.nopermits.selected[0] !== 'nopermits'">
               <div class="card-section">
                 <center><h5>{{section.tables.table_1.label}}</h5></center>
@@ -157,11 +150,6 @@
                 </div>
               </div>
             </b-card>
-
-            <!--
-            v-if="(section.mandatory_item.selected === true || section.mandatory_item.selected === 'unknown') ||
-             (section.mandatory_item.selected === false && section.nopermits.selected === true)"
-            -->
 
             <b-card class="inner-card" v-if="section.nopermits.selected[0] !== 'nopermits'">
               <div class="card-section">
@@ -235,6 +223,7 @@
 
                       </td>
                       <td v-else>
+
                         <b-row>
                           <b-col>
                             <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
@@ -254,6 +243,7 @@
                                             :vname="row.name + '_' + rowkey"
                                             :vkey="row.name + '_' + rowkey"
                                             :data-vv-as="row.label"
+                                            :validation="'false'"
                                             :ref="'section_' + seckey + '_' + row.name + '_' + rowkey"
                                             :vscope="'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey"
                             ></fieldGenerator>
