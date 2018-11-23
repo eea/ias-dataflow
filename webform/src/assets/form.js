@@ -162,7 +162,7 @@ let tab_1_section = {
     name: 'additional_info'
   },
 
-  nopermits: {
+  /*nopermits: {
     label:'Question',
     index: 6,
     type: 'checkbox',
@@ -171,7 +171,7 @@ let tab_1_section = {
     options: [
       {text: 'no permits / no inpections', value: 'nopermits'},
     ],
-  },
+  },*/
   tables: {
     table_1: {
       label: 'Information on the permits issued for this species to be completed only for invasive alien species of Union concern',

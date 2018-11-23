@@ -46,23 +46,7 @@
           </b-row>
 
           <div class="mt-4" v-if="section.mandatory_item.selected !== 1">
-            <b-card v-if="section.mandatory_item.selected === false" class="inner-card">
-              <h5>{{ section.nopermits.label }}</h5>
-              <b-badge variant="danger" v-if="errors.has('sectiona_' + seckey + '_' + section.nopermits.name,'sectiona_' + seckey + '_' + section.nopermits.name)" >
-                {{ errors.first('sectiona_' + seckey + '_' + section.nopermits.name,'sectiona_' + seckey + '_' + section.nopermits.name)}}
-              </b-badge>
-
-              <b-form-checkbox-group :options="section.nopermits.options"
-                                     v-bind:key="'sectiona_' + seckey + '_' + section.nopermits.name"
-                                     v-bind:data-vv-scope="'sectiona_' + seckey + '_' + section.nopermits.name"
-                                     v-bind:name="'sectiona_' + seckey + '_' + section.nopermits.name"
-                                     :data-vv-as="section.nopermits.label"
-                                     v-model="section.nopermits.selected">
-              </b-form-checkbox-group>
-            </b-card>
-
-
-            <div v-if="section.nopermits.selected[0] !== 'nopermits'">
+            <div>
               <hr>
               <h6>
                 {{section.depending_on_mandatory.label}}
@@ -93,7 +77,7 @@
               </div>
             </div>
 
-            <b-row class="mt-3" v-if="section.nopermits.selected[0] !== 'nopermits'">
+            <b-row class="mt-3" v-if="">
               <b-col lg="3">
                 {{section.additional_info.label}}
               </b-col>
@@ -104,7 +88,7 @@
 
             <hr>
 
-            <b-card class="inner-card" v-if="section.nopermits.selected[0] !== 'nopermits'">
+            <b-card class="inner-card">
               <div class="card-section">
                 <center><h5>{{section.tables.table_1.label}}</h5></center>
                 <hr>
@@ -151,7 +135,7 @@
               </div>
             </b-card>
 
-            <b-card class="inner-card" v-if="section.nopermits.selected[0] !== 'nopermits'">
+            <b-card class="inner-card">
               <div class="card-section">
                 <center>
                   <h5>{{section.tables.table_2.label}}</h5>
@@ -290,7 +274,7 @@
               </div>
             </b-card>
 
-            <b-card class="inner-card" v-if="section.nopermits.selected[0] !== 'nopermits'">
+            <b-card class="inner-card">
               <div class="card-section">
                 <center>
                   <h5>{{section.tables.table_3.label}}</h5>
@@ -429,10 +413,7 @@
               </div>
             </b-card>
 
-
           </div>
-
-
 
         </b-collapse>
       </b-card>

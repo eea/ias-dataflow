@@ -375,9 +375,16 @@ export default {
 
           });
           return tsection;
-        })[0];
+        });
+        delete res.table_sections.label;
         return res;
       }
+
+      function processTable3( table ) {
+
+        return JSON.parse(JSON.stringify(table));
+      }
+
 
       let country_tab = newDataset.country.tables;
       if(typeof country_tab === "object"){
@@ -415,33 +422,6 @@ export default {
             todelete.push(k);
             newDataset.tab_1.sections[k] = null;
             return true;
-          }
-
-          if(section.nopermits.selected.length > 0){
-            if(section.nopermits.selected[0] === 'nopermits'){
-              section.nopermits = true;
-
-              let all = ['nopermits','scientific_name','species_code','common_name','mandatory_item'];
-              for(let prop of Object.keys(section)){
-                if( all.indexOf(prop) === -1 ) delete section[prop];
-              }
-              /*delete section.nopermits.options;
-              delete section.nopermits.type;
-              delete section.nopermits.label;
-              delete section.nopermits.index;
-              section.nopermits.selected = true;*/
-              //return true;
-            }
-          } else {
-            if(section.mandatory_item.selected === true || section.mandatory_item.selected === 'unknown' ){
-              delete section.nopermits;
-            } else {
-              section.nopermits = false;
-              /*delete section.nopermits.options;
-              delete section.nopermits.type;
-              delete section.nopermits.label;
-              delete section.nopermits.index;*/
-            }
           }
 
           for(let prop of Object.keys(section)){
@@ -522,7 +502,7 @@ export default {
                 table_3 = null;
                 delete section[prop].table_3;
               } else {
-                section[ section[prop].table_3.name ] = JSON.parse(JSON.stringify(section[prop].table_3));
+                section[ section[prop].table_3.name ] = processTable3( section[prop].table_3 );
                 delete section[prop].table_3;
               }
 
