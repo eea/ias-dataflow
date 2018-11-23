@@ -311,6 +311,73 @@ export default {
         return res.filter(Boolean);
       }
 
+      function processPermitsRow( fields ){
+        let res = [];
+        fields.map((itm) => {
+          if('undefined' !== typeof itm.selected) {
+            res[itm.name] = itm.selected;
+          }
+          if('undefined' !== typeof itm.type && itm.type === "add"){
+            let subfield = itm.fields[0].fields;
+            let subs = subfield.map((sub) => {
+              return { name: sub.name, selected: sub.selected};
+            }).reduce((acc, item) => {
+              acc[item.name] = item.selected;
+              return acc;
+            },{});
+            res.push(subs);
+          }
+        });
+        return res;
+      }
+
+      function processTable1(table){
+        let sections = table.table_sections.map((tsection) => {
+          delete tsection.table_fields.optionsFields;
+          if(Object.keys(tsection.field).length === 0) delete tsection.field;
+
+          let res = tsection.table_fields.fields.map((itm) => {
+            itm['fields'] = processPermitsRow(itm.fields);
+            return itm;
+          });
+          res['name'] = tsection.name;
+
+          return res;
+        });
+
+        let res = JSON.parse(JSON.stringify(table));
+        //delete res.table_sections;
+        res.table_sections = sections;
+        /*sections.map((section) => {
+          res[section.name] = section;
+        });*/
+        return res;
+      }
+
+      function processTable2( table ){
+        let res = JSON.parse(JSON.stringify( table ));
+        delete res.question.type;
+        delete res.question.index;
+        delete res.question.options;
+
+        res.table_sections = res.table_sections.map( (tsection, ix) => {
+          //if('undefined' !== typeof tsection.selected) res.table_sections[ix] = { name: tsection.name, selected: tsection.selected };
+          Object.keys(tsection).map( (prop) => {
+            if(prop === "table_fields") {
+              //console.log(tsection[prop]);
+              let fields = tsection[prop].fields.reduce((acc, fs) => {
+                acc = acc.concat(fs.fields);
+                return acc;
+              }, []);
+              //TODO: process options for selected
+              tsection[prop] = fields;
+            }
+
+          });
+          return tsection;
+        })[0];
+        return res;
+      }
 
       let country_tab = newDataset.country.tables;
       if(typeof country_tab === "object"){
@@ -430,25 +497,36 @@ export default {
 
             } else {
               // flatten tables
-
               let table_1 = section[prop].table_1;
               let table_2 = section[prop].table_2;
+              let table_3 = section[prop].table_3;
 
               if(table_1.question.selected !== true){
                 table_1 = null;
+                delete section[prop].table_1;
+              } else {
+                // section[prop].table_1 = processTable1(section[prop].table_1);
+                section[ section[prop].table_1.name ] = processTable1( section[prop].table_1 );
                 delete section[prop].table_1;
               }
 
               if(table_2.question.selected !== true){
                 table_2 = null;
                 delete section[prop].table_2;
+              } else {
+                section[ section[prop].table_2.name ] = processTable2( section[prop].table_2 );
+                delete section[prop].table_2;
               }
 
               if(table_3.question.selected !== true){
                 table_3 = null;
                 delete section[prop].table_3;
+              } else {
+                section[ section[prop].table_3.name ] = JSON.parse(JSON.stringify(section[prop].table_3));
+                delete section[prop].table_3;
               }
-              console.log(section);
+
+              if(Object.keys(section[prop]).length === 0) delete section[prop];
             }
           }
 
@@ -480,7 +558,7 @@ export default {
       });
 
       //console.log(JSON.stringify(newDataset));
-      //console.log(newDataset);
+      console.log(newDataset);
 
     },
 

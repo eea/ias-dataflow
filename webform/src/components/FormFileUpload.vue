@@ -96,9 +96,14 @@
         </div>
       </div>
       <div v-if="multiple === false" >
+        {{  }}
         <!-- File Listing Single -->
-        <div v-show="field.selected.length > 0">
+        <div v-show="field.selected.length > 0 && typeof field.selected !== 'string'">
           File uploaded: <a :href="field.selected[0]" blank="_true">{{field.selected[0]}}</a>
+          <b-badge class="deletefileBtn" variant="danger" @click="deleteFormFile(field.selected, field, fieldkey)">Delete file</b-badge>
+        </div>
+        <div v-show="field.selected.length > 0 && typeof field.selected === 'string'">
+          File uploaded: <a :href="field.selected" blank="_true">{{field.selected}}</a>
           <b-badge class="deletefileBtn" variant="danger" @click="deleteFormFile(field.selected, field, fieldkey)">Delete file</b-badge>
         </div>
       </div>

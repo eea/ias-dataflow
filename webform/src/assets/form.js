@@ -175,6 +175,7 @@ let tab_1_section = {
   tables: {
     table_1: {
       label: 'Information on the permits issued for this species to be completed only for invasive alien species of Union concern',
+      name: 'permits_info',
       question: {
         label: 'Have permits been issued for this species during the reporting period? ',
         type: 'select',
@@ -184,6 +185,7 @@ let tab_1_section = {
       },
       table_sections: [{
           label: '',
+          name: 'permits_table',
           field: {
           },
           table_fields: {
@@ -228,7 +230,7 @@ let tab_1_section = {
                   },
                   {
                     label: 'Total number or volume of permitted specimens corresponding to the permits issued',
-                    name: 'total_permited_spciments',
+                    name: 'total_permited_speciments',
                     type: 'number',
                     selected: '',
                   },
@@ -397,6 +399,7 @@ let tab_1_section = {
         },
         {
           label: 'Information on inspections to be completed only for invasive alien species of Union concern and if the answer to question 6 above is ‘Yes’',
+          name: 'inspection_table',
           field: {
           },
           table_fields: {
@@ -416,7 +419,7 @@ let tab_1_section = {
                   },
                   {
                     label: 'Number of establishments subjected to the inspections',
-                    name: 'number_establishments_inspctions',
+                    name: 'number_establishments_inspections',
                     type: 'number',
                     selected: '',
                   },
@@ -723,11 +726,14 @@ let tab_1_section = {
     },
     table_2: {
       label: 'Information on rapid eradication measure(s) taken for this species (Article 17 of Regulation (EU) No 1143/2014)',
+      name: 'eradication_measures_info',
       question: {
         label: 'Has the species been subject to rapid eradication measures during the reporting period?',
         type: 'select',
+        name: 'eradicated',
         index: 11,
         options: [{ value: true, text: "Yes" }, { value: false, text: "No" }],
+        selected: '',
       },
       table_sections: [{
         label: '',
@@ -848,6 +854,7 @@ let tab_1_section = {
     },
     table_3: {
       label: 'Information on management measure(s) taken for this species (Article 19 of Regulation (EU) No 1143/2014)',
+      name: 'management_measures_info',
       question: {
         label: 'Has the species been subject to management measures during the reporting period?',
         type: 'select',
