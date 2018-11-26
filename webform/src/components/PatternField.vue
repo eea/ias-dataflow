@@ -91,8 +91,7 @@
 
         let pats = patsN.map((name) => { return self.$refs[name][0]});
 
-
-
+        
         console.log(pats);
 
         return new Promise(function(resolve, reject) {
@@ -110,17 +109,15 @@
         console.log("validating patterns");
 
         if( self.patternfields[0].patternType === "spread"){
-          //promises.push(self.validateSpread());
+          promises.push(self.validateSpread());
         }
 
         for( let ref in self.$refs){
-          if(self.$refs.hasOwnProperty(ref)) {
-            //promises.push(self.$refs[ref][0].$validator.validate());
-            console.log(self.$refs[ref][0]);
-
-            if('undefined' !== typeof self.$refs[ref][0].validate){
-              //promises.push(self.$refs[ref][0].validate());
-            }
+          if(self.$refs.hasOwnProperty(ref) && 'undefined' !== typeof self.$refs[ref][0].$validator.validate) {
+            promises.push(self.$refs[ref][0].$validator.validate());
+          }
+          if('undefined' !== typeof self.$refs[ref][0].validate){
+            promises.push(self.$refs[ref][0].validate());
           }
         }
 
