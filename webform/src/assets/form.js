@@ -83,6 +83,7 @@ let tab_1_section = {
         add: true,
         patternType: 'reproduction',
         name: 'reproduction patterns',
+        multiple: false,
         selected: {
           region: null,
           pattern: null
@@ -118,64 +119,66 @@ let tab_1_section = {
         patternType: 'spread',
         name: 'spread_patterns',
         add: true,
+        multiple: true,
         selected: {
           region: null,
           pattern: null
         },
         options:[
           {
-            //text: 'Diffuse spread /travelling/moving population front (predominantly)',
             text: 'The species was already widely spread before 2015',
             index: 'a',
             value: 0,
           },
+
           {
-            //text: 'Linear terrestrial spread (predominantly)',
             text: 'The species predominantly entered through natural dispersal from a neighbouring country',
             index: 'b',
             value: 1,
           },
+
           {
-            //text: 'Linear aquatic spread (predominantly)',
             text:'The species predominantly entered with unintentional human assistance',
             index: 'c',
             value : 2,
           },
+
           {
-            //text: 'Patchy spread / Long distance jumps (predominantly) ',
             text: 'The species predominantly entered with intentional human assistance',
             index: 'd',
             value: 3,
           },
+
           {
-            //text: 'Combination of diffuse and patchy spread/long distance jumps',
             text: 'There is no evidence of new entries into the Member State',
             index: 'e',
             value: 4,
           },
+
           {
-            //text: 'Stable, not spreading',
             text: 'The species predominantly spread through natural dispersal',
             index: 'f',
             value: 5,
           },
+
           {
-            //text: 'Unknown',
             text: 'The species predominantly spread with unintentional human assistance',
             index: 'g',
             value: 6,
           },
+
           {
-            //text: 'Other',
             text: 'The species predominantly spread with intentional human assistance',
             index: 'h',
             value: 7,
           },
+
           {
             text: 'There is no evidence of spread within the Member State',
             index: 'i',
             value: 8,
           },
+
           {
             text: 'The species spread from the Member State into other Member State(s)',
             index: 'j',
@@ -196,16 +199,6 @@ let tab_1_section = {
     name: 'additional_info'
   },
 
-  /*nopermits: {
-    label:'Question',
-    index: 6,
-    type: 'checkbox',
-    selected: '',
-    name: 'nopermits',
-    options: [
-      {text: 'no permits / no inpections', value: 'nopermits'},
-    ],
-  },*/
   tables: {
     table_1: {
       label: 'Information on the permits issued for this species to be completed only for invasive alien species of Union concern',

@@ -14,11 +14,25 @@
               <b-badge class="error-badge"  variant="danger"
               >{{ errors.first(scope + '_pattern_' + fieldkey, scope) }}</b-badge>
             </b-input-group-prepend>
+
+            <!--<multiselect
+              v-model="field.selected.pattern" :options="field.options"
+              :multiple="multiple"
+              :close-on-select="false" :clear-on-select="false" :preserve-search="true"
+              track-by="text"
+              v-validate="'required'" data-vv-as="pattern"  v-bind:key="scope + '_pattern_' + fieldkey"
+              v-bind:data-vv-scope="scope" v-bind:name="scope + '_pattern_' + fieldkey"
+              :custom-label="customLabel"
+            ></multiselect>-->
+
+            <!-- v-validate="'required'" -->
             <b-form-select :options="field.options" v-model="field.selected.pattern"
-               v-validate="'required'" data-vv-as="pattern"  v-bind:key="scope + '_pattern_' + fieldkey"
-               v-bind:data-vv-scope="scope"
-               v-bind:name="scope + '_pattern_' + fieldkey"
+               data-vv-as="pattern"  v-bind:key="scope + '_pattern_' + fieldkey"
+              v-bind:data-vv-scope="scope"
+              v-bind:name="scope + '_pattern_' + fieldkey"
+              :ref="scope + '_pattern_' + fieldkey"
             ></b-form-select>
+
           </b-input-group>
         </td>
         <td>
@@ -27,10 +41,14 @@
               <b-badge class="error-badge"  variant="danger"
               >{{ errors.first(scope + '_region_' + fieldkey, scope) }}</b-badge>
             </b-input-group-prepend>
+
+            <!-- v-validate="'required'" -->
             <b-form-select :options="field.regionOptions" v-model="field.selected.region"
-              v-validate="'required'" data-vv-as="region" v-bind:name="scope + '_region_' + fieldkey"
+              data-vv-as="region" v-bind:name="scope + '_region_' + fieldkey"
               v-bind:key="scope + '_region_' + fieldkey"
               v-bind:data-vv-scope="scope"
+              :ref="scope + '_region_' + fieldkey"
+              :custom-label="customLabel"
             ></b-form-select>
           </b-input-group>
         </td>
@@ -47,7 +65,7 @@
 <script>
   export default {
     name: 'PatternField',
-    props: ['patternfields','scope'],
+    props: ['patternfields','scope', 'multiple'],
     data(){
       return {
       }
@@ -58,6 +76,70 @@
       },
       removeRow(fieldkey){
         this.$emit('remove-pattern', this.patternfields, fieldkey);
+      },
+      customLabel({ text, value}){
+        return `${text}`
+      },
+
+      validateSpread(){
+        let self = this;
+        console.log("validating spread patterns");
+
+        let patsN = Object.keys(self.$refs).filter((item) => {
+          return item.indexOf("pattern") !== -1;
+        });
+
+        let pats = patsN.map((name) => { return self.$refs[name][0]});
+
+
+
+        console.log(pats);
+
+        return new Promise(function(resolve, reject) {
+            resolve(false);
+            //reject(false);
+        });
+      },
+
+      validate(){
+        let promises = [];
+        let self = this;
+
+        let lorf = [];
+
+        console.log("validating patterns");
+
+        if( self.patternfields[0].patternType === "spread"){
+          //promises.push(self.validateSpread());
+        }
+
+        for( let ref in self.$refs){
+          if(self.$refs.hasOwnProperty(ref)) {
+            //promises.push(self.$refs[ref][0].$validator.validate());
+            console.log(self.$refs[ref][0]);
+
+            if('undefined' !== typeof self.$refs[ref][0].validate){
+              //promises.push(self.$refs[ref][0].validate());
+            }
+          }
+        }
+
+        return new Promise(function(resolve, reject) {
+          Promise.all(promises).then((res) => {
+            // if no errors
+            res = res.concat(lorf);
+            if(res.filter((it)=>{ return it === false}).length === 0){
+              resolve(res);
+            } else {
+              reject(res);
+            }
+
+          }).catch((e) => {
+            reject(e);
+          });
+        }).catch((err) => {
+          console.error(err);
+        });
       }
     }
   }
@@ -92,5 +174,11 @@
     width: 100%;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+  }
+</style>
+
+<style>
+  .multiselect__tags {
+    padding: 0;
   }
 </style>

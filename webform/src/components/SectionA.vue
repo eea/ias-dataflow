@@ -56,12 +56,14 @@
               <PatternField :patternfields="section.depending_on_mandatory.reproduction_patterns"
                             :scope="'sectiona_' + seckey + '_reproduction'"
                             :ref="'reproduction_' + seckey"
+                            :multiple="section.depending_on_mandatory.reproduction_patterns.multiple"
                             @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
               </PatternField>
 
               <PatternField :patternfields="section.depending_on_mandatory.spread_pattterns"
                             :scope="'sectiona_' + seckey + '_spread'"
                             :ref="'spread_'+ seckey"
+                            :multiple="section.depending_on_mandatory.spread_pattterns.multiple"
                             @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
               </PatternField>
 
@@ -94,7 +96,7 @@
                 <hr>
                 <b-row>
                   <b-col>
-                    <b-badge variant="danger" v-if="errors.has('table_1_question_' + seckey ,'sectiona_table_1_'+ seckey )">
+                    <b-badge variant="danger" v-if="errors.has('table_1_question_' + seckey ,'sectiona_'+ seckey + '_table_1' )">
                       {{ errors.first('table_1_question_' + seckey , 'sectiona_'+ seckey + '_table_1' )}}
                     </b-badge>
                   </b-col>
