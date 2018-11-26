@@ -343,6 +343,7 @@ let tab_1_section = {
                   },
                 ]
               },
+
               {
                 label: 'Permits for ex situ conservation',
                 fields: [
@@ -459,6 +460,7 @@ let tab_1_section = {
                   },
                 ]
               },
+
               {
                 label: 'Permits for scientific production and subsequent medicinal use to advance human health',
                 fields: [
@@ -575,6 +577,7 @@ let tab_1_section = {
                   },
                 ]
               },
+
               {
                 label: 'Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)',
                 fields: [
@@ -721,16 +724,10 @@ let tab_1_section = {
                     selected: '',
                     options: years,
                   },
-                  {
-                    label: 'Number of establishments subjected to the inspections',
-                    name: 'number_establishments_inspections',
-                    type: 'number',
-                    selected: '',
-                  },
 
                   {
-                    //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
-                    name: 'total_permited_spciments_held_main',
+                    label: 'Number of establishments subjected to the inspections',
+                    name: 'number_establishments_inspections_main',
                     type: 'add',
                     fields: [
                       {
@@ -738,13 +735,39 @@ let tab_1_section = {
                         fields:[
                           {
                             label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
-                            name: 'total_permited_spciments_held',
+                            name: 'number_establishments_inspections',
                             type: 'number',
                             selected: '',
                           },
                           {
                             label: 'Unit of measurement',
-                            name: 'measurement',
+                            name: 'inspections_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
+                  },
+
+                  {
+                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                    name: 'number_permitted_specimens_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                            name: 'number_permitted_specimens',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'number_permitted_specimens_measurement',
                             type: 'select',
                             selected: '',
                             options: measurement_units,
@@ -756,10 +779,30 @@ let tab_1_section = {
 
                   {
                     label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
-                    name: 'establishments_non_compliant',
-                    type: 'number',
-                    selected: '',
+                    name: 'establishments_non_compliant_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
+                            name: 'establishments_non_compliant',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'establishments_non_compliant_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
                   },
+
                   {
                     //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                     name: 'number_speciments_held_by_non_compliant_establishments_main',
@@ -799,30 +842,24 @@ let tab_1_section = {
                     selected: '',
                     options: years,
                   },
+
                   {
                     label: 'Number of establishments subjected to the inspections',
-                    name: 'number_establishments_inspctions',
-                    type: 'number',
-                    selected: '',
-                  },
-                  {
-                    //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
-                    name: 'total_permited_spciments_held_main',
+                    name: 'number_establishments_inspections_main',
                     type: 'add',
-                    selected: '',
                     fields: [
                       {
                         name: 'subfield',
                         fields:[
                           {
                             label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
-                            name: 'total_permited_spciments_held',
+                            name: 'number_establishments_inspections',
                             type: 'number',
                             selected: '',
                           },
                           {
                             label: 'Unit of measurement',
-                            name: 'measurement',
+                            name: 'inspections_measurement',
                             type: 'select',
                             selected: '',
                             options: measurement_units,
@@ -831,12 +868,59 @@ let tab_1_section = {
                       }
                     ],
                   },
+
+                  {
+                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                    name: 'number_permitted_specimens_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                            name: 'number_permitted_specimens',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'number_permitted_specimens_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
+                  },
+
                   {
                     label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
-                    name: 'establishments_non_compliant',
-                    type: 'number',
-                    selected: '',
+                    name: 'establishments_non_compliant_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
+                            name: 'establishments_non_compliant',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'establishments_non_compliant_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
                   },
+
                   {
                     //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                     name: 'number_speciments_held_by_non_compliant_establishments_main',
@@ -876,30 +960,24 @@ let tab_1_section = {
                     selected: '',
                     options: years,
                   },
+
                   {
                     label: 'Number of establishments subjected to the inspections',
-                    name: 'number_establishments_inspctions',
-                    type: 'number',
-                    selected: '',
-                  },
-                  {
-                    //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
-                    name: 'total_permited_spciments_held_main',
+                    name: 'number_establishments_inspections_main',
                     type: 'add',
-                    selected: '',
                     fields: [
                       {
                         name: 'subfield',
                         fields:[
                           {
                             label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
-                            name: 'total_permited_spciments_held',
+                            name: 'number_establishments_inspections',
                             type: 'number',
                             selected: '',
                           },
                           {
                             label: 'Unit of measurement',
-                            name: 'measurement',
+                            name: 'inspections_measurement',
                             type: 'select',
                             selected: '',
                             options: measurement_units,
@@ -908,12 +986,59 @@ let tab_1_section = {
                       }
                     ],
                   },
+
+                  {
+                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                    name: 'number_permitted_specimens_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                            name: 'number_permitted_specimens',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'number_permitted_specimens_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
+                  },
+
                   {
                     label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
-                    name: 'establishments_non_compliant',
-                    type: 'number',
-                    selected: '',
+                    name: 'establishments_non_compliant_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
+                            name: 'establishments_non_compliant',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'establishments_non_compliant_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
                   },
+
                   {
                     //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                     name: 'number_speciments_held_by_non_compliant_establishments_main',
@@ -953,30 +1078,24 @@ let tab_1_section = {
                     selected: '',
                     options: years,
                   },
+
                   {
                     label: 'Number of establishments subjected to the inspections',
-                    name: 'number_establishments_inspctions',
-                    type: 'number',
-                    selected: '',
-                  },
-                  {
-                    //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
-                    name: 'total_permited_spciments_held_main',
+                    name: 'number_establishments_inspections_main',
                     type: 'add',
-                    selected: '',
                     fields: [
                       {
                         name: 'subfield',
                         fields:[
                           {
                             label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
-                            name: 'total_permited_spciments_held',
+                            name: 'number_establishments_inspections',
                             type: 'number',
                             selected: '',
                           },
                           {
                             label: 'Unit of measurement',
-                            name: 'measurement',
+                            name: 'inspections_measurement',
                             type: 'select',
                             selected: '',
                             options: measurement_units,
@@ -985,12 +1104,59 @@ let tab_1_section = {
                       }
                     ],
                   },
+
+                  {
+                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                    name: 'number_permitted_specimens_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                            name: 'number_permitted_specimens',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'number_permitted_specimens_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
+                  },
+
                   {
                     label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
-                    name: 'establishments_non_compliant',
-                    type: 'number',
-                    selected: '',
+                    name: 'establishments_non_compliant_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
+                            name: 'establishments_non_compliant',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'establishments_non_compliant_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
                   },
+
                   {
                     //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                     name: 'number_speciments_held_by_non_compliant_establishments_main',
