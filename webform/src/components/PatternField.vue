@@ -91,7 +91,7 @@
 
         let pats = patsN.map((name) => { return self.$refs[name][0]});
 
-        
+
         console.log(pats);
 
         return new Promise(function(resolve, reject) {
