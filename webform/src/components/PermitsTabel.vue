@@ -3,7 +3,7 @@
 
     <table class="table table-striped">
       <thead class="bg-info">
-      <th class="year-column" >Year</th>
+      <th class="year-column" >Calendar year</th>
       <th class="permits-column">{{table_section.table_fields.header}}</th>
       <th class="header-column" v-for="header in table_section.table_fields.fields[0].fields" v-if="header.label !=='Year' ">
         <span v-if="header.label" >{{ header.label  }}</span>
@@ -16,7 +16,7 @@
       <tbody>
 
         <tr v-for="(row,rkey) in rows">
-          <td v-for="(field,fkey) in row.fields" v-if="field.name === 'year'" >
+          <td v-for="(field,fkey) in row.fields" v-if="field.name === 'year'">
 
             <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey )"
                      variant="danger" class="error-badge" v-b-tooltip.hover
@@ -35,7 +35,7 @@
             ></b-form-select>
           </td>
 
-          <td >
+          <td style="min-width: 15%;">
             <b-badge v-if=" errors.has( 'permits_' + 'permit' + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey )"
                      variant="danger" class="error-badge" >
               {{ errors.first( 'permits_' + 'permit' + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey ) }}
@@ -53,7 +53,7 @@
           </td>
 
           <td v-for="(field,fkey) in row.fields" v-if="field.name !== 'year'"
-              v-bind:style="{ width: field.type === 'add' ? '20%' : 'auto' }" style="padding-left: 25px;padding-right: 25px;" >
+              v-bind:style="{ width: field.type === 'add' ? '20%' : 'auto' }" style="padding-left: 15px;padding-right: 15px;max-width: 15%;">
 
             <b-row v-for="(sfield, sfkey) in field.fields" v-if="field.type === 'add'" >
 
@@ -103,6 +103,7 @@
             </div>
           </td>
           <td><b-btn variant="danger" @click="removeRow(rkey)">X</b-btn></td>
+
         </tr>
       </tbody>
     </table>
@@ -393,14 +394,14 @@
   }
 
   .year-column {
-    min-width:12%;
-    width: 12%
+    min-width:5%;
+    width: 7%;
   }
 
   .permits-column {
-    min-width: 30%;
+    min-width: 20%;
     max-width: 50%;
-    width: auto;
+    width: 15%;
   }
 
   .header-column {

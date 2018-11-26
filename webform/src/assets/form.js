@@ -124,29 +124,63 @@ let tab_1_section = {
         },
         options:[
           {
-            text: 'Diffuse spread /travelling/moving population front (predominantly)', value: 0,
+            //text: 'Diffuse spread /travelling/moving population front (predominantly)',
+            text: 'The species was already widely spread before 2015',
+            index: 'a',
+            value: 0,
           },
           {
-            text: 'Linear terrestrial spread (predominantly)', value: 1,
+            //text: 'Linear terrestrial spread (predominantly)',
+            text: 'The species predominantly entered through natural dispersal from a neighbouring country',
+            index: 'b',
+            value: 1,
           },
           {
-            text: 'Linear aquatic spread (predominantly)', value : 2,
+            //text: 'Linear aquatic spread (predominantly)',
+            text:'The species predominantly entered with unintentional human assistance',
+            index: 'c',
+            value : 2,
           },
           {
-            text: 'Patchy spread / Long distance jumps (predominantly) ', value: 3,
+            //text: 'Patchy spread / Long distance jumps (predominantly) ',
+            text: 'The species predominantly entered with intentional human assistance',
+            index: 'd',
+            value: 3,
           },
           {
-            text: 'Combination of diffuse and patchy spread/long distance jumps', value: 4,
+            //text: 'Combination of diffuse and patchy spread/long distance jumps',
+            text: 'There is no evidence of new entries into the Member State',
+            index: 'e',
+            value: 4,
           },
           {
-            text: 'Stable, not spreading', value: 5,
+            //text: 'Stable, not spreading',
+            text: 'The species predominantly spread through natural dispersal',
+            index: 'f',
+            value: 5,
           },
           {
-            text: 'Unknown', value: 6,
+            //text: 'Unknown',
+            text: 'The species predominantly spread with unintentional human assistance',
+            index: 'g',
+            value: 6,
           },
           {
-            text: 'Other', value: 7,
+            //text: 'Other',
+            text: 'The species predominantly spread with intentional human assistance',
+            index: 'h',
+            value: 7,
           },
+          {
+            text: 'There is no evidence of spread within the Member State',
+            index: 'i',
+            value: 8,
+          },
+          {
+            text: 'The species spread from the Member State into other Member State(s)',
+            index: 'j',
+            value: 9
+          }
         ],
         //TODO : remove
         regionOptions: regionOptions
@@ -203,8 +237,9 @@ let tab_1_section = {
                     selected: '',
                     options: years,
                   },
+
                   {
-                    label: 'Number of permits issued',
+                    label: 'Number of permits issued in the calendar year',
                     name: 'permits_number_main',
                     type: 'add',
                     fields: [
@@ -212,7 +247,7 @@ let tab_1_section = {
                         name: 'subfield',
                         fields:[
                           {
-                            label: 'Number of permits issued',
+                            label: 'Number of permits issued in the calendar year',
                             name: 'permits_number',
                             type: 'number',
                             selected: '',
@@ -228,13 +263,84 @@ let tab_1_section = {
                       }
                     ],
                   },
+
                   {
-                    label: 'Total number or volume of permitted specimens corresponding to the permits issued',
-                    name: 'total_permited_speciments',
-                    type: 'number',
-                    selected: '',
+                    label: 'Number of permits valid in the calendar year',
+                    name: 'valid_permits_number_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Number of permits valid in the calendar year',
+                            name: 'valid_permits_number',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'valid_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
                   },
 
+                  {
+                    label: 'Total number or volume of permitted specimens corresponding to the permits issued in the calendar year',
+                    name: 'total_permited_speciments_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Total number or volume of permitted specimens corresponding to the permits issued in the calendar year',
+                            name: 'total_permited_speciments',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'total_permited_speciments_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
+                  },
+
+                  {
+                    label: 'Total number or volume of permitted specimens corresponding to the valid permits',
+                    name: 'valid_total_permited_speciments_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Total number or volume of permitted specimens corresponding to the permits issued in the calendar year',
+                            name: 'valid_total_permited_speciments',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'valid_total_permited_speciments_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
+                  },
                 ]
               },
               {
@@ -247,8 +353,9 @@ let tab_1_section = {
                     selected: '',
                     options: years,
                   },
+
                   {
-                    label: 'Number of permits issued',
+                    label: 'Number of permits issued in the calendar year',
                     name: 'permits_number_main',
                     type: 'add',
                     fields: [
@@ -256,7 +363,7 @@ let tab_1_section = {
                         name: 'subfield',
                         fields:[
                           {
-                            label: 'Number of permits issued',
+                            label: 'Number of permits issued in the calendar year',
                             name: 'permits_number',
                             type: 'number',
                             selected: '',
@@ -272,19 +379,84 @@ let tab_1_section = {
                       }
                     ],
                   },
+
                   {
-                    label: 'Total number or volume of permitted specimens corresponding to the permits issued',
-                    name: 'total_permited_spciments',
-                    type: 'number',
-                    selected: '',
+                    label: 'Number of permits valid in the calendar year',
+                    name: 'valid_permits_number_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Number of permits valid in the calendar year',
+                            name: 'valid_permits_number',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'valid_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
                   },
+
                   {
-                    label: 'Unit of measurement',
-                    name: 'measurement',
-                    type: 'select',
-                    selected: '',
-                    options: measurement_units
-                  }
+                    label: 'Total number or volume of permitted specimens corresponding to the permits issued in the calendar year',
+                    name: 'total_permited_speciments_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Total number or volume of permitted specimens corresponding to the permits issued in the calendar year',
+                            name: 'total_permited_speciments',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'total_permited_speciments_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
+                  },
+
+                  {
+                    label: 'Total number or volume of permitted specimens corresponding to the valid permits',
+                    name: 'valid_total_permited_speciments_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Total number or volume of permitted specimens corresponding to the permits issued in the calendar year',
+                            name: 'valid_total_permited_speciments',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'valid_total_permited_speciments_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
+                  },
                 ]
               },
               {
@@ -297,8 +469,9 @@ let tab_1_section = {
                     selected: '',
                     options: years,
                   },
+
                   {
-                    label: 'Number of permits issued',
+                    label: 'Number of permits issued in the calendar year',
                     name: 'permits_number_main',
                     type: 'add',
                     fields: [
@@ -306,7 +479,7 @@ let tab_1_section = {
                         name: 'subfield',
                         fields:[
                           {
-                            label: 'Number of permits issued',
+                            label: 'Number of permits issued in the calendar year',
                             name: 'permits_number',
                             type: 'number',
                             selected: '',
@@ -322,19 +495,84 @@ let tab_1_section = {
                       }
                     ],
                   },
+
                   {
-                    label: 'Total number or volume of permitted specimens corresponding to the permits issued',
-                    name: 'total_permited_spciments',
-                    type: 'number',
-                    selected: '',
+                    label: 'Number of permits valid in the calendar year',
+                    name: 'valid_permits_number_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Number of permits valid in the calendar year',
+                            name: 'valid_permits_number',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'valid_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
                   },
+
                   {
-                    label: 'Unit of measurement',
-                    name: 'measurement',
-                    type: 'select',
-                    selected: '',
-                    options: measurement_units
-                  }
+                    label: 'Total number or volume of permitted specimens corresponding to the permits issued in the calendar year',
+                    name: 'total_permited_speciments_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Total number or volume of permitted specimens corresponding to the permits issued in the calendar year',
+                            name: 'total_permited_speciments',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'total_permited_speciments_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
+                  },
+
+                  {
+                    label: 'Total number or volume of permitted specimens corresponding to the valid permits',
+                    name: 'valid_total_permited_speciments_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Total number or volume of permitted specimens corresponding to the permits issued in the calendar year',
+                            name: 'valid_total_permited_speciments',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'valid_total_permited_speciments_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
+                  },
                 ]
               },
               {
@@ -347,8 +585,9 @@ let tab_1_section = {
                     selected: '',
                     options: years,
                   },
+
                   {
-                    label: 'Number of permits issued',
+                    label: 'Number of permits issued in the calendar year',
                     name: 'permits_number_main',
                     type: 'add',
                     fields: [
@@ -356,7 +595,7 @@ let tab_1_section = {
                         name: 'subfield',
                         fields:[
                           {
-                            label: 'Number of permits issued',
+                            label: 'Number of permits issued in the calendar year',
                             name: 'permits_number',
                             type: 'number',
                             selected: '',
@@ -372,19 +611,84 @@ let tab_1_section = {
                       }
                     ],
                   },
+
                   {
-                    label: 'Total number or volume of permitted specimens corresponding to the permits issued',
-                    name: 'total_permited_spciments',
-                    type: 'number',
-                    selected: '',
+                    label: 'Number of permits valid in the calendar year',
+                    name: 'valid_permits_number_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Number of permits valid in the calendar year',
+                            name: 'valid_permits_number',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'valid_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
                   },
+
                   {
-                    label: 'Unit of measurement',
-                    name: 'measurement',
-                    type: 'select',
-                    selected: '',
-                    options: measurement_units
-                  }
+                    label: 'Total number or volume of permitted specimens corresponding to the permits issued in the calendar year',
+                    name: 'total_permited_speciments_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Total number or volume of permitted specimens corresponding to the permits issued in the calendar year',
+                            name: 'total_permited_speciments',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'total_permited_speciments_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
+                  },
+
+                  {
+                    label: 'Total number or volume of permitted specimens corresponding to the valid permits',
+                    name: 'valid_total_permited_speciments_main',
+                    type: 'add',
+                    fields: [
+                      {
+                        name: 'subfield',
+                        fields:[
+                          {
+                            label: 'Total number or volume of permitted specimens corresponding to the permits issued in the calendar year',
+                            name: 'valid_total_permited_speciments',
+                            type: 'number',
+                            selected: '',
+                          },
+                          {
+                            label: 'Unit of measurement',
+                            name: 'valid_total_permited_speciments_measurement',
+                            type: 'select',
+                            selected: '',
+                            options: measurement_units,
+                          },
+                        ],
+                      }
+                    ],
+                  },
                 ]
               },
             ],
@@ -484,6 +788,7 @@ let tab_1_section = {
                   },
                 ]
               },
+
               {
                 label: 'Permits for ex situ conservation',
                 fields: [
@@ -560,6 +865,7 @@ let tab_1_section = {
                   },
                 ]
               },
+
               {
                 label: 'Permits for scientific production and subsequent medicinal use to advance human health',
                 fields: [
@@ -636,6 +942,7 @@ let tab_1_section = {
                   },
                 ]
               },
+
               {
                 label: 'Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)',
                 fields: [
@@ -712,6 +1019,7 @@ let tab_1_section = {
                   },
                 ]
               },
+
             ],
           },
           additional_info: {
