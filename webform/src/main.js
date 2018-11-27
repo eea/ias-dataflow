@@ -125,6 +125,15 @@ let weblinks = {
   }
 };
 
+let falserequire = {
+  getMessage(field, args){
+    return '';
+  },
+  validate(value, args){
+    return true;
+  },
+};
+
 // import Promise from './polyfills.js'
 Vue.component('multiselect', Multiselect);
 Vue.use(BootstrapVue);
@@ -137,9 +146,7 @@ Validator.extend('selectRequiredNumber', selectRequiredNumber);
 Validator.extend('selectRequired', selectRequired);
 Validator.extend('weblinks', weblinks);
 
-//Validator.extend('linkOrFile', linkOrFile, { hasTarget: true });
-
-
+Validator.extend('falserequire', falserequire );
 // Vue.config.productionTip = false
 
 new Vue({

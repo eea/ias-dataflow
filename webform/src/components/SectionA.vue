@@ -166,6 +166,7 @@
 
                 <div class="table-section" v-for="(table_section,table_key) in section.tables.table_2.table_sections" v-if="section.tables.table_2.question.selected === true">
                   <h6>{{table_section.label}}</h6>
+
                   <table  v-for="sub_section in table_section.table_fields.fields" class="table">
                     <thead>
                     <tr>
@@ -195,7 +196,7 @@
 
                         <fieldGenerator
                           :field="row" :fieldkey="rowkey"
-                          validation="'required'"
+                          :validation="row.required ? row.required : 'false'"
                           :vname="row.name + '_' + rowkey"
                           :sub_section="sub_section"
                           :vkey="row.name + '_' + rowkey"
@@ -209,7 +210,6 @@
 
                       </td>
                       <td v-else>
-
                         <b-row>
                           <b-col>
                             <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope

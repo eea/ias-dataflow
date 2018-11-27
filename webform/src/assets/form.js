@@ -1213,14 +1213,14 @@ let tab_1_section = {
                   name: 'starting_date',
                   type: 'date',
                   selected: '',
-                  required: true,
+                  required: 'required',
                 },
                 {
                   label: 'End date',
                   name: 'duration_or_end',
                   type: 'date',
                   selected: '',
-                  required: true,
+                  required: 'required',
                 },
                 {
                   label: 'Part of the territory',
@@ -1228,6 +1228,7 @@ let tab_1_section = {
                   type: 'file',
                   selected: '',
                   comments:'',
+                  //required: true,
                 },
                 {
                   label: 'Biogeographical region(s)',
@@ -1238,7 +1239,8 @@ let tab_1_section = {
                     {text: 'first option', value: 0},
                     {text: 'second option', value: 1},
                     {text: 'third option', value: 2},
-                  ]
+                  ],
+                  //required: true,
                 },
                 {
                   label: 'River basin sub-unit(s)',
@@ -1249,7 +1251,8 @@ let tab_1_section = {
                     {text: 'first option', value: 0},
                     {text: 'second option', value: 1},
                     {text: 'third option', value: 2},
-                  ]
+                  ],
+                  //required: true,
                 },
                 {
                   label: 'Marine sub-region(s)',
@@ -1260,7 +1263,8 @@ let tab_1_section = {
                     {text: 'first option', value: 0},
                     {text: 'second option', value: 1},
                     {text: 'third option', value: 2},
-                  ]
+                  ],
+                  //required: true,
                 },
                 {
                   label: 'Method(s) used',

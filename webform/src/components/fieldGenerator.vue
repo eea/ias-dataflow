@@ -13,50 +13,73 @@
 
       <span v-if="validation !== 'false'">
         <b-form-input :disabled="disabled" :name="field.name"
-                      v-model="field.selected" :type="field.type" v-if="field.type !== 'number'"
-                      @input="changeInput($event)"
-                      v-bind:key="vname"
-                      v-bind:name="vkey"
-                      :data-vv-as="field.label"
-                      v-bind:data-vv-scope="vscope"
-                      v-validate.continues="'required'"
+          v-model="field.selected" :type="field.type" v-if="field.type !== 'number'"
+          @input="changeInput($event)"
+          v-bind:key="vname"
+          v-bind:name="vkey"
+          :data-vv-as="field.label"
+          v-bind:data-vv-scope="vscope"
+          v-validate.continues="'required'"
         ></b-form-input>
       </span>
       <span v-else>
-
         <b-form-input :disabled="disabled" :name="field.name"
-                      v-model="field.selected" :type="field.type" v-if="field.type !== 'number'"
-                      @input="changeInput($event)"
-                      v-bind:key="vname"
-                      v-bind:name="vkey"
-                      :data-vv-as="field.label"
-                      v-bind:data-vv-scope="vscope"
+          v-model="field.selected" :type="field.type" v-if="field.type !== 'number'"
+          @input="changeInput($event)"
+          v-bind:key="vname"
+          v-bind:name="vkey"
+          :data-vv-as="field.label"
+          v-bind:data-vv-scope="vscope"
         ></b-form-input>
       </span>
-
     </div>
 
     <div v-else-if="field.type === 'date'">
-      <!-- v-if="errors.has(vname, vscope)" -->
-      <b-badge variant="danger" class="error-badge" v-if="errors.items
-      .filter((err) => { return err.scope === vscope && err.msg.indexOf('start date bust be lower') !== -1; }).length > 0">
-        {{
-          errors.items
-        .filter((err) => { return err.scope === vscope && err.msg.indexOf('start date bust be lower') !== -1; })
-        .map((err) => { return err.msg}).join('\n')
-        }}
-      </b-badge>
-      <b-form-input :disabled="disabled" :name="field.name"
-        v-model="field.selected"
-        :type="field.type"
-        :data-vv-as="field.label"
-        v-bind:key="vname"
-        v-bind:name="vkey"
-        v-bind:data-vv-scope="vscope"
-        @input="changeDate($event)"
-        v-validate.continues="'required|date_format:YYYY-MM-DD'"
-                    date-format="yyyy-mm-dd"
-      ></b-form-input>
+      <span v-if="validation !== 'false'">
+        <!-- v-if="errors.has(vname, vscope)" -->
+        <b-badge variant="danger" class="error-badge" v-if="errors.items
+        .filter((err) => { return err.scope === vscope && err.msg.indexOf('start date bust be lower') !== -1; }).length > 0">
+          {{
+            errors.items
+          .filter((err) => { return err.scope === vscope && err.msg.indexOf('start date bust be lower') !== -1; })
+          .map((err) => { return err.msg}).join('\n')
+          }}
+        </b-badge>
+        <b-form-input :disabled="disabled" :name="field.name"
+          v-model="field.selected"
+          :type="field.type"
+          :data-vv-as="field.label"
+          v-bind:key="vname"
+          v-bind:name="vkey"
+          v-bind:data-vv-scope="vscope"
+          @input="changeDate($event)"
+          v-validate.continues="'required|date_format:YYYY-MM-DD'"
+          date-format="yyyy-mm-dd"
+        ></b-form-input>
+      </span>
+      <span v-else>
+        <!-- v-if="errors.has(vname, vscope)" -->
+        <b-badge variant="danger" class="error-badge" v-if="errors.items
+        .filter((err) => { return err.scope === vscope && err.msg.indexOf('start date bust be lower') !== -1; }).length > 0">
+          {{
+            errors.items
+          .filter((err) => { return err.scope === vscope && err.msg.indexOf('start date bust be lower') !== -1; })
+          .map((err) => { return err.msg}).join('\n')
+          }}
+        </b-badge>
+        <!-- TODO: validation issue; probably add a custom validation rule -->
+        <b-form-input :disabled="disabled" :name="field.name"
+          v-model="field.selected"
+          :type="field.type"
+          :data-vv-as="field.label"
+          v-bind:key="vname"
+          v-bind:name="vkey"
+          v-bind:data-vv-scope="vscope"
+          @input="changeDate($event)"
+          date-format="yyyy-mm-dd"
+          v-validate.continues="'falserequire'"
+        ></b-form-input>
+      </span>
 		</div>
 
     <div v-else-if="field.type === 'radio'">
@@ -65,23 +88,36 @@
     </div>
 
     <div v-else-if="field.type === 'checkbox'">
-
       <b-form-checkbox-group :disabled="disabled" v-model="field.selected" :options="field.options">
       </b-form-checkbox-group>
     </div>
 
     <span v-else-if="field.type === 'select'">
-      <!-- TODO: delay in validation at units of measurement -->
-
-      <b-form-select
-        :disabled="disabled" v-model="field.selected" :options="field.options"
-        v-bind:key="vname"
-        v-bind:name="vkey"
-        v-bind:data-vv-as=" (field.label === '' && 'undefined' !== typeof sub_section) ? sub_section.label : field.label "
-        v-bind:data-vv-scope="vscope"
-        v-validate ="'required'"
-        @change="changeSelect($event)"
-      ></b-form-select>
+      
+      <span v-if="validation !== 'false'">
+        <!-- TODO: delay in validation at units of measurement -->
+        <b-form-select
+          :disabled="disabled" v-model="field.selected" :options="field.options"
+          v-bind:key="vname"
+          v-bind:name="vkey"
+          v-bind:data-vv-as=" (field.label === '' && 'undefined' !== typeof sub_section) ? sub_section.label : field.label "
+          v-bind:data-vv-scope="vscope"
+          v-validate ="'required'"
+          @change="changeSelect($event)"
+        ></b-form-select>
+      </span>
+      <span v-else>
+         <!-- TODO: delay in validation at units of measurement -->
+        <b-form-select
+          :disabled="disabled" v-model="field.selected" :options="field.options"
+          v-bind:key="vname"
+          v-bind:name="vkey"
+          v-bind:data-vv-as=" (field.label === '' && 'undefined' !== typeof sub_section) ? sub_section.label : field.label "
+          v-bind:data-vv-scope="vscope"
+          v-validate ="'falserequire'"
+          @change="changeSelect($event)"
+        ></b-form-select>
+      </span>
     </span>
 
     <textarea v-else-if="field.type === 'textarea'" v-model="field.selected" :data-vv-as="field.label"></textarea>
@@ -98,15 +134,31 @@
        </FormFileUpload>
     </div>
 
-    <multiselect v-else-if="field.type ==='multiselect'" :close-on-select="false" :clear-on-select="false"
-       :hide-selected="true" :preserve-search="true"
-       :multiple=true track-by="text" label="text" v-model="field.selected" :options="field.options"
-       v-bind:key="vname"
-       v-bind:name="vkey"
-       :data-vv-as="field.label"
-       v-bind:data-vv-scope="vscope"
-       v-validate ="'required'"
-    ></multiselect>
+    <span v-else-if="field.type ==='multiselect'">
+      <span v-if="validation !== 'false'">
+        <multiselect  :close-on-select="false" :clear-on-select="false"
+          :hide-selected="true" :preserve-search="true"
+          :multiple=true track-by="text" label="text" v-model="field.selected" :options="field.options"
+          v-bind:key="vname"
+          v-bind:name="vkey"
+          :data-vv-as="field.label"
+          v-bind:data-vv-scope="vscope"
+          v-validate ="'required'"
+        ></multiselect>
+      </span>
+      <span v-else>
+        <multiselect  :close-on-select="false" :clear-on-select="false"
+          :hide-selected="true" :preserve-search="true"
+          :multiple=true track-by="text" label="text" v-model="field.selected" :options="field.options"
+          v-bind:key="vname"
+          v-bind:name="vkey"
+          :data-vv-as="field.label"
+          v-bind:data-vv-scope="vscope"
+          v-validate ="'falserequire'"
+        ></multiselect>
+      </span>
+
+    </span>
 
     <div v-else>
       <b-form-input
