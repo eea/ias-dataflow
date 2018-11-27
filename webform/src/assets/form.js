@@ -126,61 +126,61 @@ let tab_1_section = {
         },
         options:[
           {
-            text: 'The species was already widely spread before 2015',
+            text: 'a) The species was already widely spread before 2015',
             index: 'a',
             value: 0,
           },
 
           {
-            text: 'The species predominantly entered through natural dispersal from a neighbouring country',
+            text: 'b) The species predominantly entered through natural dispersal from a neighbouring country',
             index: 'b',
             value: 1,
           },
 
           {
-            text:'The species predominantly entered with unintentional human assistance',
+            text:'c) The species predominantly entered with unintentional human assistance',
             index: 'c',
             value : 2,
           },
 
           {
-            text: 'The species predominantly entered with intentional human assistance',
+            text: 'd) The species predominantly entered with intentional human assistance',
             index: 'd',
             value: 3,
           },
 
           {
-            text: 'There is no evidence of new entries into the Member State',
+            text: 'e) There is no evidence of new entries into the Member State',
             index: 'e',
             value: 4,
           },
 
           {
-            text: 'The species predominantly spread through natural dispersal',
+            text: 'f) The species predominantly spread through natural dispersal',
             index: 'f',
             value: 5,
           },
 
           {
-            text: 'The species predominantly spread with unintentional human assistance',
+            text: 'g) The species predominantly spread with unintentional human assistance',
             index: 'g',
             value: 6,
           },
 
           {
-            text: 'The species predominantly spread with intentional human assistance',
+            text: 'h) The species predominantly spread with intentional human assistance',
             index: 'h',
             value: 7,
           },
 
           {
-            text: 'There is no evidence of spread within the Member State',
+            text: 'i) There is no evidence of spread within the Member State',
             index: 'i',
             value: 8,
           },
 
           {
-            text: 'The species spread from the Member State into other Member State(s)',
+            text: 'j) The species spread from the Member State into other Member State(s)',
             index: 'j',
             value: 9
           }
