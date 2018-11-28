@@ -1,5 +1,6 @@
 <template>
   <div v-if="info">
+    {{ tableErrors }}
     <div class="question-wrapper">
       <h1><center>{{info.question}}</center></h1>
       <br/>
@@ -458,6 +459,7 @@ export default {
       },
       files: [],
       dateErrors: [],
+      tableErrors: [],
     }
   },
   watch: {
@@ -503,7 +505,10 @@ export default {
           });
         });
       }
-    }
+    },
+    tableErrors(errors, oldErrors){
+      console.log(errors);
+    },
   },
 
   methods: {
@@ -616,6 +621,7 @@ export default {
 
       let temp = {};
 
+      // find all fields from the tables
       Object.keys(self.$refs).map((item) => {
           let res = item.match(reg);
 
@@ -627,14 +633,11 @@ export default {
             if('undefined' === typeof temp[section]){
               temp[section] = [];
             }
-
-            //temp[section].add(item);
-
             let ref = self.$refs[item];
-            //console.log("###");
-            //console.log(ref[0].$el.querySelector('[name]') );
+
             let vscope = ref[0].$el.querySelector('[name]').getAttribute('data-vv-scope');
             let el = ref[0].$el.querySelector('[name]');
+            let vname = ref[0].$el.querySelector('[name]').getAttribute("name");
 
             if(null === vscope ) {
               vscope = ref[0].$el.querySelector('[data-vv-scope]').getAttribute('data-vv-scope');
@@ -650,30 +653,82 @@ export default {
                 if('undefined' === typeof temp[section][table_nr]){
                   temp[section][table_nr] = new Set();
                 }
-                temp[section][table_nr].add({item: item, el: el, scope: vscope });
+                temp[section][table_nr].add({item: item, el: el, scope: vscope, name: vname });
               }
 
             }
+          }
+      });
 
-            //console.log("###");
+      Object.keys(temp).map((sectionK) => {
+        //console.log("######section#########");
+
+        Array.from(temp[sectionK]).filter(Boolean).map((table) => {
+          let found = [];
+
+          Array.from(table).map((element) => {
+            let val = null;
+
+            if(element.el.getAttribute('value') !== null){
+              val = element.el.getAttribute('value');
+            } else if(element.el.value !== null){
+              val = element.el.value;
+              if("undefined" === typeof val){
+                let newval = element.el.querySelector("[name]");
+                if(newval !== null) val = newval.value;
+              }
+            } else {
+              //console.log(element.el);
+            }
+
+            if(val !== '' && val !== null){
+              found.push(element);
+            }
+          });
+
+          if(found.length > 0){
+            //console.log(found);
+            self.tableErrors[sectionK] = [];
+          } else {
+            //self.tableErrors.push()
+            Array.from(table).map((element) => {
+              let field = self.$validator.fields.find(element.name, element.scope);
+
+              let error = {
+                field: field.name,
+                msg: "There must be an answer to at least one of the following fields",
+                scope: field.scope,
+                rule: 'required',
+                vmId: field.vmId,
+                //id: field.id,
+              };
+
+              /*let errs = self.$validator.errors.items.filter((err) => {
+                return err.scope === field.scope && err.field === field.name;
+              });*/
+
+              //if( errs.length === 0 ){
+                if( 'undefined' === typeof self.tableErrors[sectionK] ){
+                  self.tableErrors[sectionK] = [];
+                  self.$forceUpdate();
+                  self.tableErrors[sectionK].push(error);
+                } else {
+                  self.tableErrors[sectionK].push(error);
+                  //console.log(self.tableErrors[sectionK]);
+                  self.$forceUpdate();
+                }
+
+              //}
+
+            });
+
+
           }
 
-
-      });
-      console.log(temp);
-
-      /*Object.keys(temp).map((sectionK) => {
-        let names = temp[sectionK];
-        console.log("######section#########");
-        Array.from(names).map((name) => {
-          let ref = self.$refs[name];
-
-          console.log(ref[0].$el.querySelector('[name]'));
         });
+
         console.log("######################");
-
-
-      });*/
+      });
 
     },
 
