@@ -462,6 +462,7 @@ export default {
       tableErrors: [],
     }
   },
+
   watch: {
     dateErrors(fields, oldFields){
       let self = this;
@@ -506,8 +507,39 @@ export default {
         });
       }
     },
+
     tableErrors(errors, oldErrors){
-      console.log(errors);
+      let self = this;
+
+      errors.map((err) => {
+        let field = self.$validator.fields.find(err.name, err.scope);
+
+        /*let temp = document.querySelector('[name="' + err.name + '"]');
+        console.log(temp);*/
+
+        /*let ref = self.$refs[err.item][0];*/
+
+        //console.log(ref.$validator.fields.find(err.name, err.scope));
+
+        /*self.$validator.fields.items.filter((item) => {
+          return item.scope.indexOf("sectiona_") !== -1 && item.scope.indexOf("table_") !== -1;
+        }).filter((item) => {
+          console.log("########");
+          console.log(item.name );
+          console.log(item.scope );
+          return item.name === err.name && item.scope ===  err.scope;
+        });*/
+
+        /*let error = {
+          field: field.name,
+          msg: "There must be an answer to at least one of the following fields",
+          scope: field.scope,
+          rule: 'required',
+          vmId: field.vmId,
+          //id: field.id,
+        };*/
+      });
+
     },
   },
 
@@ -687,49 +719,25 @@ export default {
           });
 
           if(found.length > 0){
-            //console.log(found);
             self.tableErrors[sectionK] = [];
           } else {
-            //self.tableErrors.push()
-            Array.from(table).map((element) => {
-              let field = self.$validator.fields.find(element.name, element.scope);
-
-              let error = {
-                field: field.name,
-                msg: "There must be an answer to at least one of the following fields",
-                scope: field.scope,
-                rule: 'required',
-                vmId: field.vmId,
-                //id: field.id,
-              };
-
-              /*let errs = self.$validator.errors.items.filter((err) => {
-                return err.scope === field.scope && err.field === field.name;
-              });*/
-
-              //if( errs.length === 0 ){
-                if( 'undefined' === typeof self.tableErrors[sectionK] ){
-                  self.tableErrors[sectionK] = [];
-                  self.$forceUpdate();
-                  self.tableErrors[sectionK].push(error);
-                } else {
-                  self.tableErrors[sectionK].push(error);
-                  //console.log(self.tableErrors[sectionK]);
-                  self.$forceUpdate();
-                }
-
-              //}
+            Array.from(table).map((el2) => {
+              let err = {item:el2.item, name: el2.name, scope: el2.scope, msg: "There must be an answer to at least one of the following fields",};
+              if( 'undefined' === typeof self.tableErrors[sectionK] ){
+                self.tableErrors[sectionK] = [];
+              }
+              self.tableErrors.push(err);
+              self.$forceUpdate();
 
             });
-
 
           }
 
         });
 
-        console.log("######################");
+        //console.log("######################");
       });
-
+      //console.log(self.tableErrors);
     },
 
     validate(){
