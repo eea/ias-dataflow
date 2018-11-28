@@ -110,7 +110,6 @@
               el = ref.$el;
             }
 
-            console.log(el);
             if(el !== null){
               let name = el.getAttribute('name');
               let scope = el.getAttribute('data-vv-scope');
@@ -213,26 +212,26 @@
           });
 
           if(tofilter.length === 0){
-            console.log('tofilter empty');
+            //console.log('tofilter empty');
             pats = [ pats[pats.length-1] ];
           } else  {
             if(first.length === 0 || second.length === 0){
-              console.log(pats);
+              //console.log(pats);
             } else {
               pats = filterPats(pats, tofilter );
             }
 
           }
 
-          console.log(first);
-          console.log(second);
+          //console.log(first);
+          //console.log(second);
           if(first.length > 0 && second.length > 0){
             resolve(true);
             self.spreadvals = [];
             self.$forceUpdate();
           } else {
             if(first.length === 0 || second.length === 0){
-              console.log(pats);
+              //console.log(pats);
             }
             self.spreadvals = pats;
             resolve(false);

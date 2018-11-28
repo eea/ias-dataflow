@@ -79,7 +79,7 @@
 
             <PatternField :patternfields="sectionProp.depending_on_mandatory.spread_pattterns"
               :scope="'sectionb_spread'"
-              :ref="'spread'"
+              :ref="'sectionb_'+ selkey +'_spread'"
               @add-new-pattern="addNewPattern" @remove-pattern="removePattern"></PatternField>
 
             <div class="mb-2" v-for="(field, fieldkey, fieldindex) in sectionProp.depending_on_mandatory.fields">

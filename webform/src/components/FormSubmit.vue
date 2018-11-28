@@ -88,7 +88,7 @@ export default {
     },
 
     showAlert () {
-      console.log('showingalert')
+      console.log('showingalert');
       this.dismissCountDown = this.dismissSecs
     },
 
@@ -417,7 +417,7 @@ export default {
         ];
 
         sectionA.forEach((section, k) => {
-          console.log("###################specie############");
+          //console.log("###################specie############");
           if(section.mandatory_item.selected === 1){
             todelete.push(k);
             newDataset.tab_1.sections[k] = null;
@@ -538,7 +538,8 @@ export default {
       });
 
       //console.log(JSON.stringify(newDataset));
-      console.log(newDataset);
+
+      //console.log(newDataset);
 
     },
 

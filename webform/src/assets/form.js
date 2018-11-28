@@ -1256,7 +1256,7 @@ let tab_1_section = {
                 },
                 {
                   label: 'Marine sub-region(s)',
-                  name: 'river_basin_subunits',
+                  name: 'marine_sub_regions',
                   type: 'select',
                   selected: '',
                   options: [
@@ -1344,12 +1344,14 @@ let tab_1_section = {
                   name: 'starting_date',
                   type: 'date',
                   selected: '',
+                  required: 'required',
                 },
                 {
                   label: 'End date',
                   name: 'duration_or_end',
                   type: 'date',
                   selected: '',
+                  required: 'required',
                 },
                 {
                   label: 'Objective of the measure(s) ',

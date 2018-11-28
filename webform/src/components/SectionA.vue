@@ -55,25 +55,25 @@
 
               <PatternField :patternfields="section.depending_on_mandatory.reproduction_patterns"
                             :scope="'sectiona_' + seckey + '_reproduction'"
-                            :ref="'reproduction_' + seckey"
+                            :ref="'sectiona_' + seckey + '_reproduction'"
                             :multiple="section.depending_on_mandatory.reproduction_patterns.multiple"
                             @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
               </PatternField>
 
               <PatternField :patternfields="section.depending_on_mandatory.spread_pattterns"
-                            :scope="'sectiona_' + seckey + '_spread'"
-                            :ref="'spread_'+ seckey"
-                            :multiple="section.depending_on_mandatory.spread_pattterns.multiple"
-                            @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
+                :scope="'sectiona_' + seckey + '_spread'"
+                :ref="'sectiona_' + seckey + '_spread'"
+                :multiple="section.depending_on_mandatory.spread_pattterns.multiple"
+                @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
               </PatternField>
 
               <div class="mb-2" v-for="(field,fieldkey) in section.depending_on_mandatory.fields">
                 <div v-if="field.type === 'file'" :prepend="field.label">
                   <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey"
-                                  :scope="'sectiona_'+ seckey + '_' + field.name + '_' + fieldkey"
-                                  @form-file-uploaded="addFilesToSelected"
-                                  files-allowed="shp, geojson, gml,zip"
-                                  @form-file-delete="deleteFormFile" :multiple=false>
+                    :scope="'sectiona_'+ seckey + '_' + field.name + '_' + fieldkey"
+                    @form-file-uploaded="addFilesToSelected"
+                    files-allowed="shp, geojson, gml,zip"
+                    @form-file-delete="deleteFormFile" :multiple=false>
                   </FormFileUpload>
                 </div>
               </div>
@@ -181,7 +181,8 @@
                     <tr v-for="(row, rowkey, rowindex) in sub_section.fields">
                       <td style="width: 120px" v-if="row.label">{{row.label}}</td>
 
-                      <td v-if="sub_section.type != 'add'">
+                      <td v-if="sub_section.type !== 'add'">
+
                         <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                               && item.scope === 'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + row.name + '_' + rowkey
                               && item.field === row.name + '_' + rowkey;}).length > 0">
@@ -212,6 +213,7 @@
                       <td v-else>
                         <b-row>
                           <b-col>
+
                             <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                               && item.scope === 'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey
                               && item.field === row.name + '_' + rowkey;}).length > 0">
@@ -225,18 +227,21 @@
                             </b-badge>
 
                             <fieldGenerator :field="row"
-                                            :fieldkey="rowkey"
-                                            :vname="row.name + '_' + rowkey"
-                                            :vkey="row.name + '_' + rowkey"
-                                            :data-vv-as="row.label"
-                                            :validation="'false'"
-                                            :ref="'section_' + seckey + '_' + row.name + '_' + rowkey"
-                                            :vscope="'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey"
+                              :fieldkey="rowkey"
+                              :vname="row.name + '_' + rowkey"
+                              :vkey="row.name + '_' + rowkey"
+                              :data-vv-as="row.label"
+                              :validation="'false'"
+                              :ref="'section_' + seckey + '_' + row.name + '_' + rowkey"
+                              :vscope="'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey"
                             ></fieldGenerator>
+
                           </b-col>
+
                           <b-col lg="2">
                             <label>{{row.inner_field.label}}</label>
                           </b-col>
+
                           <b-col>
                             <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                               && item.scope === 'sectiona_'+ 'table_2_' + table_key  + '_' + row.name + '_' + rowkey
@@ -256,7 +261,8 @@
                               :data-vv-as="row.inner_field.label"
                               :ref="'section_' + seckey + '_' + row.inner_field.name + '_' + rowkey"
                               :vscope="'sectiona_'+ 'table_2_' + table_key  + '_' + row.inner_field.name + '_' + rowkey"
-                              :field="row.inner_field"></fieldGenerator>
+                              :field="row.inner_field">
+                            </fieldGenerator>
                           </b-col>
                           <b-col lg="2">
                             <b-btn variant="danger" @click="removeSpecies(sub_section, row)" v-if="sub_section.type === 'add'">Remove</b-btn>
@@ -334,7 +340,7 @@
 
                         <fieldGenerator
                           :field="row" :fieldkey="rowkey"
-                          validation="'required'"
+                          :validation="row.required ? row.required : 'false'"
                           :vname="row.name + '_' + rowkey"
                           :sub_section="sub_section"
                           :vkey="row.name + '_' + rowkey"
@@ -364,13 +370,13 @@
                             </b-badge>
 
                             <fieldGenerator :field="row"
-                                            :fieldkey="rowkey"
-                                            :vname="row.name + '_' + rowkey"
-                                            :vkey="row.name + '_' + rowkey"
-                                            :data-vv-as="row.label"
-                                            :validation="'false'"
-                                            :ref="'section_' + seckey + '_' + row.name + '_' + rowkey"
-                                            :vscope="'sectiona_'+ 'table_3_' + table_key  + '_' + row.name + '_' + rowkey"
+                                :fieldkey="rowkey"
+                                :vname="row.name + '_' + rowkey"
+                                :vkey="row.name + '_' + rowkey"
+                                :data-vv-as="row.label"
+                                :validation="row.required ? row.required : 'false'"
+                                :ref="'section_' + seckey + '_' + row.name + '_' + rowkey"
+                                :vscope="'sectiona_'+ 'table_3_' + table_key  + '_' + row.name + '_' + rowkey"
                             ></fieldGenerator>
                           </b-col>
                           <b-col lg="2">
@@ -386,8 +392,7 @@
                               && item.scope === 'sectiona_'+ 'table_3_' + table_key  + '_' + row.name + '_' + rowkey
                               && item.field === row.name + '_' + rowkey;}).map((item)=>{
                               return item.msg;
-                              }).join('\n') }}
-                            </b-badge>
+                              }).join('\n') }}</b-badge>
 
                             <fieldGenerator
                               :vname="row.inner_field.name + '_' + rowkey"
@@ -395,7 +400,9 @@
                               :data-vv-as="row.inner_field.label"
                               :ref="'section_' + seckey + '_' + row.inner_field.name + '_' + rowkey"
                               :vscope="'sectiona_'+ 'table_2_' + table_key  + '_' + row.inner_field.name + '_' + rowkey"
-                              :field="row.inner_field"></fieldGenerator>
+                              :field="row.inner_field">
+                            </fieldGenerator>
+
                           </b-col>
                           <b-col lg="2">
                             <b-btn variant="danger" @click="removeSpecies(sub_section, row)" v-if="sub_section.type === 'add'">Remove</b-btn>
@@ -459,7 +466,9 @@ export default {
 
       if(fields.length > 0){
         oldFields.map((field)=> {
-          let errs = field.target.$validator.errors.items.filter((err) => { return err.scope === field.scope && err.field === field.name; });
+          let errs = field.target.$validator.errors.items.filter((err) => {
+            return err.scope === field.scope && err.field === field.name;
+          });
           errs.map((err)=> {
             field.target.$validator.errors.removeById(err.id);
           });
@@ -475,18 +484,20 @@ export default {
             //id: field.id,
           };
 
-          let errs = field.target.$validator.errors.items.filter((err) => { return err.scope === field.scope && err.field === field.name; });
+          let errs = field.target.$validator.errors.items.filter((err) => {
+            return err.scope === field.scope && err.field === field.name;
+          });
 
           if( errs.length === 0 ){
             field.target.$validator.errors.add(error);
           }
           field.target.$forceUpdate();
         });
-
       } else {
-
         oldFields.map((field)=> {
-          let errs = field.target.$validator.errors.items.filter((err) => { return err.scope === field.scope && err.field === field.name; });
+          let errs = field.target.$validator.errors.items.filter((err) => {
+            return err.scope === field.scope && err.field === field.name;
+          });
           errs.map((err)=> {
             field.target.$validator.errors.removeById(err.id);
           });
@@ -595,7 +606,75 @@ export default {
     },
 
     validateQuestion12(){
-      console.log("validating question 12");
+      let self = this;
+
+      let fields = [ 'part_territory' , 'biogeographical_region', 'river_basin_subunits','marine_sub_regions' ];
+
+      const reg = /(sectiona_([0-9]))\w+(part_territory|biogeographical_region|river_basin_subunits|marine_sub_regions)/;
+
+      //   /(?<pref>sectiona_(?<seckey>[0-9]))\w+(?<field> part_territory|biogeographical_region|river_basin_subunits|marine_sub_regions)/
+
+      let temp = {};
+
+      Object.keys(self.$refs).map((item) => {
+          let res = item.match(reg);
+
+          if(res !== null){
+            let name = res[0];
+            let section = res[1];
+            let seckey = res[2];
+
+            if('undefined' === typeof temp[section]){
+              temp[section] = [];
+            }
+
+            //temp[section].add(item);
+
+            let ref = self.$refs[item];
+            //console.log("###");
+            //console.log(ref[0].$el.querySelector('[name]') );
+            let vscope = ref[0].$el.querySelector('[name]').getAttribute('data-vv-scope');
+            let el = ref[0].$el.querySelector('[name]');
+
+            if(null === vscope ) {
+              vscope = ref[0].$el.querySelector('[data-vv-scope]').getAttribute('data-vv-scope');
+              el = ref[0].$el.querySelector('[data-vv-scope]');
+            }
+
+            if(vscope!== null ){
+              let reg2 = /(sectiona_([0-9])_table_([0-9]))\w+()/;
+              let table_res = vscope.match(reg2);
+              if(table_res !== null){
+                let table_nr = table_res[3];
+
+                if('undefined' === typeof temp[section][table_nr]){
+                  temp[section][table_nr] = new Set();
+                }
+                temp[section][table_nr].add({item: item, el: el, scope: vscope });
+              }
+
+            }
+
+            //console.log("###");
+          }
+
+
+      });
+      console.log(temp);
+
+      /*Object.keys(temp).map((sectionK) => {
+        let names = temp[sectionK];
+        console.log("######section#########");
+        Array.from(names).map((name) => {
+          let ref = self.$refs[name];
+
+          console.log(ref[0].$el.querySelector('[name]'));
+        });
+        console.log("######################");
+
+
+      });*/
+
     },
 
     validate(){

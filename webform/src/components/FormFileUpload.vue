@@ -21,6 +21,7 @@
                    v-bind:name="vname"
                    v-bind:key="vkey"
                    v-bind:data-vv-scope="scope +'_' + 'files-input-' + fieldkey"
+
       ></b-form-file>
 
       <b-form-file v-model="files"
