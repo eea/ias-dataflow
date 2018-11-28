@@ -512,7 +512,10 @@ export default {
       let self = this;
 
       errors.map((err) => {
-        let field = self.$validator.fields.find(err.name, err.scope);
+        //let field = self.$validator.fields.find(err.name, err.scope);
+        if('undefined' !== typeof self.$validator){
+          console.log(self.$validator.fields.items);
+        }
 
         /*let temp = document.querySelector('[name="' + err.name + '"]');
         console.log(temp);*/
