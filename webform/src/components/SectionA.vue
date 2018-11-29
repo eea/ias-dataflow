@@ -511,68 +511,8 @@ export default {
     tableErrors(errorsSections, oldErrors){
       let self = this;
 
-      let fields = [ 'part_territory' , 'biogeographical_region', 'river_basin_subunits','marine_sub_regions' ];
-      const reg = /(sectiona_([0-9]))\w+(part_territory|biogeographical_region|river_basin_subunits|marine_sub_regions)/;
-
-      //console.log("%%%%%%%%%%%%%%%%%%%%%%%");
-      //console.log("oldErrors");
-
-      /*Object.keys( oldErrors ).map((section) => {
-        let sectionTables = oldErrors[section];
-
-        Object.keys(sectionTables).map((table) => {
-          let err = sectionTables[table];
-
-          let fieldFound = null;
-          let refFound = null;
-
-          if('undefined' !== typeof self.$validator){
-            self.$validator.fields.items.filter((field) => {
-              if(field.name === err.name && field.scope === err.scope){
-                fieldFound = field;
-              }
-            });
-            let ref = self.$refs[err.item];
-
-            if(fieldFound === null){
-              if("undefined" !== typeof ref[0].$validator){
-                ref[0].$validator.fields.items.filter((field) => {
-
-                  if(field.name === err.name  && field.scope === err.scope){
-                    refFound = self.$refs[err.item][0];
-                    fieldFound = field;
-                  }
-                });
-              }
-            }
-
-            if(fieldFound !== null){
-              let error = null;
-              if(refFound !== null){
-                error = refFound.$validator.errors.items.filter((err) => {
-                  return err.field === fieldFound.name && err.scope === fieldFound.scope});
-
-              } else {
-                error = self.$validator.errors.items.filter((err) => {
-                  return err.field === fieldFound.name && err.scope === fieldFound.scope});
-              }
-              //console.log(fieldFound);
-            } else {
-              //console.log(err.item);
-              //console.log(err.scope);
-              //console.log(err.name);
-            }
-          }
-
-        });
-
-      });*/
-
-      //console.log("%%%%%%%%%%%%%%%%%%%%%%%");
-
       Object.keys( errorsSections ).map((section) => {
         let sectionTables = errorsSections[section];
-        console.log(sectionTables);
 
         Object.keys(sectionTables).map((table) => {
           let err =  sectionTables[table];
@@ -609,8 +549,6 @@ export default {
               rule: "required",
             };
 
-            //console.log("!!!!!!!!!");
-            //console.log(fieldFound.scope);
             if(refFound !== null){
               refFound.$validator.errors.add(error);
             } else {
@@ -623,8 +561,6 @@ export default {
             //console.log(err.name);
           }
         });
-        //console.log(sectionTables);
-
 
       });
 
@@ -633,6 +569,7 @@ export default {
   },
 
   methods: {
+
     titleSlugify(text) {
       return slugify(text)
     },
@@ -746,16 +683,20 @@ export default {
       function processTable(table, tablename, sectionK){
         let found = [];
 
-        //console.log("##############");
-
         let finalResult = [];
         Array.from(table).map((element) => {
           let val = null;
 
-          if(element.el.getAttribute('value') !== null){
+          if(element.el.getAttribute("class") === "multiselect"){
+            val = self.$refs[element.item][0].field.selected.length === 0 ? null : self.$refs[element.item][0].field.selected ;
+            console.log("multiselect");
+            console.log(val);
+            console.log("endmultiselect");
+          } else if(element.el.getAttribute('value') !== null){
             val = element.el.getAttribute('value');
           } else if(element.el.value !== null){
             val = element.el.value;
+
             if("undefined" === typeof val){
               let newval = element.el.querySelector("[name]");
               if(newval !== null) val = newval.value;
@@ -768,12 +709,11 @@ export default {
           if(val !== '' && val !== null){
             found.push(element);
           }
+          console.log(found);
         });
 
         if(found.length > 0){
-          //self.tableErrors[sectionK] = [];
-
-          //self.$forceUpdate();
+          //finalResult = false;
         } else {
           finalResult = Array.from(table).map((el2) => {
             return {
@@ -784,9 +724,6 @@ export default {
               table: tablename,
             }
           });
-
-          /*self.$set( self.tableErrors , sectionK , errs  );
-          self.$forceUpdate();*/
         }
 
         return finalResult;
@@ -844,14 +781,9 @@ export default {
           let table = temp[sectionName][tablename];
           let tableerrors = processTable(table, tablename, sectionName );
 
-          /*console.log( "tableerrors for : " + tablename );
-          console.log(tableerrors);
-          console.log( "tableerrors" );*/
-
           tableerrors.map((err) => {
             result[sectionName].push(err);
           });
-          //result[sectionName].concat(tableerrors);
 
         });
       });
