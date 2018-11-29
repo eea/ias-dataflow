@@ -1269,8 +1269,9 @@ let tab_1_section = {
                 {
                   label: 'Method(s) used',
                   name: 'methods_used',
-                  type: 'select',
+                  type: 'multiselect',
                   selected: '',
+
                   options: [
                     { text: 'Mechanical/Physical', value: 0 },
                     { text: 'Chemical', value: 1 },
@@ -1411,7 +1412,7 @@ let tab_1_section = {
                 {
                   label: 'Method(s) used',
                   name: 'methods_used',
-                  type: 'select',
+                  type: 'multiselect',
                   selected: '',
                   options: [
                     { text: 'Mechanical/Physical', value: 0 },
