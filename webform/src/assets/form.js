@@ -1367,9 +1367,12 @@ let tab_1_section = {
                 {
                   label: 'Part of the territory',
                   name: 'part_territory',
-                  type: 'text',
-                  selected: '',
+                  /*type: 'text',
+                  selected: '',*/
                   //TODO: NUTS code
+                  type: 'file',
+                  selected: '',
+                  comments:'',
 
                 },
                 {

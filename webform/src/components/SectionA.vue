@@ -1,6 +1,6 @@
 <template>
   <div v-if="info">
-    {{ tableErrors }}
+
     <div class="question-wrapper">
       <h1><center>{{info.question}}</center></h1>
       <br/>
@@ -459,7 +459,7 @@ export default {
       },
       files: [],
       dateErrors: [],
-      tableErrors: [],
+      tableErrors: {},
     }
   },
 
@@ -508,40 +508,126 @@ export default {
       }
     },
 
-    tableErrors(errors, oldErrors){
+    tableErrors(errorsSections, oldErrors){
       let self = this;
 
-      errors.map((err) => {
-        //let field = self.$validator.fields.find(err.name, err.scope);
-        if('undefined' !== typeof self.$validator){
-          console.log(self.$validator.fields.items);
-        }
+      let fields = [ 'part_territory' , 'biogeographical_region', 'river_basin_subunits','marine_sub_regions' ];
+      const reg = /(sectiona_([0-9]))\w+(part_territory|biogeographical_region|river_basin_subunits|marine_sub_regions)/;
 
-        /*let temp = document.querySelector('[name="' + err.name + '"]');
-        console.log(temp);*/
+      //console.log("%%%%%%%%%%%%%%%%%%%%%%%");
+      //console.log("oldErrors");
 
-        /*let ref = self.$refs[err.item][0];*/
+      /*Object.keys( oldErrors ).map((section) => {
+        let sectionTables = oldErrors[section];
 
-        //console.log(ref.$validator.fields.find(err.name, err.scope));
+        Object.keys(sectionTables).map((table) => {
+          let err = sectionTables[table];
 
-        /*self.$validator.fields.items.filter((item) => {
-          return item.scope.indexOf("sectiona_") !== -1 && item.scope.indexOf("table_") !== -1;
-        }).filter((item) => {
-          console.log("########");
-          console.log(item.name );
-          console.log(item.scope );
-          return item.name === err.name && item.scope ===  err.scope;
-        });*/
+          let fieldFound = null;
+          let refFound = null;
 
-        /*let error = {
-          field: field.name,
-          msg: "There must be an answer to at least one of the following fields",
-          scope: field.scope,
-          rule: 'required',
-          vmId: field.vmId,
-          //id: field.id,
-        };*/
+          if('undefined' !== typeof self.$validator){
+            self.$validator.fields.items.filter((field) => {
+              if(field.name === err.name && field.scope === err.scope){
+                fieldFound = field;
+              }
+            });
+            let ref = self.$refs[err.item];
+
+            if(fieldFound === null){
+              if("undefined" !== typeof ref[0].$validator){
+                ref[0].$validator.fields.items.filter((field) => {
+
+                  if(field.name === err.name  && field.scope === err.scope){
+                    refFound = self.$refs[err.item][0];
+                    fieldFound = field;
+                  }
+                });
+              }
+            }
+
+            if(fieldFound !== null){
+              let error = null;
+              if(refFound !== null){
+                error = refFound.$validator.errors.items.filter((err) => {
+                  return err.field === fieldFound.name && err.scope === fieldFound.scope});
+
+              } else {
+                error = self.$validator.errors.items.filter((err) => {
+                  return err.field === fieldFound.name && err.scope === fieldFound.scope});
+              }
+              //console.log(fieldFound);
+            } else {
+              //console.log(err.item);
+              //console.log(err.scope);
+              //console.log(err.name);
+            }
+          }
+
+        });
+
+      });*/
+
+      //console.log("%%%%%%%%%%%%%%%%%%%%%%%");
+
+      Object.keys( errorsSections ).map((section) => {
+        let sectionTables = errorsSections[section];
+        console.log(sectionTables);
+
+        Object.keys(sectionTables).map((table) => {
+          let err =  sectionTables[table];
+
+          let fieldFound = null;
+          let refFound = null;
+
+          if('undefined' !== typeof self.$validator){
+            self.$validator.fields.items.filter((field) => {
+              if(field.name === err.name && field.scope === err.scope){
+                fieldFound = field;
+              }
+            });
+            let ref = self.$refs[err.item];
+
+            if(fieldFound === null){
+              if("undefined" !== typeof ref[0].$validator){
+                ref[0].$validator.fields.items.filter((field) => {
+
+                  if(field.name === err.name  && field.scope === err.scope){
+                    refFound = self.$refs[err.item][0];
+                    fieldFound = field;
+                  }
+                });
+              }
+            }
+          }
+
+          if(fieldFound !== null){
+            let error = {
+              field: fieldFound.name,
+              msg: err.msg,
+              scope: fieldFound.scope,
+              rule: "required",
+            };
+
+            //console.log("!!!!!!!!!");
+            //console.log(fieldFound.scope);
+            if(refFound !== null){
+              refFound.$validator.errors.add(error);
+            } else {
+              self.$validator.errors.add(error);
+            }
+
+          } else {
+            //console.log(err.item);
+            //console.log(err.scope);
+            //console.log(err.name);
+          }
+        });
+        //console.log(sectionTables);
+
+
       });
+
 
     },
   },
@@ -557,6 +643,7 @@ export default {
       newField.selected.region = null;
       fields.push(newField);
     },
+
     removePattern(fields, fieldkey){
       if(fieldkey !== 0) fields.splice(fieldkey, 1);
     },
@@ -574,6 +661,57 @@ export default {
       this.addCustom.value = null;
       this.$refs.customFieldModal.hide();
     },*/
+
+    addSpecies(field){
+      let empty_field = {
+        label: 'Impacted non-targeted species',
+        type: 'text',
+        selected: '',
+        name: 'impacted_nontargeted_species',
+        inner_field: {
+          label: 'Impact per species',
+          type: 'text',
+          selected: '',
+          name: 'impact_per_species',
+        }
+      };
+      field.fields.push(empty_field);
+    },
+
+    removeSpecies(parent, field){
+      parent.fields.splice(parent.fields.indexOf(field), 1);
+    },
+
+    addFilesToSelected(fieldkey,index,field){
+      let self = this;
+      getSupportingFiles().then((response) => {
+        field.selected = envelope + '/' + response.data[response.data.length - 1];
+        self.$forceUpdate();
+      }).catch((error) =>{
+        console.error(error);
+      });
+    },
+
+    deleteFormFile(found, fieldkey, field){
+      field.selected = null;
+    },
+
+    // geting errors from child component
+    addSuberror(error, field){
+      let self = this;
+      let foundP = this.errors.items.filter((item) => {
+        return item.field === field.name && item.scope === field.scope;
+      });
+
+      if(error === null){
+        self.$validator.errors.removeById(foundP.id);
+      }
+
+      if(foundP.length === 0 && error !== null){
+        error.rule = 'required';
+        self.$validator.errors.add(error);
+      }
+    },
 
     validateDate(row, sub_section,ref, obj){
       let self = this;
@@ -596,67 +734,65 @@ export default {
       }
     },
 
-    addSpecies(field){
-      let empty_field = {
-        label: 'Impacted non-targeted species',
-        type: 'text',
-        selected: '',
-        name: 'impacted_nontargeted_species',
-        inner_field: {
-          label: 'Impact per species',
-          type: 'text',
-          selected: '',
-          name: 'impact_per_species',
-        }
-      };
-      field.fields.push(empty_field);
-    },
-
-    removeSpecies(parent, field){
-      parent.fields.splice(parent.fields.indexOf(field), 1);
-    },
-    addFilesToSelected(fieldkey,index,field){
-      let self = this;
-      getSupportingFiles().then((response) => {
-        field.selected = envelope + '/' + response.data[response.data.length - 1];
-        self.$forceUpdate();
-      }).catch((error) =>{
-        console.error(error);
-      });
-    },
-    deleteFormFile(found, fieldkey, field){
-      field.selected = null;
-    },
-
-    // geting errors from child component
-    addSuberror(error, field){
-      let self = this;
-      let foundP = this.errors.items.filter((item) => {
-        return item.field === field.name && item.scope === field.scope;
-      });
-
-      if(error === null){
-        self.$validator.errors.removeById(foundP.id);
-      }
-
-      if(foundP.length === 0 && error !== null){
-        error.rule = 'required';
-        self.$validator.errors.add(error);
-      }
-    },
-
     validateQuestion12(){
       let self = this;
 
-      let fields = [ 'part_territory' , 'biogeographical_region', 'river_basin_subunits','marine_sub_regions' ];
+      //let fields = [ 'part_territory' , 'biogeographical_region', 'river_basin_subunits','marine_sub_regions' ];
 
       const reg = /(sectiona_([0-9]))\w+(part_territory|biogeographical_region|river_basin_subunits|marine_sub_regions)/;
 
-      //   /(?<pref>sectiona_(?<seckey>[0-9]))\w+(?<field> part_territory|biogeographical_region|river_basin_subunits|marine_sub_regions)/
-
       let temp = {};
 
-      // find all fields from the tables
+      function processTable(table, tablename, sectionK){
+        let found = [];
+
+        //console.log("##############");
+
+        let finalResult = [];
+        Array.from(table).map((element) => {
+          let val = null;
+
+          if(element.el.getAttribute('value') !== null){
+            val = element.el.getAttribute('value');
+          } else if(element.el.value !== null){
+            val = element.el.value;
+            if("undefined" === typeof val){
+              let newval = element.el.querySelector("[name]");
+              if(newval !== null) val = newval.value;
+            }
+          } else {
+            console.error("not working");
+            console.error(element.el);
+          }
+
+          if(val !== '' && val !== null){
+            found.push(element);
+          }
+        });
+
+        if(found.length > 0){
+          //self.tableErrors[sectionK] = [];
+
+          //self.$forceUpdate();
+        } else {
+          finalResult = Array.from(table).map((el2) => {
+            return {
+              item:el2.item,
+              name: el2.name,
+              scope: el2.scope,
+              msg: "There must be an answer to at least one of the following fields",
+              table: tablename,
+            }
+          });
+
+          /*self.$set( self.tableErrors , sectionK , errs  );
+          self.$forceUpdate();*/
+        }
+
+        return finalResult;
+      }
+
+      // find all fields and arrange by tables
       Object.keys(self.$refs).map((item) => {
           let res = item.match(reg);
 
@@ -668,6 +804,10 @@ export default {
             if('undefined' === typeof temp[section]){
               temp[section] = [];
             }
+
+            self.$set( self.tableErrors , section, []);
+            self.$forceUpdate();
+
             let ref = self.$refs[item];
 
             let vscope = ref[0].$el.querySelector('[name]').getAttribute('data-vv-scope');
@@ -682,65 +822,41 @@ export default {
             if(vscope!== null ){
               let reg2 = /(sectiona_([0-9])_table_([0-9]))\w+()/;
               let table_res = vscope.match(reg2);
+
               if(table_res !== null){
                 let table_nr = table_res[3];
 
-                if('undefined' === typeof temp[section][table_nr]){
-                  temp[section][table_nr] = new Set();
+                if('undefined' === typeof temp[section]["table_" + table_nr]){
+                  temp[section]["table_" + table_nr] = new Set();
                 }
-                temp[section][table_nr].add({item: item, el: el, scope: vscope, name: vname });
+                temp[section]["table_" + table_nr].add({item: item, el: el, scope: vscope, name: vname });
               }
-
             }
           }
       });
 
-      Object.keys(temp).map((sectionK) => {
-        //console.log("######section#########");
+      let result = {};
 
-        Array.from(temp[sectionK]).filter(Boolean).map((table) => {
-          let found = [];
+      Object.keys(temp).map((sectionName) => {
+        if('undefined' === typeof result[sectionName]) result[sectionName] = [];
 
-          Array.from(table).map((element) => {
-            let val = null;
+        Object.keys(temp[sectionName]).map((tablename) => {
+          let table = temp[sectionName][tablename];
+          let tableerrors = processTable(table, tablename, sectionName );
 
-            if(element.el.getAttribute('value') !== null){
-              val = element.el.getAttribute('value');
-            } else if(element.el.value !== null){
-              val = element.el.value;
-              if("undefined" === typeof val){
-                let newval = element.el.querySelector("[name]");
-                if(newval !== null) val = newval.value;
-              }
-            } else {
-              //console.log(element.el);
-            }
+          /*console.log( "tableerrors for : " + tablename );
+          console.log(tableerrors);
+          console.log( "tableerrors" );*/
 
-            if(val !== '' && val !== null){
-              found.push(element);
-            }
+          tableerrors.map((err) => {
+            result[sectionName].push(err);
           });
-
-          if(found.length > 0){
-            self.tableErrors[sectionK] = [];
-          } else {
-            Array.from(table).map((el2) => {
-              let err = {item:el2.item, name: el2.name, scope: el2.scope, msg: "There must be an answer to at least one of the following fields",};
-              if( 'undefined' === typeof self.tableErrors[sectionK] ){
-                self.tableErrors[sectionK] = [];
-              }
-              self.tableErrors.push(err);
-              self.$forceUpdate();
-
-            });
-
-          }
+          //result[sectionName].concat(tableerrors);
 
         });
-
-        //console.log("######################");
       });
-      //console.log(self.tableErrors);
+
+      self.tableErrors = result;
     },
 
     validate(){
