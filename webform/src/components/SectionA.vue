@@ -542,11 +542,15 @@ export default {
           }
 
           if(fieldFound !== null){
+            //console.log(fieldFound);
+
             let error = {
               field: fieldFound.name,
               msg: err.msg,
               scope: fieldFound.scope,
               rule: "required",
+              //vmId: field.vmId,
+
             };
 
             if(refFound !== null){
@@ -569,7 +573,6 @@ export default {
   },
 
   methods: {
-
     titleSlugify(text) {
       return slugify(text)
     },
@@ -731,45 +734,45 @@ export default {
 
       // find all fields and arrange by tables
       Object.keys(self.$refs).map((item) => {
-          let res = item.match(reg);
+        let res = item.match(reg);
 
-          if(res !== null){
-            let name = res[0];
-            let section = res[1];
-            let seckey = res[2];
+        if(res !== null){
+          let name = res[0];
+          let section = res[1];
+          let seckey = res[2];
 
-            if('undefined' === typeof temp[section]){
-              temp[section] = [];
-            }
+          if('undefined' === typeof temp[section]){
+            temp[section] = [];
+          }
 
-            self.$set( self.tableErrors , section, []);
-            self.$forceUpdate();
+          self.$set( self.tableErrors , section, []);
+          self.$forceUpdate();
 
-            let ref = self.$refs[item];
+          let ref = self.$refs[item];
 
-            let vscope = ref[0].$el.querySelector('[name]').getAttribute('data-vv-scope');
-            let el = ref[0].$el.querySelector('[name]');
-            let vname = ref[0].$el.querySelector('[name]').getAttribute("name");
+          let vscope = ref[0].$el.querySelector('[name]').getAttribute('data-vv-scope');
+          let el = ref[0].$el.querySelector('[name]');
+          let vname = ref[0].$el.querySelector('[name]').getAttribute("name");
 
-            if(null === vscope ) {
-              vscope = ref[0].$el.querySelector('[data-vv-scope]').getAttribute('data-vv-scope');
-              el = ref[0].$el.querySelector('[data-vv-scope]');
-            }
+          if(null === vscope ) {
+            vscope = ref[0].$el.querySelector('[data-vv-scope]').getAttribute('data-vv-scope');
+            el = ref[0].$el.querySelector('[data-vv-scope]');
+          }
 
-            if(vscope!== null ){
-              let reg2 = /(sectiona_([0-9])_table_([0-9]))\w+()/;
-              let table_res = vscope.match(reg2);
+          if(vscope!== null ){
+            let reg2 = /(sectiona_([0-9])_table_([0-9]))\w+()/;
+            let table_res = vscope.match(reg2);
 
-              if(table_res !== null){
-                let table_nr = table_res[3];
+            if(table_res !== null){
+              let table_nr = table_res[3];
 
-                if('undefined' === typeof temp[section]["table_" + table_nr]){
-                  temp[section]["table_" + table_nr] = new Set();
-                }
-                temp[section]["table_" + table_nr].add({item: item, el: el, scope: vscope, name: vname });
+              if('undefined' === typeof temp[section]["table_" + table_nr]){
+                temp[section]["table_" + table_nr] = new Set();
               }
+              temp[section]["table_" + table_nr].add({item: item, el: el, scope: vscope, name: vname });
             }
           }
+        }
       });
 
       let result = {};

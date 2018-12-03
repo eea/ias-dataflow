@@ -148,7 +148,6 @@ export default {
     }
   },
 
-
   created() {
     this.form = form;
     getInstance().then((response) => {

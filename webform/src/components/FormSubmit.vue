@@ -531,8 +531,6 @@ export default {
 
       }
 
-
-
       todelete.map((k) => {
         delete newDataset.tab_1.sections[k];
       });
