@@ -213,6 +213,15 @@ export default {
     },
 
     addSpecies(sci_name, com_name, selkey){
+      let regionOptions = [
+        {
+          text: 'Romania', value: 'RO',
+        },
+        {
+          text: 'France', value: 'FR',
+        },
+      ];
+
       let tab_1_section = {
         scientific_name: {
           label: 'Species scientific name',
@@ -250,7 +259,7 @@ export default {
               selected: false,
             },
           ],
-          reproduction_patterns: [
+          /*reproduction_patterns: [
             {
               label: 'Reproduction patterns',
               type: 'select',
@@ -338,6 +347,120 @@ export default {
                   text: 'France', value: 'FR',
                 },
               ]
+            },
+          ]*/
+
+          reproduction_patterns: [
+            {
+              label: 'Reproduction patterns',
+              type: 'select',
+              add: true,
+              patternType: 'reproduction',
+              name: 'reproduction patterns',
+              multiple: false,
+              selected: {
+                region: null,
+                pattern: null
+              },
+              options:[
+                {
+                  text: 'Sexual', value: 0,
+                },
+                {
+                  text: 'Asexusal', value: 1,
+                },
+                {
+                  text: 'Both (sexual and asexual)', value : 2,
+                },
+                {
+                  text: 'Unclear (sexual or asexual) ', value: 3,
+                },
+                {
+                  text: 'Not reproducing in the Member State', value: 4,
+                },
+                {
+                  text: 'Unknown whether the species reproduces in the Member State', value: 5,
+                }
+              ],
+              //TODO : remove
+              regionOptions: regionOptions
+            }
+          ],
+          spread_pattterns:[
+            {
+              label: 'Spread patterns',
+              type: 'select',
+              patternType: 'spread',
+              name: 'spread_patterns',
+              add: true,
+              multiple: true,
+              selected: {
+                region: null,
+                pattern: null
+              },
+              options:[
+                {
+                  text: 'a) The species was already widely spread before 2015',
+                  index: 'a',
+                  value: 0,
+                },
+
+                {
+                  text: 'b) The species predominantly entered through natural dispersal from a neighbouring country',
+                  index: 'b',
+                  value: 1,
+                },
+
+                {
+                  text:'c) The species predominantly entered with unintentional human assistance',
+                  index: 'c',
+                  value : 2,
+                },
+
+                {
+                  text: 'd) The species predominantly entered with intentional human assistance',
+                  index: 'd',
+                  value: 3,
+                },
+
+                {
+                  text: 'e) There is no evidence of new entries into the Member State',
+                  index: 'e',
+                  value: 4,
+                },
+
+                {
+                  text: 'f) The species predominantly spread through natural dispersal',
+                  index: 'f',
+                  value: 5,
+                },
+
+                {
+                  text: 'g) The species predominantly spread with unintentional human assistance',
+                  index: 'g',
+                  value: 6,
+                },
+
+                {
+                  text: 'h) The species predominantly spread with intentional human assistance',
+                  index: 'h',
+                  value: 7,
+                },
+
+                {
+                  text: 'i) There is no evidence of spread within the Member State',
+                  index: 'i',
+                  value: 8,
+                },
+
+                {
+                  text: 'j) The species spread from the Member State into other Member State(s)',
+                  index: 'j',
+                  value: 9
+                }
+              ],
+              //TODO : remove
+              regionOptions: regionOptions
             },
           ]
         },

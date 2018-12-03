@@ -53,7 +53,6 @@
                 {{section.depending_on_mandatory.label}}
               </h6>
 
-
               <PatternField :patternfields="section.depending_on_mandatory.reproduction_patterns"
                 :scope="'sectiona_' + seckey + '_reproduction'"
                 :ref="'sectiona_' + seckey + '_reproduction'"

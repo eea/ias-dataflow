@@ -107,14 +107,11 @@ import SectionB from './SectionB.vue'
 import SectionC from './SectionC.vue'
 import DistributionMap from './DistributionMap.vue'
 import Countrytab from './Country.vue'
-// import incidentJson from '../assets/incident.js';
-
 import FormSubmit from './FormSubmit.vue'
 import form from '../assets/form.js'
-
+// import incidentJson from '../assets/incident.js';
 
 export default {
-
   name: 'Webform',
   components: {
     sectiona: SectionA,

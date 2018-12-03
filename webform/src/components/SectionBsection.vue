@@ -72,15 +72,20 @@
             {{ sectionProp.depending_on_mandatory.label}}
           </h6>
           <div class="mt-4" v-if="sectionProp.mandatory_item.selected === true">
+
             <PatternField :patternfields="sectionProp.depending_on_mandatory.reproduction_patterns"
-              :scope="'sectionb_reproduction'"
-              :ref="'reproduction'"
-              @remove-pattern="removePattern" @add-new-pattern="addNewPattern"></PatternField>
+                          :scope="'sectionb_' + selkey + '_reproduction'"
+                          :ref="'sectionb_' + selkey + '_reproduction'"
+                          :multiple="sectionProp.depending_on_mandatory.reproduction_patterns.multiple"
+                          @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
+            </PatternField>
 
             <PatternField :patternfields="sectionProp.depending_on_mandatory.spread_pattterns"
-              :scope="'sectionb_spread'"
-              :ref="'sectionb_'+ selkey +'_spread'"
-              @add-new-pattern="addNewPattern" @remove-pattern="removePattern"></PatternField>
+                          :scope="'sectionb_' + selkey + '_spread'"
+                          :ref="'sectionb_' + selkey + '_spread'"
+                          :multiple="sectionProp.depending_on_mandatory.spread_pattterns.multiple"
+                          @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
+            </PatternField>
 
             <div class="mb-2" v-for="(field, fieldkey, fieldindex) in sectionProp.depending_on_mandatory.fields">
               <b-input-group v-if="field.type === 'select' && 'undefined' === typeof field.selected.region"
