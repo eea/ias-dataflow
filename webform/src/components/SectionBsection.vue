@@ -73,6 +73,7 @@
           </h6>
           <div class="mt-4" v-if="sectionProp.mandatory_item.selected === true">
 
+            <!--  TODO: validation for spread  -->
             <PatternField :patternfields="sectionProp.depending_on_mandatory.reproduction_patterns"
                           :scope="'sectionb_' + selkey + '_reproduction'"
                           :ref="'sectionb_' + selkey + '_reproduction'"
