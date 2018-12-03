@@ -144,12 +144,8 @@
                 }
               }
             }
-
           });
-
         }
-        //console.log(oldVals);
-
       },
     },
 
@@ -212,7 +208,6 @@
           });
 
           if(tofilter.length === 0){
-            //console.log('tofilter empty');
             pats = [ pats[pats.length-1] ];
           } else  {
             if(first.length === 0 || second.length === 0){
@@ -220,11 +215,8 @@
             } else {
               pats = filterPats(pats, tofilter );
             }
-
           }
 
-          //console.log(first);
-          //console.log(second);
           if(first.length > 0 && second.length > 0){
             resolve(true);
             self.spreadvals = [];

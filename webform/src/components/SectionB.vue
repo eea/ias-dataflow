@@ -475,7 +475,6 @@ export default {
         });
       });
     },
-
   }
 
 }

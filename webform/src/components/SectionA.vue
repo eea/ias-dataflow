@@ -21,7 +21,7 @@
         </div>
 
         <b-badge variant="danger" v-if="errors.items.filter((err) => {
-        return err.scope === 'sectiona_mandatory_item_'+ seckey || err.scope.indexOf('sectiona_' + seckey + '_') !== -1; }).length > 0"
+          return err.scope === 'sectiona_mandatory_item_'+ seckey || err.scope.indexOf('sectiona_' + seckey + '_') !== -1; }).length > 0"
         v-b-tooltip.hover
         style="cursor: pointer;"
         :title="errors.items.filter((err) => { return err.scope.indexOf('sectiona_' + seckey + '_') !== -1;} ).map((err)=> {return err.msg}).join('\n')"
@@ -55,10 +55,10 @@
 
 
               <PatternField :patternfields="section.depending_on_mandatory.reproduction_patterns"
-                            :scope="'sectiona_' + seckey + '_reproduction'"
-                            :ref="'sectiona_' + seckey + '_reproduction'"
-                            :multiple="section.depending_on_mandatory.reproduction_patterns.multiple"
-                            @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
+                :scope="'sectiona_' + seckey + '_reproduction'"
+                :ref="'sectiona_' + seckey + '_reproduction'"
+                :multiple="section.depending_on_mandatory.reproduction_patterns.multiple"
+                @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
               </PatternField>
 
               <PatternField :patternfields="section.depending_on_mandatory.spread_pattterns"
@@ -542,15 +542,11 @@ export default {
           }
 
           if(fieldFound !== null){
-            //console.log(fieldFound);
-
             let error = {
               field: fieldFound.name,
               msg: err.msg,
               scope: fieldFound.scope,
               rule: "required",
-              //vmId: field.vmId,
-
             };
 
             if(refFound !== null){
@@ -558,17 +554,11 @@ export default {
             } else {
               self.$validator.errors.add(error);
             }
-
           } else {
-            //console.log(err.item);
-            //console.log(err.scope);
-            //console.log(err.name);
+
           }
         });
-
       });
-
-
     },
   },
 

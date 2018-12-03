@@ -17,13 +17,12 @@
 
         <tr v-for="(row,rkey) in rows">
           <td v-for="(field,fkey) in row.fields" v-if="field.name === 'year'">
-
-            <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey )"
-                     variant="danger" class="error-badge" v-b-tooltip.hover
-            :title="errors.first('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey  )">
+            <b-badge
+              v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey )"
+              variant="danger" class="error-badge" v-b-tooltip.hover
+              :title="errors.first('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey  )">
               {{ errors.first('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey ) }}
             </b-badge>
-
             <b-form-select  v-model="field.selected" :options="field.options"
               v-validate.continues ="'required'"
               :data-vv-as="field.label"
@@ -36,8 +35,9 @@
           </td>
 
           <td style="min-width: 15%;">
-            <b-badge v-if=" errors.has( 'permits_' + 'permit' + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey )"
-                     variant="danger" class="error-badge" >
+            <b-badge
+              v-if=" errors.has( 'permits_' + 'permit' + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey )"
+              variant="danger" class="error-badge">
               {{ errors.first( 'permits_' + 'permit' + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey ) }}
             </b-badge>
 
@@ -53,7 +53,8 @@
           </td>
 
           <td v-for="(field,fkey) in row.fields" v-if="field.name !== 'year'"
-              v-bind:style="{ width: field.type === 'add' ? '20%' : 'auto' }" style="padding-left: 15px;padding-right: 15px;max-width: 15%;">
+              v-bind:style="{ width: field.type === 'add' ? '20%' : 'auto' }"
+              style="padding-left: 15px;padding-right: 15px;max-width: 15%;">
 
             <b-row v-for="(sfield, sfkey) in field.fields" v-if="field.type === 'add'" >
 
@@ -87,10 +88,11 @@
             </b-row>
 
             <div v-if="field.name !== 'year' && field.type !== 'add'">
-              <b-badge v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey )"
-                       variant="danger" class="error-badge" :id="'permits_' + field.name + '_' + rkey + 'badge'"
-                       :title="errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey).join('\n')"
-                       v-b-tooltip.hover
+              <b-badge
+                v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey )"
+                variant="danger" class="error-badge" :id="'permits_' + field.name + '_' + rkey + 'badge'"
+                :title="errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey).join('\n')"
+                v-b-tooltip.hover
               >{{ errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey ).join('\n') }}
               </b-badge>
               <field-generator :field="field" validation="'required'"
@@ -102,6 +104,7 @@
               ></field-generator>
             </div>
           </td>
+
           <td><b-btn variant="danger" @click="removeRow(rkey)">X</b-btn></td>
 
         </tr>
@@ -144,8 +147,8 @@
         this.table_section.table_fields.fields[0] = JSON.parse(JSON.stringify(this.initialRows[0]));
         this.options = temp;
       }
-
     },
+
     watch: {
       duplicateFields(fields, oldFields){
         let self = this;

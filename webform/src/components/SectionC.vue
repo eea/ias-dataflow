@@ -59,6 +59,7 @@
             <b-btn variant="primary" @click="addPathway(field)" style="margin-bottom: 1rem;">Add</b-btn>
 
             <b-row v-for="(addField,fkey) in field.fields" style="margin-bottom: 5px;">
+
               <b-col  sm="auto">
                 <b-input-group :prepend="addField.label">
                     <b-form-input disabled :type="addField.type" v-model="addField.selected" ></b-form-input>
@@ -78,9 +79,11 @@
                     </multiselect>
                 </b-input-group>
               </b-col>
+
               <b-col  sm="auto">
                 <b-btn variant="danger" @click="removePathway(field,addField, fkey)">Remove</b-btn>
               </b-col>
+
             </b-row>
 
           </div>
@@ -110,7 +113,6 @@
 
 
 <script>
-
 import {slugify} from '../utils.js';
 import species from '../assets/species';
 import { getSupportingFiles, envelope} from '../api.js';
@@ -314,6 +316,8 @@ export default {
     },
 
     changeSpecie($event, field, fkey){
+      let self = this;
+
       function compare(a, b) {
         if (a.text < b.text)
           return -1;
@@ -330,15 +334,15 @@ export default {
         olds.value = field.fields[fkey].inner_field.selected;
         olds.text = field.fields[fkey].inner_field.selected;
 
-        if(olds.code !== '') this.speciesOptions.push(olds);
+        if(olds.code !== '') self.speciesOptions.push(olds);
 
-        this.speciesOptions.sort(compare);
+        self.speciesOptions.sort(compare);
       }
 
       field.fields[fkey].selected = $event.code;
       field.fields[fkey].inner_field.selected = $event.value;
 
-      this.speciesOptions = this.speciesOptions.filter((item) => {
+      self.speciesOptions = self.speciesOptions.filter((item) => {
         return item.code !== $event.code;
       });
     },
@@ -346,12 +350,10 @@ export default {
     validateRequired(){
       let self = this;
 
-      this.weblinksFields.forEach((item,ix) => {
-
+      self.weblinksFields.forEach((item,ix) => {
         if("undefined" !== typeof self.$refs[item+'_file']){
-
           if(self.$refs[item][0].value.length === 0 && self.$refs[item+'_file'][0].$props.field.selected.length === 0 ){
-            this.linkorFile.push({ link:item, file: item + '_file' });
+            self.linkorFile.push({ link:item, file: item + '_file' });
           } else {
             let res = self.linkorFile.filter((it) => {
               return it.link !== item;
@@ -402,16 +404,14 @@ export default {
   /*.add-section .col {
     line-height: 2rem;
   }*/
+
   .multiselect {
     width: auto;
   }
 </style>
 
 <style>
-
-
   .multiselect multiselect--active {
      z-index: 2000;
   }
-
 </style>

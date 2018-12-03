@@ -153,9 +153,9 @@
           validate(){
             let self = this;
             let promises = [];
-            for( let child in this.$refs){
-              if(this.$refs.hasOwnProperty(child) && 'undefined' !== typeof this.$refs[child].$validator) {
-                promises.push(this.$refs[child].$validator.validate());
+            for( let child in self.$refs){
+              if(self.$refs.hasOwnProperty(child) && 'undefined' !== typeof self.$refs[child].$validator) {
+                promises.push(self.$refs[child].$validator.validate());
               }
             }
 
@@ -174,9 +174,11 @@
           },
 
           updateSFName(val, selkey){
-            if( this.info.sections[selkey]){
-              this.info.sections[selkey].scientific_name.selected.value = val;
-              this.info.sections[selkey].scientific_name.selected.text = val;
+            let self = this;
+
+            if( self.info.sections[selkey]){
+              self.info.sections[selkey].scientific_name.selected.value = val;
+              self.info.sections[selkey].scientific_name.selected.text = val;
             }
           },
 
@@ -186,10 +188,12 @@
             let temp = {
               "none": []
             };
+            let self = this;
+
             let more = $event.split(";");
 
             if(more.length === 0){
-              this.info.sections[selkey].common_name.selected.common_names = $event;
+              self.info.sections[selkey].common_name.selected.common_names = $event;
               return true;
             }
             more.map((item)=>{
@@ -208,7 +212,7 @@
               }
               if("undefined" !== typeof match[1]) temp[country].push( match[1]);
             });
-            this.info.sections[selkey].common_name.selected.common_names = temp;
+            self.info.sections[selkey].common_name.selected.common_names = temp;
           },
 
           removeSection(selkey){
