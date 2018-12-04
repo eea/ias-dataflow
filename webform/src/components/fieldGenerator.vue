@@ -1,17 +1,19 @@
 <template>
 	<div v-if="field">
-		<div v-if="field.type === 'text' || field.type === 'number' || field.type ==='email'" >
-      <b-form-input :disabled="disabled" :name="field.name"
-        v-model="field.selected" :type="field.type" v-if="field.type === 'number'"
-        @input="changeInput($event)"
-        v-bind:key="vname"
-        v-bind:name="vkey"
-        :data-vv-as="field.label"
-        v-bind:data-vv-scope="vscope"
-        v-validate.continues="'required|numeric|min_value:1'"
-      ></b-form-input>
+
+		<div v-if="field.type === 'text' ||  field.type ==='email' || field.type === 'number'" >
 
       <span v-if="validation !== 'false'">
+         <b-form-input :disabled="disabled" :name="field.name"
+                       v-model="field.selected" :type="field.type" v-if="field.type === 'number'"
+                       @input="changeInput($event)"
+                       v-bind:key="vname"
+                       v-bind:name="vkey"
+                       :data-vv-as="field.label"
+                       v-bind:data-vv-scope="vscope"
+                       v-validate.continues="'required|numeric|min_value:1'"
+         ></b-form-input>
+
         <b-form-input :disabled="disabled" :name="field.name"
           v-model="field.selected" :type="field.type" v-if="field.type !== 'number'"
           @input="changeInput($event)"
@@ -22,7 +24,17 @@
           v-validate.continues="'required'"
         ></b-form-input>
       </span>
+
       <span v-else>
+        <b-form-input :disabled="disabled" :name="field.name"
+          v-model="field.selected" :type="field.type" v-if="field.type === 'number'"
+          @input="changeInput($event)"
+          v-bind:key="vname"
+          v-bind:name="vkey"
+          :data-vv-as="field.label"
+          v-bind:data-vv-scope="vscope"
+        ></b-form-input>
+
         <b-form-input :disabled="disabled" :name="field.name"
           v-model="field.selected" :type="field.type" v-if="field.type !== 'number'"
           @input="changeInput($event)"
@@ -107,6 +119,7 @@
         ></b-form-select>
       </span>
       <span v-else>
+
          <!-- TODO: delay in validation at units of measurement -->
         <b-form-select
           :disabled="disabled" v-model="field.selected" :options="field.options"

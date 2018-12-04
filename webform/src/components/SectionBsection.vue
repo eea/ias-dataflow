@@ -44,8 +44,8 @@
                expanded = true : expanded = false">
         <h3>
           <font-awesome-icon v-bind:icon="expanded ? 'chevron-down' : 'chevron-right'"
-                             v-show="sectionProp.mandatory_item.selected !== 1 && sectionProp.mandatory_item.selected !== false"
-                             class="fachevron" />
+            v-show="sectionProp.mandatory_item.selected !== 1 && sectionProp.mandatory_item.selected !== false"
+            class="fachevron" />
           <small>{{info.scientific_name.label}}: </small>{{ sectionProp.scientific_name.selected.text }}</h3>
         <h4><small>{{info.common_name.label}}: </small>{{ sectionProp.common_name.selected.value}}</h4>
         <b-row>
@@ -55,8 +55,8 @@
             </b-badge>
           </b-col>
         </b-row>
-        <b-row>
 
+        <b-row>
           <b-col>
             <b-input-group :prepend="sectionProp.mandatory_item.label">
               <b-form-select v-model="sectionProp.mandatory_item.selected"
@@ -162,6 +162,7 @@
             expanded: false,
           }
         },
+
         methods: {
           validate(){
             let self = this;

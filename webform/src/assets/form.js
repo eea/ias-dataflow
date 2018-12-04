@@ -244,6 +244,7 @@ let tab_1_section = {
                             name: 'permits_number',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -270,6 +271,7 @@ let tab_1_section = {
                             name: 'valid_permits_number',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -296,6 +298,7 @@ let tab_1_section = {
                             name: 'total_permited_speciments',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -322,6 +325,7 @@ let tab_1_section = {
                             name: 'valid_total_permited_speciments',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -361,6 +365,7 @@ let tab_1_section = {
                             name: 'permits_number',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -387,6 +392,7 @@ let tab_1_section = {
                             name: 'valid_permits_number',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -413,6 +419,7 @@ let tab_1_section = {
                             name: 'total_permited_speciments',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -439,6 +446,7 @@ let tab_1_section = {
                             name: 'valid_total_permited_speciments',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -478,6 +486,7 @@ let tab_1_section = {
                             name: 'permits_number',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -504,6 +513,7 @@ let tab_1_section = {
                             name: 'valid_permits_number',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -530,6 +540,7 @@ let tab_1_section = {
                             name: 'total_permited_speciments',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -556,6 +567,7 @@ let tab_1_section = {
                             name: 'valid_total_permited_speciments',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -595,6 +607,7 @@ let tab_1_section = {
                             name: 'permits_number',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -621,6 +634,7 @@ let tab_1_section = {
                             name: 'valid_permits_number',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -647,6 +661,7 @@ let tab_1_section = {
                             name: 'total_permited_speciments',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -673,6 +688,7 @@ let tab_1_section = {
                             name: 'valid_total_permited_speciments',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -731,6 +747,7 @@ let tab_1_section = {
                             name: 'number_establishments_inspections',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -757,6 +774,7 @@ let tab_1_section = {
                             name: 'number_permitted_specimens',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -783,6 +801,7 @@ let tab_1_section = {
                             name: 'establishments_non_compliant',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -810,6 +829,7 @@ let tab_1_section = {
                             name: 'number_speciments_held_by_non_compliant_establishments',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -849,6 +869,7 @@ let tab_1_section = {
                             name: 'number_establishments_inspections',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -875,6 +896,7 @@ let tab_1_section = {
                             name: 'number_permitted_specimens',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -901,6 +923,7 @@ let tab_1_section = {
                             name: 'establishments_non_compliant',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -928,6 +951,7 @@ let tab_1_section = {
                             name: 'number_speciments_held_by_non_compliant_establishments',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -967,6 +991,7 @@ let tab_1_section = {
                             name: 'number_establishments_inspections',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -993,6 +1018,7 @@ let tab_1_section = {
                             name: 'number_permitted_specimens',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -1019,6 +1045,7 @@ let tab_1_section = {
                             name: 'establishments_non_compliant',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -1046,6 +1073,7 @@ let tab_1_section = {
                             name: 'number_speciments_held_by_non_compliant_establishments',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -1085,6 +1113,7 @@ let tab_1_section = {
                             name: 'number_establishments_inspections',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -1111,6 +1140,7 @@ let tab_1_section = {
                             name: 'number_permitted_specimens',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -1137,6 +1167,7 @@ let tab_1_section = {
                             name: 'establishments_non_compliant',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -1164,6 +1195,7 @@ let tab_1_section = {
                             name: 'number_speciments_held_by_non_compliant_establishments',
                             type: 'number',
                             selected: '',
+                            required: 'required'
                           },
                           {
                             label: 'Unit of measurement',
@@ -1304,12 +1336,14 @@ let tab_1_section = {
                 label: 'Impacted non-targeted species',
                 type: 'text',
                 selected: '',
+                validation:'false',
                 name: 'impacted_nontargeted_species',
                 inner_field: {
                   label: 'Impact per species',
                   type: 'text',
                   selected: '',
                   name: 'impact_per_species',
+                  validation:'false',
                 }
               }, ]
             },
@@ -1447,12 +1481,14 @@ let tab_1_section = {
                 label: 'Impacted non-targeted species',
                 type: 'text',
                 selected: '',
+                validation:'false',
                 name: 'impacted_nontargeted_species',
                 inner_field: {
                   label: 'Impact per species',
                   type: 'text',
                   selected: '',
                   name: 'impact_per_species',
+                  validation:'false',
                 }
               }, ]
             },
