@@ -101,8 +101,15 @@
             }
           });
         } else {
+          if(vals.length === 0) return true;
+          vals = vals.filter((itm) => { return itm !== 'undefined' });
+
           vals.map((ref) => {
             let el = null;
+
+            if('undefined' === typeof ref){
+              return true;
+            }
 
             if('undefined' !== typeof ref.ref){
               el = ref.ref.$el;
@@ -189,8 +196,11 @@
                 ref: self.$refs[name][0],
                 val: val,
               });
+              return self.$refs[name][0];
+            } else {
+              return null;
             }
-            return self.$refs[name][0];
+
           });
 
           let allowedFirst = [1,2,3,4];
@@ -208,6 +218,8 @@
           vals.map((el) => {
             if(allowedFirst.indexOf(el.val) === -1 && allowedSecond.indexOf(el.val) === -1 ) { tofilter.push(el); }
           });
+
+          pats = pats.filter(Boolean);
 
           if(tofilter.length === 0){
             pats = [ pats[pats.length-1] ];
@@ -245,6 +257,9 @@
         }
 
         for( let ref in self.$refs){
+          if("undefined" === typeof self.$refs[ref][0] ){
+            continue;
+          }
           if(self.$refs.hasOwnProperty(ref) && 'undefined' !== typeof self.$refs[ref][0].$validator.validate) {
             promises.push(self.$refs[ref][0].$validator.validate());
           }
