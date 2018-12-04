@@ -33,12 +33,11 @@
     </b-row>
 
     <b-card class="mt-5 mb-5">
-      <b-badge variant="danger" v-if="errors.items.filter((err) => {
-          return err.scope.indexOf('sectionb_' + selkey + '_') !== -1; }).length > 0"
-               v-b-tooltip.hover
-               style="cursor: pointer;"
-               :title="errors.items.filter((err) => { return err.scope.indexOf('sectionb_' + selkey + '_') !== -1;} )
-               .map((err)=> {return err.msg}).join('\n')"
+      <b-badge variant="danger" v-if="errors.items.filter((err) => {return err.scope.indexOf('sectionb_' + selkey + '_') !== -1; }).length > 0"
+        v-b-tooltip.hover
+        style="cursor: pointer;"
+        :title="errors.items.filter((err) => { return err.scope.indexOf('sectionb_' + selkey + '_') !== -1;} )
+          .map((err)=> {return err.msg}).join('\n')"
       >{{ errors.items.filter((err) => { return err.scope.indexOf('sectionb_' + selkey + '_') !== -1; })[0].msg }}</b-badge>
 
       <div class="panel-heading" @click="(!expanded && sectionProp.mandatory_item.selected) ?
