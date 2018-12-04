@@ -11,7 +11,7 @@
            @click="expanded.indexOf(seckey) === -1 ? expanded.push(seckey) : expanded.splice(expanded.indexOf(seckey), 1)">
             <h4 class="name-easin">
               <font-awesome-icon v-bind:icon="expanded.indexOf(seckey) !== -1 ? 'chevron-down' : 'chevron-right'" />
-              <span class="name">{{section.scientific_name.selected}}</span>
+              <span class="name" v-html="section.scientific_name.selected">{{ section.scientific_name.selected }}</span>
               <small class="easin">EASIN identifier: <strong>{{section.species_code.selected}}</strong></small>
               <br>
             </h4>
