@@ -4,6 +4,7 @@
       <b-col lg="3">
         <label>{{info.scientific_name.label}}</label>
       </b-col>
+
       <b-col lg="7">
         <b-input v-model="sectionProp.scientific_name.selected.text" :options="info.scientific_name.options"
                  v-validate="'required'" data-vv-as="Scientific name"
@@ -32,6 +33,13 @@
     </b-row>
 
     <b-card class="mt-5 mb-5">
+      <b-badge variant="danger" v-if="errors.items.filter((err) => {
+          return err.scope.indexOf('sectionb_' + selkey + '_') !== -1; }).length > 0"
+               v-b-tooltip.hover
+               style="cursor: pointer;"
+               :title="errors.items.filter((err) => { return err.scope.indexOf('sectionb_' + selkey + '_') !== -1;} )
+               .map((err)=> {return err.msg}).join('\n')"
+      >{{ errors.items.filter((err) => { return err.scope.indexOf('sectionb_' + selkey + '_') !== -1; })[0].msg }}</b-badge>
 
       <div class="panel-heading" @click="(!expanded && sectionProp.mandatory_item.selected) ?
                expanded = true : expanded = false">
