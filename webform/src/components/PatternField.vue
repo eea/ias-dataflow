@@ -182,12 +182,14 @@
 
           let pats = patsN.map((name) => {
             let ref = self.$refs[name][0];
-            let val = parseInt(ref.$el.value, 10);
 
-            vals.push({
-              ref: self.$refs[name][0],
-              val: val,
-            });
+            if("undefined" !== typeof ref){
+              let val = parseInt(ref.$el.value, 10);
+              vals.push({
+                ref: self.$refs[name][0],
+                val: val,
+              });
+            }
             return self.$refs[name][0];
           });
 
@@ -255,6 +257,7 @@
           Promise.all(promises).then((res) => {
             // if no errors
             res = res.concat(newvalid);
+
             if(res.filter((it)=>{ return it === false}).length === 0){
               resolve(res);
             } else {

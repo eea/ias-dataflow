@@ -649,17 +649,17 @@ export default {
 
       let larger = new Date(value).valueOf() > new Date(tover.selected).valueOf();
       if(larger){
-        let target = this.$refs[ref][0];
+        let target = self.$refs[ref][0];
 
         let name = target.$el.querySelector('[name]').getAttribute('name') ;
         let scope = target.$el.querySelector('[data-vv-scope]').getAttribute('data-vv-scope');
 
         let field = target.$validator.fields.find({name: name, scope: scope});
         if(field){
-          this.dateErrors.push({field: field.name, scope:field.scope, target: target });
+          self.dateErrors.push({field: field.name, scope:field.scope, target: target });
         }
       } else {
-        this.$set(this,'dateErrors',[] );
+        self.$set(this,'dateErrors',[] );
       }
     },
 
@@ -681,9 +681,9 @@ export default {
 
           if(element.el.getAttribute("class") === "multiselect"){
             val = self.$refs[element.item][0].field.selected.length === 0 ? null : self.$refs[element.item][0].field.selected ;
-            console.log("multiselect");
+            /*console.log("multiselect");
             console.log(val);
-            console.log("endmultiselect");
+            console.log("endmultiselect");*/
           } else if(element.el.getAttribute('value') !== null){
             val = element.el.getAttribute('value');
           } else if(element.el.value !== null){

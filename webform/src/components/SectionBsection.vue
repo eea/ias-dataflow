@@ -73,7 +73,6 @@
           </h6>
           <div class="mt-4" v-if="sectionProp.mandatory_item.selected === true">
 
-            <!--  TODO: validation for spread  -->
             <PatternField :patternfields="sectionProp.depending_on_mandatory.reproduction_patterns"
                           :scope="'sectionb_' + selkey + '_reproduction'"
                           :ref="'sectionb_' + selkey + '_reproduction'"
@@ -81,6 +80,7 @@
                           @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
             </PatternField>
 
+            <!--  TODO: validation for spread  -->
             <PatternField :patternfields="sectionProp.depending_on_mandatory.spread_pattterns"
                           :scope="'sectionb_' + selkey + '_spread'"
                           :ref="'sectionb_' + selkey + '_spread'"
@@ -161,7 +161,10 @@
             let promises = [];
             for( let child in self.$refs){
               if(self.$refs.hasOwnProperty(child) && 'undefined' !== typeof self.$refs[child].$validator) {
-                promises.push(self.$refs[child].$validator.validate());
+                promises.push( self.$refs[child].$validator.validate() );
+                if( 'undefined' !==  self.$refs[child].validate ){
+                  promises.push( self.$refs[child].validate());
+                }
               }
             }
 
