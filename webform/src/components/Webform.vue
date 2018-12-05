@@ -1,7 +1,7 @@
 <template>
 	<b-container fluid class="main-layout">
     <center><h1 class="mb-3 mt-2">IAS dataflow</h1></center>
-    <center><h5><small class="text-muted">Technical formats to be used by the Member States for transmitting to the Commission the information pursuant to paragraph 1 of Article 24 of Regulation (EU) No 1143/2014 on the prevention and management of the introduction of invasive alien species</small></h5></center>
+    <center><h5><span class="text-muted">Technical formats to be used by the Member States for transmitting to the Commission the information pursuant to paragraph 1 of Article 24 of Regulation (EU) No 1143/2014 on the prevention and management of the introduction of invasive alien species</span></h5></center>
 
     <b-card v-if="prefilled" no-body ref="content">
         <formsubmit :country.sync="country" :info.sync="form" @validate-components="validateSections"
@@ -249,7 +249,6 @@ export default {
             if(ph) ph.click();
           }
 
-          //el.style.border="1px solid red";
         } , 1000);
       }
     }
@@ -307,7 +306,7 @@ export default {
 
 @media (min-width: 1024px){
   .main-layout {
-    max-width: 80%;
+    max-width: 82%;
   }
 }
 </style>

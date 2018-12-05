@@ -58,7 +58,7 @@
               </b-col>
 
               <b-col lg="7">
-                <b-input v-model="selected['common_name']"></b-input>
+                <b-input v-model="selected['common_name']" ></b-input>
               </b-col>
               <b-col lg="2" class="d-xs-block d-md-none d-lg-none d-xl-none">
                 <b-btn  @click="addManually(selected['sci_name'], selected['common_name'])"

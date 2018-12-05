@@ -535,7 +535,7 @@ export default {
         delete newDataset.tab_1.sections[k];
       });
 
-      //console.log(JSON.stringify(newDataset));
+      console.log(JSON.stringify(newDataset));
 
       //console.log(newDataset);
 

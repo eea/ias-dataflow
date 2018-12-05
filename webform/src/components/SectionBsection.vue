@@ -9,7 +9,7 @@
         <b-input v-model="sectionProp.scientific_name.selected.text" :options="info.scientific_name.options"
                  v-validate="'required'" data-vv-as="Scientific name"
                  v-bind:data-vv-scope="'sectionb_' + 'scientific_name_' + selkey" v-bind:name="'scientific_name_' + selkey"
-                 @change="updateSFName($event, selkey)"
+                 @change="updateSFName($event, selkey)" disabled
         ></b-input>
         <b-badge variant="danger" v-show="errors.has('sectionb_scientific_name_' + selkey + '.' + 'scientific_name_' + selkey )"
                  style="line-height: 3;">{{ errors.first('sectionb_scientific_name_' + selkey + '.' + 'scientific_name_' + selkey ) }}</b-badge>

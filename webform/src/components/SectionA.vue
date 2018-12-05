@@ -3,7 +3,7 @@
     <div class="question-wrapper">
       <h2><center>{{info.question}}</center></h2>
       <br/>
-      <h3><i><center>{{info.table_label}}</center></i></h3>
+      <h2><i><center>{{info.table_label}}</center></i></h2>
 
       <b-card class="mt-5 mb-5" v-for="(section,seckey, secindex) in info.sections">
 
