@@ -5,7 +5,7 @@
       <b-card class="mt-5 mb-5">
       <div v-for="(field,fieldkey,fieldindex ) in info.section.fields">
         <b-col>
-          <label>{{field.label}}</label>
+          <label style="font-size: 1.2em;">{{field.label}}</label>
 
           <!-- for weblinks -->
           <div v-if="field.type === 'text'">
@@ -60,16 +60,16 @@
 
             <b-row v-for="(addField,fkey) in field.fields" style="margin-bottom: 5px;">
 
-              <b-col  sm="auto">
+              <b-col sm="auto">
                 <b-input-group :prepend="addField.label">
                     <b-form-input disabled :type="addField.type" v-model="addField.selected" ></b-form-input>
                 </b-input-group>
               </b-col>
 
-              <b-col  sm="auto" style="min-width: 50%;">
+              <b-col sm="auto" style="min-width: 40%;">
                 <b-input-group :prepend="addField.inner_field.label">
                     <multiselect v-model="speciesModels[fkey]" :options="speciesOptions"
-                      style="width: 80%;border-top-left-radius: 0;border-bottom-left-radius: 0;"
+                      style="width: 70%;border-top-left-radius: 0;border-bottom-left-radius: 0;"
                       :multiple="false" :close-on-select="true" :clear-on-select="true" :preserve-search="true" track-by="text"
                       :custom-label="customLabel" @input="changeSpecie($event, field, fkey)"
                     >
@@ -414,4 +414,6 @@ export default {
   .multiselect multiselect--active {
      z-index: 2000;
   }
+
+
 </style>

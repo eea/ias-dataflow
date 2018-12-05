@@ -5,7 +5,7 @@
       <b-card class="mt-5 mb-5">
         <div v-for="(field, fieldkey, fieldindex ) in info.section.fields">
           <b-col>
-            <label>{{field.label}}</label>
+            <label style="font-size: 1.2em;">{{field.label}}</label>
             <b-form-input v-if="field.type === 'text'" :type="field.type" v-model="field.selected" ></b-form-input>
             <textarea class="form-control" v-else-if="field.type === 'textarea'" v-model="field.selected" ></textarea>
             <div class="add-section" v-else-if="field.type === 'add'">
