@@ -260,8 +260,6 @@ export default {
 
 <style lang="css" scoped>
 
-
-
 #errorsModal .modal {
   max-height: 800px;
 }
@@ -309,7 +307,7 @@ export default {
 
 @media (min-width: 1024px){
   .main-layout {
-    max-width: 75%;
+    max-width: 80%;
   }
 }
 </style>

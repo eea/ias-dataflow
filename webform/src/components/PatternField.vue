@@ -305,6 +305,10 @@
     max-width: 100%;
   }
 
+  .table th {
+    font-size: 1.2em;
+  }
+
   thead {
     color: white
   }

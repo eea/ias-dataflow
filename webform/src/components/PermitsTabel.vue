@@ -2,9 +2,9 @@
   <div class="table-wrapper">
 
     <table class="table table-striped">
-      <thead class="bg-info">
+      <thead style="background-color: #337dcc;">
       <th class="year-column" >Calendar year</th>
-      <th class="permits-column">{{table_section.table_fields.header}}</th>
+      <th class="permits-column">{{ table_section.table_fields.header }}</th>
       <th class="header-column" v-for="header in table_section.table_fields.fields[0].fields" v-if="header.label !=='Year' ">
         <span v-if="header.label" >{{ header.label  }}</span>
         <span v-else>
@@ -16,7 +16,7 @@
       <tbody>
 
         <tr v-for="(row,rkey) in rows">
-          <td v-for="(field,fkey) in row.fields" v-if="field.name === 'year'">
+          <td v-for="(field,fkey) in row.fields" v-if="field.name === 'year'" style="min-width: 10%;width: 10%;">
             <b-badge
               v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey )"
               variant="danger" class="error-badge" v-b-tooltip.hover
@@ -75,11 +75,12 @@
                        :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
                     ></field-generator>
                   </b-col>
+
                 </b-row>
               </b-col>
 
               <b-col v-if="sfkey === 0" cols="1">
-                <b-btn variant="primary" @click="addSubfield(field)" style="margin-bottom: 5px;">Add</b-btn>
+                <b-btn variant="primary" @click="addSubfield(field)" style="margin-bottom: 5px;">+</b-btn>
               </b-col>
 
               <b-col v-if="sfkey !== 0"  cols="1">
@@ -365,14 +366,13 @@
 </style>
 
 <style scoped>
-
   .table-wrapper {
     margin-bottom: 2rem;
     overflow: hidden;
     border-radius: 0.5rem;
     margin-top: 1rem;
-
   }
+
   table {
     margin-bottom: 0;
     border-collapse:collapse;
@@ -389,6 +389,7 @@
 
   thead th {
     vertical-align: middle;
+    font-size: 1.10em;
   }
 
   .btnAdd {

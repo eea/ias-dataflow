@@ -56,7 +56,7 @@ let tab_1_section = {
     index: 2,
   },
   mandatory_item: {
-    label: 'Is the species present in the territory of the Member State?',
+    label: 'Is the species present in the territory of the Member State ?',
     type: 'select',
     selected: 1,
     options: [{ value: true, text: "Yes" }, { value: false, text: "No" }, { value: 'unknown', text: "Currently unknown" }],

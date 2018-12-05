@@ -1,23 +1,25 @@
 <template>
   <div v-if="info">
-
     <div class="question-wrapper">
       <h2><center>{{info.question}}</center></h2>
       <br/>
       <h3><i><center>{{info.table_label}}</center></i></h3>
 
       <b-card class="mt-5 mb-5" v-for="(section,seckey, secindex) in info.sections">
+
         <div class="panel-heading"
-           @click="expanded.indexOf(seckey) === -1 ? expanded.push(seckey) : expanded.splice(expanded.indexOf(seckey), 1)">
-            <h4 class="name-easin">
-              <font-awesome-icon v-bind:icon="expanded.indexOf(seckey) !== -1 ? 'chevron-down' : 'chevron-right'" />
-              <span class="name" v-html="section.scientific_name.selected">{{ section.scientific_name.selected }}</span>
-              <small class="easin">EASIN identifier: <strong>{{section.species_code.selected}}</strong></small>
-              <br>
-            </h4>
-            <h4>
-              <small>{{section.common_name.label}}: {{section.common_name.selected}}</small>
-            </h4>
+         @click="expanded.indexOf(seckey) === -1 ? expanded.push(seckey) : expanded.splice(expanded.indexOf(seckey), 1)">
+          <h4 class="name-easin">
+            <font-awesome-icon v-bind:icon="expanded.indexOf(seckey) !== -1 ? 'chevron-down' : 'chevron-right'" />
+            <span style="font-size: 1em; font-weight: 600;" class="name" v-html="section.scientific_name.selected">
+              {{ section.scientific_name.selected }}
+            </span>
+            <small class="easin">EASIN identifier: <strong>{{section.species_code.selected}}</strong></small>
+            <br>
+          </h4>
+          <h5>
+            {{section.common_name.label}}: {{section.common_name.selected}}
+          </h5>
         </div>
 
         <b-badge variant="danger" v-if="errors.items.filter((err) => {
@@ -34,7 +36,7 @@
 
           <b-row>
             <b-col>
-              <b-input-group :prepend="section.mandatory_item.label">
+              <b-input-group :prepend="section.mandatory_item.label" class="inputgroup">
                 <b-form-select v-model="section.mandatory_item.selected" :options="section.mandatory_item.options"
                    v-validate="'selectRequiredNumber:1'"
                    :data-vv-as="'Species presence for '  + section.scientific_name.selected "
@@ -92,7 +94,7 @@
 
             <b-card class="inner-card">
               <div class="card-section">
-                <center><h5>{{section.tables.table_1.label}}</h5></center>
+                <center><h6>{{section.tables.table_1.label}}</h6></center>
                 <hr>
                 <b-row>
                   <b-col>
@@ -103,7 +105,7 @@
                 </b-row>
                 <b-row>
                   <b-col>
-                    <b-input-group :prepend="section.tables.table_1.question.label">
+                    <b-input-group :prepend="section.tables.table_1.question.label"  class="inputgroup">
                       <b-form-select v-model="section.tables.table_1.question.selected" :options="section.tables.table_1.question.options"
                                      v-validate.continues="'required'"
                                      :data-vv-as="'permits issued'"
@@ -140,7 +142,7 @@
             <b-card class="inner-card">
               <div class="card-section">
                 <center>
-                  <h5>{{section.tables.table_2.label}}</h5>
+                  <h6>{{section.tables.table_2.label}}</h6>
                 </center>
                 <hr>
                 <b-row>
@@ -152,7 +154,7 @@
                 </b-row>
                 <b-row>
                   <b-col>
-                    <b-input-group :prepend="section.tables.table_2.question.label">
+                    <b-input-group :prepend="section.tables.table_2.question.label"  class="inputgroup">
                       <b-form-select v-model="section.tables.table_2.question.selected" :options="section.tables.table_2.question.options"
                                      v-validate.continues="'required'"
                                      :data-vv-as="'eradication measures'"
@@ -164,7 +166,9 @@
                   </b-col>
                 </b-row>
 
-                <div class="table-section" v-for="(table_section,table_key) in section.tables.table_2.table_sections" v-if="section.tables.table_2.question.selected === true">
+                <div class="table-section" v-for="(table_section,table_key) in section.tables.table_2.table_sections"
+                     v-if="section.tables.table_2.question.selected === true">
+
                   <h6>{{table_section.label}}</h6>
 
                   <!--<h5>{{ sub_section.description }}</h5>-->
@@ -292,7 +296,7 @@
             <b-card class="inner-card">
               <div class="card-section">
                 <center>
-                  <h5>{{section.tables.table_3.label}}</h5>
+                  <h6>{{section.tables.table_3.label}}</h6>
                 </center>
                 <hr>
                 <b-row>
@@ -304,7 +308,7 @@
                 </b-row>
                 <b-row>
                   <b-col>
-                    <b-input-group :prepend="section.tables.table_3.question.label">
+                    <b-input-group :prepend="section.tables.table_3.question.label" class="inputgroup">
                       <b-form-select v-model="section.tables.table_3.question.selected" :options="section.tables.table_3.question.options"
                                      v-validate.continues="'required'"
                                      :data-vv-as="'management measures'"
@@ -884,6 +888,11 @@ export default {
 </style>
 
 <style>
+  .inputgroup .input-group-prepend .input-group-text{
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+
   @media screen and (max-width: 768px){
     h1 {
       font-size: 1.5rem;
