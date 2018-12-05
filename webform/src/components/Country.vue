@@ -1,20 +1,12 @@
 <template>
   <div v-if="info">
     <div class="question-wrapper">
-      <h2>Information on the reporting party</h2>
-      <div class="question">
-
-      </div>
+      <h2><center>{{info.question}}</center></h2>
+      <br/>
+      <!--<h2><i><center>{{info.table_label}}</center></i></h2>-->
       <div v-for="(tables,index) in info.tables" class="table table-striped answer">
-        <div class="table-head">
-          <!--<div v-if="index === 'table_1'">
-            <p>
-              Please provide information on the reporting Party by completing the following table.
-            </p>
-          </div>-->
-        </div>
-
-
+        <h4><i><center>{{info.tables[index].description}}</center></i></h4>
+        <br/>
         <div class="table-body" >
           <div class="container" style="max-width: 50%">
             <b-row v-for="(table,tkey) in tables.fields">

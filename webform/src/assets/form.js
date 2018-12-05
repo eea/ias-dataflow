@@ -1539,6 +1539,36 @@ var form = {
       }
     },
 
+    tab_0: {
+      label: 'REPORTING PARTY',
+      question: 'Information on the reporting party',
+      tables: {
+        table_1: {
+          description: 'Information submitted in application of Article 24(1) of regulation (EU) No 1143/2014',
+          fields: [{
+            name: 'partyname',
+            type: 'text',
+            label: 'Member State',
+            selected: '',
+          },
+            {
+              name: 'rep_period_from',
+              type: 'text',
+              label: 'Reporting period from (year)',
+              selected: '2015-01-01',
+              disabled: true,
+            },
+            {
+              name: 'rep_period_to',
+              type: 'text',
+              label: 'Reporting period to (year)',
+              selected: '2018-12-31',
+              disabled: true,
+            }
+          ]
+        }
+      }
+    },
     tab_1: {
       label: 'SECTION A',
       question: 'Information to be submitted for each of the invasive alien species of Union concern and for each invasive alien species of regional concern subject to measures as provided for in Article 11(2) of Regulation (EU) No 1143/2014',

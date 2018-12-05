@@ -17,7 +17,7 @@
     "bootstrap-vue": "^2.0.0-rc.1",
     "date-input-polyfill": "^2.14.0",
     "es6-promise-polyfill": "^1.2.0",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.11.0",
     "promise-polyfill": "^7.1.0",
     "sass-loader": "^6.0.6",
     "vee-validate": "^2.1.0-beta.11",

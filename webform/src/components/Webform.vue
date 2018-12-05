@@ -8,8 +8,8 @@
                     :validated="validated" ref="formsubmit" @open-error-modal="openErrorModal"></formsubmit>
         <b-form validated novalidate @submit="onSubmit" >
           <b-tabs card v-model="tabIndex"  >
-            <b-tab :title-link-class="'titletab'" title="Reporting party" active ref="country_tab" style="overflow-y: auto;">
-              <countrytab tabId="0" :info.sync="form.country" ref="country"></countrytab>
+            <b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_0.label)" active ref="country_tab" style="overflow-y: auto;">
+              <countrytab tabId="0" :info.sync="form.tab_0" ref="country"></countrytab>
             </b-tab>
             <b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_1.label)" ref="sectiona_tab" style="overflow-y: auto;">
      			    <sectiona tabId="1" :info.sync="form.tab_1" ref="sectiona"></sectiona>
