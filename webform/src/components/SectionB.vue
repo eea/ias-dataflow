@@ -20,7 +20,6 @@
               <label>{{info.scientific_name.label}}</label>
             </b-col>
             <b-col lg="7">
-
                 <multiselect v-model="value" :options="info.scientific_name.options"  :multiple="true"
                 :close-on-select="false" :clear-on-select="false" :preserve-search="true" track-by="text"
                 @select="fillCommon($event)" :custom-label="customLabel" @input="updateSelected()" @remove="remove($event)"
@@ -625,4 +624,11 @@ export default {
   }
 }
 
+</style>
+
+<style>
+  .multiselect .multiselect__tag {
+    font-weight: 600;
+    font-size: 1.2em;
+  }
 </style>

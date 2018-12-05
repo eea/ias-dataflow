@@ -27,9 +27,11 @@
         <b-input v-model="sectionProp.common_name.selected.value"
                  @change="updateSectionCommonName($event,selkey)"></b-input>
       </b-col>
+
       <b-col lg="2" class="d-xs-block d-md-none d-lg-none d-xl-none">
         <b-btn style="margin-bottom: -3rem" variant="danger" @click="removeSection(selkey)">remove</b-btn>
       </b-col>
+
     </b-row>
 
     <b-card class="mt-5 mb-5">
@@ -46,8 +48,10 @@
           <font-awesome-icon v-bind:icon="expanded ? 'chevron-down' : 'chevron-right'"
             v-show="sectionProp.mandatory_item.selected !== 1 && sectionProp.mandatory_item.selected !== false"
             class="fachevron" />
-          <small>{{info.scientific_name.label}}: </small>{{ sectionProp.scientific_name.selected.text }}</h3>
-        <h4><small>{{info.common_name.label}}: </small>{{ sectionProp.common_name.selected.value}}</h4>
+          <small>{{info.scientific_name.label}}: </small><span style="font-size: 1em; font-weight: 600;">
+          {{ sectionProp.scientific_name.selected.text }}</span></h3>
+        <h4><small>{{info.common_name.label}}: </small><span style="font-size: 1em; font-weight: 600;">
+          {{ sectionProp.common_name.selected.value}}</span></h4>
         <b-row>
           <b-col>
             <b-badge variant="danger" v-if="errors.has('sectionb_mandatory_item_'+ selkey + '.mandatory_item_' + selkey)">
@@ -58,7 +62,7 @@
 
         <b-row>
           <b-col>
-            <b-input-group :prepend="sectionProp.mandatory_item.label">
+            <b-input-group :prepend="sectionProp.mandatory_item.label" class="inputgroup">
               <b-form-select v-model="sectionProp.mandatory_item.selected"
                  v-validate="'selectRequiredNumber:1'"
                  data-vv-as="Mandatory item"
@@ -97,7 +101,7 @@
 
             <div class="mb-2" v-for="(field, fieldkey, fieldindex) in sectionProp.depending_on_mandatory.fields">
               <b-input-group v-if="field.type === 'select' && 'undefined' === typeof field.selected.region"
-                :prepend="field.label">
+                :prepend="field.label" class="inputgroup">
                 <b-form-select :options="field.options" v-model="field.selected"
                   v-validate="'selectRequiredBoolean'"
                   v-bind:name="'depending_on_manadatory_' + selkey + '_' + fieldkey"
@@ -118,7 +122,8 @@
         </div>
 
         <b-row class="mt-3" v-if="sectionProp.mandatory_item.selected === true">
-          <b-col lg="3">
+
+          <b-col lg="3" style="font-size: 1.2em;">
             {{sectionProp.additional_info.label}}
           </b-col>
           <b-col lg='9'>
@@ -134,7 +139,7 @@
               <label :for="`${field.name}_${selkey}_${tabId}`">{{field.label}}</label>
             </div>
             <div lg="12" v-else >
-              <label>{{field.label}}</label>
+              <label style="font-size: 1.2em;">{{field.label}}</label>
               <textarea class="form-control" v-model="field.selected" ></textarea>
             </div>
           </div>

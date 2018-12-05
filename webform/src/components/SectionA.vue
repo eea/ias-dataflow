@@ -172,10 +172,11 @@
                   <h6>{{table_section.label}}</h6>
 
                   <!--<h5>{{ sub_section.description }}</h5>-->
-                  <table  v-for="sub_section in table_section.table_fields.fields" class="table">
+
+                  <table v-for="sub_section in table_section.table_fields.fields" class="table">
                     <thead>
                     <tr>
-                      <th style="max-width: 50px" >{{sub_section.label}}</th>
+                      <th style="max-width: 50px; font-size: 1.2em;" >{{sub_section.label}}</th>
                       <th v-if="sub_section.type === 'add'">
                         <b-btn variant="primary" @click="addSpecies(sub_section)">Add</b-btn>
                       </th>
@@ -184,10 +185,10 @@
                     <tbody>
 
                     <tr v-for="(row, rowkey, rowindex) in sub_section.fields">
-                      <td style="width: 120px" v-if="row.label">{{row.label}}</td>
+
+                      <td style="width: 120px" v-if="row.label"><span style="font-size: 1.2em">{{row.label}}</span></td>
 
                       <td v-if="sub_section.type !== 'add'">
-
                         <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                               && item.scope === 'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + row.name + '_' + rowkey
                               && item.field === row.name + '_' + rowkey;}).length > 0">
@@ -216,7 +217,6 @@
 
                       </td>
                       <td v-else>
-
                         <b-row>
                           <b-col>
 
@@ -247,7 +247,7 @@
                           </b-col>
 
                           <b-col lg="2">
-                            <label>{{row.inner_field.label}}</label>
+                            <label style="font-size: 1.2em;">{{row.inner_field.label}}</label>
                           </b-col>
 
 
@@ -325,7 +325,7 @@
                   <table  v-for="sub_section in table_section.table_fields.fields" class="table">
                     <thead>
                     <tr>
-                      <th style="max-width: 50px" >{{sub_section.label}}</th>
+                      <th style="max-width: 50px; font-size: 1.2em" >{{sub_section.label}}</th>
                       <th v-if="sub_section.type === 'add'">
                         <b-btn variant="primary" @click="addSpecies(sub_section)">Add</b-btn>
                       </th>
@@ -334,7 +334,7 @@
                     <tbody>
 
                     <tr v-for="(row, rowkey, rowindex) in sub_section.fields">
-                      <td style="width: 120px" v-if="row.label">{{row.label}}</td>
+                      <td style="width: 120px" v-if="row.label"><span style="font-size: 1.2em">{{row.label}}</span></td>
 
                       <td v-if="sub_section.type != 'add'">
                         <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
@@ -365,7 +365,6 @@
 
                       </td>
                       <td v-else>
-
                         <b-row>
                           <b-col>
                             <b-badge variant="danger" class="error-badge"
@@ -396,7 +395,7 @@
                           </b-col>
 
                           <b-col lg="2">
-                            <label>{{row.inner_field.label}}</label>
+                            <label  style="font-size: 1.2em">{{row.inner_field.label}}</label>
                           </b-col>
 
                           <b-col>

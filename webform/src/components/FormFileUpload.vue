@@ -3,7 +3,7 @@
     <b-badge  v-if="errors.has('*' , scope +'_' + 'files-input-' + fieldkey )" variant="danger">
       {{ errors.first('*' , scope +'_' + 'files-input-' + fieldkey ) }}
     </b-badge >
-    <b-input-group>
+    <b-input-group class="inputgroup">
 
       <!-- Error Badge -->
       <b-input-group-prepend>

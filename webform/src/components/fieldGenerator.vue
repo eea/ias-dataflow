@@ -120,7 +120,7 @@
       </span>
       <span v-else>
 
-         <!-- TODO: delay in validation at units of measurement -->
+        <!-- TODO: delay in validation at units of measurement -->
         <b-form-select
           :disabled="disabled" v-model="field.selected" :options="field.options"
           v-bind:key="vname"
