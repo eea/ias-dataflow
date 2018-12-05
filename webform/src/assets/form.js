@@ -1332,6 +1332,7 @@ let tab_1_section = {
             {
               label: 'Impacted non-targeted species',
               type: 'add',
+              description:'Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)',
               fields: [{
                 label: 'Impacted non-targeted species',
                 type: 'text',
@@ -1477,6 +1478,7 @@ let tab_1_section = {
             {
               label: 'Impacted non-targeted species',
               type: 'add',
+              description:'Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)',
               fields: [{
                 label: 'Impacted non-targeted species',
                 type: 'text',

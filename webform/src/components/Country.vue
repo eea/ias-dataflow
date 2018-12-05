@@ -1,7 +1,7 @@
 <template>
   <div v-if="info">
     <div class="question-wrapper">
-      <h3>INFORMATION ON THE REPORTING PARTY</h3>
+      <h2>INFORMATION ON THE REPORTING PARTY</h2>
       <div class="question">
 
       </div>

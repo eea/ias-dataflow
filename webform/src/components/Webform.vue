@@ -1,5 +1,5 @@
 <template>
-	<b-container fluid>
+	<b-container fluid class="main-layout">
     <center><h1 class="mb-3 mt-2">IAS dataflow</h1></center>
     <center><h5><small class="text-muted">Technical formats to be used by the Member States for transmitting to the Commission the information pursuant to paragraph 1 of Article 24 of Regulation (EU) No 1143/2014 on the prevention and management of the introduction of invasive alien species</small></h5></center>
 
@@ -8,19 +8,19 @@
                     :validated="validated" ref="formsubmit" @open-error-modal="openErrorModal"></formsubmit>
         <b-form validated novalidate @submit="onSubmit" >
           <b-tabs card v-model="tabIndex"  >
-            <b-tab title="Reporting party" active ref="country_tab" style="overflow-y: auto;">
+            <b-tab :title-link-class="'titletab'" title="Reporting party" active ref="country_tab" style="overflow-y: auto;">
               <countrytab tabId="0" :info.sync="form.country" ref="country"></countrytab>
             </b-tab>
-            <b-tab :title="doTitle(form.tab_1.label)" ref="sectiona_tab" style="overflow-y: auto;">
+            <b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_1.label)" ref="sectiona_tab" style="overflow-y: auto;">
      			    <sectiona tabId="1" :info.sync="form.tab_1" ref="sectiona"></sectiona>
             </b-tab>
-            <b-tab :title="doTitle(form.tab_2.label)" ref="sectionb_tab" style="overflow-y: auto;">
+            <b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_2.label)" ref="sectionb_tab" style="overflow-y: auto;">
               <sectionb v-bind:data-vv-scope="'sectionb'" tabId="2" :info.sync="form.tab_2" ref="sectionb"></sectionb>
             </b-tab>
-            <b-tab :title="doTitle(form.tab_3.label)" ref="sectionc_tab" style="overflow-y: auto;">
+            <b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_3.label)" ref="sectionc_tab" style="overflow-y: auto;">
               <sectionc tabId="3" :info.sync="form.tab_3" ref="sectionc"></sectionc>
             </b-tab>
-            <b-tab :title="doTitle(form.tab_4.label)" ref="distributionmap_tab"style="overflow-y: auto;">
+            <b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_4.label)" ref="distributionmap_tab"style="overflow-y: auto;">
               <distributionmap tabId="4" :info.sync="form.tab_4" ref="distributionmap"></distributionmap>
             </b-tab>
           </b-tabs>
@@ -260,6 +260,8 @@ export default {
 
 <style lang="css" scoped>
 
+
+
 #errorsModal .modal {
   max-height: 800px;
 }
@@ -304,8 +306,18 @@ export default {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+@media (min-width: 1024px){
+  .main-layout {
+    max-width: 75%;
+  }
+}
 </style>
 <style>
+  .titletab {
+    font-size: 1.2em;
+  }
+
   @media (min-width: 576px){
     .modal-dialog {
       max-width: 1000px;

@@ -2,7 +2,7 @@
   <div v-if="info">
 
     <div class="question-wrapper">
-      <h1><center>{{info.question}}</center></h1>
+      <h2><center>{{info.question}}</center></h2>
       <br/>
       <h3><i><center>{{info.table_label}}</center></i></h3>
 
@@ -167,6 +167,7 @@
                 <div class="table-section" v-for="(table_section,table_key) in section.tables.table_2.table_sections" v-if="section.tables.table_2.question.selected === true">
                   <h6>{{table_section.label}}</h6>
 
+                  <!--<h5>{{ sub_section.description }}</h5>-->
                   <table  v-for="sub_section in table_section.table_fields.fields" class="table">
                     <thead>
                     <tr>

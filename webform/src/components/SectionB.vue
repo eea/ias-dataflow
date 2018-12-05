@@ -1,7 +1,7 @@
 <template>
   <div v-if="info">
     <div class="question-wrapper">
-      <h1><center>{{info.question}}</center></h1>
+      <h2><center>{{info.question}}</center></h2>
       <br/>
       <h3><i><center>{{info.table_label}}</center></i></h3>
         <b-row>
