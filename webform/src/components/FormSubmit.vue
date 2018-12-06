@@ -313,23 +313,50 @@ export default {
 
       function processPermitsRow( fields ){
         let res = [];
+
         fields.map((itm) => {
           if('undefined' !== typeof itm.selected) {
             res[itm.name] = itm.selected;
           }
           if('undefined' !== typeof itm.type && itm.type === "add"){
-            let subfield = itm.fields[0].fields;
+            let subfield = null;
+            if(itm.fields.length > 1){
+              subfield = itm.fields.map((field) => { return field.fields;});
+            } else {
+              subfield = itm.fields[0].fields;
+            }
+
             let subs = subfield.map((sub) => {
-              return { name: sub.name, selected: sub.selected};
+              if(sub instanceof Array) {
+                let ret = [];
+                sub.map((field) => {
+                  ret.push({ name: field.name, selected: field.selected })
+                });
+                return ret;
+              } else {
+                return { name: sub.name, selected: sub.selected};
+              }
             }).reduce((acc, item) => {
-              acc[item.name] = item.selected;
-              return acc;
+              if(item instanceof Array){
+                if('undefined' === typeof acc[item[0].name]){ acc[item[0].name] = [] }
+                //console.log("######");
+                let temp = {};
+                item.map((fi) => {
+                  temp[fi.name] = fi.selected;
+                });
+                acc[item[0].name].push(temp);
+                return acc;
+              } else {
+                acc[item.name] = item.selected;
+                return acc;
+              }
             },{});
             res.push(subs);
           }
         });
         return res;
       }
+
 
       function processTable1(table){
         let sections = table.table_sections.map((tsection) => {
@@ -351,10 +378,38 @@ export default {
         /*sections.map((section) => {
           res[section.name] = section;
         });*/
+        //console.log(sections);
         return res;
       }
 
+      // TODO: maybe simplify: use one function for table 2 and 3
       function processTable2( table ){
+        let res = JSON.parse(JSON.stringify( table ));
+        delete res.question.type;
+        delete res.question.index;
+        delete res.question.options;
+
+        res.table_sections = res.table_sections.map( (tsection, ix) => {
+          //if('undefined' !== typeof tsection.selected) res.table_sections[ix] = { name: tsection.name, selected: tsection.selected };
+          Object.keys(tsection).map( (prop) => {
+            if(prop === "table_fields") {
+              let fields = tsection[prop].fields.reduce((acc, fs) => {
+                acc = acc.concat(fs.fields);
+                return acc;
+              }, []);
+              //TODO: process options for selected
+              tsection[prop] = fields;
+            }
+
+          });
+          return tsection;
+        });
+        delete res.table_sections.label;
+
+        return res;
+      }
+
+      function processTable3( table ) {
         let res = JSON.parse(JSON.stringify( table ));
         delete res.question.type;
         delete res.question.index;
@@ -377,14 +432,9 @@ export default {
           return tsection;
         });
         delete res.table_sections.label;
+
         return res;
       }
-
-      function processTable3( table ) {
-
-        return JSON.parse(JSON.stringify(table));
-      }
-
 
       let country_tab = newDataset.country.tables;
       if(typeof country_tab === "object"){
@@ -400,10 +450,8 @@ export default {
       }
 
       //TODO: remove
-      delete newDataset.tab_2;
       delete newDataset.tab_3;
       delete newDataset.tab_4;
-      delete newDataset.country;
 
       let sectionA = newDataset.tab_1.sections;
 
@@ -411,13 +459,14 @@ export default {
         if (val !== 'sections') delete newDataset.tab_1[val];
       }
       let todelete = [];
+
       if("undefined" !== typeof sectionA){
         const todeleteProps = [
           //'mandatory_item'
         ];
 
         sectionA.forEach((section, k) => {
-          //console.log("###################specie############");
+
           if(section.mandatory_item.selected === 1){
             todelete.push(k);
             newDataset.tab_1.sections[k] = null;
@@ -531,13 +580,54 @@ export default {
 
       }
 
+      //console.log("###################specie############");
+      newDataset.tab_1.sections = newDataset.tab_1.sections.filter(Boolean);
+
       todelete.map((k) => {
         delete newDataset.tab_1.sections[k];
       });
 
-      console.log(JSON.stringify(newDataset));
+      let sectionB = newDataset.tab_2.sections;
 
-      //console.log(newDataset);
+      for(let val of Object.keys(newDataset.tab_2)){
+        if (val !== 'sections') delete newDataset.tab_2[val];
+      }
+      if("undefined" !== typeof sectionB){
+        sectionB.forEach((section, k) => {
+          console.log("#######section ############");
+          if(section.mandatory_item.selected === 1){
+            todelete.push(k);
+            newDataset.tab_2.sections[k] = null;
+            return true;
+          }
+
+          if('object' === typeof section.depending_on_mandatory.reproduction_patterns ){
+            section['reproduction_patterns'] = processsPattern(section.depending_on_mandatory.reproduction_patterns);
+            delete section.depending_on_mandatory['reproduction_patterns'];
+          }
+
+          if('object' === typeof section.depending_on_mandatory.spread_pattterns ){
+            section['spread_pattterns'] = processsPattern(section.depending_on_mandatory.spread_pattterns );
+            delete section.depending_on_mandatory['spread_pattterns'];
+          }
+
+          /*for(let prop of Object.keys(section)){
+            let field = section[prop];
+
+            console.log(section.depending_on_mandatory);
+
+            console.log(prop);
+            console.log(section[prop]);*!/
+          }*/
+
+        });
+      }
+
+      //console.log(sectionB);
+
+      //console.log(JSON.stringify(newDataset));
+
+      console.log(newDataset);
 
     },
 
