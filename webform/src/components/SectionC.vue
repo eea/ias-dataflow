@@ -59,14 +59,8 @@
             <b-btn variant="primary" @click="addPathway(field)" style="margin-bottom: 1rem;">Add</b-btn>
 
             <b-row v-for="(addField,fkey) in field.fields" style="margin-bottom: 5px;">
+              <b-col md=12>
 
-              <b-col sm="auto">
-                <b-input-group :prepend="addField.label">
-                    <b-form-input disabled :type="addField.type" v-model="addField.selected" ></b-form-input>
-                </b-input-group>
-              </b-col>
-
-              <b-col sm="auto" style="min-width: 40%;">
                 <b-input-group :prepend="addField.inner_field.label">
                     <multiselect v-model="speciesModels[fkey]" :options="speciesOptions"
                       style="width: 70%;border-top-left-radius: 0;border-bottom-left-radius: 0;"
@@ -77,12 +71,14 @@
                         <span class="multiselect__single" v-if="values.length && !isOpen">{{ values.length }} options selected</span>
                       </template>-->
                     </multiselect>
+                    <b-input-group-append>
+                      <b-btn variant="danger" @click="removePathway(field,addField, fkey)">Remove</b-btn>
+                    </b-input-group-append>
                 </b-input-group>
+                <b class="mt-3">{{addField.label}} :  {{addField.selected ? addField.selected : '-'}}</b>
+                <hr>  
               </b-col>
 
-              <b-col  sm="auto">
-                <b-btn variant="danger" @click="removePathway(field,addField, fkey)">Remove</b-btn>
-              </b-col>
 
             </b-row>
 

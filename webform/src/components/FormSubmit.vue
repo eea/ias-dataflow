@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div style="position: absolute;top: 5px;right: 5px;">
+    <div>
       <b-btn variant="success" @click="saveForm">Save</b-btn>
       <b-btn variant="primary" @click="validateSections" style="">Validate</b-btn>
       <b-btn variant="danger" @click="openErrorModal" v-if="errors.items.length > 0">Errors</b-btn>
@@ -575,6 +575,11 @@ export default {
   top:3rem;
   left: 20%;
   right: 20%;
+}
+
+.wrapper {
+      text-align: right;
+    margin-bottom: 1rem;
 }
 
 @media screen and (max-width: 768px) {

@@ -327,7 +327,7 @@
 </style>
 
 <style>
-  .multiselect__tags {
+  /* .multiselect__tags {
     padding: 0;
-  }
+  } */
 </style>

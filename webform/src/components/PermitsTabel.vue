@@ -6,7 +6,7 @@
       <th class="year-column" >Calendar year</th>
       <th class="permits-column">{{ table_section.table_fields.header }}</th>
       <th class="header-column" v-for="header in table_section.table_fields.fields[0].fields" v-if="header.label !=='Year' ">
-        <span v-if="header.label" >{{ header.label  }}</span>
+        <span v-tooltip="header.tooltip" v-if="header.label" >{{ header.label  }}</span>
         <span v-else>
           <span >{{ header.fields[0].fields[0].label }} </span>
         </span>
@@ -17,50 +17,54 @@
 
         <tr v-for="(row,rkey) in rows">
           <td v-for="(field,fkey) in row.fields" v-if="field.name === 'year'" style="min-width: 10%;width: 10%;">
-            <b-badge
-              v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey )"
-              variant="danger" class="error-badge" v-b-tooltip.hover
-              :title="errors.first('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey  )">
-              {{ errors.first('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey ) }}
-            </b-badge>
-            <b-form-select  v-model="field.selected" :options="field.options"
-              v-validate.continues ="'required'"
-              :data-vv-as="field.label"
-              :ref="'permits_' + field.name + '_' + rkey"
-              v-bind:key="'permits_' + field.name + '_' + rkey"
-              v-bind:name="'permits_' + field.name + '_' + rkey"
-              v-bind:data-vv-scope="'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey"
-              @change="validate"
-            ></b-form-select>
+            <div class="selects-wrapper">
+              <b-badge
+                v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey )"
+                variant="danger" class="error-badge" v-b-tooltip.hover
+                :title="errors.first('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey  )">
+                {{ errors.first('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey ) }}
+              </b-badge>
+              <b-form-select  v-model="field.selected" :options="field.options"
+                v-validate.continues ="'required'"
+                :data-vv-as="field.label"
+                :ref="'permits_' + field.name + '_' + rkey"
+                v-bind:key="'permits_' + field.name + '_' + rkey"
+                v-bind:name="'permits_' + field.name + '_' + rkey"
+                v-bind:data-vv-scope="'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey"
+                @change="validate"
+              ></b-form-select>
+            </div>
+
           </td>
 
           <td style="min-width: 15%;">
-            <b-badge
-              v-if=" errors.has( 'permits_' + 'permit' + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey )"
-              variant="danger" class="error-badge">
-              {{ errors.first( 'permits_' + 'permit' + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey ) }}
-            </b-badge>
+            <div class="selects-wrapper">
+              <b-badge
+                v-if=" errors.has( 'permits_' + 'permit' + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey )"
+                variant="danger" class="error-badge">
+                {{ errors.first( 'permits_' + 'permit' + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey ) }}
+              </b-badge>
 
-            <b-form-select :options="options" v-model="index[rkey]"
-              @change="changeRow($event, rkey)"
-              v-bind:key="'permits_' + 'permit' + '_' + rkey"
-              v-bind:name="'permits_' + 'permit' + '_' + rkey"
-              :ref="'permits_' + 'permit' + '_' + rkey"
-              data-vv-as="permits "
-              v-bind:data-vv-scope="'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey"
-              v-validate="'required'"
-            ></b-form-select>
+              <b-form-select :options="options" v-model="index[rkey]"
+                @change="changeRow($event, rkey)"
+                v-bind:key="'permits_' + 'permit' + '_' + rkey"
+                v-bind:name="'permits_' + 'permit' + '_' + rkey"
+                :ref="'permits_' + 'permit' + '_' + rkey"
+                data-vv-as="permits "
+                v-bind:data-vv-scope="'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey"
+                v-validate="'required'"
+              ></b-form-select>
+            </div>
           </td>
 
           <td v-for="(field,fkey) in row.fields" v-if="field.name !== 'year'"
               v-bind:style="{ width: field.type === 'add' ? '20%' : 'auto' }"
               style="padding-left: 15px;padding-right: 15px;max-width: 15%;">
 
-            <b-row v-for="(sfield, sfkey) in field.fields" v-if="field.type === 'add'" >
+            <div class="selects-wrapper" v-for="(sfield, sfkey) in field.fields" v-if="field.type === 'add'" >
 
-              <b-col cols="8">
-                <b-row>
-                  <b-col v-for="(fiel, fiekey) in sfield.fields"  style="margin-bottom: 5px;padding: 0">
+                <div>
+                  <div v-for="(fiel, fiekey) in sfield.fields"  style="margin-bottom: 5px;padding: 0">
                     <b-badge v-if="errors.has('permits_' + fiel.name + '_' + fiekey, 'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey )"
                              variant="danger" class="error-badge"
                              :id="'permits_' + fiel.name + '_' + fiekey + 'badge'"
@@ -74,19 +78,14 @@
                        :vkey="'permits_' + fiel.name + '_' + fiekey"
                        :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
                     ></field-generator>
-                  </b-col>
+                  </div>
 
-                </b-row>
-              </b-col>
+                </div>
+                <b-btn v-if="sfkey === 0" variant="primary" @click="addSubfield(field)" style="margin-bottom: 5px; width: 100%">+</b-btn>
 
-              <b-col v-if="sfkey === 0" cols="1">
-                <b-btn variant="primary" @click="addSubfield(field)" style="margin-bottom: 5px;">+</b-btn>
-              </b-col>
+                <b-btn v-if="sfkey !== 0" variant="danger" @click="removeSubfield(field,sfkey)" style="margin-bottom: 5px; width: 100%">X</b-btn>
 
-              <b-col v-if="sfkey !== 0"  cols="1">
-                <b-btn variant="danger" @click="removeSubfield(field,sfkey)" style="margin-bottom: 5px;">X</b-btn>
-              </b-col>
-            </b-row>
+            </div>
 
             <div v-if="field.name !== 'year' && field.type !== 'add'">
               <b-badge
@@ -387,9 +386,19 @@
     color: white
   }
 
+  .selects-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: .1rem;
+    position: relative;
+  }
+
   thead th {
     vertical-align: middle;
-    font-size: 1.10em;
+    font-size: .8rem;
+    font-weight: 400;
   }
 
   .btnAdd {
@@ -416,6 +425,9 @@
 
   td {
     position: relative;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid black;
   }
 
   .error-badge {

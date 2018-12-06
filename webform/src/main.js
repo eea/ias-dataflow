@@ -16,6 +16,12 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import { Validator } from 'vee-validate'
 
+import VTooltip from 'v-tooltip'
+
+Vue.use(VTooltip)
+
+VTooltip.options.defaultClass = 'infoTooltip'
+
 library.add(faChevronRight);
 library.add(faChevronDown);
 

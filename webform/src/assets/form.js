@@ -232,7 +232,8 @@ let tab_1_section = {
                   },
 
                   {
-                    label: 'Number of permits issued in the calendar year',
+                    tooltip: 'Number of permits issued in the calendar year',
+                    label: 'Number of permits...',
                     name: 'permits_number_main',
                     type: 'add',
                     fields: [
