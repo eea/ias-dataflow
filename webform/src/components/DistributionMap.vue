@@ -37,6 +37,7 @@
                 :vkey="'dmap' + 'file' + '_' + fieldkey"
                 :scope="'dmap' + '_' + fieldkey"
                 :multiple=false
+                :required="true"
                 @form-file-uploaded="addFilesToSelected"
                 @form-file-delete="deleteFormFile">
               </FormFileUpload>
@@ -60,6 +61,7 @@ export default {
     info: null,
     tabId:null
   },
+  inject: ["$validator"],
 
   data () {
     return {

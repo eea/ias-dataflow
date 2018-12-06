@@ -48,10 +48,13 @@
           <font-awesome-icon v-bind:icon="expanded ? 'chevron-down' : 'chevron-right'"
             v-show="sectionProp.mandatory_item.selected !== 1 && sectionProp.mandatory_item.selected !== false"
             class="fachevron" />
+
           <small>{{info.scientific_name.label}}: </small><span style="font-size: 1em; font-weight: 600;">
           {{ sectionProp.scientific_name.selected.text }}</span></h3>
+
         <h4><small>{{info.common_name.label}}: </small><span style="font-size: 1em; font-weight: 600;">
           {{ sectionProp.common_name.selected.value}}</span></h4>
+
         <b-row>
           <b-col>
             <b-badge variant="danger" v-if="errors.has('sectionb_mandatory_item_'+ selkey + '.mandatory_item_' + selkey)">
