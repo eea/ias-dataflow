@@ -607,7 +607,7 @@ export default {
           }
 
           if('object' === typeof section.depending_on_mandatory.spread_pattterns ){
-            section['spread_pattterns'] = processsPattern(section.depending_on_mandatory.spread_pattterns );
+            section['spread_patterns'] = processsPattern(section.depending_on_mandatory.spread_pattterns );
             delete section.depending_on_mandatory['spread_pattterns'];
           }
 
