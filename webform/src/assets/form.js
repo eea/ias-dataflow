@@ -1737,17 +1737,30 @@ var form = {
         question: 'Distribution maps for the Section A - IAS of Union concern and Section B – IAS of Member States concern',
         help_text: 'Upload here the required files is described in the guidelines. Please note that in addition to the file with the spatial data also Inspire conform metadata are required.',
         section: {
-          fields: [{
+          fields: [
+            {
               type: "file",
               name: "section_a_distribution_file",
               label: "Distribution map for SECTION A",
               selected: [],
             },{
-            type: "file",
-            name: "section_b_distribution_file",
-            label: "Distribution map for SECTION B",
-            selected: [],
-          }
+              type: "file",
+              name: "section_b_distribution_file",
+              label: "Distribution map for SECTION B",
+              selected: [],
+            },
+            {
+              type: "file",
+              name: "section_a_inspire",
+              label: "INSPIRE Metadata (Section A)",
+              selected: [],
+            },
+            {
+              type: "file",
+              name: "section_b_inspire",
+              label: "INSPIRE Metadata (Section B)",
+              selected: [],
+            }
           ]
         }
       },

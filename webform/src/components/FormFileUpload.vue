@@ -15,7 +15,7 @@
       <b-form-file v-if="!required"
          v-validate="'filesAllowed:'+ filesAllowed"
          v-model="files"
-         data-vv-as="file"
+         :data-vv-as="field.label"
          :multiple="Boolean(multiple)"
          :ref="'fileinputref' + fieldkey"
          v-bind:name="vname"
@@ -25,7 +25,7 @@
 
       <b-form-file v-model="files"
          v-validate="'required|filesAllowed:'+ filesAllowed"
-         data-vv-as="file"
+         :data-vv-as="field.label"
          :multiple="Boolean(multiple)"
          :ref="'fileinputref' + fieldkey"
          v-else
