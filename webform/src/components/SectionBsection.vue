@@ -42,11 +42,13 @@
           .map((err)=> {return err.msg}).join('\n')"
       >{{ errors.items.filter((err) => { return err.scope.indexOf('sectionb_' + selkey + '_') !== -1; })[0].msg }}</b-badge>
 
-      <div class="panel-heading" @click="(!expanded && sectionProp.mandatory_item.selected) ?
-               expanded = true : expanded = false">
+      {{ sectionProp.mandatory_item.selected }}
+      {{ expanded }}
+
+      <div class="panel-heading" @click="expanded = !expanded">
         <h3>
           <font-awesome-icon v-bind:icon="expanded ? 'chevron-down' : 'chevron-right'"
-            v-show="sectionProp.mandatory_item.selected !== 1 && sectionProp.mandatory_item.selected !== false"
+            v-show="sectionProp.mandatory_item.selected !== 1"
             class="fachevron" />
 
           <small>{{info.scientific_name.label}}: </small><span style="font-size: 1em; font-weight: 600;">
@@ -72,6 +74,7 @@
                  v-bind:key="'mandatory_item_' + selkey"
                  v-bind:data-vv-scope="'sectionb_mandatory_item_'+ selkey"
                  v-bind:name="'mandatory_item_' + selkey"
+                  @change="changeCollapse($event)"
                  :options="sectionProp.mandatory_item.options">
               </b-form-select>
             </b-input-group>
@@ -79,76 +82,79 @@
         </b-row>
       </div>
 
-      <b-collapse :id="'collapse' + selkey" :visible="expanded">
-        <div class="mt-4" v-if="sectionProp.mandatory_item.selected === true">
-          <hr>
-          <h6>
-            {{ sectionProp.depending_on_mandatory.label}}
-          </h6>
-          <div class="mt-4" v-if="sectionProp.mandatory_item.selected === true">
+      <!--<div v-if="sectionProp.mandatory_item.selected !== 1">-->
+        <b-collapse :id="'collapse' + selkey" :visible="expanded" >
+          <div class="mt-4">
+            <hr>
+            <h6>
+              {{ sectionProp.depending_on_mandatory.label}}
+            </h6>
+            <div class="mt-4">
 
-            <PatternField :patternfields="sectionProp.depending_on_mandatory.reproduction_patterns"
-                          :scope="'sectionb_' + selkey + '_reproduction'"
-                          :ref="'sectionb_' + selkey + '_reproduction'"
-                          :multiple="sectionProp.depending_on_mandatory.reproduction_patterns.multiple"
-                          @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
-            </PatternField>
+              <PatternField :patternfields="sectionProp.depending_on_mandatory.reproduction_patterns"
+                            :scope="'sectionb_' + selkey + '_reproduction'"
+                            :ref="'sectionb_' + selkey + '_reproduction'"
+                            :multiple="sectionProp.depending_on_mandatory.reproduction_patterns.multiple"
+                            @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
+              </PatternField>
 
-            <!--  TODO: validation for spread  -->
-            <PatternField :patternfields="sectionProp.depending_on_mandatory.spread_pattterns"
-                          :scope="'sectionb_' + selkey + '_spread'"
-                          :ref="'sectionb_' + selkey + '_spread'"
-                          :multiple="sectionProp.depending_on_mandatory.spread_pattterns.multiple"
-                          @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
-            </PatternField>
+              <!--  TODO: validation for spread  -->
+              <PatternField :patternfields="sectionProp.depending_on_mandatory.spread_pattterns"
+                            :scope="'sectionb_' + selkey + '_spread'"
+                            :ref="'sectionb_' + selkey + '_spread'"
+                            :multiple="sectionProp.depending_on_mandatory.spread_pattterns.multiple"
+                            @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
+              </PatternField>
 
-            <div class="mb-2" v-for="(field, fieldkey, fieldindex) in sectionProp.depending_on_mandatory.fields">
-              <b-input-group v-if="field.type === 'select' && 'undefined' === typeof field.selected.region"
-                :prepend="field.label" class="inputgroup">
-                <b-form-select :options="field.options" v-model="field.selected"
-                  v-validate="'selectRequiredBoolean'"
-                  v-bind:name="'depending_on_manadatory_' + selkey + '_' + fieldkey"
-                  v-bind:key="'depending_on_manadatory_' + selkey + '_' + fieldkey "
-                  v-bind:data-vv-scope="'depending_on_manadatory_' + selkey + '_' + fieldkey"
-                  data-vv-as="Depending on mandatory"
-                ></b-form-select>
-              </b-input-group>
+              <div class="mb-2" v-for="(field, fieldkey, fieldindex) in sectionProp.depending_on_mandatory.fields">
+                <b-input-group v-if="field.type === 'select' && 'undefined' === typeof field.selected.region"
+                               :prepend="field.label" class="inputgroup">
+                  <b-form-select :options="field.options" v-model="field.selected"
+                                 v-validate="'selectRequiredBoolean'"
+                                 v-bind:name="'depending_on_manadatory_' + selkey + '_' + fieldkey"
+                                 v-bind:key="'depending_on_manadatory_' + selkey + '_' + fieldkey "
+                                 v-bind:data-vv-scope="'depending_on_manadatory_' + selkey + '_' + fieldkey"
+                                 data-vv-as="Depending on mandatory"
+                  ></b-form-select>
+                </b-input-group>
 
-              <div v-if="field.type === 'file'">
-                <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="jpeg,jpg"
-                  @form-file-uploaded="addFilesToSelected" :multiple=false @form-file-delete="deleteFormFile">
-                </FormFileUpload>
+                <div v-if="field.type === 'file'">
+                  <FormFileUpload :selected="field.selected" :field="field" :fieldkey="fieldkey" files-allowed="jpeg,jpg"
+                                  @form-file-uploaded="addFilesToSelected" :multiple=false @form-file-delete="deleteFormFile">
+                  </FormFileUpload>
+                </div>
+
               </div>
-
             </div>
           </div>
-        </div>
 
-        <b-row class="mt-3" v-if="sectionProp.mandatory_item.selected === true">
+          <b-row class="mt-3">
 
-          <b-col lg="3" style="font-size: 1.2em;">
-            {{sectionProp.additional_info.label}}
-          </b-col>
-          <b-col lg='9'>
-            <textarea class="form-control" v-model="sectionProp.additional_info.selected"></textarea>
-          </b-col>
-        </b-row>
+            <b-col lg="3" style="font-size: 1.2em;">
+              {{sectionProp.additional_info.label}}
+            </b-col>
+            <b-col lg='9'>
+              <textarea class="form-control" v-model="sectionProp.additional_info.selected"></textarea>
+            </b-col>
+          </b-row>
 
-        <div v-if="sectionProp.mandatory_item.selected === true" style="margin-top: 1rem;">
-          <h4>{{sectionProp.section.label}}</h4>
-          <div v-for="field in sectionProp.section.fields">
-            <div class="checkbox-wrapper" v-if="field.type !== 'textarea'" lg="12">
-              <input :id="`${field.name}_${selkey}_${tabId}`" type="checkbox" v-model="field.selected" />
-              <label :for="`${field.name}_${selkey}_${tabId}`">{{field.label}}</label>
-            </div>
-            <div lg="12" v-else >
-              <label style="font-size: 1.2em;">{{field.label}}</label>
-              <textarea class="form-control" v-model="field.selected" ></textarea>
+          <div style="margin-top: 1rem;">
+            <h4>{{sectionProp.section.label}}</h4>
+            <div v-for="field in sectionProp.section.fields">
+              <div class="checkbox-wrapper" v-if="field.type !== 'textarea'" lg="12">
+                <input :id="`${field.name}_${selkey}_${tabId}`" type="checkbox" v-model="field.selected" />
+                <label :for="`${field.name}_${selkey}_${tabId}`">{{field.label}}</label>
+              </div>
+              <div lg="12" v-else >
+                <label style="font-size: 1.2em;">{{field.label}}</label>
+                <textarea class="form-control" v-model="field.selected" ></textarea>
+              </div>
             </div>
           </div>
-        </div>
 
-      </b-collapse>
+        </b-collapse>
+      <!--</div>-->
+
     </b-card>
 
   </div>
@@ -272,6 +278,11 @@
 
           deleteFormFile(found, fieldkey, field){
             field.selected = null;
+          },
+
+          changeCollapse($event){
+            //this.expanded = true;
+            console.log($event);
           }
 
         }
