@@ -281,10 +281,9 @@
             field.selected = null;
           },
 
-          changeCollapse($event){
+          changeCollapse(){
             this.expanded = true;
-            //console.log($event);
-            // this.$refs['collapse'].click();
+            this.$forceUpdate();
           }
 
         }
