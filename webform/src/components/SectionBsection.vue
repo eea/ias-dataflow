@@ -42,17 +42,21 @@
           .map((err)=> {return err.msg}).join('\n')"
       >{{ errors.items.filter((err) => { return err.scope.indexOf('sectionb_' + selkey + '_') !== -1; })[0].msg }}</b-badge>
 
-      <div class="panel-heading" @click="expanded = !expanded">
-        <h3>
-          <font-awesome-icon v-bind:icon="expanded ? 'chevron-down' : 'chevron-right'"
-            v-show="sectionProp.mandatory_item.selected !== 1"
-            class="fachevron" />
+      <div class="panel-heading">
+        <div @click="expanded = !expanded" :ref="'collapse'">
+          <h3>
+            <font-awesome-icon v-bind:icon="expanded ? 'chevron-down' : 'chevron-right'"
+                               v-show="sectionProp.mandatory_item.selected !== 1"
+                               class="fachevron" />
+            <small>{{info.scientific_name.label}}: </small><span style="font-size: 1em; font-weight: 600;">
+          {{ sectionProp.scientific_name.selected.text }}</span>
+          </h3>
 
-          <small>{{info.scientific_name.label}}: </small><span style="font-size: 1em; font-weight: 600;">
-          {{ sectionProp.scientific_name.selected.text }}</span></h3>
+          <h4><small>{{info.common_name.label}}: </small><span style="font-size: 1em; font-weight: 600;">
+          {{ sectionProp.common_name.selected.value}}</span>
+          </h4>
+        </div>
 
-        <h4><small>{{info.common_name.label}}: </small><span style="font-size: 1em; font-weight: 600;">
-          {{ sectionProp.common_name.selected.value}}</span></h4>
 
         <b-row>
           <b-col>
@@ -278,8 +282,9 @@
           },
 
           changeCollapse($event){
-            //this.expanded = true;
-            console.log($event);
+            this.expanded = true;
+            //console.log($event);
+            // this.$refs['collapse'].click();
           }
 
         }
