@@ -13,26 +13,25 @@
 
       <!-- File Input -->
       <b-form-file v-if="!required"
-                   v-validate="'filesAllowed:'+ filesAllowed"
-                   v-model="files"
-                   data-vv-as="file"
-                   :multiple="Boolean(multiple)"
-                   :ref="'fileinputref' + fieldkey"
-                   v-bind:name="vname"
-                   v-bind:key="vkey"
-                   v-bind:data-vv-scope="scope +'_' + 'files-input-' + fieldkey"
-
+         v-validate="'filesAllowed:'+ filesAllowed"
+         v-model="files"
+         data-vv-as="file"
+         :multiple="Boolean(multiple)"
+         :ref="'fileinputref' + fieldkey"
+         v-bind:name="vname"
+         v-bind:key="vkey"
+         v-bind:data-vv-scope="scope +'_' + 'files-input-' + fieldkey"
       ></b-form-file>
 
       <b-form-file v-model="files"
-                   v-validate="'required|filesAllowed:'+ filesAllowed"
-                   data-vv-as="file"
-                   :multiple="Boolean(multiple)"
-                   :ref="'fileinputref' + fieldkey"
-                   v-else
-                   v-bind:name="vname"
-                   v-bind:key="vkey"
-                   v-bind:data-vv-scope="scope +'_' + 'files-input-' + fieldkey"
+         v-validate="'required|filesAllowed:'+ filesAllowed"
+         data-vv-as="file"
+         :multiple="Boolean(multiple)"
+         :ref="'fileinputref' + fieldkey"
+         v-else
+         v-bind:name="vname"
+         v-bind:key="vkey"
+         v-bind:data-vv-scope="scope +'_' + 'files-input-' + fieldkey"
         >
       </b-form-file>
       <!-- END File Input -->
