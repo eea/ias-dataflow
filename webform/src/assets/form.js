@@ -225,6 +225,7 @@ let tab_1_section = {
                 fields: [
                   {
                     label: "Year",
+                    tooltip: 'Calendar year',
                     name: "year",
                     type: 'select',
                     selected: '',
@@ -232,8 +233,8 @@ let tab_1_section = {
                   },
 
                   {
-                    tooltip: 'Number of permits issued in the calendar year',
                     label: 'Number of permits...',
+                    tooltip: 'Number of permits issued in the calendar year',
                     name: 'permits_number_main',
                     type: 'add',
                     fields: [
@@ -260,7 +261,8 @@ let tab_1_section = {
                   },
 
                   {
-                    label: 'Number of permits valid in the calendar year',
+                    label: 'No. permits valid',
+                    tooltip: 'Number of permits valid in the calendar year',
                     name: 'valid_permits_number_main',
                     type: 'add',
                     fields: [
@@ -287,7 +289,8 @@ let tab_1_section = {
                   },
 
                   {
-                    label: 'Total number or volume of permitted specimens corresponding to the permits issued in the calendar year',
+                    label: 'Permitted specimens - permits issued',
+                    tooltip: 'Total number or volume of permitted specimens corresponding to the permits issued in the calendar year',
                     name: 'total_permited_speciments_main',
                     type: 'add',
                     fields: [
@@ -314,7 +317,8 @@ let tab_1_section = {
                   },
 
                   {
-                    label: 'Total number or volume of permitted specimens corresponding to the valid permits',
+                    label: 'Permitted specimens - valid permits',
+                    tooltip: 'Total number or volume of permitted specimens corresponding to the valid permits',
                     name: 'valid_total_permited_speciments_main',
                     type: 'add',
                     fields: [
@@ -729,6 +733,7 @@ let tab_1_section = {
                 fields: [
                   {
                     label: "Year",
+                    tooltip: "Calendar year",
                     name: "year",
                     type: 'select',
                     selected: '',
@@ -736,7 +741,8 @@ let tab_1_section = {
                   },
 
                   {
-                    label: 'Number of establishments subjected to the inspections',
+                    label: 'No. establishments',
+                    tooltip: 'Number of establishments subjected to the inspections',
                     name: 'number_establishments_inspections_main',
                     type: 'add',
                     fields: [
@@ -763,7 +769,8 @@ let tab_1_section = {
                   },
 
                   {
-                    label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                    label: 'Permitted specimens - permits held by the inspected est.',
+                    tooltip: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
                     name: 'number_permitted_specimens_main',
                     type: 'add',
                     fields: [
@@ -790,7 +797,8 @@ let tab_1_section = {
                   },
 
                   {
-                    label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
+                    label: 'Inspected establishments non-compliant',
+                    tooltip: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
                     name: 'establishments_non_compliant_main',
                     type: 'add',
                     fields: [
@@ -826,7 +834,8 @@ let tab_1_section = {
                         name: 'subfield',
                         fields:[
                           {
-                            label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
+                            label: 'Permitted specimens - permits held by the inspected est. non-compliant',
+                            tooltip: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                             name: 'number_speciments_held_by_non_compliant_establishments',
                             type: 'number',
                             selected: '',
@@ -948,7 +957,7 @@ let tab_1_section = {
                         name: 'subfield',
                         fields:[
                           {
-                            label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
+                            label: 'xxxNumber or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                             name: 'number_speciments_held_by_non_compliant_establishments',
                             type: 'number',
                             selected: '',
@@ -1070,7 +1079,7 @@ let tab_1_section = {
                         name: 'subfield',
                         fields:[
                           {
-                            label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
+                            label: 'cccNumber or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                             name: 'number_speciments_held_by_non_compliant_establishments',
                             type: 'number',
                             selected: '',
@@ -1192,7 +1201,7 @@ let tab_1_section = {
                         name: 'subfield',
                         fields:[
                           {
-                            label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
+                            label: 'qqqNumber or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                             name: 'number_speciments_held_by_non_compliant_establishments',
                             type: 'number',
                             selected: '',
@@ -1725,7 +1734,8 @@ var form = {
       },
     tab_4: {
         label: 'DISTRIBUTION MAPS',
-        question: 'Lore ipsum help text ...',
+        question: 'Distribution maps for the Section A - IAS of Union concern and Section B – IAS of Member States concern',
+        help_text: 'Upload here the required files is described in the guidelines. Please note that in addition to the file with the spatial data also Inspire conform metadata are required.',
         section: {
           fields: [{
               type: "file",

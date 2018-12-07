@@ -2,6 +2,8 @@
   <div v-if="info">
   <div class="question-wrapper">
     <h2><center>{{info.question}}</center></h2>
+    <br/>
+    <h4><i><center>{{info.help_text}}</center></i></h4>
       <b-card class="mt-5 mb-5">
         <div v-for="(field, fieldkey, fieldindex ) in info.section.fields">
           <b-col>
