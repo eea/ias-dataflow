@@ -42,9 +42,6 @@
           .map((err)=> {return err.msg}).join('\n')"
       >{{ errors.items.filter((err) => { return err.scope.indexOf('sectionb_' + selkey + '_') !== -1; })[0].msg }}</b-badge>
 
-      {{ sectionProp.mandatory_item.selected }}
-      {{ expanded }}
-
       <div class="panel-heading" @click="expanded = !expanded">
         <h3>
           <font-awesome-icon v-bind:icon="expanded ? 'chevron-down' : 'chevron-right'"
