@@ -3,12 +3,12 @@
 
     <table class="table table-striped">
       <thead style="background-color: #337dcc;">
-      <th class="year-column" >Calendar year</th>
-      <th class="permits-column">{{ table_section.table_fields.header }}</th>
+      <th class="year-column" ><span v-tooltip=" table_section.table_fields.optionsFields[0].fields[0].tooltip" v-if=" table_section.table_fields.optionsFields[0].fields[0].label ">{{ table_section.table_fields.optionsFields[0].fields[0].label }}</span></th>
+      <th class="permits-column"><span v-tooltip=" table_section.table_fields.header" v-if=" table_section.table_fields.header ">{{ table_section.table_fields.header }}</span></th>
       <th class="header-column" v-for="header in table_section.table_fields.fields[0].fields" v-if="header.label !=='Year' ">
         <span v-tooltip="header.tooltip" v-if="header.label" >{{ header.label  }}</span>
         <span v-else>
-          <span >{{ header.fields[0].fields[0].label }} </span>
+          <span v-tooltip="header.fields[0].fields[0].tooltip">{{ header.fields[0].fields[0].label }} </span>
         </span>
       </th>
       <th><span>Actions</span></th>
