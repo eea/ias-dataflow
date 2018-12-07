@@ -7,7 +7,7 @@
                <element>
                   <label>Member State</label>
                   <name>partyname</name>
-                  <selected />
+                  <selected></selected>
                   <type>text</type>
                </element>
                <element>
