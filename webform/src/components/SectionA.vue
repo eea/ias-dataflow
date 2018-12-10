@@ -216,7 +216,7 @@
 
                     </b-row>
 
-                    <b-collapse :id="'collapse' + seckey  + '2' + popkey">
+                    <b-collapse :id="'collapse' + seckey  + '2' + popkey" visible>
                       <div class="table-section" v-for="(table_section,table_key) in population.table_sections">
 
                           <h6>{{table_section.label}}</h6>
@@ -424,7 +424,7 @@
                       </b-col>
 
                     </b-row>
-                    <b-collapse :id="'collapse' + seckey  + '3' + popkey">
+                    <b-collapse :id="'collapse' + seckey  + '3' + popkey" visible>
                       <div class="table-section" v-for="(table_section,table_key) in population.table_sections" >
 
                         <h6>{{table_section.label}}</h6>
