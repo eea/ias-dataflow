@@ -171,7 +171,7 @@
                 <b-btn variant="primary"  style="margin-bottom: 1rem;margin-top: 1rem;"
                        v-if="section.tables.table_2.question.selected === true"
                        @click="addPopulation(section.tables.table_2)">
-                  New Population
+                  Add population
                 </b-btn>
 
                 <!-- TODO : fix validation -->
@@ -379,7 +379,7 @@
 
                 <b-btn variant="primary"  style="margin-bottom: 1rem;margin-top: 1rem;" v-if="section.tables.table_3.question.selected === true"
                        @click="addPopulation(section.tables.table_3)">
-                  New Population
+                  Add population
                 </b-btn>
 
                 <!-- TODO : fix validation -->
