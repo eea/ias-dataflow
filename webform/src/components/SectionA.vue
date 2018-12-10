@@ -139,6 +139,7 @@
               </div>
             </b-card>
 
+
             <b-card class="inner-card">
 
               <div class="card-section" >
@@ -181,8 +182,8 @@
                     <div style="padding-left: 1rem;padding-right: 1rem; margin-bottom: 0.5rem;margin-top: 1rem;">
                       <b-row>
                         <b-badge variant="danger" style="padding: 0.5rem;line-height: 1.2rem;"
-                                 v-if="errors.has('population' + '_' + popkey,'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + popkey + '_' + 'population')">
-                          {{ errors.first('population' + '_' + popkey,'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + popkey + '_' + 'population')
+                                 v-if="errors.has('population' + '_' + popkey,'sectiona_'+ seckey + '_' +'table_2_' + popkey + '_' + 'population')">
+                          {{ errors.first('population' + '_' + popkey,'sectiona_'+ seckey + '_' +'table_2_' + popkey + '_' + 'population')
                           }}
                         </b-badge>
                         <b-col>
@@ -192,7 +193,7 @@
                                      v-bind:key="'population' + '_' + popkey"
                                      v-bind:name="'population' + '_' + popkey"
                                      :data-vv-as="'population name'"
-                                     v-bind:data-vv-scope="'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + popkey + '_' + 'population'"
+                                     v-bind:data-vv-scope="'sectiona_'+ seckey + '_' +'table_2_' + popkey + '_' + 'population'"
                                      v-validate ="'required'"
                             ></b-input>
                           </b-input-group>
@@ -225,7 +226,8 @@
                           <td style="width: 120px" v-if="row.label"><span style="font-size: 1.2em">{{row.label}}</span></td>
 
                           <td v-if="sub_section.type !== 'add'">
-                            <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
+                            <b-badge variant="danger" class="error-badge"
+                              v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                               && item.scope === 'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
                               && item.field === row.name + '_' + rowkey;}).length > 0">
                               {{
@@ -243,9 +245,10 @@
                               :vname="row.name + '_' + rowkey"
                               :sub_section="sub_section"
                               :vkey="row.name + '_' + rowkey"
-                              :ref="'sectiona_' + seckey + '_' + row.name + '_' + rowkey"
+                              :ref="'sectiona_' + seckey + '_' +'table_2_' +  table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
                               :vscope="'sectiona_'+ seckey + '_' +'table_2_' +  table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
-                              @change="row.name === 'starting_date' ? validateDate(row, sub_section, 'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey , {
+                              @change="row.name === 'starting_date' ? validateDate(row, sub_section,
+                              'sectiona_' + seckey + '_' +'table_2_' +  table_key  + '_' + popkey + '_' + row.name + '_' + rowkey , {
                           field: row.name + '_' + rowkey,
                           scope:'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
                         } ) : null"
@@ -276,7 +279,7 @@
                                   :vkey="row.name + '_' + rowkey"
                                   :data-vv-as="row.label"
                                   :validation="'false'"
-                                  :ref="'section_'  + seckey + '_' +  seckey + '_' + row.name + '_' + rowkey"
+                                  :ref="'sectiona_'  + seckey + '_' + 'table_2_' +  table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
                                   :vscope="'sectiona_'  + seckey + '_' + 'table_2_' +  table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
                                 ></fieldGenerator>
 
@@ -305,7 +308,7 @@
                                   :vname="row.inner_field.name + '_' + rowkey"
                                   :vkey="row.inner_field.name + '_' + rowkey"
                                   :data-vv-as="row.inner_field.label"
-                                  :ref="'section_' + seckey + '_' + row.inner_field.name + '_' + rowkey"
+                                  :ref="'sectiona_'  + seckey + '_' + 'table_2_' +  table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey"
                                   :vscope="'sectiona_'  + seckey + '_' + 'table_2_' +  table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey"
                                   :validation="row.inner_field.validation"
                                   :field="row.inner_field">
@@ -374,8 +377,8 @@
                     <div style="padding-left: 1rem;padding-right: 1rem; margin-bottom: 0.5rem;margin-top: 1rem;">
                       <b-row>
                         <b-badge variant="danger" style="padding: 0.5rem;line-height: 1.2rem;"
-                                 v-if="errors.has('population' + '_' + popkey,'sectiona_'+ seckey + '_' +'table_3_' + table_key  + '_' + popkey + '_' + 'population')">
-                          {{ errors.first('population' + '_' + popkey,'sectiona_'+ seckey + '_' +'table_3_' + table_key  + '_' + popkey + '_' + 'population')
+                                 v-if="errors.has('population' + '_' + popkey, 'sectiona_'+ seckey + '_' +'table_3_' + popkey + '_' + 'population')">
+                          {{ errors.first('population' + '_' + popkey,'sectiona_'+ seckey + '_' +'table_3_' + popkey + '_' + 'population')
                           }}
                         </b-badge>
                         <b-col>
@@ -385,7 +388,7 @@
                                      v-bind:key="'population' + '_' + popkey"
                                      v-bind:name="'population' + '_' + popkey"
                                      :data-vv-as="'population name'"
-                                     v-bind:data-vv-scope="'sectiona_'+ seckey + '_' +'table_3_' + table_key  + '_' + popkey + '_' + 'population'"
+                                     v-bind:data-vv-scope="'sectiona_'+ seckey + '_' +'table_3_' + popkey + '_' + 'population'"
                                      v-validate ="'required'"
                             ></b-input>
                           </b-input-group>
@@ -400,8 +403,8 @@
 
                     <div class="table-section" v-for="(table_section,table_key) in population.table_sections" >
 
-                    <h6>{{table_section.label}}</h6>
-                    <table  v-for="sub_section in table_section.table_fields.fields" class="table">
+                      <h6>{{table_section.label}}</h6>
+                      <table  v-for="sub_section in table_section.table_fields.fields" class="table">
                       <thead>
                       <tr>
                         <th style="max-width: 50px; font-size: 1.2em" >{{sub_section.label}}</th>
@@ -415,8 +418,8 @@
                       <tr v-for="(row, rowkey, rowindex) in sub_section.fields">
                         <td style="width: 120px" v-if="row.label"><span style="font-size: 1.2em">{{row.label}}</span></td>
 
-
                         <td v-if="sub_section.type != 'add'">
+
                           <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                               && item.scope === 'sectiona_'+ seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
                               && item.field === row.name + '_' + rowkey;}).length > 0">
@@ -435,9 +438,10 @@
                             :vname="row.name + '_' + rowkey"
                             :sub_section="sub_section"
                             :vkey="row.name + '_' + rowkey"
-                            :ref="'sectiona_' + seckey + '_' + row.name + '_' + rowkey"
+                            :ref="'sectiona_'+ seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
                             :vscope="'sectiona_'+ seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
-                            @change="row.name === 'starting_date' ? validateDate(row, sub_section, 'sectiona_' + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_'+ row.name + '_' + rowkey , {
+                            @change="row.name === 'starting_date' ? validateDate(row, sub_section,
+                            'sectiona_'+ seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey , {
                           field: row.name + '_' + rowkey,
                           scope:'sectiona_'+ seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
                         } ) : null"
@@ -467,7 +471,7 @@
                                 :vkey="row.name + '_' + rowkey"
                                 :data-vv-as="row.label"
                                 :validation="'false'"
-                                :ref="'section_'  + seckey + '_' +  seckey + '_' + row.name + '_' + rowkey"
+                                :ref="'sectiona_'  + seckey + '_' +  seckey + '_' + row.name + '_' + rowkey"
                                 :vscope="'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
 
                               ></fieldGenerator>
@@ -496,7 +500,7 @@
                                 :vname="row.inner_field.name + '_' + rowkey"
                                 :vkey="row.inner_field.name + '_' + rowkey"
                                 :data-vv-as="row.inner_field.label"
-                                :ref="'section_' + seckey + '_' + row.inner_field.name + '_' + rowkey"
+                                :ref="'sectiona_'  + seckey + '_' + 'table_3_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey"
                                 :vscope="'sectiona_'  + seckey + '_' + 'table_3_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey"
                                 :validation="row.inner_field.validation"
                                 :field="row.inner_field">
@@ -510,13 +514,14 @@
                       </tr>
                       </tbody>
                     </table>
-                    <div>
                       <div>
-                        <label>{{table_section.additional_info.label}}</label>
+                        <div>
+                          <label>{{table_section.additional_info.label}}</label>
+                        </div>
+                        <textarea class="form-control" v-model="table_section.additional_info.selected"></textarea>
                       </div>
-                      <textarea class="form-control" v-model="table_section.additional_info.selected"></textarea>
                     </div>
-                  </div>
+
                   </b-card>
 
                 </div>
@@ -773,22 +778,24 @@ export default {
 
       //let fields = [ 'part_territory' , 'biogeographical_region', 'river_basin_subunits','marine_sub_regions' ];
 
-      const reg = /(sectiona_([0-9]))\w+(part_territory|biogeographical_region|river_basin_subunits|marine_sub_regions)/;
+      //const reg = /(sectiona_(table_[2-3])+([0-9])_([0-9]))\w+(part_territory|biogeographical_region|river_basin_subunits|marine_sub_regions)/;
+      //const reg = /(sectiona_([0-9])_table_[2-3]_([0-9])_([0-9])\w+(part_territory|biogeographical_region|river_basin_subunits|marine_sub_regions))/;
+
+      const reg = /(sectiona_([0-9]))_table_[0-9]_([0-9])_([0-9])\w+(part_territory|biogeographical_region|river_basin_subunits|marine_sub_regions)_[0-9]/;
 
       let temp = {};
 
-      function processTable(table, tablename, sectionK){
+      function processTable( table, tablenr, sectionK, tabletype ){
         let found = [];
 
         let finalResult = [];
+
         Array.from(table).map((element) => {
           let val = null;
 
           if(element.el.getAttribute("class") === "multiselect"){
             val = self.$refs[element.item][0].field.selected.length === 0 ? null : self.$refs[element.item][0].field.selected ;
-            /*console.log("multiselect");
-            console.log(val);
-            console.log("endmultiselect");*/
+
           } else if(element.el.getAttribute('value') !== null){
             val = element.el.getAttribute('value');
           } else if(element.el.value !== null){
@@ -806,7 +813,6 @@ export default {
           if(val !== '' && val !== null){
             found.push(element);
           }
-          console.log(found);
         });
 
         if(found.length > 0){
@@ -818,7 +824,8 @@ export default {
               name: el2.name,
               scope: el2.scope,
               msg: "There must be an answer to at least one of the following fields",
-              table: tablename,
+              table: tablenr,
+              tabletype: tabletype
             }
           });
         }
@@ -834,6 +841,7 @@ export default {
           let name = res[0];
           let section = res[1];
           let seckey = res[2];
+          let population_key = res[3];
 
           if('undefined' === typeof temp[section]){
             temp[section] = [];
@@ -854,19 +862,28 @@ export default {
           }
 
           if(vscope!== null ){
-            let reg2 = /(sectiona_([0-9])_table_([0-9]))\w+()/;
+            let reg2 = /(sectiona_([0-9])_(table_[0-9])_([0-9])_([0-9]))\w+/;
+
             let table_res = vscope.match(reg2);
 
+            // TODO :
             if(table_res !== null){
-              let table_nr = table_res[3];
+              let table_type = table_res[3]; // table_2 or table_3
+              let population = table_res[5];
 
-              if('undefined' === typeof temp[section]["table_" + table_nr]){
-                temp[section]["table_" + table_nr] = new Set();
+              if('undefined' === typeof temp[section][table_type]){
+                temp[section][table_type] = [];
               }
-              temp[section]["table_" + table_nr].add({item: item, el: el, scope: vscope, name: vname });
+              if('undefined' === typeof temp[section][table_type][population]){
+                temp[section][table_type][population] = new Set();
+              }
+              temp[section][table_type][population].add({item: item, el: el, scope: vscope, name: vname });
             }
+          } else {
+            //console.log(ref);
           }
         }
+
       });
 
       let result = {};
@@ -874,13 +891,17 @@ export default {
       Object.keys(temp).map((sectionName) => {
         if('undefined' === typeof result[sectionName]) result[sectionName] = [];
 
-        Object.keys(temp[sectionName]).map((tablename) => {
-          let table = temp[sectionName][tablename];
-          let tableerrors = processTable(table, tablename, sectionName );
+        Object.keys(temp[sectionName]).map((tabletype) => {
 
-          tableerrors.map((err) => {
-            result[sectionName].push(err);
+          Object.keys(temp[sectionName][tabletype]).map((tablenr) => {
+            let table = temp[sectionName][tabletype][tablenr];
+            let tableerrors = processTable(table, tablenr, sectionName, tabletype );
+
+            tableerrors.map((err) => {
+              result[sectionName].push(err);
+            });
           });
+
 
         });
       });
