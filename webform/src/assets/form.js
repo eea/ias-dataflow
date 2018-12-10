@@ -1376,7 +1376,7 @@ let tab_1_section = {
           ],
         },
         //TODO: remove
-        {
+        /*{
           name: 'New Population',
           table_sections: [
             {
@@ -1504,7 +1504,7 @@ let tab_1_section = {
               },
             }
           ],
-        }
+        }*/
       ],
 
       //TODO: remove from prefill
@@ -1786,7 +1786,7 @@ let tab_1_section = {
           }],
         },
         //TODO: remove
-        {
+        /*{
           name: 'New Population',
           label:'New Population',
           table_sections: [{
@@ -1824,8 +1824,8 @@ let tab_1_section = {
                   {
                     label: 'Part of the territory',
                     name: 'part_territory',
-                    /*type: 'text',
-                    selected: '',*/
+                    /!*type: 'text',
+                    selected: '',*!/
                     //TODO: NUTS code
                     type: 'file',
                     selected: '',
@@ -1925,7 +1925,7 @@ let tab_1_section = {
               type: 'textarea'
             },
           }]
-        },
+        },*/
 
       ],
 
