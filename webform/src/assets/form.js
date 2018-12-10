@@ -210,7 +210,8 @@ let tab_1_section = {
         options: [{ value: true, text: "Yes" }, { value: false, text: "No" }],
         selected: '',
       },
-      table_sections: [{
+      table_sections: [
+        {
           label: '',
           name: 'permits_table',
           field: {
@@ -1244,7 +1245,271 @@ let tab_1_section = {
         options: [{ value: true, text: "Yes" }, { value: false, text: "No" }],
         selected: '',
       },
-      table_sections: [{
+      tables: [
+        {
+          name: 'National Population',
+          table_sections: [
+            {
+              label: '',
+              table_fields: {
+                header: '',
+                fields: [{
+                  label: 'Measure(s)',
+                  fields: [{
+                    label: 'Starting date',
+                    name: 'starting_date',
+                    type: 'date',
+                    selected: '',
+                    required: 'required',
+                  },
+                    {
+                      label: 'End date',
+                      name: 'duration_or_end',
+                      type: 'date',
+                      selected: '',
+                      required: 'required',
+                    },
+                    {
+                      label: 'Part of the territory',
+                      name: 'part_territory',
+                      type: 'file',
+                      selected: '',
+                      comments:'',
+                      //required: true,
+                    },
+                    {
+                      label: 'Biogeographical region(s)',
+                      name: 'biogeographical_region',
+                      type: 'multiselect',
+                      selected: '',
+                      options: [
+                        {text: 'first option', value: 0},
+                        {text: 'second option', value: 1},
+                        {text: 'third option', value: 2},
+                      ],
+                      //required: true,
+                    },
+                    {
+                      label: 'River basin sub-unit(s)',
+                      name: 'river_basin_subunits',
+                      type: 'select',
+                      selected: '',
+                      options: [
+                        {text: 'first option', value: 0},
+                        {text: 'second option', value: 1},
+                        {text: 'third option', value: 2},
+                      ],
+                      //required: true,
+                    },
+                    {
+                      label: 'Marine sub-region(s)',
+                      name: 'marine_sub_regions',
+                      type: 'select',
+                      selected: '',
+                      options: [
+                        {text: 'first option', value: 0},
+                        {text: 'second option', value: 1},
+                        {text: 'third option', value: 2},
+                      ],
+                      //required: true,
+                    },
+                    {
+                      label: 'Method(s) used',
+                      name: 'methods_used',
+                      type: 'multiselect',
+                      selected: '',
+                      required: 'required',
+                      options: [
+                        { text: 'Mechanical/Physical', value: 0 },
+                        { text: 'Chemical', value: 1 },
+                        { text: 'Biological', value: 2 },
+                        { text: 'Other', value: 3 },
+                      ]
+                    },
+                  ]
+                },
+                  {
+                    label: 'Effectiveness of the measure(s)',
+                    fields: [{
+                      label: '',
+                      name: 'effectiveness_measure',
+                      type: 'select',
+                      selected: '',
+                      options: [
+                        { text: 'Eradicated', value: 0 },
+                        { text: 'Population decreasing', value: 1 },
+                        { text: 'Population stable', value: 2 },
+                        { text: 'Population still increasing ', value: 3 },
+                        { text: 'Unclear population trend', value: 4 }
+                      ]
+                    }, ]
+                  },
+                  {
+                    label: 'Impacted non-targeted species',
+                    type: 'add',
+                    description:'Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)',
+                    fields: [{
+                      label: 'Impacted non-targeted species',
+                      type: 'text',
+                      selected: '',
+                      validation:'false',
+                      name: 'impacted_nontargeted_species',
+                      inner_field: {
+                        label: 'Impact per species',
+                        type: 'text',
+                        selected: '',
+                        name: 'impact_per_species',
+                        validation:'false',
+                      }
+                    }, ]
+                  },
+                ]
+              },
+              additional_info: {
+                label: 'Additional information (optional)',
+                name: 'additional_info',
+                selected: '',
+                index: 13,
+                type: 'textarea'
+              },
+            }
+          ],
+        },
+        //TODO: remove
+        {
+          name: 'New Population',
+          table_sections: [
+            {
+              label: '',
+              table_fields: {
+                header: '',
+                fields: [{
+                  label: 'Measure(s)',
+                  fields: [{
+                    label: 'Starting date',
+                    name: 'starting_date',
+                    type: 'date',
+                    selected: '',
+                    required: 'required',
+                  },
+                    {
+                      label: 'End date',
+                      name: 'duration_or_end',
+                      type: 'date',
+                      selected: '',
+                      required: 'required',
+                    },
+                    {
+                      label: 'Part of the territory',
+                      name: 'part_territory',
+                      type: 'file',
+                      selected: '',
+                      comments:'',
+                      //required: true,
+                    },
+                    {
+                      label: 'Biogeographical region(s)',
+                      name: 'biogeographical_region',
+                      type: 'multiselect',
+                      selected: '',
+                      options: [
+                        {text: 'first option', value: 0},
+                        {text: 'second option', value: 1},
+                        {text: 'third option', value: 2},
+                      ],
+                      //required: true,
+                    },
+                    {
+                      label: 'River basin sub-unit(s)',
+                      name: 'river_basin_subunits',
+                      type: 'select',
+                      selected: '',
+                      options: [
+                        {text: 'first option', value: 0},
+                        {text: 'second option', value: 1},
+                        {text: 'third option', value: 2},
+                      ],
+                      //required: true,
+                    },
+                    {
+                      label: 'Marine sub-region(s)',
+                      name: 'marine_sub_regions',
+                      type: 'select',
+                      selected: '',
+                      options: [
+                        {text: 'first option', value: 0},
+                        {text: 'second option', value: 1},
+                        {text: 'third option', value: 2},
+                      ],
+                      //required: true,
+                    },
+                    {
+                      label: 'Method(s) used',
+                      name: 'methods_used',
+                      type: 'multiselect',
+                      selected: '',
+                      required: 'required',
+                      options: [
+                        { text: 'Mechanical/Physical', value: 0 },
+                        { text: 'Chemical', value: 1 },
+                        { text: 'Biological', value: 2 },
+                        { text: 'Other', value: 3 },
+                      ]
+                    },
+                  ]
+                },
+                  {
+                    label: 'Effectiveness of the measure(s)',
+                    fields: [{
+                      label: '',
+                      name: 'effectiveness_measure',
+                      type: 'select',
+                      selected: '',
+                      options: [
+                        { text: 'Eradicated', value: 0 },
+                        { text: 'Population decreasing', value: 1 },
+                        { text: 'Population stable', value: 2 },
+                        { text: 'Population still increasing ', value: 3 },
+                        { text: 'Unclear population trend', value: 4 }
+                      ]
+                    }, ]
+                  },
+                  {
+                    label: 'Impacted non-targeted species',
+                    type: 'add',
+                    description:'Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)',
+                    fields: [{
+                      label: 'Impacted non-targeted species',
+                      type: 'text',
+                      selected: '',
+                      validation:'false',
+                      name: 'impacted_nontargeted_species',
+                      inner_field: {
+                        label: 'Impact per species',
+                        type: 'text',
+                        selected: '',
+                        name: 'impact_per_species',
+                        validation:'false',
+                      }
+                    }, ]
+                  },
+                ]
+              },
+              additional_info: {
+                label: 'Additional information (optional)',
+                name: 'additional_info',
+                selected: '',
+                index: 13,
+                type: 'textarea'
+              },
+            }
+          ],
+        }
+      ],
+
+      //TODO: remove from prefill
+      table_sections: [
+        {
         label: '',
         table_fields: {
           header: '',
@@ -1360,14 +1625,15 @@ let tab_1_section = {
             },
           ]
         },
+
         additional_info: {
-          label: 'Additional information (optional)',
-          name: 'additional_info',
-          selected: '',
-          index: 13,
-          type: 'textarea'
+            label: 'Additional information (optional)',
+            name: 'additional_info',
+            selected: '',
+            index: 13,
+            type: 'textarea'
         },
-      }, ]
+      }]
     },
     table_3: {
       label: 'Information on management measure(s) taken for this species (Article 19 of Regulation (EU) No 1143/2014)',
@@ -1378,6 +1644,292 @@ let tab_1_section = {
         index: 14,
         options: [{ value: true, text: "Yes" }, { value: false, text: "No" }],
       },
+      tables: [
+        {
+          name: 'National Population',
+          label:'National Population',
+          table_sections: [{
+            label: '',
+            index: 15,
+            table_fields: {
+              header: '',
+              fields: [{
+                label: 'Measure(s)',
+                fields: [{
+                  label: 'Starting date',
+                  name: 'starting_date',
+                  type: 'date',
+                  selected: '',
+                  required: 'required',
+                },
+                  {
+                    label: 'End date',
+                    name: 'duration_or_end',
+                    type: 'date',
+                    selected: '',
+                    required: 'required',
+                  },
+                  {
+                    label: 'Objective of the measure(s) ',
+                    name: 'measures_objective',
+                    type: 'select',
+                    selected: '',
+                    options: [
+                      { text: 'Eradication', value: 0 },
+                      { text: 'Control', value: 1 },
+                      { text: 'Containment', value: 2 },
+                    ]
+                  },
+                  {
+                    label: 'Part of the territory',
+                    name: 'part_territory',
+                    /*type: 'text',
+                    selected: '',*/
+                    //TODO: NUTS code
+                    type: 'file',
+                    selected: '',
+                    comments:'',
+
+                  },
+                  {
+                    label: 'Biogeographical region(s)',
+                    name: 'biogeographical_region',
+                    type: 'multiselect',
+                    selected: '',
+                    options: [
+                      {text: 'first option', value: 0},
+                      {text: 'second option', value: 1},
+                      {text: 'third option', value: 2},
+                    ]
+                  },
+                  {
+                    label: 'River basin sub-unit(s)',
+                    name: 'river_basin_subunits',
+                    type: 'select',
+                    selected: '',
+                    options: [
+                      {text: 'first option', value: 0},
+                      {text: 'second option', value: 1},
+                      {text: 'third option', value: 2},
+                    ]
+                  },
+                  {
+                    label: 'Marine sub-region(s)',
+                    name: 'river_basin_subunits',
+                    type: 'select',
+                    selected: '',
+                    options: [
+                      {text: 'first option', value: 0},
+                      {text: 'second option', value: 1},
+                      {text: 'third option', value: 2},
+                    ]
+                  },
+                  {
+                    label: 'Method(s) used',
+                    name: 'methods_used',
+                    type: 'multiselect',
+                    selected: '',
+                    required: 'required',
+                    options: [
+                      { text: 'Mechanical/Physical', value: 0 },
+                      { text: 'Chemical', value: 1 },
+                      { text: 'Biological', value: 2 },
+                      { text: 'Other', value: 3 },
+                    ]
+                  },
+                ]
+              },
+                {
+                  label: 'Effectiveness of the measure(s)',
+                  fields: [{
+                    label: '',
+                    name: 'effectiveness_measure',
+                    type: 'select',
+                    selected: '',
+                    options: [
+                      { text: 'Eradicated', value: 0 },
+                      { text: 'Population decreasing', value: 1 },
+                      { text: 'Population stable', value: 2 },
+                      { text: 'Population still increasing ', value: 3 },
+                      { text: 'Unclear population trend', value: 4 }
+                    ]
+                  }, ]
+                },
+                {
+                  label: 'Impacted non-targeted species',
+                  type: 'add',
+                  description:'Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)',
+                  fields: [{
+                    label: 'Impacted non-targeted species',
+                    type: 'text',
+                    selected: '',
+                    validation:'false',
+                    name: 'impacted_nontargeted_species',
+                    inner_field: {
+                      label: 'Impact per species',
+                      type: 'text',
+                      selected: '',
+                      name: 'impact_per_species',
+                      validation:'false',
+                    }
+                  }, ]
+                },
+              ]
+            },
+            additional_info: {
+              label: 'Additional information (optional)',
+              name: 'additional_info',
+              selected: '',
+              index: 16,
+              type: 'textarea'
+            },
+          }],
+        },
+        //TODO: remove
+        {
+          name: 'New Population',
+          label:'New Population',
+          table_sections: [{
+            label: '',
+            index: 15,
+            table_fields: {
+              header: '',
+              fields: [{
+                label: 'Measure(s)',
+                fields: [{
+                  label: 'Starting date',
+                  name: 'starting_date',
+                  type: 'date',
+                  selected: '',
+                  required: 'required',
+                },
+                  {
+                    label: 'End date',
+                    name: 'duration_or_end',
+                    type: 'date',
+                    selected: '',
+                    required: 'required',
+                  },
+                  {
+                    label: 'Objective of the measure(s) ',
+                    name: 'measures_objective',
+                    type: 'select',
+                    selected: '',
+                    options: [
+                      { text: 'Eradication', value: 0 },
+                      { text: 'Control', value: 1 },
+                      { text: 'Containment', value: 2 },
+                    ]
+                  },
+                  {
+                    label: 'Part of the territory',
+                    name: 'part_territory',
+                    /*type: 'text',
+                    selected: '',*/
+                    //TODO: NUTS code
+                    type: 'file',
+                    selected: '',
+                    comments:'',
+
+                  },
+                  {
+                    label: 'Biogeographical region(s)',
+                    name: 'biogeographical_region',
+                    type: 'multiselect',
+                    selected: '',
+                    options: [
+                      {text: 'first option', value: 0},
+                      {text: 'second option', value: 1},
+                      {text: 'third option', value: 2},
+                    ]
+                  },
+                  {
+                    label: 'River basin sub-unit(s)',
+                    name: 'river_basin_subunits',
+                    type: 'select',
+                    selected: '',
+                    options: [
+                      {text: 'first option', value: 0},
+                      {text: 'second option', value: 1},
+                      {text: 'third option', value: 2},
+                    ]
+                  },
+                  {
+                    label: 'Marine sub-region(s)',
+                    name: 'river_basin_subunits',
+                    type: 'select',
+                    selected: '',
+                    options: [
+                      {text: 'first option', value: 0},
+                      {text: 'second option', value: 1},
+                      {text: 'third option', value: 2},
+                    ]
+                  },
+                  {
+                    label: 'Method(s) used',
+                    name: 'methods_used',
+                    type: 'multiselect',
+                    selected: '',
+                    required: 'required',
+                    options: [
+                      { text: 'Mechanical/Physical', value: 0 },
+                      { text: 'Chemical', value: 1 },
+                      { text: 'Biological', value: 2 },
+                      { text: 'Other', value: 3 },
+                    ]
+                  },
+                ]
+              },
+                {
+                  label: 'Effectiveness of the measure(s)',
+                  fields: [{
+                    label: '',
+                    name: 'effectiveness_measure',
+                    type: 'select',
+                    selected: '',
+                    options: [
+                      { text: 'Eradicated', value: 0 },
+                      { text: 'Population decreasing', value: 1 },
+                      { text: 'Population stable', value: 2 },
+                      { text: 'Population still increasing ', value: 3 },
+                      { text: 'Unclear population trend', value: 4 }
+                    ]
+                  }, ]
+                },
+                {
+                  label: 'Impacted non-targeted species',
+                  type: 'add',
+                  description:'Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)',
+                  fields: [{
+                    label: 'Impacted non-targeted species',
+                    type: 'text',
+                    selected: '',
+                    validation:'false',
+                    name: 'impacted_nontargeted_species',
+                    inner_field: {
+                      label: 'Impact per species',
+                      type: 'text',
+                      selected: '',
+                      name: 'impact_per_species',
+                      validation:'false',
+                    }
+                  }, ]
+                },
+              ]
+            },
+            additional_info: {
+              label: 'Additional information (optional)',
+              name: 'additional_info',
+              selected: '',
+              index: 16,
+              type: 'textarea'
+            },
+          }]
+        },
+
+      ],
+
+      //TODO: remove from prefill
       table_sections: [{
         label: '',
         index: 15,
