@@ -271,8 +271,19 @@
               }
             });
 
-            console.log(vals);
+            let temp = {};
+            vals.map((val) => {
+              let reg = /sectiona_([0-9]*)_(\w+)_([0-9])/;
+              let res = val.match(reg);
 
+              if(res !== null){
+                let row = res[3];
+                let pat = res[2];
+
+                
+              }
+
+            });
             //resolve(true);
 
         });
