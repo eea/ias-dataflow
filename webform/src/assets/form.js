@@ -1,6 +1,6 @@
 import species from './species.js'
 import speciesB from './speciesB.js'
-
+import nuts from './nuts-regions'
 
 let measurement_units = [
   {
@@ -27,6 +27,10 @@ let regionOptions = [
     text: 'France', value: 'FR',
   },
 ];
+
+const nutsCodes = nuts.concepts.map((obj) => {
+  return { value: obj["@id"], text: obj["@id"] };
+});
 
 
 let tab_1_section = {
@@ -1272,7 +1276,9 @@ let tab_1_section = {
                     {
                       label: 'Part of the territory',
                       name: 'part_territory',
-                      type: 'file',
+                      //type: 'file',
+                      type: 'select',
+                      options: nutsCodes,
                       selected: '',
                       comments:'',
                       //required: true,
@@ -1401,7 +1407,9 @@ let tab_1_section = {
                 {
                   label: 'Part of the territory',
                   name: 'part_territory',
-                  type: 'file',
+                  //type: 'file',
+                  type: 'select',
+                  options: nutsCodes,
                   selected: '',
                   comments:'',
                   //required: true,
@@ -1555,7 +1563,9 @@ let tab_1_section = {
                     /*type: 'text',
                     selected: '',*/
                     //TODO: NUTS code
-                    type: 'file',
+                    //type: 'file',
+                    type: 'select',
+                    options: nutsCodes,
                     selected: '',
                     comments:'',
 
@@ -1694,7 +1704,9 @@ let tab_1_section = {
                   /*type: 'text',
                   selected: '',*/
                   //TODO: NUTS code
-                  type: 'file',
+                  //type: 'file',
+                  type: 'select',
+                  options: nutsCodes,
                   selected: '',
                   comments:'',
 

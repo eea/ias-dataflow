@@ -191,7 +191,6 @@
                     </b-row>
 
                     <b-row>
-                      <!-- style="padding-left: 1rem;padding-right: 1rem; margin-bottom: 0.5rem;margin-top: 1rem;" -->
                       <b-col v-if="errors.has('population' + '_' + popkey,'sectiona_'+ seckey + '_' +'table_2_' + popkey + '_' + 'population')">
                         <b-badge variant="danger" style="padding: 0.5rem;line-height: 1.2rem;">
                         {{ errors.first('population' + '_' + popkey,'sectiona_'+ seckey + '_' +'table_2_' + popkey + '_' + 'population')
@@ -582,9 +581,7 @@ export default {
   data () {
     return {
       expanded: [],
-      tables_expanded: {
 
-      },
       customField: null,
       addCustom: {
         text: null,
@@ -596,7 +593,7 @@ export default {
     }
   },
   created (){
-    Object.keys(this.info.sections).map((section) => {
+    /*Object.keys(this.info.sections).map((section) => {
       this.tables_expanded[section] = {
         2: {
           0: true,
@@ -605,7 +602,7 @@ export default {
           0: true,
         }
       };
-    });
+    });*/
   },
 
   watch: {

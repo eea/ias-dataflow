@@ -107,8 +107,9 @@
     <span v-else-if="field.type === 'select'">
 
       <span v-if="validation !== 'false'">
+
         <!-- TODO: delay in validation at units of measurement -->
-        <b-form-select
+        <b-form-select v-if="field.options.length < 20"
           :disabled="disabled" v-model="field.selected" :options="field.options"
           v-bind:key="vname"
           v-bind:name="vkey"
@@ -117,11 +118,22 @@
           v-validate ="'required'"
           @change="changeSelect($event)"
         ></b-form-select>
+        <multiselect v-if="field.options.length >= 20"
+          :disabled="disabled" v-model="field.selected" :options="field.options"
+          :multiple="false"
+          :close-on-select="false" :clear-on-select="false" :preserve-search="true" track-by="text"
+          v-bind:key="vname"
+          v-bind:name="vkey"
+          v-bind:data-vv-as=" (field.label === '' && 'undefined' !== typeof sub_section) ? sub_section.label : field.label "
+          v-bind:data-vv-scope="vscope"
+          v-validate ="'required'"
+          @change="changeSelect($event)"
+        ></multiselect>
+
       </span>
       <span v-else>
-
         <!-- TODO: delay in validation at units of measurement -->
-        <b-form-select
+        <b-form-select v-if="field.options.length < 20"
           :disabled="disabled" v-model="field.selected" :options="field.options"
           v-bind:key="vname"
           v-bind:name="vkey"
@@ -130,6 +142,19 @@
           v-validate ="'falserequire'"
           @change="changeSelect($event)"
         ></b-form-select>
+        <multiselect v-if="field.options.length >= 20"
+         :multiple="false"
+         :close-on-select="true" :clear-on-select="true" :preserve-search="true" track-by="text"
+          :disabled="disabled" v-model="field.selected" :options="field.options"
+          v-bind:key="vname"
+          v-bind:name="vkey"
+          v-bind:data-vv-as=" (field.label === '' && 'undefined' !== typeof sub_section) ? sub_section.label : field.label "
+          v-bind:data-vv-scope="vscope"
+          v-validate ="'falserequire'"
+          @change="changeSelect($event)"
+          :custom-label="customLabel"
+        ></multiselect>
+
       </span>
     </span>
 
@@ -193,10 +218,11 @@
 <script>
 import FormFileUpload from "./FormFileUpload";
 import {getSupportingFiles, envelope} from '../api.js';
+import Multiselect from 'vue-multiselect';
 
 export default {
   name: 'fieldGenerator',
-  components: {FormFileUpload},
+  components: {FormFileUpload, Multiselect},
   inject: ['$validator'],
 
   props: {
@@ -230,6 +256,10 @@ export default {
     }
   },
   methods: {
+    customLabel({ value, text}){
+      return `${text}`
+    },
+
     addFilesToSelected(fieldkey,index,field){
       let self = this;
       getSupportingFiles().then((response) => {
