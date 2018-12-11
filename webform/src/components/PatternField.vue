@@ -246,6 +246,38 @@
         });
       },
 
+      validateReproduction(){
+        let self = this;
+
+        return new Promise(function(resolve, reject) {
+            let patsN = Object.keys(self.$refs).filter((item) => {
+              return item.indexOf("pattern") !== -1 || item.indexOf("region") !== -1;
+            });
+
+            let vals = [];
+
+            let pats = patsN.map((name) => {
+              let ref = self.$refs[name][0];
+
+              if("undefined" !== typeof ref){
+                let val = ref.$el.value;
+                vals.push({
+                  ref: self.$refs[name][0].name,
+                  val: val,
+                });
+                return self.$refs[name][0];
+              } else {
+                return null;
+              }
+            });
+
+            console.log(vals);
+
+            //resolve(true);
+
+        });
+      },
+
       validate(){
         let promises = [];
         let self = this;
@@ -253,7 +285,11 @@
         let newvalid = [];
 
         if( self.patternfields[0].patternType === "spread"){
-          promises.push(self.validateSpread());
+          promises.push( self.validateSpread() );
+        }
+
+        if ( self.patternfields[0].patternType === "reproduction" ){
+          promises.push( self.validateReproduction() );
         }
 
         for( let ref in self.$refs){
