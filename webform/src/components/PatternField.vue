@@ -67,6 +67,7 @@
         firstval: [],
         secondval:[],
         patrefs: [],
+        reprovals: [],
       }
     },
     watch: {
@@ -144,6 +145,46 @@
           });
         }
       },
+
+      reprovals(vals, oldVals){
+        let self = this;
+        let rule = 'duplicateRegion';
+
+        if(vals.length > 0){
+          /*oldFields.map((field)=> {
+            self.$emit("add-error", null, field);
+          });*/
+
+          vals.map((field) => {
+            let error = {
+              field: field.name,
+              msg: "Same region and pattern",
+              scope: field.scope,
+              rule: rule,
+              //vmId: field.vmId
+            };
+
+            self.$validator.errors.add(error);
+            let f = self.$validator.fields.find(field.name, field.scope);
+            console.log(f.name);
+            console.log(f.scope);
+
+          });
+          self.$forceUpdate();
+
+        } else {
+          /*oldFields.map((field)=> {
+            self.$emit("add-error", null, field);
+          });*/
+        }
+        /*vals.map((val) => {
+          let pat = val.pat;
+          //console.log(pat.$el);
+          let scope = pat.$el.getAttribute("name");
+          let name = pat.$el.getAttribute("data-vv-scope");
+        });*/
+
+      }
     },
 
     methods: {
@@ -238,71 +279,76 @@
 
       validateReproduction(){
         let self = this;
-
         return new Promise(function(resolve, reject) {
-            let patsN = Object.keys(self.$refs).filter((item) => {
-              return item.indexOf("pattern") !== -1 || item.indexOf("region") !== -1;
-            });
+          let vals = [];
 
-            let vals = [];
-
-            patsN.map((name) => {
-              let ref = self.$refs[name][0];
-
-              if("undefined" !== typeof ref){
-                let val = ref.$el.value;
-                vals.push({
-                  refName: self.$refs[name][0].name,
-                  val: val,
-                  ref:ref
-
-                });
-                return self.$refs[name][0];
-              } else {
-                return null;
-              }
-            });
-
-            let temp = [];
-
-            vals.map((val) => {
-              let reg = /sectiona_([0-9]*)_(\w+)_([0-9])/;
-
-              let res = val.refName.match(reg);
-
-              if(res !== null){
-                let row = res[3];
-                let pat = res[2];
-
-                if("undefined" === typeof temp[row]){
-                  temp[row] = {};
-                }
-                temp[row][pat] = { val :val.val, ref : val.ref};
-                temp[row]["count"] = 1;
-              }
-            });
-
-            let uniq = temp.reduce((a,b)=>{
-              let finalV = b.reproduction_pattern.val + "|"+ b.reproduction_region.val;
-              a[ finalV ] = ( a[ finalV ] || 0) + b.count;
-              if('undefined' === typeof a[ finalV + "_refs"] ){
-                a[ finalV + "_refs"] = [];
-              }
-              a[ finalV + "_refs"].push({
-                pat: b.reproduction_pattern.ref,
-                reg: b.reproduction_region.ref
+          Object.keys(self.$refs).filter((item) => {
+            return item.indexOf("pattern") !== -1 || item.indexOf("region") !== -1;
+          }).map((name) => {
+            let ref = self.$refs[name][0];
+            if("undefined" !== typeof ref) {
+              let val = ref.$el.value;
+              vals.push({
+                refName: self.$refs[name][0].name,
+                val: val,
+                ref:ref
               });
-              return a;
-            },{});
-            let duplicates = Object.keys(uniq).filter((a) => uniq[a] > 1);
+              return self.$refs[name][0];
+            } else {
+              return null;
+            }
+          });
 
-            duplicates.map((dup) => {
-              console.log(uniq[dup + "_refs"]);
+          let temp = [];
+
+          vals.map((val) => {
+            let reg = /sectiona_([0-9]*)_(\w+)_([0-9])/;
+            let res = val.refName.match(reg);
+            if(res !== null){
+              let row = res[3];
+              let pat = res[2];
+              if("undefined" === typeof temp[row]){
+                temp[row] = {};
+              }
+              temp[row][pat] = { val :val.val, ref : val.ref};
+              temp[row]["count"] = 1;
+            }
+          });
+
+          let uniq = temp.reduce((a,b)=> {
+            let finalV = b.reproduction_pattern.val + "|"+ b.reproduction_region.val;
+            a[ finalV ] = ( a[ finalV ] || 0) + b.count;
+            if('undefined' === typeof a[ finalV + "_refs"] ){
+              a[ finalV + "_refs"] = [];
+            }
+            a[ finalV + "_refs"].push({
+              pat: b.reproduction_pattern.ref,
+              reg: b.reproduction_region.ref
             });
+            return a;
+          },{});
+
+          let res = [];
+
+          Object.keys(uniq).filter((a) => uniq[a] > 1).map((dup) => {
+            res.push( uniq[dup + "_refs"].map((d) => { return d.pat; }) );
+          });
+
+          let fields = [];
+
+          res.map((val) => {
+            val.map((v) => {
+              let scope = val[0].$el.getAttribute("name");
+              let name = val[0].$el.getAttribute("data-vv-scope");
+              fields.push( self.$validator.fields.find( name , scope ) );
+            });
+              //return val.pat;
+              //return val;
+          });
 
 
-            //resolve(true);
-
+          self.reprovals = fields;
+          resolve(true);
         });
       },
 
