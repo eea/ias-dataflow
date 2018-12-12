@@ -17,16 +17,6 @@
               >{{ errors.first(scope + '_pattern_' + fieldkey, scope) }}</b-badge>
             </b-input-group-prepend>
 
-            <!--<multiselect
-              v-model="field.selected.pattern" :options="field.options"
-              :multiple="multiple"
-              :close-on-select="false" :clear-on-select="false" :preserve-search="true"
-              track-by="text"
-              v-validate="'required'" data-vv-as="pattern"  v-bind:key="scope + '_pattern_' + fieldkey"
-              v-bind:data-vv-scope="scope" v-bind:name="scope + '_pattern_' + fieldkey"
-              :custom-label="customLabel"
-            ></multiselect>-->
-
             <b-form-select :options="field.options" v-model="field.selected.pattern" v-validate="'required'"
                data-vv-as="pattern"  v-bind:key="scope + '_pattern_' + fieldkey"
               v-bind:data-vv-scope="scope"
@@ -46,13 +36,13 @@
               >{{ errors.first(scope + '_region_' + fieldkey, scope) }}</b-badge>
             </b-input-group-prepend>
 
+            <!-- @change="validate" -->
             <b-form-select :options="field.regionOptions" v-model="field.selected.region" v-validate="'required'"
               data-vv-as="region" v-bind:name="scope + '_region_' + fieldkey"
               v-bind:key="scope + '_region_' + fieldkey"
               v-bind:data-vv-scope="scope"
               :ref="scope + '_region_' + fieldkey"
               :custom-label="customLabel"
-              @change="validate"
             ></b-form-select>
           </b-input-group>
         </td>
@@ -256,14 +246,16 @@
 
             let vals = [];
 
-            let pats = patsN.map((name) => {
+            patsN.map((name) => {
               let ref = self.$refs[name][0];
 
               if("undefined" !== typeof ref){
                 let val = ref.$el.value;
                 vals.push({
-                  ref: self.$refs[name][0].name,
+                  refName: self.$refs[name][0].name,
                   val: val,
+                  ref:ref
+
                 });
                 return self.$refs[name][0];
               } else {
@@ -271,19 +263,44 @@
               }
             });
 
-            let temp = {};
+            let temp = [];
+
             vals.map((val) => {
               let reg = /sectiona_([0-9]*)_(\w+)_([0-9])/;
-              let res = val.match(reg);
+
+              let res = val.refName.match(reg);
 
               if(res !== null){
                 let row = res[3];
                 let pat = res[2];
 
-                
+                if("undefined" === typeof temp[row]){
+                  temp[row] = {};
+                }
+                temp[row][pat] = { val :val.val, ref : val.ref};
+                temp[row]["count"] = 1;
               }
-
             });
+
+            let uniq = temp.reduce((a,b)=>{
+              let finalV = b.reproduction_pattern.val + "|"+ b.reproduction_region.val;
+              a[ finalV ] = ( a[ finalV ] || 0) + b.count;
+              if('undefined' === typeof a[ finalV + "_refs"] ){
+                a[ finalV + "_refs"] = [];
+              }
+              a[ finalV + "_refs"].push({
+                pat: b.reproduction_pattern.ref,
+                reg: b.reproduction_region.ref
+              });
+              return a;
+            },{});
+            let duplicates = Object.keys(uniq).filter((a) => uniq[a] > 1);
+
+            duplicates.map((dup) => {
+              console.log(uniq[dup + "_refs"]);
+            });
+
+
             //resolve(true);
 
         });
