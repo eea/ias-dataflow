@@ -166,8 +166,8 @@
 
             self.$validator.errors.add(error);
             let f = self.$validator.fields.find(field.name, field.scope);
-            console.log(f.name);
-            console.log(f.scope);
+            //console.log(f.name);
+            //console.log(f.scope);
 
           });
           self.$forceUpdate();
@@ -338,14 +338,12 @@
 
           res.map((val) => {
             val.map((v) => {
-              let scope = val[0].$el.getAttribute("name");
-              let name = val[0].$el.getAttribute("data-vv-scope");
+              console.log(v);
+              let scope = v.$el.getAttribute("name");
+              let name = v.$el.getAttribute("data-vv-scope");
               fields.push( self.$validator.fields.find( name , scope ) );
             });
-              //return val.pat;
-              //return val;
           });
-
 
           self.reprovals = fields;
           resolve(true);
