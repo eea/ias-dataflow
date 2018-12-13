@@ -9,10 +9,14 @@ let nuts = function(){
       .then((regions) => {
         return regions.json();
       }).catch((rej) => {
-        reject(rej);
+        resolve([]);
       }).then((regs) => {
-        const regions = regs.map((reg) => { return { text: reg.label, value: reg.id} });
-        resolve(regions);
+        if( "undefined" !== typeof regs ){
+          const regions = regs.map((reg) => { return { text: reg.label, value: reg.id} });
+          resolve(regions);
+        } else {
+          resolve([]);
+        }
       });
     });
   });
@@ -54,5 +58,4 @@ let nuts = function(){
     ]
   };*/
 };
-
 export default nuts

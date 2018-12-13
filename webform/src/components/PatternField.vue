@@ -188,8 +188,13 @@
           //self.$emit("add-error", null, field);
 
           //self.$validator.errors.clear()
-          oldFields.map((field)=> {
-            self.$emit("add-error", null, field);
+          oldVals.map((field)=> {
+            let fd = null;
+            self.$validator.fields.items.filter((it) => {
+              if(field.name === it.name) fd = field;
+            });
+
+            self.$emit("add-error", null, fd);
           });
         }
         /*vals.map((val) => {

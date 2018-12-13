@@ -4,23 +4,23 @@
 
       <span v-if="validation !== 'false'">
          <b-form-input :disabled="disabled" :name="field.name"
-                       v-model="field.selected" :type="field.type" v-if="field.type === 'number'"
-                       @input="changeInput($event)"
-                       v-bind:key="vname"
-                       v-bind:name="vkey"
-                       :data-vv-as="field.label"
-                       v-bind:data-vv-scope="vscope"
-                       v-validate.continues="'required|numeric|min_value:1'"
+            v-model="field.selected" :type="field.type" v-if="field.type === 'number'"
+            @input="changeInput($event)"
+            v-bind:key="vname"
+            v-bind:name="vkey"
+            :data-vv-as="field.label"
+            v-bind:data-vv-scope="vscope"
+            v-validate.continues="'required|numeric|min_value:1'"
          ></b-form-input>
 
         <b-form-input :disabled="disabled" :name="field.name"
-          v-model="field.selected" :type="field.type" v-if="field.type !== 'number'"
-          @input="changeInput($event)"
-          v-bind:key="vname"
-          v-bind:name="vkey"
-          :data-vv-as="field.label"
-          v-bind:data-vv-scope="vscope"
-          v-validate.continues="'required'"
+            v-model="field.selected" :type="field.type" v-if="field.type !== 'number'"
+            @input="changeInput($event)"
+            v-bind:key="vname"
+            v-bind:name="vkey"
+            :data-vv-as="field.label"
+            v-bind:data-vv-scope="vscope"
+            v-validate.continues="'required'"
         ></b-form-input>
       </span>
 
@@ -106,19 +106,19 @@
     <span v-else-if="field.type === 'select'">
 
       <span v-if="validation !== 'false'">
-
         <!-- TODO: delay in validation at units of measurement -->
         <b-form-select v-if="field.options.length < 20"
-          :disabled="disabled" v-model="field.selected" :options="field.options"
+          v-model="field.selected" :options="field.options"
           v-bind:key="vname"
           v-bind:name="vkey"
           v-bind:data-vv-as=" (field.label === '' && 'undefined' !== typeof sub_section) ? sub_section.label : field.label "
           v-bind:data-vv-scope="vscope"
           v-validate ="'required'"
+          :disabled="disabled || field.options.length === 0"
           @change="changeSelect($event)"
         ></b-form-select>
         <multiselect v-if="field.options.length >= 20"
-          :disabled="disabled" v-model="field.selected" :options="field.options"
+          v-model="field.selected" :options="field.options"
           :multiple="false"
           :close-on-select="false" :clear-on-select="false" :preserve-search="true" track-by="text"
           v-bind:key="vname"
@@ -126,29 +126,32 @@
           v-bind:data-vv-as=" (field.label === '' && 'undefined' !== typeof sub_section) ? sub_section.label : field.label "
           v-bind:data-vv-scope="vscope"
           v-validate ="'required'"
+          :disabled="disabled || field.options.length === 0"
           @change="changeSelect($event)"
         ></multiselect>
-
       </span>
+
       <span v-else>
         <!-- TODO: delay in validation at units of measurement -->
         <b-form-select v-if="field.options.length < 20"
-          :disabled="disabled" v-model="field.selected" :options="field.options"
+          v-model="field.selected" :options="field.options"
           v-bind:key="vname"
           v-bind:name="vkey"
           v-bind:data-vv-as=" (field.label === '' && 'undefined' !== typeof sub_section) ? sub_section.label : field.label "
           v-bind:data-vv-scope="vscope"
           v-validate ="'falserequire'"
+          :disabled="disabled || field.options.length === 0"
           @change="changeSelect($event)"
         ></b-form-select>
         <multiselect v-if="field.options.length >= 20"
-         :multiple="false"
-         :close-on-select="true" :clear-on-select="true" :preserve-search="true" track-by="text"
-          :disabled="disabled" v-model="field.selected" :options="field.options"
+          :multiple="false"
+          :close-on-select="true" :clear-on-select="true" :preserve-search="true" track-by="text"
+          v-model="field.selected" :options="field.options"
           v-bind:key="vname"
           v-bind:name="vkey"
           v-bind:data-vv-as=" (field.label === '' && 'undefined' !== typeof sub_section) ? sub_section.label : field.label "
           v-bind:data-vv-scope="vscope"
+          :disabled="disabled || field.options.length === 0"
           v-validate ="'falserequire'"
           @change="changeSelect($event)"
           :custom-label="customLabel"
@@ -181,6 +184,7 @@
           :data-vv-as="field.label"
           v-bind:data-vv-scope="vscope"
           v-validate ="'required'"
+          :disabled="disabled || field.options.length === 0"
         ></multiselect>
       </span>
       <span v-else>
@@ -192,6 +196,7 @@
           :data-vv-as="field.label"
           v-bind:data-vv-scope="vscope"
           v-validate ="'falserequire'"
+          :disabled="disabled || field.options.length === 0"
         ></multiselect>
       </span>
 
@@ -208,7 +213,8 @@
         v-model="field.selected"
         :data-vv-as="field.label"
         :type="field.type"
-        @input="$emit('input', $event)" ></b-form-input>
+        @input="$emit('input', $event)" >
+      </b-form-input>
     </div>
 
 	</div>

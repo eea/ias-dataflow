@@ -1,6 +1,7 @@
 import species from './species.js'
 import speciesB from './speciesB.js'
 import nuts from './nuts-regions'
+import marine_subregions from './marine-subregions'
 
 let measurement_units = [
   {
@@ -30,7 +31,12 @@ let regionOptions = [
 
 function form() {
   return new Promise(function( resolve, reject){
-    nuts().then((regions) => {
+
+    Promise.all([nuts(), marine_subregions()]).then((vals) => {
+      let regions = vals[0];
+      let msubregs = vals[1];
+      console.log(regions);
+
       let tab_1_section = {
         scientific_name: {
           label: 'Species scientific name',
@@ -712,7 +718,6 @@ function form() {
                       ]
                     },
                   ],
-
                 },
                 additional_info: {
                   label: 'Additional information (optional)',
@@ -1310,11 +1315,7 @@ function form() {
                             name: 'marine_sub_regions',
                             type: 'select',
                             selected: '',
-                            options: [
-                              {text: 'first option', value: 0},
-                              {text: 'second option', value: 1},
-                              {text: 'third option', value: 2},
-                            ],
+                            options: msubregs,
                             //required: true,
                           },
                           {
@@ -1441,11 +1442,7 @@ function form() {
                         name: 'marine_sub_regions',
                         type: 'select',
                         selected: '',
-                        options: [
-                          {text: 'first option', value: 0},
-                          {text: 'second option', value: 1},
-                          {text: 'third option', value: 2},
-                        ],
+                        options: msubregs,
                         //required: true,
                       },
                       {
@@ -1595,11 +1592,7 @@ function form() {
                           name: 'river_basin_subunits',
                           type: 'select',
                           selected: '',
-                          options: [
-                            {text: 'first option', value: 0},
-                            {text: 'second option', value: 1},
-                            {text: 'third option', value: 2},
-                          ]
+                          options: msubregs,
                         },
                         {
                           label: 'Method(s) used',
@@ -1736,11 +1729,7 @@ function form() {
                       name: 'river_basin_subunits',
                       type: 'select',
                       selected: '',
-                      options: [
-                        {text: 'first option', value: 0},
-                        {text: 'second option', value: 1},
-                        {text: 'third option', value: 2},
-                      ]
+                      options: msubregs
                     },
                     {
                       label: 'Method(s) used',
@@ -2067,9 +2056,14 @@ function form() {
         form.tab_1.sections.push(current_section);
       }
       resolve(form);
-    }).catch((rej) => {
-      reject(rej);
     });
+
+    //nuts().then((regions) => {
+
+    /*}).catch((rej) => {
+      reject(rej);
+    });*/
+
   });
 }
 
