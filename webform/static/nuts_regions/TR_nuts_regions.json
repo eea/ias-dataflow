@@ -1,0 +1,482 @@
+[
+  {
+    "label": "Türkiye",
+    "id": "TR"
+  },
+  {
+    "label": "İstanbul",
+    "id": "TR1"
+  },
+  {
+    "label": "İstanbul",
+    "id": "TR10"
+  },
+  {
+    "label": "İstanbul",
+    "id": "TR100"
+  },
+  {
+    "label": "Bati Marmara",
+    "id": "TR2"
+  },
+  {
+    "label": "Tekirdağ",
+    "id": "TR21"
+  },
+  {
+    "label": "Tekirdağ",
+    "id": "TR211"
+  },
+  {
+    "label": "Edirne",
+    "id": "TR212"
+  },
+  {
+    "label": "Kırklareli",
+    "id": "TR213"
+  },
+  {
+    "label": "Balıkesir",
+    "id": "TR22"
+  },
+  {
+    "label": "Balıkesir",
+    "id": "TR221"
+  },
+  {
+    "label": "Çanakkale",
+    "id": "TR222"
+  },
+  {
+    "label": "Ege",
+    "id": "TR3"
+  },
+  {
+    "label": "İzmir",
+    "id": "TR31"
+  },
+  {
+    "label": "İzmir",
+    "id": "TR310"
+  },
+  {
+    "label": "Aydın",
+    "id": "TR32"
+  },
+  {
+    "label": "Aydın",
+    "id": "TR321"
+  },
+  {
+    "label": "Denizli",
+    "id": "TR322"
+  },
+  {
+    "label": "Muğla",
+    "id": "TR323"
+  },
+  {
+    "label": "Manisa",
+    "id": "TR33"
+  },
+  {
+    "label": "Manisa",
+    "id": "TR331"
+  },
+  {
+    "label": "Afyon",
+    "id": "TR332"
+  },
+  {
+    "label": "Kütahya",
+    "id": "TR333"
+  },
+  {
+    "label": "Uşak",
+    "id": "TR334"
+  },
+  {
+    "label": "Doğu Marmara",
+    "id": "TR4"
+  },
+  {
+    "label": "Bursa",
+    "id": "TR41"
+  },
+  {
+    "label": "Bursa",
+    "id": "TR411"
+  },
+  {
+    "label": "Eskişehir",
+    "id": "TR412"
+  },
+  {
+    "label": "Bilecik",
+    "id": "TR413"
+  },
+  {
+    "label": "Kocaeli",
+    "id": "TR42"
+  },
+  {
+    "label": "Kocaeli",
+    "id": "TR421"
+  },
+  {
+    "label": "Sakarya",
+    "id": "TR422"
+  },
+  {
+    "label": "Düzce",
+    "id": "TR423"
+  },
+  {
+    "label": "Bolu",
+    "id": "TR424"
+  },
+  {
+    "label": "Yalova",
+    "id": "TR425"
+  },
+  {
+    "label": "Bati Anadolu",
+    "id": "TR5"
+  },
+  {
+    "label": "Ankara",
+    "id": "TR51"
+  },
+  {
+    "label": "Ankara",
+    "id": "TR510"
+  },
+  {
+    "label": "Konya",
+    "id": "TR52"
+  },
+  {
+    "label": "Konya",
+    "id": "TR521"
+  },
+  {
+    "label": "Karaman",
+    "id": "TR522"
+  },
+  {
+    "label": "Akdeniz",
+    "id": "TR6"
+  },
+  {
+    "label": "Antalya",
+    "id": "TR61"
+  },
+  {
+    "label": "Antalya",
+    "id": "TR611"
+  },
+  {
+    "label": "Isparta",
+    "id": "TR612"
+  },
+  {
+    "label": "Burdur",
+    "id": "TR613"
+  },
+  {
+    "label": "Adana",
+    "id": "TR62"
+  },
+  {
+    "label": "Adana",
+    "id": "TR621"
+  },
+  {
+    "label": "İçel",
+    "id": "TR622"
+  },
+  {
+    "label": "Hatay",
+    "id": "TR63"
+  },
+  {
+    "label": "Hatay",
+    "id": "TR631"
+  },
+  {
+    "label": "Kahramanmaraş",
+    "id": "TR632"
+  },
+  {
+    "label": "Osmaniye",
+    "id": "TR633"
+  },
+  {
+    "label": "Orta Anadolu",
+    "id": "TR7"
+  },
+  {
+    "label": "Kırıkkale",
+    "id": "TR71"
+  },
+  {
+    "label": "Kırıkkale",
+    "id": "TR711"
+  },
+  {
+    "label": "Aksaray",
+    "id": "TR712"
+  },
+  {
+    "label": "Niğde",
+    "id": "TR713"
+  },
+  {
+    "label": "Nevşehir",
+    "id": "TR714"
+  },
+  {
+    "label": "Kırşehir",
+    "id": "TR715"
+  },
+  {
+    "label": "Kayseri",
+    "id": "TR72"
+  },
+  {
+    "label": "Kayseri",
+    "id": "TR721"
+  },
+  {
+    "label": "Sivas",
+    "id": "TR722"
+  },
+  {
+    "label": "Yozgat",
+    "id": "TR723"
+  },
+  {
+    "label": "Bati Karadeniz",
+    "id": "TR8"
+  },
+  {
+    "label": "Zonguldak",
+    "id": "TR81"
+  },
+  {
+    "label": "Zonguldak",
+    "id": "TR811"
+  },
+  {
+    "label": "Karabük",
+    "id": "TR812"
+  },
+  {
+    "label": "Bartın",
+    "id": "TR813"
+  },
+  {
+    "label": "Kastamonu",
+    "id": "TR82"
+  },
+  {
+    "label": "Kastamonu",
+    "id": "TR821"
+  },
+  {
+    "label": "Çankırı",
+    "id": "TR822"
+  },
+  {
+    "label": "Sinop",
+    "id": "TR823"
+  },
+  {
+    "label": "Samsun",
+    "id": "TR83"
+  },
+  {
+    "label": "Samsun",
+    "id": "TR831"
+  },
+  {
+    "label": "Tokat",
+    "id": "TR832"
+  },
+  {
+    "label": "Çorum",
+    "id": "TR833"
+  },
+  {
+    "label": "Amasya",
+    "id": "TR834"
+  },
+  {
+    "label": "Doğu Karadeniz",
+    "id": "TR9"
+  },
+  {
+    "label": "Trabzon",
+    "id": "TR90"
+  },
+  {
+    "label": "Trabzon",
+    "id": "TR901"
+  },
+  {
+    "label": "Ordu",
+    "id": "TR902"
+  },
+  {
+    "label": "Giresun",
+    "id": "TR903"
+  },
+  {
+    "label": "Rize",
+    "id": "TR904"
+  },
+  {
+    "label": "Artvin",
+    "id": "TR905"
+  },
+  {
+    "label": "Gümüşhane",
+    "id": "TR906"
+  },
+  {
+    "label": "Kuzeydoğu Anadolu",
+    "id": "TRA"
+  },
+  {
+    "label": "Erzurum",
+    "id": "TRA1"
+  },
+  {
+    "label": "Erzurum",
+    "id": "TRA11"
+  },
+  {
+    "label": "Erzincan",
+    "id": "TRA12"
+  },
+  {
+    "label": "Bayburt",
+    "id": "TRA13"
+  },
+  {
+    "label": "Ağrı",
+    "id": "TRA2"
+  },
+  {
+    "label": "Ağrı",
+    "id": "TRA21"
+  },
+  {
+    "label": "Kars",
+    "id": "TRA22"
+  },
+  {
+    "label": "Iğdır",
+    "id": "TRA23"
+  },
+  {
+    "label": "Ardahan",
+    "id": "TRA24"
+  },
+  {
+    "label": "Ortadoğu Anadolu",
+    "id": "TRB"
+  },
+  {
+    "label": "Malatya",
+    "id": "TRB1"
+  },
+  {
+    "label": "Malatya",
+    "id": "TRB11"
+  },
+  {
+    "label": "Elazığ",
+    "id": "TRB12"
+  },
+  {
+    "label": "Bingöl",
+    "id": "TRB13"
+  },
+  {
+    "label": "Tunceli",
+    "id": "TRB14"
+  },
+  {
+    "label": "Van",
+    "id": "TRB2"
+  },
+  {
+    "label": "Van",
+    "id": "TRB21"
+  },
+  {
+    "label": "Muş",
+    "id": "TRB22"
+  },
+  {
+    "label": "Bitlis",
+    "id": "TRB23"
+  },
+  {
+    "label": "Hakkari",
+    "id": "TRB24"
+  },
+  {
+    "label": "Güneydoğu Anadolu",
+    "id": "TRC"
+  },
+  {
+    "label": "Gaziantep",
+    "id": "TRC1"
+  },
+  {
+    "label": "Gaziantep",
+    "id": "TRC11"
+  },
+  {
+    "label": "Adıyaman",
+    "id": "TRC12"
+  },
+  {
+    "label": "Kilis",
+    "id": "TRC13"
+  },
+  {
+    "label": "Şanlıurfa",
+    "id": "TRC2"
+  },
+  {
+    "label": "Şanlıurfa",
+    "id": "TRC21"
+  },
+  {
+    "label": "Diyarbakır",
+    "id": "TRC22"
+  },
+  {
+    "label": "Mardin",
+    "id": "TRC3"
+  },
+  {
+    "label": "Mardin",
+    "id": "TRC31"
+  },
+  {
+    "label": "Batman",
+    "id": "TRC32"
+  },
+  {
+    "label": "Şırnak",
+    "id": "TRC33"
+  },
+  {
+    "label": "Siirt",
+    "id": "TRC34"
+  }
+]

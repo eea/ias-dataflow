@@ -1,0 +1,234 @@
+[
+  {
+    "label": "ROMÂNIA",
+    "id": "RO"
+  },
+  {
+    "label": "MACROREGIUNEA UNU",
+    "id": "RO1"
+  },
+  {
+    "label": "Nord-Vest",
+    "id": "RO11"
+  },
+  {
+    "label": "Bihor",
+    "id": "RO111"
+  },
+  {
+    "label": "Bistriţa-Năsăud",
+    "id": "RO112"
+  },
+  {
+    "label": "Cluj",
+    "id": "RO113"
+  },
+  {
+    "label": "Maramureş",
+    "id": "RO114"
+  },
+  {
+    "label": "Satu Mare",
+    "id": "RO115"
+  },
+  {
+    "label": "Sălaj",
+    "id": "RO116"
+  },
+  {
+    "label": "Centru",
+    "id": "RO12"
+  },
+  {
+    "label": "Alba",
+    "id": "RO121"
+  },
+  {
+    "label": "Braşov",
+    "id": "RO122"
+  },
+  {
+    "label": "Covasna",
+    "id": "RO123"
+  },
+  {
+    "label": "Harghita",
+    "id": "RO124"
+  },
+  {
+    "label": "Mureş",
+    "id": "RO125"
+  },
+  {
+    "label": "Sibiu",
+    "id": "RO126"
+  },
+  {
+    "label": "MACROREGIUNEA DOI",
+    "id": "RO2"
+  },
+  {
+    "label": "Nord-Est",
+    "id": "RO21"
+  },
+  {
+    "label": "Bacău",
+    "id": "RO211"
+  },
+  {
+    "label": "Botoşani",
+    "id": "RO212"
+  },
+  {
+    "label": "Iaşi",
+    "id": "RO213"
+  },
+  {
+    "label": "Neamţ",
+    "id": "RO214"
+  },
+  {
+    "label": "Suceava",
+    "id": "RO215"
+  },
+  {
+    "label": "Vaslui",
+    "id": "RO216"
+  },
+  {
+    "label": "Sud-Est",
+    "id": "RO22"
+  },
+  {
+    "label": "Brăila",
+    "id": "RO221"
+  },
+  {
+    "label": "Buzău",
+    "id": "RO222"
+  },
+  {
+    "label": "Constanţa",
+    "id": "RO223"
+  },
+  {
+    "label": "Galaţi",
+    "id": "RO224"
+  },
+  {
+    "label": "Tulcea",
+    "id": "RO225"
+  },
+  {
+    "label": "Vrancea",
+    "id": "RO226"
+  },
+  {
+    "label": "MACROREGIUNEA TREI",
+    "id": "RO3"
+  },
+  {
+    "label": "Sud - Muntenia",
+    "id": "RO31"
+  },
+  {
+    "label": "Argeş",
+    "id": "RO311"
+  },
+  {
+    "label": "Călăraşi",
+    "id": "RO312"
+  },
+  {
+    "label": "Dâmboviţa",
+    "id": "RO313"
+  },
+  {
+    "label": "Giurgiu",
+    "id": "RO314"
+  },
+  {
+    "label": "Ialomiţa",
+    "id": "RO315"
+  },
+  {
+    "label": "Prahova",
+    "id": "RO316"
+  },
+  {
+    "label": "Teleorman",
+    "id": "RO317"
+  },
+  {
+    "label": "Bucureşti - Ilfov",
+    "id": "RO32"
+  },
+  {
+    "label": "Bucureşti",
+    "id": "RO321"
+  },
+  {
+    "label": "Ilfov",
+    "id": "RO322"
+  },
+  {
+    "label": "MACROREGIUNEA PATRU",
+    "id": "RO4"
+  },
+  {
+    "label": "Sud-Vest Oltenia",
+    "id": "RO41"
+  },
+  {
+    "label": "Dolj",
+    "id": "RO411"
+  },
+  {
+    "label": "Gorj",
+    "id": "RO412"
+  },
+  {
+    "label": "Mehedinţi",
+    "id": "RO413"
+  },
+  {
+    "label": "Olt",
+    "id": "RO414"
+  },
+  {
+    "label": "Vâlcea",
+    "id": "RO415"
+  },
+  {
+    "label": "Vest",
+    "id": "RO42"
+  },
+  {
+    "label": "Arad",
+    "id": "RO421"
+  },
+  {
+    "label": "Caraş-Severin",
+    "id": "RO422"
+  },
+  {
+    "label": "Hunedoara",
+    "id": "RO423"
+  },
+  {
+    "label": "Timiş",
+    "id": "RO424"
+  },
+  {
+    "label": "EXTRA-REGIO NUTS 1",
+    "id": "ROZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 2",
+    "id": "ROZZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 3",
+    "id": "ROZZZ"
+  }
+]
