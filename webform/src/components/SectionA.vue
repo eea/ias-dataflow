@@ -58,15 +58,17 @@
                 :scope="'sectiona_' + seckey + '_reproduction'"
                 :ref="'sectiona_' + seckey + '_reproduction'"
                 :multiple="section.depending_on_mandatory.reproduction_patterns.multiple"
-                @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
-              </PatternField>
+                @remove-pattern="removePattern" @add-new-pattern="addNewPattern"
+                @add-error="addSuberror"
+              ></PatternField>
 
               <PatternField :patternfields="section.depending_on_mandatory.spread_pattterns"
                 :scope="'sectiona_' + seckey + '_spread'"
                 :ref="'sectiona_' + seckey + '_spread'"
                 :multiple="section.depending_on_mandatory.spread_pattterns.multiple"
-                @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
-              </PatternField>
+                @add-new-pattern="addNewPattern" @remove-pattern="removePattern"
+                @add-error="addSuberror"
+              ></PatternField>
 
               <div class="mb-2" v-for="(field,fieldkey) in section.depending_on_mandatory.fields">
                 <div v-if="field.type === 'file'" :prepend="field.label">
@@ -774,6 +776,8 @@ export default {
       let foundP = this.errors.items.filter((item) => {
         return item.field === field.name && item.scope === field.scope;
       });
+      /*console.log(error);
+      console.log(field);*/
 
       if(error === null){
         self.$validator.errors.removeById(foundP.id);
@@ -829,7 +833,6 @@ export default {
 
           if(element.el.getAttribute("class") === "multiselect"){
             val = self.$refs[element.item][0].field.selected.length === 0 ? null : self.$refs[element.item][0].field.selected ;
-
           } else if(element.el.getAttribute('value') !== null){
             val = element.el.getAttribute('value');
           } else if(element.el.value !== null){

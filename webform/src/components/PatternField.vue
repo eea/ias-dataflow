@@ -156,23 +156,36 @@
           });*/
 
           vals.map((field) => {
+            let f = self.$validator.fields.find(field.name, field.scope);
+            let fd = null;
+            self.$validator.fields.items.filter((it) => {
+              if(field.name === it.name) fd = field;
+            });
+
             let error = {
+              field: f.name,
+              msg: "Same region and pattern",
+              scope: f.scope,
+              rule: rule,
+              //vmId: f.vmId
+            };
+
+            let errorP = {
               field: field.name,
               msg: "Same region and pattern",
               scope: field.scope,
               rule: rule,
               //vmId: field.vmId
             };
-
             self.$validator.errors.add(error);
-            let f = self.$validator.fields.find(field.name, field.scope);
-            //console.log(f.name);
-            //console.log(f.scope);
+            self.$emit("add-error", errorP, field);
 
+            self.$forceUpdate();
           });
-          self.$forceUpdate();
 
         } else {
+          self.$emit("add-error", null, field);
+          //self.$validator.errors.clear()
           /*oldFields.map((field)=> {
             self.$emit("add-error", null, field);
           });*/
@@ -338,10 +351,9 @@
 
           res.map((val) => {
             val.map((v) => {
-              console.log(v);
-              let scope = v.$el.getAttribute("name");
-              let name = v.$el.getAttribute("data-vv-scope");
-              fields.push( self.$validator.fields.find( name , scope ) );
+              let name = v.$el.getAttribute("name");
+              let scope = v.$el.getAttribute("data-vv-scope");
+              fields.push( { name: name , scope: scope });
             });
           });
 
