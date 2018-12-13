@@ -163,7 +163,6 @@
 
             if(fd === null) return true;
 
-            console.log(field.errtype);
             let errMsg = (field.errtype === "samereg") ? "Same region" : "Same region and pattern";
 
             let error = {
