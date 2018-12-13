@@ -162,7 +162,7 @@
             });
 
             if(fd === null) return true;
-            
+
             let error = {
               field: fd.name,
               msg: "Same region and pattern",
@@ -341,6 +341,20 @@
             });
             return a;
           },{});
+
+          let uniqReg = temp.reduce((a,b)=> {
+            let finalV = b.reproduction_region.val;
+            a[ finalV ] = ( a[ finalV ] || 0) + b.count;
+            if('undefined' === typeof a[ finalV + "_refs"] ){
+              a[ finalV + "_refs"] = [];
+            }
+            a[ finalV + "_refs"].push({
+              pat: b.reproduction_pattern.ref,
+              reg: b.reproduction_region.ref
+            });
+            return a;
+          },{});
+          console.log(uniqReg);
 
           let res = [];
 
