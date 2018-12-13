@@ -1543,15 +1543,10 @@ function form() {
                         {
                           label: 'Part of the territory',
                           name: 'part_territory',
-                          /*type: 'text',
-                          selected: '',*/
-                          //TODO: NUTS code
-                          //type: 'file',
                           type: 'select',
                           options: regions,
                           selected: '',
                           comments:'',
-
                         },
                         {
                           label: 'Biogeographical region(s)',
@@ -1680,9 +1675,6 @@ function form() {
                     {
                       label: 'Part of the territory',
                       name: 'part_territory',
-                      /*type: 'text',
-                      selected: '',*/
-                      //type: 'file',
                       type: 'select',
                       options: regions,
                       selected: '',
@@ -2029,7 +2021,11 @@ function form() {
       };
 
       for (let specie of speciesB) {
-        form.tab_2.scientific_name.options.push({ text: specie.name, value: specie.name, country: specie.country})
+        form.tab_2.scientific_name.options.push({
+          text: specie.name,
+          value: specie.name,
+          country: specie.country
+        });
       }
 
       for (let specie of species) {

@@ -163,9 +163,12 @@
 
             if(fd === null) return true;
 
+            console.log(field.errtype);
+            let errMsg = (field.errtype === "samereg") ? "Same region" : "Same region and pattern";
+
             let error = {
               field: fd.name,
-              msg: "Same region and pattern",
+              msg: errMsg,
               scope: fd.scope,
               rule: rule,
               //vmId: fd.vmId
@@ -173,7 +176,7 @@
 
             let errorP = {
               field: fd.name,
-              msg: "Same region and pattern",
+              msg: errMsg,
               scope: fd.scope,
               rule: rule,
               //vmId: fd.vmId
@@ -343,7 +346,8 @@
             }
             a[ finalV + "_refs"].push({
               pat: b.reproduction_pattern.ref,
-              reg: b.reproduction_region.ref
+              reg: b.reproduction_region.ref,
+              type: "samepatreg"
             });
             return a;
           },{});
@@ -356,28 +360,30 @@
             }
             a[ finalV + "_refs"].push({
               pat: b.reproduction_pattern.ref,
-              reg: b.reproduction_region.ref
+              reg: b.reproduction_region.ref,
+              type: "samereg"
             });
             return a;
           },{});
-          console.log(uniqReg);
 
           let res = [];
 
           Object.keys(uniq).filter((a) => uniq[a] > 1).map((dup) => {
-            res.push( uniq[dup + "_refs"].map((d) => { return d.pat; }) );
+            res.push( uniq[dup + "_refs"].map((d) => { return { pat: d.pat, errtype: d.type };}) );
+          });
+
+          Object.keys(uniqReg).filter((a) => uniqReg[a] > 1).map((dup) => {
+            res.push( uniqReg[dup + "_refs"].map((d) => { return { pat: d.pat, errtype: d.type };}) );
           });
 
           let fields = [];
-
           res.map((val) => {
             val.map((v) => {
-              let name = v.$el.getAttribute("name");
-              let scope = v.$el.getAttribute("data-vv-scope");
-              fields.push( { name: name , scope: scope });
+              let name = v.pat.$el.getAttribute("name");
+              let scope = v.pat.$el.getAttribute("data-vv-scope");
+              fields.push( { name: name , scope: scope, errtype: v.errtype });
             });
           });
-
           self.reprovals = fields;
           resolve(true);
         });
