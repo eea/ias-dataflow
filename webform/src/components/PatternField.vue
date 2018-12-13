@@ -168,7 +168,7 @@
               msg: "Same region and pattern",
               scope: fd.scope,
               rule: rule,
-              //vmId: f.vmId
+              //vmId: fd.vmId
             };
 
             let errorP = {
@@ -176,7 +176,7 @@
               msg: "Same region and pattern",
               scope: fd.scope,
               rule: rule,
-              //vmId: field.vmId
+              //vmId: fd.vmId
             };
             self.$validator.errors.add(error);
             //self.$emit("add-error", errorP, field);
@@ -185,11 +185,12 @@
           });
 
         } else {
-          self.$emit("add-error", null, field);
+          //self.$emit("add-error", null, field);
+
           //self.$validator.errors.clear()
-          /*oldFields.map((field)=> {
+          oldFields.map((field)=> {
             self.$emit("add-error", null, field);
-          });*/
+          });
         }
         /*vals.map((val) => {
           let pat = val.pat;

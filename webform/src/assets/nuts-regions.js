@@ -5,8 +5,8 @@ let nuts = function(){
   return new Promise(function(resolve, reject) {
     getCountry().then((res) => {
       let country = res.data;
-      fetch("../../static/nuts_regions/" + country + "_nuts_regions.json").
-      then((regions) => {
+      fetch("../../static/nuts_regions/" + country + "_nuts_regions.json")
+      .then((regions) => {
         return regions.json();
       }).catch((rej) => {
         reject(rej);
@@ -16,7 +16,6 @@ let nuts = function(){
       });
     });
   });
-
   /*return {
     "@context": {
       "@base": "http://dd.eionet.europa.eu/vocabulary/common/nuts/",
@@ -52,8 +51,6 @@ let nuts = function(){
           }
         ]
       },
-
-
     ]
   };*/
 };
