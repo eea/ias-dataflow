@@ -1,6 +1,5 @@
 <template>
 	<div v-if="field">
-
 		<div v-if="field.type === 'text' ||  field.type ==='email' || field.type === 'number'" >
 
       <span v-if="validation !== 'false'">

@@ -5,7 +5,7 @@
 
     <formsubmit v-if="prefilled" :country.sync="country" :info.sync="form" @validate-components="validateSections"
                     :validated="validated" ref="formsubmit" @open-error-modal="openErrorModal"></formsubmit>
-                    
+
     <b-card v-if="prefilled" no-body ref="content">
         <b-form validated novalidate @submit="onSubmit" >
           <b-tabs card v-model="tabIndex"  >
@@ -147,16 +147,17 @@ export default {
   },
 
   created() {
-    this.form = form;
-    getInstance().then((response) => {
-      let instance_data = response.data;
-      getCountry().then((result) => {
-        //console.dir(result);
+    form().then((fdata) => {
+      getInstance().then((response) => {
+        let instance_data = response.data;
+        getCountry().then((result) => {
+          //console.dir(result);
           this.country = result;
           this.prefill(instance_data);
+          this.form = fdata;
         })
-    })
-
+      })
+    }).catch((rej) => { console.error(rej)});
   },
 
   methods: {
