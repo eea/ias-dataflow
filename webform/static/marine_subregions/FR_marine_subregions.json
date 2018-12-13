@@ -1,0 +1,30 @@
+[
+  {
+    "label": "Bay of Biscay and Iberian Coast",
+    "id": "ABI"
+  },
+  {
+    "label": "Celtic Seas",
+    "id": "ACS"
+  },
+  {
+    "label": "Greater North Sea",
+    "id": "ANS"
+  },
+  {
+    "label": "North East Atlantic",
+    "id": "ATL"
+  },
+  {
+    "label": "Mediterranean Sea",
+    "id": "MED"
+  },
+  {
+    "label": "Western Mediterranean Sea",
+    "id": "MWE"
+  },
+  {
+    "label": "White Sea",
+    "id": "WHI"
+  }
+]

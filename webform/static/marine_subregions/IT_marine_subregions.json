@@ -1,0 +1,18 @@
+[
+  {
+    "label": "Adriatic Sea",
+    "id": "MAD"
+  },
+  {
+    "label": "Mediterranean Sea",
+    "id": "MED"
+  },
+  {
+    "label": "Ionian Sea and Central Mediterranean Sea",
+    "id": "MIC"
+  },
+  {
+    "label": "Western Mediterranean Sea",
+    "id": "MWE"
+  }
+]
