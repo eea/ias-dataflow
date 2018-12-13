@@ -156,29 +156,30 @@
           });*/
 
           vals.map((field) => {
-            let f = self.$validator.fields.find(field.name, field.scope);
             let fd = null;
             self.$validator.fields.items.filter((it) => {
               if(field.name === it.name) fd = field;
             });
 
+            if(fd === null) return true;
+            
             let error = {
-              field: f.name,
+              field: fd.name,
               msg: "Same region and pattern",
-              scope: f.scope,
+              scope: fd.scope,
               rule: rule,
               //vmId: f.vmId
             };
 
             let errorP = {
-              field: field.name,
+              field: fd.name,
               msg: "Same region and pattern",
-              scope: field.scope,
+              scope: fd.scope,
               rule: rule,
               //vmId: field.vmId
             };
             self.$validator.errors.add(error);
-            self.$emit("add-error", errorP, field);
+            //self.$emit("add-error", errorP, field);
 
             self.$forceUpdate();
           });
