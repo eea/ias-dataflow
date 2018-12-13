@@ -32,10 +32,9 @@ let regionOptions = [
 function form() {
   return new Promise(function( resolve, reject){
 
-    Promise.all([nuts(), marine_subregions()]).then((vals) => {
+    Promise.all([ nuts(), marine_subregions() ]).then((vals) => {
       let regions = vals[0];
       let msubregs = vals[1];
-      console.log(regions);
 
       let tab_1_section = {
         scientific_name: {
@@ -984,7 +983,6 @@ function form() {
                         },
                       ]
                     },
-
                     {
                       label: 'Permits for scientific production and subsequent medicinal use to advance human health',
                       fields: [
@@ -995,7 +993,6 @@ function form() {
                           selected: '',
                           options: years,
                         },
-
                         {
                           label: 'Number of establishments subjected to the inspections',
                           name: 'number_establishments_inspections_main',
@@ -1022,7 +1019,6 @@ function form() {
                             }
                           ],
                         },
-
                         {
                           label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
                           name: 'number_permitted_specimens_main',
@@ -1049,7 +1045,6 @@ function form() {
                             }
                           ],
                         },
-
                         {
                           label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
                           name: 'establishments_non_compliant_main',
@@ -1076,7 +1071,6 @@ function form() {
                             }
                           ],
                         },
-
                         {
                           //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                           name: 'number_speciments_held_by_non_compliant_establishments_main',
@@ -1106,7 +1100,6 @@ function form() {
                         },
                       ]
                     },
-
                     {
                       label: 'Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)',
                       fields: [
@@ -1117,7 +1110,6 @@ function form() {
                           selected: '',
                           options: years,
                         },
-
                         {
                           label: 'Number of establishments subjected to the inspections',
                           name: 'number_establishments_inspections_main',
@@ -1144,7 +1136,6 @@ function form() {
                             }
                           ],
                         },
-
                         {
                           label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
                           name: 'number_permitted_specimens_main',
@@ -1171,7 +1162,6 @@ function form() {
                             }
                           ],
                         },
-
                         {
                           label: 'Number of inspected establishments deemed non-compliant with the conditions set out in the permits',
                           name: 'establishments_non_compliant_main',
@@ -1198,7 +1188,6 @@ function form() {
                             }
                           ],
                         },
-
                         {
                           //label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                           name: 'number_speciments_held_by_non_compliant_establishments_main',
@@ -1228,7 +1217,6 @@ function form() {
                         },
                       ]
                     },
-
                   ],
                 },
                 additional_info: {
@@ -1694,13 +1682,11 @@ function form() {
                       name: 'part_territory',
                       /*type: 'text',
                       selected: '',*/
-                      //TODO: NUTS code
                       //type: 'file',
                       type: 'select',
                       options: regions,
                       selected: '',
                       comments:'',
-
                     },
                     {
                       label: 'Biogeographical region(s)',
@@ -1792,11 +1778,10 @@ function form() {
               },
             }, ]
           }
-
         }
       };
 
-      var form = {
+      let form = {
         country: {
           tables: {
             table_1: {
@@ -2057,12 +2042,6 @@ function form() {
       }
       resolve(form);
     });
-
-    //nuts().then((regions) => {
-
-    /*}).catch((rej) => {
-      reject(rej);
-    });*/
 
   });
 }
