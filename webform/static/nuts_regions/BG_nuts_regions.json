@@ -1,0 +1,162 @@
+[
+  {
+    "label": "БЪЛГАРИЯ (BULGARIA)",
+    "id": "BG"
+  },
+  {
+    "label": "СЕВЕРНА И ЮГОИЗТОЧНА БЪЛГАРИЯ (SEVERNA I YUGOIZTOCHNA BULGARIA)",
+    "id": "BG3"
+  },
+  {
+    "label": "Северозападен (Severozapaden)",
+    "id": "BG31"
+  },
+  {
+    "label": "Видин (Vidin)",
+    "id": "BG311"
+  },
+  {
+    "label": "Монтана (Montana)",
+    "id": "BG312"
+  },
+  {
+    "label": "Враца (Vratsa)",
+    "id": "BG313"
+  },
+  {
+    "label": "Плевен (Pleven)",
+    "id": "BG314"
+  },
+  {
+    "label": "Ловеч (Lovech)",
+    "id": "BG315"
+  },
+  {
+    "label": "Северен централен (Severen tsentralen)",
+    "id": "BG32"
+  },
+  {
+    "label": "Велико Търново (Veliko Tarnovo)",
+    "id": "BG321"
+  },
+  {
+    "label": "Габрово (Gabrovo)",
+    "id": "BG322"
+  },
+  {
+    "label": "Русе (Ruse)",
+    "id": "BG323"
+  },
+  {
+    "label": "Разград (Razgrad)",
+    "id": "BG324"
+  },
+  {
+    "label": "Силистра (Silistra)",
+    "id": "BG325"
+  },
+  {
+    "label": "Североизточен (Severoiztochen)",
+    "id": "BG33"
+  },
+  {
+    "label": "Варна (Varna)",
+    "id": "BG331"
+  },
+  {
+    "label": "Добрич (Dobrich)",
+    "id": "BG332"
+  },
+  {
+    "label": "Шумен (Shumen)",
+    "id": "BG333"
+  },
+  {
+    "label": "Търговище (Targovishte)",
+    "id": "BG334"
+  },
+  {
+    "label": "Югоизточен (Yugoiztochen)",
+    "id": "BG34"
+  },
+  {
+    "label": "Бургас (Burgas)",
+    "id": "BG341"
+  },
+  {
+    "label": "Сливен (Sliven)",
+    "id": "BG342"
+  },
+  {
+    "label": "Ямбол (Yambol)",
+    "id": "BG343"
+  },
+  {
+    "label": "Стара Загора (Stara Zagora)",
+    "id": "BG344"
+  },
+  {
+    "label": "ЮГОЗАПАДНА И ЮЖНА ЦЕНТРАЛНА БЪЛГАРИЯ (YUGOZAPADNA I YUZHNA TSENTRALNA BULGARIA)",
+    "id": "BG4"
+  },
+  {
+    "label": "Югозападен (Yugozapaden)",
+    "id": "BG41"
+  },
+  {
+    "label": "София (столица) (Sofia (stolitsa))",
+    "id": "BG411"
+  },
+  {
+    "label": "София (Sofia)",
+    "id": "BG412"
+  },
+  {
+    "label": "Благоевград (Blagoevgrad)",
+    "id": "BG413"
+  },
+  {
+    "label": "Перник (Pernik)",
+    "id": "BG414"
+  },
+  {
+    "label": "Кюстендил (Kyustendil)",
+    "id": "BG415"
+  },
+  {
+    "label": "Южен централен (Yuzhen tsentralen)",
+    "id": "BG42"
+  },
+  {
+    "label": "Пловдив (Plovdiv)",
+    "id": "BG421"
+  },
+  {
+    "label": "Хасково (Haskovo)",
+    "id": "BG422"
+  },
+  {
+    "label": "Пазарджик (Pazardzhik)",
+    "id": "BG423"
+  },
+  {
+    "label": "Смолян (Smolyan)",
+    "id": "BG424"
+  },
+  {
+    "label": "Кърджали (Kardzhali)",
+    "id": "BG425"
+  },
+  {
+    "label": "EXTRA-REGIO NUTS 1",
+    "id": "BGZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 2",
+    "id": "BGZZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 3",
+    "id": "BGZZZ"
+  }
+]

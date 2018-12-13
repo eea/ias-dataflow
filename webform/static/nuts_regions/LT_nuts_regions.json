@@ -1,0 +1,66 @@
+[
+  {
+    "label": "LIETUVA",
+    "id": "LT"
+  },
+  {
+    "label": "LIETUVA",
+    "id": "LT0"
+  },
+  {
+    "label": "Lietuva",
+    "id": "LT00"
+  },
+  {
+    "label": "Alytaus apskritis",
+    "id": "LT001"
+  },
+  {
+    "label": "Kauno apskritis",
+    "id": "LT002"
+  },
+  {
+    "label": "Klaipėdos apskritis",
+    "id": "LT003"
+  },
+  {
+    "label": "Marijampolės apskritis",
+    "id": "LT004"
+  },
+  {
+    "label": "Panevėžio apskritis",
+    "id": "LT005"
+  },
+  {
+    "label": "Šiaulių apskritis",
+    "id": "LT006"
+  },
+  {
+    "label": "Tauragės apskritis",
+    "id": "LT007"
+  },
+  {
+    "label": "Telšių apskritis",
+    "id": "LT008"
+  },
+  {
+    "label": "Utenos apskritis",
+    "id": "LT009"
+  },
+  {
+    "label": "Vilniaus apskritis",
+    "id": "LT00A"
+  },
+  {
+    "label": "EXTRA-REGIO NUTS 1",
+    "id": "LTZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 2",
+    "id": "LTZZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 3",
+    "id": "LTZZZ"
+  }
+]
