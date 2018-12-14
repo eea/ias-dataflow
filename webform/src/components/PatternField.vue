@@ -163,7 +163,7 @@
 
             if(fd === null) return true;
 
-            let errMsg = (field.errtype === "samereg") ? "Same region" : "Same region and pattern";
+            let errMsg = ( field.errtype === "samereg" ) ? "Same region" : "Same region and pattern";
 
             let error = {
               field: fd.name,
