@@ -76,7 +76,7 @@
 
         if(vals.length === 0){
           oldVals.map((ref)=> {
-            let el = ref.$el;
+            let el = ref.ref.$el;
             let name = el.getAttribute('name');
             let scope = el.getAttribute('data-vv-scope');
 
@@ -92,6 +92,7 @@
             }
           });
         } else {
+
           if(vals.length === 0) return true;
           vals = vals.filter((itm) => { return itm !== 'undefined' });
 
@@ -126,10 +127,17 @@
                   });
                 }
 
+                let errs = {
+                  "bferr": "At least one of b/c/d/e must be chosen and at least one of f/g/h/i must be chosen.",
+                  "samereg": "Same region"
+                };
+
+                let errmsg = errs[ref.errtype];
+
                 if('undefined' !== typeof field){
                   let error = {
                     field: field.name,
-                    msg: "At least one of b/c/d/e must be chosen and at least one of f/g/h/i must be chosen.",
+                    msg: errmsg,
                     scope: field.scope,
                     rule: 'required',
                     vmId: field.vmId
@@ -142,6 +150,8 @@
                 }
               }
             }
+
+
           });
         }
       },
@@ -154,6 +164,7 @@
           /*oldFields.map((field)=> {
             self.$emit("add-error", null, field);
           });*/
+
 
           vals.map((field) => {
             let fd = null;
@@ -222,6 +233,7 @@
 
       validateSpread(){
         let self = this;
+
         function filterPats(pats ,tofilter ) {
           let res = [];
           pats.map((el) => {
@@ -229,33 +241,14 @@
               if(el !== item.ref){ res.push(item); }
             })
           });
-
-          return res.map((item) => { return item.ref});
+          return res.map((item) => {
+            return {
+              ref: item.ref ,
+            };
+          });
         }
 
-        return new Promise(function(resolve, reject) {
-          let patsN = Object.keys(self.$refs).filter((item) => {
-            return item.indexOf("pattern") !== -1;
-          });
-
-          let vals = [];
-
-          let pats = patsN.map((name) => {
-            let ref = self.$refs[name][0];
-
-            if("undefined" !== typeof ref){
-              let val = parseInt(ref.$el.value, 10);
-              vals.push({
-                ref: self.$refs[name][0],
-                val: val,
-              });
-              return self.$refs[name][0];
-            } else {
-              return null;
-            }
-
-          });
-
+        function bfvalidation(vals, pats){
           let allowedFirst = [1,2,3,4];
           let allowedSecond = [5,6,7,8];
           let tofilter = [];
@@ -263,7 +256,6 @@
           let first = vals.filter((el) => {
             return allowedFirst.indexOf(el.val) !== -1;
           });
-
           let second = vals.filter((el) => {
             return allowedSecond.indexOf(el.val) !== -1;
           });
@@ -275,27 +267,121 @@
           pats = pats.filter(Boolean);
 
           if(tofilter.length === 0){
-            pats = [ pats[pats.length-1] ];
+            pats = [ pats[pats.length - 1] ];
           } else  {
+            //console.log("first");
             if(first.length === 0 || second.length === 0){
               //console.log(pats);
             } else {
               pats = filterPats(pats, tofilter );
             }
           }
+          return { first, second, pats };
+        }
 
-          if(first.length > 0 && second.length > 0){
+        function validateRegions( regvals, regpats){
+          let uniq = regvals.reduce(( a,b ) => {
+            /*
+            count: 1
+            ref: VueComponent {_uid: 441, _isVue: true, $options: {…}, _renderProxy: Proxy, _self: VueComponent, …}
+            val: "RO"
+            * */
+            a[ b.val ] = (a[ b.val ] || 0) + b.count;
+            if('undefined' === typeof a[ b.val + "_refs"] ){
+              a[ b.val + "_refs"] = [];
+            }
+            a[ b.val + "_refs"].push({
+              ref: b.ref,
+            });
+            return a;
+          },{});
+
+          let res = [];
+          Object.keys(uniq).filter((a) => uniq[a] > 1).map((dup) => {
+            res.push( uniq[dup + "_refs"].map((d) => { return d.ref;}) );
+          });
+          res = res.reduce((a,b) => {
+            a = b;
+            return a;
+          }, {});
+          return res;
+        }
+
+        return new Promise(function (resolve, reject){
+          let patsN = Object.keys(self.$refs).filter((item) => {
+            return item.indexOf("pattern") !== -1;
+          });
+          let regsN = Object.keys(self.$refs).filter((item) => {
+            return item.indexOf("region") !== -1;
+          });
+
+          let vals = [];
+          let regvals = [];
+
+          let pats = patsN.map((name) => {
+            let ref = self.$refs[name][0];
+
+            if("undefined" !== typeof ref){
+              let val = parseInt(ref.$el.value, 10);
+              vals.push({
+                ref: self.$refs[name][0],
+                val: val,
+                errtype: "bf",
+              });
+              return self.$refs[name][0];
+            } else {
+              return null;
+            }
+          });
+
+          let regpats = regsN.map((name) => {
+            let ref = self.$refs[name][0];
+            if("undefined" !== typeof ref){
+              let val = ref.$el.value;
+              regvals.push({
+                ref: self.$refs[name][0],
+                errtype: "samereg",
+                val: val,
+                count: 1
+              });
+              return self.$refs[name][0];
+            } else {
+              return null;
+            }
+          });
+
+          let bf = bfvalidation(vals, pats);
+
+          let rv = validateRegions( regvals, regpats);
+
+          if((bf.first.length > 0 && bf.second.length > 0)){
+            if(rv.length > 0) {
+              let temp = [];
+              temp = rv.map((item) => {
+                return { ref: item, errtype:"samereg" };
+              });
+              self.spreadvals = temp;
+            }
             resolve(true);
-            self.spreadvals = [];
+            //self.spreadvals = [];
             self.$forceUpdate();
           } else {
-            if(first.length === 0 || second.length === 0){
+            if(bf.first.length === 0 || bf.second.length === 0){
               //console.log(pats);
             }
-            self.spreadvals = pats;
+            let temp = [];
+            if(rv.length > 0) {
+              temp = rv.map((item) => {
+                return { ref: item, errtype:"samereg" };
+              });
+            }
+            self.spreadvals = bf.pats.map((item) => {
+              return { ref: item, errtype:"bferr" };
+            }).concat(temp);
             resolve(false);
             self.$forceUpdate();
           }
+
         });
       },
 
