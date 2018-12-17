@@ -56,6 +56,7 @@
                  track-by="value"
                  :multiple=true
                  @select="validate"
+                 @input="validate"
                  :class="'spreadmulti'"
                  :allow-empty="true"
                  :selectLabel = "''"
@@ -469,8 +470,6 @@
         let promises = [];
         let self = this;
 
-        let newvalid = [];
-
         if( self.patternfields[0].patternType === "spread"){
           promises.push( self.validateSpread() );
         }
@@ -480,28 +479,27 @@
         }
 
         for( let ref in self.$refs){
-          if("undefined" === typeof self.$refs[ref][0] ){
-            continue;
-          }
-          if(self.$refs.hasOwnProperty(ref) && 'undefined' !== typeof self.$refs[ref][0].$validator.validate) {
-            promises.push(self.$refs[ref][0].$validator.validate());
-          }
-          if('undefined' !== typeof self.$refs[ref][0].validate){
-            promises.push(self.$refs[ref][0].validate());
+          if( self.$refs.hasOwnProperty(ref) ){
+            if( "undefined" === typeof self.$refs[ref][0] ){
+              continue;
+            }
+            if(self.$refs.hasOwnProperty(ref) && 'undefined' !== typeof self.$refs[ref][0].$validator.validate) {
+              promises.push(self.$refs[ref][0].$validator.validate());
+            }
+            if('undefined' !== typeof self.$refs[ref][0].validate){
+              promises.push(self.$refs[ref][0].validate());
+            }
           }
         }
 
         return new Promise(function(resolve, reject) {
           Promise.all(promises).then((res) => {
             // if no errors
-            res = res.concat(newvalid);
-
             if(res.filter((it)=>{ return it === false}).length === 0){
               resolve(res);
             } else {
               reject(res);
             }
-
           }).catch((e) => {
             reject(e);
           });
@@ -547,8 +545,6 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
-
-
 </style>
 
 <style>
