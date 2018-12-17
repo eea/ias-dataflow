@@ -31,7 +31,7 @@
             </b-input-group>
         </td>
 
-        <td v-if='patternfields[0].patternType === "spread"' style="width: 80%;">
+        <td v-if='patternfields[0].patternType === "spread"' style="width: 75%;">
           <b-col>
             <b-input-group>
               <b-input-group-prepend v-if="errors.has(scope + '_pattern_' + fieldkey, scope)">
@@ -53,18 +53,17 @@
                  :clear-on-select="false"
                  :hide-selected="true"
                  :preserve-search="true"
+                 track-by="value"
                  :multiple=true
-                 :custom-label="customLabel"
                  @select="validate"
-                 @remove="remove($event, field)"
+                 :class="'spreadmulti'"
+                 :allow-empty="true"
+                 :selectLabel = "''"
+                 :custom-label="customLabel"
               ></multiselect>
             </b-input-group>
           </b-col>
-         <!-- <b-col lg="2">
-            <b-btn variant="primary" >Add pattern</b-btn>
-          </b-col>-->
         </td>
-
 
         <td>
           <b-input-group>
@@ -81,7 +80,7 @@
               v-bind:data-vv-scope="scope"
               :ref="scope + '_region_' + fieldkey"
               :custom-label="customLabel"
-                           @change="validate"
+              @change="validate"
             ></b-form-select>
           </b-input-group>
         </td>
@@ -269,7 +268,7 @@
       removeRow(fieldkey){
         this.$emit('remove-pattern', this.patternfields, fieldkey);
       },
-      customLabel({ text, value}){
+      customLabel({ text, index, value}){
         return `${text}`
       },
 
@@ -466,19 +465,6 @@
         });
       },
 
-      remove($event, field){
-        let self = this;
-        let key = null;
-        self.patternfields[0].selected.pattern.forEach(function (val, ix) {
-          if( self.patternfields[0].selected.pattern[ix].value === $event.value){
-            key = ix;
-            return false;
-          }
-        });
-        self.$delete(self.patternfields[0].selected.pattern, key);
-        self.$forceUpdate();
-      },
-
       validate(){
         let promises = [];
         let self = this;
@@ -530,7 +516,7 @@
 <style scoped>
   .table-wrapper {
     margin-bottom: 2rem;
-    /*overflow: auto;*/
+    /*overflow-x: auto;*/
     border-radius: 0.25rem;
   }
 
@@ -561,10 +547,17 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
+
+
 </style>
 
 <style>
   /* .multiselect__tags {
     padding: 0;
   } */
+  @media screen and (max-width: 1024px) {
+    .spreadmulti .multiselect__element span {
+      white-space: normal;
+    }
+  }
 </style>
