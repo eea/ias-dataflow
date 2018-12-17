@@ -42,6 +42,7 @@
                          v-b-tooltip.hover
                 >{{ errors.first(scope + '_pattern_' + fieldkey, scope) }}</b-badge>
               </b-input-group-prepend>
+              <!-- @change="validate" -->
               <multiselect :options="field.options"
                  v-model="field.selected.pattern"
                  v-validate="'required'"
@@ -49,13 +50,13 @@
                  v-bind:data-vv-scope="scope"
                  v-bind:name="scope + '_pattern_' + fieldkey"
                  :ref="scope + '_pattern_' + fieldkey"
-                 @change="validate"
                  :close-on-select="false"
                  :clear-on-select="false"
                  :hide-selected="true"
                  :preserve-search="true"
                  :multiple=true
                  :custom-label="customLabel"
+                 @remove="remove($event, field)"
               ></multiselect>
              <!-- <b-form-select
                  :options="field.options"
@@ -306,30 +307,37 @@
           let allowedSecond = [5,6,7,8];
           let tofilter = [];
 
-          let first = vals.filter((el) => {
-            return allowedFirst.indexOf(el.val) !== -1;
-          });
-          let second = vals.filter((el) => {
-            return allowedSecond.indexOf(el.val) !== -1;
-          });
+          let res = [];
+          /*vals.map((row) => {
+            console.log(row);
+            let first = row.filter((el) => {
+              return allowedFirst.indexOf(el.val) !== -1;
+            });
+            let second = row.filter((el) => {
+              return allowedSecond.indexOf(el.val) !== -1;
+            });
 
-          vals.map((el) => {
-            if(allowedFirst.indexOf(el.val) === -1 && allowedSecond.indexOf(el.val) === -1 ) { tofilter.push(el); }
-          });
+            row.map((el) => {
+              if(allowedFirst.indexOf(el.val) === -1 && allowedSecond.indexOf(el.val) === -1 ) { tofilter.push(el); }
+            });
 
-          pats = pats.filter(Boolean);
+            pats = pats.filter(Boolean);
 
-          if(tofilter.length === 0){
-            pats = [ pats[pats.length - 1] ];
-          } else  {
-            //console.log("first");
-            if(first.length === 0 || second.length === 0){
-              //console.log(pats);
-            } else {
-              pats = filterPats(pats, tofilter );
+            if(tofilter.length === 0){
+              pats = [ pats[pats.length - 1] ];
+            } else  {
+              //console.log("first");
+              if(first.length === 0 || second.length === 0){
+                //console.log(pats);
+              } else {
+                pats = filterPats(pats, tofilter );
+              }
             }
-          }
-          return { first, second, pats };
+          });
+          */
+
+
+          //return { first, second, pats };
         }
 
         function validateRegions( regvals, regpats){
@@ -371,23 +379,40 @@
           let vals = [];
           let regvals = [];
 
+
           let pats = patsN.map((name) => {
             let ref = self.$refs[name][0];
 
             if("undefined" !== typeof ref){
-              let val = parseInt(ref.$el.value, 10);
-              vals.push({
-                ref: self.$refs[name][0],
-                val: val,
-                errtype: "bf",
+              let temp = [];
+
+              const allowedFirst = [1,2,3,4];
+              const allowedSecond = [5,6,7,8];
+              // iterating through multiselect selected values
+              let filtered = ref.value.map((item) => {
+                let val = parseInt(item.value, 10);
+                return allowedFirst.indexOf(val) !== -1 || allowedSecond.indexOf(val) !== -1;
               });
+              console.log(filtered);
+              /*ref.value.map((item) => {
+                let val = parseInt(item.value, 10);
+
+                temp.push({
+                  ref: self.$refs[name][0],
+                  val: val,
+                  errtype: "bf",
+                });
+              });*/
+
+              //vals.push(temp);
               return self.$refs[name][0];
             } else {
               return null;
             }
           });
 
-          let regpats = regsN.map((name) => {
+
+          /*let regpats = regsN.map((name) => {
             let ref = self.$refs[name][0];
             if("undefined" !== typeof ref){
               let val = ref.$el.value;
@@ -401,11 +426,11 @@
             } else {
               return null;
             }
-          });
+          });*/
 
           let bf = bfvalidation(vals, pats);
 
-          let rv = validateRegions( regvals, regpats);
+          /*let rv = validateRegions( regvals, regpats);
 
           if((bf.first.length > 0 && bf.second.length > 0)){
             if(rv.length > 0) {
@@ -433,7 +458,7 @@
             }).concat(temp);
             resolve(false);
             self.$forceUpdate();
-          }
+          }*/
 
         });
       },
@@ -525,6 +550,19 @@
           self.reprovals = fields;
           resolve(true);
         });
+      },
+
+      remove($event, field){
+        let self = this;
+        let key = null;
+        self.patternfields[0].selected.pattern.forEach(function (val, ix) {
+          if( self.patternfields[0].selected.pattern[ix].value === $event.value){
+            key = ix;
+            return false;
+          }
+        });
+        self.$delete(self.patternfields[0].selected.pattern, key);
+        self.$forceUpdate();
       },
 
       validate(){
