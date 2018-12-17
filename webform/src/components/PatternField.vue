@@ -75,7 +75,6 @@
               >{{ errors.first(scope + '_region_' + fieldkey, scope) }}</b-badge>
             </b-input-group-prepend>
 
-            <!-- @change="validate" -->
             <b-form-select :options="field.regionOptions" v-model="field.selected.region" v-validate="'required'"
               data-vv-as="region" v-bind:name="scope + '_region_' + fieldkey"
               v-bind:key="scope + '_region_' + fieldkey"
@@ -274,23 +273,8 @@
         return `${text}`
       },
 
-
       validateSpread(){
         let self = this;
-
-        function filterPats(pats ,tofilter ) {
-          let res = [];
-          pats.map((el) => {
-            tofilter.map((item) => {
-              if(el !== item.ref){ res.push(item); }
-            })
-          });
-          return res.map((item) => {
-            return {
-              ref: item.ref ,
-            };
-          });
-        }
 
         function validateRegions( regvals, regpats){
           let uniq = regvals.reduce(( a,b ) => {
@@ -327,7 +311,7 @@
           let regvals = [];
 
           // b-e && f-i validation
-          let pats = patsN.map((name) => {
+          patsN.map((name) => {
             let ref = self.$refs[name][0];
 
             if("undefined" !== typeof ref){
@@ -362,8 +346,7 @@
             }
           });
 
-          pats = pats.filter(Boolean);
-
+          // for region validation
           let regpats = regsN.map((name) => {
             let ref = self.$refs[name][0];
             if("undefined" !== typeof ref){
@@ -391,35 +374,6 @@
             resolve(true);
           }
           self.$forceUpdate();
-
-          /*if((bf.first.length > 0 && bf.second.length > 0)){
-            if(rv.length > 0) {
-              let temp = [];
-              temp = rv.map((item) => {
-                return { ref: item, errtype:"samereg" };
-              });
-              self.spreadvals = temp;
-            }
-            resolve(true);
-            //self.spreadvals = [];
-            self.$forceUpdate();
-          } else {
-            if(bf.first.length === 0 || bf.second.length === 0){
-              //console.log(pats);
-            }
-            let temp = [];
-            if(rv.length > 0) {
-              temp = rv.map((item) => {
-                return { ref: item, errtype:"samereg" };
-              });
-            }
-            self.spreadvals = bf.pats.map((item) => {
-              return { ref: item, errtype:"bferr" };
-            }).concat(temp);
-            resolve(false);
-            self.$forceUpdate();
-          }*/
-
         });
       },
 
