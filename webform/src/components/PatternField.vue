@@ -12,7 +12,6 @@
 
       <tr v-for="(field,fieldkey) in patternfields">
         <td v-if='patternfields[0].patternType !== "spread"'>
-
             <b-input-group>
               <b-input-group-prepend v-if="errors.has(scope + '_pattern_' + fieldkey,scope)">
                 <b-badge class="error-badge"  variant="danger"
@@ -30,23 +29,23 @@
               ></b-form-select>
 
             </b-input-group>
-
         </td>
 
-        <td v-if='patternfields[0].patternType === "spread"'>
-          <b-col >
+        <td v-if='patternfields[0].patternType === "spread"' style="width: 80%;">
+          <b-col>
             <b-input-group>
-              <b-input-group-prepend v-if="errors.has(scope + '_pattern_' + fieldkey,scope)">
+              <b-input-group-prepend v-if="errors.has(scope + '_pattern_' + fieldkey, scope)">
                 <b-badge class="error-badge"  variant="danger"
                          :title="errors.collect(scope + '_pattern_' + fieldkey, scope).join('\n')"
                          v-b-tooltip.hover
                 >{{ errors.first(scope + '_pattern_' + fieldkey, scope) }}</b-badge>
               </b-input-group-prepend>
-              <!-- @change="validate" -->
+
               <multiselect :options="field.options"
                  v-model="field.selected.pattern"
                  v-validate="'required'"
-                 data-vv-as="pattern"  v-bind:key="scope + '_pattern_' + fieldkey"
+                 data-vv-as="pattern"
+                 v-bind:key="scope + '_pattern_' + fieldkey"
                  v-bind:data-vv-scope="scope"
                  v-bind:name="scope + '_pattern_' + fieldkey"
                  :ref="scope + '_pattern_' + fieldkey"
@@ -56,20 +55,9 @@
                  :preserve-search="true"
                  :multiple=true
                  :custom-label="customLabel"
+                 @select="validate"
                  @remove="remove($event, field)"
               ></multiselect>
-             <!-- <b-form-select
-                 :options="field.options"
-                 v-model="field.selected.pattern"
-                 v-validate="'required'"
-                 data-vv-as="pattern"
-                 v-bind:key="scope + '_pattern_' + fieldkey"
-                 v-bind:data-vv-scope="scope"
-                 v-bind:name="scope + '_pattern_' + fieldkey"
-                 :ref="scope + '_pattern_' + fieldkey"
-                 @change="validate"
-              ></b-form-select>-->
-
             </b-input-group>
           </b-col>
          <!-- <b-col lg="2">
@@ -94,6 +82,7 @@
               v-bind:data-vv-scope="scope"
               :ref="scope + '_region_' + fieldkey"
               :custom-label="customLabel"
+                           @change="validate"
             ></b-form-select>
           </b-input-group>
         </td>
@@ -151,6 +140,7 @@
           vals = vals.filter((itm) => { return itm !== 'undefined' });
 
           vals.map((ref) => {
+
             let el = null;
 
             if('undefined' === typeof ref){
@@ -164,14 +154,14 @@
             }
 
             if(el !== null){
-              let name = el.getAttribute('name');
+              let name = el.getAttribute('name') || el.querySelector("[name]").getAttribute('name');
               let scope = el.getAttribute('data-vv-scope');
 
               if('undefined' !== typeof self.$validator){
                 let field = self.$validator.fields.find({ name: name, scope: scope });
 
                 let foundP = self.errors.items.filter((item) => {
-                  return item.field === field.name && item.scope === field.scope;
+                  return item.field === name && item.scope === scope;
                 });
 
                 if('undefined' !== typeof self.$validator){
@@ -193,13 +183,13 @@
                     msg: errmsg,
                     scope: field.scope,
                     rule: 'required',
-                    vmId: field.vmId
+                    //vmId: field.vmId
                   };
 
                   if('undefined' !== typeof self.$validator){
-
+                    self.$validator.errors.add(error);
                   }
-                  self.$validator.errors.add(error);
+
                 }
               }
             }
@@ -302,51 +292,8 @@
           });
         }
 
-        function bfvalidation(vals, pats){
-          let allowedFirst = [1,2,3,4];
-          let allowedSecond = [5,6,7,8];
-          let tofilter = [];
-
-          let res = [];
-          /*vals.map((row) => {
-            console.log(row);
-            let first = row.filter((el) => {
-              return allowedFirst.indexOf(el.val) !== -1;
-            });
-            let second = row.filter((el) => {
-              return allowedSecond.indexOf(el.val) !== -1;
-            });
-
-            row.map((el) => {
-              if(allowedFirst.indexOf(el.val) === -1 && allowedSecond.indexOf(el.val) === -1 ) { tofilter.push(el); }
-            });
-
-            pats = pats.filter(Boolean);
-
-            if(tofilter.length === 0){
-              pats = [ pats[pats.length - 1] ];
-            } else  {
-              //console.log("first");
-              if(first.length === 0 || second.length === 0){
-                //console.log(pats);
-              } else {
-                pats = filterPats(pats, tofilter );
-              }
-            }
-          });
-          */
-
-
-          //return { first, second, pats };
-        }
-
         function validateRegions( regvals, regpats){
           let uniq = regvals.reduce(( a,b ) => {
-            /*
-            count: 1
-            ref: VueComponent {_uid: 441, _isVue: true, $options: {…}, _renderProxy: Proxy, _self: VueComponent, …}
-            val: "RO"
-            * */
             a[ b.val ] = (a[ b.val ] || 0) + b.count;
             if('undefined' === typeof a[ b.val + "_refs"] ){
               a[ b.val + "_refs"] = [];
@@ -359,12 +306,12 @@
 
           let res = [];
           Object.keys(uniq).filter((a) => uniq[a] > 1).map((dup) => {
-            res.push( uniq[dup + "_refs"].map((d) => { return d.ref;}) );
+            res.push( uniq[dup + "_refs"].map((d) => { return { ref: d.ref, errtype:"samereg" };}) );
           });
           res = res.reduce((a,b) => {
-            a = b;
+            a = a.concat(b);
             return a;
-          }, {});
+          }, []);
           return res;
         }
 
@@ -379,7 +326,7 @@
           let vals = [];
           let regvals = [];
 
-
+          // b-e && f-i validation
           let pats = patsN.map((name) => {
             let ref = self.$refs[name][0];
 
@@ -388,31 +335,36 @@
 
               const allowedFirst = [1,2,3,4];
               const allowedSecond = [5,6,7,8];
+
               // iterating through multiselect selected values
-              let filtered = ref.value.map((item) => {
+              let first = [];
+              let second = [];
+              let nogood = [];
+
+              if(ref.value === null ) return null;
+              let filtere = ref.value.map((item) => {
                 let val = parseInt(item.value, 10);
-                return allowedFirst.indexOf(val) !== -1 || allowedSecond.indexOf(val) !== -1;
+                if(allowedFirst.indexOf(val) !== -1) first.push(val);
+                if(allowedSecond.indexOf(val) !== -1) second.push(val);
+                nogood.push(val);
               });
-              console.log(filtered);
-              /*ref.value.map((item) => {
-                let val = parseInt(item.value, 10);
 
-                temp.push({
+              if(first.length === 0 || second.length  === 0){
+                vals.push({
                   ref: self.$refs[name][0],
-                  val: val,
-                  errtype: "bf",
+                  errtype: "bferr",
                 });
-              });*/
+              }
 
-              //vals.push(temp);
               return self.$refs[name][0];
             } else {
               return null;
             }
           });
 
+          pats = pats.filter(Boolean);
 
-          /*let regpats = regsN.map((name) => {
+          let regpats = regsN.map((name) => {
             let ref = self.$refs[name][0];
             if("undefined" !== typeof ref){
               let val = ref.$el.value;
@@ -426,13 +378,21 @@
             } else {
               return null;
             }
-          });*/
+          });
 
-          let bf = bfvalidation(vals, pats);
+          let rv = validateRegions( regvals, regpats);
+          let allerrors = vals.concat(rv);
 
-          /*let rv = validateRegions( regvals, regpats);
+          if(allerrors.length > 0){
+            self.spreadvals = allerrors;
+            resolve(false);
+          } else {
+            self.spreadvals = [];
+            resolve(true);
+          }
+          self.$forceUpdate();
 
-          if((bf.first.length > 0 && bf.second.length > 0)){
+          /*if((bf.first.length > 0 && bf.second.length > 0)){
             if(rv.length > 0) {
               let temp = [];
               temp = rv.map((item) => {
