@@ -578,7 +578,7 @@
 <style scoped>
   .table-wrapper {
     margin-bottom: 2rem;
-    overflow: auto;
+    /*overflow: auto;*/
     border-radius: 0.25rem;
   }
 
