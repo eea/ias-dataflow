@@ -964,7 +964,7 @@ function form() {
                               name: 'subfield',
                               fields:[
                                 {
-                                  label: 'xxxNumber or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
+                                  label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                                   name: 'number_speciments_held_by_non_compliant_establishments',
                                   type: 'number',
                                   selected: '',
@@ -1198,7 +1198,7 @@ function form() {
                               name: 'subfield',
                               fields:[
                                 {
-                                  label: 'qqqNumber or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
+                                  label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments deemed non-compliant with the conditions set out in the permits',
                                   name: 'number_speciments_held_by_non_compliant_establishments',
                                   type: 'number',
                                   selected: '',

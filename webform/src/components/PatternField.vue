@@ -1,5 +1,6 @@
 <template>
   <div class="table-wrapper">
+
     <table class="table table-striped">
       <thead class="bg-primary">
       <th><span v-html="patternfields[0].label"></span></th>
@@ -7,26 +8,75 @@
       <th><span>Actions</span></th>
       </thead>
       <tbody>
+       <!--{{  patternfields[0].patternType === "spread" ?  patternfields : '' }}-->
+
       <tr v-for="(field,fieldkey) in patternfields">
-        <td>
-          <b-input-group>
-            <b-input-group-prepend v-if="errors.has(scope + '_pattern_' + fieldkey,scope)">
-              <b-badge class="error-badge"  variant="danger"
-               :title="errors.collect(scope + '_pattern_' + fieldkey, scope).join('\n')"
-                       v-b-tooltip.hover
-              >{{ errors.first(scope + '_pattern_' + fieldkey, scope) }}</b-badge>
-            </b-input-group-prepend>
+        <td v-if='patternfields[0].patternType !== "spread"'>
 
-            <b-form-select :options="field.options" v-model="field.selected.pattern" v-validate="'required'"
-               data-vv-as="pattern"  v-bind:key="scope + '_pattern_' + fieldkey"
-              v-bind:data-vv-scope="scope"
-              v-bind:name="scope + '_pattern_' + fieldkey"
-              :ref="scope + '_pattern_' + fieldkey"
-              @change="validate"
-            ></b-form-select>
+            <b-input-group>
+              <b-input-group-prepend v-if="errors.has(scope + '_pattern_' + fieldkey,scope)">
+                <b-badge class="error-badge"  variant="danger"
+                         :title="errors.collect(scope + '_pattern_' + fieldkey, scope).join('\n')"
+                         v-b-tooltip.hover
+                >{{ errors.first(scope + '_pattern_' + fieldkey, scope) }}</b-badge>
+              </b-input-group-prepend>
 
-          </b-input-group>
+              <b-form-select :options="field.options" v-model="field.selected.pattern" v-validate="'required'"
+                             data-vv-as="pattern"  v-bind:key="scope + '_pattern_' + fieldkey"
+                             v-bind:data-vv-scope="scope"
+                             v-bind:name="scope + '_pattern_' + fieldkey"
+                             :ref="scope + '_pattern_' + fieldkey"
+                             @change="validate"
+              ></b-form-select>
+
+            </b-input-group>
+
         </td>
+
+        <td v-if='patternfields[0].patternType === "spread"'>
+          <b-col >
+            <b-input-group>
+              <b-input-group-prepend v-if="errors.has(scope + '_pattern_' + fieldkey,scope)">
+                <b-badge class="error-badge"  variant="danger"
+                         :title="errors.collect(scope + '_pattern_' + fieldkey, scope).join('\n')"
+                         v-b-tooltip.hover
+                >{{ errors.first(scope + '_pattern_' + fieldkey, scope) }}</b-badge>
+              </b-input-group-prepend>
+              <multiselect :options="field.options"
+                 v-model="field.selected.pattern"
+                 v-validate="'required'"
+                 data-vv-as="pattern"  v-bind:key="scope + '_pattern_' + fieldkey"
+                 v-bind:data-vv-scope="scope"
+                 v-bind:name="scope + '_pattern_' + fieldkey"
+                 :ref="scope + '_pattern_' + fieldkey"
+                 @change="validate"
+                 :close-on-select="false"
+                 :clear-on-select="false"
+                 :hide-selected="true"
+                 :preserve-search="true"
+                 :multiple=true
+                 :custom-label="customLabel"
+              ></multiselect>
+             <!-- <b-form-select
+                 :options="field.options"
+                 v-model="field.selected.pattern"
+                 v-validate="'required'"
+                 data-vv-as="pattern"
+                 v-bind:key="scope + '_pattern_' + fieldkey"
+                 v-bind:data-vv-scope="scope"
+                 v-bind:name="scope + '_pattern_' + fieldkey"
+                 :ref="scope + '_pattern_' + fieldkey"
+                 @change="validate"
+              ></b-form-select>-->
+
+            </b-input-group>
+          </b-col>
+         <!-- <b-col lg="2">
+            <b-btn variant="primary" >Add pattern</b-btn>
+          </b-col>-->
+        </td>
+
+
         <td>
           <b-input-group>
             <b-input-group-prepend v-if="errors.has(scope + '_region_' + fieldkey,scope)">
@@ -46,6 +96,7 @@
             ></b-form-select>
           </b-input-group>
         </td>
+
         <td><b-btn variant="danger" @click="removeRow(fieldkey)">X</b-btn></td>
       </tr>
       </tbody>
@@ -57,9 +108,12 @@
 </template>
 
 <script>
+  import Multiselect from 'vue-multiselect';
+
   export default {
     name: 'PatternField',
     props: ['patternfields','scope', 'multiple'],
+    components: { Multiselect},
     //inject:['$validator'],
     data(){
       return {
@@ -92,7 +146,6 @@
             }
           });
         } else {
-
           if(vals.length === 0) return true;
           vals = vals.filter((itm) => { return itm !== 'undefined' });
 
@@ -121,13 +174,12 @@
                 });
 
                 if('undefined' !== typeof self.$validator){
-
                   foundP.map((err)=> {
                     self.$validator.errors.removeById(err.id);
                   });
                 }
 
-                let errs = {
+                const errs = {
                   "bferr": "At least one of b/c/d/e must be chosen and at least one of f/g/h/i must be chosen.",
                   "samereg": "Same region"
                 };
@@ -230,6 +282,7 @@
       customLabel({ text, value}){
         return `${text}`
       },
+
 
       validateSpread(){
         let self = this;
