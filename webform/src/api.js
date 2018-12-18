@@ -37,7 +37,7 @@ function getParameterByName(name) {
   let search = '?' + searchArr[searchArr.length - 1];
   let match = new RegExp('[?&]' + name + '=([^&]*)').exec(search);
   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-};
+}
 
 function getWebQUrl(path) {
   baseUri = (baseUri === null) ? '' : baseUri;
@@ -127,9 +127,9 @@ export function uploadFile(file, progress) {
     });
 
   } else {
-    var uploadUri;
-    var domain = getDomain(window.location.href);
-    var webqUri = getWebQUrl('/restProxyFileUpload');
+    let uploadUri;
+    let domain = getDomain(window.location.href);
+    let webqUri = getWebQUrl('/restProxyFileUpload');
     uploadUri = domain + webqUri + "&uri=" + envelope + "/manage_addDocument";
 
     return axios({
@@ -177,7 +177,7 @@ export function deleteFile(fileName) {
     })
   } else {
 
-    var deleteData = encodeURIComponent(`ids:list=${fileName}&manage_delObjects:method=Delete`)
+    let deleteData = encodeURIComponent(`ids:list=${fileName}&manage_delObjects:method=Delete`)
 
     return axios({
       method: 'post',
@@ -192,9 +192,5 @@ export function deleteFile(fileName) {
 }
 
 export function istestSession(){
-  if(process.env.NODE_ENV === 'production') {
-    return false;
-  } else {
-    return true;
-  }
+  return process.env.NODE_ENV !== 'production';
 }

@@ -666,13 +666,10 @@ export default {
                section[prop] = Object.keys(field.selected.common_names).map((ctry) => {
                  return { country: ctry, name: field.selected.common_names[ctry][0] };
                });
-
             } else if(prop === "scientific_name"){
               section[prop] = section.scientific_name.selected.value;
             }
-
           }
-
         });
       }
       newDataset.tab_2.sections = newDataset.tab_2.sections.filter(Boolean);
