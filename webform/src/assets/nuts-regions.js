@@ -8,13 +8,13 @@ let nuts = function(){
       .then((regions) => {
         return regions.json();
       }).catch((rej) => {
-        resolve({ country: country, data: []});
+        resolve({ country: res, data: []});
       }).then((regs) => {
         if( "undefined" !== typeof regs ){
           const regions = regs.map((reg) => { return { text: reg.label, value: reg.id} });
-          resolve( { country: country, data: regions });
+          resolve( { country: res, data: regions });
         } else {
-          resolve({ country: country, data: [] });
+          resolve({ country: res, data: [] });
         }
       });
     });
