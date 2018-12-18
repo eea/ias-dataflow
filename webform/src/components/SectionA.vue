@@ -875,20 +875,6 @@ export default {
       if(fieldkey !== 0) fields.splice(fieldkey, 1);
     },
 
-    /*addCustomField(field){
-      this.customField = field;
-      this.$refs.customFieldModal.show();
-    },
-    saveCustomField(){
-      let addField = JSON.parse(JSON.stringify(this.addCustom));
-
-      this.customField.options.push(addField);
-      this.customField.selected = addField.value;
-      this.addCustom.text = null;
-      this.addCustom.value = null;
-      this.$refs.customFieldModal.hide();
-    },*/
-
     addSpecies(field){
       let empty_field = {
         label: 'Impacted non-targeted species',
