@@ -297,13 +297,21 @@ export default {
 
       this.showAlert();
     },
+
     prefill(){
       let newDataset = JSON.parse(JSON.stringify(this.dataset));
 
       function processsPattern( pattern ){
         let res = pattern.map((pat) => {
           if(pat.selected.pattern !== null && pat.selected.region !== null){
-            return {patternType: pat.patternType, region:pat.selected.region,pattern: pat.options[pat.selected.pattern].text };
+            if( pat.selected.pattern instanceof Array ){
+              let pats = pat.selected.pattern.map((el) => {
+                return el.text;
+              });
+              return {patternType: pat.patternType, region:pat.selected.region, pattern: pats };
+            } else {
+              return {patternType: pat.patternType, region:pat.selected.region, pattern: pat.options[pat.selected.pattern].text };
+            }
           } else {
             return null;
           }
@@ -356,7 +364,6 @@ export default {
         });
         return res;
       }
-
 
       function processTable1(table){
         let sections = table.table_sections.map((tsection) => {
@@ -682,9 +689,12 @@ export default {
       * */
       newDataset.tab_4 = newDataset.tab_4.section.fields;
 
-      console.log(JSON.stringify(newDataset));
+      //console.log(JSON.stringify(newDataset));
 
       //console.log(newDataset);
+      /*newDataset.tab_1.sections.map((section) => {
+        console.log(section);
+      });*/
 
     },
 
