@@ -2002,23 +2002,20 @@ function form() {
                 name: "section_a_distribution_file",
                 label: "Distribution map for SECTION A",
                 selected: [],
-              },
-              {
+              },{
                 type: "file",
                 name: "section_a_inspire",
-                label: "INSPIRE Metadata (Section A)",
+                label: "INSPIRE Metadata for SECTION A",
                 selected: [],
-              },
-              {
+              },{
                 type: "file",
                 name: "section_b_distribution_file",
                 label: "Distribution map for SECTION B",
                 selected: [],
-              },
-              {
+              },{
                 type: "file",
                 name: "section_b_inspire",
-                label: "INSPIRE Metadata (Section B)",
+                label: "INSPIRE Metadata for SECTION B",
                 selected: [],
               }
             ]

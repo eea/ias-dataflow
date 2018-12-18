@@ -20,42 +20,5 @@ let nuts = function(){
       });
     });
   });
-  /*return {
-    "@context": {
-      "@base": "http://dd.eionet.europa.eu/vocabulary/common/nuts/",
-      "skos": "http://www.w3.org/2004/02/skos/core#",
-      "concepts": "skos:Concept",
-      "prefLabel": "skos:prefLabel",
-      "broader": "skos:broader",
-      "narrower": "skos:narrower",
-      "@language": "en"
-    },
-    "concepts": [
-      {
-        "@id": "AT",
-        "@type": "skos:Concept",
-        "prefLabel": [
-          {
-            "@value": "ÖSTERREICH",
-            "@language": "en"
-          }
-        ],
-        "narrower": [
-          {
-            "@id": "AT1"
-          },
-          {
-            "@id": "AT2"
-          },
-          {
-            "@id": "AT3"
-          },
-          {
-            "@id": "ATZ"
-          }
-        ]
-      },
-    ]
-  };*/
 };
 export default nuts
