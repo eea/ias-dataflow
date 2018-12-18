@@ -1789,6 +1789,7 @@ function form() {
                 type: 'text',
                 label: 'Member State',
                 selected: country,
+                disabled: true,
               },
                 {
                   name: 'rep_period_from',
@@ -1819,7 +1820,8 @@ function form() {
                 name: 'partyname',
                 type: 'text',
                 label: 'Member State',
-                selected: '',
+                selected: country,
+                disabled: true,
               },
                 {
                   name: 'rep_period_from',

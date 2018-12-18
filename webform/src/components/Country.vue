@@ -17,11 +17,9 @@
                 </label>
               </b-col>
 
+
               <b-col > <!-- lg="6" -->
-                <div v-if="table.name ==='partyname'">
-                  <b-input required :id="table.name" :type="table.type" v-model="table.selected"></b-input>
-                </div>
-                <div v-else>
+                <div>
                   <b-input required :disabled="table.disabled" :id="table.name" :type="table.type" v-model="table.selected"></b-input>
                 </div>
               </b-col>
