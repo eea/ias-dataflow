@@ -33,7 +33,8 @@ function form() {
   return new Promise(function( resolve, reject){
 
     Promise.all([ nuts(), marine_subregions() ]).then((vals) => {
-      let regions = vals[0];
+      let country = vals[0].country;
+      let regions = vals[0].data;
       let msubregs = vals[1];
 
       let tab_1_section = {
@@ -1787,7 +1788,7 @@ function form() {
                 name: 'partyname',
                 type: 'text',
                 label: 'Member State',
-                selected: '',
+                selected: country,
               },
                 {
                   name: 'rep_period_from',

@@ -4,8 +4,7 @@ import {getCountry} from "../api"
 let marine_subregions = function(){
   return new Promise( (resolve, reject) => {
     getCountry().then((res) => {
-      let country = res.data;
-      fetch("../../static/marine_subregions/" + country + "_marine_subregions.json")
+      fetch("../../static/marine_subregions/" + res + "_marine_subregions.json")
         .then((regions) => {
           if(regions.status === 404) return [];
           return regions.json();

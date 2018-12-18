@@ -4,18 +4,17 @@ import {getCountry} from "../api"
 let nuts = function(){
   return new Promise(function(resolve, reject) {
     getCountry().then((res) => {
-      let country = res.data;
-      fetch("../../static/nuts_regions/" + country + "_nuts_regions.json")
+      fetch("../../static/nuts_regions/" + res + "_nuts_regions.json")
       .then((regions) => {
         return regions.json();
       }).catch((rej) => {
-        resolve([]);
+        resolve({ country: country, data: []});
       }).then((regs) => {
         if( "undefined" !== typeof regs ){
           const regions = regs.map((reg) => { return { text: reg.label, value: reg.id} });
-          resolve(regions);
+          resolve( { country: country, data: regions });
         } else {
-          resolve([]);
+          resolve({ country: country, data: [] });
         }
       });
     });

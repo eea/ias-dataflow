@@ -79,7 +79,14 @@ export function getEnvelopeXML(url) {
 
 export function getCountry() {
   if(isTestSession){
-    return fetch('http://localhost:8080/static/country.html');
+    return new Promise((resolve, reject) => {
+      fetch('http://localhost:8080/static/country.html').then((res) => {
+        resolve(res.data);
+      }).catch((rej) => {
+        reject(rej);
+      });
+    });
+
   }else {
     return new Promise(function(resolve, reject) {
       let countryCode = getParameterByName('countrycode');
