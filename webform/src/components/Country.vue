@@ -17,8 +17,7 @@
                 </label>
               </b-col>
 
-
-              <b-col > <!-- lg="6" -->
+              <b-col>
                 <div>
                   <b-input required :disabled="table.disabled" :id="table.name" :type="table.type" v-model="table.selected"></b-input>
                 </div>

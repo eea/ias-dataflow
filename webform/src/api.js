@@ -25,7 +25,6 @@ if(process.env.NODE_ENV === 'production') {
   isTestSession = false;
 }
 
-
 let baseUri = getParameterByName('base_uri');
 let fileId = getParameterByName('fileId');
 export let companyId = getParameterByName('companyId');
@@ -192,3 +191,10 @@ export function deleteFile(fileName) {
   }
 }
 
+export function istestSession(){
+  if(process.env.NODE_ENV === 'production') {
+    return false;
+  } else {
+    return true;
+  }
+}

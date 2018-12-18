@@ -1,11 +1,17 @@
 import form from "./form";
-import {getCountry} from "../api"
+import {getCountry, istestSession } from "../api"
 
 let nuts = function(){
   return new Promise(function(resolve, reject) {
+
     getCountry().then((res) => {
-      fetch("../../static/nuts_regions/" + res + "_nuts_regions.json")
-      .then((regions) => {
+      let path = null;
+      if(istestSession()){
+        path = "../../static/nuts_regions/" + res + "_nuts_regions.json";
+      } else {
+        path = "";
+      }
+      fetch(path).then((regions) => {
         return regions.json();
       }).catch((rej) => {
         resolve({ country: res, data: []});

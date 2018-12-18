@@ -1,11 +1,16 @@
 import form from "./form";
-import {getCountry} from "../api"
+import {getCountry, istestSession} from "../api"
 
 let marine_subregions = function(){
   return new Promise( (resolve, reject) => {
     getCountry().then((res) => {
-      fetch("../../static/marine_subregions/" + res + "_marine_subregions.json")
-        .then((regions) => {
+      let path = null;
+      if(istestSession()){
+          path = "../../static/marine_subregions/" + res + "_marine_subregions.json";
+      } else {
+        path = '';
+      }
+      fetch(path).then((regions) => {
           if(regions.status === 404) return [];
           return regions.json();
         }).catch((rej) => {
