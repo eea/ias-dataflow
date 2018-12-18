@@ -1,4 +1,4 @@
-var species = [
+const species = [
    {
       "EUNIScode":320702,
       "speciesCode":"R00644",

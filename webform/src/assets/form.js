@@ -1242,7 +1242,7 @@ function form() {
             },
             tables: [
               {
-                name: 'National Population',
+                name: 'National Population #1',
                 table_sections: [
                   {
                     label: '',
@@ -1272,6 +1272,7 @@ function form() {
                             options: regions,
                             selected: '',
                             comments:'',
+                            addoption: true,
                             //required: true,
                           },
                           {
@@ -1396,9 +1397,11 @@ function form() {
                         name: 'part_territory',
                         //type: 'file',
                         type: 'select',
+                        //type: 'add',
                         options: regions,
                         selected: '',
                         comments:'',
+                        addoption: true,
                         //required: true,
                       },
                       {
@@ -1506,8 +1509,8 @@ function form() {
             },
             tables: [
               {
-                name: 'National Population',
-                label:'National Population',
+                name: 'National Population #1',
+                label:'National Population #1',
                 table_sections: [{
                   label: '',
                   index: 15,
@@ -1547,6 +1550,7 @@ function form() {
                           options: regions,
                           selected: '',
                           comments:'',
+                          addoption: true,
                         },
                         {
                           label: 'Biogeographical region(s)',
@@ -1679,6 +1683,7 @@ function form() {
                       options: regions,
                       selected: '',
                       comments:'',
+                      addoption: true,
                     },
                     {
                       label: 'Biogeographical region(s)',
@@ -1997,16 +2002,17 @@ function form() {
                 name: "section_a_distribution_file",
                 label: "Distribution map for SECTION A",
                 selected: [],
-              },{
-                type: "file",
-                name: "section_b_distribution_file",
-                label: "Distribution map for SECTION B",
-                selected: [],
               },
               {
                 type: "file",
                 name: "section_a_inspire",
                 label: "INSPIRE Metadata (Section A)",
+                selected: [],
+              },
+              {
+                type: "file",
+                name: "section_b_distribution_file",
+                label: "Distribution map for SECTION B",
                 selected: [],
               },
               {

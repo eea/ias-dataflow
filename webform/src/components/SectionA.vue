@@ -193,9 +193,10 @@
                     </b-row>
 
                     <b-row>
+
                       <b-col v-if="errors.has('population' + '_' + popkey,'sectiona_'+ seckey + '_' +'table_2_' + popkey + '_' + 'population')">
                         <b-badge variant="danger" style="padding: 0.5rem;line-height: 1.2rem;">
-                        {{ errors.first('population' + '_' + popkey,'sectiona_'+ seckey + '_' +'table_2_' + popkey + '_' + 'population')
+                        {{ errors.collect('population' + '_' + popkey , 'sectiona_'+ seckey + '_' +'table_2_' + popkey + '_' + 'population').join("\n")
                         }}</b-badge>
                       </b-col>
 
@@ -204,6 +205,7 @@
                           <b-input v-model="population.name"
                                    v-bind:key="'population' + '_' + popkey"
                                    v-bind:name="'population' + '_' + popkey"
+                                   :ref="'sectiona_'+ seckey + '_' +'table_2_' + popkey + '_' + 'population'"
                                    :data-vv-as="'population name'"
                                    v-bind:data-vv-scope="'sectiona_'+ seckey + '_' +'table_2_' + popkey + '_' + 'population'"
                                    v-validate ="'required'"
@@ -212,7 +214,8 @@
                       </b-col>
 
                       <b-col>
-                        <b-btn variant="danger" v-if="popkey !== 0" @click="removePopulation(section.tables.table_2.tables, popkey)">Remove Population</b-btn>
+                        <b-btn variant="danger" v-if="popkey !== 0"
+                               @click="removePopulation(section.tables.table_2.tables, popkey)">Remove Population</b-btn>
                       </b-col>
 
                     </b-row>
@@ -237,7 +240,7 @@
 
                               <td style="width: 120px" v-if="row.label"><span style="font-size: 1.2em">{{row.label}}</span></td>
 
-                              <td v-if="sub_section.type !== 'add'">
+                              <td v-if="sub_section.type !== 'add' && !row.addoption">
                                 <b-badge variant="danger" class="error-badge"
                                          v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                               && item.scope === 'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
@@ -250,23 +253,60 @@
                                   }).join('\n')
                                   }}
                                 </b-badge>
-
-                                <fieldGenerator
-                                  :field="row" :fieldkey="rowkey"
-                                  :validation="row.required ? row.required : 'false'"
-                                  :vname="row.name + '_' + rowkey"
-                                  :sub_section="sub_section"
-                                  :vkey="row.name + '_' + rowkey"
-                                  :ref="'sectiona_' + seckey + '_' +'table_2_' +  table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
-                                  :vscope="'sectiona_'+ seckey + '_' +'table_2_' +  table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
-                                  @change="row.name === 'starting_date' ? validateDate(row, sub_section,
+                                <b-col lg="12">
+                                  <fieldGenerator
+                                    :field="row" :fieldkey="rowkey"
+                                    :validation="row.required ? row.required : 'false'"
+                                    :vname="row.name + '_' + rowkey"
+                                    :sub_section="sub_section"
+                                    :vkey="row.name + '_' + rowkey"
+                                    :ref="'sectiona_' + seckey + '_' +'table_2_' +  table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
+                                    :vscope="'sectiona_'+ seckey + '_' +'table_2_' +  table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
+                                    @change="row.name === 'starting_date' ? validateDate(row, sub_section,
                               'sectiona_' + seckey + '_' +'table_2_' +  table_key  + '_' + popkey + '_' + row.name + '_' + rowkey , {
                           field: row.name + '_' + rowkey,
                           scope:'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
                         } ) : null"
-                                ></fieldGenerator>
+                                  ></fieldGenerator>
+                                </b-col>
+                              </td>
+
+                              <td v-else-if="row.addoption">
+                                  <b-col lg="12">
+                                    <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
+                                      && item.scope === 'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
+                                      && item.field === row.name + '_' + rowkey;}).length > 0">
+                                      {{
+                                      errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
+                                      && item.scope === 'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
+                                      && item.field === row.name + '_' + rowkey;}).map((item)=> {
+                                      return item.msg;
+                                      }).join('\n')
+                                      }}
+                                    </b-badge>
+                                    <fieldGenerator
+                                      style="display: inline-block; width: 88%;"
+                                      :field="row" :fieldkey="rowkey"
+                                      :validation="row.required ? row.required : 'false'"
+                                      :vname="row.name + '_' + rowkey"
+                                      :sub_section="sub_section"
+                                      :vkey="row.name + '_' + rowkey"
+                                      :ref="'sectiona_' + seckey + '_' +'table_2_' +  table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
+                                      :vscope="'sectiona_'+ seckey + '_' +'table_2_' +  table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
+                                      @change="row.name === 'starting_date' ? validateDate(row, sub_section,
+                                        'sectiona_' + seckey + '_' +'table_2_' +  table_key  + '_' + popkey + '_' + row.name + '_' + rowkey , {
+                                          field: row.name + '_' + rowkey,
+                                          scope:'sectiona_'+ seckey + '_' +'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
+                                      } ) : null"
+                                    ></fieldGenerator>
+                                    <b-btn v-if="row.addoption"
+                                           style="display: inline-block; margin-left: 5px;margin-top: -1px;"
+                                           @click="addCustomField(row)"
+                                    >Add Option</b-btn>
+                                  </b-col>
 
                               </td>
+
                               <td v-else>
                                 <b-row>
                                   <b-col>
@@ -331,6 +371,7 @@
                                   </b-col>
                                 </b-row>
                               </td>
+
                             </tr>
                             </tbody>
                           </table>
@@ -405,7 +446,7 @@
                     <b-row>
                       <b-col v-if="errors.has('population' + '_' + popkey, 'sectiona_'+ seckey + '_' +'table_3_' + popkey + '_' + 'population')">
                         <b-badge variant="danger" style="padding: 0.5rem;line-height: 1.2rem;">
-                          {{ errors.first('population' + '_' + popkey,'sectiona_'+ seckey + '_' +'table_2_' + popkey + '_' + 'population')
+                          {{ errors.first('population' + '_' + popkey,'sectiona_'+ seckey + '_' +'table_3_' + popkey + '_' + 'population')
                           }}</b-badge>
                       </b-col>
                       <b-col col lg="10">
@@ -413,6 +454,7 @@
                           <b-input v-model="population.name"
                                    v-bind:key="'population' + '_' + popkey"
                                    v-bind:name="'population' + '_' + popkey"
+                                   :ref="'sectiona_'+ seckey + '_' +'table_3_' + popkey + '_' + 'population'"
                                    :data-vv-as="'population name'"
                                    v-bind:data-vv-scope="'sectiona_'+ seckey + '_' +'table_3_' + popkey + '_' + 'population'"
                                    v-validate ="'required'"
@@ -443,7 +485,7 @@
                           <tr v-for="(row, rowkey, rowindex) in sub_section.fields">
                             <td style="width: 120px" v-if="row.label"><span style="font-size: 1.2em">{{row.label}}</span></td>
 
-                            <td v-if="sub_section.type != 'add'">
+                            <td v-if="sub_section.type !== 'add' && !row.addoption">
 
                               <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                               && item.scope === 'sectiona_'+ seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
@@ -473,6 +515,42 @@
                               ></fieldGenerator>
 
                             </td>
+
+                            <td v-else-if="row.addoption">
+                              <b-col lg="12">
+
+                                <b-badge variant="danger" class="error-badge"
+                                         v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
+                                && item.scope === 'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
+                                && item.field === row.name + '_' + rowkey;}).length > 0">
+                                  <!-- TODO: refactor, move in method -->
+                                  <!-- filtering errors for each field and scope-->
+                                  {{ errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
+                                  && item.scope === 'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
+                                  && item.field === row.name + '_' + rowkey;}).map((item)=>{
+                                  return item.msg;
+                                  }).join('\n')  }}
+                                </b-badge>
+                                <fieldGenerator
+                                  style="display: inline-block; width: 88%;"
+                                  :field="row"
+                                  :fieldkey="rowkey"
+                                  :vname="row.name + '_' + rowkey"
+                                  :vkey="row.name + '_' + rowkey"
+                                  :data-vv-as="row.label"
+                                  :validation="'false'"
+                                  :ref="'sectiona_'  + seckey + '_' +  seckey + '_' + row.name + '_' + rowkey"
+                                  :vscope="'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
+                                ></fieldGenerator>
+
+
+                                <b-btn v-if="row.addoption"
+                                       style="display: inline-block; margin-left: 5px;margin-top: -1px;"
+                                       @click="addCustomField(row)"
+                                >Add Option</b-btn>
+                              </b-col>
+                            </td>
+
                             <td v-else>
                               <b-row>
                                 <b-col>
@@ -560,6 +638,20 @@
       </b-card>
 
     </div>
+
+    <b-modal hide-footer ref="customFieldModal">
+      <div v-if="customField" slot="modal-title">{{customField.label}}</div>
+      <div v-if="customField">
+        <b-input-group class="mb-3" prepend="Name">
+          <b-form-input v-model="addCustom.text"></b-form-input>
+        </b-input-group>
+        <b-input-group prepend="Code">
+          <b-form-input v-model="addCustom.value"></b-form-input>
+        </b-input-group>
+        <b-btn class="mt-3" variant="outline-primary" @click="saveCustomField" block>Add</b-btn>
+      </div>
+    </b-modal>
+
   </div>
 </template>
 
@@ -576,6 +668,7 @@ import {getSupportingFiles, envelope} from '../api.js';
 export default {
   components: {PermitsTabel, fieldGenerator, FormFileUpload, PatternField},
 
+  //inject: ["$validator" ],
   props: {
     info: null,
     tabId:null
@@ -592,6 +685,7 @@ export default {
       files: [],
       dateErrors: [],
       tableErrors: {},
+      popErrors: [],
     }
   },
   created (){
@@ -675,7 +769,6 @@ export default {
             if(fieldFound === null){
               if("undefined" !== typeof ref[0].$validator){
                 ref[0].$validator.fields.items.filter((field) => {
-
                   if(field.name === err.name  && field.scope === err.scope){
                     refFound = self.$refs[err.item][0];
                     fieldFound = field;
@@ -704,9 +797,69 @@ export default {
         });
       });
     },
+
+    popErrors(errors, oldErrors){
+      let self = this;
+
+      if(errors.length === 0){
+        /*oldErrors.map((item)=> {
+          let name = item.ref.$el.getAttribute("name");
+          let scope = item.ref.$el.getAttribute("data-vv-scope");
+
+          if('undefined' !== typeof self.$validator){
+            let field = self.$validator.items.filter((field) => { return field.name === name && field.scope === scope });
+
+            let foundP = this.errors.items.filter((item) => {
+              return item.field === field.name && item.scope === field.scope;
+            });
+            foundP.map((err)=> {
+              self.$validator.errors.removeById(err.id);
+            });
+          }
+        });*/
+      } else {
+        errors.map((item) => {
+          let name = item.ref.$el.getAttribute("name");
+          let scope = item.ref.$el.getAttribute("data-vv-scope");
+
+          let field = self.$validator.fields.items.filter((field) => { return field.name === name && field.scope === scope })[0];
+
+          let error = {
+            field: field.name,
+            msg: "Same population name",
+            scope: field.scope,
+            rule: 'required',
+            //vmId: field.vmId
+          };
+
+          console.log(field.name);
+          console.log(field.scope);
+
+          self.$validator.errors.add(error);
+
+          self.$forceUpdate();
+        });
+      }
+
+    }
   },
 
   methods: {
+    addCustomField(row){
+      this.customField = row;
+      this.$refs.customFieldModal.show();
+    },
+
+    saveCustomField(){
+      let addField = JSON.parse(JSON.stringify(this.addCustom));
+
+      this.customField.options.unshift(addField);
+      this.customField.selected = addField;
+      this.addCustom.text = null;
+      this.addCustom.value = null;
+      this.$refs.customFieldModal.hide();
+    },
+
     titleSlugify(text) {
       return slugify(text)
     },
@@ -776,8 +929,6 @@ export default {
       let foundP = this.errors.items.filter((item) => {
         return item.field === field.name && item.scope === field.scope;
       });
-      /*console.log(error);
-      console.log(field);*/
 
       if(error === null){
         self.$validator.errors.removeById(foundP.id);
@@ -813,12 +964,6 @@ export default {
     //TODO: fix validation for population
     validateQuestion12(){
       let self = this;
-
-      //let fields = [ 'part_territory' , 'biogeographical_region', 'river_basin_subunits','marine_sub_regions' ];
-
-      //const reg = /(sectiona_(table_[2-3])+([0-9])_([0-9]))\w+(part_territory|biogeographical_region|river_basin_subunits|marine_sub_regions)/;
-      //const reg = /(sectiona_([0-9])_table_[2-3]_([0-9])_([0-9])\w+(part_territory|biogeographical_region|river_basin_subunits|marine_sub_regions))/;
-
       const reg = /(sectiona_([0-9]*))_table_[0-9]_([0-9]*)_([0-9]*)\w+(part_territory|biogeographical_region|river_basin_subunits|marine_sub_regions)_[0-9]/;
 
       let temp = {};
@@ -938,12 +1083,79 @@ export default {
               result[sectionName].push(err);
             });
           });
-
-
         });
       });
 
       self.tableErrors = result;
+    },
+
+    validatePopulation(){
+      let self = this;
+      const reg = /(sectiona_([0-9]*))_(table_[0-9])_([0-9]*)_population/;
+
+      let temp = {};
+
+      Object.keys(self.$refs).map((item) => {
+        let match = item.match(reg);
+        if(match !== null){
+          let name = match[0];
+          let section = match[1];
+          let seckey = match[2];
+          let table_type = match[3];
+          let population_key = match[4];
+
+          if('undefined' === typeof temp[section]){
+            temp[section] = [];
+          }
+          if('undefined' === typeof  temp[section][table_type] ){
+            temp[section][table_type] = [];
+          }
+
+          let ref = self.$refs[item];
+          temp[section][table_type].push({
+            ref: ref[0],
+            index: population_key,
+            val: ref[0].value,
+            count: 1
+          });
+        }
+      });
+
+      let result = [];
+
+      Object.keys(temp).map((sectionName) => {
+        Object.keys(temp[sectionName]).map((tabletype) => {
+          let table = temp[sectionName][tabletype];
+
+          let uniq = table.reduce(( a,b ) => {
+            a[ b.val ] = (a[ b.val ] || 0) + b.count;
+            if('undefined' === typeof a[ b.val + "_refs"] ){
+              a[ b.val + "_refs"] = [];
+            }
+            a[ b.val + "_refs"].push({
+              ref: b.ref,
+            });
+            return a;
+          },{});
+          console.log(uniq);
+
+          let res = [];
+          Object.keys(uniq).filter((a) => uniq[a] > 1).map((dup) => {
+            res.push( uniq[dup + "_refs"].map((d) => { return { ref: d.ref, errtype:"samepop" };}) );
+          });
+          res = res.reduce((a,b) => {
+            a = a.concat(b);
+            return a;
+          }, []);
+          console.log(res instanceof Array);
+          console.log(res.length);
+
+          if(res.length > 0) result = result.concat(res);
+        });
+      });
+
+
+      self.popErrors = result;
     },
 
     validate(){
@@ -961,6 +1173,7 @@ export default {
       }
 
       self.validateQuestion12();
+      self.validatePopulation();
 
       return new Promise(function(resolve, reject) {
         Promise.all(promises).then((res) => {
@@ -980,8 +1193,12 @@ export default {
     },
 
     addPopulation(tableSection){
-      let tablecopy = JSON.parse(JSON.stringify(tableSection.tables[0]));
-      tablecopy.name = '';
+      let tablecopy = JSON.parse(JSON.stringify(tableSection.tables[tableSection.tables.length-1]));
+      let newname = tablecopy.name.split("#");
+      let nr = parseInt(newname[1], 10) + 1;
+
+      tablecopy.name = "National Population #" + nr;
+
       tablecopy.table_sections = JSON.parse(JSON.stringify(tableSection.table_sections));
 
       tableSection.tables.push(tablecopy);

@@ -120,7 +120,7 @@
         if(vals.length === 0){
           oldVals.map((ref)=> {
             let el = ref.ref.$el;
-            let name = el.getAttribute('name');
+            let name = el.getAttribute('name') || el.querySelector("[name]").getAttribute('name');
             let scope = el.getAttribute('data-vv-scope');
 
             if('undefined' !== typeof self.$validator){
