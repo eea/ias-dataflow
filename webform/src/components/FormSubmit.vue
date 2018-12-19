@@ -395,23 +395,46 @@ export default {
         delete res.question.type;
         delete res.question.index;
         delete res.question.options;
+        delete res.table_sections;
 
-        res.table_sections = res.table_sections.map( (tsection, ix) => {
+        res.tables = res.tables.map( (table, ix) => {
           //if('undefined' !== typeof tsection.selected) res.table_sections[ix] = { name: tsection.name, selected: tsection.selected };
-          Object.keys(tsection).map( (prop) => {
-            if(prop === "table_fields") {
-              let fields = tsection[prop].fields.reduce((acc, fs) => {
+          table.table_sections.map(( tsection) => {
+            if("undefined" !== typeof tsection.table_fields){
+              tsection.table_fields = tsection.table_fields.fields.reduce((acc, fs) => {
                 acc = acc.concat(fs.fields);
                 return acc;
-              }, []);
-              //TODO: process options for selected
-              tsection[prop] = fields;
-            }
+              }, []).map((field) => {
+                //TODO: process options for selected
+                if(field.selected === ''){
+                  return false;
+                } else {
+                  if (field.selected instanceof Array){
+                    /*console.log(field.selected);
+                    console.log(field.options);*/
+                    /*console.log("found");
+                    console.log(found);*/
+                  } else {
+                    if("undefined" !== typeof field.options){
+                      let found = field.options.filter((op) => { return op.value === field.selected });
+                      if(found.length > 0) field.selected = found;
+                    }
 
+                  }
+                }
+                delete field.options;
+                delete field.required;
+                delete field.type;
+                delete field.validation;
+                return field;
+              }).filter(Boolean);
+            }
+            console.log(tsection);
+            return tsection;
           });
-          return tsection;
+          return table;
         });
-        delete res.table_sections.label;
+        //delete res.table_sections.label;
 
         return res;
       }
@@ -458,8 +481,7 @@ export default {
 
       newDataset.tab_0 = newDataset.tab_0.tables.table_1.fields;
 
-      //TODO: remove
-      //delete newDataset.tab_4;
+
 
       /*
       * TAB 1
@@ -685,6 +707,10 @@ export default {
       * TAB 4
       * */
       newDataset.tab_4 = newDataset.tab_4.section.fields;
+
+      //TODO: remove
+      //delete newDataset.tab_4;
+
 
       //console.log(JSON.stringify(newDataset));
 
