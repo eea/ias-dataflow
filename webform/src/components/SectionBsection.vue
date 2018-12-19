@@ -36,8 +36,8 @@
 
     <b-card class="mt-5 mb-5">
       <b-badge variant="danger" v-if="errors.items.filter((err) => {return err.scope.indexOf('sectionb_' + selkey + '_') !== -1; }).length > 0"
-        v-b-tooltip.hover
         style="cursor: pointer;"
+        v-b-tooltip.hover
         :title="errors.items.filter((err) => { return err.scope.indexOf('sectionb_' + selkey + '_') !== -1;} )
           .map((err)=> {return err.msg}).join('\n')"
       >{{ errors.items.filter((err) => { return err.scope.indexOf('sectionb_' + selkey + '_') !== -1; })[0].msg }}</b-badge>

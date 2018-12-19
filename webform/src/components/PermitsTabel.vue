@@ -34,10 +34,9 @@
                 @change="validate"
               ></b-form-select>
             </div>
-
           </td>
 
-          <td style="min-width: 15%;">
+          <td style="min-width: 15%;" >
             <div class="selects-wrapper">
               <b-badge
                 v-if=" errors.has( 'permits_' + 'permit' + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey )"
@@ -45,7 +44,10 @@
                 {{ errors.first( 'permits_' + 'permit' + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey ) }}
               </b-badge>
 
+
               <b-form-select :options="options" v-model="index[rkey]"
+                v-b-tooltip.hover
+                :title="row.label"
                 @change="changeRow($event, rkey)"
                 v-bind:key="'permits_' + 'permit' + '_' + rkey"
                 v-bind:name="'permits_' + 'permit' + '_' + rkey"
@@ -60,9 +62,7 @@
           <td v-for="(field,fkey) in row.fields" v-if="field.name !== 'year'"
               v-bind:style="{ width: field.type === 'add' ? '20%' : 'auto' }"
               style="padding-left: 15px;padding-right: 15px;max-width: 15%;">
-
             <div class="selects-wrapper" v-for="(sfield, sfkey) in field.fields" v-if="field.type === 'add'" >
-
                 <div>
                   <div v-for="(fiel, fiekey) in sfield.fields"  style="margin-bottom: 5px;padding: 0">
                     <b-badge v-if="errors.has('permits_' + fiel.name + '_' + fiekey, 'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey )"
@@ -82,9 +82,7 @@
 
                 </div>
                 <b-btn v-if="sfkey === 0" variant="primary" @click="addSubfield(field)" style="margin-bottom: 5px; width: 100%">+</b-btn>
-
                 <b-btn v-if="sfkey !== 0" variant="danger" @click="removeSubfield(field,sfkey)" style="margin-bottom: 5px; width: 100%">X</b-btn>
-
             </div>
 
             <div v-if="field.name !== 'year' && field.type !== 'add'">
