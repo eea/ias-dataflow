@@ -366,6 +366,13 @@ export default {
       }
 
       function processTable1(table){
+        table.question.options.map((op) => {
+          if(op.value === table.question.selected) table.question.selected = op.text;
+        });
+        delete table.question.options;
+        delete table.question.type;
+        delete table.question.index;
+
         let sections = table.table_sections.map((tsection) => {
           delete tsection.table_fields.optionsFields;
           if(Object.keys(tsection.field).length === 0) delete tsection.field;
@@ -394,7 +401,13 @@ export default {
         let res = JSON.parse(JSON.stringify( table ));
         delete res.question.type;
         delete res.question.index;
+        res.question.options.map((op) => {
+          if(op.value === res.question.selected) res.question.selected = op.text;
+        });
         delete res.question.options;
+        delete res.question.type;
+        delete res.question.index;
+
         delete res.table_sections;
 
         res.tables = res.tables.map( (table, ix) => {
@@ -407,34 +420,28 @@ export default {
               }, []).map((field) => {
                 //TODO: process options for selected
                 if(field.selected === ''){
-                  return false;
+                  //return false;
                 } else {
                   if (field.selected instanceof Array){
-                    /*console.log(field.selected);
-                    console.log(field.options);*/
-                    /*console.log("found");
-                    console.log(found);*/
                   } else {
                     if("undefined" !== typeof field.options){
                       let found = field.options.filter((op) => { return op.value === field.selected });
                       if(found.length > 0) field.selected = found;
                     }
-
                   }
                 }
                 delete field.options;
                 delete field.required;
                 delete field.type;
                 delete field.validation;
+                delete field.addoption;
                 return field;
               }).filter(Boolean);
             }
-            console.log(tsection);
             return tsection;
           });
           return table;
         });
-        //delete res.table_sections.label;
 
         return res;
       }
@@ -443,45 +450,73 @@ export default {
         let res = JSON.parse(JSON.stringify( table ));
         delete res.question.type;
         delete res.question.index;
-        delete res.question.options;
-
-        res.table_sections = res.table_sections.map( (tsection, ix) => {
-          //if('undefined' !== typeof tsection.selected) res.table_sections[ix] = { name: tsection.name, selected: tsection.selected };
-          Object.keys(tsection).map( (prop) => {
-            if(prop === "table_fields") {
-              //console.log(tsection[prop]);
-              let fields = tsection[prop].fields.reduce((acc, fs) => {
-                acc = acc.concat(fs.fields);
-                return acc;
-              }, []);
-              //TODO: process options for selected
-              tsection[prop] = fields;
-            }
-
-          });
-          return tsection;
+        res.question.options.map((op) => {
+          if(op.value === res.question.selected) res.question.selected = op.text;
         });
-        delete res.table_sections.label;
+        delete res.question.options;
+        delete res.table_sections;
 
+        res.tables = res.tables.map( (table, ix) => {
+          table.table_sections = table.table_sections.map( (tsection, ix) => {
+            if("undefined" !== typeof tsection.table_fields){
+              tsection.table_fields = tsection.table_fields.fields
+                .reduce((acc, fs) => {
+                  acc = acc.concat(fs.fields);
+                  return acc;
+                }, [])
+                .map((field) => {
+                  //TODO: process options for selected
+                  if(field.selected === ''){
+                    //return false;
+                  } else {
+                    if (field.selected instanceof Array){
+                    } else {
+                      if("undefined" !== typeof field.options){
+                        let found = field.options.filter((op) => { return op.value === field.selected });
+                        if(found.length > 0) field.selected = found;
+                      }
+                    }
+                  }
+                  delete field.required;
+                  delete field.options;
+                  delete field.type;
+                  delete field.validation;
+                  delete field.addoption;
+                  return field;
+                }).filter(Boolean);
+              return tsection;
+            }
+          });
+          return table;
+        });
         return res;
       }
 
       let country_tab = newDataset.country.tables;
       if(typeof country_tab === "object"){
         for(let table in country_tab) {
-          if(typeof country_tab[table] === "object"){
-            for (let value of Object.keys( country_tab[table])) {
-              if(value !== 'fields'){
-                delete country_tab[table][value];
+          if( country_tab.hasOwnProperty(table)){
+            if(typeof country_tab[table] === "object"){
+              for (let value of Object.keys( country_tab[table])) {
+                if(value !== 'fields'){
+                  delete country_tab[table][value];
+                } else {
+                  country_tab[table].fields = country_tab[table].fields.map((it) => {
+                    delete it.type;
+                    delete it.disabled;
+                    return it;
+                  });
+                }
               }
             }
           }
         }
       }
-
-      newDataset.tab_0 = newDataset.tab_0.tables.table_1.fields;
-
-
+      newDataset.tab_0 = newDataset.tab_0.tables.table_1.fields.map((it) => {
+        delete it.type;
+        delete it.disabled;
+        return it;
+      });
 
       /*
       * TAB 1
@@ -498,7 +533,6 @@ export default {
           //'mandatory_item'
         ];
         sectionA.forEach((section, k) => {
-
           if(section.mandatory_item.selected === 1){
             todelete.push(k);
             newDataset.tab_1.sections[k] = null;
@@ -506,6 +540,7 @@ export default {
           }
 
           for(let prop of Object.keys(section)){
+            //console.log(prop);
 
             if(todeleteProps.indexOf(prop) !== -1 ){
               delete section[prop];
@@ -542,6 +577,7 @@ export default {
               }
 
               for(let fieldProp of Object.keys(field)){
+
                 //TODO: cleaning not allowed properties
                 //if(allowed.indexOf(fieldProp) === -1 ) delete field[fieldProp];
 
@@ -549,7 +585,10 @@ export default {
 
                 if(fieldProp === 'options') {
                   if(field.selected !== ''){
-
+                    field.options.map((opt) => {
+                      if(opt.value === field.selected) field.selected = opt.text;
+                    });
+                    delete field.options;
                   } else {
                     delete field.options;
                   }
@@ -711,8 +750,7 @@ export default {
       //TODO: remove
       //delete newDataset.tab_4;
 
-
-      //console.log(JSON.stringify(newDataset));
+      console.log(JSON.stringify(newDataset));
 
       //console.log(newDataset);
       /*newDataset.tab_1.sections.map((section) => {

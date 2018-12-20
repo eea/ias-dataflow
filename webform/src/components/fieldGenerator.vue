@@ -278,20 +278,31 @@ export default {
       field.selected = null;
     },
     changeSelect($event){
-      this.$emit('change', $event);
-      this.$validator.validate();
-
+      let self = this;
+      self.$emit('change', $event);
+      self.$validator.validate();
+      self.$nextTick().then((res) => {
+        self.validate();
+      });
     },
     changeInput($event){
-      this.$emit('input', $event);
-      this.$validator.validate();
-
+      let self = this;
+      self.$emit('input', $event);
+      self.$validator.validate();
+      self.$nextTick().then((res) => {
+        self.validate();
+      });
     },
+
     changeDate($event){
-      this.$emit('change', $event);
-      this.$validator.validate();
-
+      let self = this;
+      self.$emit('change', $event);
+      self.$validator.validate();
+      self.$nextTick().then((res) => {
+        self.validate();
+      });
     },
+
     validate(){
       let self = this;
       return new Promise(function(resolve, reject) {
