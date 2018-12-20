@@ -540,8 +540,6 @@ export default {
           }
 
           for(let prop of Object.keys(section)){
-            //console.log(prop);
-
             if(todeleteProps.indexOf(prop) !== -1 ){
               delete section[prop];
               continue;
@@ -752,16 +750,7 @@ export default {
       * */
       newDataset.tab_4 = newDataset.tab_4.section.fields;
 
-      //TODO: remove
-      //delete newDataset.tab_4;
-
       console.log(JSON.stringify(newDataset));
-
-      //console.log(newDataset);
-      /*newDataset.tab_1.sections.map((section) => {
-        console.log(section);
-      });*/
-
     },
 
     validate(){
