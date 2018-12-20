@@ -709,11 +709,14 @@ export default {
             let field = section[prop];
 
             for(let fieldProp of Object.keys(field)){
-              if( todeleteB.indexOf(fieldProp) !== -1 ) delete field[fieldProp];
+              //if( todeleteB.indexOf(fieldProp) !== -1 ) delete field[fieldProp];
 
               if(fieldProp === 'options'  && prop !== "depending_on_mandatory") {
                 if(field.selected !== ''){
-
+                  field.options.map((opt) => {
+                    if(opt.value === field.selected) field.selected = opt.text;
+                  });
+                  delete field.options;
                 } else {
                   delete field.options;
                 }
@@ -723,10 +726,12 @@ export default {
             }
 
             if(prop === "common_name"){
-               section["code_name"] = field.selected.code;
-               section[prop] = Object.keys(field.selected.common_names).map((ctry) => {
-                 return { country: ctry, name: field.selected.common_names[ctry][0] };
-               });
+              section["code_name"] = field.selected.code;
+              if( "undefined" !== typeof field.selected.common_names && field.selected.common_names.length > 0){
+                section[prop] = Object.keys(field.selected.common_names).map((ctry) => {
+                  return { country: ctry, name: field.selected.common_names[ctry][0] };
+                });
+              }
             } else if(prop === "scientific_name"){
               section[prop] = section.scientific_name.selected.value;
             }

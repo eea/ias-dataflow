@@ -300,10 +300,10 @@
 
         for( let ref in self.$refs){
           if(self.$refs.hasOwnProperty(ref)) {
-            promises.push(self.$refs[ref][0].$validator.validate());
+            promises.push( self.$refs[ref][0].$validator.validate() );
 
             if('undefined' !== typeof self.$refs[ref][0].validate){
-              promises.push(self.$refs[ref][0].validate());
+              promises.push( self.$refs[ref][0].validate() );
             }
           }
         }

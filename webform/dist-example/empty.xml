@@ -1,1572 +1,1587 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<IAS xmlns="https://converterstest.eionet.europa.eu/namespaces/4" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://converterstest.eionet.europa.eu/namespaces/4 https://converterstest.eionet.europa.eu/schemas/IAS/2018">
+<IAS xmlns="https://converterstest.eionet.europa.eu/namespaces/4"
+     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://converterstest.eionet.europa.eu/namespaces/4 https://converterstest.eionet.europa.eu/schemas/IAS/2018">
   <country>
-      <tables>
-         <table_1>
-            <fields>
-               <element>
-                  <label>Member State</label>
-                  <name>partyname</name>
-                  <selected></selected>
-                  <type>text</type>
-               </element>
-               <element>
-                  <disabled>true</disabled>
-                  <label>Reporting period from (year)</label>
-                  <name>rep_period_from</name>
-                  <selected>2015-01-01</selected>
-                  <type>text</type>
-               </element>
-               <element>
-                  <disabled>true</disabled>
-                  <label>Reporting period to (year)</label>
-                  <name>rep_period_to</name>
-                  <selected>2018-12-31</selected>
-                  <type>text</type>
-               </element>
-            </fields>
-         </table_1>
-      </tables>
-   </country>
-   <tab_0>
+    <tables>
+      <table_1>
+        <fields>
+          <element>
+            <label>Member State</label>
+            <name>partyname</name>
+            <selected>BE
+            </selected>
+          </element>
+          <element>
+            <label>Reporting period from (year)</label>
+            <name>rep_period_from</name>
+            <selected>2015-01-01</selected>
+          </element>
+          <element>
+            <label>Reporting period to (year)</label>
+            <name>rep_period_to</name>
+            <selected>2018-12-31</selected>
+          </element>
+        </fields>
+      </table_1>
+    </tables>
+  </country>
+  <tab_0>
+    <element>
+      <label>Member State</label>
+      <name>partyname</name>
+      <selected>BE
+      </selected>
+    </element>
+    <element>
+      <label>Reporting period from (year)</label>
+      <name>rep_period_from</name>
+      <selected>2015-01-01</selected>
+    </element>
+    <element>
+      <label>Reporting period to (year)</label>
+      <name>rep_period_to</name>
+      <selected>2018-12-31</selected>
+    </element>
+  </tab_0>
+  <tab_1>
+    <sections>
       <element>
-         <label>Member State</label>
-         <name>partyname</name>
-         <selected>FR</selected>
-         <type>text</type>
-      </element>
-      <element>
-         <disabled>true</disabled>
-         <label>Reporting period from (year)</label>
-         <name>rep_period_from</name>
-         <selected>2015-01-01</selected>
-         <type>text</type>
-      </element>
-      <element>
-         <disabled>true</disabled>
-         <label>Reporting period to (year)</label>
-         <name>rep_period_to</name>
-         <selected>2018-12-31</selected>
-         <type>text</type>
-      </element>
-   </tab_0>
-   <tab_1>
-      <sections>
-         <element>
-            <additional_info>
-               <name>additional_info</name>
-               <selected>test Alopochen aegyptiacus Linnaeus</selected>
-            </additional_info>
-            <common_name>Egyptian goose</common_name>
-            <eradication_measures_info>
-               <label>Information on rapid eradication measure(s) taken for this species (Article 17 of Regulation (EU) No 1143/2014)</label>
-               <name>eradication_measures_info</name>
-               <question>
-                  <label>Has the species been subject to rapid eradication measures during the reporting period?</label>
-                  <name>eradicated</name>
-                  <selected>true</selected>
-               </question>
-               <table_sections>
-                  <element>
-                     <additional_info>
-                        <index>13</index>
-                        <label>Additional information (optional)</label>
-                        <name>additional_info</name>
-                        <selected>Alopochen aegyptiacus4</selected>
-                        <type>textarea</type>
-                     </additional_info>
-                     <label />
-                     <table_fields>
-                        <element>
-                           <label>Starting date</label>
-                           <name>starting_date</name>
-                           <required>required</required>
-                           <selected>2018-11-27</selected>
-                           <type>date</type>
-                        </element>
-                        <element>
-                           <label>End date</label>
-                           <name>duration_or_end</name>
-                           <required>required</required>
-                           <selected>2018-12-27</selected>
-                           <type>date</type>
-                        </element>
-                        <element>
-                           <comments />
-                           <label>Part of the territory</label>
-                           <name>part_territory</name>
-                           <selected>null/file_2</selected>
-                           <type>file</type>
-                        </element>
-                        <element>
-                           <label>Biogeographical region(s)</label>
-                           <name>biogeographical_region</name>
-                           <options>
-                              <element>
-                                 <text>first option</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>second option</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>third option</text>
-                                 <value>2</value>
-                              </element>
-                           </options>
-                           <selected>
-                              <element>
-                                 <text>first option</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>third option</text>
-                                 <value>2</value>
-                              </element>
-                           </selected>
-                           <type>multiselect</type>
-                        </element>
-                        <element>
-                           <label>River basin sub-unit(s)</label>
-                           <name>river_basin_subunits</name>
-                           <options>
-                              <element>
-                                 <text>first option</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>second option</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>third option</text>
-                                 <value>2</value>
-                              </element>
-                           </options>
-                           <selected>0</selected>
-                           <type>select</type>
-                        </element>
-                        <element>
-                           <label>Marine sub-region(s)</label>
-                           <name>marine_sub_regions</name>
-                           <options>
-                              <element>
-                                 <text>first option</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>second option</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>third option</text>
-                                 <value>2</value>
-                              </element>
-                           </options>
-                           <selected>1</selected>
-                           <type>select</type>
-                        </element>
-                        <element>
-                           <label>Method(s) used</label>
-                           <name>methods_used</name>
-                           <options>
-                              <element>
-                                 <text>Mechanical/Physical</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>Chemical</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>Biological</text>
-                                 <value>2</value>
-                              </element>
-                              <element>
-                                 <text>Other</text>
-                                 <value>3</value>
-                              </element>
-                           </options>
-                           <required>required</required>
-                           <selected>
-                              <element>
-                                 <text>Chemical</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>Biological</text>
-                                 <value>2</value>
-                              </element>
-                           </selected>
-                           <type>multiselect</type>
-                        </element>
-                        <element>
-                           <label />
-                           <name>effectiveness_measure</name>
-                           <options>
-                              <element>
-                                 <text>Eradicated</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>Population decreasing</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>Population stable</text>
-                                 <value>2</value>
-                              </element>
-                              <element>
-                                 <text>Population still increasing </text>
-                                 <value>3</value>
-                              </element>
-                              <element>
-                                 <text>Unclear population trend</text>
-                                 <value>4</value>
-                              </element>
-                           </options>
-                           <selected>0</selected>
-                           <type>select</type>
-                        </element>
-                        <element>
-                           <inner_field>
-                              <label>Impact per species</label>
-                              <name>impact_per_species</name>
-                              <selected>eradicated</selected>
-                              <type>text</type>
-                              <validation>false</validation>
-                           </inner_field>
-                           <label>Impacted non-targeted species</label>
-                           <name>impacted_nontargeted_species</name>
-                           <selected>Alopochen aegyptiacus</selected>
-                           <type>text</type>
-                           <validation>false</validation>
-                        </element>
-                        <element>
-                           <inner_field>
-                              <label>Impact per species</label>
-                              <name>impact_per_species</name>
-                              <selected>erad</selected>
-                              <type>text</type>
-                           </inner_field>
-                           <label>Impacted non-targeted species</label>
-                           <name>impacted_nontargeted_species</name>
-                           <selected>Alopochen aegyptiacus2</selected>
-                           <type>text</type>
-                        </element>
-                     </table_fields>
-                  </element>
-               </table_sections>
-            </eradication_measures_info>
-            <management_measures_info>
-               <label>Information on management measure(s) taken for this species (Article 19 of Regulation (EU) No 1143/2014)</label>
-               <name>management_measures_info</name>
-               <question>
-                  <label>Has the species been subject to management measures during the reporting period?</label>
-                  <selected>true</selected>
-               </question>
-               <table_sections>
-                  <element>
-                     <additional_info>
-                        <index>16</index>
-                        <label>Additional information (optional)</label>
-                        <name>additional_info</name>
-                        <selected>Alopochen aegyptiacus5</selected>
-                        <type>textarea</type>
-                     </additional_info>
-                     <index>15</index>
-                     <label />
-                     <table_fields>
-                        <element>
-                           <label>Starting date</label>
-                           <name>starting_date</name>
-                           <required>required</required>
-                           <selected>2018-11-27</selected>
-                           <type>date</type>
-                        </element>
-                        <element>
-                           <label>End date</label>
-                           <name>duration_or_end</name>
-                           <required>required</required>
-                           <selected>2019-01-03</selected>
-                           <type>date</type>
-                        </element>
-                        <element>
-                           <label>Objective of the measure(s) </label>
-                           <name>measures_objective</name>
-                           <options>
-                              <element>
-                                 <text>Eradication</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>Control</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>Containment</text>
-                                 <value>2</value>
-                              </element>
-                           </options>
-                           <selected>0</selected>
-                           <type>select</type>
-                        </element>
-                        <element>
-                           <comments />
-                           <label>Part of the territory</label>
-                           <name>part_territory</name>
-                           <selected>null/file_2</selected>
-                           <type>file</type>
-                        </element>
-                        <element>
-                           <label>Biogeographical region(s)</label>
-                           <name>biogeographical_region</name>
-                           <options>
-                              <element>
-                                 <text>first option</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>second option</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>third option</text>
-                                 <value>2</value>
-                              </element>
-                           </options>
-                           <selected>
-                              <element>
-                                 <text>second option</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>third option</text>
-                                 <value>2</value>
-                              </element>
-                           </selected>
-                           <type>multiselect</type>
-                        </element>
-                        <element>
-                           <label>River basin sub-unit(s)</label>
-                           <name>river_basin_subunits</name>
-                           <options>
-                              <element>
-                                 <text>first option</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>second option</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>third option</text>
-                                 <value>2</value>
-                              </element>
-                           </options>
-                           <selected>0</selected>
-                           <type>select</type>
-                        </element>
-                        <element>
-                           <label>Marine sub-region(s)</label>
-                           <name>river_basin_subunits</name>
-                           <options>
-                              <element>
-                                 <text>first option</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>second option</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>third option</text>
-                                 <value>2</value>
-                              </element>
-                           </options>
-                           <selected>1</selected>
-                           <type>select</type>
-                        </element>
-                        <element>
-                           <label>Method(s) used</label>
-                           <name>methods_used</name>
-                           <options>
-                              <element>
-                                 <text>Mechanical/Physical</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>Chemical</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>Biological</text>
-                                 <value>2</value>
-                              </element>
-                              <element>
-                                 <text>Other</text>
-                                 <value>3</value>
-                              </element>
-                           </options>
-                           <required>required</required>
-                           <selected>
-                              <element>
-                                 <text>Chemical</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>Biological</text>
-                                 <value>2</value>
-                              </element>
-                           </selected>
-                           <type>multiselect</type>
-                        </element>
-                        <element>
-                           <label />
-                           <name>effectiveness_measure</name>
-                           <options>
-                              <element>
-                                 <text>Eradicated</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>Population decreasing</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>Population stable</text>
-                                 <value>2</value>
-                              </element>
-                              <element>
-                                 <text>Population still increasing </text>
-                                 <value>3</value>
-                              </element>
-                              <element>
-                                 <text>Unclear population trend</text>
-                                 <value>4</value>
-                              </element>
-                           </options>
-                           <selected>2</selected>
-                           <type>select</type>
-                        </element>
-                        <element>
-                           <inner_field>
-                              <label>Impact per species</label>
-                              <name>impact_per_species</name>
-                              <selected>depopulated</selected>
-                              <type>text</type>
-                              <validation>false</validation>
-                           </inner_field>
-                           <label>Impacted non-targeted species</label>
-                           <name>impacted_nontargeted_species</name>
-                           <selected>Alopochen aegyptiacus</selected>
-                           <type>text</type>
-                           <validation>false</validation>
-                        </element>
-                     </table_fields>
-                  </element>
-               </table_sections>
-            </management_measures_info>
-            <mandatory_item>yes</mandatory_item>
-            <permits_info>
-               <label>Information on the permits issued for this species to be completed only for invasive alien species of Union concern</label>
-               <name>permits_info</name>
-               <question>
-                  <index>6</index>
-                  <label>Have permits been issued for this species during the reporting period? </label>
-                  <options>
-                     <element>
-                        <text>Yes</text>
-                        <value>true</value>
-                     </element>
-                     <element>
-                        <text>No</text>
-                        <value>false</value>
-                     </element>
-                  </options>
-                  <selected>true</selected>
-                  <type>select</type>
-               </question>
-               <table_sections>
-                  <element>
-                     <element>
-                        <fields>
-                           <element>
-                              <measurement>kg</measurement>
-                              <permits_number>4</permits_number>
-                           </element>
-                           <element>
-                              <valid_measurement>kg</valid_measurement>
-                              <valid_permits_number>5</valid_permits_number>
-                           </element>
-                           <element>
-                              <total_permited_speciments>3</total_permited_speciments>
-                              <total_permited_speciments_measurement>kg</total_permited_speciments_measurement>
-                           </element>
-                           <element>
-                              <valid_total_permited_speciments>
-                                 <element>
-                                    <valid_total_permited_speciments>2</valid_total_permited_speciments>
-                                    <valid_total_permited_speciments_measurement>kg</valid_total_permited_speciments_measurement>
-                                 </element>
-                                 <element>
-                                    <valid_total_permited_speciments>2</valid_total_permited_speciments>
-                                    <valid_total_permited_speciments_measurement>kg</valid_total_permited_speciments_measurement>
-                                 </element>
-                              </valid_total_permited_speciments>
-                           </element>
-                        </fields>
-                        <label>Permits for research</label>
-                     </element>
-                  </element>
-                  <element>
-                     <element>
-                        <fields>
-                           <element>
-                              <inspections_measurement>pcs</inspections_measurement>
-                              <number_establishments_inspections>2</number_establishments_inspections>
-                           </element>
-                           <element>
-                              <number_permitted_specimens>3</number_permitted_specimens>
-                              <number_permitted_specimens_measurement>pcs</number_permitted_specimens_measurement>
-                           </element>
-                           <element>
-                              <establishments_non_compliant>2</establishments_non_compliant>
-                              <establishments_non_compliant_measurement>kg</establishments_non_compliant_measurement>
-                           </element>
-                           <element>
-                              <measurement_noncompliant>kg</measurement_noncompliant>
-                              <number_speciments_held_by_non_compliant_establishments>3</number_speciments_held_by_non_compliant_establishments>
-                           </element>
-                        </fields>
-                        <label>Permits for research</label>
-                     </element>
-                  </element>
-               </table_sections>
-            </permits_info>
-            <reproduction_patterns>
-               <element>
-                  <pattern>Sexual</pattern>
-                  <patternType>reproduction</patternType>
-                  <region>RO</region>
-               </element>
-            </reproduction_patterns>
-            <scientific_name>Alopochen aegyptiacus Linnaeus, 1766</scientific_name>
-            <species_code>R00644</species_code>
-            <spread_pattterns>
-               <element>
-                  <pattern>d) The species predominantly entered with intentional human assistance</pattern>
-                  <patternType>spread</patternType>
-                  <region>RO</region>
-               </element>
-               <element>
-                  <pattern>g) The species predominantly spread with unintentional human assistance</pattern>
-                  <patternType>spread</patternType>
-                  <region>RO</region>
-               </element>
-            </spread_pattterns>
-         </element>
-         <element>
-            <additional_info>
-               <name>additional_info</name>
-               <selected>Alternanthera philoxeroides1</selected>
-            </additional_info>
-            <common_name>Alligator weed</common_name>
-            <eradication_measures_info>
-               <label>Information on rapid eradication measure(s) taken for this species (Article 17 of Regulation (EU) No 1143/2014)</label>
-               <name>eradication_measures_info</name>
-               <question>
-                  <label>Has the species been subject to rapid eradication measures during the reporting period?</label>
-                  <name>eradicated</name>
-                  <selected>true</selected>
-               </question>
-               <table_sections>
-                  <element>
-                     <additional_info>
-                        <index>13</index>
-                        <label>Additional information (optional)</label>
-                        <name>additional_info</name>
-                        <selected>Alternanthera philoxeroides4</selected>
-                        <type>textarea</type>
-                     </additional_info>
-                     <label />
-                     <table_fields>
-                        <element>
-                           <label>Starting date</label>
-                           <name>starting_date</name>
-                           <required>required</required>
-                           <selected>2018-11-27</selected>
-                           <type>date</type>
-                        </element>
-                        <element>
-                           <label>End date</label>
-                           <name>duration_or_end</name>
-                           <required>required</required>
-                           <selected>2019-01-04</selected>
-                           <type>date</type>
-                        </element>
-                        <element>
-                           <comments />
-                           <label>Part of the territory</label>
-                           <name>part_territory</name>
-                           <selected>null/file_2</selected>
-                           <type>file</type>
-                        </element>
-                        <element>
-                           <label>Biogeographical region(s)</label>
-                           <name>biogeographical_region</name>
-                           <options>
-                              <element>
-                                 <text>first option</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>second option</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>third option</text>
-                                 <value>2</value>
-                              </element>
-                           </options>
-                           <selected>
-                              <element>
-                                 <text>third option</text>
-                                 <value>2</value>
-                              </element>
-                           </selected>
-                           <type>multiselect</type>
-                        </element>
-                        <element>
-                           <label>River basin sub-unit(s)</label>
-                           <name>river_basin_subunits</name>
-                           <options>
-                              <element>
-                                 <text>first option</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>second option</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>third option</text>
-                                 <value>2</value>
-                              </element>
-                           </options>
-                           <selected>1</selected>
-                           <type>select</type>
-                        </element>
-                        <element>
-                           <label>Marine sub-region(s)</label>
-                           <name>marine_sub_regions</name>
-                           <options>
-                              <element>
-                                 <text>first option</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>second option</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>third option</text>
-                                 <value>2</value>
-                              </element>
-                           </options>
-                           <selected>0</selected>
-                           <type>select</type>
-                        </element>
-                        <element>
-                           <label>Method(s) used</label>
-                           <name>methods_used</name>
-                           <options>
-                              <element>
-                                 <text>Mechanical/Physical</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>Chemical</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>Biological</text>
-                                 <value>2</value>
-                              </element>
-                              <element>
-                                 <text>Other</text>
-                                 <value>3</value>
-                              </element>
-                           </options>
-                           <required>required</required>
-                           <selected>
-                              <element>
-                                 <text>Chemical</text>
-                                 <value>1</value>
-                              </element>
-                           </selected>
-                           <type>multiselect</type>
-                        </element>
-                        <element>
-                           <label />
-                           <name>effectiveness_measure</name>
-                           <options>
-                              <element>
-                                 <text>Eradicated</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>Population decreasing</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>Population stable</text>
-                                 <value>2</value>
-                              </element>
-                              <element>
-                                 <text>Population still increasing </text>
-                                 <value>3</value>
-                              </element>
-                              <element>
-                                 <text>Unclear population trend</text>
-                                 <value>4</value>
-                              </element>
-                           </options>
-                           <selected>1</selected>
-                           <type>select</type>
-                        </element>
-                        <element>
-                           <inner_field>
-                              <label>Impact per species</label>
-                              <name>impact_per_species</name>
-                              <selected>eradicated</selected>
-                              <type>text</type>
-                              <validation>false</validation>
-                           </inner_field>
-                           <label>Impacted non-targeted species</label>
-                           <name>impacted_nontargeted_species</name>
-                           <selected>Alternanthera philoxeroides</selected>
-                           <type>text</type>
-                           <validation>false</validation>
-                        </element>
-                     </table_fields>
-                  </element>
-               </table_sections>
-            </eradication_measures_info>
-            <management_measures_info>
-               <label>Information on management measure(s) taken for this species (Article 19 of Regulation (EU) No 1143/2014)</label>
-               <name>management_measures_info</name>
-               <question>
-                  <label>Has the species been subject to management measures during the reporting period?</label>
-                  <selected>true</selected>
-               </question>
-               <table_sections>
-                  <element>
-                     <additional_info>
-                        <index>16</index>
-                        <label>Additional information (optional)</label>
-                        <name>additional_info</name>
-                        <selected>Alternanthera philoxeroides</selected>
-                        <type>textarea</type>
-                     </additional_info>
-                     <index>15</index>
-                     <label />
-                     <table_fields>
-                        <element>
-                           <label>Starting date</label>
-                           <name>starting_date</name>
-                           <required>required</required>
-                           <selected>2018-11-27</selected>
-                           <type>date</type>
-                        </element>
-                        <element>
-                           <label>End date</label>
-                           <name>duration_or_end</name>
-                           <required>required</required>
-                           <selected>2018-12-29</selected>
-                           <type>date</type>
-                        </element>
-                        <element>
-                           <label>Objective of the measure(s) </label>
-                           <name>measures_objective</name>
-                           <options>
-                              <element>
-                                 <text>Eradication</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>Control</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>Containment</text>
-                                 <value>2</value>
-                              </element>
-                           </options>
-                           <selected>0</selected>
-                           <type>select</type>
-                        </element>
-                        <element>
-                           <comments />
-                           <label>Part of the territory</label>
-                           <name>part_territory</name>
-                           <selected>null/file_2</selected>
-                           <type>file</type>
-                        </element>
-                        <element>
-                           <label>Biogeographical region(s)</label>
-                           <name>biogeographical_region</name>
-                           <options>
-                              <element>
-                                 <text>first option</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>second option</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>third option</text>
-                                 <value>2</value>
-                              </element>
-                           </options>
-                           <selected>
-                              <element>
-                                 <text>second option</text>
-                                 <value>1</value>
-                              </element>
-                           </selected>
-                           <type>multiselect</type>
-                        </element>
-                        <element>
-                           <label>River basin sub-unit(s)</label>
-                           <name>river_basin_subunits</name>
-                           <options>
-                              <element>
-                                 <text>first option</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>second option</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>third option</text>
-                                 <value>2</value>
-                              </element>
-                           </options>
-                           <selected>0</selected>
-                           <type>select</type>
-                        </element>
-                        <element>
-                           <label>Marine sub-region(s)</label>
-                           <name>river_basin_subunits</name>
-                           <options>
-                              <element>
-                                 <text>first option</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>second option</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>third option</text>
-                                 <value>2</value>
-                              </element>
-                           </options>
-                           <selected>2</selected>
-                           <type>select</type>
-                        </element>
-                        <element>
-                           <label>Method(s) used</label>
-                           <name>methods_used</name>
-                           <options>
-                              <element>
-                                 <text>Mechanical/Physical</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>Chemical</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>Biological</text>
-                                 <value>2</value>
-                              </element>
-                              <element>
-                                 <text>Other</text>
-                                 <value>3</value>
-                              </element>
-                           </options>
-                           <required>required</required>
-                           <selected>
-                              <element>
-                                 <text>Biological</text>
-                                 <value>2</value>
-                              </element>
-                           </selected>
-                           <type>multiselect</type>
-                        </element>
-                        <element>
-                           <label />
-                           <name>effectiveness_measure</name>
-                           <options>
-                              <element>
-                                 <text>Eradicated</text>
-                                 <value>0</value>
-                              </element>
-                              <element>
-                                 <text>Population decreasing</text>
-                                 <value>1</value>
-                              </element>
-                              <element>
-                                 <text>Population stable</text>
-                                 <value>2</value>
-                              </element>
-                              <element>
-                                 <text>Population still increasing </text>
-                                 <value>3</value>
-                              </element>
-                              <element>
-                                 <text>Unclear population trend</text>
-                                 <value>4</value>
-                              </element>
-                           </options>
-                           <selected>3</selected>
-                           <type>select</type>
-                        </element>
-                        <element>
-                           <inner_field>
-                              <label>Impact per species</label>
-                              <name>impact_per_species</name>
-                              <selected>eradicated</selected>
-                              <type>text</type>
-                              <validation>false</validation>
-                           </inner_field>
-                           <label>Impacted non-targeted species</label>
-                           <name>impacted_nontargeted_species</name>
-                           <selected>Alternanthera philoxeroides</selected>
-                           <type>text</type>
-                           <validation>false</validation>
-                        </element>
-                     </table_fields>
-                  </element>
-               </table_sections>
-            </management_measures_info>
-            <mandatory_item>yes</mandatory_item>
-            <permits_info>
-               <label>Information on the permits issued for this species to be completed only for invasive alien species of Union concern</label>
-               <name>permits_info</name>
-               <question>
-                  <index>6</index>
-                  <label>Have permits been issued for this species during the reporting period? </label>
-                  <options>
-                     <element>
-                        <text>Yes</text>
-                        <value>true</value>
-                     </element>
-                     <element>
-                        <text>No</text>
-                        <value>false</value>
-                     </element>
-                  </options>
-                  <selected>true</selected>
-                  <type>select</type>
-               </question>
-               <table_sections>
-                  <element>
-                     <element>
-                        <fields>
-                           <element>
-                              <measurement>pcs</measurement>
-                              <permits_number>3</permits_number>
-                           </element>
-                           <element>
-                              <valid_measurement>pcs</valid_measurement>
-                              <valid_permits_number>4</valid_permits_number>
-                           </element>
-                           <element>
-                              <total_permited_speciments>3</total_permited_speciments>
-                              <total_permited_speciments_measurement>pcs</total_permited_speciments_measurement>
-                           </element>
-                           <element>
-                              <valid_total_permited_speciments>4</valid_total_permited_speciments>
-                              <valid_total_permited_speciments_measurement>kg</valid_total_permited_speciments_measurement>
-                           </element>
-                        </fields>
-                        <label>Permits for research</label>
-                     </element>
-                  </element>
-                  <element>
-                     <element>
-                        <fields>
-                           <element>
-                              <inspections_measurement>kg</inspections_measurement>
-                              <number_establishments_inspections>3</number_establishments_inspections>
-                           </element>
-                           <element>
-                              <number_permitted_specimens>1</number_permitted_specimens>
-                              <number_permitted_specimens_measurement>kg</number_permitted_specimens_measurement>
-                           </element>
-                           <element>
-                              <establishments_non_compliant>3</establishments_non_compliant>
-                              <establishments_non_compliant_measurement>kg</establishments_non_compliant_measurement>
-                           </element>
-                           <element>
-                              <measurement_noncompliant>kg</measurement_noncompliant>
-                              <number_speciments_held_by_non_compliant_establishments>4</number_speciments_held_by_non_compliant_establishments>
-                           </element>
-                        </fields>
-                        <label>Permits for scientific production and subsequent medicinal use to advance human health</label>
-                     </element>
-                  </element>
-               </table_sections>
-            </permits_info>
-            <reproduction_patterns>
-               <element>
-                  <pattern>Both (sexual and asexual)</pattern>
-                  <patternType>reproduction</patternType>
-                  <region>FR</region>
-               </element>
-            </reproduction_patterns>
-            <scientific_name>Alternanthera philoxeroides (Mart.) Griseb.</scientific_name>
-            <species_code>R00669</species_code>
-            <spread_pattterns>
-               <element>
-                  <pattern>b) The species predominantly entered through natural dispersal from a neighbouring country</pattern>
-                  <patternType>spread</patternType>
-                  <region>FR</region>
-               </element>
-               <element>
-                  <pattern>h) The species predominantly spread with intentional human assistance</pattern>
-                  <patternType>spread</patternType>
-                  <region>RO</region>
-               </element>
-            </spread_pattterns>
-         </element>
-      </sections>
-   </tab_1>
-   <tab_2>
-      <sections>
-         <element>
-            <additional_info>
-               <name>additional_info</name>
-               <selected>Abelia x grandiflora</selected>
-            </additional_info>
-            <code_name>R00003</code_name>
-            <common_name>
-               <element>
-                  <country>none</country>
-                  <name> dafafd</name>
-               </element>
-               <element>
-                  <country>RO</country>
-                  <name>adaafaff</name>
-               </element>
-            </common_name>
-            <depending_on_mandatory>
-               <fields>
-                  <element>
-                     <label>Tick if yes</label>
-                     <name>distribution_maps_check</name>
-                     <selected>false</selected>
-                     <type>checkbox</type>
-                  </element>
-               </fields>
-               <name>distribution_of_species</name>
-            </depending_on_mandatory>
-            <mandatory_item>
-               <name>mandatory_question</name>
-               <options>
-                  <element>
-                     <text>Yes</text>
-                     <value>true</value>
-                  </element>
-                  <element>
-                     <text>No</text>
-                     <value>false</value>
-                  </element>
-                  <element>
-                     <text>Currently unknown</text>
-                     <value>unknown</value>
-                  </element>
-               </options>
-               <selected>true</selected>
-            </mandatory_item>
-            <reproduction_patterns>
-               <element>
-                  <pattern>Both (sexual and asexual)</pattern>
-                  <patternType>reproduction</patternType>
-                  <region>RO</region>
-               </element>
-            </reproduction_patterns>
-            <scientific_name>Abelia x grandiflora</scientific_name>
-            <section>
-               <fields>
-                  <element>
-                     <label>Restriction to intentionally release into the environment</label>
-                     <name>restriction_internationally_release</name>
-                     <value>true</value>
-                  </element>
-                  <element>
-                     <label>Subject to rapid eradication following an early detection  </label>
-                     <name>rapid_eradiction</name>
-                     <value>true</value>
-                  </element>
-               </fields>
-            </section>
-            <spread_patterns>
-               <element>
-                  <pattern>b) The species predominantly entered through natural dispersal from a neighbouring country</pattern>
-                  <patternType>spread</patternType>
-                  <region>RO</region>
-               </element>
-               <element>
-                  <pattern>h) The species predominantly spread with intentional human assistance</pattern>
-                  <patternType>spread</patternType>
-                  <region>RO</region>
-               </element>
-            </spread_patterns>
-         </element>
-         <element>
-            <additional_info>
-               <name>additional_info</name>
-               <selected>Abgrallaspis cyanophylli2</selected>
-            </additional_info>
-            <code_name>R00004</code_name>
-            <common_name>
-               <element>
-                  <country>none</country>
-                  <name />
-               </element>
-               <element>
-                  <country>FR</country>
-                  <name>agafaaag</name>
-               </element>
-            </common_name>
-            <depending_on_mandatory>
-               <fields>
-                  <element>
-                     <label>Tick if yes</label>
-                     <name>distribution_maps_check</name>
-                     <selected>false</selected>
-                     <type>checkbox</type>
-                  </element>
-               </fields>
-               <name>distribution_of_species</name>
-            </depending_on_mandatory>
-            <mandatory_item>
-               <name>mandatory_question</name>
-               <options>
-                  <element>
-                     <text>Yes</text>
-                     <value>true</value>
-                  </element>
-                  <element>
-                     <text>No</text>
-                     <value>false</value>
-                  </element>
-                  <element>
-                     <text>Currently unknown</text>
-                     <value>unknown</value>
-                  </element>
-               </options>
-               <selected>true</selected>
-            </mandatory_item>
-            <reproduction_patterns>
-               <element>
-                  <pattern>Unclear (sexual or asexual) </pattern>
-                  <patternType>reproduction</patternType>
-                  <region>RO</region>
-               </element>
-            </reproduction_patterns>
-            <scientific_name>Abgrallaspis cyanophylli</scientific_name>
-            <section>
-               <fields>
-                  <element>
-                     <label>Restriction to intentionally place on the market</label>
-                     <name>restriction_internationally_market</name>
-                     <value>true</value>
-                  </element>
-                  <element>
-                     <label>Subject to early detection system</label>
-                     <name>early_detection</name>
-                     <value>true</value>
-                  </element>
-                  <element>
-                     <label>Subject to rapid eradication following an early detection  </label>
-                     <name>rapid_eradiction</name>
-                     <value>true</value>
-                  </element>
-               </fields>
-            </section>
-            <spread_patterns>
-               <element>
-                  <pattern>c) The species predominantly entered with unintentional human assistance</pattern>
-                  <patternType>spread</patternType>
-                  <region>RO</region>
-               </element>
-               <element>
-                  <pattern>i) There is no evidence of spread within the Member State</pattern>
-                  <patternType>spread</patternType>
-                  <region>FR</region>
-               </element>
-            </spread_patterns>
-         </element>
-      </sections>
-   </tab_2>
-   <tab_3>
-      <element>
-         <label>Web link to information on the internet regarding the permits issued as required under Article 8(7) of Regulation (EU) No 1143/2014</label>
-         <name>web_link</name>
-         <selected>http://www.google.ro</selected>
-         <type>textarea</type>
-      </element>
-      <element>
-         <label>File regarding the permits issued as required under Article 8(7) of Regulation (EU) No 1143/2014</label>
-         <name>web_link_file</name>
-         <selected>
-            <element>null/file_2</element>
-         </selected>
-         <type>file</type>
-      </element>
-      <element>
-         <label>Action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014  </label>
-         <name>action_plans_art13</name>
-         <selected>http://www.google.ro2</selected>
-         <type>textarea</type>
-      </element>
-      <element>
-         <label>File regarding the action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014  </label>
-         <name>action_plans_art13_file</name>
-         <selected>
-            <element>null/file_2</element>
-         </selected>
-         <type>file</type>
-      </element>
-      <element>
-         <fields>
+        <additional_info>
+          <name>additional_info</name>
+          <selected>aaafafafaf</selected>
+        </additional_info>
+        <common_name>Egyptian goose</common_name>
+        <eradication_measures_info>
+          <label>Information on rapid eradication measure(s) taken for this species (Article 17 of Regulation (EU) No 1143/2014)</label>
+          <name>eradication_measures_info</name>
+          <question>
+            <label>Has the species been subject to rapid eradication measures during the reporting period?</label>
+            <name>eradicated</name>
+            <selected>Yes</selected>
+          </question>
+          <tables>
             <element>
-               <inner_field>
-                  <label>Species covered  </label>
-                  <name>species_covered</name>
-                  <selected>Alternanthera philoxeroides</selected>
-                  <type>select</type>
-               </inner_field>
-               <label>Priority pathways addressed </label>
-               <name>priority_pathways_addressed</name>
-               <selected>R00669</selected>
-               <type>text</type>
+              <name>National Population #1</name>
+              <table_sections>
+                <element>
+                  <additional_info>
+                    <index>13</index>
+                    <label>Additional information (optional)</label>
+                    <name>additional_info</name>
+                    <selected>afafgaagfagshash</selected>
+                    <type>textarea</type>
+                  </additional_info>
+                  <label />
+                  <table_fields>
+                    <element>
+                      <label>Starting date</label>
+                      <name>starting_date</name>
+                      <selected>2018-11-27</selected>
+                    </element>
+                    <element>
+                      <label>End date</label>
+                      <name>duration_or_end</name>
+                      <selected>2019-01-04</selected>
+                    </element>
+                    <element>
+                      <comments />
+                      <label>Part of the territory</label>
+                      <name>part_territory</name>
+                      <selected>
+                        <text>RÉGION DE BRUXELLES-CAPITALE / BRUSSELS HOOFDSTEDELIJK GEWEST</text>
+                        <value>BE1</value>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Biogeographical region(s)</label>
+                      <name>biogeographical_region</name>
+                      <selected>
+                        <element>
+                          <text>second option</text>
+                          <value>1</value>
+                        </element>
+                        <element>
+                          <text>third option</text>
+                          <value>2</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>River basin sub-unit(s)</label>
+                      <name>river_basin_subunits</name>
+                      <selected>
+                        <element>
+                          <text>second option</text>
+                          <value>1</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Marine sub-region(s)</label>
+                      <name>marine_sub_regions</name>
+                      <selected>
+                        <element>
+                          <text>North East Atlantic</text>
+                          <value>ATL</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Method(s) used</label>
+                      <name>methods_used</name>
+                      <selected>
+                        <element>
+                          <text>Chemical</text>
+                          <value>1</value>
+                        </element>
+                        <element>
+                          <text>Biological</text>
+                          <value>2</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label />
+                      <name>effectiveness_measure</name>
+                      <selected>
+                        <element>
+                          <text>Population decreasing</text>
+                          <value>1</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <inner_field>
+                        <label>Impact per species</label>
+                        <name>impact_per_species</name>
+                        <selected>decreasing</selected>
+                        <type>text</type>
+                        <validation>false</validation>
+                      </inner_field>
+                      <label>Impacted non-targeted species</label>
+                      <name>impacted_nontargeted_species</name>
+                      <selected>Asclepias syriaca L. </selected>
+                    </element>
+                  </table_fields>
+                </element>
+              </table_sections>
             </element>
             <element>
-               <inner_field>
-                  <label>Species covered  </label>
-                  <name>species_covered</name>
-                  <options>
-                     <element>
-                        <code>R00644</code>
-                        <text>Alopochen aegyptiaca</text>
-                        <value>Alopochen aegyptiaca</value>
-                     </element>
-                     <element>
-                        <code>R01529</code>
-                        <text>Asclepias syriaca</text>
-                        <value>Asclepias syriaca</value>
-                     </element>
-                     <element>
-                        <code>R01830</code>
-                        <text>Baccharis halimifolia</text>
-                        <value>Baccharis halimifolia</value>
-                     </element>
-                     <element>
-                        <code>R02476</code>
-                        <text>Cabomba caroliniana</text>
-                        <value>Cabomba caroliniana</value>
-                     </element>
-                     <element>
-                        <code>R02573</code>
-                        <text>Callosciurus erythraeus</text>
-                        <value>Callosciurus erythraeus</value>
-                     </element>
-                     <element>
-                        <code>R03000</code>
-                        <text>Pennisetum setaceum</text>
-                        <value>Pennisetum setaceum</value>
-                     </element>
-                     <element>
-                        <code>R04121</code>
-                        <text>Corvus splendens</text>
-                        <value>Corvus splendens</value>
-                     </element>
-                     <element>
-                        <code>R05440</code>
-                        <text>Eichhornia crassipes</text>
-                        <value>Eichhornia crassipes</value>
-                     </element>
-                     <element>
-                        <code>R05501</code>
-                        <text>Elodea nuttallii</text>
-                        <value>Elodea nuttallii</value>
-                     </element>
-                     <element>
-                        <code>R05836</code>
-                        <text>Eriocheir sinensis</text>
-                        <value>Eriocheir sinensis</value>
-                     </element>
-                     <element>
-                        <code>R06923</code>
-                        <text>Gunnera tinctoria</text>
-                        <value>Gunnera tinctoria</value>
-                     </element>
-                     <element>
-                        <code>R07248</code>
-                        <text>Heracleum mantegazzianum</text>
-                        <value>Heracleum mantegazzianum</value>
-                     </element>
-                     <element>
-                        <code>R07250</code>
-                        <text>Heracleum persicum</text>
-                        <value>Heracleum persicum</value>
-                     </element>
-                     <element>
-                        <code>R07252</code>
-                        <text>Heracleum sosnowskyi</text>
-                        <value>Heracleum sosnowskyi</value>
-                     </element>
-                     <element>
-                        <code>R07276</code>
-                        <text>Herpestes javanicus</text>
-                        <value>Herpestes javanicus</value>
-                     </element>
-                     <element>
-                        <code>R07537</code>
-                        <text>Hydrocotyle ranunculoides</text>
-                        <value>Hydrocotyle ranunculoides</value>
-                     </element>
-                     <element>
-                        <code>R07719</code>
-                        <text>Impatiens glandulifera</text>
-                        <value>Impatiens glandulifera</value>
-                     </element>
-                     <element>
-                        <code>R08062</code>
-                        <text>Lagarosiphon major</text>
-                        <value>Lagarosiphon major</value>
-                     </element>
-                     <element>
-                        <code>R08679</code>
-                        <text>Lithobates catesbeianus</text>
-                        <value>Lithobates catesbeianus</value>
-                     </element>
-                     <element>
-                        <code>R08830</code>
-                        <text>Ludwigia peploides</text>
-                        <value>Ludwigia peploides</value>
-                     </element>
-                     <element>
-                        <code>R08915</code>
-                        <text>Lysichiton americanus</text>
-                        <value>Lysichiton americanus</value>
-                     </element>
-                     <element>
-                        <code>R09459</code>
-                        <text>Microstegium vimineum</text>
-                        <value>Microstegium vimineum</value>
-                     </element>
-                     <element>
-                        <code>R09640</code>
-                        <text>Muntiacus reevesi</text>
-                        <value>Muntiacus reevesi</value>
-                     </element>
-                     <element>
-                        <code>R09720</code>
-                        <text>Myocastor coypus</text>
-                        <value>Myocastor coypus</value>
-                     </element>
-                     <element>
-                        <code>R09747</code>
-                        <text>Myriophyllum heterophyllum</text>
-                        <value>Myriophyllum heterophyllum</value>
-                     </element>
-                     <element>
-                        <code>R09857</code>
-                        <text>Nasua nasua</text>
-                        <value>Nasua nasua</value>
-                     </element>
-                     <element>
-                        <code>R10085</code>
-                        <text>Nyctereutes procyonoides</text>
-                        <value>Nyctereutes procyonoides</value>
-                     </element>
-                     <element>
-                        <code>R10336</code>
-                        <text>Ondatra zibethicus</text>
-                        <value>Ondatra zibethicus</value>
-                     </element>
-                     <element>
-                        <code>R10443</code>
-                        <text>Orconectes limosus</text>
-                        <value>Orconectes limosus</value>
-                     </element>
-                     <element>
-                        <code>R10445</code>
-                        <text>Orconectes virilis</text>
-                        <value>Orconectes virilis</value>
-                     </element>
-                     <element>
-                        <code>R10652</code>
-                        <text>Oxyura jamaicensis</text>
-                        <value>Oxyura jamaicensis</value>
-                     </element>
-                     <element>
-                        <code>R10676</code>
-                        <text>Pacifastacus leniusculus</text>
-                        <value>Pacifastacus leniusculus</value>
-                     </element>
-                     <element>
-                        <code>R10890</code>
-                        <text>Parthenium hysterophorus</text>
-                        <value>Parthenium hysterophorus</value>
-                     </element>
-                     <element>
-                        <code>R11034</code>
-                        <text>Perccottus glenii</text>
-                        <value>Perccottus glenii</value>
-                     </element>
-                     <element>
-                        <code>R12250</code>
-                        <text>Procambarus clarkii</text>
-                        <value>Procambarus clarkii</value>
-                     </element>
-                     <element>
-                        <code>R12260</code>
-                        <text>Procyon lotor</text>
-                        <value>Procyon lotor</value>
-                     </element>
-                     <element>
-                        <code>R12451</code>
-                        <text>Pseudorasbora parva</text>
-                        <value>Pseudorasbora parva</value>
-                     </element>
-                     <element>
-                        <code>R12644</code>
-                        <text>Pueraria montana var. lobata</text>
-                        <value>Pueraria montana var. lobata</value>
-                     </element>
-                     <element>
-                        <code>R13698</code>
-                        <text>Sciurus carolinensis</text>
-                        <value>Sciurus carolinensis</value>
-                     </element>
-                     <element>
-                        <code>R14882</code>
-                        <text>Tamias sibiricus</text>
-                        <value>Tamias sibiricus</value>
-                     </element>
-                     <element>
-                        <code>R15136</code>
-                        <text>Threskiornis aethiopicus</text>
-                        <value>Threskiornis aethiopicus</value>
-                     </element>
-                     <element>
-                        <code>R15970</code>
-                        <text>Vespa velutina nigrithorax</text>
-                        <value>Vespa velutina nigrithorax</value>
-                     </element>
-                     <element>
-                        <code>R17660</code>
-                        <text>Procambarus fallax f. virginalis</text>
-                        <value>Procambarus fallax f. virginalis</value>
-                     </element>
-                     <element>
-                        <code>R17663</code>
-                        <text>Ludwigia grandiflora</text>
-                        <value>Ludwigia grandiflora</value>
-                     </element>
-                     <element>
-                        <code>R18154</code>
-                        <text>Trachemys scripta</text>
-                        <value>Trachemys scripta</value>
-                     </element>
-                     <element>
-                        <code>R18934</code>
-                        <text>Myriophyllum aquaticum</text>
-                        <value>Myriophyllum aquaticum</value>
-                     </element>
-                     <element>
-                        <code>R19287</code>
-                        <text>Persicaria perfoliata</text>
-                        <value>Persicaria perfoliata</value>
-                     </element>
-                     <element>
-                        <code>R19317</code>
-                        <text>Sciurus niger</text>
-                        <value>Sciurus niger</value>
-                     </element>
-                  </options>
-                  <selected>Baccharis halimifolia</selected>
-                  <type>text</type>
-               </inner_field>
-               <label>Priority pathways addressed </label>
-               <name>priority_pathways_addressed</name>
-               <selected>R01830</selected>
-               <type>text</type>
+              <name>National Population #2</name>
+              <table_sections>
+                <element>
+                  <additional_info>
+                    <index>13</index>
+                    <label>Additional information (optional)</label>
+                    <name>additional_info</name>
+                    <selected>agfagsgaggag</selected>
+                    <type>textarea</type>
+                  </additional_info>
+                  <label />
+                  <table_fields>
+                    <element>
+                      <label>Starting date</label>
+                      <name>starting_date</name>
+                      <selected>2018-11-28</selected>
+                    </element>
+                    <element>
+                      <label>End date</label>
+                      <name>duration_or_end</name>
+                      <selected>2019-01-05</selected>
+                    </element>
+                    <element>
+                      <comments />
+                      <label>Part of the territory</label>
+                      <name>part_territory</name>
+                      <selected>
+                        <text>VLAAMS GEWEST</text>
+                        <value>BE2</value>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Biogeographical region(s)</label>
+                      <name>biogeographical_region</name>
+                      <selected>
+                        <element>
+                          <text>second option</text>
+                          <value>1</value>
+                        </element>
+                        <element>
+                          <text>third option</text>
+                          <value>2</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>River basin sub-unit(s)</label>
+                      <name>river_basin_subunits</name>
+                      <selected>
+                        <element>
+                          <text>third option</text>
+                          <value>2</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Marine sub-region(s)</label>
+                      <name>marine_sub_regions</name>
+                      <selected>
+                        <element>
+                          <text>North East Atlantic</text>
+                          <value>ATL</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Method(s) used</label>
+                      <name>methods_used</name>
+                      <selected>
+                        <element>
+                          <text>Biological</text>
+                          <value>2</value>
+                        </element>
+                        <element>
+                          <text>Chemical</text>
+                          <value>1</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label />
+                      <name>effectiveness_measure</name>
+                      <selected>
+                        <element>
+                          <text>Population stable</text>
+                          <value>2</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <inner_field>
+                        <label>Impact per species</label>
+                        <name>impact_per_species</name>
+                        <selected>eradicated</selected>
+                        <type>text</type>
+                        <validation>false</validation>
+                      </inner_field>
+                      <label>Impacted non-targeted species</label>
+                      <name>impacted_nontargeted_species</name>
+                      <selected>Asclepias syriaca L.</selected>
+                    </element>
+                  </table_fields>
+                </element>
+              </table_sections>
             </element>
-         </fields>
-         <name>priority_pathways</name>
-         <type>add</type>
+          </tables>
+        </eradication_measures_info>
+        <management_measures_info>
+          <label>Information on management measure(s) taken for this species (Article 19 of Regulation (EU) No 1143/2014)</label>
+          <name>management_measures_info</name>
+          <question>
+            <label>Has the species been subject to management measures during the reporting period?</label>
+            <selected>Yes</selected>
+          </question>
+          <tables>
+            <element>
+              <label>National Population #1</label>
+              <name>National Population #1</name>
+              <table_sections>
+                <element>
+                  <additional_info>
+                    <index>16</index>
+                    <label>Additional information (optional)</label>
+                    <name>additional_info</name>
+                    <selected>agfagaggggagg</selected>
+                    <type>textarea</type>
+                  </additional_info>
+                  <index>15</index>
+                  <label />
+                  <table_fields>
+                    <element>
+                      <label>Starting date</label>
+                      <name>starting_date</name>
+                      <selected>2018-11-27</selected>
+                    </element>
+                    <element>
+                      <label>End date</label>
+                      <name>duration_or_end</name>
+                      <selected>2019-01-03</selected>
+                    </element>
+                    <element>
+                      <label>Objective of the measure(s) </label>
+                      <name>measures_objective</name>
+                      <selected>
+                        <element>
+                          <text>Control</text>
+                          <value>1</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <comments />
+                      <label>Part of the territory</label>
+                      <name>part_territory</name>
+                      <selected>
+                        <text>Région de Bruxelles-Capitale / Brussels Hoofdstedelijk Gewest</text>
+                        <value>BE10</value>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Biogeographical region(s)</label>
+                      <name>biogeographical_region</name>
+                      <selected>
+                        <element>
+                          <text>second option</text>
+                          <value>1</value>
+                        </element>
+                        <element>
+                          <text>third option</text>
+                          <value>2</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>River basin sub-unit(s)</label>
+                      <name>river_basin_subunits</name>
+                      <selected>
+                        <element>
+                          <text>second option</text>
+                          <value>1</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Marine sub-region(s)</label>
+                      <name>river_basin_subunits</name>
+                      <selected>
+                        <element>
+                          <text>North East Atlantic</text>
+                          <value>ATL</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Method(s) used</label>
+                      <name>methods_used</name>
+                      <selected>
+                        <element>
+                          <text>Chemical</text>
+                          <value>1</value>
+                        </element>
+                        <element>
+                          <text>Biological</text>
+                          <value>2</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label />
+                      <name>effectiveness_measure</name>
+                      <selected>
+                        <element>
+                          <text>Population stable</text>
+                          <value>2</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <inner_field>
+                        <label>Impact per species</label>
+                        <name>impact_per_species</name>
+                        <selected>eradicated</selected>
+                        <type>text</type>
+                        <validation>false</validation>
+                      </inner_field>
+                      <label>Impacted non-targeted species</label>
+                      <name>impacted_nontargeted_species</name>
+                      <selected>Asclepias syriaca L. </selected>
+                    </element>
+                  </table_fields>
+                </element>
+              </table_sections>
+            </element>
+            <element>
+              <label>National Population #1</label>
+              <name>National Population #2</name>
+              <table_sections>
+                <element>
+                  <additional_info>
+                    <index>16</index>
+                    <label>Additional information (optional)</label>
+                    <name>additional_info</name>
+                    <selected>agagdafgdgdfgdggg</selected>
+                    <type>textarea</type>
+                  </additional_info>
+                  <index>15</index>
+                  <label />
+                  <table_fields>
+                    <element>
+                      <label>Starting date</label>
+                      <name>starting_date</name>
+                      <selected>2018-11-27</selected>
+                    </element>
+                    <element>
+                      <label>End date</label>
+                      <name>duration_or_end</name>
+                      <selected>2018-12-28</selected>
+                    </element>
+                    <element>
+                      <label>Objective of the measure(s) </label>
+                      <name>measures_objective</name>
+                      <selected>
+                        <element>
+                          <text>Control</text>
+                          <value>1</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <comments />
+                      <label>Part of the territory</label>
+                      <name>part_territory</name>
+                      <selected>
+                        <text>Arr. Mechelen</text>
+                        <value>BE212</value>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Biogeographical region(s)</label>
+                      <name>biogeographical_region</name>
+                      <selected>
+                        <element>
+                          <text>first option</text>
+                          <value>0</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>River basin sub-unit(s)</label>
+                      <name>river_basin_subunits</name>
+                      <selected>
+                        <element>
+                          <text>third option</text>
+                          <value>2</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Marine sub-region(s)</label>
+                      <name>river_basin_subunits</name>
+                      <selected>
+                        <element>
+                          <text>Greater North Sea</text>
+                          <value>ANS</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Method(s) used</label>
+                      <name>methods_used</name>
+                      <selected>
+                        <element>
+                          <text>Biological</text>
+                          <value>2</value>
+                        </element>
+                        <element>
+                          <text>Mechanical/Physical</text>
+                          <value>0</value>
+                        </element>
+                        <element>
+                          <text>Chemical</text>
+                          <value>1</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label />
+                      <name>effectiveness_measure</name>
+                      <selected>
+                        <element>
+                          <text>Population stable</text>
+                          <value>2</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <inner_field>
+                        <label>Impact per species</label>
+                        <name>impact_per_species</name>
+                        <selected>decreasing</selected>
+                        <type>text</type>
+                        <validation>false</validation>
+                      </inner_field>
+                      <label>Impacted non-targeted species</label>
+                      <name>impacted_nontargeted_species</name>
+                      <selected>Asclepias syriaca L.</selected>
+                    </element>
+                  </table_fields>
+                </element>
+              </table_sections>
+            </element>
+          </tables>
+        </management_measures_info>
+        <mandatory_item>
+          <name>mandatory_question</name>
+          <selected>Yes</selected>
+        </mandatory_item>
+        <permits_info>
+          <label>Information on the permits issued for this species to be completed only for invasive alien species of Union concern</label>
+          <name>permits_info</name>
+          <question>
+            <label>Have permits been issued for this species during the reporting period? </label>
+            <selected>Yes</selected>
+          </question>
+          <table_sections>
+            <element>
+              <element>
+                <fields>
+                  <element>
+                    <measurement>kg</measurement>
+                    <permits_number>3</permits_number>
+                  </element>
+                  <element>
+                    <valid_measurement>kg</valid_measurement>
+                    <valid_permits_number>2</valid_permits_number>
+                  </element>
+                  <element>
+                    <total_permited_speciments>2</total_permited_speciments>
+                    <total_permited_speciments_measurement>kg</total_permited_speciments_measurement>
+                  </element>
+                  <element>
+                    <valid_total_permited_speciments>4</valid_total_permited_speciments>
+                    <valid_total_permited_speciments_measurement>kg</valid_total_permited_speciments_measurement>
+                  </element>
+                </fields>
+                <label>Permits for research</label>
+              </element>
+              <element>
+                <fields>
+                  <element>
+                    <measurement>kg</measurement>
+                    <permits_number>3</permits_number>
+                  </element>
+                  <element>
+                    <valid_measurement>pcs</valid_measurement>
+                    <valid_permits_number>4</valid_permits_number>
+                  </element>
+                  <element>
+                    <total_permited_speciments>4</total_permited_speciments>
+                    <total_permited_speciments_measurement>pcs</total_permited_speciments_measurement>
+                  </element>
+                  <element>
+                    <valid_total_permited_speciments>5</valid_total_permited_speciments>
+                    <valid_total_permited_speciments_measurement>kg</valid_total_permited_speciments_measurement>
+                  </element>
+                </fields>
+                <label>Permits for scientific production and subsequent medicinal use to advance human health</label>
+              </element>
+            </element>
+            <element>
+              <element>
+                <fields>
+                  <element>
+                    <inspections_measurement>kg</inspections_measurement>
+                    <number_establishments_inspections>3</number_establishments_inspections>
+                  </element>
+                  <element>
+                    <number_permitted_specimens>3</number_permitted_specimens>
+                    <number_permitted_specimens_measurement>kg</number_permitted_specimens_measurement>
+                  </element>
+                  <element>
+                    <establishments_non_compliant>5</establishments_non_compliant>
+                    <establishments_non_compliant_measurement>kg</establishments_non_compliant_measurement>
+                  </element>
+                  <element>
+                    <measurement_noncompliant>kg</measurement_noncompliant>
+                    <number_speciments_held_by_non_compliant_establishments>4</number_speciments_held_by_non_compliant_establishments>
+                  </element>
+                </fields>
+                <label>Permits for ex situ conservation</label>
+              </element>
+              <element>
+                <fields>
+                  <element>
+                    <inspections_measurement>kg</inspections_measurement>
+                    <number_establishments_inspections>3</number_establishments_inspections>
+                  </element>
+                  <element>
+                    <number_permitted_specimens>4</number_permitted_specimens>
+                    <number_permitted_specimens_measurement>kg</number_permitted_specimens_measurement>
+                  </element>
+                  <element>
+                    <establishments_non_compliant>5</establishments_non_compliant>
+                    <establishments_non_compliant_measurement>kg</establishments_non_compliant_measurement>
+                  </element>
+                  <element>
+                    <measurement_noncompliant>pcs</measurement_noncompliant>
+                    <number_speciments_held_by_non_compliant_establishments>4</number_speciments_held_by_non_compliant_establishments>
+                  </element>
+                </fields>
+                <label>Permits for research</label>
+              </element>
+            </element>
+          </table_sections>
+        </permits_info>
+        <reproduction_patterns>
+          <element>
+            <pattern>Sexual</pattern>
+            <patternType>reproduction</patternType>
+            <region>RO</region>
+          </element>
+          <element>
+            <pattern>Both (sexual and asexual)</pattern>
+            <patternType>reproduction</patternType>
+            <region>FR</region>
+          </element>
+        </reproduction_patterns>
+        <scientific_name>Alopochen aegyptiacus Linnaeus, 1766</scientific_name>
+        <species_code>R00644</species_code>
+        <spread_pattterns>
+          <element>
+            <pattern>
+              <element>b) The species predominantly entered through natural dispersal from a neighbouring country</element>
+              <element>g) The species predominantly spread with unintentional human assistance</element>
+            </pattern>
+            <patternType>spread</patternType>
+            <region>RO</region>
+          </element>
+          <element>
+            <pattern>
+              <element>c) The species predominantly entered with unintentional human assistance</element>
+              <element>h) The species predominantly spread with intentional human assistance</element>
+            </pattern>
+            <patternType>spread</patternType>
+            <region>FR</region>
+          </element>
+        </spread_pattterns>
       </element>
       <element>
-         <label>Description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014</label>
-         <name>surveillance_system_art14</name>
-         <selected>http://www.google.ro3</selected>
-         <type>textarea</type>
+        <additional_info>
+          <name>additional_info</name>
+          <selected>aagsgagdgg</selected>
+        </additional_info>
+        <common_name>Alligator weed</common_name>
+        <eradication_measures_info>
+          <label>Information on rapid eradication measure(s) taken for this species (Article 17 of Regulation (EU) No 1143/2014)</label>
+          <name>eradication_measures_info</name>
+          <question>
+            <label>Has the species been subject to rapid eradication measures during the reporting period?</label>
+            <name>eradicated</name>
+            <selected>Yes</selected>
+          </question>
+          <tables>
+            <element>
+              <name>National Population #1</name>
+              <table_sections>
+                <element>
+                  <additional_info>
+                    <index>13</index>
+                    <label>Additional information (optional)</label>
+                    <name>additional_info</name>
+                    <selected>agfagsgadfggdfg</selected>
+                    <type>textarea</type>
+                  </additional_info>
+                  <label />
+                  <table_fields>
+                    <element>
+                      <label>Starting date</label>
+                      <name>starting_date</name>
+                      <selected>2018-11-27</selected>
+                    </element>
+                    <element>
+                      <label>End date</label>
+                      <name>duration_or_end</name>
+                      <selected>2019-01-05</selected>
+                    </element>
+                    <element>
+                      <comments />
+                      <label>Part of the territory</label>
+                      <name>part_territory</name>
+                      <selected>
+                        <text>Arr. de Bruxelles-Capitale / Arr. van Brussel-Hoofdstad</text>
+                        <value>BE100</value>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Biogeographical region(s)</label>
+                      <name>biogeographical_region</name>
+                      <selected>
+                        <element>
+                          <text>first option</text>
+                          <value>0</value>
+                        </element>
+                        <element>
+                          <text>third option</text>
+                          <value>2</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>River basin sub-unit(s)</label>
+                      <name>river_basin_subunits</name>
+                      <selected>
+                        <element>
+                          <text>second option</text>
+                          <value>1</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Marine sub-region(s)</label>
+                      <name>marine_sub_regions</name>
+                      <selected>
+                        <element>
+                          <text>Greater North Sea</text>
+                          <value>ANS</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Method(s) used</label>
+                      <name>methods_used</name>
+                      <selected>
+                        <element>
+                          <text>Other</text>
+                          <value>3</value>
+                        </element>
+                        <element>
+                          <text>Mechanical/Physical</text>
+                          <value>0</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label />
+                      <name>effectiveness_measure</name>
+                      <selected>
+                        <element>
+                          <text>Population still increasing </text>
+                          <value>3</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <inner_field>
+                        <label>Impact per species</label>
+                        <name>impact_per_species</name>
+                        <selected>eradicated</selected>
+                        <type>text</type>
+                        <validation>false</validation>
+                      </inner_field>
+                      <label>Impacted non-targeted species</label>
+                      <name>impacted_nontargeted_species</name>
+                      <selected>Asclepias syriaca L. </selected>
+                    </element>
+                  </table_fields>
+                </element>
+              </table_sections>
+            </element>
+          </tables>
+        </eradication_measures_info>
+        <management_measures_info>
+          <label>Information on management measure(s) taken for this species (Article 19 of Regulation (EU) No 1143/2014)</label>
+          <name>management_measures_info</name>
+          <question>
+            <label>Has the species been subject to management measures during the reporting period?</label>
+            <selected>Yes</selected>
+          </question>
+          <tables>
+            <element>
+              <label>National Population #1</label>
+              <name>National Population #1</name>
+              <table_sections>
+                <element>
+                  <additional_info>
+                    <index>16</index>
+                    <label>Additional information (optional)</label>
+                    <name>additional_info</name>
+                    <selected>afagsagsfggdfgdfg</selected>
+                    <type>textarea</type>
+                  </additional_info>
+                  <index>15</index>
+                  <label />
+                  <table_fields>
+                    <element>
+                      <label>Starting date</label>
+                      <name>starting_date</name>
+                      <selected>2018-11-27</selected>
+                    </element>
+                    <element>
+                      <label>End date</label>
+                      <name>duration_or_end</name>
+                      <selected>2019-01-02</selected>
+                    </element>
+                    <element>
+                      <label>Objective of the measure(s) </label>
+                      <name>measures_objective</name>
+                      <selected>
+                        <element>
+                          <text>Containment</text>
+                          <value>2</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <comments />
+                      <label>Part of the territory</label>
+                      <name>part_territory</name>
+                      <selected>
+                        <text>VLAAMS GEWEST</text>
+                        <value>BE2</value>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Biogeographical region(s)</label>
+                      <name>biogeographical_region</name>
+                      <selected>
+                        <element>
+                          <text>second option</text>
+                          <value>1</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>River basin sub-unit(s)</label>
+                      <name>river_basin_subunits</name>
+                      <selected>
+                        <element>
+                          <text>third option</text>
+                          <value>2</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Marine sub-region(s)</label>
+                      <name>river_basin_subunits</name>
+                      <selected>
+                        <element>
+                          <text>North East Atlantic</text>
+                          <value>ATL</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label>Method(s) used</label>
+                      <name>methods_used</name>
+                      <selected>
+                        <element>
+                          <text>Mechanical/Physical</text>
+                          <value>0</value>
+                        </element>
+                        <element>
+                          <text>Biological</text>
+                          <value>2</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <label />
+                      <name>effectiveness_measure</name>
+                      <selected>
+                        <element>
+                          <text>Unclear population trend</text>
+                          <value>4</value>
+                        </element>
+                      </selected>
+                    </element>
+                    <element>
+                      <inner_field>
+                        <label>Impact per species</label>
+                        <name>impact_per_species</name>
+                        <selected>eradicated</selected>
+                        <type>text</type>
+                        <validation>false</validation>
+                      </inner_field>
+                      <label>Impacted non-targeted species</label>
+                      <name>impacted_nontargeted_species</name>
+                      <selected>Asclepias syriaca L. </selected>
+                    </element>
+                  </table_fields>
+                </element>
+              </table_sections>
+            </element>
+          </tables>
+        </management_measures_info>
+        <mandatory_item>
+          <name>mandatory_question</name>
+          <selected>Yes</selected>
+        </mandatory_item>
+        <permits_info>
+          <label>Information on the permits issued for this species to be completed only for invasive alien species of Union concern</label>
+          <name>permits_info</name>
+          <question>
+            <label>Have permits been issued for this species during the reporting period? </label>
+            <selected>Yes</selected>
+          </question>
+          <table_sections>
+            <element>
+              <element>
+                <fields>
+                  <element>
+                    <measurement>kg</measurement>
+                    <permits_number>2</permits_number>
+                  </element>
+                  <element>
+                    <valid_measurement>kg</valid_measurement>
+                    <valid_permits_number>3</valid_permits_number>
+                  </element>
+                  <element>
+                    <total_permited_speciments>3</total_permited_speciments>
+                    <total_permited_speciments_measurement>pcs</total_permited_speciments_measurement>
+                  </element>
+                  <element>
+                    <valid_total_permited_speciments>4</valid_total_permited_speciments>
+                    <valid_total_permited_speciments_measurement>kg</valid_total_permited_speciments_measurement>
+                  </element>
+                </fields>
+                <label>Permits for scientific production and subsequent medicinal use to advance human health</label>
+              </element>
+            </element>
+            <element>
+              <element>
+                <fields>
+                  <element>
+                    <inspections_measurement>kg</inspections_measurement>
+                    <number_establishments_inspections>6</number_establishments_inspections>
+                  </element>
+                  <element>
+                    <number_permitted_specimens>3</number_permitted_specimens>
+                    <number_permitted_specimens_measurement>kg</number_permitted_specimens_measurement>
+                  </element>
+                  <element>
+                    <establishments_non_compliant>5</establishments_non_compliant>
+                    <establishments_non_compliant_measurement>kg</establishments_non_compliant_measurement>
+                  </element>
+                  <element>
+                    <measurement_noncompliant>kg</measurement_noncompliant>
+                    <number_speciments_held_by_non_compliant_establishments>6</number_speciments_held_by_non_compliant_establishments>
+                  </element>
+                </fields>
+                <label>Permits for ex situ conservation</label>
+              </element>
+            </element>
+          </table_sections>
+        </permits_info>
+        <reproduction_patterns>
+          <element>
+            <pattern>Asexusal</pattern>
+            <patternType>reproduction</patternType>
+            <region>RO</region>
+          </element>
+        </reproduction_patterns>
+        <scientific_name>Alternanthera philoxeroides (Mart.) Griseb.</scientific_name>
+        <species_code>R00669</species_code>
+        <spread_pattterns>
+          <element>
+            <pattern>
+              <element>b) The species predominantly entered through natural dispersal from a neighbouring country</element>
+              <element>h) The species predominantly spread with intentional human assistance</element>
+            </pattern>
+            <patternType>spread</patternType>
+            <region>FR</region>
+          </element>
+        </spread_pattterns>
+      </element>
+    </sections>
+  </tab_1>
+  <tab_2>
+    <sections>
+      <element>
+        <additional_info>
+          <index>5</index>
+          <label>Additional information (optional)</label>
+          <name>additional_info</name>
+          <selected>adaffafafaffaf</selected>
+          <type>textarea</type>
+        </additional_info>
+        <code_name>R00003</code_name>
+        <common_name>
+          <disabled>true</disabled>
+          <index>2</index>
+          <label>Common name of the species (optional)</label>
+          <name>common_name</name>
+          <selected>
+            <code>R00003</code>
+            <common_names>
+              <RO>
+                <element>adasdafa</element>
+              </RO>
+              <none>
+                <element>adafgagg</element>
+              </none>
+            </common_names>
+            <eu_concern>0</eu_concern>
+            <freshwater>0</freshwater>
+            <marine>0</marine>
+            <name>Abelia x grandiflora</name>
+            <oligohaline>0</oligohaline>
+            <status>A</status>
+            <terrestrial>1</terrestrial>
+            <value>adasdafa[RO];adafgagg</value>
+          </selected>
+          <type>text</type>
+        </common_name>
+        <depending_on_mandatory>
+          <fields>
+            <element>
+              <label>Tick if yes</label>
+              <name>distribution_maps_check</name>
+              <selected>false</selected>
+              <type>checkbox</type>
+            </element>
+          </fields>
+          <index>4</index>
+          <label>A distribution map for this species is included in the file which will be uploaded in the 'Distribution map for SECTION B' field available on 'DISTRIBUTION MAP' section.</label>
+          <name>distribution_of_species</name>
+        </depending_on_mandatory>
+        <mandatory_item>
+          <index>3</index>
+          <label>Is the species present in the territory of the Member State?</label>
+          <name>mandatory_question</name>
+          <selected>Yes</selected>
+          <type>select</type>
+        </mandatory_item>
+        <reproduction_patterns>
+          <element>
+            <pattern>Sexual</pattern>
+            <patternType>reproduction</patternType>
+            <region>FR</region>
+          </element>
+          <element>
+            <pattern>Both (sexual and asexual)</pattern>
+            <patternType>reproduction</patternType>
+            <region>RO</region>
+          </element>
+        </reproduction_patterns>
+        <scientific_name>Abelia x grandiflora</scientific_name>
+        <section>
+          <fields>
+            <element>
+              <label>Restriction to intentionally transport, except in the context of eradication</label>
+              <name>restriction_internationally_transport</name>
+              <value>true</value>
+            </element>
+            <element>
+              <label>Derogations foreseen within the permit system under Article 8  </label>
+              <name>derogations_within_art8</name>
+              <value>true</value>
+            </element>
+          </fields>
+          <label>Measure(s) applied in the territory of the Member State in relation to the species</label>
+        </section>
+        <spread_patterns>
+          <element>
+            <pattern>
+              <element>b) The species predominantly entered through natural dispersal from a neighbouring country</element>
+              <element>h) The species predominantly spread with intentional human assistance</element>
+            </pattern>
+            <patternType>spread</patternType>
+            <region>RO</region>
+          </element>
+          <element>
+            <pattern>
+              <element>c) The species predominantly entered with unintentional human assistance</element>
+              <element>h) The species predominantly spread with intentional human assistance</element>
+            </pattern>
+            <patternType>spread</patternType>
+            <region>FR</region>
+          </element>
+        </spread_patterns>
       </element>
       <element>
-         <label>Description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014  </label>
-         <name>official_control_system</name>
-         <selected>http://www.google.ro4</selected>
-         <type>textarea</type>
+        <additional_info>
+          <index>5</index>
+          <label>Additional information (optional)</label>
+          <name>additional_info</name>
+          <selected>dawafaffafaff</selected>
+          <type>textarea</type>
+        </additional_info>
+        <code_name>R00004</code_name>
+        <common_name>
+          <disabled>true</disabled>
+          <index>2</index>
+          <label>Common name of the species (optional)</label>
+          <name>common_name</name>
+          <selected>
+            <code>R00004</code>
+            <common_names>
+              <RO>
+                <element>asfafaf</element>
+              </RO>
+              <none />
+            </common_names>
+            <eu_concern>0</eu_concern>
+            <freshwater>0</freshwater>
+            <marine>0</marine>
+            <name>Abgrallaspis cyanophylli</name>
+            <oligohaline>0</oligohaline>
+            <status>C</status>
+            <terrestrial>1</terrestrial>
+            <value>asfafaf[RO]</value>
+          </selected>
+          <type>text</type>
+        </common_name>
+        <depending_on_mandatory>
+          <fields>
+            <element>
+              <label>Tick if yes</label>
+              <name>distribution_maps_check</name>
+              <selected>false</selected>
+              <type>checkbox</type>
+            </element>
+          </fields>
+          <index>4</index>
+          <label>A distribution map for this species is included in the file which will be uploaded in the 'Distribution map for SECTION B' field available on 'DISTRIBUTION MAP' section.</label>
+          <name>distribution_of_species</name>
+        </depending_on_mandatory>
+        <mandatory_item>
+          <index>3</index>
+          <label>Is the species present in the territory of the Member State?</label>
+          <name>mandatory_question</name>
+          <selected>Yes</selected>
+          <type>select</type>
+        </mandatory_item>
+        <reproduction_patterns>
+          <element>
+            <pattern>Asexusal</pattern>
+            <patternType>reproduction</patternType>
+            <region>FR</region>
+          </element>
+        </reproduction_patterns>
+        <scientific_name>Abgrallaspis cyanophylli</scientific_name>
+        <section>
+          <fields>
+            <element>
+              <label>Restriction to intentionally place on the market</label>
+              <name>restriction_internationally_market</name>
+              <value>true</value>
+            </element>
+            <element>
+              <label>Derogations foreseen within the permit system under Article 8  </label>
+              <name>derogations_within_art8</name>
+              <value>true</value>
+            </element>
+          </fields>
+          <label>Measure(s) applied in the territory of the Member State in relation to the species</label>
+        </section>
+        <spread_patterns>
+          <element>
+            <pattern>
+              <element>b) The species predominantly entered through natural dispersal from a neighbouring country</element>
+              <element>g) The species predominantly spread with unintentional human assistance</element>
+            </pattern>
+            <patternType>spread</patternType>
+            <region>RO</region>
+          </element>
+        </spread_patterns>
       </element>
-      <element>
-         <label>Description of measures taken to inform the public  </label>
-         <name>measures_to_inform_public</name>
-         <selected>http://www.google.ro5</selected>
-         <type>textarea</type>
-      </element>
-      <element>
-         <label>Cost of action undertaken to comply with the Regulation (EU) No 1143/2014 </label>
-         <name>cost</name>
-         <selected>http://www.google.ro6</selected>
-         <type>text</type>
-      </element>
-      <element>
-         <label>Additional information (optional)</label>
-         <name>additional_info</name>
-         <selected>http://www.google.ro8</selected>
-         <type>textarea</type>
-      </element>
-   </tab_3>
-   <tab_4>
-      <element>
-         <label>Distribution map for SECTION A</label>
-         <name>section_a_distribution_file</name>
-         <selected>
-            <element>null/file_2</element>
-         </selected>
-         <type>file</type>
-      </element>
-      <element>
-         <label>Distribution map for SECTION B</label>
-         <name>section_b_distribution_file</name>
-         <selected>
-            <element>null/file_2</element>
-         </selected>
-         <type>file</type>
-      </element>
-   </tab_4>
-
-
+    </sections>
+  </tab_2>
+  <tab_3>
+    <element>
+      <label>Web link to information on the internet regarding the permits issued as required under Article 8(7) of Regulation (EU) No 1143/2014</label>
+      <name>web_link</name>
+      <selected>http://www.google.ro1</selected>
+      <type>textarea</type>
+    </element>
+    <element>
+      <label>File regarding the permits issued as required under Article 8(7) of Regulation (EU) No 1143/2014</label>
+      <name>web_link_file</name>
+      <selected>
+        <element>null/file_2</element>
+      </selected>
+      <type>file</type>
+    </element>
+    <element>
+      <label>Action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014  </label>
+      <name>action_plans_art13</name>
+      <selected>http://www.google.ro2</selected>
+      <type>textarea</type>
+    </element>
+    <element>
+      <label>File regarding the action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014  </label>
+      <name>action_plans_art13_file</name>
+      <selected>
+        <element>null/file_2</element>
+      </selected>
+      <type>file</type>
+    </element>
+    <element>
+      <fields>
+        <element>
+          <inner_field>
+            <label>Species covered  </label>
+            <name>species_covered</name>
+            <selected>Alternanthera philoxeroides</selected>
+            <type>select</type>
+          </inner_field>
+          <label>Priority pathways addressed </label>
+          <name>priority_pathways_addressed</name>
+          <selected>R00669</selected>
+          <type>text</type>
+        </element>
+        <element>
+          <inner_field>
+            <label>Species covered  </label>
+            <name>species_covered</name>
+            <options>
+              <element>
+                <code>R00644</code>
+                <text>Alopochen aegyptiaca</text>
+                <value>Alopochen aegyptiaca</value>
+              </element>
+              <element>
+                <code>R01529</code>
+                <text>Asclepias syriaca</text>
+                <value>Asclepias syriaca</value>
+              </element>
+              <element>
+                <code>R01830</code>
+                <text>Baccharis halimifolia</text>
+                <value>Baccharis halimifolia</value>
+              </element>
+              <element>
+                <code>R02476</code>
+                <text>Cabomba caroliniana</text>
+                <value>Cabomba caroliniana</value>
+              </element>
+              <element>
+                <code>R02573</code>
+                <text>Callosciurus erythraeus</text>
+                <value>Callosciurus erythraeus</value>
+              </element>
+              <element>
+                <code>R03000</code>
+                <text>Pennisetum setaceum</text>
+                <value>Pennisetum setaceum</value>
+              </element>
+              <element>
+                <code>R04121</code>
+                <text>Corvus splendens</text>
+                <value>Corvus splendens</value>
+              </element>
+              <element>
+                <code>R05440</code>
+                <text>Eichhornia crassipes</text>
+                <value>Eichhornia crassipes</value>
+              </element>
+              <element>
+                <code>R05501</code>
+                <text>Elodea nuttallii</text>
+                <value>Elodea nuttallii</value>
+              </element>
+              <element>
+                <code>R05836</code>
+                <text>Eriocheir sinensis</text>
+                <value>Eriocheir sinensis</value>
+              </element>
+              <element>
+                <code>R06923</code>
+                <text>Gunnera tinctoria</text>
+                <value>Gunnera tinctoria</value>
+              </element>
+              <element>
+                <code>R07248</code>
+                <text>Heracleum mantegazzianum</text>
+                <value>Heracleum mantegazzianum</value>
+              </element>
+              <element>
+                <code>R07250</code>
+                <text>Heracleum persicum</text>
+                <value>Heracleum persicum</value>
+              </element>
+              <element>
+                <code>R07252</code>
+                <text>Heracleum sosnowskyi</text>
+                <value>Heracleum sosnowskyi</value>
+              </element>
+              <element>
+                <code>R07276</code>
+                <text>Herpestes javanicus</text>
+                <value>Herpestes javanicus</value>
+              </element>
+              <element>
+                <code>R07537</code>
+                <text>Hydrocotyle ranunculoides</text>
+                <value>Hydrocotyle ranunculoides</value>
+              </element>
+              <element>
+                <code>R07719</code>
+                <text>Impatiens glandulifera</text>
+                <value>Impatiens glandulifera</value>
+              </element>
+              <element>
+                <code>R08062</code>
+                <text>Lagarosiphon major</text>
+                <value>Lagarosiphon major</value>
+              </element>
+              <element>
+                <code>R08679</code>
+                <text>Lithobates catesbeianus</text>
+                <value>Lithobates catesbeianus</value>
+              </element>
+              <element>
+                <code>R08830</code>
+                <text>Ludwigia peploides</text>
+                <value>Ludwigia peploides</value>
+              </element>
+              <element>
+                <code>R08915</code>
+                <text>Lysichiton americanus</text>
+                <value>Lysichiton americanus</value>
+              </element>
+              <element>
+                <code>R09459</code>
+                <text>Microstegium vimineum</text>
+                <value>Microstegium vimineum</value>
+              </element>
+              <element>
+                <code>R09640</code>
+                <text>Muntiacus reevesi</text>
+                <value>Muntiacus reevesi</value>
+              </element>
+              <element>
+                <code>R09720</code>
+                <text>Myocastor coypus</text>
+                <value>Myocastor coypus</value>
+              </element>
+              <element>
+                <code>R09747</code>
+                <text>Myriophyllum heterophyllum</text>
+                <value>Myriophyllum heterophyllum</value>
+              </element>
+              <element>
+                <code>R09857</code>
+                <text>Nasua nasua</text>
+                <value>Nasua nasua</value>
+              </element>
+              <element>
+                <code>R10085</code>
+                <text>Nyctereutes procyonoides</text>
+                <value>Nyctereutes procyonoides</value>
+              </element>
+              <element>
+                <code>R10336</code>
+                <text>Ondatra zibethicus</text>
+                <value>Ondatra zibethicus</value>
+              </element>
+              <element>
+                <code>R10443</code>
+                <text>Orconectes limosus</text>
+                <value>Orconectes limosus</value>
+              </element>
+              <element>
+                <code>R10445</code>
+                <text>Orconectes virilis</text>
+                <value>Orconectes virilis</value>
+              </element>
+              <element>
+                <code>R10652</code>
+                <text>Oxyura jamaicensis</text>
+                <value>Oxyura jamaicensis</value>
+              </element>
+              <element>
+                <code>R10676</code>
+                <text>Pacifastacus leniusculus</text>
+                <value>Pacifastacus leniusculus</value>
+              </element>
+              <element>
+                <code>R10890</code>
+                <text>Parthenium hysterophorus</text>
+                <value>Parthenium hysterophorus</value>
+              </element>
+              <element>
+                <code>R11034</code>
+                <text>Perccottus glenii</text>
+                <value>Perccottus glenii</value>
+              </element>
+              <element>
+                <code>R12250</code>
+                <text>Procambarus clarkii</text>
+                <value>Procambarus clarkii</value>
+              </element>
+              <element>
+                <code>R12260</code>
+                <text>Procyon lotor</text>
+                <value>Procyon lotor</value>
+              </element>
+              <element>
+                <code>R12451</code>
+                <text>Pseudorasbora parva</text>
+                <value>Pseudorasbora parva</value>
+              </element>
+              <element>
+                <code>R12644</code>
+                <text>Pueraria montana var. lobata</text>
+                <value>Pueraria montana var. lobata</value>
+              </element>
+              <element>
+                <code>R13698</code>
+                <text>Sciurus carolinensis</text>
+                <value>Sciurus carolinensis</value>
+              </element>
+              <element>
+                <code>R14882</code>
+                <text>Tamias sibiricus</text>
+                <value>Tamias sibiricus</value>
+              </element>
+              <element>
+                <code>R15136</code>
+                <text>Threskiornis aethiopicus</text>
+                <value>Threskiornis aethiopicus</value>
+              </element>
+              <element>
+                <code>R15970</code>
+                <text>Vespa velutina nigrithorax</text>
+                <value>Vespa velutina nigrithorax</value>
+              </element>
+              <element>
+                <code>R17660</code>
+                <text>Procambarus fallax f. virginalis</text>
+                <value>Procambarus fallax f. virginalis</value>
+              </element>
+              <element>
+                <code>R17663</code>
+                <text>Ludwigia grandiflora</text>
+                <value>Ludwigia grandiflora</value>
+              </element>
+              <element>
+                <code>R18154</code>
+                <text>Trachemys scripta</text>
+                <value>Trachemys scripta</value>
+              </element>
+              <element>
+                <code>R18934</code>
+                <text>Myriophyllum aquaticum</text>
+                <value>Myriophyllum aquaticum</value>
+              </element>
+              <element>
+                <code>R19287</code>
+                <text>Persicaria perfoliata</text>
+                <value>Persicaria perfoliata</value>
+              </element>
+              <element>
+                <code>R19317</code>
+                <text>Sciurus niger</text>
+                <value>Sciurus niger</value>
+              </element>
+            </options>
+            <selected>Asclepias syriaca</selected>
+            <type>text</type>
+          </inner_field>
+          <label>Priority pathways addressed </label>
+          <name>priority_pathways_addressed</name>
+          <selected>R01529</selected>
+          <type>text</type>
+        </element>
+      </fields>
+      <name>priority_pathways</name>
+      <type>add</type>
+    </element>
+    <element>
+      <label>Description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014</label>
+      <name>surveillance_system_art14</name>
+      <selected>http://www.google.ro3</selected>
+      <type>textarea</type>
+    </element>
+    <element>
+      <label>File regarding the description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014</label>
+      <name>surveillance_system_art14_file</name>
+      <selected>
+        <element>null/file_2</element>
+      </selected>
+      <type>file</type>
+    </element>
+    <element>
+      <label>Description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014  </label>
+      <name>official_control_system</name>
+      <selected>http://www.google.ro4</selected>
+      <type>textarea</type>
+    </element>
+    <element>
+      <label>File regarding the description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014  </label>
+      <name>official_control_system_file</name>
+      <selected>
+        <element>null/file_2</element>
+      </selected>
+      <type>file</type>
+    </element>
+    <element>
+      <label>Description of measures taken to inform the public  </label>
+      <name>measures_to_inform_public</name>
+      <selected>http://www.google.ro5</selected>
+      <type>textarea</type>
+    </element>
+    <element>
+      <label>File regarding the description of measures taken to inform the public  </label>
+      <name>measures_to_inform_public_file</name>
+      <selected>
+        <element>null/file_2</element>
+      </selected>
+      <type>file</type>
+    </element>
+    <element>
+      <label>Cost of action undertaken to comply with the Regulation (EU) No 1143/2014 </label>
+      <name>cost</name>
+      <selected>http://www.google.ro6</selected>
+      <type>text</type>
+    </element>
+    <element>
+      <label>File regarding the cost of action undertaken to comply with the Regulation (EU) No 1143/2014 </label>
+      <name>cost_file</name>
+      <selected>
+        <element>null/file_2</element>
+      </selected>
+      <type>file</type>
+    </element>
+    <element>
+      <label>Additional information (optional)</label>
+      <name>additional_info</name>
+      <selected>http://www.google.ro6</selected>
+      <type>textarea</type>
+    </element>
+    <element>
+      <label>File regarding the additional information (optional)</label>
+      <name>additional_info_file</name>
+      <selected>
+        <element>null/file_2</element>
+      </selected>
+      <type>file</type>
+    </element>
+  </tab_3>
+  <tab_4>
+    <element>
+      <label>Distribution map for SECTION A</label>
+      <name>section_a_distribution_file</name>
+      <selected>
+        <element>null/file_2</element>
+      </selected>
+      <type>file</type>
+    </element>
+    <element>
+      <label>INSPIRE Metadata for SECTION A</label>
+      <name>section_a_inspire</name>
+      <selected>
+        <element>null/file_2</element>
+      </selected>
+      <type>file</type>
+    </element>
+    <element>
+      <label>Distribution map for SECTION B</label>
+      <name>section_b_distribution_file</name>
+      <selected>
+        <element>null/file_2</element>
+      </selected>
+      <type>file</type>
+    </element>
+    <element>
+      <label>INSPIRE Metadata for SECTION B</label>
+      <name>section_b_inspire</name>
+      <selected>
+        <element>null/file_2</element>
+      </selected>
+      <type>file</type>
+    </element>
+  </tab_4>
 </IAS>
