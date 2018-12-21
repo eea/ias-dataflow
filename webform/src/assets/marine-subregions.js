@@ -8,7 +8,8 @@ let marine_subregions = function(){
       if(istestSession()){
         path = "../../static/marine_subregions/" + res + "_marine_subregions.json";
       } else {
-        path += "ias_dataflow/marine_subregions/" + res + "_marine_subregions.json";
+        //path += "ias_dataflow/marine_subregions/" + res + "_marine_subregions.json";
+        path = "/" + res + "_marine_subregions.json";
       }
       fetch(path).then((regions) => {
         if(regions.status === 404) return [];

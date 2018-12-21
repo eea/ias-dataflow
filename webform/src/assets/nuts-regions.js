@@ -9,7 +9,8 @@ let nuts = function(){
       if(istestSession()){
         path = "../../static/nuts_regions/" + res + "_nuts_regions.json";
       } else {
-        path += "ias_dataflow/nuts_regions/" + res + "_nuts_regions.json";
+        //path += "ias_dataflow/nuts_regions/" + res + "_nuts_regions.json";
+        path = "/" + res + "_nuts_regions.json";
       }
 
       fetch(path).then((regions) => {
