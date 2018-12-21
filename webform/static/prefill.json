@@ -1,3 +1,53 @@
 {
+  "IAS" : {
+    "country":{
+      "tables":{
+        "table_1":{
+          "fields":[
+            {"name":"partyname","label":"Member State","selected":"AT"},
+            {"name":"rep_period_from","label":"Reporting period from (year)","selected":"2015-01-01"},
+            {"name":"rep_period_to","label":"Reporting period to (year)","selected":"2018-12-31"}
+          ]
+        }
+      }
+    },
+    "tab_0": [
+      {
+        "name": "partyname",
+        "label": "Member State",
+        "selected": "AT"
+      },
+      {
+        "name": "rep_period_from",
+        "label": "Reporting period from (year)",
+        "selected": "2015-01-01"
+      },
+      {
+        "name": "rep_period_to",
+        "label": "Reporting period to (year)",
+        "selected": "2018-12-31"
+      }
+    ],
+    "tab_1": {
+      "sections": [
+        {
+          "scientific_name": "Alopochen aegyptiacus Linnaeus, 1766",
+          "common_name": "Egyptian goose",
+          "species_code": "R00644",
+          "mandatory_item": {
+            "selected": "Yes",
+            "name": "mandatory_question"
+          },
+          "additional_info": {
+            "selected": "",
+            "name": "additional_info"
+          },
+          "reproduction_patterns": [],
+          "spread_pattterns": []
+        }
+      ]
+    }
 
+
+  }
 }

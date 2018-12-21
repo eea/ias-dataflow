@@ -5,7 +5,6 @@
 
     <formsubmit v-if="prefilled" :country.sync="country" :info.sync="form" @validate-components="validateSections"
                     :validated="validated" ref="formsubmit" @open-error-modal="openErrorModal"></formsubmit>
-
     <b-card v-if="prefilled" no-body ref="content">
         <b-form validated novalidate @submit="onSubmit" >
           <b-tabs card v-model="tabIndex"  >
@@ -148,16 +147,18 @@ export default {
 
   created() {
     form().then((fdata) => {
+
       getInstance().then((response) => {
         let instance_data = response.data;
         getCountry().then((result) => {
           //console.dir(result);
           this.country = result;
-          this.prefill(instance_data);
-          this.form = fdata;
+          this.prefill(instance_data,fdata);
         })
       })
-    }).catch((rej) => { console.error(rej)});
+    }).catch((rej) => {
+      console.error(rej)
+    });
   },
 
   methods: {
@@ -165,8 +166,33 @@ export default {
       if("undefined" !== typeof this.$refs.errorsModal) this.$refs.errorsModal.show();
     },
 
-    prefill(data){
-       this.prefilled = true;
+    prefill(data,fdata){
+      let self = this;
+      data.IAS.country.tables.table_1.fields.map((field, ix) => {
+        fdata.country.tables.table_1.fields[ix].selected = field.selected;
+      });
+
+      data.IAS.tab_0.map((field) => {
+        fdata.tab_0.tables.table_1.fields.map((f) => {
+          if(f.name === field.name) f.selected = field.selected;
+        });
+      });
+
+      data.IAS.tab_1.sections.map((sectionI) => {
+        fdata.tab_1.sections.map((sectionF) => {
+          if(sectionI.scientific_name === sectionF.scientific_name.selected){
+            console.log("inside section");
+            let found = sectionF.mandatory_item.options.filter((op) => {
+              return op.text === sectionI.mandatory_item.selected;
+            });
+            sectionF.mandatory_item.selected = found[0].value;
+          }
+        });
+      });
+
+
+      this.form = fdata;
+      this.prefilled = true;
     },
 
     doTitle(title) {
