@@ -1,20 +1,20 @@
 import form from "./form";
-import {getCountry, istestSession} from "../api"
+import {getCountry, istestSession, BASEURL} from "../api"
 
 let marine_subregions = function(){
   return new Promise( (resolve, reject) => {
     getCountry().then((res) => {
-      let path = null;
+      let path = BASEURL;
       if(istestSession()){
-          path = "../../static/marine_subregions/" + res + "_marine_subregions.json";
+        path = "../../static/marine_subregions/" + res + "_marine_subregions.json";
       } else {
-        path = '';
+        path += "ias_dataflow/marine_subregions/" + res + "_marine_subregions.json";
       }
       fetch(path).then((regions) => {
-          if(regions.status === 404) return [];
-          return regions.json();
-        }).catch((rej) => {
-          reject(rej);
+        if(regions.status === 404) return [];
+        return regions.json();
+      }).catch((rej) => {
+        reject(rej);
       }).then((regs) => {
         if( "undefined" !== typeof regs ){
           const regions = regs.map((reg) => { return { text: reg.label, value: reg.id} });

@@ -1,16 +1,17 @@
 import form from "./form";
-import {getCountry, istestSession } from "../api"
+import {getCountry, istestSession, BASEURL } from "../api"
 
 let nuts = function(){
   return new Promise(function(resolve, reject) {
 
     getCountry().then((res) => {
-      let path = null;
+      let path = BASEURL;
       if(istestSession()){
         path = "../../static/nuts_regions/" + res + "_nuts_regions.json";
       } else {
-        path = "";
+        path += "ias_dataflow/nuts_regions/" + res + "_nuts_regions.json";
       }
+
       fetch(path).then((regions) => {
         return regions.json();
       }).catch((rej) => {

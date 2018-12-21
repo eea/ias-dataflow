@@ -8,6 +8,8 @@ const api = axios.create({
   withCredentials: true
 });
 
+export const BASEURL = "https://cdrtest.eionet.europa.eu/xmlexports/";
+
 function fetch(path) {
   return api.get(path);
 }
