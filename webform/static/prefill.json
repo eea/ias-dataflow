@@ -35,8 +35,19 @@
           "common_name": "Egyptian goose",
           "species_code": "R00644",
           "mandatory_item": {
-            "selected": "Yes",
+            "selected": true,
             "name": "mandatory_question"
+          },
+          "depending_on_mandatory": {
+            "name": "distribution_of_species",
+            "fields": [
+              {
+                "label": "Tick if yes",
+                "type": "checkbox",
+                "name": "distribution_maps_check",
+                "selected": false
+              }
+            ]
           },
           "additional_info": {
             "selected": "",

@@ -182,13 +182,24 @@ export default {
         fdata.tab_1.sections.map((sectionF) => {
           if(sectionI.scientific_name === sectionF.scientific_name.selected){
             console.log("inside section");
-            let found = sectionF.mandatory_item.options.filter((op) => {
+            /*let found = sectionF.mandatory_item.options.filter((op) => {
+              return op.text === sectionI.mandatory_item.selected;
+            });*/
+            sectionF.mandatory_item.selected = sectionI.mandatory_item.selected;
+
+            /*console.log(sectionI.permits_info.question.selected);
+            console.log(sectionF.permits_info.);*/
+            /*let found = sectionF.permits_info.question.options.filter((op) => {
               return op.text === sectionI.mandatory_item.selected;
             });
-            sectionF.mandatory_item.selected = found[0].value;
+            sectionF.mandatory_item.selected = found[0].value;*/
+            console.log(sectionF.tables.table_1.question.options);
+
           }
         });
       });
+
+
 
 
       this.form = fdata;

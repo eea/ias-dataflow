@@ -366,33 +366,26 @@ export default {
       }
 
       function processTable1(table){
-        table.question.options.map((op) => {
+        /*table.question.options.map((op) => {
           if(op.value === table.question.selected) table.question.selected = op.text;
-        });
-        delete table.question.options;
+        });*/
+        //delete table.question.options;
         delete table.question.type;
         delete table.question.index;
 
         let sections = table.table_sections.map((tsection) => {
           delete tsection.table_fields.optionsFields;
           if(Object.keys(tsection.field).length === 0) delete tsection.field;
-
           let res = tsection.table_fields.fields.map((itm) => {
             itm['fields'] = processPermitsRow(itm.fields);
             return itm;
           });
           res['name'] = tsection.name;
-
           return res;
         });
 
         let res = JSON.parse(JSON.stringify(table));
-        //delete res.table_sections;
         res.table_sections = sections;
-        /*sections.map((section) => {
-          res[section.name] = section;
-        });*/
-        //console.log(sections);
         return res;
       }
 
@@ -553,7 +546,7 @@ export default {
                 'selected',
                 'reproduction_patterns',
                 'spread_pattterns',
-                'options',
+                //'options',
                 'nopermits'
               ];
 
@@ -583,10 +576,10 @@ export default {
 
                 if(fieldProp === 'options') {
                   if(field.selected !== ''){
-                    field.options.map((opt) => {
+                    /*field.options.map((opt) => {
                       if(opt.value === field.selected) field.selected = opt.text;
-                    });
-                    delete field.options;
+                    });*/
+                    //delete field.options;
                   } else {
                     delete field.options;
                   }
@@ -628,14 +621,14 @@ export default {
             }
           }
 
-          delete section.depending_on_mandatory;
+          //delete section.depending_on_mandatory;
 
           // flattening simple { name, selected } object into string
           section.scientific_name = section.scientific_name.selected;
           section.species_code = section.species_code.selected;
           section.common_name = section.common_name.selected;
 
-          if ('undefined' !== typeof section.mandatory_item){
+          /*if ('undefined' !== typeof section.mandatory_item){
             if(section.mandatory_item.selected === false){
               section.mandatory_item = 'no';
             } else if(section.mandatory_item.selected === true){
@@ -643,7 +636,7 @@ export default {
             } else if(section.mandatory_item.selected === 'unknown') {
               section.mandatory_item = 'unknown';
             }
-          }
+          }*/
 
         });
       }
