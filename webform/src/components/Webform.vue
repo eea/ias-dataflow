@@ -241,6 +241,19 @@ export default {
 
                   // permits table
                   if(tabel.name === "permits_table"){
+                     sectionF.tables.table_1.table_sections.map((ts) => {
+                       if(ts.name === tabel.name){
+                         console.log(ts.table_fields);
+                         console.log(ts.table_fields.fields);
+                         console.log(ts.table_fields.optionsFields);
+
+                         console.log(tabel.rows);
+                       }
+                     });
+
+                    /*tabel.rows.map((row) => {
+                      console.log(row);
+                    });*/
 
                   } else if(tabel.name === "inspection_table"){
                     // inspection table
