@@ -300,6 +300,17 @@ export default {
 
     prefill(){
       let newDataset = JSON.parse(JSON.stringify(this.dataset));
+      let newDatasetObject = {};
+
+      function iterationCopy(src) {
+        let target = {};
+        for (let prop in src) {
+          if (src.hasOwnProperty(prop)) {
+            target[prop] = src[prop];
+          }
+        }
+        return target;
+      }
 
       function processsPattern( pattern ){
         let res = pattern.map((pat) => {
@@ -366,27 +377,28 @@ export default {
       }
 
       function processTable1(table){
-        /*table.question.options.map((op) => {
-          if(op.value === table.question.selected) table.question.selected = op.text;
-        });*/
-        //delete table.question.options;
         delete table.question.type;
         delete table.question.index;
 
         let sections = table.table_sections.map((tsection) => {
           delete tsection.table_fields.optionsFields;
           if(Object.keys(tsection.field).length === 0) delete tsection.field;
-          let res = tsection.table_fields.fields.map((itm) => {
+          let rows = tsection.table_fields.fields.map((itm) => {
             itm['fields'] = processPermitsRow(itm.fields);
             return itm;
           });
+          res = {};
           res['name'] = tsection.name;
+          res['additional_info'] = tsection.additional_info;
+          res['rows'] = rows;
           return res;
         });
 
         let res = JSON.parse(JSON.stringify(table));
-        res['additional_info'] = res.table_sections[0].additional_info;
-        res.table_sections = sections;
+        if(sections.length > 0){
+          delete res.table_sections;
+          res.table_sections = sections;
+        }
         return res;
       }
 
@@ -486,6 +498,8 @@ export default {
         return res;
       }
 
+      newDatasetObject.country = {};
+      newDatasetObject.country.tables = {};
       let country_tab = newDataset.country.tables;
       if(typeof country_tab === "object"){
         for(let table in country_tab) {
@@ -493,9 +507,11 @@ export default {
             if(typeof country_tab[table] === "object"){
               for (let value of Object.keys( country_tab[table])) {
                 if(value !== 'fields'){
-                  delete country_tab[table][value];
+
+                  //delete newDatasetObject.country.tables[table][value];
                 } else {
-                  country_tab[table].fields = country_tab[table].fields.map((it) => {
+                  newDatasetObject.country.tables[table] = {};
+                  newDatasetObject.country.tables[table].fields = country_tab[table].fields.map((it) => {
                     delete it.type;
                     delete it.disabled;
                     return it;
@@ -506,7 +522,8 @@ export default {
           }
         }
       }
-      newDataset.tab_0 = newDataset.tab_0.tables.table_1.fields.map((it) => {
+
+      newDatasetObject.tab_0 = newDataset.tab_0.tables.table_1.fields.map((it) => {
         delete it.type;
         delete it.disabled;
         return it;
@@ -515,30 +532,21 @@ export default {
       /*
       * TAB 1
       * */
-      let sectionA = newDataset.tab_1.sections;
-
       for(let val of Object.keys(newDataset.tab_1)){
         if (val !== 'sections') delete newDataset.tab_1[val];
       }
       let todelete = [];
 
-      if("undefined" !== typeof sectionA){
-        const todeleteProps = [
-          //'mandatory_item'
-        ];
-        sectionA.forEach((section, k) => {
+      newDatasetObject.tab_1 = {};
+      if("undefined" !== typeof newDataset.tab_1.sections){
+        newDatasetObject.tab_1.sections = newDataset.tab_1.sections.map((section, k) => {
           if(section.mandatory_item.selected === 1){
             todelete.push(k);
             newDataset.tab_1.sections[k] = null;
-            return true;
+            return false;
           }
 
           for(let prop of Object.keys(section)){
-            if(todeleteProps.indexOf(prop) !== -1 ){
-              delete section[prop];
-              continue;
-            }
-
             if(prop !== 'tables'){
               let field = section[prop];
               const allowed = [
@@ -598,8 +606,8 @@ export default {
                 delete section[prop].table_1;
               } else {
                 // section[prop].table_1 = processTable1(section[prop].table_1);
-                section[ section[prop].table_1.name ] = processTable1( section[prop].table_1 );
-                console.log(section[ section[prop].table_1.name ]);
+                let newtable1 = processTable1( section[prop].table_1 );
+                section[ section[prop].table_1.name ] = newtable1;
                 delete section[prop].table_1;
               }
 
@@ -619,41 +627,22 @@ export default {
                 delete section[prop].table_3;
               }
 
-              if(Object.keys(section[prop]).length === 0) delete section[prop];
+              //if(Object.keys(section[prop]).length === 0) delete section[prop];
             }
           }
-
-          //delete section.depending_on_mandatory;
-
           // flattening simple { name, selected } object into string
           section.scientific_name = section.scientific_name.selected;
           section.species_code = section.species_code.selected;
           section.common_name = section.common_name.selected;
-
-          /*if ('undefined' !== typeof section.mandatory_item){
-            if(section.mandatory_item.selected === false){
-              section.mandatory_item = 'no';
-            } else if(section.mandatory_item.selected === true){
-              section.mandatory_item = 'yes';
-            } else if(section.mandatory_item.selected === 'unknown') {
-              section.mandatory_item = 'unknown';
-            }
-          }*/
-
-        });
+          return section;
+        }).filter(Boolean);
       }
-
-      newDataset.tab_1.sections = newDataset.tab_1.sections.filter(Boolean);
-
-      todelete.map((k) => {
-        delete newDataset.tab_1.sections[k];
-      });
 
       /*
       * TAB 2
       * */
 
-      function processFields(fields) {
+      /*function processFields(fields) {
         let res = [];
         fields.map((field) => {
           if(field.type === "checkbox" && field.selected === true){
@@ -665,9 +654,9 @@ export default {
           }
         });
         return res;
-      }
+      }*/
 
-      let sectionB = newDataset.tab_2.sections;
+      /*let sectionB = newDataset.tab_2.sections;
 
       for(let val of Object.keys(newDataset.tab_2)){
         if (val !== 'sections') delete newDataset.tab_2[val];
@@ -680,7 +669,7 @@ export default {
           'type'
         ];
 
-        sectionB.forEach((section, k) => {
+        newDataset.tab_2.sections = sectionB.map((section, k) => {
           if(section.mandatory_item.selected === 1){
             todelete.push(k);
             newDataset.tab_2.sections[k] = null;
@@ -729,23 +718,31 @@ export default {
               section[prop] = section.scientific_name.selected.value;
             }
           }
+
+          return section;
         });
       }
-      newDataset.tab_2.sections = newDataset.tab_2.sections.filter(Boolean);
+      newDataset.tab_2.sections = newDataset.tab_2.sections.filter(Boolean);*/
 
       /*
       * TAB 3
       * */
-      newDataset.tab_3 = newDataset.tab_3.section.fields.filter((section) => {
+      /*newDataset.tab_3 = newDataset.tab_3.section.fields.filter((section) => {
         return section.selected !== '';
-      });
+      });*/
 
       /*
       * TAB 4
       * */
-      newDataset.tab_4 = newDataset.tab_4.section.fields;
+      /*newDataset.tab_4 = newDataset.tab_4.section.fields;*/
 
-      console.log(JSON.stringify(newDataset));
+      delete newDataset.tab_2;
+      delete newDataset.tab_3;
+      delete newDataset.tab_4;
+
+      /*console.log( newDatasetObject );
+      console.log(JSON.stringify(newDatasetObject));*/
+
     },
 
     validate(){

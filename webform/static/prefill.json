@@ -1,12 +1,24 @@
 {
   "IAS" : {
-    "country":{
-      "tables":{
-        "table_1":{
-          "fields":[
-            {"name":"partyname","label":"Member State","selected":"AT"},
-            {"name":"rep_period_from","label":"Reporting period from (year)","selected":"2015-01-01"},
-            {"name":"rep_period_to","label":"Reporting period to (year)","selected":"2018-12-31"}
+    "country": {
+      "tables": {
+        "table_1": {
+          "fields": [
+            {
+              "name": "partyname",
+              "label": "Member State",
+              "selected": "AT"
+            },
+            {
+              "name": "rep_period_from",
+              "label": "Reporting period from (year)",
+              "selected": "2015-01-01"
+            },
+            {
+              "name": "rep_period_to",
+              "label": "Reporting period to (year)",
+              "selected": "2018-12-31"
+            }
           ]
         }
       }
@@ -53,6 +65,7 @@
             "selected": "adadadd",
             "name": "additional_info"
           },
+          "tables": {},
           "reproduction_patterns": [
             {
               "patternType": "reproduction",
@@ -84,7 +97,6 @@
               ]
             }
           ],
-
           "permits_info": {
             "label": "Information on the permits issued for this species to be completed only for invasive alien species of Union concern",
             "name": "permits_info",
@@ -103,61 +115,94 @@
               "selected": true
             },
             "table_sections": [
-              [
-                {
-                  "label": "Permits for research",
-                  "fields": [
-                    {
-                      "permits_number": "",
-                      "measurement": ""
-                    },
-                    {
-                      "valid_permits_number": "",
-                      "valid_measurement": ""
-                    },
-                    {
-                      "total_permited_speciments": "",
-                      "total_permited_speciments_measurement": ""
-                    },
-                    {
-                      "valid_total_permited_speciments": "",
-                      "valid_total_permited_speciments_measurement": ""
-                    }
-                  ]
-                }
-              ],
-              [
-                {
-                  "label": "Permits for research",
-                  "fields": [
-                    {
-                      "number_establishments_inspections": "",
-                      "inspections_measurement": ""
-                    },
-                    {
-                      "number_permitted_specimens": "",
-                      "number_permitted_specimens_measurement": ""
-                    },
-                    {
-                      "establishments_non_compliant": "",
-                      "establishments_non_compliant_measurement": ""
-                    },
-                    {
-                      "number_speciments_held_by_non_compliant_establishments": "",
-                      "measurement_noncompliant": ""
-                    }
-                  ]
-                }
-              ]
-            ],
-            "additional_info": {
-              "label": "Additional information (optional)",
-              "name": "additional_info",
-              "selected": "aaaaazzzzz",
-              "type": "textarea"
-            }
+              {
+                "name": "permits_table",
+                "additional_info": {
+                  "label": "Additional information (optional)",
+                  "name": "additional_info",
+                  "selected": "zzzzasafaf",
+                  "type": "textarea"
+                },
+                "rows": [
+                  {
+                    "label": "Permits for research",
+                    "fields": [
+                      {
+                        "permits_number": "1",
+                        "measurement": "kg"
+                      },
+                      {
+                        "valid_permits_number": "2",
+                        "valid_measurement": "kg"
+                      },
+                      {
+                        "total_permited_speciments": "3",
+                        "total_permited_speciments_measurement": "kg"
+                      },
+                      {
+                        "valid_total_permited_speciments": "4",
+                        "valid_total_permited_speciments_measurement": "kg"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Permits for research",
+                    "fields": [
+                      {
+                        "permits_number": "",
+                        "measurement": ""
+                      },
+                      {
+                        "valid_permits_number": "",
+                        "valid_measurement": ""
+                      },
+                      {
+                        "total_permited_speciments": "",
+                        "total_permited_speciments_measurement": ""
+                      },
+                      {
+                        "valid_total_permited_speciments": "",
+                        "valid_total_permited_speciments_measurement": ""
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "inspection_table",
+                "additional_info": {
+                  "label": "Additional information (optional)",
+                  "name": "additional_info",
+                  "selected": "agaggagag",
+                  "type": "textarea",
+                  "index": 10
+                },
+                "rows": [
+                  {
+                    "label": "Permits for ex situ conservation",
+                    "fields": [
+                      {
+                        "number_establishments_inspections": "1",
+                        "inspections_measurement": "pcs"
+                      },
+                      {
+                        "number_permitted_specimens": "2",
+                        "number_permitted_specimens_measurement": "pcs"
+                      },
+                      {
+                        "establishments_non_compliant": "3",
+                        "establishments_non_compliant_measurement": "pcs"
+                      },
+                      {
+                        "number_speciments_held_by_non_compliant_establishments": "4",
+                        "measurement_noncompliant": "kg"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           },
-
           "eradication_measures_info": {
             "label": "Information on rapid eradication measure(s) taken for this species (Article 17 of Regulation (EU) No 1143/2014)",
             "name": "eradication_measures_info",
@@ -326,10 +371,9 @@
               }
             ]
           }
-
-
         }
       ]
+
     }
 
 
