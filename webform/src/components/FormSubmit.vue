@@ -385,6 +385,7 @@ export default {
         });
 
         let res = JSON.parse(JSON.stringify(table));
+        res['additional_info'] = res.table_sections[0].additional_info;
         res.table_sections = sections;
         return res;
       }
@@ -435,7 +436,7 @@ export default {
           });
           return table;
         });
-
+        //TODO : additional_info
         return res;
       }
 
@@ -579,7 +580,7 @@ export default {
                     /*field.options.map((opt) => {
                       if(opt.value === field.selected) field.selected = opt.text;
                     });*/
-                    //delete field.options;
+                    delete field.options;
                   } else {
                     delete field.options;
                   }
@@ -598,6 +599,7 @@ export default {
               } else {
                 // section[prop].table_1 = processTable1(section[prop].table_1);
                 section[ section[prop].table_1.name ] = processTable1( section[prop].table_1 );
+                console.log(section[ section[prop].table_1.name ]);
                 delete section[prop].table_1;
               }
 

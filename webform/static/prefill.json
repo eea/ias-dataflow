@@ -50,11 +50,284 @@
             ]
           },
           "additional_info": {
-            "selected": "",
+            "selected": "adadadd",
             "name": "additional_info"
           },
-          "reproduction_patterns": [],
-          "spread_pattterns": []
+          "reproduction_patterns": [
+            {
+              "patternType": "reproduction",
+              "region": "RO",
+              "pattern": "Sexual"
+            },
+            {
+              "patternType": "reproduction",
+              "region": "FR",
+              "pattern": "Both (sexual and asexual)"
+            }
+          ],
+          "spread_pattterns": [
+            {
+              "patternType": "spread",
+              "region": "RO",
+              "pattern": [
+                "b) The species predominantly entered through natural dispersal from a neighbouring country",
+                "g) The species predominantly spread with unintentional human assistance"
+              ]
+            },
+            {
+              "patternType": "spread",
+              "region": "FR",
+              "pattern": [
+                "b) The species predominantly entered through natural dispersal from a neighbouring country",
+                "g) The species predominantly spread with unintentional human assistance",
+                "h) The species predominantly spread with intentional human assistance"
+              ]
+            }
+          ],
+
+          "permits_info": {
+            "label": "Information on the permits issued for this species to be completed only for invasive alien species of Union concern",
+            "name": "permits_info",
+            "question": {
+              "label": "Have permits been issued for this species during the reporting period? ",
+              "options": [
+                {
+                  "value": true,
+                  "text": "Yes"
+                },
+                {
+                  "value": false,
+                  "text": "No"
+                }
+              ],
+              "selected": true
+            },
+            "table_sections": [
+              [
+                {
+                  "label": "Permits for research",
+                  "fields": [
+                    {
+                      "permits_number": "",
+                      "measurement": ""
+                    },
+                    {
+                      "valid_permits_number": "",
+                      "valid_measurement": ""
+                    },
+                    {
+                      "total_permited_speciments": "",
+                      "total_permited_speciments_measurement": ""
+                    },
+                    {
+                      "valid_total_permited_speciments": "",
+                      "valid_total_permited_speciments_measurement": ""
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "label": "Permits for research",
+                  "fields": [
+                    {
+                      "number_establishments_inspections": "",
+                      "inspections_measurement": ""
+                    },
+                    {
+                      "number_permitted_specimens": "",
+                      "number_permitted_specimens_measurement": ""
+                    },
+                    {
+                      "establishments_non_compliant": "",
+                      "establishments_non_compliant_measurement": ""
+                    },
+                    {
+                      "number_speciments_held_by_non_compliant_establishments": "",
+                      "measurement_noncompliant": ""
+                    }
+                  ]
+                }
+              ]
+            ],
+            "additional_info": {
+              "label": "Additional information (optional)",
+              "name": "additional_info",
+              "selected": "aaaaazzzzz",
+              "type": "textarea"
+            }
+          },
+
+          "eradication_measures_info": {
+            "label": "Information on rapid eradication measure(s) taken for this species (Article 17 of Regulation (EU) No 1143/2014)",
+            "name": "eradication_measures_info",
+            "question": {
+              "label": "Has the species been subject to rapid eradication measures during the reporting period?",
+              "name": "eradicated",
+              "selected": "Yes"
+            },
+            "tables": [
+              {
+                "name": "National Population #1",
+                "table_sections": [
+                  {
+                    "label": "",
+                    "table_fields": [
+                      {
+                        "label": "Starting date",
+                        "name": "starting_date",
+                        "selected": ""
+                      },
+                      {
+                        "label": "End date",
+                        "name": "duration_or_end",
+                        "selected": ""
+                      },
+                      {
+                        "label": "Part of the territory",
+                        "name": "part_territory",
+                        "selected": "",
+                        "comments": ""
+                      },
+                      {
+                        "label": "Biogeographical region(s)",
+                        "name": "biogeographical_region",
+                        "selected": ""
+                      },
+                      {
+                        "label": "River basin sub-unit(s)",
+                        "name": "river_basin_subunits",
+                        "selected": ""
+                      },
+                      {
+                        "label": "Marine sub-region(s)",
+                        "name": "marine_sub_regions",
+                        "selected": ""
+                      },
+                      {
+                        "label": "Method(s) used",
+                        "name": "methods_used",
+                        "selected": ""
+                      },
+                      {
+                        "label": "",
+                        "name": "effectiveness_measure",
+                        "selected": ""
+                      },
+                      {
+                        "label": "Impacted non-targeted species",
+                        "selected": "",
+                        "name": "impacted_nontargeted_species",
+                        "inner_field": {
+                          "label": "Impact per species",
+                          "type": "text",
+                          "selected": "",
+                          "name": "impact_per_species",
+                          "validation": "false"
+                        }
+                      }
+                    ],
+                    "additional_info": {
+                      "label": "Additional information (optional)",
+                      "name": "additional_info",
+                      "selected": "",
+                      "index": 13,
+                      "type": "textarea"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "management_measures_info": {
+            "label": "Information on management measure(s) taken for this species (Article 19 of Regulation (EU) No 1143/2014)",
+            "name": "management_measures_info",
+            "question": {
+              "label": "Has the species been subject to management measures during the reporting period?",
+              "selected": "Yes"
+            },
+            "tables": [
+              {
+                "name": "National Population #1",
+                "label": "National Population #1",
+                "table_sections": [
+                  {
+                    "label": "",
+                    "index": 15,
+                    "table_fields": [
+                      {
+                        "label": "Starting date",
+                        "name": "starting_date",
+                        "selected": ""
+                      },
+                      {
+                        "label": "End date",
+                        "name": "duration_or_end",
+                        "selected": ""
+                      },
+                      {
+                        "label": "Objective of the measure(s) ",
+                        "name": "measures_objective",
+                        "selected": ""
+                      },
+                      {
+                        "label": "Part of the territory",
+                        "name": "part_territory",
+                        "selected": "",
+                        "comments": ""
+                      },
+                      {
+                        "label": "Biogeographical region(s)",
+                        "name": "biogeographical_region",
+                        "selected": ""
+                      },
+                      {
+                        "label": "River basin sub-unit(s)",
+                        "name": "river_basin_subunits",
+                        "selected": ""
+                      },
+                      {
+                        "label": "Marine sub-region(s)",
+                        "name": "river_basin_subunits",
+                        "selected": ""
+                      },
+                      {
+                        "label": "Method(s) used",
+                        "name": "methods_used",
+                        "selected": ""
+                      },
+                      {
+                        "label": "",
+                        "name": "effectiveness_measure",
+                        "selected": ""
+                      },
+                      {
+                        "label": "Impacted non-targeted species",
+                        "selected": "",
+                        "name": "impacted_nontargeted_species",
+                        "inner_field": {
+                          "label": "Impact per species",
+                          "type": "text",
+                          "selected": "",
+                          "name": "impact_per_species",
+                          "validation": "false"
+                        }
+                      }
+                    ],
+                    "additional_info": {
+                      "label": "Additional information (optional)",
+                      "name": "additional_info",
+                      "selected": "",
+                      "index": 16,
+                      "type": "textarea"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+
+
         }
       ]
     }

@@ -181,19 +181,79 @@ export default {
       data.IAS.tab_1.sections.map((sectionI) => {
         fdata.tab_1.sections.map((sectionF) => {
           if(sectionI.scientific_name === sectionF.scientific_name.selected){
-            console.log("inside section");
-            /*let found = sectionF.mandatory_item.options.filter((op) => {
-              return op.text === sectionI.mandatory_item.selected;
-            });*/
-            sectionF.mandatory_item.selected = sectionI.mandatory_item.selected;
+            if(sectionF.mandatory_item.selected !== '') sectionF.mandatory_item.selected = sectionI.mandatory_item.selected;
 
-            /*console.log(sectionI.permits_info.question.selected);
-            console.log(sectionF.permits_info.);*/
-            /*let found = sectionF.permits_info.question.options.filter((op) => {
-              return op.text === sectionI.mandatory_item.selected;
-            });
-            sectionF.mandatory_item.selected = found[0].value;*/
-            console.log(sectionF.tables.table_1.question.options);
+            // reproduction_patterns
+            if( sectionI.reproduction_patterns.length > 0 ){
+              let blank = JSON.parse(JSON.stringify(sectionF.depending_on_mandatory.reproduction_patterns[0]));
+
+              sectionI.reproduction_patterns.map((pat, ix) => {
+                if(ix !== 0){
+                  sectionF.depending_on_mandatory.reproduction_patterns[ix] = JSON.parse(JSON.stringify(blank));
+                }
+                let found = sectionF.depending_on_mandatory.reproduction_patterns[ix].options.filter((op) => {
+                  return op.text === pat.pattern;
+                });
+                if(found.length > 0) {
+                  sectionF.depending_on_mandatory.reproduction_patterns[ix].selected.pattern =  found[0].value;
+                  sectionF.depending_on_mandatory.reproduction_patterns[ix].selected.region =  pat.region;
+                }
+              });
+            }
+
+            if( sectionI.spread_pattterns.length > 0 ){
+              let blank = JSON.parse(JSON.stringify(sectionF.depending_on_mandatory.spread_pattterns[0]));
+
+              sectionI.spread_pattterns.map((pat, ix) => {
+                if(ix !== 0){
+                  sectionF.depending_on_mandatory.spread_pattterns[ix] = JSON.parse(JSON.stringify(blank));
+                }
+
+                let found = pat.pattern.map((p) => {
+                  let f = sectionF.depending_on_mandatory.spread_pattterns[ix].options.filter((ops) => {
+                    return ops.text === p;
+                  });
+                  return f[0];
+                });
+                if(found.length > 0) {
+                  sectionF.depending_on_mandatory.spread_pattterns[ix].selected.pattern = found;
+                  sectionF.depending_on_mandatory.spread_pattterns[ix].selected.region =  pat.region;
+                }
+              });
+            }
+
+            if( sectionI.additional_info.selected !== ''){
+              sectionF.additional_info.selected = sectionI.additional_info.selected;
+            }
+
+            if( sectionI.permits_info.question.selected !== '' ){
+              // permits_info
+              sectionF.tables.table_1.question.selected = sectionI.permits_info.question.selected;
+
+
+              sectionF.tables.table_1.table_sections[0].additional_info.selected = sectionI.permits_info.additional_info.selected;
+              //console.log(sectionF.tables.table_1.table_sections[0].additional_info.selected);
+              // table
+              
+            }
+
+            // eradication_measures_info
+            if( sectionI.eradication_measures_info.question.selected !== '' ){
+              let found = sectionF.tables.table_2.question.options.filter((op) => {
+                return op.text === sectionI.eradication_measures_info.question.selected;
+              });
+              if(found.length > 0) sectionF.tables.table_2.question.selected = found[0].value;
+            }
+
+            // management_measures_info
+            if( sectionI.management_measures_info.question.selected !== '' ){
+              let found = sectionF.tables.table_3.question.options.filter((op) => {
+                return op.text === sectionI.management_measures_info.question.selected;
+              });
+              if(found.length > 0) sectionF.tables.table_3.question.selected = found[0].value;
+            }
+
+
 
           }
         });
