@@ -125,44 +125,34 @@
                 },
                 "rows": [
                   {
-                    "label": "Permits for research",
+                    "label": "Permits for ex situ conservation",
                     "fields": [
                       {
-                        "permits_number": "1",
-                        "measurement": "kg"
+                        "year": 2015
                       },
                       {
-                        "valid_permits_number": "2",
-                        "valid_measurement": "kg"
+                        "permits_number": [
+                          {
+                            "permits_number": "2",
+                            "measurement": "kg"
+                          },
+                          {
+                            "permits_number": "1",
+                            "measurement": "pcs"
+                          }
+                        ]
                       },
                       {
-                        "total_permited_speciments": "3",
+                        "valid_permits_number": "3",
+                        "valid_measurement": "pcs"
+                      },
+                      {
+                        "total_permited_speciments": "4",
                         "total_permited_speciments_measurement": "kg"
                       },
                       {
-                        "valid_total_permited_speciments": "4",
-                        "valid_total_permited_speciments_measurement": "kg"
-                      }
-                    ]
-                  },
-                  {
-                    "label": "Permits for research",
-                    "fields": [
-                      {
-                        "permits_number": "",
-                        "measurement": ""
-                      },
-                      {
-                        "valid_permits_number": "",
-                        "valid_measurement": ""
-                      },
-                      {
-                        "total_permited_speciments": "",
-                        "total_permited_speciments_measurement": ""
-                      },
-                      {
-                        "valid_total_permited_speciments": "",
-                        "valid_total_permited_speciments_measurement": ""
+                        "valid_total_permited_speciments": "5",
+                        "valid_total_permited_speciments_measurement": "pcs"
                       }
                     ]
                   }
@@ -182,20 +172,58 @@
                     "label": "Permits for ex situ conservation",
                     "fields": [
                       {
-                        "number_establishments_inspections": "1",
-                        "inspections_measurement": "pcs"
+                        "year": 2016
                       },
                       {
-                        "number_permitted_specimens": "2",
-                        "number_permitted_specimens_measurement": "pcs"
+                        "number_establishments_inspections": [
+                          {
+                            "number_establishments_inspections": "2",
+                            "inspections_measurement": "kg"
+                          },
+                          {
+                            "number_establishments_inspections": "1",
+                            "inspections_measurement": "pcs"
+                          }
+                        ]
                       },
                       {
-                        "establishments_non_compliant": "3",
-                        "establishments_non_compliant_measurement": "pcs"
+                        "number_permitted_specimens": [
+                          {
+                            "number_permitted_specimens": "3",
+                            "number_permitted_specimens_measurement": "kg"
+                          },
+                          {
+                            "number_permitted_specimens": "2",
+                            "number_permitted_specimens_measurement": "pcs"
+                          }
+                        ]
                       },
                       {
-                        "number_speciments_held_by_non_compliant_establishments": "4",
-                        "measurement_noncompliant": "kg"
+                        "establishments_non_compliant": [
+                          {
+                            "establishments_non_compliant": "4",
+                            "establishments_non_compliant_measurement": "pcs"
+                          },
+                          {
+                            "establishments_non_compliant": "1",
+                            "establishments_non_compliant_measurement": "kg"
+                          }
+                        ]
+                      },
+                      {
+                        "number_speciments_held_by_non_compliant_establishments_main": ""
+                      },
+                      {
+                        "number_speciments_held_by_non_compliant_establishments": [
+                          {
+                            "number_speciments_held_by_non_compliant_establishments": "1",
+                            "measurement_noncompliant": "kg"
+                          },
+                          {
+                            "number_speciments_held_by_non_compliant_establishments": "2",
+                            "measurement_noncompliant": "pcs"
+                          }
+                        ]
                       }
                     ]
                   }
@@ -371,6 +399,48 @@
               }
             ]
           }
+        },
+        {
+          "scientific_name": "Asclepias syriaca L.",
+          "common_name": "Common milkweed",
+          "species_code": "R01529",
+          "mandatory_item": {
+            "selected": true,
+            "name": "mandatory_question"
+          },
+          "depending_on_mandatory": {
+            "name": "distribution_of_species",
+            "fields": [
+              {
+                "label": "Tick if yes",
+                "type": "checkbox",
+                "name": "distribution_maps_check",
+                "selected": false
+              }
+            ]
+          },
+          "additional_info": {
+            "selected": "azzzzaaaaaa",
+            "name": "additional_info"
+          },
+          "tables": {},
+          "reproduction_patterns": [
+            {
+              "patternType": "reproduction",
+              "region": "FR",
+              "pattern": "Asexusal"
+            }
+          ],
+          "spread_pattterns": [
+            {
+              "patternType": "spread",
+              "region": "FR",
+              "pattern": [
+                "b) The species predominantly entered through natural dispersal from a neighbouring country",
+                "h) The species predominantly spread with intentional human assistance"
+              ]
+            }
+          ]
         }
       ]
 

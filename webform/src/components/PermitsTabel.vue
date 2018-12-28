@@ -44,7 +44,6 @@
                 {{ errors.first( 'permits_' + 'permit' + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey ) }}
               </b-badge>
 
-
               <b-form-select :options="options" v-model="index[rkey]"
                 v-b-tooltip.hover
                 :title="row.label"
@@ -142,7 +141,8 @@
         let temp  = this.initialRows.map((item, ix)=>{
           return { text: item.label, value: ix};
         });
-        this.table_section.table_fields.fields[0] = JSON.parse(JSON.stringify(this.initialRows[0]));
+
+        if(this.table_section.table_fields.fields.length === 0 ) this.table_section.table_fields.fields[0] = JSON.parse(JSON.stringify(this.initialRows[0]));
         this.options = temp;
       }
     },

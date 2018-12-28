@@ -184,7 +184,7 @@ export default {
 
       if('undefined' !== typeof data.IAS.tab_1){
         data.IAS.tab_1.sections.map((sectionI) => {
-          fdata.tab_1.sections.map((sectionF) => {
+          fdata.tab_1.sections = fdata.tab_1.sections.map((sectionF) => {
             if(sectionI.scientific_name === sectionF.scientific_name.selected){
               if(sectionF.mandatory_item.selected !== '') sectionF.mandatory_item.selected = sectionI.mandatory_item.selected;
 
@@ -231,34 +231,74 @@ export default {
                 sectionF.additional_info.selected = sectionI.additional_info.selected;
               }
 
-              if( sectionI.permits_info.question.selected !== '' ){
+
+              if("undefined" !== typeof sectionI.permits_info &&
+                "undefined" !== typeof sectionI.permits_info.question &&
+                sectionI.permits_info.question.selected !== '' ){
                 // permits_info
                 sectionF.tables.table_1.question.selected = sectionI.permits_info.question.selected;
 
                 sectionI.permits_info.table_sections.map((tabel,ix) => {
-                  console.log("####");
                   sectionF.tables.table_1.table_sections[ix].additional_info.selected = tabel.additional_info.selected;
-
                   // permits table
-                  if(tabel.name === "permits_table"){
-                     sectionF.tables.table_1.table_sections.map((ts) => {
+                  //if(tabel.name === "permits_table"){
+                     sectionF.tables.table_1.table_sections.map((ts, itx) => {
                        if(ts.name === tabel.name){
-                         console.log(ts.table_fields);
-                         console.log(ts.table_fields.fields);
-                         console.log(ts.table_fields.optionsFields);
+                         tabel.rows.map((row) => {
+                           let newr = JSON.parse(JSON.stringify(ts.table_fields.optionsFields[0]));
+                           newr.label = row.label;
 
-                         console.log(tabel.rows);
+                           console.log("newr " + tabel.name);
+                           row.fields.map((rfield) => {
+                             newr.fields.map((field, fi) => {
+
+                               Object.keys(rfield).map((prop) => {
+                                 if(prop === field.name || prop+'_main' === field.name){
+                                   //if array
+                                   if(rfield[prop] instanceof Array){
+                                      let deffield = JSON.parse(JSON.stringify(field.fields[0]));
+                                      newr.fields[fi].fields = [];
+
+                                      rfield[prop].map((rfp, ri) => {
+                                        let tmpf = JSON.parse(JSON.stringify(deffield));
+
+                                        tmpf.fields = tmpf.fields.map((f) => {
+                                          f.selected = rfp[f.name];
+                                          return f;
+                                        });
+                                        newr.fields[fi].fields.push(tmpf);
+                                      });
+                                   } else {
+                                     if(typeof rfield[prop] === "number"){
+                                       newr.fields[fi].selected = rfield[prop];
+                                     } else {
+                                       newr.fields[fi].fields = newr.fields[fi].fields.map((nwfield) => {
+                                         nwfield.fields = nwfield.fields.map((nwf) => {
+                                           nwf.selected = rfield[nwf.name];
+                                           return nwf;
+                                         });
+                                         return nwfield;
+                                       });
+                                     }
+                                   }
+                                 }
+                               });
+
+
+
+                             });
+                           });
+
+                           sectionF.tables.table_1.table_sections[itx].table_fields.fields.push(newr);
+                         });
+
                        }
                      });
 
-                    /*tabel.rows.map((row) => {
-                      console.log(row);
-                    });*/
-
-                  } else if(tabel.name === "inspection_table"){
+                  //} else if(tabel.name === "inspection_table"){
                     // inspection table
 
-                  }
+                  //}
                 });
 
 
@@ -272,7 +312,9 @@ export default {
               }
 
               // eradication_measures_info
-              if( sectionI.eradication_measures_info.question.selected !== '' ){
+              if( "undefined" !== typeof sectionI.eradication_measures_info &&
+                "undefined" !== typeof sectionI.eradication_measures_info.question &&
+                sectionI.eradication_measures_info.question.selected !== '' ){
                 let found = sectionF.tables.table_2.question.options.filter((op) => {
                   return op.text === sectionI.eradication_measures_info.question.selected;
                 });
@@ -280,14 +322,18 @@ export default {
               }
 
               // management_measures_info
-              if( sectionI.management_measures_info.question.selected !== '' ){
+              if( "undefined" !== typeof sectionI.management_measures_info &&
+                "undefined" !== typeof sectionI.management_measures_info.question &&
+                sectionI.management_measures_info.question.selected !== '' ){
                 let found = sectionF.tables.table_3.question.options.filter((op) => {
                   return op.text === sectionI.management_measures_info.question.selected;
                 });
                 if(found.length > 0) sectionF.tables.table_3.question.selected = found[0].value;
               }
             }
+            return sectionF;
           });
+
         });
       }
 

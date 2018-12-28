@@ -335,7 +335,11 @@ export default {
 
         fields.map((itm) => {
           if('undefined' !== typeof itm.selected) {
-            res[itm.name] = itm.selected;
+            let iname = itm.name;
+            let temp = {};
+            temp[iname] = itm.selected;
+            console.log(temp);
+            res.push(temp);
           }
           if('undefined' !== typeof itm.type && itm.type === "add"){
             let subfield = null;
@@ -358,7 +362,6 @@ export default {
             }).reduce((acc, item) => {
               if(item instanceof Array){
                 if('undefined' === typeof acc[item[0].name]){ acc[item[0].name] = [] }
-                //console.log("######");
                 let temp = {};
                 item.map((fi) => {
                   temp[fi.name] = fi.selected;
@@ -391,6 +394,7 @@ export default {
           res['name'] = tsection.name;
           res['additional_info'] = tsection.additional_info;
           res['rows'] = rows;
+          //console.log(res);
           return res;
         });
 
@@ -740,8 +744,8 @@ export default {
       delete newDataset.tab_3;
       delete newDataset.tab_4;
 
-      /*console.log( newDatasetObject );
-      console.log(JSON.stringify(newDatasetObject));*/
+      //console.log( newDatasetObject );
+      console.log(JSON.stringify(newDatasetObject));
 
     },
 
