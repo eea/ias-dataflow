@@ -299,9 +299,6 @@ export default {
                      });
                 });
 
-
-
-
                 // table
                 /*sectionF.tables.table_1.table_sections.map((tsection) => {
                   //console.log(tsection.name);
@@ -318,6 +315,65 @@ export default {
                 });
                 if(found.length > 0) sectionF.tables.table_2.question.selected = found[0].value;
 
+                let oldt = JSON.parse(JSON.stringify(sectionF.tables.table_2.tables[0]));
+
+                sectionF.tables.table_2.tables = [];
+
+                sectionI.eradication_measures_info.tables.map((populationO) => {
+                  let temp = JSON.parse(JSON.stringify(oldt));
+                  temp.name = populationO.name;
+
+                  //temp.label = populationO.name;
+
+                  populationO.table_sections.map((pts) => {
+                    temp.table_sections = temp.table_sections.map((ts) => {
+                      ts.table_fields.fields = ts.table_fields.fields.map((subfield) => {
+                        let arr = [];
+                        subfield.fields = subfield.fields.map((field, fix) => {
+                          let found = pts.table_fields.filter((pfield) => {
+                            return pfield.name === field.name;
+                          });
+
+                          if(found.length > 1){
+                            found.map((foundfield, fidx) => {
+                                let tmptf = JSON.parse(JSON.stringify(field));
+                                tmptf.selected = foundfield.selected;
+                                tmptf.inner_field.selected = foundfield.inner_field.selected;
+                                arr.push(tmptf);
+                                //subfield.fields.push(tmptf);
+                                //console.log(tmptf);
+                            });
+                            return false;
+                          } else {
+                            const arr = ["river_basin_subunits", "marine_sub_regions","effectiveness_measure"];
+
+                            if(arr.indexOf(field.name) !== -1){
+                              //console.log(found[0].selected[0]);
+                              field.selected = found[0].selected[0].value;
+                            } else {
+                              field.selected = found[0].selected;
+                            }
+
+                          }
+
+                          return field;
+                        }).filter(Boolean);
+                        if(arr.length > 0) subfield.fields = arr;
+
+                        return subfield;
+                      });
+                      ts.additional_info.selected = pts.additional_info.selected;
+                      return ts;
+                    });
+                  });
+
+                  /*console.log(temp.table_sections);
+                  console.log(populationO.table_sections);*/
+
+                  sectionF.tables.table_2.tables.push(temp);
+
+
+                });
 
               }
 

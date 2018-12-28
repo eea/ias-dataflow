@@ -255,6 +255,7 @@
               }
             ]
           },
+
           "eradication_measures_info": {
             "label": "Information on rapid eradication measure(s) taken for this species (Article 17 of Regulation (EU) No 1143/2014)",
             "name": "eradication_measures_info",
@@ -265,7 +266,7 @@
             },
             "tables": [
               {
-                "name": "National Population #1",
+                "name": "National Population #12",
                 "table_sections": [
                   {
                     "label": "",
@@ -273,61 +274,104 @@
                       {
                         "label": "Starting date",
                         "name": "starting_date",
-                        "selected": ""
+                        "selected": "2018-12-01"
                       },
                       {
                         "label": "End date",
                         "name": "duration_or_end",
-                        "selected": ""
+                        "selected": "2018-12-26"
                       },
                       {
                         "label": "Part of the territory",
                         "name": "part_territory",
-                        "selected": "",
+                        "selected": {
+                          "text": "RÉGION DE BRUXELLES-CAPITALE / BRUSSELS HOOFDSTEDELIJK GEWEST",
+                          "value": "BE1"
+                        },
                         "comments": ""
                       },
                       {
                         "label": "Biogeographical region(s)",
                         "name": "biogeographical_region",
-                        "selected": ""
+                        "selected": [
+                          {
+                            "text": "second option",
+                            "value": 1
+                          }
+                        ]
                       },
                       {
                         "label": "River basin sub-unit(s)",
                         "name": "river_basin_subunits",
-                        "selected": ""
+                        "selected": [
+                          {
+                            "text": "first option",
+                            "value": 0
+                          }
+                        ]
                       },
                       {
                         "label": "Marine sub-region(s)",
                         "name": "marine_sub_regions",
-                        "selected": ""
+                        "selected": [
+                          {
+                            "text": "North East Atlantic",
+                            "value": "ATL"
+                          }
+                        ]
                       },
                       {
                         "label": "Method(s) used",
                         "name": "methods_used",
-                        "selected": ""
+                        "selected": [
+                          {
+                            "text": "Chemical",
+                            "value": 1
+                          },
+                          {
+                            "text": "Biological",
+                            "value": 2
+                          }
+                        ]
                       },
                       {
                         "label": "",
                         "name": "effectiveness_measure",
-                        "selected": ""
+                        "selected": [
+                          {
+                            "text": "Population decreasing",
+                            "value": 1
+                          }
+                        ]
                       },
                       {
                         "label": "Impacted non-targeted species",
-                        "selected": "",
+                        "selected": "Baccharis halimifolia L. ",
                         "name": "impacted_nontargeted_species",
                         "inner_field": {
                           "label": "Impact per species",
                           "type": "text",
-                          "selected": "",
+                          "selected": "decreasing",
                           "name": "impact_per_species",
                           "validation": "false"
+                        }
+                      },
+                      {
+                        "label": "Impacted non-targeted species",
+                        "selected": "Baccharis halimifolia L. 2",
+                        "name": "impacted_nontargeted_species",
+                        "inner_field": {
+                          "label": "Impact per species",
+                          "type": "text",
+                          "selected": "eradicated",
+                          "name": "impact_per_species"
                         }
                       }
                     ],
                     "additional_info": {
                       "label": "Additional information (optional)",
                       "name": "additional_info",
-                      "selected": "",
+                      "selected": "asafafaff",
                       "index": 13,
                       "type": "textarea"
                     }
@@ -423,6 +467,7 @@
               }
             ]
           }
+
         },
         {
           "scientific_name": "Asclepias syriaca L.",

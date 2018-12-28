@@ -1249,7 +1249,8 @@ function form() {
                     label: '',
                     table_fields: {
                       header: '',
-                      fields: [{
+                      fields: [
+                        {
                         label: 'Measure(s)',
                         fields: [{
                           label: 'Starting date',
@@ -1343,7 +1344,8 @@ function form() {
                           label: 'Impacted non-targeted species',
                           type: 'add',
                           description:'Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)',
-                          fields: [{
+                          fields: [
+                            {
                             label: 'Impacted non-targeted species',
                             type: 'text',
                             selected: '',
@@ -1356,7 +1358,8 @@ function form() {
                               name: 'impact_per_species',
                               validation:'false',
                             }
-                          }, ]
+                          },
+                          ]
                         },
                       ]
                     },
