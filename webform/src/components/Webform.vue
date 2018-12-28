@@ -186,7 +186,7 @@ export default {
         data.IAS.tab_1.sections.map((sectionI) => {
           fdata.tab_1.sections = fdata.tab_1.sections.map((sectionF) => {
             if(sectionI.scientific_name === sectionF.scientific_name.selected){
-              if(sectionF.mandatory_item.selected !== '') sectionF.mandatory_item.selected = sectionI.mandatory_item.selected;
+              if( sectionF.mandatory_item.selected !== '') sectionF.mandatory_item.selected = sectionI.mandatory_item.selected;
 
               // reproduction_patterns
               if( sectionI.reproduction_patterns.length > 0 ){
@@ -227,10 +227,9 @@ export default {
                 });
               }
 
-              if( sectionI.additional_info.selected !== ''){
+              if( "undefined" !== typeof sectionI.additional_info && sectionI.additional_info.selected !== ''){
                 sectionF.additional_info.selected = sectionI.additional_info.selected;
               }
-
 
               if("undefined" !== typeof sectionI.permits_info &&
                 "undefined" !== typeof sectionI.permits_info.question &&
@@ -240,15 +239,21 @@ export default {
 
                 sectionI.permits_info.table_sections.map((tabel,ix) => {
                   sectionF.tables.table_1.table_sections[ix].additional_info.selected = tabel.additional_info.selected;
-                  // permits table
-                  //if(tabel.name === "permits_table"){
+
                      sectionF.tables.table_1.table_sections.map((ts, itx) => {
                        if(ts.name === tabel.name){
                          tabel.rows.map((row) => {
-                           let newr = JSON.parse(JSON.stringify(ts.table_fields.optionsFields[0]));
+                           let newf = ts.table_fields.optionsFields.filter((r, ri) => {
+                             if(r.label === row.label){
+                               r.index = ri;
+                               return r;
+                             }
+                             //return false;
+                           })[0];
+
+                           let newr = JSON.parse(JSON.stringify(newf));
                            newr.label = row.label;
 
-                           console.log("newr " + tabel.name);
                            row.fields.map((rfield) => {
                              newr.fields.map((field, fi) => {
 
@@ -284,8 +289,6 @@ export default {
                                  }
                                });
 
-
-
                              });
                            });
 
@@ -294,11 +297,6 @@ export default {
 
                        }
                      });
-
-                  //} else if(tabel.name === "inspection_table"){
-                    // inspection table
-
-                  //}
                 });
 
 
@@ -319,6 +317,8 @@ export default {
                   return op.text === sectionI.eradication_measures_info.question.selected;
                 });
                 if(found.length > 0) sectionF.tables.table_2.question.selected = found[0].value;
+
+
               }
 
               // management_measures_info

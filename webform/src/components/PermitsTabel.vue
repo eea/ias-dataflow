@@ -133,7 +133,11 @@
     created: function(){
       if('undefined' !== typeof this.table_section.table_fields.fields){
         this.table_section.table_fields.fields.forEach((field, ix)=>{
-          this.index[ix] = ix;
+          if("undefined" !== typeof field.index){
+            this.index[ix] = field.index;
+          } else {
+            this.index[ix] = ix;
+          }
         });
         this.options = [];
         let arr = [];
@@ -141,6 +145,7 @@
         let temp  = this.initialRows.map((item, ix)=>{
           return { text: item.label, value: ix};
         });
+
 
         if(this.table_section.table_fields.fields.length === 0 ) this.table_section.table_fields.fields[0] = JSON.parse(JSON.stringify(this.initialRows[0]));
         this.options = temp;
