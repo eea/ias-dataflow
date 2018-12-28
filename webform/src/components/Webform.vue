@@ -406,7 +406,6 @@ export default {
                             return pfield.name === field.name;
                           });
 
-                          //console.log(found);
                           if(found.length > 1){
                             found.map((foundfield, fidx) => {
                               let tmptf = JSON.parse(JSON.stringify(field));
@@ -416,10 +415,9 @@ export default {
                                   tmptf.inner_field.selected = foundfield.inner_field.selected;
                                 }
                                 arr.push(tmptf);
-                                //console.log(tmptf);
                               }
                             });
-                            //return false;
+                            return false;
                           } else if(found.length === 1) {
                             console.log(field.name);
                             const arr = ["measures_objective", "river_basin_subunits", "marine_basin_subunits","effectiveness_measure"];
