@@ -1580,7 +1580,7 @@ function form() {
                         },
                         {
                           label: 'Marine sub-region(s)',
-                          name: 'river_basin_subunits',
+                          name: 'marine_basin_subunits',
                           type: 'select',
                           selected: '',
                           options: msubregs,

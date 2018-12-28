@@ -389,8 +389,8 @@
             },
             "tables": [
               {
-                "name": "National Population #1",
-                "label": "National Population #1",
+                "name": "National Population #13",
+                "label": "National Population #13",
                 "table_sections": [
                   {
                     "label": "",
@@ -399,66 +399,114 @@
                       {
                         "label": "Starting date",
                         "name": "starting_date",
-                        "selected": ""
+                        "selected": "2018-12-03"
                       },
                       {
                         "label": "End date",
                         "name": "duration_or_end",
-                        "selected": ""
+                        "selected": "2018-12-29"
                       },
                       {
                         "label": "Objective of the measure(s) ",
                         "name": "measures_objective",
-                        "selected": ""
+                        "selected": [
+                          {
+                            "text": "Control",
+                            "value": 1
+                          }
+                        ]
                       },
                       {
                         "label": "Part of the territory",
                         "name": "part_territory",
-                        "selected": "",
+                        "selected": {
+                          "text": "Arr. de Bruxelles-Capitale / Arr. van Brussel-Hoofdstad",
+                          "value": "BE100"
+                        },
                         "comments": ""
                       },
                       {
                         "label": "Biogeographical region(s)",
                         "name": "biogeographical_region",
-                        "selected": ""
+                        "selected": [
+                          {
+                            "text": "second option",
+                            "value": 1
+                          }
+                        ]
                       },
                       {
                         "label": "River basin sub-unit(s)",
                         "name": "river_basin_subunits",
-                        "selected": ""
+                        "selected": [
+                          {
+                            "text": "third option",
+                            "value": 2
+                          }
+                        ]
                       },
                       {
                         "label": "Marine sub-region(s)",
-                        "name": "river_basin_subunits",
-                        "selected": ""
+                        "name": "marine_basin_subunits",
+                        "selected": [
+                          {
+                            "text": "Greater North Sea",
+                            "value": "ANS"
+                          }
+                        ]
                       },
                       {
                         "label": "Method(s) used",
                         "name": "methods_used",
-                        "selected": ""
+                        "selected": [
+                          {
+                            "text": "Chemical",
+                            "value": 1
+                          },
+                          {
+                            "text": "Biological",
+                            "value": 2
+                          }
+                        ]
                       },
                       {
                         "label": "",
                         "name": "effectiveness_measure",
-                        "selected": ""
+                        "selected": [
+                          {
+                            "text": "Population stable",
+                            "value": 2
+                          }
+                        ]
                       },
                       {
                         "label": "Impacted non-targeted species",
-                        "selected": "",
+                        "selected": "Baccharis halimifolia L. 3",
                         "name": "impacted_nontargeted_species",
                         "inner_field": {
                           "label": "Impact per species",
                           "type": "text",
-                          "selected": "",
+                          "selected": "adafafaff",
                           "name": "impact_per_species",
                           "validation": "false"
+                        }
+                      },
+                      {
+                        "label": "Impacted non-targeted species",
+                        "selected": "Baccharis halimifolia L. 2",
+                        "name": "impacted_nontargeted_species",
+                        "inner_field": {
+                          "label": "Impact per species",
+                          "type": "text",
+                          "selected": "adsgzzza",
+                          "name": "impact_per_species"
                         }
                       }
                     ],
                     "additional_info": {
                       "label": "Additional information (optional)",
                       "name": "additional_info",
-                      "selected": "",
+                      "selected": "zszvzxvvvv",
                       "index": 16,
                       "type": "textarea"
                     }

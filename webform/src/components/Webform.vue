@@ -336,15 +336,17 @@ export default {
 
                           if(found.length > 1){
                             found.map((foundfield, fidx) => {
-                                let tmptf = JSON.parse(JSON.stringify(field));
+                              let tmptf = JSON.parse(JSON.stringify(field));
+                              if("undefined" !== typeof tmptf){
                                 tmptf.selected = foundfield.selected;
-                                tmptf.inner_field.selected = foundfield.inner_field.selected;
+                                if("undefined" !== typeof tmptf.inner_field){
+                                  tmptf.inner_field.selected = foundfield.inner_field.selected;
+                                }
                                 arr.push(tmptf);
-                                //subfield.fields.push(tmptf);
-                                //console.log(tmptf);
+                              }
                             });
                             return false;
-                          } else {
+                          }  else {
                             const arr = ["river_basin_subunits", "marine_sub_regions","effectiveness_measure"];
 
                             if(arr.indexOf(field.name) !== -1){
@@ -362,7 +364,7 @@ export default {
 
                         return subfield;
                       });
-                      ts.additional_info.selected = pts.additional_info.selected;
+                      if("undefined" !== typeof pts.additional_info.selected) ts.additional_info.selected = pts.additional_info.selected;
                       return ts;
                     });
                   });
@@ -385,6 +387,66 @@ export default {
                   return op.text === sectionI.management_measures_info.question.selected;
                 });
                 if(found.length > 0) sectionF.tables.table_3.question.selected = found[0].value;
+
+                let oldt = JSON.parse(JSON.stringify(sectionF.tables.table_3.tables[0]));
+
+                sectionF.tables.table_3.tables = [];
+
+                sectionI.management_measures_info.tables.map((populationO) => {
+                  let temp = JSON.parse(JSON.stringify(oldt));
+                  temp.name = populationO.name;
+                  temp.label = populationO.name;
+
+                  populationO.table_sections.map((pts) => {
+                    temp.table_sections = temp.table_sections.map((ts) => {
+                      ts.table_fields.fields = ts.table_fields.fields.map((subfield) => {
+                        let arr = [];
+                        subfield.fields = subfield.fields.map((field, fix) => {
+                          let found = pts.table_fields.filter((pfield) => {
+                            return pfield.name === field.name;
+                          });
+
+                          //console.log(found);
+                          if(found.length > 1){
+                            found.map((foundfield, fidx) => {
+                              let tmptf = JSON.parse(JSON.stringify(field));
+                              if("undefined" !== typeof tmptf){
+                                tmptf.selected = foundfield.selected;
+                                if("undefined" !== typeof tmptf.inner_field){
+                                  tmptf.inner_field.selected = foundfield.inner_field.selected;
+                                }
+                                arr.push(tmptf);
+                                //console.log(tmptf);
+                              }
+                            });
+                            //return false;
+                          } else if(found.length === 1) {
+                            console.log(field.name);
+                            const arr = ["measures_objective", "river_basin_subunits", "marine_basin_subunits","effectiveness_measure"];
+                            if(arr.indexOf(field.name) !== -1){
+                              field.selected = found[0].selected[0].value;
+                            } else {
+                              field.selected = found[0].selected;
+
+                            }
+                          } else {
+                            //return false;
+                          }
+                          return field;
+                        }).filter(Boolean);
+                        if(arr.length > 0) subfield.fields = arr;
+                        return subfield;
+                      });
+                      if("undefined" !== typeof pts.additional_info.selected) ts.additional_info.selected = pts.additional_info.selected;
+                      return ts;
+                    });
+                  });
+
+                  sectionF.tables.table_3.tables.push(temp);
+
+                });
+
+
               }
             }
             return sectionF;
