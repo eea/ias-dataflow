@@ -738,7 +738,14 @@ export default {
         sections = sections.map((section) => {
           data.IAS.tab_2.sections.map((sectionI) => {
             if(sectionI.scientific_name === section.scientific_name.selected.value){
-              console.log(sectionI);
+              //console.log(sectionI.mandatory_item);
+              let f = section.mandatory_item.options.filter((op) => {
+                return op.text === sectionI.mandatory_item.selected;
+              });
+              if(f.length > 0) section.mandatory_item.selected = JSON.parse(JSON.stringify(f[0])).value;
+
+              section.additional_info.selected = sectionI.additional_info.selected;
+              //console.log(sectionI.additional_info);
             }
           });
           return section;

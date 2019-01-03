@@ -990,16 +990,7 @@
           "scientific_name": "Abax parallelus",
           "common_name": {
             "label": "Common name of the species (optional)",
-            "selected": {
-              "oligohaline": "0",
-              "status": "A",
-              "eu_concern": "0",
-              "code": "R00001",
-              "terrestrial": "1",
-              "name": "Abax parallelus",
-              "marine": "0",
-              "freshwater": "0"
-            },
+            "selected": "",
             "disabled": true,
             "name": "common_name",
             "type": "text",
@@ -1029,7 +1020,7 @@
             "label": "Additional information (optional)",
             "type": "textarea",
             "index": 5,
-            "selected": "",
+            "selected": "zZzzzz",
             "name": "additional_info"
           },
           "section": {
@@ -1037,8 +1028,7 @@
             "fields": []
           },
           "reproduction_patterns": [],
-          "spread_patterns": [],
-          "code_name": "R00001"
+          "spread_patterns": []
         }
       ]
     }
