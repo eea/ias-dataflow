@@ -40,6 +40,7 @@
         "selected": "2018-12-31"
       }
     ],
+
     "tab_1": {
       "sections": [
         {
@@ -154,7 +155,8 @@
                         "valid_total_permited_speciments": "5",
                         "valid_total_permited_speciments_measurement": "pcs"
                       }
-                    ]
+                    ],
+                    "index": 1
                   },
                   {
                     "label": "Permits for scientific production and subsequent medicinal use to advance human health",
@@ -178,7 +180,8 @@
                         "valid_total_permited_speciments": "",
                         "valid_total_permited_speciments_measurement": ""
                       }
-                    ]
+                    ],
+                    "index": 2
                   }
                 ]
               },
@@ -249,13 +252,41 @@
                           }
                         ]
                       }
-                    ]
+                    ],
+                    "index": 1
+                  },
+                  {
+                    "label": "Permits for scientific production and subsequent medicinal use to advance human health",
+                    "fields": [
+                      {
+                        "year": 2015
+                      },
+                      {
+                        "number_establishments_inspections": "1",
+                        "inspections_measurement": "kg"
+                      },
+                      {
+                        "number_permitted_specimens": "",
+                        "number_permitted_specimens_measurement": ""
+                      },
+                      {
+                        "establishments_non_compliant": "",
+                        "establishments_non_compliant_measurement": ""
+                      },
+                      {
+                        "number_speciments_held_by_non_compliant_establishments_main": ""
+                      },
+                      {
+                        "number_speciments_held_by_non_compliant_establishments": "",
+                        "measurement_noncompliant": ""
+                      }
+                    ],
+                    "index": 2
                   }
                 ]
               }
             ]
           },
-
           "eradication_measures_info": {
             "label": "Information on rapid eradication measure(s) taken for this species (Article 17 of Regulation (EU) No 1143/2014)",
             "name": "eradication_measures_info",
@@ -364,7 +395,8 @@
                           "label": "Impact per species",
                           "type": "text",
                           "selected": "eradicated",
-                          "name": "impact_per_species"
+                          "name": "impact_per_species",
+                          "validation": "false"
                         }
                       }
                     ],
@@ -376,7 +408,225 @@
                       "type": "textarea"
                     }
                   }
-                ]
+                ],
+                "label": "National Population #12"
+              },
+              {
+                "name": "National Population #2",
+                "table_sections": [
+                  {
+                    "label": "",
+                    "table_fields": [
+                      {
+                        "label": "Starting date",
+                        "name": "starting_date",
+                        "selected": "2018-12-31"
+                      },
+                      {
+                        "label": "End date",
+                        "name": "duration_or_end",
+                        "selected": "2019-01-30"
+                      },
+                      {
+                        "label": "Part of the territory",
+                        "name": "part_territory",
+                        "selected": {
+                          "text": "VLAAMS GEWEST",
+                          "value": "BE2"
+                        },
+                        "comments": ""
+                      },
+                      {
+                        "label": "Biogeographical region(s)",
+                        "name": "biogeographical_region",
+                        "selected": [
+                          {
+                            "text": "second option",
+                            "value": 1
+                          },
+                          {
+                            "text": "first option",
+                            "value": 0
+                          },
+                          {
+                            "text": "third option",
+                            "value": 2
+                          }
+                        ]
+                      },
+                      {
+                        "label": "River basin sub-unit(s)",
+                        "name": "river_basin_subunits",
+                        "selected": [
+                          {
+                            "text": "third option",
+                            "value": 2
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Marine sub-region(s)",
+                        "name": "marine_sub_regions",
+                        "selected": [
+                          {
+                            "text": "Greater North Sea",
+                            "value": "ANS"
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Method(s) used",
+                        "name": "methods_used",
+                        "selected": [
+                          {
+                            "text": "Biological",
+                            "value": 2
+                          },
+                          {
+                            "text": "Chemical",
+                            "value": 1
+                          }
+                        ]
+                      },
+                      {
+                        "label": "",
+                        "name": "effectiveness_measure",
+                        "selected": [
+                          {
+                            "text": "Population still increasing ",
+                            "value": 3
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Impacted non-targeted species",
+                        "selected": "Baccharis halimifolia A.",
+                        "name": "impacted_nontargeted_species",
+                        "inner_field": {
+                          "label": "Impact per species",
+                          "type": "text",
+                          "selected": "decreazinfgh",
+                          "name": "impact_per_species",
+                          "validation": "false"
+                        }
+                      },
+                      {
+                        "label": "Impacted non-targeted species",
+                        "selected": "Baccharis halimifolia AB",
+                        "name": "impacted_nontargeted_species",
+                        "inner_field": {
+                          "label": "Impact per species",
+                          "type": "text",
+                          "selected": "decreasing",
+                          "name": "impact_per_species",
+                          "validation": "false"
+                        }
+                      }
+                    ],
+                    "additional_info": {
+                      "label": "Additional information (optional)",
+                      "name": "additional_info",
+                      "selected": "qqqqqqqqqqqqqqqqqqqqqqqqqqq",
+                      "index": 13,
+                      "type": "textarea"
+                    }
+                  }
+                ],
+                "label": "National Population #2"
+              },
+              {
+                "name": "National Population #3",
+                "table_sections": [
+                  {
+                    "label": "",
+                    "table_fields": [
+                      {
+                        "label": "Starting date",
+                        "name": "starting_date",
+                        "selected": "2018-12-30"
+                      },
+                      {
+                        "label": "End date",
+                        "name": "duration_or_end",
+                        "selected": "2019-02-02"
+                      },
+                      {
+                        "label": "Part of the territory",
+                        "name": "part_territory",
+                        "selected": {
+                          "text": "Arr. Hasselt",
+                          "value": "BE221"
+                        },
+                        "comments": ""
+                      },
+                      {
+                        "label": "Biogeographical region(s)",
+                        "name": "biogeographical_region",
+                        "selected": [
+                          {
+                            "text": "second option",
+                            "value": 1
+                          }
+                        ]
+                      },
+                      {
+                        "label": "River basin sub-unit(s)",
+                        "name": "river_basin_subunits",
+                        "selected": [
+                          {
+                            "text": "third option",
+                            "value": 2
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Marine sub-region(s)",
+                        "name": "marine_sub_regions",
+                        "selected": [
+                          {
+                            "text": "White Sea",
+                            "value": "WHI"
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Method(s) used",
+                        "name": "methods_used",
+                        "selected": [
+                          {
+                            "text": "Biological",
+                            "value": 2
+                          }
+                        ]
+                      },
+                      {
+                        "label": "",
+                        "name": "effectiveness_measure",
+                        "selected": ""
+                      },
+                      {
+                        "label": "Impacted non-targeted species",
+                        "selected": "Baccharis halimifolia B.",
+                        "name": "impacted_nontargeted_species",
+                        "inner_field": {
+                          "label": "Impact per species",
+                          "type": "text",
+                          "selected": "eradicatedZzz",
+                          "name": "impact_per_species",
+                          "validation": "false"
+                        }
+                      }
+                    ],
+                    "additional_info": {
+                      "label": "Additional information (optional)",
+                      "name": "additional_info",
+                      "selected": "",
+                      "index": 13,
+                      "type": "textarea"
+                    }
+                  }
+                ],
+                "label": "National Population #3"
               }
             ]
           },
@@ -499,7 +749,8 @@
                           "label": "Impact per species",
                           "type": "text",
                           "selected": "adsgzzza",
-                          "name": "impact_per_species"
+                          "name": "impact_per_species",
+                          "validation": "false"
                         }
                       }
                     ],
@@ -512,10 +763,119 @@
                     }
                   }
                 ]
+              },
+              {
+                "name": "National Population #14",
+                "label": "National Population #14",
+                "table_sections": [
+                  {
+                    "label": "",
+                    "index": 15,
+                    "table_fields": [
+                      {
+                        "label": "Starting date",
+                        "name": "starting_date",
+                        "selected": "2018-12-30"
+                      },
+                      {
+                        "label": "End date",
+                        "name": "duration_or_end",
+                        "selected": "2019-02-15"
+                      },
+                      {
+                        "label": "Objective of the measure(s) ",
+                        "name": "measures_objective",
+                        "selected": [
+                          {
+                            "text": "Containment",
+                            "value": 2
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Part of the territory",
+                        "name": "part_territory",
+                        "selected": {
+                          "text": "Prov. Vlaams-Brabant",
+                          "value": "BE24"
+                        },
+                        "comments": ""
+                      },
+                      {
+                        "label": "Biogeographical region(s)",
+                        "name": "biogeographical_region",
+                        "selected": [
+                          {
+                            "text": "third option",
+                            "value": 2
+                          }
+                        ]
+                      },
+                      {
+                        "label": "River basin sub-unit(s)",
+                        "name": "river_basin_subunits",
+                        "selected": [
+                          {
+                            "text": "third option",
+                            "value": 2
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Marine sub-region(s)",
+                        "name": "marine_basin_subunits",
+                        "selected": [
+                          {
+                            "text": "White Sea",
+                            "value": "WHI"
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Method(s) used",
+                        "name": "methods_used",
+                        "selected": [
+                          {
+                            "text": "Other",
+                            "value": 3
+                          }
+                        ]
+                      },
+                      {
+                        "label": "",
+                        "name": "effectiveness_measure",
+                        "selected": [
+                          {
+                            "text": "Unclear population trend",
+                            "value": 4
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Impacted non-targeted species",
+                        "selected": "Baccharis halimifolia C.",
+                        "name": "impacted_nontargeted_species",
+                        "inner_field": {
+                          "label": "Impact per species",
+                          "type": "text",
+                          "selected": "decreasing",
+                          "name": "impact_per_species",
+                          "validation": "false"
+                        }
+                      }
+                    ],
+                    "additional_info": {
+                      "label": "Additional information (optional)",
+                      "name": "additional_info",
+                      "selected": "zzzzapappfgalglg",
+                      "index": 16,
+                      "type": "textarea"
+                    }
+                  }
+                ]
               }
             ]
           }
-
         },
         {
           "scientific_name": "Asclepias syriaca L.",
@@ -560,9 +920,7 @@
           ]
         }
       ]
-
     }
-
 
   }
 }

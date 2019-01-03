@@ -322,8 +322,7 @@ export default {
                 sectionI.eradication_measures_info.tables.map((populationO) => {
                   let temp = JSON.parse(JSON.stringify(oldt));
                   temp.name = populationO.name;
-
-                  //temp.label = populationO.name;
+                  temp.label = populationO.name;
 
                   populationO.table_sections.map((pts) => {
                     temp.table_sections = temp.table_sections.map((ts) => {
@@ -333,7 +332,6 @@ export default {
                           let found = pts.table_fields.filter((pfield) => {
                             return pfield.name === field.name;
                           });
-
                           if(found.length > 1){
                             found.map((foundfield, fidx) => {
                               let tmptf = JSON.parse(JSON.stringify(field));
@@ -345,36 +343,40 @@ export default {
                                 arr.push(tmptf);
                               }
                             });
-                            return false;
+                            //return false;
                           }  else {
                             const arr = ["river_basin_subunits", "marine_sub_regions","effectiveness_measure"];
-
                             if(arr.indexOf(field.name) !== -1){
-                              //console.log(found[0].selected[0]);
-                              field.selected = found[0].selected[0].value;
+                              if("undefined" !== typeof found[0].selected[0]  && found[0].selected instanceof Array){
+                                field.selected = found[0].selected[0].value;
+                              } else {
+                                field.selected = found[0].selected;
+                              }
                             } else {
                               field.selected = found[0].selected;
+                              if("undefined" !== typeof found[0].inner_field){
+                                /*if(populationO.name === "National Population #2" /!*&& subfield.type === "add"*!/){
+                                  console.log(found);
+                                }*/
+                                field.inner_field.selected = found[0].inner_field.selected;
+                              }
                             }
 
                           }
-
                           return field;
                         }).filter(Boolean);
                         if(arr.length > 0) subfield.fields = arr;
-
                         return subfield;
                       });
                       if("undefined" !== typeof pts.additional_info.selected) ts.additional_info.selected = pts.additional_info.selected;
                       return ts;
                     });
+
                   });
-
-                  /*console.log(temp.table_sections);
-                  console.log(populationO.table_sections);*/
-
+                  /*if(populationO.name === "National Population #3"){
+                    console.log(temp.table_sections);
+                  }*/
                   sectionF.tables.table_2.tables.push(temp);
-
-
                 });
 
               }
@@ -402,30 +404,50 @@ export default {
                       ts.table_fields.fields = ts.table_fields.fields.map((subfield) => {
                         let arr = [];
                         subfield.fields = subfield.fields.map((field, fix) => {
+                          //if(populationO.name === "National Population #14"){
+                          //console.log(pts.table_fields);
+                          //}
                           let found = pts.table_fields.filter((pfield) => {
                             return pfield.name === field.name;
                           });
 
+                          //console.log(found);
                           if(found.length > 1){
-                            found.map((foundfield, fidx) => {
-                              let tmptf = JSON.parse(JSON.stringify(field));
-                              if("undefined" !== typeof tmptf){
-                                tmptf.selected = foundfield.selected;
-                                if("undefined" !== typeof tmptf.inner_field){
-                                  tmptf.inner_field.selected = foundfield.inner_field.selected;
+                            if("undefined" !== typeof subfield.type && subfield.type === "add"){
+                              found.map((foundfield, fidx) => {
+                                let tmptf = JSON.parse(JSON.stringify(field));
+                                if("undefined" !== typeof tmptf){
+                                  if("undefined" !== typeof tmptf.inner_field){
+                                    tmptf.selected = foundfield.selected;
+                                    tmptf.inner_field.selected = foundfield.inner_field.selected;
+                                  }
+                                  arr.push(tmptf);
                                 }
-                                arr.push(tmptf);
-                              }
-                            });
-                            return false;
+                              });
+                            } else {
+                              found.map((foundfield, fidx) => {
+                                  if(foundfield.name === field.name){
+                                    field.selected = foundfield.selected;
+                                    //console.log(subfield);
+                                  }
+                              });
+                            }
+                            //return false;
                           } else if(found.length === 1) {
-                            console.log(field.name);
                             const arr = ["measures_objective", "river_basin_subunits", "marine_basin_subunits","effectiveness_measure"];
                             if(arr.indexOf(field.name) !== -1){
-                              field.selected = found[0].selected[0].value;
+
+                              if("undefined" !== typeof found[0].selected[0] && found[0].selected instanceof Array){
+                                field.selected = found[0].selected[0].value;
+                              } else {
+                                field.selected = found[0].selected;
+                              }
                             } else {
                               field.selected = found[0].selected;
 
+                              if("undefined" !== typeof found[0].inner_field){
+                                field.inner_field.selected = found[0].inner_field.selected;
+                              }
                             }
                           } else {
                             //return false;
