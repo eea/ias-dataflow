@@ -46,7 +46,6 @@
         <div @click="expanded = !expanded" :ref="'collapse'">
           <h3>
             <font-awesome-icon v-bind:icon="expanded ? 'chevron-down' : 'chevron-right'"
-                               v-show="sectionProp.mandatory_item.selected !== 1"
                                class="fachevron" />
             <small>{{info.scientific_name.label}}: </small><span style="font-size: 1em; font-weight: 600;">
           {{ sectionProp.scientific_name.selected.text }}</span>
@@ -176,6 +175,12 @@
           return {
             expanded: false,
           }
+        },
+
+        created(){
+          //this.expanded = true;
+          //this.$forceUpdate();
+          //this.sectionProp.mandatory_item.selected =
         },
 
         methods: {

@@ -645,8 +645,8 @@ export default {
       /*
       * TAB 2
       * */
-
-      /*function processFields(fields) {
+      newDatasetObject.tab_2 = {};
+      function processFields(fields) {
         let res = [];
         fields.map((field) => {
           if(field.type === "checkbox" && field.selected === true){
@@ -658,12 +658,12 @@ export default {
           }
         });
         return res;
-      }*/
+      }
 
-      /*let sectionB = newDataset.tab_2.sections;
+      let sectionB = newDataset.tab_2.sections;
 
       for(let val of Object.keys(newDataset.tab_2)){
-        if (val !== 'sections') delete newDataset.tab_2[val];
+        //if (val !== 'sections') delete newDataset.tab_2[val];
       }
       if("undefined" !== typeof sectionB){
         const todeleteB = [
@@ -675,19 +675,23 @@ export default {
 
         newDataset.tab_2.sections = sectionB.map((section, k) => {
           if(section.mandatory_item.selected === 1){
-            todelete.push(k);
-            newDataset.tab_2.sections[k] = null;
-            return true;
+            //todelete.push(k);
+            //newDataset.tab_2.sections[k] = null;
+            //return false;
           }
 
           if('object' === typeof section.depending_on_mandatory.reproduction_patterns ){
             section['reproduction_patterns'] = processsPattern(section.depending_on_mandatory.reproduction_patterns);
+            //section['reproduction_patterns'] = JSON.parse(JSON.stringify( section.depending_on_mandatory.reproduction_patterns));
             delete section.depending_on_mandatory['reproduction_patterns'];
           }
 
           if('object' === typeof section.depending_on_mandatory.spread_pattterns ){
             section['spread_patterns'] = processsPattern(section.depending_on_mandatory.spread_pattterns );
             delete section.depending_on_mandatory['spread_pattterns'];
+
+            //section['spread_patterns'] = JSON.parse(JSON.stringify( section.depending_on_mandatory.spread_pattterns ));
+            //delete section.depending_on_mandatory['spread_patterns'];
           }
 
           //console.log("###################specie############");
@@ -722,11 +726,18 @@ export default {
               section[prop] = section.scientific_name.selected.value;
             }
           }
-
           return section;
         });
+
+        delete newDataset.tab_2.scientific_name.options;
+        newDatasetObject.tab_2 = newDataset.tab_2;
+
+        /*newDatasetObject.tab_2.sections = newDatasetObject.tab_2.sections.map((section) => {
+          //delete section.scientific_name.options;
+          return section;
+        });*/
       }
-      newDataset.tab_2.sections = newDataset.tab_2.sections.filter(Boolean);*/
+
 
       /*
       * TAB 3

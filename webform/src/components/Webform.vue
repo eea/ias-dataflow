@@ -237,6 +237,7 @@ export default {
                 // permits_info
                 sectionF.tables.table_1.question.selected = sectionI.permits_info.question.selected;
 
+                // table
                 sectionI.permits_info.table_sections.map((tabel,ix) => {
                   sectionF.tables.table_1.table_sections[ix].additional_info.selected = tabel.additional_info.selected;
 
@@ -298,12 +299,6 @@ export default {
                        }
                      });
                 });
-
-                // table
-                /*sectionF.tables.table_1.table_sections.map((tsection) => {
-                  //console.log(tsection.name);
-                });*/
-
               }
 
               // eradication_measures_info
@@ -333,16 +328,24 @@ export default {
                             return pfield.name === field.name;
                           });
                           if(found.length > 1){
-                            found.map((foundfield, fidx) => {
-                              let tmptf = JSON.parse(JSON.stringify(field));
-                              if("undefined" !== typeof tmptf){
-                                tmptf.selected = foundfield.selected;
-                                if("undefined" !== typeof tmptf.inner_field){
-                                  tmptf.inner_field.selected = foundfield.inner_field.selected;
+                            if("undefined" !== typeof subfield.type && subfield.type === "add"){
+                              found.map((foundfield, fidx) => {
+                                let tmptf = JSON.parse(JSON.stringify(field));
+                                if("undefined" !== typeof tmptf){
+                                  tmptf.selected = foundfield.selected;
+                                  if("undefined" !== typeof tmptf.inner_field){
+                                    tmptf.inner_field.selected = foundfield.inner_field.selected;
+                                  }
+                                  arr.push(tmptf);
                                 }
-                                arr.push(tmptf);
-                              }
-                            });
+                              });
+                            } else {
+                              found.map((foundfield, fidx) => {
+                                if(foundfield.name === field.name){
+                                  field.selected = foundfield.selected;
+                                }
+                              });
+                            }
                             //return false;
                           }  else {
                             const arr = ["river_basin_subunits", "marine_sub_regions","effectiveness_measure"];
@@ -355,9 +358,6 @@ export default {
                             } else {
                               field.selected = found[0].selected;
                               if("undefined" !== typeof found[0].inner_field){
-                                /*if(populationO.name === "National Population #2" /!*&& subfield.type === "add"*!/){
-                                  console.log(found);
-                                }*/
                                 field.inner_field.selected = found[0].inner_field.selected;
                               }
                             }
@@ -378,7 +378,6 @@ export default {
                   }*/
                   sectionF.tables.table_2.tables.push(temp);
                 });
-
               }
 
               // management_measures_info
@@ -399,19 +398,16 @@ export default {
                   temp.name = populationO.name;
                   temp.label = populationO.name;
 
+                  // populations
                   populationO.table_sections.map((pts) => {
                     temp.table_sections = temp.table_sections.map((ts) => {
                       ts.table_fields.fields = ts.table_fields.fields.map((subfield) => {
                         let arr = [];
                         subfield.fields = subfield.fields.map((field, fix) => {
-                          //if(populationO.name === "National Population #14"){
-                          //console.log(pts.table_fields);
-                          //}
                           let found = pts.table_fields.filter((pfield) => {
                             return pfield.name === field.name;
                           });
 
-                          //console.log(found);
                           if(found.length > 1){
                             if("undefined" !== typeof subfield.type && subfield.type === "add"){
                               found.map((foundfield, fidx) => {
@@ -428,15 +424,12 @@ export default {
                               found.map((foundfield, fidx) => {
                                   if(foundfield.name === field.name){
                                     field.selected = foundfield.selected;
-                                    //console.log(subfield);
                                   }
                               });
                             }
-                            //return false;
                           } else if(found.length === 1) {
                             const arr = ["measures_objective", "river_basin_subunits", "marine_basin_subunits","effectiveness_measure"];
                             if(arr.indexOf(field.name) !== -1){
-
                               if("undefined" !== typeof found[0].selected[0] && found[0].selected instanceof Array){
                                 field.selected = found[0].selected[0].value;
                               } else {
@@ -461,18 +454,302 @@ export default {
                       return ts;
                     });
                   });
-
                   sectionF.tables.table_3.tables.push(temp);
-
                 });
-
-
               }
             }
             return sectionF;
           });
 
         });
+      }
+      if("undefined" !== typeof data.IAS.tab_2){
+        let regionOptions = [
+          {
+            text: 'Romania', value: 'RO',
+          },
+          {
+            text: 'France', value: 'FR',
+          },
+        ];
+
+        function newSection(sci_name,com_name ){
+          let tab_1_section = {
+            scientific_name: {
+              label: 'Species scientific name',
+              selected: sci_name,
+              type: 'text',
+              disabled: true,
+              name: 'scientific_name',
+              index: 1,
+            },
+            common_name: {
+              label: "Common name of the species (optional)",
+              selected: com_name,
+              disabled: true,
+              name: 'common_name',
+              type: 'text',
+              index: 2,
+            },
+            mandatory_item: {
+              label: 'Is the species present in the territory of the Member State?',
+              type: 'select',
+              selected: 1,
+              options: [{ value: true, text: "Yes" }, { value: false, text: "No" }, { value: 'unknown', text: "Currently unknown" }],
+              index: 3,
+              name: 'mandatory_question',
+            },
+            depending_on_mandatory: {
+              label: 'A distribution map for this species is included in the file which will be uploaded in the \'Distribution map for SECTION B\' field available on \'DISTRIBUTION MAP\' section.',
+              index: 4,
+              name: 'distribution_of_species',
+              fields: [
+                {
+                  label: 'Tick if yes',
+                  type: 'checkbox',
+                  name: 'distribution_maps_check',
+                  selected: false,
+                },
+              ],
+
+              reproduction_patterns: [
+                {
+                  label: 'Reproduction patterns',
+                  type: 'select',
+                  add: true,
+                  patternType: 'reproduction',
+                  name: 'reproduction patterns',
+                  multiple: false,
+                  selected: {
+                    region: null,
+                    pattern: null
+                  },
+                  options:[
+                    {
+                      text: 'Sexual', value: 0,
+                    },
+                    {
+                      text: 'Asexusal', value: 1,
+                    },
+                    {
+                      text: 'Both (sexual and asexual)', value : 2,
+                    },
+                    {
+                      text: 'Unclear (sexual or asexual) ', value: 3,
+                    },
+                    {
+                      text: 'Not reproducing in the Member State', value: 4,
+                    },
+                    {
+                      text: 'Unknown whether the species reproduces in the Member State', value: 5,
+                    }
+                  ],
+                  //TODO : remove
+                  regionOptions: regionOptions
+                }
+              ],
+              spread_pattterns:[
+                {
+                  label: 'Spread patterns',
+                  type: 'select',
+                  patternType: 'spread',
+                  name: 'spread_patterns',
+                  add: true,
+                  multiple: true,
+                  selected: {
+                    region: null,
+                    pattern: null
+                  },
+                  options:[
+                    {
+                      text: 'a) The species was already widely spread before 2015',
+                      index: 'a',
+                      value: 0,
+                    },
+
+                    {
+                      text: 'b) The species predominantly entered through natural dispersal from a neighbouring country',
+                      index: 'b',
+                      value: 1,
+                    },
+
+                    {
+                      text:'c) The species predominantly entered with unintentional human assistance',
+                      index: 'c',
+                      value : 2,
+                    },
+
+                    {
+                      text: 'd) The species predominantly entered with intentional human assistance',
+                      index: 'd',
+                      value: 3,
+                    },
+
+                    {
+                      text: 'e) There is no evidence of new entries into the Member State',
+                      index: 'e',
+                      value: 4,
+                    },
+
+                    {
+                      text: 'f) The species predominantly spread through natural dispersal',
+                      index: 'f',
+                      value: 5,
+                    },
+
+                    {
+                      text: 'g) The species predominantly spread with unintentional human assistance',
+                      index: 'g',
+                      value: 6,
+                    },
+
+                    {
+                      text: 'h) The species predominantly spread with intentional human assistance',
+                      index: 'h',
+                      value: 7,
+                    },
+
+                    {
+                      text: 'i) There is no evidence of spread within the Member State',
+                      index: 'i',
+                      value: 8,
+                    },
+
+                    {
+                      text: 'j) The species spread from the Member State into other Member State(s)',
+                      index: 'j',
+                      value: 9
+                    }
+                  ],
+                  //TODO : remove
+                  regionOptions: regionOptions
+                },
+              ]
+            },
+            additional_info: {
+              label: 'Additional information (optional)',
+              type: 'textarea',
+              index: 5,
+              selected: '',
+              name: 'additional_info'
+            },
+            section: {
+              label: "Measure(s) applied in the territory of the Member State in relation to the species",
+              fields: [
+                {
+                  type: "checkbox",
+                  name: "restriction_internationally_transport",
+                  label: "Restriction to intentionally transport, except in the context of eradication",
+                  selected: false,
+                },
+                {
+                  type: "checkbox",
+                  name: "restriction_internationally_market",
+                  label: "Restriction to intentionally place on the market",
+                  selected: false,
+                },
+                {
+                  type: "checkbox",
+                  name: "restriction_internationally_use_exchange",
+                  label: "Restriction to intentionally use or exchange ",
+                  selected: false,
+                },
+                {
+                  type: "checkbox",
+                  name: "restriction_internationally_reproduce_grow_cultivate",
+                  label: "Restriction to intentionally permit to reproduce, grown or cultivated, including in contained holding ",
+                  selected: false,
+                },
+                {
+                  type: "checkbox",
+                  name: "restriction_internationally_release",
+                  label: "Restriction to intentionally release into the environment",
+                  selected: false,
+                },
+                {
+                  type: "checkbox",
+                  name: "derogations_within_art8",
+                  label: "Derogations foreseen within the permit system under Article 8  ",
+                  selected: false,
+                },
+                {
+                  type: "checkbox",
+                  name: "addressed_art13",
+                  label: "Addressed in the action plans pursuant to Article 13 ",
+                  selected: false,
+                },
+                {
+                  type: "checkbox",
+                  name: "covered_art14",
+                  label: "Covered by the surveillance system pursuant to Article 14",
+                  selected: false,
+                },
+                {
+                  type: "checkbox",
+                  name: "controls_to_prevent_international_introduction",
+                  label: "Official controls to prevent the intentional introduction",
+                  selected: false,
+                },
+                {
+                  type: "checkbox",
+                  name: "early_detection",
+                  label: "Subject to early detection system",
+                  selected: false,
+                },
+                {
+                  type: "checkbox",
+                  name: "rapid_eradiction",
+                  label: "Subject to rapid eradication following an early detection  ",
+                  selected: false,
+                },
+                {
+                  type: "checkbox",
+                  name: "management_measures_if_widely_spread",
+                  label: "Subject to management measures if widely spread",
+                  selected: false,
+                },
+                {
+                  type: "checkbox",
+                  name: "restoration_measures",
+                  label: "Restoration measures",
+                  selected: false,
+                },
+                {
+                  type: "textarea",
+                  name: "additional_info",
+                  label: "Additional information (optional)",
+                  selected: '',
+                },
+              ]
+            }
+          };
+          return tab_1_section;
+        }
+        let sections = [];
+
+        fdata.tab_2.scientific_name.selected = data.IAS.tab_2.scientific_name.selected;
+        fdata.tab_2.common_name.selected = data.IAS.tab_2.common_name.selected;
+
+        data.IAS.tab_2.scientific_name.selected.map((name) => {
+          let newsection = newSection(name, '');
+          sections.push(newsection);
+        });
+
+        sections = sections.map((section) => {
+          data.IAS.tab_2.sections.map((sectionI) => {
+            if(sectionI.scientific_name === section.scientific_name.selected.value){
+              console.log(sectionI);
+            }
+          });
+          return section;
+        });
+
+        fdata.tab_2.sections = sections;
+
+
+        //console.log(fdata.tab_2.common_name.selected);
+        //data.IAS.tab_2;
+        //fdata.tab_2 = data.IAS.tab_2;
       }
 
       this.form = fdata;

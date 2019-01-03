@@ -620,7 +620,7 @@
                     "additional_info": {
                       "label": "Additional information (optional)",
                       "name": "additional_info",
-                      "selected": "",
+                      "selected": "aaq",
                       "index": 13,
                       "type": "textarea"
                     }
@@ -918,6 +918,127 @@
               ]
             }
           ]
+        }
+      ]
+    },
+
+    "tab_2": {
+      "label": "SECTION B",
+      "question": "Information to be submitted for each of the invasive alien species of Member State concern",
+      "table_label": "",
+      "mandatory_item": {
+        "label": "Has the Member State established a national list of invasive alien species of Member State concern? If yes, questions 2 to 5 below have to be answered for each of the species on this list",
+        "type": "select",
+        "selected": true,
+        "options": [
+          {
+            "value": true,
+            "text": "Yes"
+          },
+          {
+            "value": false,
+            "text": "No"
+          },
+          {
+            "value": "unknown",
+            "text": "Currently unknown"
+          }
+        ],
+        "index": 3,
+        "name": "mandatory_question"
+      },
+      "scientific_name": {
+        "name": "scientific_name",
+        "label": "Species scientific name ",
+        "type": "multiselect",
+        "selected": [
+          {
+            "text": "Abax parallelus",
+            "value": "Abax parallelus"
+          }
+        ]
+      },
+      "common_name": {
+        "name": "common_name",
+        "label": "Common name of the species (optional)",
+        "options": "",
+        "type": "text",
+        "disabled": true,
+        "selected": [
+          {
+            "oligohaline": "0",
+            "status": "A",
+            "eu_concern": "0",
+            "code": "R00001",
+            "terrestrial": "1",
+            "name": "Abax parallelus",
+            "marine": "0",
+            "freshwater": "0"
+          }
+        ]
+      },
+      "species_code": {
+        "label": "EASIN identifier",
+        "selected": "",
+        "disabled": true,
+        "name": "species_code",
+        "type": "text",
+        "index": 2
+      },
+      "sections": [
+        {
+          "scientific_name": "Abax parallelus",
+          "common_name": {
+            "label": "Common name of the species (optional)",
+            "selected": {
+              "oligohaline": "0",
+              "status": "A",
+              "eu_concern": "0",
+              "code": "R00001",
+              "terrestrial": "1",
+              "name": "Abax parallelus",
+              "marine": "0",
+              "freshwater": "0"
+            },
+            "disabled": true,
+            "name": "common_name",
+            "type": "text",
+            "index": 2
+          },
+          "mandatory_item": {
+            "label": "Is the species present in the territory of the Member State?",
+            "type": "select",
+            "selected": "Yes",
+            "index": 3,
+            "name": "mandatory_question"
+          },
+          "depending_on_mandatory": {
+            "label": "A distribution map for this species is included in the file which will be uploaded in the 'Distribution map for SECTION B' field available on 'DISTRIBUTION MAP' section.",
+            "index": 4,
+            "name": "distribution_of_species",
+            "fields": [
+              {
+                "label": "Tick if yes",
+                "type": "checkbox",
+                "name": "distribution_maps_check",
+                "selected": false
+              }
+            ]
+          },
+          "additional_info": {
+            "label": "Additional information (optional)",
+            "type": "textarea",
+            "index": 5,
+            "selected": "",
+            "name": "additional_info"
+          },
+          "section": {
+            "label": "Measure(s) applied in the territory of the Member State in relation to the species",
+            "fields": []
+          },
+          "reproduction_patterns": [],
+          "spread_patterns": [],
+          "code_name": "R00001"
         }
       ]
     }

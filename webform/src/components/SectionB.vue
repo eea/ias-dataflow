@@ -20,6 +20,7 @@
               <label>{{info.scientific_name.label}}</label>
             </b-col>
             <b-col lg="7">
+              {{ value }}
                 <multiselect v-model="value" :options="info.scientific_name.options"  :multiple="true"
                 :close-on-select="false" :clear-on-select="false" :preserve-search="true" track-by="text"
                 @select="fillCommon($event)" :custom-label="customLabel" @input="updateSelected()" @remove="remove($event)"
@@ -121,12 +122,27 @@ export default {
 
     }
   },
+  created (){
+    let self = this;
+    //self.value = this.info.scientific_name.selected;
+    /*console.log(JSON.parse(JSON.stringify(this.info)));
+    this.info.sections.map((section,sidx) => {
+      console.log(sidx);
+      //this.info.sections.push(section);
+      //this.value.push(section.scientific_name.selected);
+      /!*this.info.scientific_name.selected = this.value;
+      this.$forceUpdate();*!/
+
+    });*/
+    //console.log(this.info);
+  },
   methods: {
     titleSlugify(text) {
       return slugify(text)
     },
 
     addBySelection() {
+      //console.log(this.info.scientific_name);
       this.info.scientific_name.selected.forEach((item, ix) => {
         if(!this.info.sections[ix]){
           this.addSpecies( this.info.scientific_name.selected[ix], this.info.common_name.selected[ix], ix);
