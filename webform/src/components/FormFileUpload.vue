@@ -23,6 +23,7 @@
          v-bind:data-vv-scope="scope +'_' + 'files-input-' + fieldkey"
       ></b-form-file>
 
+
       <b-form-file v-model="files"
          v-validate="'required|filesAllowed:'+ filesAllowed"
          :data-vv-as="field.label"
@@ -32,8 +33,7 @@
          v-bind:name="vname"
          v-bind:key="vkey"
          v-bind:data-vv-scope="scope +'_' + 'files-input-' + fieldkey"
-        >
-      </b-form-file>
+      ></b-form-file>
       <!-- END File Input -->
 
       <b-input-group-append>
@@ -116,7 +116,7 @@
 
   export default {
     name: 'FormFileUpload',
-    props: ['field', 'fieldkey', 'multiple', 'selected', 'prepend','filesAllowed','scope','vname','vkey','required'],
+    props: ['field', 'fieldkey', 'multiple', 'selected', 'prepend','filesAllowed','scope','vname','vkey','required', 'checkFiles'],
     inject: ['$validator'],
 
     data(){
@@ -127,6 +127,27 @@
         errorUpload: [],
         counter: [],
         max: [],
+        hasFilesErrors: [],
+      }
+    },
+
+    watch:{
+      hasFilesErrors(newVals, oldVals){
+        let self = this;
+        newVals.map((found) => {
+          let error = {
+            //field: self.vname,
+            field: found.name,
+            msg: "No file uploaded",
+            //scope: self.scope +'_' + 'files-input-' + self.fieldkey,
+            scope: found.scope,
+            rule: 'required',
+            //vmId: field.vmId
+            //vmId: found.vmId,
+          };
+          self.$validator.errors.add(error);
+        })
+
       }
     },
 
@@ -227,6 +248,31 @@
           });
         }
       },
+
+      validate(){
+        let self = this;
+        let promises = [];
+
+        return new Promise(function(resolve, reject) {
+          if(self.checkFiles){
+            if(self.field.selected.length > 0){
+              resolve(true);
+            } else {
+              let found = self.$validator.fields.map((field) => {
+                if(field.name === self.vname){
+                  return field;
+                }
+                return false;
+              }).filter(Boolean)[0];
+              self.hasFilesErrors.push(found);
+              self.$forceUpdate();
+
+              reject(true);
+            }
+          }
+
+        });
+      }
     }
   }
 </script>

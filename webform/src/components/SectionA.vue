@@ -832,8 +832,8 @@ export default {
             //vmId: field.vmId
           };
 
-          console.log(field.name);
-          console.log(field.scope);
+          /*console.log(field.name);
+          console.log(field.scope);*/
 
           self.$validator.errors.add(error);
 
@@ -1123,7 +1123,7 @@ export default {
             });
             return a;
           },{});
-          console.log(uniq);
+          //console.log(uniq);
 
           let res = [];
           Object.keys(uniq).filter((a) => uniq[a] > 1).map((dup) => {
@@ -1133,8 +1133,8 @@ export default {
             a = a.concat(b);
             return a;
           }, []);
-          console.log(res instanceof Array);
-          console.log(res.length);
+          /*console.log(res instanceof Array);
+          console.log(res.length);*/
 
           if(res.length > 0) result = result.concat(res);
         });

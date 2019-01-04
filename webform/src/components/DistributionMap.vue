@@ -35,11 +35,13 @@
               <FormFileUpload :selected="field.selected" :field="field"
                 :fieldkey="fieldkey"
                 files-allowed="shp, geojson, gml,zip"
-                :vname="'dmap' + 'file' + '_' + fieldkey"
-                :vkey="'dmap' + 'file' + '_' + fieldkey"
+                :vname="'dmap_' + 'file' + '_' + fieldkey"
+                :vkey="'dmap_' + 'file' + '_' + fieldkey"
                 :scope="'dmap' + '_' + fieldkey"
                 :multiple=false
-                :required="true"
+                :required="false"
+                :checkFiles="true"
+                :ref="'dmap_' + 'file' + '_' + fieldkey"
                 @form-file-uploaded="addFilesToSelected"
                 @form-file-delete="deleteFormFile">
               </FormFileUpload>

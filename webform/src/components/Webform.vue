@@ -240,64 +240,63 @@ export default {
                 // table
                 sectionI.permits_info.table_sections.map((tabel,ix) => {
                   sectionF.tables.table_1.table_sections[ix].additional_info.selected = tabel.additional_info.selected;
+                   sectionF.tables.table_1.table_sections.map((ts, itx) => {
+                     if(ts.name === tabel.name){
+                       tabel.rows.map((row) => {
+                         let newf = ts.table_fields.optionsFields.filter((r, ri) => {
+                           if(r.label === row.label){
+                             r.index = ri;
+                             return r;
+                           }
+                           //return false;
+                         })[0];
 
-                     sectionF.tables.table_1.table_sections.map((ts, itx) => {
-                       if(ts.name === tabel.name){
-                         tabel.rows.map((row) => {
-                           let newf = ts.table_fields.optionsFields.filter((r, ri) => {
-                             if(r.label === row.label){
-                               r.index = ri;
-                               return r;
-                             }
-                             //return false;
-                           })[0];
+                         let newr = JSON.parse(JSON.stringify(newf));
+                         newr.label = row.label;
 
-                           let newr = JSON.parse(JSON.stringify(newf));
-                           newr.label = row.label;
+                         row.fields.map((rfield) => {
+                           newr.fields.map((field, fi) => {
 
-                           row.fields.map((rfield) => {
-                             newr.fields.map((field, fi) => {
+                             Object.keys(rfield).map((prop) => {
+                               if(prop === field.name || prop+'_main' === field.name){
+                                 //if array
+                                 if(rfield[prop] instanceof Array){
+                                    let deffield = JSON.parse(JSON.stringify(field.fields[0]));
+                                    newr.fields[fi].fields = [];
 
-                               Object.keys(rfield).map((prop) => {
-                                 if(prop === field.name || prop+'_main' === field.name){
-                                   //if array
-                                   if(rfield[prop] instanceof Array){
-                                      let deffield = JSON.parse(JSON.stringify(field.fields[0]));
-                                      newr.fields[fi].fields = [];
+                                    rfield[prop].map((rfp, ri) => {
+                                      let tmpf = JSON.parse(JSON.stringify(deffield));
 
-                                      rfield[prop].map((rfp, ri) => {
-                                        let tmpf = JSON.parse(JSON.stringify(deffield));
-
-                                        tmpf.fields = tmpf.fields.map((f) => {
-                                          f.selected = rfp[f.name];
-                                          return f;
-                                        });
-                                        newr.fields[fi].fields.push(tmpf);
+                                      tmpf.fields = tmpf.fields.map((f) => {
+                                        f.selected = rfp[f.name];
+                                        return f;
                                       });
+                                      newr.fields[fi].fields.push(tmpf);
+                                    });
+                                 } else {
+                                   if(typeof rfield[prop] === "number"){
+                                     newr.fields[fi].selected = rfield[prop];
                                    } else {
-                                     if(typeof rfield[prop] === "number"){
-                                       newr.fields[fi].selected = rfield[prop];
-                                     } else {
-                                       newr.fields[fi].fields = newr.fields[fi].fields.map((nwfield) => {
-                                         nwfield.fields = nwfield.fields.map((nwf) => {
-                                           nwf.selected = rfield[nwf.name];
-                                           return nwf;
-                                         });
-                                         return nwfield;
+                                     newr.fields[fi].fields = newr.fields[fi].fields.map((nwfield) => {
+                                       nwfield.fields = nwfield.fields.map((nwf) => {
+                                         nwf.selected = rfield[nwf.name];
+                                         return nwf;
                                        });
-                                     }
+                                       return nwfield;
+                                     });
                                    }
                                  }
-                               });
-
+                               }
                              });
-                           });
 
-                           sectionF.tables.table_1.table_sections[itx].table_fields.fields.push(newr);
+                           });
                          });
 
-                       }
-                     });
+                         sectionF.tables.table_1.table_sections[itx].table_fields.fields.push(newr);
+                       });
+
+                     }
+                   });
                 });
               }
 
@@ -463,6 +462,7 @@ export default {
 
         });
       }
+
       if("undefined" !== typeof data.IAS.tab_2){
         let regionOptions = [
           {
@@ -731,7 +731,7 @@ export default {
         fdata.tab_2.common_name.selected = data.IAS.tab_2.common_name.selected;
 
         data.IAS.tab_2.scientific_name.selected.map((name) => {
-          let newsection = newSection(name, '');
+          let newsection = newSection(name, {});
           sections.push(newsection);
         });
 
@@ -739,24 +739,107 @@ export default {
           data.IAS.tab_2.sections.map((sectionI) => {
             if(sectionI.scientific_name === section.scientific_name.selected.value){
               //console.log(sectionI.mandatory_item);
+
+              section.common_name.selected = sectionI.common_name.selected;
+
               let f = section.mandatory_item.options.filter((op) => {
                 return op.text === sectionI.mandatory_item.selected;
               });
               if(f.length > 0) section.mandatory_item.selected = JSON.parse(JSON.stringify(f[0])).value;
 
               section.additional_info.selected = sectionI.additional_info.selected;
-              //console.log(sectionI.additional_info);
+
+              if( sectionI.reproduction_patterns.length > 0 ){
+
+                let blank = JSON.parse(JSON.stringify(section.depending_on_mandatory.reproduction_patterns[0]));
+
+                sectionI.reproduction_patterns.map((pat, ix) => {
+                  if(ix !== 0){
+                    section.depending_on_mandatory.reproduction_patterns[ix] = JSON.parse(JSON.stringify(blank));
+                  }
+                  let found = section.depending_on_mandatory.reproduction_patterns[ix].options.filter((op) => {
+                    return op.text === pat.pattern;
+                  });
+                  if(found.length > 0) {
+                    section.depending_on_mandatory.reproduction_patterns[ix].selected.pattern =  found[0].value;
+                    section.depending_on_mandatory.reproduction_patterns[ix].selected.region =  pat.region;
+                  }
+                });
+
+              }
+
+              if( sectionI.spread_patterns.length > 0 ){
+                let blank = JSON.parse(JSON.stringify(section.depending_on_mandatory.spread_pattterns[0]));
+
+                sectionI.spread_patterns.map((pat, ix) => {
+                  if(ix !== 0){
+                    section.depending_on_mandatory.spread_pattterns[ix] = JSON.parse(JSON.stringify(blank));
+                  }
+
+                  let found = pat.pattern.map((p) => {
+                    let f = section.depending_on_mandatory.spread_pattterns[ix].options.filter((ops) => {
+                      return ops.text === p;
+                    });
+                    return f[0];
+                  });
+                  if(found.length > 0) {
+                    section.depending_on_mandatory.spread_pattterns[ix].selected.pattern = found;
+                    section.depending_on_mandatory.spread_pattterns[ix].selected.region =  pat.region;
+                  }
+                });
+              }
+
+              sectionI.section.fields.map((field) => {
+                section.section.fields = section.section.fields.map((sfield) => {
+                  if(sfield.name === field.name){
+                    sfield.selected = field.selected;
+                  }
+                  return sfield;
+                });
+              });
             }
           });
           return section;
         });
 
         fdata.tab_2.sections = sections;
+      }
 
+      if("undefined" !== typeof data.IAS.tab_3){
+        data.IAS.tab_3.section.fields.map((sectionI) => {
+          fdata.tab_3.section.fields = fdata.tab_3.section.fields.map((fsection) => {
+            if(sectionI.name === fsection.name){
+              if( sectionI.type !== "add"){
+                fsection.selected = sectionI.selected;
+              } else {
+                let temp = JSON.parse(JSON.stringify(fsection.fields[0]));
+                if(sectionI.fields.length > 0){
+                  fsection.fields = [];
+                  sectionI.fields.map((field) => {
+                    let newfield = JSON.parse(JSON.stringify(temp));
+                    newfield.selected = field.selected;
+                    newfield.inner_field.selected = field.inner_field.selected;
+                    fsection.fields.push(newfield);
+                  });
+                }
 
-        //console.log(fdata.tab_2.common_name.selected);
-        //data.IAS.tab_2;
-        //fdata.tab_2 = data.IAS.tab_2;
+              }
+
+            }
+            return fsection;
+          });
+        });
+      }
+
+      if("undefined" !== typeof data.IAS.tab_4){
+        data.IAS.tab_4.section.fields.map((field) => {
+          fdata.tab_4.section.fields = fdata.tab_4.section.fields.map((sfield) => {
+            if(field.name === sfield.name){
+              sfield.selected = field.selected;
+            }
+            return sfield;
+          });
+        });
       }
 
       this.form = fdata;

@@ -67,6 +67,7 @@
 
         <b-row>
           <b-col>
+
             <b-input-group :prepend="sectionProp.mandatory_item.label" class="inputgroup">
               <b-form-select v-model="sectionProp.mandatory_item.selected"
                  v-validate="'selectRequiredNumber:1'"

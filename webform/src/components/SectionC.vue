@@ -76,7 +76,7 @@
                     </b-input-group-append>
                 </b-input-group>
                 <b class="mt-3">{{addField.label}} :  {{addField.selected ? addField.selected : '-'}}</b>
-                <hr>  
+                <hr>
               </b-col>
 
 
@@ -237,6 +237,21 @@ export default {
         });
       }
     }
+  },
+
+  created() {
+    let self = this;
+
+    self.info.section.fields.map((field,fieldk) => {
+      if(field.type==="add"){
+        field.fields.map((f,fkey) => {
+          let found = self.speciesOptions.filter((op) => {
+            return op.code === f.selected;
+          });
+          self.speciesModels[fkey] = found[0];
+        });
+      }
+    });
   },
   methods: {
     customLabel({text, value, code}){

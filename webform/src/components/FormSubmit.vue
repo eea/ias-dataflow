@@ -647,17 +647,15 @@ export default {
       * */
       newDatasetObject.tab_2 = {};
       function processFields(fields) {
-        let res = [];
-        fields.map((field) => {
-          if(field.type === "checkbox" && field.selected === true){
-            res.push({
-              name: field.name,
-              label: field.label,
-              value: field.selected
-            });
+        let f = fields.map((field) => {
+          if(field.type === "checkbox" ){
+            if(field.selected === true) return field;
+            if(field.selected === false) return false;
+          } else {
+            return field;
           }
-        });
-        return res;
+        }).filter(Boolean);
+        return f;
       }
 
       let sectionB = newDataset.tab_2.sections;
@@ -682,16 +680,12 @@ export default {
 
           if('object' === typeof section.depending_on_mandatory.reproduction_patterns ){
             section['reproduction_patterns'] = processsPattern(section.depending_on_mandatory.reproduction_patterns);
-            //section['reproduction_patterns'] = JSON.parse(JSON.stringify( section.depending_on_mandatory.reproduction_patterns));
             delete section.depending_on_mandatory['reproduction_patterns'];
           }
 
           if('object' === typeof section.depending_on_mandatory.spread_pattterns ){
             section['spread_patterns'] = processsPattern(section.depending_on_mandatory.spread_pattterns );
             delete section.depending_on_mandatory['spread_pattterns'];
-
-            //section['spread_patterns'] = JSON.parse(JSON.stringify( section.depending_on_mandatory.spread_pattterns ));
-            //delete section.depending_on_mandatory['spread_patterns'];
           }
 
           //console.log("###################specie############");
@@ -712,6 +706,7 @@ export default {
                 }
               } else if(fieldProp === "fields" && prop !== "depending_on_mandatory" ){
                 field[fieldProp] = processFields( field[fieldProp] );
+
               }
             }
 
@@ -726,37 +721,41 @@ export default {
               section[prop] = section.scientific_name.selected.value;
             }
           }
+
           return section;
         });
 
         delete newDataset.tab_2.scientific_name.options;
         newDatasetObject.tab_2 = newDataset.tab_2;
 
-        /*newDatasetObject.tab_2.sections = newDatasetObject.tab_2.sections.map((section) => {
-          //delete section.scientific_name.options;
-          return section;
-        });*/
       }
-
 
       /*
       * TAB 3
       * */
-      /*newDataset.tab_3 = newDataset.tab_3.section.fields.filter((section) => {
+      newDatasetObject.tab_3 = newDataset.tab_3;
+      newDatasetObject.tab_3.section.fields = newDataset.tab_3.section.fields.filter((section) => {
+        if(section.name === "priority_pathways"){
+          section.fields = section.fields.map((field) => {
+            if("undefined" !== field.inner_field.options){
+              delete field.inner_field.options;
+            }
+            return field;
+          });
+        }
         return section.selected !== '';
-      });*/
+      });
 
       /*
       * TAB 4
       * */
-      /*newDataset.tab_4 = newDataset.tab_4.section.fields;*/
+      newDataset.tab_4.section.fields = newDataset.tab_4.section.fields.filter((field) => {
+        return field.selected instanceof Array && field.selected.length > 0;
+      });
+      newDatasetObject.tab_4 = newDataset.tab_4;
 
-      delete newDataset.tab_2;
-      delete newDataset.tab_3;
-      delete newDataset.tab_4;
 
-      //console.log( newDatasetObject );
-      console.log(JSON.stringify(newDatasetObject));
+      //console.log(JSON.stringify(newDatasetObject));
 
     },
 
