@@ -118,7 +118,8 @@ export default {
   components: {FormFileUpload},
   props: {
     info: null,
-    tabId:null
+    tabId:null,
+    speciesOptions: null,
   },
 
   data () {
@@ -139,13 +140,16 @@ export default {
       errorUpload: [],
       counter: [],
       max: [],
-      speciesOptions : species.map((specie) => {
-        return {
-          value: specie.speciesName,
-          text: specie.speciesName,
-          code: specie.speciesCode
-        };
-      }),
+      /*speciesOptions : function (){
+        /!*return species().species.map((specie) => {
+            return {
+              value: specie.speciesName,
+              text: specie.speciesName,
+              code: specie.speciesCode
+            };
+          });*!/
+        return []
+      },*/
       speciesModels: [],
     }
   },

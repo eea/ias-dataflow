@@ -12,14 +12,15 @@
               <countrytab tabId="0" :info.sync="form.tab_0" ref="country"></countrytab>
             </b-tab>
             <b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_1.label)" ref="sectiona_tab" style="overflow-y: auto;">
-     			    <sectiona tabId="1" :info.sync="form.tab_1" ref="sectiona"></sectiona>
+     			    <sectiona tabId="1" :info.sync="form.tab_1" ref="sectiona" :jsondata="form.jsonData"></sectiona>
             </b-tab>
             <b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_2.label)" ref="sectionb_tab" style="overflow-y: auto;">
               <sectionb v-bind:data-vv-scope="'sectionb'" tabId="2" :info.sync="form.tab_2" ref="sectionb"></sectionb>
             </b-tab>
-            <b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_3.label)" ref="sectionc_tab" style="overflow-y: auto;">
+            <!-- TODO: enable WIP -->
+            <!--<b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_3.label)" ref="sectionc_tab" style="overflow-y: auto;">
               <sectionc tabId="3" :info.sync="form.tab_3" ref="sectionc"></sectionc>
-            </b-tab>
+            </b-tab>-->
             <b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_4.label)" ref="distributionmap_tab"style="overflow-y: auto;">
               <distributionmap tabId="4" :info.sync="form.tab_4" ref="distributionmap"></distributionmap>
             </b-tab>
