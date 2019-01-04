@@ -2613,24 +2613,34 @@ export default {
       };
 
       const MAX = 50;
-      let marker = 0;
+      let bulk = [];
 
+      //TODO: WIP
       self.jsondata.species.some((specie, sidx) => {
-        marker = sidx;
-        if(sidx >= MAX ){
-          return true;
-        }
-
         let current_section = JSON.parse(JSON.stringify(tab_1_section));
         current_section.scientific_name.selected = specie.speciesNameLegi;
         current_section.common_name.selected = specie.speciesCNameEN;
         current_section.species_code.selected = specie.speciesCode;
 
-        self.info.sections.push(current_section);
+        if(sidx % MAX !== 0){
+          if(self.jsondata.species.length-1 !== sidx){
+            bulk.push(current_section);
+          } else {
+            bulk.every((b) => {
+              self.info.sections.push(b);
+            });
+            bulk = [];
+          }
+        } else {
+          bulk.every((b) => {
+            self.info.sections.push(b);
+          });
+          bulk = [];
+        }
 
       });
 
-      window.onscroll = () => {
+      /*window.onscroll = () => {
         let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
 
         if (bottomOfWindow) {
@@ -2639,7 +2649,7 @@ export default {
           console.log(marker);
 
         }
-      };
+      };*/
 
       this.loading = false;
     },
