@@ -2612,44 +2612,73 @@ export default {
         }
       };
 
-      const MAX = 50;
-      let bulk = [];
+      const MAX = 20;
+      let mark = 0;
 
       //TODO: WIP
-      self.jsondata.species.some((specie, sidx) => {
+      for(let i=0; i <= self.jsondata.species.length -1; i++){
         let current_section = JSON.parse(JSON.stringify(tab_1_section));
+        let specie = self.jsondata.species[i];
         current_section.scientific_name.selected = specie.speciesNameLegi;
         current_section.common_name.selected = specie.speciesCNameEN;
         current_section.species_code.selected = specie.speciesCode;
 
-        if(sidx % MAX !== 0){
-          if(self.jsondata.species.length-1 !== sidx){
-            bulk.push(current_section);
-          } else {
-            bulk.every((b) => {
-              self.info.sections.push(b);
-            });
-            bulk = [];
-          }
-        } else {
-          bulk.every((b) => {
-            self.info.sections.push(b);
-          });
-          bulk = [];
+        mark = i;
+        if(i === MAX){
+          break;
         }
+        self.info.sections.push(current_section);
 
-      });
+      }
+      self.$forceUpdate();
 
       /*window.onscroll = () => {
         let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
 
         if (bottomOfWindow) {
-
+          //this.loading = true;
           //TODO: infinite scroll
-          console.log(marker);
+          let rest = self.jsondata.species.slice(mark, mark + MAX);
+          if(mark + MAX <= self.jsondata.species.length -1 ){
+            mark = mark + MAX;
+          } else {
+            mark = self.jsondata.species.length -1;
+          }
 
+          rest.every((specie) => {
+            let current_section = JSON.parse(JSON.stringify(tab_1_section));
+            current_section.scientific_name.selected = specie.speciesNameLegi;
+            current_section.common_name.selected = specie.speciesCNameEN;
+            current_section.species_code.selected = specie.speciesCode;
+            self.info.sections.push(current_section);
+          });
+
+          console.log(self.jsondata.species.length);
+          console.log(self.info.sections.length);
         }
+        //this.loading = false;
+
       };*/
+
+      let inter = setInterval(function (){
+        let rest = self.jsondata.species.slice(mark, mark + MAX);
+        if(mark + MAX <= self.jsondata.species.length -1 ){
+          mark = mark + MAX;
+        } else {
+          mark = self.jsondata.species.length -1;
+          clearInterval(inter);
+        }
+
+        rest.every((specie) => {
+          let current_section = JSON.parse(JSON.stringify(tab_1_section));
+          current_section.scientific_name.selected = specie.speciesNameLegi;
+          current_section.common_name.selected = specie.speciesCNameEN;
+          current_section.species_code.selected = specie.speciesCode;
+          self.info.sections.push(current_section);
+        });
+
+
+      } ,1000);
 
       this.loading = false;
     },
