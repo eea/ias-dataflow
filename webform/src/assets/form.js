@@ -11,7 +11,24 @@ function form() {
       let country = vals[0].country;
       let regions = vals[0].data;
       let msubregs = vals[1];
-      let species = vals[2].species;
+      let species = vals[2];
+
+      let procspec = species.species.reduce( (acc, cur) => {
+        if("undefined" === acc[cur.EUNIScode]){
+          acc[cur.EUNIScode] = [];
+        }
+        acc[cur.EUNIScode] = cur;
+        return acc;
+      },{});
+
+      species = Object.keys(procspec).map((k) => {
+        return procspec[k];
+      }).sort(function (a,b) {
+        if(a.speciesNameLegi < b.speciesNameLegi ) return -1;
+        if(a.speciesNameLegi > b.speciesNameLegi ) return 1;
+        return 0;
+      });
+
 
       let form = {
         country: {

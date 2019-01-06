@@ -2612,7 +2612,7 @@ export default {
         }
       };
 
-      const MAX = 20;
+      const MAX = self.jsondata.species.length -1;
       let mark = 0;
 
       //TODO: WIP
@@ -2632,7 +2632,7 @@ export default {
       }
       self.$forceUpdate();
 
-      window.onscroll = () => {
+      /*window.onscroll = () => {
         let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
 
         if (bottomOfWindow) {
@@ -2660,7 +2660,7 @@ export default {
         }
         //this.loading = false;
 
-      };
+      };*/
 
       /*let inter = setInterval(function (){
         let rest = self.jsondata.species.slice(mark, mark + MAX);
