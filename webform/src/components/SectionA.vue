@@ -2618,7 +2618,7 @@ export default {
       //TODO: WIP
       for(let i=0; i <= self.jsondata.species.length -1; i++){
         let current_section = JSON.parse(JSON.stringify(tab_1_section));
-        let specie = self.jsondata.species[i];
+        let specie = self.jsondata.species[i][0];
         current_section.scientific_name.selected = specie.speciesNameLegi;
         current_section.common_name.selected = specie.speciesCNameEN;
         current_section.species_code.selected = specie.speciesCode;
@@ -2631,58 +2631,6 @@ export default {
 
       }
       self.$forceUpdate();
-
-      /*window.onscroll = () => {
-        let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
-
-        if (bottomOfWindow) {
-          //this.loading = true;
-          //TODO: infinite scroll
-          let rest = self.jsondata.species.slice(mark, mark + MAX);
-
-          let toadd = rest.every((specie) => {
-            let current_section = JSON.parse(JSON.stringify(tab_1_section));
-            current_section.scientific_name.selected = specie.speciesNameLegi;
-            current_section.common_name.selected = specie.speciesCNameEN;
-            current_section.species_code.selected = specie.speciesCode;
-            self.info.sections.push(current_section);
-          });
-          //self.info.sections.concat(toadd);
-          self.$forceUpdate();
-
-          if(mark + MAX <= self.jsondata.species.length -1 ){
-            mark = mark + MAX;
-          } else {
-            mark = self.jsondata.species.length -1;
-          }
-          console.log(self.jsondata.species.length);
-          console.log(self.info.sections.length);
-        }
-        //this.loading = false;
-
-      };*/
-
-      /*let inter = setInterval(function (){
-        let rest = self.jsondata.species.slice(mark, mark + MAX);
-        let toadd = rest.every((specie) => {
-          let current_section = JSON.parse(JSON.stringify(tab_1_section));
-          current_section.scientific_name.selected = specie.speciesNameLegi;
-          current_section.common_name.selected = specie.speciesCNameEN;
-          current_section.species_code.selected = specie.speciesCode;
-          self.info.sections.push(current_section);
-        });
-
-        //self.info.sections.concat(toadd);
-
-        if(mark + MAX <= self.jsondata.species.length -1 ){
-          mark = mark + MAX;
-        } else {
-          mark = self.jsondata.species.length -1;
-          if(mark === self.jsondata.species.length-1 ) clearInterval(inter);
-        }
-        console.log(self.info.sections.length);
-        self.$forceUpdate();
-      } ,1000);*/
 
       this.loading = false;
     },

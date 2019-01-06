@@ -14,18 +14,18 @@ function form() {
       let species = vals[2];
 
       let procspec = species.species.reduce( (acc, cur) => {
-        if("undefined" === acc[cur.EUNIScode]){
+        if("undefined" === typeof acc[cur.EUNIScode]){
           acc[cur.EUNIScode] = [];
         }
-        acc[cur.EUNIScode] = cur;
+        acc[cur.EUNIScode].push(cur);
         return acc;
       },{});
 
       species = Object.keys(procspec).map((k) => {
         return procspec[k];
       }).sort(function (a,b) {
-        if(a.speciesNameLegi < b.speciesNameLegi ) return -1;
-        if(a.speciesNameLegi > b.speciesNameLegi ) return 1;
+        if(a[0].speciesNameLegi < b[0].speciesNameLegi ) return -1;
+        if(a[0].speciesNameLegi > b[0].speciesNameLegi ) return 1;
         return 0;
       });
 
