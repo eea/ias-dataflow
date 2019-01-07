@@ -252,12 +252,7 @@
                       {
                         "label": "River basin sub-unit(s)",
                         "name": "river_basin_subunits",
-                        "selected": [
-                          {
-                            "text": "first option",
-                            "value": 0
-                          }
-                        ]
+                        "selected": "first option"
                       },
                       {
                         "label": "Marine sub-region(s)",
@@ -376,12 +371,7 @@
                       {
                         "label": "River basin sub-unit(s)",
                         "name": "river_basin_subunits",
-                        "selected": [
-                          {
-                            "text": "third option",
-                            "value": 2
-                          }
-                        ]
+                        "selected": "first option"
                       },
                       {
                         "label": "Marine sub-region(s)",

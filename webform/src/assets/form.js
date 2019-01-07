@@ -1293,13 +1293,13 @@ function form() {
                           {
                             label: 'River basin sub-unit(s)',
                             name: 'river_basin_subunits',
-                            type: 'select',
+                            type: 'text',
                             selected: '',
-                            options: [
+                            /*options: [
                               {text: 'first option', value: 0},
                               {text: 'second option', value: 1},
                               {text: 'third option', value: 2},
-                            ],
+                            ],*/
                             //required: true,
                           },
                           {
@@ -1424,13 +1424,13 @@ function form() {
                       {
                         label: 'River basin sub-unit(s)',
                         name: 'river_basin_subunits',
-                        type: 'select',
+                        type: 'text',
                         selected: '',
-                        options: [
+                        /*options: [
                           {text: 'first option', value: 0},
                           {text: 'second option', value: 1},
                           {text: 'third option', value: 2},
-                        ],
+                        ],*/
                         //required: true,
                       },
                       {
@@ -1571,13 +1571,13 @@ function form() {
                         {
                           label: 'River basin sub-unit(s)',
                           name: 'river_basin_subunits',
-                          type: 'select',
+                          type: 'text',
                           selected: '',
-                          options: [
+                          /*options: [
                             {text: 'first option', value: 0},
                             {text: 'second option', value: 1},
                             {text: 'third option', value: 2},
-                          ]
+                          ]*/
                         },
                         {
                           label: 'Marine sub-region(s)',
@@ -1704,13 +1704,13 @@ function form() {
                     {
                       label: 'River basin sub-unit(s)',
                       name: 'river_basin_subunits',
-                      type: 'select',
+                      type: 'text',
                       selected: '',
-                      options: [
+                      /*options: [
                         {text: 'first option', value: 0},
                         {text: 'second option', value: 1},
                         {text: 'third option', value: 2},
-                      ]
+                      ]*/
                     },
                     {
                       label: 'Marine sub-region(s)',
