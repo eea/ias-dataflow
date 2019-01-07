@@ -12,7 +12,7 @@
               <countrytab tabId="0" :info.sync="form.tab_0" ref="country"></countrytab>
             </b-tab>
             <b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_1.label)" ref="sectiona_tab" style="overflow-y: auto;">
-     			    <sectiona tabId="1" :info.sync="form.tab_1" ref="sectiona" :jsondata="form.jsonData"></sectiona>
+     			    <sectiona tabId="1" :info.sync="form.tab_1" ref="sectiona" :jsondata="form.jsondata"></sectiona>
             </b-tab>
             <b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_2.label)" ref="sectionb_tab" style="overflow-y: auto;">
               <sectionb v-bind:data-vv-scope="'sectionb'" tabId="2" :info.sync="form.tab_2" ref="sectionb"></sectionb>
@@ -465,6 +465,7 @@ export default {
       }
 
       if("undefined" !== typeof data.IAS.tab_2){
+        //TODO : remove
         let regionOptions = [
           {
             text: 'Romania', value: 'RO',

@@ -2028,6 +2028,10 @@ function form() {
             ]
           }
         },
+
+        jsondata: {
+          "country" : country
+        }
       };
 
       for (let specie of speciesB) {
@@ -2042,12 +2046,11 @@ function form() {
         let current_section = JSON.parse(JSON.stringify(tab_1_section));
         current_section.scientific_name.selected = specie.speciesNameLegi;
         current_section.common_name.selected = { "EN" : specie.speciesCNameEN};
-        console.log(specie[country + "_CommonName"]);
 
         if("undefined" !== typeof specie[country + "_CommonName"]){
-          current_section.common_name.selected.languageName = specie[country + "_CommonName"];
+          current_section.common_name.selected[country] = specie[country + "_CommonName"];
         } else {
-          current_section.common_name.selected.languageName = null;
+          current_section.common_name.selected[country] = null;
         }
         current_section.species_code.selected = specie.speciesCode;
 

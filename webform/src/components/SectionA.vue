@@ -21,8 +21,8 @@
             {{section.common_name.label}}: {{section.common_name.selected.EN}}
           </h5>
           <!-- v-if="section.common_name.selected.languageName" -->
-          <h6 >
-            {{section.common_name.labelLanguage}}:<span style="font-weight: 600"> {{section.common_name.selected.languageName}} </span>
+          <h6 v-if="section.common_name.selected[ jsondata.country ]" >
+            {{section.common_name.labelLanguage}}:<span style="font-weight: 600"> {{ section.common_name.selected[ jsondata.country ]}} </span>
           </h6>
         </div>
 
@@ -697,6 +697,7 @@ export default {
   created (){
     //this.fetchData();
   },
+
 
   watch: {
     dateErrors(fields, oldFields){
