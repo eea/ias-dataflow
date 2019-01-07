@@ -97,44 +97,8 @@ export default {
     },
 
     saveForm(){
-      /*this.jsonemptyinstance = {
-          "BC_PEP": {
-              "@xmlns": "https://dd.info-rac.org/namespaces/4",
-              "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-              "@xsi:schemaLocation": "https://dd.info-rac.org/namespaces/4 http://converterstest.eionet.europa.eu/schemas/IAS/2018",
-              "country": null,
-              "contacting_party":{
-                "partyname":null,
-                "rep_period_from":null,
-                "rep_period_to":null,
-                "institution_name":null,
-                "officer_name":null,
-                "mailing_address":null,
-                "tel":null,
-                "fax":null,
-                "email":null,
-                "contact_point":null,
-                "instituion_full_name":null,
-                "national_mailing_address":null,
-                "national_tel":null,
-                "national_fax":null,
-                "national_email":null,
-                "national_signature":null,
-                "national_date":null,
-                "org_name":null,
-                "org_contact_point":null,
-                "org_tel":null,
-                "org_fax":null,
-                "org_email":null,
-              },
-              "measuresdata": {Row:[]},
-              "measuredata_difficulty": {Row:[]},
-              "pollincidents": {Row:[]},
-              "pollincidentsInfo": null,
-          }
-      };*/
-
       let datatoSave = this.prefill();
+      saveInstance(datatoSave);
 
       this.showAlert();
     },
@@ -174,17 +138,18 @@ export default {
       function processPermitsRow( fields ){
         let res = [];
 
-        fields.map((itm) => {
+        fields.map((itm,fk) => {
           if('undefined' !== typeof itm.selected) {
             let iname = itm.name;
             let temp = {};
             temp[iname] = itm.selected;
-            console.log(temp);
             res.push(temp);
           }
+
           if('undefined' !== typeof itm.type && itm.type === "add"){
             let subfield = null;
-            if(itm.fields.length > 1){
+
+            if(itm.name.indexOf("main") !== -1){
               subfield = itm.fields.map((field) => { return field.fields;});
             } else {
               subfield = itm.fields[0].fields;
@@ -595,8 +560,7 @@ export default {
       });
       newDatasetObject.tab_4 = newDataset.tab_4;
 
-      console.log(JSON.stringify(newDatasetObject));
-
+      return newDatasetObject;
     },
 
     validate(){

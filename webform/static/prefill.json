@@ -46,7 +46,7 @@
           "scientific_name": "Alopochen aegyptiacus Linnaeus, 1766",
           "common_name": {
             "EN": "Egyptian goose",
-            "languageName": "Nilgås"
+            "DK": "Nilgås"
           },
           "species_code": "R00644",
           "mandatory_item": {
@@ -137,18 +137,31 @@
                         ]
                       },
                       {
-                        "valid_permits_number": "1",
-                        "valid_measurement": "pcs"
+                        "valid_permits_number": [
+                          {
+                            "valid_permits_number": "1",
+                            "valid_measurement": "pcs"
+                          }
+                        ]
                       },
                       {
-                        "total_permited_speciments": "4",
-                        "total_permited_speciments_measurement": "kg"
+                        "total_permited_speciments": [
+                          {
+                            "total_permited_speciments": "4",
+                            "total_permited_speciments_measurement": "kg"
+                          }
+                        ]
                       },
                       {
-                        "valid_total_permited_speciments": "3",
-                        "valid_total_permited_speciments_measurement": "pcs"
+                        "valid_total_permited_speciments": [
+                          {
+                            "valid_total_permited_speciments": "3",
+                            "valid_total_permited_speciments_measurement": "pcs"
+                          }
+                        ]
                       }
-                    ]
+                    ],
+                    "index": 0
                   }
                 ]
               },
@@ -173,29 +186,38 @@
                           {
                             "number_establishments_inspections": "1",
                             "inspections_measurement": "kg"
-                          },
-                          {
-                            "number_establishments_inspections": "2",
-                            "inspections_measurement": "pcs"
                           }
                         ]
                       },
                       {
-                        "number_permitted_specimens": "2",
-                        "number_permitted_specimens_measurement": "pcs"
+                        "number_permitted_specimens": [
+                          {
+                            "number_permitted_specimens": "2",
+                            "number_permitted_specimens_measurement": "pcs"
+                          }
+                        ]
                       },
                       {
-                        "establishments_non_compliant": "3",
-                        "establishments_non_compliant_measurement": "kg"
+                        "establishments_non_compliant": [
+                          {
+                            "establishments_non_compliant": "3",
+                            "establishments_non_compliant_measurement": "kg"
+                          }
+                        ]
                       },
                       {
                         "number_speciments_held_by_non_compliant_establishments_main": ""
                       },
                       {
-                        "number_speciments_held_by_non_compliant_establishments": "4",
-                        "measurement_noncompliant": "pcs"
+                        "number_speciments_held_by_non_compliant_establishments": [
+                          {
+                            "number_speciments_held_by_non_compliant_establishments": "4",
+                            "measurement_noncompliant": "pcs"
+                          }
+                        ]
                       }
-                    ]
+                    ],
+                    "index": 1
                   }
                 ]
               }
@@ -309,7 +331,8 @@
                       "type": "textarea"
                     }
                   }
-                ]
+                ],
+                "label": "National Population #1"
               }
             ]
           },

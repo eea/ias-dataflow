@@ -2,7 +2,6 @@ import 'promise-polyfill/src/polyfill';
 import axios from 'axios';
 
 // const logRequests = process.env.NODE_ENV === 'production';
-
 const api = axios.create({
   baseURL: baseUri,
   withCredentials: true
@@ -57,10 +56,16 @@ function getDomain(url) {
   return url.split("/").slice(0, 3).join("/");
 }
 
-
 export function saveInstance(data) {
-  let url = getWebQUrl("/saveXml");
-  return post(url, data);
+  if(isTestSession){
+    let datatowrite = JSON.stringify(data);
+    console.log(datatowrite);
+
+  } else {
+    let url = getWebQUrl("/saveXml");
+    return post(url, data);
+  }
+
 }
 
 export function getInstance() {
