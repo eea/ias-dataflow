@@ -258,7 +258,9 @@ export default {
           label: 'Is the species present in the territory of the Member State?',
           type: 'select',
           selected: 1,
-          options: [{ value: true, text: "Yes" }, { value: false, text: "No" }, { value: 'unknown', text: "Currently unknown" }],
+          options: [{ value: true, text: "Yes" }, { value: false, text: "No" },
+            // { value: 'unknown', text: "Currently unknown" }
+          ],
           index: 3,
           name: 'mandatory_question',
         },
