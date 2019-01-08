@@ -170,6 +170,10 @@ export default {
     prefill(data,fdata){
       let self = this;
       if('undefined' !== typeof data.IAS.country){
+        if('undefined' !== typeof data.IAS.country.tables &&
+          'undefined' !== typeof data.IAS.country.tables.table_1 &&
+          'undefined' !== typeof data.IAS.country.tables.table_1.fields
+        )
         data.IAS.country.tables.table_1.fields.map((field, ix) => {
           fdata.country.tables.table_1.fields[ix].selected = field.selected;
         });
