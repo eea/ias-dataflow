@@ -14,7 +14,7 @@
         </b-row>
         <b-card v-if="info.mandatory_item.selected === true" class="fields-add-wrapper">
           <h4>Chose how you want to add a species</h4>
-          <h5>Add by selectting a scientific name from the predefined list</h5>
+          <h5>Add by selecting a scientific name from the predefined list</h5>
           <b-row>
             <b-col lg="3">
               <label>{{info.scientific_name.label}}</label>
