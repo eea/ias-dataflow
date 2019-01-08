@@ -7,7 +7,7 @@
             {
               "name": "partyname",
               "label": "Member State",
-              "selected": "DK"
+              "selected": "AT"
             },
             {
               "name": "rep_period_from",
@@ -27,7 +27,7 @@
       {
         "name": "partyname",
         "label": "Member State",
-        "selected": "DK"
+        "selected": "AT"
       },
       {
         "name": "rep_period_from",
@@ -261,14 +261,7 @@
                         "label": "Biogeographical region(s)",
                         "name": "biogeographical_region",
                         "selected": [
-                          {
-                            "text": "second option",
-                            "value": 1
-                          },
-                          {
-                            "text": "third option",
-                            "value": 2
-                          }
+
                         ]
                       },
                       {
@@ -385,10 +378,7 @@
                         "label": "Biogeographical region(s)",
                         "name": "biogeographical_region",
                         "selected": [
-                          {
-                            "text": "second option",
-                            "value": 1
-                          }
+
                         ]
                       },
                       {

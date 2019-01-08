@@ -2,6 +2,7 @@ import species from './species.js'
 import speciesB from './speciesB.js'
 import nuts from './nuts-regions'
 import marine_subregions from './marine-subregions'
+import biogeoghraphical_regions from './biogeoghraphical_regions'
 
 let measurement_units = [
   {
@@ -32,10 +33,11 @@ let regionOptions = [
 function form() {
   return new Promise(function( resolve, reject){
 
-    Promise.all([ nuts(), marine_subregions() ]).then((vals) => {
+    Promise.all([ nuts(), marine_subregions(),biogeoghraphical_regions() ]).then((vals) => {
       let country = vals[0].country.trim();
       let regions = vals[0].data;
       let msubregs = vals[1];
+      let bioregions = vals[2];
 
       let tab_1_section = {
         scientific_name: {
@@ -1283,11 +1285,7 @@ function form() {
                             name: 'biogeographical_region',
                             type: 'multiselect',
                             selected: '',
-                            options: [
-                              {text: 'first option', value: 0},
-                              {text: 'second option', value: 1},
-                              {text: 'third option', value: 2},
-                            ],
+                            options: bioregions,
                             //required: true,
                           },
                           {
@@ -1414,11 +1412,7 @@ function form() {
                         name: 'biogeographical_region',
                         type: 'multiselect',
                         selected: '',
-                        options: [
-                          {text: 'first option', value: 0},
-                          {text: 'second option', value: 1},
-                          {text: 'third option', value: 2},
-                        ],
+                        options: bioregions,
                         //required: true,
                       },
                       {
@@ -1562,11 +1556,7 @@ function form() {
                           name: 'biogeographical_region',
                           type: 'multiselect',
                           selected: '',
-                          options: [
-                            {text: 'first option', value: 0},
-                            {text: 'second option', value: 1},
-                            {text: 'third option', value: 2},
-                          ]
+                          options: bioregions
                         },
                         {
                           label: 'River basin sub-unit(s)',
@@ -1695,11 +1685,7 @@ function form() {
                       name: 'biogeographical_region',
                       type: 'multiselect',
                       selected: '',
-                      options: [
-                        {text: 'first option', value: 0},
-                        {text: 'second option', value: 1},
-                        {text: 'third option', value: 2},
-                      ]
+                      options: bioregions
                     },
                     {
                       label: 'River basin sub-unit(s)',
