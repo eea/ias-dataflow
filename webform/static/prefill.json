@@ -150,34 +150,8 @@
             ]
           },
           "reproduction_patterns": [
-            {
-              "patternType": "reproduction",
-              "region": "RO",
-              "pattern": "Sexual"
-            },
-            {
-              "patternType": "reproduction",
-              "region": "FR",
-              "pattern": "Unclear (sexual or asexual) "
-            }
           ],
           "spread_patterns": [
-            {
-              "patternType": "spread",
-              "region": "RO",
-              "pattern": [
-                "b) The species predominantly entered through natural dispersal from a neighbouring country",
-                "f) The species predominantly spread through natural dispersal"
-              ]
-            },
-            {
-              "patternType": "spread",
-              "region": "FR",
-              "pattern": [
-                "c) The species predominantly entered with unintentional human assistance",
-                "h) The species predominantly spread with intentional human assistance"
-              ]
-            }
           ]
         }
       ]

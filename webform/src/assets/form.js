@@ -134,7 +134,6 @@ function form() {
               add: true,
               multiple: true,
               selected: {
-                region: null,
                 pattern: null
               },
               options:[
@@ -1275,7 +1274,7 @@ function form() {
                             label: 'Part of the territory',
                             name: 'part_territory',
                             //type: 'file',
-                            type: 'select',
+                            type: 'multiselect',
                             options: regions,
                             selected: '',
                             comments:'',
@@ -1293,7 +1292,7 @@ function form() {
                           {
                             label: 'River basin sub-unit(s)',
                             name: 'river_basin_subunits',
-                            type: 'select',
+                            type: 'multiselect',
                             selected: '',
                             options: riverbasins,
                             //required: true,
@@ -1301,7 +1300,7 @@ function form() {
                           {
                             label: 'Marine sub-region(s)',
                             name: 'marine_sub_regions',
-                            type: 'select',
+                            type: 'multiselect',
                             selected: '',
                             options: msubregs,
                             //required: true,
@@ -1397,7 +1396,7 @@ function form() {
                         label: 'Part of the territory',
                         name: 'part_territory',
                         //type: 'file',
-                        type: 'select',
+                        type: 'multiselect',
                         //type: 'add',
                         options: regions,
                         selected: '',
@@ -1416,7 +1415,7 @@ function form() {
                       {
                         label: 'River basin sub-unit(s)',
                         name: 'river_basin_subunits',
-                        type: 'select',
+                        type: 'multiselect',
                         selected: '',
                         options: riverbasins,
                         //required: true,
@@ -1424,7 +1423,7 @@ function form() {
                       {
                         label: 'Marine sub-region(s)',
                         name: 'marine_sub_regions',
-                        type: 'select',
+                        type: 'multiselect',
                         selected: '',
                         options: msubregs,
                         //required: true,
@@ -1539,7 +1538,7 @@ function form() {
                         {
                           label: 'Part of the territory',
                           name: 'part_territory',
-                          type: 'select',
+                          type: 'multiselect',
                           options: regions,
                           selected: '',
                           comments:'',
@@ -1555,14 +1554,14 @@ function form() {
                         {
                           label: 'River basin sub-unit(s)',
                           name: 'river_basin_subunits',
-                          type: 'select',
+                          type: 'multiselect',
                           selected: '',
                           options: riverbasins,
                         },
                         {
                           label: 'Marine sub-region(s)',
                           name: 'marine_basin_subunits',
-                          type: 'select',
+                          type: 'multiselect',
                           selected: '',
                           options: msubregs,
                         },
@@ -1664,7 +1663,7 @@ function form() {
                     {
                       label: 'Part of the territory',
                       name: 'part_territory',
-                      type: 'select',
+                      type: 'multiselect',
                       options: regions,
                       selected: '',
                       comments:'',
@@ -1680,7 +1679,7 @@ function form() {
                     {
                       label: 'River basin sub-unit(s)',
                       name: 'river_basin_subunits',
-                      type: 'select',
+                      type: 'multiselect',
                       selected: '',
                       options: riverbasins,
                     },
