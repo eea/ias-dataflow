@@ -297,14 +297,14 @@ export default {
     changeDate($event){
       let self = this;
       self.$emit('change', $event);
-      self.$validator.validate();
+      self.$validator.validate().catch((rej) => { console.error(rej)});
       self.$nextTick().then((res) => {
         self.validate();
       });
     },
 
     validate(){
-      let self = this;
+      /*let self = this;
       return new Promise(function(resolve, reject) {
         self.$validator.validate().then((res) => {
           // if no errors
@@ -312,11 +312,13 @@ export default {
             resolve(res);
           } else {
             reject(res);
+            console.error(res);
           }
         }).catch((e) => {
+          console.error(e);
           reject(e);
         });
-      });
+      });*/
     }
   }
 }

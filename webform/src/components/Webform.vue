@@ -18,9 +18,9 @@
               <sectionb v-bind:data-vv-scope="'sectionb'" tabId="2" :info.sync="form.tab_2" ref="sectionb"></sectionb>
             </b-tab>
             <!-- TODO: enable WIP -->
-            <!--<b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_3.label)" ref="sectionc_tab" style="overflow-y: auto;">
-              <sectionc tabId="3" :info.sync="form.tab_3" ref="sectionc"></sectionc>
-            </b-tab>-->
+            <b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_3.label)" ref="sectionc_tab" style="overflow-y: auto;">
+              <sectionc tabId="3" :info.sync="form.tab_3" ref="sectionc" :jsondata="form.jsondata"></sectionc>
+            </b-tab>
             <b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_4.label)" ref="distributionmap_tab"style="overflow-y: auto;">
               <distributionmap tabId="4" :info.sync="form.tab_4" ref="distributionmap"></distributionmap>
             </b-tab>
@@ -876,7 +876,7 @@ export default {
         //console.log(res);
       }).catch((e) => {
         //console.log("errors");
-        console.error(e);
+        //console.error(e);
       })
     },
 

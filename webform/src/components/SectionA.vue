@@ -1140,7 +1140,6 @@ export default {
         });
       });
 
-
       self.popErrors = result;
     },
 
@@ -1154,7 +1153,7 @@ export default {
           if('undefined' !== typeof self.$refs[child][0].validate){
             promises.push( self.$refs[child][0].validate());
           }
-          promises.push(self.$refs[child][0].$validator.validate());
+          promises.push( self.$refs[child][0].$validator.validate() );
         }
       }
 
@@ -1168,13 +1167,12 @@ export default {
             resolve(res);
           } else {
             reject(res);
+            //console.error(res);
           }
         }).catch((e) => {
           console.error(e);
           reject(e);
         });
-      }).catch((rej) => {
-        console.error(rej);
       });
     },
 

@@ -367,7 +367,7 @@
 
           if(allerrors.length > 0){
             self.spreadvals = allerrors;
-            resolve(false);
+            reject(false);
           } else {
             self.spreadvals = [];
             resolve(true);
@@ -501,6 +501,7 @@
             }
           }).catch((e) => {
             reject(e);
+            console.error(e);
           });
         }).catch((err) => {
           console.error(err);

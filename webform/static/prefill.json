@@ -451,6 +451,42 @@
               }
             ]
           }
+        },
+        {
+          "scientific_name": "Sciurus niger Linnaeus, 1758",
+          "common_name": {
+            "EN": "Fox squirrel",
+            "DK": "Ræveegern"
+          },
+          "species_code": "R19317",
+          "mandatory_item": {
+            "selected": true,
+            "name": "mandatory_question"
+          },
+          "depending_on_mandatory": {
+            "name": "distribution_of_species",
+            "fields": [
+              {
+                "label": "Tick if yes",
+                "type": "checkbox",
+                "name": "distribution_maps_check",
+                "selected": false
+              }
+            ]
+          },
+          "additional_info": {
+            "selected": "qqqaa",
+            "name": "additional_info"
+          },
+          "tables": {},
+          "reproduction_patterns": [
+            {
+              "patternType": "reproduction",
+              "region": "RO",
+              "pattern": "Unclear (sexual or asexual) "
+            }
+          ],
+          "spread_pattterns": []
         }
       ]
     },

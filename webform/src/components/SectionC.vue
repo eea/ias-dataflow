@@ -119,7 +119,7 @@ export default {
   props: {
     info: null,
     tabId:null,
-    speciesOptions: null,
+    jsondata: null,
   },
 
   data () {
@@ -140,16 +140,13 @@ export default {
       errorUpload: [],
       counter: [],
       max: [],
-      /*speciesOptions : function (){
-        /!*return species().species.map((specie) => {
-            return {
-              value: specie.speciesName,
-              text: specie.speciesName,
-              code: specie.speciesCode
-            };
-          });*!/
-        return []
-      },*/
+      speciesOptions : species.map((specie) => {
+        return {
+          value: specie.speciesName,
+          text: specie.speciesName,
+          code: specie.speciesCode
+        };
+      }),
       speciesModels: [],
     }
   },
@@ -241,21 +238,6 @@ export default {
         });
       }
     }
-  },
-
-  created() {
-    let self = this;
-
-    self.info.section.fields.map((field,fieldk) => {
-      if(field.type==="add"){
-        field.fields.map((f,fkey) => {
-          let found = self.speciesOptions.filter((op) => {
-            return op.code === f.selected;
-          });
-          self.speciesModels[fkey] = found[0];
-        });
-      }
-    });
   },
   methods: {
     customLabel({text, value, code}){
