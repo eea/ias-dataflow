@@ -88,9 +88,21 @@ var webpackConfig = merge(baseWebpackConfig, {
     // copy custom static assets
     new CopyWebpackPlugin([
       {
+        from: path.resolve(__dirname, '../static/biogeoghraphical_regions'),
+        to: config.build.assetsSubDirectory
+      },{
+        from: path.resolve(__dirname, '../static/marine_subregions'),
+        to: config.build.assetsSubDirectory
+      },{
+        from: path.resolve(__dirname, '../static/nuts_regions'),
+        to: config.build.assetsSubDirectory
+      },{
+        from: path.resolve(__dirname, '../static/river_basins'),
+        to: config.build.assetsSubDirectory
+      },{
         from: path.resolve(__dirname, '../static'),
         to: config.build.assetsSubDirectory,
-        ignore: ['.*','files.json','prefill.json']
+        ignore: ['.*','files.json','prefill.json', 'biogeoghraphical_regions', 'marine_subregions', 'nuts_regions', 'river_basins']
       },{
         from: path.resolve(__dirname, '../dist-example'),
         to: config.build.assetsSubDirectory,
