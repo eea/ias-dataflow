@@ -1046,6 +1046,303 @@
     "fileType": "FILE"
   },
   {
+    "title": "AT_river_basins.json",
+    "file":
+    {
+      "name": "AT_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "BE_river_basins.json",
+    "file":
+    {
+      "name": "BE_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "BG_river_basins.json",
+    "file":
+    {
+      "name": "BG_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "CY_river_basins.json",
+    "file":
+    {
+      "name": "CZ_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "DE_river_basins.json",
+    "file":
+    {
+      "name": "DE_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "DK_river_basins.json",
+    "file":
+    {
+      "name": "DK_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "EE_river_basins.json",
+    "file":
+    {
+      "name": "EE_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "ES_river_basins.json",
+    "file":
+    {
+      "name": "ES_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "FI_river_basins.json",
+    "file":
+    {
+      "name": "FR_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "GB_river_basins.json",
+    "file":
+    {
+      "name": "GB_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "GR_river_basins.json",
+    "file":
+    {
+      "name": "GR_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "HR_river_basins.json",
+    "file":
+    {
+      "name": "HR_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "HU_river_basins.json",
+    "file":
+    {
+      "name": "HU_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "IE_river_basins.json",
+    "file":
+    {
+      "name": "IE_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "IT_river_basins.json",
+    "file":
+    {
+      "name": "IT_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "LT_river_basins.json",
+    "file":
+    {
+      "name": "LT_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "LU_river_basins.json",
+    "file":
+    {
+      "name": "LU_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "LV_river_basins.json",
+    "file":
+    {
+      "name": "LV_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "MT_river_basins.json",
+    "file":
+    {
+      "name": "MT_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "NL_river_basins.json",
+    "file":
+    {
+      "name": "NL_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "PL_river_basins.json",
+    "file":
+    {
+      "name": "PL_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "PT_river_basins.json",
+    "file":
+    {
+      "name": "PT_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "RO_river_basins.json",
+    "file":
+    {
+      "name": "RO_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "SE_river_basins.json",
+    "file":
+    {
+      "name": "SE_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "SI_river_basins.json",
+    "file":
+    {
+      "name": "SI_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "SK_river_basins.json",
+    "file":
+    {
+      "name": "SK_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "UK_river_basins.json",
+    "file":
+    {
+      "name": "UK_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
     "title": "IAS",
     "file":
     {
