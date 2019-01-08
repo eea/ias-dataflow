@@ -20,7 +20,6 @@
           <h5>
             {{section.common_name.label}}: {{section.common_name.selected.EN}}
           </h5>
-          <!-- v-if="section.common_name.selected.languageName" -->
           <h6 v-if="section.common_name.selected[ jsondata.country ]" >
             {{section.common_name.labelLanguage}}:<span style="font-weight: 600"> {{ section.common_name.selected[ jsondata.country ]}} </span>
           </h6>
@@ -58,7 +57,8 @@
                 {{section.depending_on_mandatory.label}}
               </h6>
 
-              <PatternField :patternfields="section.depending_on_mandatory.reproduction_patterns"
+              <PatternField v-if="section.mandatory_item.selected === true"
+                :patternfields="section.depending_on_mandatory.reproduction_patterns"
                 :scope="'sectiona_' + seckey + '_reproduction'"
                 :ref="'sectiona_' + seckey + '_reproduction'"
                 :multiple="section.depending_on_mandatory.reproduction_patterns.multiple"
@@ -66,7 +66,8 @@
                 @add-error="addSuberror"
               ></PatternField>
 
-              <PatternField :patternfields="section.depending_on_mandatory.spread_pattterns"
+              <PatternField  v-if="section.mandatory_item.selected === true"
+                :patternfields="section.depending_on_mandatory.spread_pattterns"
                 :scope="'sectiona_' + seckey + '_spread'"
                 :ref="'sectiona_' + seckey + '_spread'"
                 :multiple="section.depending_on_mandatory.spread_pattterns.multiple"
