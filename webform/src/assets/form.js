@@ -104,7 +104,7 @@ function form() {
                   text: 'Sexual', value: 0,
                 },
                 {
-                  text: 'Asexusal', value: 1,
+                  text: 'Asexual', value: 1,
                 },
                 {
                   text: 'Both (sexual and asexual)', value : 2,
@@ -1842,10 +1842,10 @@ function form() {
           question: 'Information to be submitted for each of the invasive alien species of Member State concern',
           table_label: '',
           mandatory_item: {
-            label: 'Has the Member State established a national list of invasive alien species of Member State concern? If yes, questions 2 to 5 below have to be answered for each of the species on this list',
+            label: 'Has the Member State established a national list of invasive alien species of Member State concern? If yes, questions below have to be answered for each of the species on this list',
             type: 'select',
             selected: true,
-            options: [{ value: true, text: "Yes" }, { value: false, text: "No" }, { value: 'unknown', text: "Currently unknown" }],
+            options: [{ value: true, text: "Yes" }, { value: false, text: "No" }],
             index: 3,
             name: 'mandatory_question',
           },
