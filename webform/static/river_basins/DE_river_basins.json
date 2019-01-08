@@ -1,0 +1,170 @@
+[
+  {
+    "name": "Donau - Donau (BY)"
+  },
+  {
+    "name": "Rhein - Mittelrhein"
+  },
+  {
+    "name": "Rhein - Niederrhein"
+  },
+  {
+    "name": "Rhein - Deltarhein"
+  },
+  {
+    "name": "Rhein - Main"
+  },
+  {
+    "name": "Rhein - Mosel/Saar"
+  },
+  {
+    "name": "Rhein - Bodensee/Alpenrhein"
+  },
+  {
+    "name": "Rhein - Neckar"
+  },
+  {
+    "name": "Rhein - Hochrhein"
+  },
+  {
+    "name": "Rhein - Oberrhein"
+  },
+  {
+    "name": "Ems - Obere Ems, Ems/Nordradde, Hase"
+  },
+  {
+    "name": "Ems - Leda-Jümme, Untere Ems, Ems-Ästuar"
+  },
+  {
+    "name": "Weser - Werra"
+  },
+  {
+    "name": "Weser - Fulda/Diemel"
+  },
+  {
+    "name": "Weser - Weser"
+  },
+  {
+    "name": "Weser - Leine"
+  },
+  {
+    "name": "Weser - Tide-Weser"
+  },
+  {
+    "name": "Weser - Aller"
+  },
+  {
+    "name": "Elbe - Mittlere Elbe/Elde"
+  },
+  {
+    "name": "Elbe - KOR HAV"
+  },
+  {
+    "name": "Elbe - Mulde-Elbe-Schwarze Elster"
+  },
+  {
+    "name": "Elbe - Tideelbe"
+  },
+  {
+    "name": "Elbe - Saale, Obere Moldau, Berounka, Eger und Untere Elbe"
+  },
+  {
+    "name": "Oder"
+  },
+  {
+    "name": "Maas"
+  },
+  {
+    "name": "Eider"
+  },
+  {
+    "name": "Schlei/Trave"
+  },
+  {
+    "name": "Warnow/Peene"
+  },
+  {
+    "name": "Donau - Donau (BY)"
+  },
+  {
+    "name": "Rhein - Mittelrhein"
+  },
+  {
+    "name": "Rhein - Niederrhein"
+  },
+  {
+    "name": "Rhein - Deltarhein"
+  },
+  {
+    "name": "Rhein - Main"
+  },
+  {
+    "name": "Rhein - Mosel/Saar"
+  },
+  {
+    "name": "Rhein - Bodensee/Alpenrhein"
+  },
+  {
+    "name": "Rhein - Neckar"
+  },
+  {
+    "name": "Rhein - Hochrhein"
+  },
+  {
+    "name": "Rhein - Oberrhein"
+  },
+  {
+    "name": "Ems - Obere Ems, Ems/Nordradde, Hase"
+  },
+  {
+    "name": "Ems - Leda-Jümme, Untere Ems, Ems-Ästuar"
+  },
+  {
+    "name": "Weser - Werra"
+  },
+  {
+    "name": "Weser - Fulda/Diemel"
+  },
+  {
+    "name": "Weser - Weser"
+  },
+  {
+    "name": "Weser - Leine"
+  },
+  {
+    "name": "Weser - Tide-Weser"
+  },
+  {
+    "name": "Weser - Aller"
+  },
+  {
+    "name": "Elbe - Mittlere Elbe/Elde"
+  },
+  {
+    "name": "Elbe - KOR HAV"
+  },
+  {
+    "name": "Elbe - Mulde-Elbe-Schwarze Elster"
+  },
+  {
+    "name": "Elbe - Tideelbe"
+  },
+  {
+    "name": "Elbe - Saale, Obere Moldau, Berounka, Eger und Untere Elbe"
+  },
+  {
+    "name": "Oder - Oder"
+  },
+  {
+    "name": "Maas - Maas"
+  },
+  {
+    "name": "Eider - Eider"
+  },
+  {
+    "name": "Schlei/Trave - FGE Schlei/Trave"
+  },
+  {
+    "name": "Warnow/Peene - FGE Warnow/Peene"
+  }
+]
