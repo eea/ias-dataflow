@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Alpine",
+    "realm": "terrestrial",
+    "regionCode": "ALP"
+  },
+  {
+    "name": "Marine Pannonian",
+    "realm": "terrestrial",
+    "regionCode": "PAN"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Alpine",
+    "realm": "terrestrial",
+    "regionCode": "ALP"
+  },
+  {
+    "name": "Continental",
+    "realm": "terrestrial",
+    "regionCode": "CON"
+  },
+  {
+    "name": "Marine Mediterranean",
+    "realm": "marine",
+    "regionCode": "MMED"
+  }
+]

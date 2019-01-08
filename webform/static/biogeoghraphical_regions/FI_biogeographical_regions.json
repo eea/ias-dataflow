@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Alpine",
+    "realm": "terrestrial",
+    "regionCode": "ALP"
+  },
+  {
+    "name": "Boreal",
+    "realm": "terrestrial",
+    "regionCode": "BOR"
+  },
+  {
+    "name": "Marine Baltic",
+    "realm": "marine",
+    "regionCode": "MBAL"
+  }
+]

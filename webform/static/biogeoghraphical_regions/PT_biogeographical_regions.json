@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Atlantic",
+    "realm": "terrestrial",
+    "regionCode": "ATL"
+  },
+  {
+    "name": "Macaronesian",
+    "realm": "terrestrial",
+    "regionCode": "MAC"
+  },
+  {
+    "name": "Marine Atlantic",
+    "realm": "marine",
+    "regionCode": "MATL"
+  },
+  {
+    "name": "Mediterranean",
+    "realm": "terrestrial",
+    "regionCode": "MED"
+  },
+  {
+    "name": "Marine Macaronesian",
+    "realm": "marine",
+    "regionCode": "MMAC"
+  }
+]

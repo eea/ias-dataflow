@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Continental",
+    "realm": "terrestrial",
+    "regionCode": "CON"
+  },
+  {
+    "name": "Marine Pannonian",
+    "realm": "terrestrial",
+    "regionCode": "PAN"
+  }
+]

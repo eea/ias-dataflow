@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Alpine",
+    "realm": "terrestrial",
+    "regionCode": "ALP"
+  },
+  {
+    "name": "Black Sea",
+    "realm": "terrestrial",
+    "regionCode": "BLS"
+  },
+  {
+    "name": "Continental",
+    "realm": "terrestrial",
+    "regionCode": "CON"
+  },
+  {
+    "name": "Marine Black Sea",
+    "realm": "marine",
+    "regionCode": "MBLS"
+  },
+  {
+    "name": "Marine Pannonian",
+    "realm": "terrestrial",
+    "regionCode": "PAN"
+  },
+  {
+    "name": "Steppic",
+    "realm": "terrestrial",
+    "regionCode": "STE"
+  }
+]
