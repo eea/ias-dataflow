@@ -430,7 +430,7 @@
         </permits_info>
         <reproduction_patterns>
           <element>
-            <pattern>Asexusal</pattern>
+            <pattern>Asexual</pattern>
             <patternType>reproduction</patternType>
             <region>RO</region>
           </element>
@@ -479,7 +479,7 @@
     <label>SECTION B</label>
     <mandatory_item>
       <index>3</index>
-      <label>Has the Member State established a national list of invasive alien species of Member State concern? If yes, questions 2 to 5 below have to be answered for each of the species on this list</label>
+      <label>Has the Member State established a national list of invasive alien species of Member State concern? If yes, questions below have to be answered for each of the species on this list</label>
       <name>mandatory_question</name>
       <options>
         <element>
@@ -489,10 +489,6 @@
         <element>
           <text>No</text>
           <value>false</value>
-        </element>
-        <element>
-          <text>Currently unknown</text>
-          <value>unknown</value>
         </element>
       </options>
       <selected>true</selected>

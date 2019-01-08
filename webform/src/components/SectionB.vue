@@ -36,7 +36,7 @@
             </b-col>
           </b-row>
           <hr>
-          <h5>Add manually</h5>
+          <h5>Add manually only if the species name is not available in the predefined list</h5>
 
           <div style="margin-bottom: 50px">
             <b-row>
@@ -292,7 +292,7 @@ export default {
                   text: 'Sexual', value: 0,
                 },
                 {
-                  text: 'Asexusal', value: 1,
+                  text: 'Asexual', value: 1,
                 },
                 {
                   text: 'Both (sexual and asexual)', value : 2,
@@ -475,6 +475,12 @@ export default {
               type: "checkbox",
               name: "restoration_measures",
               label: "Restoration measures",
+              selected: false,
+            },
+            {
+              type: "checkbox",
+              name: "not_included",
+              label: "The species is included in the national list but is not subject to any measures",
               selected: false,
             },
             {
