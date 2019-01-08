@@ -3,8 +3,7 @@
     <table class="table table-striped">
       <thead class="bg-primary">
       <th><span v-html="patternfields[0].label"></span></th>
-      <th>Biogeographical region</th>
-      <th><span>Actions</span></th>
+      <th v-if='patternfields[0].patternType === "spread"'><span>Actions</span></th>
       </thead>
       <tbody>
        <!--{{  patternfields[0].patternType === "spread" ?  patternfields : '' }}-->
@@ -65,7 +64,7 @@
           </b-col>
         </td>
 
-        <td>
+        <!--<td>
           <b-input-group>
             <b-input-group-prepend v-if="errors.has(scope + '_region_' + fieldkey,scope)">
               <b-badge class="error-badge"  variant="danger"
@@ -83,15 +82,15 @@
               @change="validate"
             ></b-form-select>
           </b-input-group>
-        </td>
+        </td>-->
 
-        <td><b-btn variant="danger" @click="removeRow(fieldkey)">X</b-btn></td>
+        <td v-if='patternfields[0].patternType === "spread"'><b-btn variant="danger" @click="removeRow(fieldkey)">X</b-btn></td>
       </tr>
       </tbody>
     </table>
-    <b-btn variant="default" class="addnew" @click="addNewRow" v-if='patternfields[0].patternType === "spread"' >
+    <!--<b-btn variant="default" class="addnew" @click="addNewRow" v-if='patternfields[0].patternType === "spread"' >
       + Add another pattern
-    </b-btn>
+    </b-btn>-->
   </div>
 </template>
 

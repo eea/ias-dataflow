@@ -39,7 +39,7 @@ function form() {
       let regions = vals[0].data;
       let msubregs = vals[1];
       let bioregions = vals[2];
-      
+
       let riverbasins = vals[3];
 
       let tab_1_section = {
@@ -99,7 +99,6 @@ function form() {
               name: 'reproduction patterns',
               multiple: false,
               selected: {
-                region: null,
                 pattern: null
               },
               options:[
@@ -123,7 +122,7 @@ function form() {
                 }
               ],
               //TODO : remove
-              regionOptions: regionOptions
+              //regionOptions: regionOptions
             }
           ],
           spread_pattterns:[
@@ -200,7 +199,7 @@ function form() {
                 }
               ],
               //TODO : remove
-              regionOptions: regionOptions
+              //regionOptions: regionOptions
             },
           ]
         },
