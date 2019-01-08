@@ -89,7 +89,7 @@
       </tr>
       </tbody>
     </table>
-    <b-btn variant="default" class="addnew" @click="addNewRow">
+    <b-btn variant="default" class="addnew" @click="addNewRow" v-if='patternfields[0].patternType === "spread"' >
       + Add another pattern
     </b-btn>
   </div>

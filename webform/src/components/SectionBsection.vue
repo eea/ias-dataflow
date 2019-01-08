@@ -92,19 +92,23 @@
             </h6>
             <div class="mt-4">
 
-              <PatternField :patternfields="sectionProp.depending_on_mandatory.reproduction_patterns"
-                            :scope="'sectionb_' + selkey + '_reproduction'"
-                            :ref="'sectionb_' + selkey + '_reproduction'"
-                            :multiple="sectionProp.depending_on_mandatory.reproduction_patterns.multiple"
-                            @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
+              <!-- TODO: clear on collapse -->
+              <PatternField
+                v-if="sectionProp.mandatory_item.selected === true"
+                :patternfields="sectionProp.depending_on_mandatory.reproduction_patterns"
+                :scope="'sectionb_' + selkey + '_reproduction'"
+                :ref="'sectionb_' + selkey + '_reproduction'"
+                :multiple="sectionProp.depending_on_mandatory.reproduction_patterns.multiple"
+                @remove-pattern="removePattern" @add-new-pattern="addNewPattern">
               </PatternField>
 
-              <!--  TODO: validation for spread  -->
-              <PatternField :patternfields="sectionProp.depending_on_mandatory.spread_pattterns"
-                            :scope="'sectionb_' + selkey + '_spread'"
-                            :ref="'sectionb_' + selkey + '_spread'"
-                            :multiple="sectionProp.depending_on_mandatory.spread_pattterns.multiple"
-                            @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
+              <PatternField
+                v-if="sectionProp.mandatory_item.selected === true"
+                :patternfields="sectionProp.depending_on_mandatory.spread_pattterns"
+                :scope="'sectionb_' + selkey + '_spread'"
+                :ref="'sectionb_' + selkey + '_spread'"
+                :multiple="sectionProp.depending_on_mandatory.spread_pattterns.multiple"
+                @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
               </PatternField>
 
               <div class="mb-2" v-for="(field, fieldkey, fieldindex) in sectionProp.depending_on_mandatory.fields">
@@ -179,9 +183,9 @@
         },
 
         created(){
-          //this.expanded = true;
-          //this.$forceUpdate();
-          //this.sectionProp.mandatory_item.selected =
+          this.expanded = true;
+          this.$forceUpdate();
+          //this.sectionProp.mandatory_item.selected = true
         },
 
         methods: {
