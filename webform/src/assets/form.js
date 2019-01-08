@@ -3,6 +3,7 @@ import speciesB from './speciesB.js'
 import nuts from './nuts-regions'
 import marine_subregions from './marine-subregions'
 import biogeoghraphical_regions from './biogeoghraphical_regions'
+import river_basins from './river_basins'
 
 let measurement_units = [
   {
@@ -33,11 +34,13 @@ let regionOptions = [
 function form() {
   return new Promise(function( resolve, reject){
 
-    Promise.all([ nuts(), marine_subregions(),biogeoghraphical_regions() ]).then((vals) => {
+    Promise.all([ nuts(), marine_subregions(),biogeoghraphical_regions(),river_basins() ]).then((vals) => {
       let country = vals[0].country.trim();
       let regions = vals[0].data;
       let msubregs = vals[1];
       let bioregions = vals[2];
+      
+      let riverbasins = vals[3];
 
       let tab_1_section = {
         scientific_name: {
@@ -1291,13 +1294,9 @@ function form() {
                           {
                             label: 'River basin sub-unit(s)',
                             name: 'river_basin_subunits',
-                            type: 'text',
+                            type: 'select',
                             selected: '',
-                            /*options: [
-                              {text: 'first option', value: 0},
-                              {text: 'second option', value: 1},
-                              {text: 'third option', value: 2},
-                            ],*/
+                            options: riverbasins,
                             //required: true,
                           },
                           {
@@ -1418,13 +1417,9 @@ function form() {
                       {
                         label: 'River basin sub-unit(s)',
                         name: 'river_basin_subunits',
-                        type: 'text',
+                        type: 'select',
                         selected: '',
-                        /*options: [
-                          {text: 'first option', value: 0},
-                          {text: 'second option', value: 1},
-                          {text: 'third option', value: 2},
-                        ],*/
+                        options: riverbasins,
                         //required: true,
                       },
                       {
@@ -1561,13 +1556,9 @@ function form() {
                         {
                           label: 'River basin sub-unit(s)',
                           name: 'river_basin_subunits',
-                          type: 'text',
+                          type: 'select',
                           selected: '',
-                          /*options: [
-                            {text: 'first option', value: 0},
-                            {text: 'second option', value: 1},
-                            {text: 'third option', value: 2},
-                          ]*/
+                          options: riverbasins,
                         },
                         {
                           label: 'Marine sub-region(s)',
@@ -1690,13 +1681,9 @@ function form() {
                     {
                       label: 'River basin sub-unit(s)',
                       name: 'river_basin_subunits',
-                      type: 'text',
+                      type: 'select',
                       selected: '',
-                      /*options: [
-                        {text: 'first option', value: 0},
-                        {text: 'second option', value: 1},
-                        {text: 'third option', value: 2},
-                      ]*/
+                      options: riverbasins,
                     },
                     {
                       label: 'Marine sub-region(s)',
