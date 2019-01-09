@@ -1,5 +1,6 @@
 <template>
   <div>
+    <b-badge variant="default"> Allowed file extension : {{ filesAllowed }}</b-badge>
     <b-badge  v-if="errors.has('*' , scope +'_' + 'files-input-' + fieldkey )" variant="danger">
       {{ errors.first('*' , scope +'_' + 'files-input-' + fieldkey ) }}
     </b-badge >

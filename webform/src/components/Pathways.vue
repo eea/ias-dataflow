@@ -30,7 +30,7 @@
     <b-btn variant="default" class="addnew"  @click="addPathway(field)">
       + Add another pathway
     </b-btn>
-    
+
   </div>
 </template>
 

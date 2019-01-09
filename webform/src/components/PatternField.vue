@@ -473,7 +473,7 @@
         }
 
         if ( self.patternfields[0].patternType === "reproduction" ){
-          promises.push( self.validateReproduction() );
+          //promises.push( self.validateReproduction() );
         }
 
         for( let ref in self.$refs){
