@@ -92,8 +92,7 @@ export function getCountry() {
         reject(rej);
       });
     });
-
-  }else {
+  } else {
     return new Promise(function(resolve, reject) {
       let countryCode = getParameterByName('countrycode');
       resolve(countryCode);
