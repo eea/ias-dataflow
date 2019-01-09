@@ -52,8 +52,8 @@ function form() {
           index: 1,
         },
         common_name: {
-          label: "Common name of the species ( english) ",
-          labelLanguage: "Common name of the species in member state language",
+          label: "Common name of the species (english) ",
+          labelLanguage: "Common name of the species (national language)",
           selected: '',
           disabled: true,
           name: 'common_name',
