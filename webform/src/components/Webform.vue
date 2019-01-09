@@ -180,7 +180,7 @@ export default {
         });
       }
 
-      if('undefined' !== typeof data.IAS.tab_0){
+      if('undefined' !== typeof data.IAS.tab_0 && "function" === typeof data.IAS.tab_0.map){
         data.IAS.tab_0.map((field) => {
           fdata.tab_0.tables.table_1.fields.map((f) => {
             if(f.name === field.name) f.selected = field.selected;
@@ -188,7 +188,7 @@ export default {
         });
       }
 
-      if('undefined' !== typeof data.IAS.tab_1){
+      if('undefined' !== typeof data.IAS.tab_1 && "function" === typeof data.IAS.tab_1.sections.map){
         data.IAS.tab_1.sections.map((sectionI) => {
           fdata.tab_1.sections = fdata.tab_1.sections.map((sectionF) => {
             if(sectionI.scientific_name === sectionF.scientific_name.selected){
@@ -469,7 +469,7 @@ export default {
         });
       }
 
-      if("undefined" !== typeof data.IAS.tab_2){
+      if("undefined" !== typeof data.IAS.tab_2 && "function" === typeof data.IAS.tab_2.sections.map ){
         //TODO : remove
         let regionOptions = [
           {
@@ -820,7 +820,7 @@ export default {
         fdata.tab_2.sections = sections;
       }
 
-      if("undefined" !== typeof data.IAS.tab_3){
+      if("undefined" !== typeof data.IAS.tab_3 && "function" === typeof data.IAS.tab_3.section.fields.map){
         data.IAS.tab_3.section.fields.map((sectionI) => {
           fdata.tab_3.section.fields = fdata.tab_3.section.fields.map((fsection) => {
             if(sectionI.name === fsection.name){
@@ -846,7 +846,7 @@ export default {
         });
       }
 
-      if("undefined" !== typeof data.IAS.tab_4){
+      if("undefined" !== typeof data.IAS.tab_4 && "function" === typeof data.IAS.tab_4.section.fields.map){
         data.IAS.tab_4.section.fields.map((field) => {
           fdata.tab_4.section.fields = fdata.tab_4.section.fields.map((sfield) => {
             if(field.name === sfield.name){
