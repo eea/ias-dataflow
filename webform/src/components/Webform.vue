@@ -154,7 +154,7 @@ export default {
         getCountry().then((result) => {
           //console.dir(result);
           this.country = result;
-          this.prefill(instance_data,fdata);
+          //this.prefill(instance_data,fdata);
         })
       })
     }).catch((rej) => {
