@@ -361,7 +361,8 @@
             }
           });
 
-          let rv = validateRegions( regvals, regpats);
+          //let rv = validateRegions( regvals, regpats);
+          let rv = [];
           let allerrors = vals.concat(rv);
 
           if(allerrors.length > 0){
