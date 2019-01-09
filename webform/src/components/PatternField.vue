@@ -29,7 +29,7 @@
             </b-input-group>
         </td>
 
-        <td v-if='patternfields[0].patternType === "spread"' style="width: 75%;">
+        <td v-if='patternfields[0].patternType === "spread"'>
           <b-col>
             <b-input-group>
               <b-input-group-prepend v-if="errors.has(scope + '_pattern_' + fieldkey, scope)">
