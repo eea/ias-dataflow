@@ -56,7 +56,8 @@
           </div>
 
           <div class="add-section" v-else-if="field.type === 'add'" >
-            <b-btn variant="primary" @click="addPathway(field)" style="margin-bottom: 1rem;">Add</b-btn>
+            <Pathways :fields="field"></Pathways>
+            <!--<b-btn variant="primary" @click="addPathway(field)" style="margin-bottom: 1rem;">Add</b-btn>
 
             <b-row v-for="(addField,fkey) in field.fields" style="margin-bottom: 5px;">
               <b-col md=12>
@@ -67,9 +68,9 @@
                       :multiple="false" :close-on-select="true" :clear-on-select="true" :preserve-search="true" track-by="text"
                       :custom-label="customLabel" @input="changeSpecie($event, field, fkey)"
                     >
-                      <!--<template slot="selection" slot-scope="{ values, search, isOpen }">
+                      &lt;!&ndash;<template slot="selection" slot-scope="{ values, search, isOpen }">
                         <span class="multiselect__single" v-if="values.length && !isOpen">{{ values.length }} options selected</span>
-                      </template>-->
+                      </template>&ndash;&gt;
                     </multiselect>
                     <b-input-group-append>
                       <b-btn variant="danger" @click="removePathway(field,addField, fkey)">Remove</b-btn>
@@ -80,7 +81,7 @@
               </b-col>
 
 
-            </b-row>
+            </b-row>-->
 
           </div>
 
@@ -113,9 +114,10 @@ import {slugify} from '../utils.js';
 import species from '../assets/species';
 import { getSupportingFiles, envelope} from '../api.js';
 import FormFileUpload from "./FormFileUpload";
+import Pathways from "./Pathways";
 
 export default {
-  components: {FormFileUpload},
+  components: {FormFileUpload, Pathways},
   props: {
     info: null,
     tabId:null,

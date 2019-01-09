@@ -1892,12 +1892,22 @@ function form() {
                 name: "priority_pathways",
                 fields: [{
                   label: 'Priority pathways addressed ',
-                  type: 'text',
+                  type: 'select',
                   selected: '',
+                  options:[
+                    {
+                      text: "Biological control",
+                      value: "1.1",
+                    },
+                    {
+                      text: "Hunting",
+                      value: "1.4",
+                    }
+                  ],
                   name: 'priority_pathways_addressed',
                   inner_field: {
                     label: 'Species covered  ',
-                    type: 'select',
+                    type: 'multiselect',
                     selected: '',
                     name: 'species_covered',
                   },
