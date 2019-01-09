@@ -145,10 +145,34 @@
 
           <div style="margin-top: 1rem;">
             <h4>{{sectionProp.section.label}}</h4>
+
             <div v-for="field in sectionProp.section.fields">
               <div class="checkbox-wrapper" v-if="field.type !== 'textarea'" lg="12">
-                <input :id="`${field.name}_${selkey}_${tabId}`" type="checkbox" v-model="field.selected" />
-                <label :for="`${field.name}_${selkey}_${tabId}`">{{field.label}}</label>
+                <div style="display: block; margin-right: 1rem;" v-if="errors.items.filter((er) => {
+                  return er.field === 'sectionb_'+ selkey + '_' + field.name && er.scope === 'sectionb_'+ selkey + '_checks_' + field.name;
+                  }).length > 0">
+                  <b-badge variant="danger">
+                    {{ errors.items.filter((er) => {
+                    return er.field === 'sectionb_'+ selkey + '_' + field.name && er.scope === 'sectionb_'+ selkey + '_checks_' + field.name;
+                    }).map((er) => { return er.msg;}).join('\n') }}
+                  </b-badge>
+                </div>
+
+                <div style="display: block;">
+                  <b-form-checkbox
+                    :class="'custom-checks'"
+                    :id="`${field.name}_${selkey}_${tabId}`"
+                    v-model="field.selected"
+                    v-bind:data-vv-scope="'sectionb_'+ selkey + '_checks_' + field.name"
+                    v-bind:name="'sectionb_'+ selkey + '_' + field.name"
+                    v-bind:key="'sectionb_'+ selkey + '_' + field.name"
+                    :ref="'sectionb_'+ selkey + '_checks_' + field.name"
+                    v-validate="'falserequire'"
+                  >
+                    <span style="color: rgba(3,3,3,1);">{{field.label}}</span>
+                  </b-form-checkbox>
+                </div>
+
               </div>
               <div lg="12" v-else >
                 <label style="font-size: 1.2em;">{{field.label}}</label>
@@ -179,6 +203,7 @@
         data(){
           return {
             expanded: false,
+            checksErrors: [],
           }
         },
 
@@ -187,8 +212,82 @@
           this.$forceUpdate();
           //this.sectionProp.mandatory_item.selected = true
         },
+        watch: {
+          checksErrors(vals, oldVals){
+            let self = this;
+
+            if(vals.length === 0){
+              oldVals.map((ref) => {
+
+              });
+            } else {
+              vals.map((ref) => {
+                let el = self.$refs[ref][0].$el;
+
+                if(el !== null){
+                  let name = el.getAttribute('name') || el.querySelector("[name]").getAttribute('name');
+                  let scope = el.getAttribute('data-vv-scope');
+
+                  if('undefined' !== typeof self.$validator){
+
+                    let field = self.$validator.fields.find({ name: name, scope: scope });
+
+                    let foundP = self.errors.items.filter((item) => {
+                      return item.field === name && item.scope === scope;
+                    });
+
+                    if('undefined' !== typeof self.$validator){
+                      foundP.map((err)=> {
+                        self.$validator.errors.removeById(err.id);
+                      });
+                    }
+
+                    console.log(field);
+                    if('undefined' !== typeof field){
+                      let error = {
+                        field: field.name,
+                        msg: "At least one of option must be chosen",
+                        scope: field.scope,
+                        rule: 'required',
+                        //vmId: field.vmId
+                      };
+
+                      if('undefined' !== typeof self.$validator){
+                        self.$validator.errors.add(error);
+                      }
+                      self.$forceUpdate();
+
+                    }
+                  }
+
+                }
+
+              });
+            }
+
+          }
+        },
 
         methods: {
+          validateCheks(){
+            let self = this;
+
+            let refs = Object.keys(this.$refs).filter((ref) => {
+              return ref.indexOf("checks") !== -1;
+            });
+
+            let found = refs.map((ref) => {
+              let el = this.$refs[ref][0];
+              return el.$el.querySelector(":checked");
+            }).filter(Boolean);
+
+            if(found.length === 0) {
+              self.checksErrors = refs;
+            } else {
+              self.checksErrors = [];
+            }
+          },
+
           validate(){
             let self = this;
             let promises = [];
@@ -200,6 +299,7 @@
                 }
               }
             }
+            this.validateCheks();
 
             return new Promise(function(resolve, reject) {
               Promise.all(promises).then((res) => {
@@ -330,8 +430,9 @@
     margin-right: .2rem;
   }
 
-  .checkbox-wrapper label{
+  .checkbox-wrapper label {
     margin-bottom: 0;
+    color: black !important;
   }
 
   @media screen and (max-width: 768px) {
@@ -340,3 +441,11 @@
     }
   }
 </style>
+<style>
+  .was-validated .custom-control-input:valid ~ .custom-control-label::before, .custom-control-input.is-valid ~ .custom-control-label::before,
+  .custom-control-label:before {
+    background-color: #e9ecef;
+
+  }
+</style>
+

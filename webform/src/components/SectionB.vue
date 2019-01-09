@@ -502,7 +502,6 @@ export default {
     customLabel({country, text, value}){
       return `${text}`
     },
-
     validate(){
       let promises = [];
       for( let section in this.$refs){
