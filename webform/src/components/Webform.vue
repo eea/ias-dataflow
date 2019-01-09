@@ -173,6 +173,7 @@ export default {
         if('undefined' !== typeof data.IAS.country.tables &&
           'undefined' !== typeof data.IAS.country.tables.table_1 &&
           'undefined' !== typeof data.IAS.country.tables.table_1.fields
+          && "function" === typeof data.IAS.country.tables.table_1.fields.map
         )
         data.IAS.country.tables.table_1.fields.map((field, ix) => {
           fdata.country.tables.table_1.fields[ix].selected = field.selected;
