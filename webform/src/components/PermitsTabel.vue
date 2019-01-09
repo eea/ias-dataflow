@@ -72,7 +72,9 @@
                              >
                     {{ errors.collect( 'permits_' + fiel.name + '_' + fiekey, 'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey  ).join('\n') }}
                     </b-badge>
-                    <field-generator :field="fiel" validation="'required'" :ref="'permits_' + fiel.name + '_' + fiekey"
+
+                    <field-generator :field="fiel" validation="'required'"
+                       :ref="'permits_' + fiel.name + '_' + fiekey"
                        :vname="'permits_' + fiel.name + '_' + fiekey"
                        :vkey="'permits_' + fiel.name + '_' + fiekey"
                        :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
@@ -300,6 +302,8 @@
       validate(){
         let promises = [];
         let self = this;
+
+
 
         promises.push(self.validateUnique());
 

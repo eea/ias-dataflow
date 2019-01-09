@@ -3,25 +3,36 @@
 		<div v-if="field.type === 'text' ||  field.type ==='email' || field.type === 'number'" >
 
       <span v-if="validation !== 'false'">
-         <b-form-input :disabled="disabled" :name="field.name"
-            v-model="field.selected" :type="field.type" v-if="field.type === 'number'"
+
+        <b-form-input
+            :disabled="disabled"
+            :name="field.name"
+            v-model="field.selected"
+            v-if="field.type === 'number'"
             @input="changeInput($event)"
             v-bind:key="vname"
             v-bind:name="vkey"
             :data-vv-as="field.label"
             v-bind:data-vv-scope="vscope"
-            v-validate.continues="'required|numeric|min_value:1'"
+            v-validate.continues="'required|min_value:1|decimal'"
          ></b-form-input>
 
-        <b-form-input :disabled="disabled" :name="field.name"
-            v-model="field.selected" :type="field.type" v-if="field.type !== 'number'"
-            @input="changeInput($event)"
+
+        <b-form-input
+            v-if="field.type !== 'number'"
+            :disabled="disabled"
+            :name="field.name"
+            v-model="field.selected"
+            :type="field.type"
+            @change="changeInputUM($event)"
+            @input="changeInputUM($event)"
             v-bind:key="vname"
             v-bind:name="vkey"
             :data-vv-as="field.label"
             v-bind:data-vv-scope="vscope"
             v-validate.continues="'required'"
-        ></b-form-input>
+        >
+        </b-form-input>
       </span>
 
       <span v-else>
@@ -106,8 +117,20 @@
     <span v-else-if="field.type === 'select'">
 
       <span v-if="validation !== 'false'">
-        <!-- TODO: delay in validation at units of measurement -->
-        <b-form-select v-if="field.options.length < 20"
+
+        <b-form-select
+          v-if="field.name === 'total_permited_speciments_measurement' || field.name === 'valid_total_permited_speciments_measurement'"
+           v-model="field.selected" :options="field.options"
+           v-bind:key="vname"
+           v-bind:name="vkey"
+           v-bind:data-vv-as=" (field.label === '' && 'undefined' !== typeof sub_section) ? sub_section.label : field.label "
+           v-bind:data-vv-scope="vscope"
+           v-validate ="'required'"
+           :disabled="disabled || field.options.length === 0"
+           @change="changeSelectUM($event)"
+        ></b-form-select>
+
+        <b-form-select v-else-if="field.options.length < 20"
           v-model="field.selected" :options="field.options"
           v-bind:key="vname"
           v-bind:name="vkey"
@@ -117,6 +140,7 @@
           :disabled="disabled || field.options.length === 0"
           @change="changeSelect($event)"
         ></b-form-select>
+
         <multiselect v-if="field.options.length >= 20"
           v-model="field.selected" :options="field.options"
           :multiple="false"
@@ -203,6 +227,7 @@
     </span>
 
     <div v-else>
+
       <b-form-input
         :disabled="disabled"
         :name="field.name"
@@ -285,8 +310,35 @@ export default {
         self.validate();
       });
     },
+
+    changeSelectUM($event){
+      let self = this;
+
+      console.log($event);
+
+      self.$emit('change', $event);
+      self.$validator.validate();
+      self.$nextTick().then((res) => {
+        self.validate();
+      });
+    },
+
     changeInput($event){
       let self = this;
+
+      console.log($event);
+
+      self.$emit('input', $event);
+      self.$validator.validate();
+      self.$nextTick().then((res) => {
+        self.validate();
+      });
+    },
+    changeInputUM($event){
+      let self = this;
+
+      console.log($event);
+
       self.$emit('input', $event);
       self.$validator.validate();
       self.$nextTick().then((res) => {

@@ -262,13 +262,13 @@ function form() {
                                   selected: '',
                                   required: 'required'
                                 },
-                                {
+                                /*{
                                   label: 'Unit of measurement',
                                   name: 'measurement',
                                   type: 'select',
                                   selected: '',
                                   options: measurement_units,
-                                },
+                                },*/
                               ],
                             }
                           ],
@@ -290,13 +290,13 @@ function form() {
                                   selected: '',
                                   required: 'required'
                                 },
-                                {
+                                /*{
                                   label: 'Unit of measurement',
                                   name: 'valid_measurement',
                                   type: 'select',
                                   selected: '',
                                   options: measurement_units,
-                                },
+                                },*/
                               ],
                             }
                           ],
@@ -386,13 +386,13 @@ function form() {
                                   selected: '',
                                   required: 'required'
                                 },
-                                {
+                                /*{
                                   label: 'Unit of measurement',
                                   name: 'measurement',
                                   type: 'select',
                                   selected: '',
                                   options: measurement_units,
-                                },
+                                },*/
                               ],
                             }
                           ],
@@ -413,13 +413,13 @@ function form() {
                                   selected: '',
                                   required: 'required'
                                 },
-                                {
+                                /*{
                                   label: 'Unit of measurement',
                                   name: 'valid_measurement',
                                   type: 'select',
                                   selected: '',
                                   options: measurement_units,
-                                },
+                                },*/
                               ],
                             }
                           ],
@@ -507,13 +507,13 @@ function form() {
                                   selected: '',
                                   required: 'required'
                                 },
-                                {
+                                /*{
                                   label: 'Unit of measurement',
                                   name: 'measurement',
                                   type: 'select',
                                   selected: '',
                                   options: measurement_units,
-                                },
+                                },*/
                               ],
                             }
                           ],
@@ -534,13 +534,13 @@ function form() {
                                   selected: '',
                                   required: 'required'
                                 },
-                                {
+                                /*{
                                   label: 'Unit of measurement',
                                   name: 'valid_measurement',
                                   type: 'select',
                                   selected: '',
                                   options: measurement_units,
-                                },
+                                },*/
                               ],
                             }
                           ],
@@ -628,13 +628,13 @@ function form() {
                                   selected: '',
                                   required: 'required'
                                 },
-                                {
+                                /*{
                                   label: 'Unit of measurement',
                                   name: 'measurement',
                                   type: 'select',
                                   selected: '',
                                   options: measurement_units,
-                                },
+                                },*/
                               ],
                             }
                           ],
@@ -655,13 +655,13 @@ function form() {
                                   selected: '',
                                   required: 'required'
                                 },
-                                {
+                                /*{
                                   label: 'Unit of measurement',
                                   name: 'valid_measurement',
                                   type: 'select',
                                   selected: '',
                                   options: measurement_units,
-                                },
+                                },*/
                               ],
                             }
                           ],
