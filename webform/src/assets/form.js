@@ -1874,12 +1874,12 @@ function form() {
               label: "Web link to information on the internet regarding the permits issued as required under Article 8(7) of Regulation (EU) No 1143/2014",
               selected: '',
             },
-              {
+              /*{
                 type: "file",
                 name: "web_link_file",
                 label: "File regarding the permits issued as required under Article 8(7) of Regulation (EU) No 1143/2014",
                 selected: [],
-              },
+              },*/
               {
                 type: "textarea",
                 name: "action_plans_art13",
