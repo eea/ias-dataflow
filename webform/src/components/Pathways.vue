@@ -30,31 +30,7 @@
     <b-btn variant="default" class="addnew"  @click="addPathway(field)">
       + Add another pathway
     </b-btn>
-    <!--<b-btn variant="primary" @click="addPathway(field)" style="margin-bottom: 1rem;">Add</b-btn>
-
-            <b-row v-for="(addField,fkey) in field.fields" style="margin-bottom: 5px;">
-              <b-col md=12>
-
-                <b-input-group :prepend="addField.inner_field.label">
-                    <multiselect v-model="speciesModels[fkey]" :options="speciesOptions"
-                      style="width: 70%;border-top-left-radius: 0;border-bottom-left-radius: 0;"
-                      :multiple="false" :close-on-select="true" :clear-on-select="true" :preserve-search="true" track-by="text"
-                      :custom-label="customLabel" @input="changeSpecie($event, field, fkey)"
-                    >
-                      &lt;!&ndash;<template slot="selection" slot-scope="{ values, search, isOpen }">
-                        <span class="multiselect__single" v-if="values.length && !isOpen">{{ values.length }} options selected</span>
-                      </template>&ndash;&gt;
-                    </multiselect>
-                    <b-input-group-append>
-                      <b-btn variant="danger" @click="removePathway(field,addField, fkey)">Remove</b-btn>
-                    </b-input-group-append>
-                </b-input-group>
-                <b class="mt-3">{{addField.label}} :  {{addField.selected ? addField.selected : '-'}}</b>
-                <hr>
-              </b-col>
-
-
-            </b-row>-->
+    
   </div>
 </template>
 
