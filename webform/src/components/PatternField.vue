@@ -3,7 +3,7 @@
     <table class="table table-striped">
       <thead class="bg-primary">
       <th><span v-html="patternfields[0].label"></span></th>
-      <th v-if='patternfields[0].patternType === "spread"'><span>Actions</span></th>
+      <!--<th v-if='patternfields[0].patternType === "spread"'><span>Actions</span></th>-->
       </thead>
       <tbody>
        <!--{{  patternfields[0].patternType === "spread" ?  patternfields : '' }}-->
@@ -84,7 +84,7 @@
           </b-input-group>
         </td>-->
 
-        <td v-if='patternfields[0].patternType === "spread"'><b-btn variant="danger" @click="removeRow(fieldkey)">X</b-btn></td>
+        <!--<td v-if='patternfields[0].patternType === "spread"'><b-btn variant="danger" @click="removeRow(fieldkey)">X</b-btn></td>-->
       </tr>
       </tbody>
     </table>
