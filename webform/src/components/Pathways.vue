@@ -1,72 +1,35 @@
 <template>
-  <div>
+  <div class="table-wrapper">
     <table class="table table-striped">
       <thead class="bg-primary">
-      <th>Pathways</th>
-      <th>Species</th>
+      <th>{{ field.fields[0].label }}</th>
+      <th>{{ field.fields[0].inner_field.label }}</th>
       <th>Actions</th>
       </thead>
       <tbody>
-      <tr v-for="(field,fieldkey) in fields.fields">
-        {{ field }}
-        <!--<td v-if='patternfields[0].patternType !== "spread"'>
-          <b-input-group>
-            <b-input-group-prepend v-if="errors.has(scope + '_pattern_' + fieldkey,scope)">
-              <b-badge class="error-badge"  variant="danger"
-                       :title="errors.collect(scope + '_pattern_' + fieldkey, scope).join('\n')"
-                       v-b-tooltip.hover
-              >{{ errors.first(scope + '_pattern_' + fieldkey, scope) }}</b-badge>
-            </b-input-group-prepend>
+      <tr v-for="(row,rowkey) in field.fields">
+        <td style="width: 45%;">
+          <multiselect v-model="row.selected" :options="row.options"
+           :multiple="false" :close-on-select="true" :clear-on-select="true" :preserve-search="true" track-by="text"
+           :custom-label="pathLabel"
+        >
+        </multiselect></td>
 
-            <b-form-select :options="field.options" v-model="field.selected.pattern" v-validate="'required'"
-                           data-vv-as="pattern"  v-bind:key="scope + '_pattern_' + fieldkey"
-                           v-bind:data-vv-scope="scope"
-                           v-bind:name="scope + '_pattern_' + fieldkey"
-                           :ref="scope + '_pattern_' + fieldkey"
-                           @change="validate"
-            ></b-form-select>
-
-          </b-input-group>
+        <td><multiselect v-model="row.inner_field.selected" :options="row.inner_field.options"
+           :multiple="true" :close-on-select="false" :clear-on-select="true" :preserve-search="true" track-by="text"
+           :custom-label="speciesLabel"
+        >
+        </multiselect></td>
+        <td style="width: 10%">
+            <b-btn variant="danger" @click="removePathway(field, row, rowkey)">Remove</b-btn>
         </td>
 
-        <td v-if='patternfields[0].patternType === "spread"'>
-          <b-col>
-            <b-input-group>
-              <b-input-group-prepend v-if="errors.has(scope + '_pattern_' + fieldkey, scope)">
-                <b-badge class="error-badge"  variant="danger"
-                         :title="errors.collect(scope + '_pattern_' + fieldkey, scope).join('\n')"
-                         v-b-tooltip.hover
-                >{{ errors.first(scope + '_pattern_' + fieldkey, scope) }}</b-badge>
-              </b-input-group-prepend>
-
-              <multiselect :options="field.options"
-                           v-model="field.selected.pattern"
-                           v-validate="'required'"
-                           data-vv-as="pattern"
-                           v-bind:key="scope + '_pattern_' + fieldkey"
-                           v-bind:data-vv-scope="scope"
-                           v-bind:name="scope + '_pattern_' + fieldkey"
-                           :ref="scope + '_pattern_' + fieldkey"
-                           :close-on-select="false"
-                           :clear-on-select="false"
-                           :hide-selected="true"
-                           :preserve-search="true"
-                           track-by="value"
-                           :multiple=true
-                           @select="validate"
-                           @input="validate"
-                           :class="'spreadmulti'"
-                           :allow-empty="true"
-                           :selectLabel = "''"
-                           :custom-label="customLabel"
-              ></multiselect>
-            </b-input-group>
-          </b-col>
-        </td>-->
-        <!--<td v-if='patternfields[0].patternType === "spread"'><b-btn variant="danger" @click="removeRow(fieldkey)">X</b-btn></td>-->
       </tr>
       </tbody>
     </table>
+    <b-btn variant="default" class="addnew"  @click="addPathway(field)">
+      + Add another pathway
+    </b-btn>
     <!--<b-btn variant="primary" @click="addPathway(field)" style="margin-bottom: 1rem;">Add</b-btn>
 
             <b-row v-for="(addField,fkey) in field.fields" style="margin-bottom: 5px;">
@@ -100,18 +63,73 @@
 
   export default {
     name: "Patways",
-    props: ['fields'],
+    components: {Multiselect},
+    props: {
+      field: null,
+    },
     data(){
       return {
 
       }
     },
     methods: {
-
+      pathLabel({text, value}){
+        return `${value} ${text}`
+      },
+      speciesLabel({text, value, code}){
+        return `${text}`
+      },
+      removePathway(field, row, rowkey){
+        if(rowkey !== 0) {
+          field.fields.splice(rowkey, 1);
+        } else {
+          field.fields[0].selected = '';
+          field.fields[0].inner_field.selected = '';
+        }
+        this.$forceUpdate();
+      },
+      addPathway(field){
+        let empty_field = JSON.parse(JSON.stringify(field.fields[0]));
+        empty_field.selected = '';
+        empty_field.inner_field.selected = '';
+        field.fields.push(empty_field);
+      },
     }
   }
 </script>
 
 <style scoped>
+  .table-wrapper {
+    margin-bottom: 2rem;
+    /*overflow-x: auto;*/
+    border-radius: 0.25rem;
+  }
 
+  .table {
+    margin-bottom: 0;
+    border-spacing: 0;
+    border-style: hidden;
+    width:100%;
+    max-width: 100%;
+  }
+
+  .table th {
+    font-size: 1.2em;
+  }
+
+  thead {
+    color: white
+  }
+
+  .error-badge {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    line-height: 2rem;
+  }
+
+  .addnew {
+    width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 </style>

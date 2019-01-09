@@ -56,7 +56,7 @@
           </div>
 
           <div class="add-section" v-else-if="field.type === 'add'" >
-            <Pathways :fields="field"></Pathways>
+            <Pathways :field="field"></Pathways>
             <!--<b-btn variant="primary" @click="addPathway(field)" style="margin-bottom: 1rem;">Add</b-btn>
 
             <b-row v-for="(addField,fkey) in field.fields" style="margin-bottom: 5px;">

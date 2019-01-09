@@ -4,6 +4,7 @@ import nuts from './nuts-regions'
 import marine_subregions from './marine-subregions'
 import biogeoghraphical_regions from './biogeoghraphical_regions'
 import river_basins from './river_basins'
+import pathways from './priority_pathways'
 
 let measurement_units = [
   {
@@ -1754,6 +1755,10 @@ function form() {
         }
       };
 
+      const ppathways = pathways.map((p) => {
+        return { text: p.name, value: p.code};
+      });
+
       let form = {
         country: {
           tables: {
@@ -1890,25 +1895,24 @@ function form() {
               {
                 type: "add",
                 name: "priority_pathways",
-                fields: [{
+                fields: [
+                {
                   label: 'Priority pathways addressed ',
                   type: 'select',
                   selected: '',
-                  options:[
-                    {
-                      text: "Biological control",
-                      value: "1.1",
-                    },
-                    {
-                      text: "Hunting",
-                      value: "1.4",
-                    }
-                  ],
+                  options: ppathways,
                   name: 'priority_pathways_addressed',
                   inner_field: {
                     label: 'Species covered  ',
                     type: 'multiselect',
                     selected: '',
+                    options: species.map((specie) => {
+                      return {
+                        value: specie.speciesName,
+                        text: specie.speciesName,
+                        code: specie.speciesCode
+                      };
+                    }),
                     name: 'species_covered',
                   },
 
