@@ -17,7 +17,7 @@ let biogeoghraphical_regions = function(){
       }).catch((rej) => {
         reject(rej);
       }).then((regs) => {
-        console.log(regs);
+        //console.log(regs);
         if( "undefined" !== typeof regs ){
           const regions = regs.map((reg) => { return { text: reg.name, value: reg.regionCode} });
           //console.log(regs);
