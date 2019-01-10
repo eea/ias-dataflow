@@ -73,11 +73,13 @@
                     {{ errors.collect( 'permits_' + fiel.name + '_' + fiekey, 'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey  ).join('\n') }}
                     </b-badge>
 
-                    <field-generator :field="fiel" validation="'required'"
-                       :ref="'permits_' + fiel.name + '_' + fiekey"
-                       :vname="'permits_' + fiel.name + '_' + fiekey"
-                       :vkey="'permits_' + fiel.name + '_' + fiekey"
+                    <field-generator :field="fiel" :validation="'required'"
+                       :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                       :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                       :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                        :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
+                       @change="changeInput($event,field, row, rkey,sfkey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey )"
+                       @input="changeInput($event,field, row, rkey,sfkey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey )"
                     ></field-generator>
                   </div>
 
@@ -90,11 +92,14 @@
               <b-badge
                 v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey )"
                 variant="danger" class="error-badge" :id="'permits_' + field.name + '_' + rkey + 'badge'"
-                :title="errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey).join('\n')"
+                :title="errors.collect('permits_' + field.name + '_' + rkey ,
+                                       'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey).join('\n')"
                 v-b-tooltip.hover
               >{{ errors.collect('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey ).join('\n') }}
               </b-badge>
-              <field-generator :field="field" validation="'required'"
+              <field-generator
+               :field="field"
+               validation="'required'"
                :ref="'permits_' + field.name + '_' + rkey"
                :vname="'permits_' + field.name + '_' + rkey"
                :vkey="'permits_' + field.name + '_' + rkey"
@@ -346,6 +351,55 @@
 
       removeSubfield(field, sfkey){
         field.fields.splice(sfkey, 1);
+        this.$forceUpdate();
+      },
+
+      changeInput($event,field, row, rkey,sfkey, ref){
+        let self = this;
+
+        row.fields.forEach((fieldO, fkey) => {
+          if(fieldO.type === "add" && fieldO.name !== field.name ){
+
+            fieldO.fields.forEach((sfield, sfieldk) => {
+              if(fieldO.fields[sfieldk].fields.length === 2 && sfieldk === sfkey){
+                let fd = fieldO.fields[0].fields[1];
+                fd.selected = $event;
+
+                let found = Object.keys(this.$refs).map((r) => {
+                  if(r.indexOf(fd.name) !== -1){
+                    let refer = self.$refs[r][0];
+
+                    let str = r.split("_");
+                    let sfk = str[ str.length-2 ];
+                    let rk = str[1];
+                    //TODO : filter for rowkey
+
+                    if(sfkey === parseInt(sfk) && parseInt(rk) === rkey ){
+                      if(refer.name !== field.name) {
+                        refer.field.selected = $event;
+                        let el = refer.$el.querySelector("select");
+                        let found = null;
+                        for (let i = 0; i < el.length; i++) {
+                          if (el.options[i].value === $event) found = i;
+                        }
+
+                        if (found !== null) el.selectedIndex = found;
+
+                        self.$nextTick().then((res) => {
+                          refer.field.selected = $event;
+                          self.$forceUpdate();
+                        });
+                      }
+                    }
+                  }
+
+                });
+              }
+            });
+
+          }
+        });
+
         this.$forceUpdate();
       }
     }

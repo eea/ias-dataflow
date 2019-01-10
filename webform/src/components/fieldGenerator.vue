@@ -314,19 +314,17 @@ export default {
     changeSelectUM($event){
       let self = this;
 
-      console.log($event);
-
-      self.$emit('change', $event);
       self.$validator.validate();
       self.$nextTick().then((res) => {
         self.validate();
       });
+      self.$emit('change', $event);
     },
 
     changeInput($event){
       let self = this;
 
-      console.log($event);
+      //console.log($event);
 
       self.$emit('input', $event);
       self.$validator.validate();
