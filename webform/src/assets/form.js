@@ -8,10 +8,10 @@ import pathways from './priority_pathways'
 
 let measurement_units = [
   {
-    text: 'kg',
+    text: 'Kg of seeds',
     value: 'kg'
   },{
-    text: 'pcs',
+    text: 'Number of specimen',
     value: 'pcs',
   }
 ];

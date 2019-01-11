@@ -4,6 +4,8 @@
 
       <span v-if="validation !== 'false'">
 
+        {{ validation }}
+        <!-- TODO : decimals for kgs-->
         <b-form-input
             :disabled="disabled"
             :name="field.name"
@@ -14,9 +16,8 @@
             v-bind:name="vkey"
             :data-vv-as="field.label"
             v-bind:data-vv-scope="vscope"
-            v-validate.continues="'required|min_value:1|decimal'"
+            v-validate.continues="validation"
          ></b-form-input>
-
 
         <b-form-input
             v-if="field.type !== 'number'"
@@ -120,7 +121,8 @@
 
         <b-form-select
           v-if="field.name === 'total_permited_speciments_measurement' || field.name === 'valid_total_permited_speciments_measurement'"
-           v-model="field.selected" :options="field.options"
+           v-model="field.selected"
+           :options="field.options"
            v-bind:key="vname"
            v-bind:name="vkey"
            v-bind:data-vv-as=" (field.label === '' && 'undefined' !== typeof sub_section) ? sub_section.label : field.label "
@@ -314,11 +316,18 @@ export default {
     changeSelectUM($event){
       let self = this;
 
+      //console.log("changeSelectUM");
+
       self.$validator.validate();
+
       self.$nextTick().then((res) => {
+        self.$forceUpdate();
         self.validate();
       });
+
+      self.$forceUpdate();
       self.$emit('change', $event);
+
     },
 
     changeInput($event){
@@ -335,7 +344,7 @@ export default {
     changeInputUM($event){
       let self = this;
 
-      console.log($event);
+      /*console.log($event);*/
 
       self.$emit('input', $event);
       self.$validator.validate();

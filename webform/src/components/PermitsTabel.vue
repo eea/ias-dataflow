@@ -58,7 +58,7 @@
             </div>
           </td>
 
-          <td v-for="(field,fkey) in row.fields" v-if="field.name !== 'year'"
+          <td v-for="(field, fkey) in row.fields" v-if="field.name !== 'year'"
               v-bind:style="{ width: field.type === 'add' ? '20%' : 'auto' }"
               style="padding-left: 15px;padding-right: 15px;max-width: 15%;">
             <div class="selects-wrapper" v-for="(sfield, sfkey) in field.fields" v-if="field.type === 'add'" >
@@ -73,14 +73,36 @@
                     {{ errors.collect( 'permits_' + fiel.name + '_' + fiekey, 'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey  ).join('\n') }}
                     </b-badge>
 
-                    <field-generator :field="fiel" :validation="'required'"
+                    <!--{{ rkey }}
+                    {{ fkey }}
+                    {{ sfkey }}
+                    {{ fiekey }}-->
+
+                    <field-generator
+                      v-if="sfield.fields.length === 1"
+                      :field="fiel" :validation="'required|min_value:1|numeric'"
                        :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                        :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                        :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                        :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
-                       @change="changeInput($event,field, row, rkey,sfkey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey )"
-                       @input="changeInput($event,field, row, rkey,sfkey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey )"
+                       @change="field.fields.length > 1 ? changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey ): null"
+                       @input="field.fields.length > 1 ? changeInput( $event, field, row, rkey, fkey, sfkey, fiekey,'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey ) : null"
                     ></field-generator>
+
+                    <!-- TODO: decimals for kg and integers for pcs-->
+                    {{ sfield.fields.length > 1 ? sfield.fields[1].selected : '' }}
+                    <field-generator
+                      v-if="sfield.fields.length === 2"
+                      :field="fiel" :validation="'required|min_value:1|decimal'"
+                      :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                      :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                      :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                      :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
+                      @change="changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey )"
+                      @input="changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey )"
+                    ></field-generator>
+
+
                   </div>
 
                 </div>
@@ -152,7 +174,6 @@
         let temp  = this.initialRows.map((item, ix)=>{
           return { text: item.label, value: ix};
         });
-
 
         if(this.table_section.table_fields.fields.length === 0 ) this.table_section.table_fields.fields[0] = JSON.parse(JSON.stringify(this.initialRows[0]));
         this.options = temp;
@@ -308,8 +329,6 @@
         let promises = [];
         let self = this;
 
-
-
         promises.push(self.validateUnique());
 
         for( let ref in self.$refs){
@@ -354,9 +373,48 @@
         this.$forceUpdate();
       },
 
-      changeInput($event,field, row, rkey,sfkey, ref){
+      changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, ref){
         let self = this;
 
+        let allowed = [
+          'total_permited_speciments_main', 'valid_total_permited_speciments_main',
+          'number_permitted_specimens_main', 'number_speciments_held_by_non_compliant_establishments_main'
+        ];
+
+        /*row.fields.filter((fieldO, fieldkey) => {
+          if( allowed.indexOf(fieldO.name) !== -1){
+            fieldO.fields[0].fields.forEach((sfield, sfieldk) => {
+              if(sfieldk === sfkey){
+                let fd = fieldO.fields[0].fields[1];
+                fd.selected = $event;
+
+                let found = Object.keys(this.$refs).map((r) => {
+                  if(r.indexOf(fd.name) !== -1){
+                    let refer = self.$refs[r][0];
+
+                    let str = r.split("_");
+                    let sfk = str[ str.length-2 ];
+                    let rk = str[1];
+
+                    refer.field.selected = $event;
+                    let el = refer.$el.querySelector("select");
+                    let found = null;
+                    for (let i = 0; i < el.length; i++) {
+                      if (el.options[i].value === $event) found = i;
+                    }
+                    if (found !== null) {
+                      el.selectedIndex = found;
+                      self.$nextTick().then((res) => {
+                        refer.field.selected = $event;
+                        self.$forceUpdate();
+                      });
+                    }
+                  }
+                });
+              }
+            });
+          }
+        });*/
         row.fields.forEach((fieldO, fkey) => {
           if(fieldO.type === "add" && fieldO.name !== field.name ){
 
