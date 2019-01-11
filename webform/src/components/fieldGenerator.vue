@@ -4,7 +4,7 @@
 
       <span v-if="validation !== 'false'">
 
-        {{ validation }}
+        <!--{{ validation }}-->
         <!-- TODO : decimals for kgs-->
         <b-form-input
             :disabled="disabled"
