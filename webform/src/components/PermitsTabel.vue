@@ -90,7 +90,7 @@
                     ></field-generator>
 
                     <!-- TODO: decimals for kg and integers for pcs-->
-                    {{ sfield.fields.length > 1 ? sfield.fields[1].selected : '' }}
+                    <!--{{ sfield.fields.length > 1 ? sfield.fields[1].selected : '' }}-->
                     <field-generator
                       v-if="sfield.fields.length === 2"
                       :field="fiel" :validation="'required|min_value:1|decimal'"
