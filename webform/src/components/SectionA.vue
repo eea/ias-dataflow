@@ -1124,7 +1124,6 @@ export default {
             });
             return a;
           },{});
-          //console.log(uniq);
 
           let res = [];
           Object.keys(uniq).filter((a) => uniq[a] > 1).map((dup) => {
@@ -1134,8 +1133,6 @@ export default {
             a = a.concat(b);
             return a;
           }, []);
-          /*console.log(res instanceof Array);
-          console.log(res.length);*/
 
           if(res.length > 0) result = result.concat(res);
         });
@@ -1168,7 +1165,6 @@ export default {
             resolve(res);
           } else {
             reject(res);
-            //console.error(res);
           }
         }).catch((e) => {
           console.error(e);
@@ -1182,7 +1178,7 @@ export default {
       let newname = tablecopy.name.split("#");
       let nr = parseInt(newname[1], 10) + 1;
 
-      tablecopy.name = "National Population #" + nr;
+      tablecopy.name = "Population #" + nr;
 
       tablecopy.table_sections = JSON.parse(JSON.stringify(tableSection.table_sections));
 
