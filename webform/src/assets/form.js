@@ -23,15 +23,6 @@ let years = [
   { text: '2018', value: 2018 },
 ];
 
-let regionOptions = [
-  {
-    text: 'Romania', value: 'RO',
-  },
-  {
-    text: 'France', value: 'FR',
-  },
-];
-
 function form() {
   return new Promise(function( resolve, reject){
 
@@ -121,9 +112,7 @@ function form() {
                 {
                   text: 'Unknown whether the species reproduces in the Member State', value: 5,
                 }
-              ],
-              //TODO : remove
-              //regionOptions: regionOptions
+              ]
             }
           ],
           spread_pattterns:[
@@ -197,9 +186,7 @@ function form() {
                   index: 'j',
                   value: 9
                 }
-              ],
-              //TODO : remove
-              //regionOptions: regionOptions
+              ]
             },
           ]
         },

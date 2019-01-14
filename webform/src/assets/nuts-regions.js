@@ -18,7 +18,7 @@ let nuts = function(){
         resolve({ country: res, data: []});
       }).then((regs) => {
         if( "undefined" !== typeof regs ){
-          const regions = regs.map((reg) => { return { text: reg.label, value: reg.id} });
+          const regions = regs.map((reg) => { return { text: reg.id + ' - ' + reg.label, value: reg.id} });
           resolve( { country: res, data: regions });
         } else {
           resolve({ country: res, data: [] });
