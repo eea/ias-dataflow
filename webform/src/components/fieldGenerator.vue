@@ -1,10 +1,9 @@
 <template>
 	<div v-if="field">
-		<div v-if="field.type === 'text' ||  field.type ==='email' || field.type === 'number'" >
 
+		<div v-if="field.type === 'text' ||  field.type ==='email' || field.type === 'number'" >
       <span v-if="validation !== 'false'">
 
-        <!--{{ validation }}-->
         <!-- TODO : decimals for kgs-->
         <b-form-input
             :disabled="disabled"
@@ -58,6 +57,7 @@
     </div>
 
     <div v-else-if="field.type === 'date'">
+
       <span v-if="validation !== 'false'">
         <!-- v-if="errors.has(vname, vscope)" -->
         <b-badge variant="danger" class="error-badge" v-if="errors.items
@@ -68,7 +68,8 @@
           .map((err) => { return err.msg}).join('\n')
           }}
         </b-badge>
-        <b-form-input :disabled="disabled" :name="field.name"
+        <b-form-input :disabled="disabled"
+                      :name="field.name"
           v-model="field.selected"
           :type="field.type"
           :data-vv-as="field.label"
@@ -76,7 +77,7 @@
           v-bind:name="vkey"
           v-bind:data-vv-scope="vscope"
           @input="changeDate($event)"
-          v-validate.continues="'required|date_format:YYYY-MM-DD'"
+          v-validate="'required|date_format:YYYY-MM-DD'"
           date-format="yyyy-mm-dd"
         ></b-form-input>
       </span>
@@ -363,7 +364,7 @@ export default {
     },
 
     validate(){
-      /*let self = this;
+      let self = this;
       return new Promise(function(resolve, reject) {
         self.$validator.validate().then((res) => {
           // if no errors
@@ -377,7 +378,7 @@ export default {
           console.error(e);
           reject(e);
         });
-      });*/
+      });
     }
   }
 }

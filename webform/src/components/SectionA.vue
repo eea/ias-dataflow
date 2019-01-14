@@ -272,7 +272,8 @@
                                   :vkey="row.name + '_' + rowkey"
                                   :ref="'sectiona_'+ seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
                                   :vscope="'sectiona_'+ seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
-                                  @change="row.name === 'starting_date' ? validateDate(row, sub_section,
+                                  @change="row.name === 'starting_date' || row.name==='duration_or_end'
+                                ? validateDate(row, sub_section,
                             'sectiona_'+ seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey , {
                           field: row.name + '_' + rowkey,
                           scope:'sectiona_'+ seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
@@ -540,7 +541,7 @@
                                   :vkey="row.name + '_' + rowkey"
                                   :ref="'sectiona_'+ seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
                                   :vscope="'sectiona_'+ seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
-                                  @change="row.name === 'starting_date' ? validateDate(row, sub_section,
+                                  @change="row.name === 'starting_date' || row.name==='duration_or_end' ? validateDate(row, sub_section,
                             'sectiona_'+ seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey , {
                           field: row.name + '_' + rowkey,
                           scope:'sectiona_'+ seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
@@ -756,6 +757,7 @@ export default {
       let self = this;
 
       if(fields.length > 0){
+
         oldFields.map((field)=> {
           let errs = field.target.$validator.errors.items.filter((err) => {
             return err.scope === field.scope && err.field === field.name;
@@ -979,6 +981,7 @@ export default {
     },
 
     validateDate(row, sub_section,ref, obj){
+
       let self = this;
       let value = row.selected;
       let tover = sub_section.fields.filter((field) => { return field.name==='duration_or_end'})[0];
@@ -995,7 +998,23 @@ export default {
           self.dateErrors.push({field: field.name, scope:field.scope, target: target });
         }
       } else {
-        self.$set(this,'dateErrors',[] );
+
+        let target = self.$refs[ref][0];
+
+        let name = target.$el.querySelector('[name]').getAttribute('name') ;
+        let scope = target.$el.querySelector('[data-vv-scope]').getAttribute('data-vv-scope');
+
+        let field = target.$validator.fields.find({name: name, scope: scope});
+
+        if(field){
+          console.log(field);
+          let rest = self.dateErrors.filter((err) => {
+            return err.field === field.name;
+          });
+          self.$set(this,'dateErrors', rest );
+
+        }
+
       }
     },
 
