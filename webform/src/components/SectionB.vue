@@ -13,6 +13,7 @@
           </b-col>
         </b-row>
         <b-card v-if="info.mandatory_item.selected === true" class="fields-add-wrapper">
+          <div class="card-header">
           <h4>Chose how you want to add a species</h4>
           <h5>Add by selecting a scientific name from the predefined list</h5>
           <b-row>
@@ -66,6 +67,7 @@
                         style="margin-bottom: -3rem" variant="primary" >add</b-btn>
               </b-col>
             </b-row>
+          </div>
           </div>
           <hr>
 
