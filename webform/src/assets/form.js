@@ -234,7 +234,7 @@ function form() {
                         },
 
                         {
-                          label: 'Number of permits...',
+                          label: 'Number of permits issued',
                           tooltip: 'Number of permits issued in the calendar year',
                           name: 'permits_number_main',
                           type: 'add',
@@ -255,7 +255,7 @@ function form() {
                         },
 
                         {
-                          label: 'No. permits valid',
+                          label: 'Number permits valid',
                           tooltip: 'Number of permits valid in the calendar year',
                           name: 'valid_permits_number_main',
                           type: 'add',
@@ -685,7 +685,7 @@ function form() {
                         },
 
                         {
-                          label: 'No. establishments',
+                          label: 'Number of establishments',
                           tooltip: 'Number of establishments subjected to the inspections',
                           name: 'number_establishments_inspections_main',
                           type: 'add',
