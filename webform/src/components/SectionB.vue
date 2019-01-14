@@ -1,5 +1,6 @@
 <template>
   <div v-if="info">
+    {{ value }}
     <div class="question-wrapper">
       <h2><center>{{info.question}}</center></h2>
       <br/>
@@ -23,11 +24,13 @@
 
                 <multiselect v-model="value" :options="info.scientific_name.options"  :multiple="true"
                 :close-on-select="false" :clear-on-select="false" :preserve-search="true" track-by="text"
-                @select="fillCommon($event)" :custom-label="customLabel" @input="updateSelected()" @remove="remove($event)"
+                @select="fillCommon($event)" :custom-label="customLabel"
+                             @input="updateSelected()" @remove="remove($event)"
                 >
-                  <!--<template slot="selection" slot-scope="{ values, search, isOpen }">
-                    <span class="multiselect__single" v-if="values.length && !isOpen">{{ values.length }} options selected</span>
-                  </template>-->
+
+
+
+
                 </multiselect>
 
             </b-col>
@@ -99,7 +102,8 @@ export default {
 
   data () {
     return {
-      value: this.info.scientific_name.selected,
+      //value: this.info.scientific_name.selected,
+      value: [] ,
       selected: {
         sci_name: '',
         text: '',
@@ -125,16 +129,20 @@ export default {
   created (){
     let self = this;
     //self.value = this.info.scientific_name.selected;
-    /*console.log(JSON.parse(JSON.stringify(this.info)));
-    this.info.sections.map((section,sidx) => {
+    /*this.info.sections.map((section,sidx) => {
       console.log(sidx);
       //this.info.sections.push(section);
-      //this.value.push(section.scientific_name.selected);
+      this.value.push(section.scientific_name.selected);
       /!*this.info.scientific_name.selected = this.value;
       this.$forceUpdate();*!/
 
     });*/
     //console.log(this.info);
+  },
+  watch: {
+      value(newV, oldV){
+        //this.value = newV.filter((op) => { return "undefined" === typeof op.manual});
+      }
   },
   methods: {
     titleSlugify(text) {
@@ -188,7 +196,15 @@ export default {
     },
 
     updateSelected(){
-      this.info.scientific_name.selected = this.value;
+      //this.info.scientific_name.selected = JSON.parse(JSON.stringify(this.value));
+      let self = this;
+      self.value.forEach((val, vix)=> {
+        let f = self.info.scientific_name.selected.filter((n) => { return val.text === n.text});
+
+        if(f.length === 0) this.info.scientific_name.selected.push(val);
+
+      })
+
     },
 
     addManually(sci_name, com_name, selkey) {
@@ -206,7 +222,8 @@ export default {
         sci_name = {
           country: "",
           text: this.selected['sci_name'],
-          value: this.selected['sci_name']
+          value: this.selected['sci_name'],
+          manual: true,
         };
         let selkey = this.info.sections.length;
 
@@ -228,14 +245,6 @@ export default {
     },
 
     addSpecies(sci_name, com_name, selkey){
-      let regionOptions = [
-        {
-          text: 'Romania', value: 'RO',
-        },
-        {
-          text: 'France', value: 'FR',
-        },
-      ];
 
       let tab_1_section = {
         scientific_name: {
@@ -310,7 +319,7 @@ export default {
                 }
               ],
               //TODO : remove
-              regionOptions: regionOptions
+              //regionOptions: regionOptions
             }
           ],
           spread_pattterns:[
@@ -387,7 +396,7 @@ export default {
                 }
               ],
               //TODO : remove
-              regionOptions: regionOptions
+              //regionOptions: regionOptions
             },
           ]
         },
@@ -499,9 +508,11 @@ export default {
 
     },
 
-    customLabel({country, text, value}){
-      return `${text}`
+    customLabel({country, text, value, manual}){
+      if(manual) return '';
+      return `${text}`;
     },
+
     validate(){
       let promises = [];
       for( let section in this.$refs){
