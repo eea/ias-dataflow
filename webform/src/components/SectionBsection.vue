@@ -1,38 +1,5 @@
 <template>
   <div>
-    <b-row>
-      <!--<b-col lg="3">
-        <label>{{info.scientific_name.label}}</label>
-      </b-col>-->
-
-      <!--<b-col lg="7">
-        <b-input v-model="sectionProp.scientific_name.selected.text" :options="info.scientific_name.options"
-                 v-validate="'required'" data-vv-as="Scientific name"
-                 v-bind:data-vv-scope="'sectionb_' + 'scientific_name_' + selkey" v-bind:name="'scientific_name_' + selkey"
-                 @change="updateSFName($event, selkey)" disabled
-        ></b-input>
-        <b-badge variant="danger" v-show="errors.has('sectionb_scientific_name_' + selkey + '.' + 'scientific_name_' + selkey )"
-                 style="line-height: 3;">{{ errors.first('sectionb_scientific_name_' + selkey + '.' + 'scientific_name_' + selkey ) }}</b-badge>
-      </b-col>-->
-      <!--<b-col lg="2" class="d-none d-md-block d-lg-block d-xl-block">
-        <b-btn style="margin-bottom: -3rem" variant="danger" @click="removeSection(selkey)" >remove</b-btn>
-      </b-col>-->
-    </b-row>
-    <b-row  >
-      <b-col lg="3">
-        <label>{{info.common_name.label}}</label>
-      </b-col>
-
-      <!--<b-col lg="7">
-        <b-input v-model="sectionProp.common_name.selected.value"
-                 @change="updateSectionCommonName($event,selkey)"></b-input>
-      </b-col>-->
-
-      <!--<b-col lg="2" class="d-xs-block d-md-none d-lg-none d-xl-none">
-        <b-btn style="margin-bottom: -3rem" variant="danger" @click="removeSection(selkey)">remove</b-btn>
-      </b-col>-->
-
-    </b-row>
 
     <b-card class="mt-5 mb-5">
       <b-badge variant="danger" v-if="errors.items.filter((err) => {return err.scope.indexOf('sectionb_' + selkey + '_') !== -1; }).length > 0"
