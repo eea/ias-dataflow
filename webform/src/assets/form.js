@@ -34,6 +34,10 @@ function form() {
 
       let riverbasins = vals[3];
 
+      const ppathways = pathways.map((p) => {
+        return { text: p.name, value: p.code};
+      });
+
       let tab_1_section = {
         scientific_name: {
           label: 'Species scientific name',
@@ -1271,20 +1275,21 @@ function form() {
                         {
                           label: 'Impacted non-targeted species',
                           type: 'add',
+                          name: 'impacted_nontargeted_species_main',
                           description:'Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)',
                           fields: [
                             {
                             label: 'Impacted non-targeted species',
                             type: 'text',
                             selected: '',
-                            validation:'false',
+                            validation:'required',
                             name: 'impacted_nontargeted_species',
                             inner_field: {
                               label: 'Impact per species',
                               type: 'text',
                               selected: '',
                               name: 'impact_per_species',
-                              validation:'false',
+                              validation:'required',
                             }
                           },
                           ]
@@ -1394,19 +1399,20 @@ function form() {
                     {
                       label: 'Impacted non-targeted species',
                       type: 'add',
+                      name: 'impacted_nontargeted_species_main',
                       description:'Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)',
                       fields: [{
                         label: 'Impacted non-targeted species',
                         type: 'text',
                         selected: '',
-                        validation:'false',
+                        validation:'required',
                         name: 'impacted_nontargeted_species',
                         inner_field: {
                           label: 'Impact per species',
                           type: 'text',
                           selected: '',
                           name: 'impact_per_species',
-                          validation:'false',
+                          validation:'required',
                         }
                       }, ]
                     },
@@ -1531,19 +1537,20 @@ function form() {
                       {
                         label: 'Impacted non-targeted species',
                         type: 'add',
+                        name: 'impacted_nontargeted_species_main',
                         description:'Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)',
                         fields: [{
                           label: 'Impacted non-targeted species',
                           type: 'text',
                           selected: '',
-                          validation:'false',
+                          validation:'required',
                           name: 'impacted_nontargeted_species',
                           inner_field: {
                             label: 'Impact per species',
                             type: 'text',
                             selected: '',
                             name: 'impact_per_species',
-                            validation:'false',
+                            validation:'required',
                           }
                         }, ]
                       },
@@ -1653,22 +1660,24 @@ function form() {
                       ]
                     }, ]
                   },
+                  
                   {
                     label: 'Impacted non-targeted species',
                     type: 'add',
+                    name: 'impacted_nontargeted_species_main',
                     description:'Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)',
                     fields: [{
                       label: 'Impacted non-targeted species',
                       type: 'text',
                       selected: '',
-                      validation:'false',
+                      validation:'required',
                       name: 'impacted_nontargeted_species',
                       inner_field: {
                         label: 'Impact per species',
                         type: 'text',
                         selected: '',
                         name: 'impact_per_species',
-                        validation:'false',
+                        validation:'required',
                       }
                     }, ]
                   },
@@ -1686,9 +1695,6 @@ function form() {
         }
       };
 
-      const ppathways = pathways.map((p) => {
-        return { text: p.name, value: p.code};
-      });
 
       let form = {
         country: {

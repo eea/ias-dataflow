@@ -1,6 +1,6 @@
 <template>
   <div v-if="info">
-    {{ value }}
+
     <div class="question-wrapper">
       <h2><center>{{info.question}}</center></h2>
       <br/>
