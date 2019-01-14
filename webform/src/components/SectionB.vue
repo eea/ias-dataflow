@@ -141,11 +141,7 @@ export default {
     });*/
     //console.log(this.info);
   },
-  watch: {
-      value(newV, oldV){
-        //this.value = newV.filter((op) => { return "undefined" === typeof op.manual});
-      }
-  },
+
   methods: {
     titleSlugify(text) {
       return slugify(text)
@@ -202,10 +198,8 @@ export default {
       let self = this;
       self.value.forEach((val, vix)=> {
         let f = self.info.scientific_name.selected.filter((n) => { return val.text === n.text});
-
         if(f.length === 0) this.info.scientific_name.selected.push(val);
-
-      })
+      });
 
     },
 
