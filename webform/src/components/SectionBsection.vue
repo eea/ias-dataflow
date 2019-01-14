@@ -23,14 +23,14 @@
         <label>{{info.common_name.label}}</label>
       </b-col>
 
-      <b-col lg="7">
+      <!--<b-col lg="7">
         <b-input v-model="sectionProp.common_name.selected.value"
                  @change="updateSectionCommonName($event,selkey)"></b-input>
-      </b-col>
+      </b-col>-->
 
-      <b-col lg="2" class="d-xs-block d-md-none d-lg-none d-xl-none">
+      <!--<b-col lg="2" class="d-xs-block d-md-none d-lg-none d-xl-none">
         <b-btn style="margin-bottom: -3rem" variant="danger" @click="removeSection(selkey)">remove</b-btn>
-      </b-col>
+      </b-col>-->
 
     </b-row>
 
@@ -44,19 +44,33 @@
 
       <div class="panel-heading">
         <div @click="expanded = !expanded" :ref="'collapse'">
-
-          <h3>
-            <font-awesome-icon v-bind:icon="expanded ? 'chevron-down' : 'chevron-right'"
-                               class="fachevron" />
-            <small>{{info.scientific_name.label}}: </small><span style="font-size: 1em; font-weight: 600;">
+          <b-row>
+            <b-col>
+              <h3>
+                <font-awesome-icon v-bind:icon="expanded ? 'chevron-down' : 'chevron-right'"
+                                   class="fachevron" />
+                <small>{{info.scientific_name.label}}: </small><span style="font-size: 1em; font-weight: 600;">
           {{ sectionProp.scientific_name.selected.text }}</span>
-          </h3>
-          <b-btn style="margin-bottom: -3rem" variant="danger" @click="removeSection(selkey)" >remove</b-btn>
+              </h3>
+            </b-col>
+            <b-col lg="2" class="d-none d-md-block d-lg-block d-xl-block">
+              <b-btn variant="danger" @click="removeSection(selkey)" >remove</b-btn>
+            </b-col>
+
+          </b-row>
+          <b-row  style="margin-bottom: 2rem;">
+            <b-col>
+              <b-input-group :prepend="info.common_name.label">
+              <!--<h4><small>{{info.common_name.label}}: </small><span style="font-size: 1em; font-weight: 600;">-->
+              <b-input v-model="sectionProp.common_name.selected.value"
+         @change="updateSectionCommonName($event,selkey)"></b-input>
+              </b-input-group>
 
 
-          <h4><small>{{info.common_name.label}}: </small><span style="font-size: 1em; font-weight: 600;">
-          {{ sectionProp.common_name.selected.value}}</span>
-          </h4>
+            </b-col>
+
+          </b-row>
+
         </div>
 
 
