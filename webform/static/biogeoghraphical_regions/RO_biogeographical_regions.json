@@ -1,32 +1,27 @@
 [
   {
-    "name": "Alpine",
+    "regionCode": "ALP",
     "realm": "terrestrial",
-    "regionCode": "ALP"
+    "name": "Alpine"
   },
   {
-    "name": "Black Sea",
+    "regionCode": "BLS",
     "realm": "terrestrial",
-    "regionCode": "BLS"
+    "name": "Black Sea"
   },
   {
-    "name": "Continental",
+    "regionCode": "CON",
     "realm": "terrestrial",
-    "regionCode": "CON"
+    "name": "Continental"
   },
   {
-    "name": "Marine Black Sea",
-    "realm": "marine",
-    "regionCode": "MBLS"
+    "regionCode": "PAN",
+    "realm": "terrestrial",
+    "name": "Marine Pannonian"
   },
   {
-    "name": "Marine Pannonian",
+    "regionCode": "STE",
     "realm": "terrestrial",
-    "regionCode": "PAN"
-  },
-  {
-    "name": "Steppic",
-    "realm": "terrestrial",
-    "regionCode": "STE"
+    "name": "Steppic"
   }
 ]

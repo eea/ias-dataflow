@@ -1,17 +1,12 @@
 [
   {
-    "name": "Atlantic",
+    "regionCode": "ATL",
     "realm": "terrestrial",
-    "regionCode": "ATL"
+    "name": "Atlantic"
   },
   {
-    "name": "Continental",
+    "regionCode": "CON",
     "realm": "terrestrial",
-    "regionCode": "CON"
-  },
-  {
-    "name": "Marine Atlantic",
-    "realm": "marine",
-    "regionCode": "MATL"
+    "name": "Continental"
   }
 ]

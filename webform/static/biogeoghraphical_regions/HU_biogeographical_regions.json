@@ -1,7 +1,7 @@
 [
   {
-    "name": "Marine Pannonian",
+    "regionCode": "PAN",
     "realm": "terrestrial",
-    "regionCode": "PAN"
+    "name": "Marine Pannonian"
   }
 ]

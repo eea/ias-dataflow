@@ -1,22 +1,12 @@
 [
   {
-    "name": "Atlantic",
+    "regionCode": "ATL",
     "realm": "terrestrial",
-    "regionCode": "ATL"
+    "name": "Atlantic"
   },
   {
-    "name": "Marine Atlantic",
-    "realm": "marine",
-    "regionCode": "MATL"
-  },
-  {
-    "name": "Mediterranean",
+    "regionCode": "MED",
     "realm": "terrestrial",
-    "regionCode": "MED"
-  },
-  {
-    "name": "Marine Mediterranean",
-    "realm": "marine",
-    "regionCode": "MMED"
+    "name": "Mediterranean"
   }
 ]

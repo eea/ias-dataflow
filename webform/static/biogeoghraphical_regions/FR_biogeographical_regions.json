@@ -1,32 +1,22 @@
 [
   {
-    "name": "Alpine",
+    "regionCode": "ALP",
     "realm": "terrestrial",
-    "regionCode": "ALP"
+    "name": "Alpine"
   },
   {
-    "name": "Atlantic",
+    "regionCode": "ATL",
     "realm": "terrestrial",
-    "regionCode": "ATL"
+    "name": "Atlantic"
   },
   {
-    "name": "Continental",
+    "regionCode": "CON",
     "realm": "terrestrial",
-    "regionCode": "CON"
+    "name": "Continental"
   },
   {
-    "name": "Marine Atlantic",
-    "realm": "marine",
-    "regionCode": "MATL"
-  },
-  {
-    "name": "Mediterranean",
+    "regionCode": "MED",
     "realm": "terrestrial",
-    "regionCode": "MED"
-  },
-  {
-    "name": "Marine Mediterranean",
-    "realm": "marine",
-    "regionCode": "MMED"
+    "name": "Mediterranean"
   }
 ]

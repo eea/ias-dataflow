@@ -1,7 +1,7 @@
 [
   {
-    "name": "Continental",
+    "regionCode": "CON",
     "realm": "terrestrial",
-    "regionCode": "CON"
+    "name": "Continental"
   }
 ]

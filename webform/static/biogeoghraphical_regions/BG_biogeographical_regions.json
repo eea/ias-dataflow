@@ -1,22 +1,17 @@
 [
   {
-    "name": "Alpine",
+    "regionCode": "ALP",
     "realm": "terrestrial",
-    "regionCode": "ALP"
+    "name": "Alpine"
   },
   {
-    "name": "Black Sea",
+    "regionCode": "BLS",
     "realm": "terrestrial",
-    "regionCode": "BLS"
+    "name": "Black Sea"
   },
   {
-    "name": "Continental",
+    "regionCode": "CON",
     "realm": "terrestrial",
-    "regionCode": "CON"
-  },
-  {
-    "name": "Marine Black Sea",
-    "realm": "marine",
-    "regionCode": "MBLS"
+    "name": "Continental"
   }
 ]
