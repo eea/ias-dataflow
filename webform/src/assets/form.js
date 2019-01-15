@@ -1,5 +1,9 @@
 import species from './species.js'
 import speciesB from './speciesB.js'
+import protected_species from './protected_species'
+import protected_habitats from './protected_habitats'
+import ecosystems from './ecosystems'
+
 import nuts from './nuts-regions'
 import marine_subregions from './marine-subregions'
 import biogeoghraphical_regions from './biogeoghraphical_regions'
@@ -1693,9 +1697,48 @@ function form() {
             }, ]
           },
           table_4: {
-            label: "Information on the impact of this species (Optional)",
-            name: "species_impact",
+            label: "Observations on the impact of the species during the reporting period",
+            name: "observations_table",
 
+            table_sections: [
+              {
+                table_fields: [
+                  {
+                    name: "section",
+                    fields:[
+                      {
+                        label: "Impact ",
+                        type: "textarea",
+                        selected: "",
+                        name: "impact",
+                      },
+                      {
+                        label: "Protected species",
+                        type: "multiselect",
+                        name: "protected_species",
+                        selected: "",
+                        options: protected_species.map((op) => { return { text: op.label, value: op.id };} )
+                      },
+                      {
+                        label: "Protected habitats",
+                        type: "multiselect",
+                        name: "protected_habitats",
+                        selected: "",
+                        options: protected_habitats.map((op) => { return { text: op.label, value: op.id };} )
+                      },
+                      {
+                        label: "Ecosystem services",
+                        type: "multiselect",
+                        name: "ecosystem_services",
+                        selected: "",
+                        options: ecosystems.map((op) => { return { text: op.class, value: op.class };} )
+                      },
+                    ]
+                  }
+                ],
+              },
+
+            ],
           }
         }
       };
@@ -1977,7 +2020,7 @@ function form() {
         if("undefined" !== typeof specie[country + "_CommonName"]){
           current_section.common_name.selected[country] = specie[country + "_CommonName"];
         } else {
-          current_section.common_name.selected[country] = null;
+          current_section.common_name.selected[country] = "";
         }
         current_section.species_code.selected = specie.speciesCode;
 

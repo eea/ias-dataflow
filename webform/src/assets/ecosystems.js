@@ -1,4 +1,4 @@
-[
+const ecosystems = [
   {
     "group": "Biomass",
     "class": "Cultivated crops"
@@ -188,3 +188,5 @@
     "class": "Bequest"
   }
 ]
+
+export default ecosystems

@@ -1,4 +1,4 @@
-[
+const protected_habitats = [
   {
     "label": "Sandbanks which are slightly covered by sea water all the time",
     "id": "1110"
@@ -1060,3 +1060,5 @@
     "id": "HabPelagVarSalinity"
   }
 ]
+
+export default protected_habitats

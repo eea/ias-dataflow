@@ -1,4 +1,4 @@
-[
+const protected_species = [
   {
     "id": "1001",
     "label": "Corallium rubrum"
@@ -6036,3 +6036,4 @@
     "label": "Sphagnum inundatum"
   }
 ]
+export default protected_species

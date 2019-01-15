@@ -695,6 +695,40 @@
               </div>
             </b-card>
 
+            <b-card class="inner-card observations">
+              <center><h6>{{section.tables.table_4.label}}</h6></center>
+              <!--{{ section.tables.table_4 }}-->
+              <div class="table-wrapper">
+                <table class="table table-striped" style="margin-bottom: 0 !important;">
+                <thead class="bg-primary">
+               <!--{{ section.tables.table_4.table_sections[0].table_fields[0].fields.length }}-->
+                <th v-for="(field, fix) in section.tables.table_4.table_sections[0].table_fields[0].fields">
+                  <span style="color: white;">{{ field.label }}</span>
+                </th>
+                <th><span style="color: white;">Action</span></th>
+                <!--<th v-if='patternfields[0].patternType === "spread"'><span>Actions</span></th>-->
+                </thead>
+                <tbody>
+                  <tr v-for="(row, rix ) in section.tables.table_4.table_sections[0].table_fields">
+                    <td v-for="(field, fix) in row.fields">
+                      <fieldGenerator
+                        :field="field"
+                        :fieldkey="fix"
+                        :vname="field.name + '_' + rix"
+                        :vkey="field.name + '_' + rix"
+                        :data-vv-as="field.label"
+                        :validation="'false'"
+                        :ref="'sectiona_'  + seckey + '_' + 'table_4_' + rix + field.name + '_' + fix "
+                        :vscope="'sectiona_'  + seckey + '_' + 'table_4_' + rix + field.name + '_' + fix"
+                      ></fieldGenerator>
+                    </td>
+                  </tr>
+                </tbody>
+                </table>
+                <b-btn variant="primary" class="addnew" style="max-width: 100%;width: 100%;" @click="addObservation( section.tables.table_4.table_sections[0].table_fields )">Add</b-btn>
+              </div>
+
+            </b-card>
           </div>
 
         </b-collapse>
@@ -1359,7 +1393,8 @@ export default {
     color: white
   }
 
-  .impact-table .addnew {
+  .impact-table .addnew,
+  .addnew {
     width: 100%;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -1424,6 +1459,14 @@ export default {
     font-weight: 600;
   }
 
+  .observations .multiselect {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .observations .multiselect__content-wrapper /*, .multiselect__element */ {
+    width: fit-content;
+  }
 
 
   @media screen and (max-width: 768px){
