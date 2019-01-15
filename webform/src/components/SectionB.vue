@@ -36,7 +36,7 @@
 
             </b-col>
             <b-col lg="2" class="addbyselection_wrapper">
-              <b-btn @click="addBySelection()" variant="primary">add</b-btn>
+              <b-btn @click="addBySelection()" variant="primary">Add</b-btn>
             </b-col>
           </b-row>
           <hr>
@@ -53,7 +53,7 @@
               </b-col>
               <b-col lg="2" class="d-none d-md-block d-lg-block d-xl-block">
                 <b-btn  @click="addManually(selected['sci_name'], selected['common_name'])"
-                        style="margin-bottom: -3rem" variant="primary" class="">add</b-btn>
+                        style="margin-bottom: -3rem" variant="primary" class="">Add</b-btn>
 
               </b-col>
             </b-row>
@@ -67,7 +67,7 @@
               </b-col>
               <b-col lg="2" class="d-xs-block d-md-none d-lg-none d-xl-none">
                 <b-btn  @click="addManually(selected['sci_name'], selected['common_name'])"
-                        style="margin-bottom: -3rem" variant="primary" >add</b-btn>
+                        style="margin-bottom: -3rem" variant="primary" >Add</b-btn>
               </b-col>
             </b-row>
           </div>

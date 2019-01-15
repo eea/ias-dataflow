@@ -21,7 +21,7 @@
               </h3>
             </b-col>
             <b-col lg="2" class="d-none d-md-block d-lg-block d-xl-block">
-              <b-btn variant="danger" @click="removeSection(selkey)" >remove</b-btn>
+              <b-btn variant="danger" @click="removeSection(selkey)" >Remove</b-btn>
             </b-col>
 
           </b-row>
