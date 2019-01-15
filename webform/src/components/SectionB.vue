@@ -117,15 +117,6 @@ export default {
         value: null
       },
       expanded: [],
-      regionOptions: [
-        {
-          text: 'Romania', value: 'RO',
-        },
-        {
-          text: 'France', value: 'FR',
-        },
-      ],
-
     }
   },
   created (){
@@ -313,9 +304,7 @@ export default {
                 {
                   text: 'Unknown whether the species reproduces in the Member State', value: 5,
                 }
-              ],
-              //TODO : remove
-              //regionOptions: regionOptions
+              ]
             }
           ],
           spread_pattterns:[
@@ -390,9 +379,7 @@ export default {
                   index: 'j',
                   value: 9
                 }
-              ],
-              //TODO : remove
-              //regionOptions: regionOptions
+              ]
             },
           ]
         },

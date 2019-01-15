@@ -9,6 +9,8 @@
 
         <div class="panel-heading"
          @click="expanded.indexOf(seckey) === -1 ? expanded.push(seckey) : expanded.splice(expanded.indexOf(seckey), 1)">
+          <b-row>
+            <b-col>
           <h4 class="name-easin">
             <font-awesome-icon v-bind:icon="expanded.indexOf(seckey) !== -1 ? 'chevron-down' : 'chevron-right'" />
             <span style="font-size: 1em; font-weight: 600;" class="name" v-html="section.scientific_name.selected">
@@ -31,6 +33,8 @@
           <!--<h6>
             {{section.common_name.labelLanguage}}:<span style="font-weight: 600"> {{ section.common_name.selected[ jsondata.country ]}} </span>
           </h6>-->
+            </b-col>
+          </b-row>
         </div>
 
         <b-badge variant="danger" v-if="errors.items.filter((err) => {
@@ -695,10 +699,15 @@
               </div>
             </b-card>
 
-            <b-card class="inner-card observations">
-              <center><h6>{{section.tables.table_4.label}}</h6></center>
-              <!--{{ section.tables.table_4 }}-->
-              <div class="table-wrapper">
+            <b-card class="inner-card">
+              <div class="card-section">
+                <center>
+                  <h6>{{section.tables.table_4.label}}</h6>
+                </center>
+                <hr>
+                <h6>{{section.tables.table_4.info}}</h6>
+                <br>
+                <div class="table-wrapper">
                 <table class="table table-striped" style="margin-bottom: 0 !important;">
                 <thead class="bg-primary">
                <!--{{ section.tables.table_4.table_sections[0].table_fields[0].fields.length }}-->
@@ -710,7 +719,7 @@
                 </thead>
                 <tbody>
                   <tr v-for="(row, rix ) in section.tables.table_4.table_sections[0].table_fields">
-                    <td v-for="(field, fix) in row.fields">
+                    <td v-for="(field, fix) in row.fields" style="padding-left: 10px; padding-right: 10px; max-width: 15%; width: 20%;">
                       <fieldGenerator
                         :field="field"
                         :fieldkey="fix"
@@ -728,7 +737,7 @@
                 </table>
                 <b-btn variant="primary" class="addnew" style="max-width: 100%;width: 100%;" @click="addObservation( section.tables.table_4.table_sections[0].table_fields )">Add</b-btn>
               </div>
-
+              </div>
             </b-card>
           </div>
 
