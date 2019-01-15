@@ -31,7 +31,7 @@ let filesAllowed = {
     getMessage(field, args) {
       // will be added to default locale messages.
       // Returns a message.
-      return field + " extension not allowed";
+      return field + " extension not allowed (allowed only:  " + args.join(" ,") + " )";
     },
     validate(value, args) {
       function validateExtension(file, allowed) {
