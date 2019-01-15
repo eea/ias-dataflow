@@ -20,9 +20,17 @@
           <h5>
             {{section.common_name.label}}: {{section.common_name.selected.EN}}
           </h5>
-          <h6 v-if="section.common_name.selected[ jsondata.country ]" >
+
+          <b-input-group :prepend="section.common_name.labelLanguage" class="inputgroup" style="margin-bottom: 1rem;">
+            <!--  @change="updateSectionCommonName($event,selkey)" -->
+            <b-input v-model="section.common_name.selected[ jsondata.country ]"
+            ></b-input>
+
+          </b-input-group>
+
+          <!--<h6>
             {{section.common_name.labelLanguage}}:<span style="font-weight: 600"> {{ section.common_name.selected[ jsondata.country ]}} </span>
-          </h6>
+          </h6>-->
         </div>
 
         <b-badge variant="danger" v-if="errors.items.filter((err) => {
@@ -54,6 +62,7 @@
             <div>
               <hr>
               <h6>
+                {{section.depending_on_mandatory.label}}
                 {{section.depending_on_mandatory.label}}
               </h6>
 
@@ -1027,7 +1036,9 @@ export default {
 
             if(startR !== null && endR !== null){
               let larger = new Date(startR.$el.value).valueOf() > new Date(endR.$el.value).valueOf();
-              
+              console.log(startR.$el.value);
+              console.log(endR.$el.value);
+              console.log(larger);
               if(larger){
                 [startR, endR].map((item) => {
 
