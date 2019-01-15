@@ -399,7 +399,7 @@
                             <b-btn variant="primary" class="addnew" style="max-width: 100%;width: 100%;"  @click="addSpecies(sub_section)">Add</b-btn>
                           </div>
 
-                        </div>>
+                        </div>
 
                           <div>
                             <div>
@@ -978,12 +978,13 @@ export default {
     },
 
     validateDate(row, sub_section,ref, obj){
-
       let self = this;
       let value = row.selected;
       let tover = sub_section.fields.filter((field) => { return field.name==='duration_or_end'})[0];
 
       let larger = new Date(value).valueOf() > new Date(tover.selected).valueOf();
+      console.log(larger);
+
       if(larger){
         let target = self.$refs[ref][0];
 
@@ -1222,6 +1223,9 @@ export default {
         }
       }
 
+      Object.keys(this.$refs).map((ref) => { console.log(ref); });
+
+
       self.validateQuestion12();
       self.validatePopulation();
 
@@ -1267,6 +1271,11 @@ export default {
     /*overflow-x: auto;*/
     border-radius: 0.25rem;
   }
+
+  .impact-table {
+    margin-bottom: 1.5rem;
+  }
+
   .impact-table .table {
      margin-bottom: 0;
      border-spacing: 0;
