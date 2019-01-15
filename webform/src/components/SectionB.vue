@@ -264,7 +264,7 @@ export default {
           type: 'select',
           selected: 1,
           options: [{ value: true, text: "Yes" }, { value: false, text: "No" },
-            // { value: 'unknown', text: "Currently unknown" }
+             { value: 'unknown', text: "Currently unknown" }
           ],
           index: 3,
           name: 'mandatory_question',
