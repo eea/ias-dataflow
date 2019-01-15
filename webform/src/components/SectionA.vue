@@ -977,13 +977,12 @@ export default {
       }
     },
 
-    validateDate(row, sub_section,ref, obj){
+    validateDate(row, sub_section, ref, obj){
       let self = this;
       let value = row.selected;
       let tover = sub_section.fields.filter((field) => { return field.name==='duration_or_end'})[0];
 
       let larger = new Date(value).valueOf() > new Date(tover.selected).valueOf();
-      console.log(larger);
 
       if(larger){
         let target = self.$refs[ref][0];
@@ -1005,7 +1004,6 @@ export default {
         let field = target.$validator.fields.find({name: name, scope: scope});
 
         if(field){
-          console.log(field);
           let rest = self.dateErrors.filter((err) => {
             return err.field === field.name;
           });
@@ -1014,6 +1012,43 @@ export default {
         }
 
       }
+    },
+
+    validateDateRef(refs){
+      let self = this;
+      Object.keys(refs).map((r) => {
+        let section = refs[r];
+        Object.keys(section).map((tkey) => {
+          let table = section[tkey];
+          Object.keys(table).map((population) => {
+            let pop = table[population];
+            let startR = self.$refs[pop.start] ? self.$refs[pop.start][0] : null;
+            let endR = self.$refs[pop.end] ? self.$refs[pop.end][0] : null;
+
+            if(startR !== null && endR !== null){
+              let larger = new Date(startR.$el.value).valueOf() > new Date(endR.$el.value).valueOf();
+              
+              if(larger){
+                [startR, endR].map((item) => {
+
+                  let nameS = item.$el.querySelector('[name]').getAttribute('name') ;
+                  let scopeS = item.$el.querySelector('[data-vv-scope]').getAttribute('data-vv-scope');
+
+                  let fieldS = item.$validator.fields.find({name: nameS, scope: scopeS});
+
+                  if(fieldS){
+                    self.dateErrors.push({field: fieldS.name, scope:fieldS.scope, target: item });
+                  }
+                });
+
+              } else {
+
+              }
+            }
+
+          });
+        })
+      });
     },
 
     //TODO: fix validation for population
@@ -1223,8 +1258,29 @@ export default {
         }
       }
 
-      Object.keys(this.$refs).map((ref) => { console.log(ref); });
+      let datesRef = Object.keys(this.$refs).filter((ref) => {
+        return ref.indexOf("starting_date") !== -1 || ref.indexOf("duration_or_end") !== -1; })
+        .reduce((acc, cur) => {
+          let reg = /(sectiona_([0-9]*))_table_([2-3])_([0-9]*)_([0-9]*)\w+(starting_date|duration_or_end)_([0-9]*)/;
+          let found = cur.match(reg);
+          if(found !== null){
+            let seckey = found[2];
+            let table = found[3];
+            let table_key = found[4];
+            let popkey = found[5];
+            let rowname = found[6];
+            let rowkey = found[7];
 
+            if("undefined" === typeof acc[seckey]) acc[seckey] = {};
+            if("undefined" === typeof acc[seckey]['table_' + table]) acc[seckey]['table_' + table] = {};
+            if("undefined" === typeof acc[seckey]['table_' + table][popkey]) acc[seckey]['table_' + table][popkey] = [];
+            if(cur.indexOf('start') !== -1) acc[seckey]['table_' + table][popkey]["start"] = cur;
+            if(cur.indexOf('end') !== -1) acc[seckey]['table_' + table][popkey]["end"] = cur;
+          }
+          return acc;
+      } ,{});
+
+      self.validateDateRef(datesRef);
 
       self.validateQuestion12();
       self.validatePopulation();
