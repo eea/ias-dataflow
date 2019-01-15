@@ -1660,7 +1660,7 @@ function form() {
                       ]
                     }, ]
                   },
-                  
+
                   {
                     label: 'Impacted non-targeted species',
                     type: 'add',
@@ -1691,6 +1691,11 @@ function form() {
                 type: 'textarea'
               },
             }, ]
+          },
+          table_4: {
+            label: "Information on the impact of this species (Optional)",
+            name: "species_impact",
+
           }
         }
       };
