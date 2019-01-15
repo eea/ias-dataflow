@@ -706,7 +706,7 @@
                   <span style="color: white;">{{ field.label }}</span>
                 </th>
                 <th><span style="color: white;">Action</span></th>
-                <!--<th v-if='patternfields[0].patternType === "spread"'><span>Actions</span></th>-->
+
                 </thead>
                 <tbody>
                   <tr v-for="(row, rix ) in section.tables.table_4.table_sections[0].table_fields">
@@ -722,6 +722,7 @@
                         :vscope="'sectiona_'  + seckey + '_' + 'table_4_' + rix + field.name + '_' + fix"
                       ></fieldGenerator>
                     </td>
+                    <td><b-btn variant="danger" @click="removeObservation( section.tables.table_4.table_sections[0].table_fields , row, rix)">X</b-btn></td>
                   </tr>
                 </tbody>
                 </table>
@@ -988,6 +989,28 @@ export default {
     removeSpecies(parent, field){
       parent.fields.splice(parent.fields.indexOf(field), 1);
     },
+
+    addObservation( fields ){
+      let newField = JSON.parse(JSON.stringify(fields[0]));
+
+      newField.fields = newField.fields.map((field) => {
+        field.selected = "";
+        return field;
+      });
+      fields.push(newField);
+
+      this.$forceUpdate();
+    },
+
+    removeObservation( table_fields , row, rix){
+      if(rix === 0) return false;
+
+      table_fields.splice(rix, 1);
+
+      table_fields = rest;
+      this.$forceUpdate();
+    },
+
 
     addFilesToSelected(fieldkey,index,field){
       let self = this;
