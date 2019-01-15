@@ -1697,7 +1697,7 @@ function form() {
             }, ]
           },
           table_4: {
-            label: "Observations on the impact of the species during the reporting period",
+            label: "Information on the impact of this species (Optional)",
             name: "observations_table",
 
             table_sections: [
