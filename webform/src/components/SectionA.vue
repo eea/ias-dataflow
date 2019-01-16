@@ -67,7 +67,6 @@
               <hr>
               <h6>
                 {{section.depending_on_mandatory.label}}
-                {{section.depending_on_mandatory.label}}
               </h6>
 
               <PatternField v-if="section.mandatory_item.selected === true"
