@@ -407,7 +407,7 @@
 
                               </tbody>
                             </table>
-                            <b-btn variant="primary" class="addnew" style="max-width: 100%;width: 100%;"  @click="addSpecies(sub_section)">Add</b-btn>
+                            <b-btn variant="primary" class="addnew" style="max-width: 100%;width: 100%;"  @click="addSpecies(sub_section)">+ Add row</b-btn>
                           </div>
 
                         </div>
@@ -731,7 +731,7 @@
                         :vscope="'sectiona_'  + seckey + '_' + 'table_4_' + rix + field.name + '_' + fix"
                       ></fieldGenerator>
                     </td>
-                    <td style="max-width: 10%;width:10%;"><b-btn variant="danger" @click="removeObservation( section.tables.table_4.table_sections[0].table_fields , row, rix)">X</b-btn></td>
+                    <td style="max-width: 10%;width:10%;"><b-btn variant="danger" @click="removeObservation( section.tables.table_4.table_sections[0].table_fields , row, rix)">Remove</b-btn></td>
                   </tr>
                 </tbody>
                 </table>
