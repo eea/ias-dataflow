@@ -71,7 +71,7 @@
         <b-collapse :id="'collapse' + selkey" :visible="expanded" >
           <div class="mt-4">
             <hr>
-            <h6>
+            <h6 v-if="sectionProp.mandatory_item.selected === true">
               {{ sectionProp.depending_on_mandatory.label}}
             </h6>
             <div class="mt-4">
