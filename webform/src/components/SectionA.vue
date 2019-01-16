@@ -735,7 +735,7 @@
                   </tr>
                 </tbody>
                 </table>
-                <b-btn variant="primary" class="addnew" style="max-width: 100%;width: 100%;" @click="addObservation( section.tables.table_4.table_sections[0].table_fields )">Add</b-btn>
+                <b-btn variant="primary" class="addnew" style="max-width: 100%;width: 100%;" @click="addObservation( section.tables.table_4.table_sections[0].table_fields )">+ Add row</b-btn>
               </div>
               </div>
             </b-card>

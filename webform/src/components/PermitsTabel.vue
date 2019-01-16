@@ -159,7 +159,7 @@
       </tbody>
     </table>
     <b-input-group>
-      <b-btn class="btnAdd" variant="default" @click="addRow">Add row</b-btn>
+      <b-btn class="btnAdd" variant="primary" @click="addRow">+ Add row</b-btn>
     </b-input-group>
   </div>
 </template>
