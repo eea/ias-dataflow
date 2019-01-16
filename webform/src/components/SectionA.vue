@@ -1102,10 +1102,8 @@ export default {
             let endR = self.$refs[pop.end] ? self.$refs[pop.end][0] : null;
 
             if(startR !== null && endR !== null){
-              let larger = new Date(startR.$el.value).valueOf() > new Date(endR.$el.value).valueOf();
-              console.log(startR.$el.value);
-              console.log(endR.$el.value);
-              console.log(larger);
+              let larger = new Date( startR.$el.querySelector("input").value ).valueOf() > new Date( endR.$el.querySelector("input").value ).valueOf();
+
               if(larger){
                 [startR, endR].map((item) => {
 
@@ -1120,7 +1118,19 @@ export default {
                 });
 
               } else {
+                [startR, endR].map((item) => {
 
+                  let nameS = item.$el.querySelector('[name]').getAttribute('name') ;
+                  let scopeS = item.$el.querySelector('[data-vv-scope]').getAttribute('data-vv-scope');
+
+                  let fieldS = item.$validator.fields.find({name: nameS, scope: scopeS});
+
+                  if(fieldS){
+                    //self.dateErrors.push({field: fieldS.name, scope:fieldS.scope, target: item });
+                    let errs = self.dateErrors.filter((err) => { return err.field !== fieldS.name });
+                    self.$set(self, 'dateErrors', errs);
+                  }
+                });
               }
             }
 
