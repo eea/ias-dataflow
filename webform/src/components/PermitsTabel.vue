@@ -80,23 +80,32 @@
                     <!--  decimals for kg and integers for pcs-->
                     <div v-else-if="sfield.fields.length === 2">
                       <div v-if="fiel.type === 'number'">
+                        {{ sfield.fields[1].selected === 'pcs' ?  'required|min_value:1|numeric' :  'required|min_value:1|decimal' }}
+
+                        <br>
+                        {{ fiel.selected }}
                         <field-generator
                           v-if="sfield.fields.length === 2 || sfield.fields[1].selected === 'pcs'"
-                          :field="fiel" :validation="'required|min_value:1|numeric'"
+                          :field="fiel"
+                          :validation="'required|min_value:1|numeric'"
                           :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                           :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                           :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                           :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
-
+                          @change="changeNumeric( $event, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey, sfield.fields[1].selected === 'pcs'   )"
+                          @input="changeNumeric( $event,'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey, sfield.fields[1].selected === 'pcs' )"
                         ></field-generator>
 
                         <field-generator
                           v-else
-                          :field="fiel" :validation="'required|min_value:1|decimal'"
+                          :field="fiel"
+                          :validation="'required|min_value:1|decimal'"
                           :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                           :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                           :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                           :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
+                          @change="changeNumeric( $event, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey )"
+                          @input="changeNumeric( $event,'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey )"
                         ></field-generator>
                       </div>
                       <div v-else>
@@ -111,15 +120,14 @@
                         >{{ errors.first('permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey,
                           'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey) }}</b-badge>
 
-                        {{ fiel.selected }}
                         <field-generator
                           :field="fiel" :validation="field.validation"
                           :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                           :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                           :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                           :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
-                          @change="changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey )"
-                          @input="changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey )"
+                          @change="changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey,sfield.fields[1].selected === 'pcs' )"
+                          @input="changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey,sfield.fields[1].selected === 'pcs' )"
                         ></field-generator>
                       </div>
 
@@ -396,72 +404,141 @@
         field.fields.splice(sfkey, 1);
         this.$forceUpdate();
       },
-
-      changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, ref, isNumeric){
+      changeNumeric($event, ref, isNumeric){
         let self = this;
-
         // force number instead of decimal
+
         if(isNumeric){
           let item = self.$refs[ref][0];
           //item.$props.field.selected = Math.floor($event);
-          //self.$set(item.$props.field, "selected",  Math.floor($event));
 
-          //item.$el.querySelector("input").value = Math.floor($event);
+          self.$set(item.$props.field, "selected",  Math.round($event));
+          item.$el.querySelector("input").value = Math.round($event);
 
-          /*self.$nextTick().then((res) => {
-            item.$props.field.selected = Math.floor($event);
-            item.$el.querySelector("input").value = Math.floor($event);
+          self.$nextTick().then((res) => {
+            item.$props.field.selected = Math.round($event);
+            item.$el.querySelector("input").value = Math.round($event);
             self.$forceUpdate();
-          });*/
+          });
           this.$forceUpdate();
         }
+      },
+
+      changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, ref, isNumeric){
+        let self = this;
+        let promises = [];
+
+        // force number instead of decimal
+        /*if(isNumeric){
+          let item = self.$refs[ref][0];
+
+          self.$set(item.$props.field, "selected",  Math.round(item.$props.field.selected));
+          item.$el.querySelector("input").value = Math.round(item.$el.querySelector("input").value);
+
+          self.$nextTick().then((res) => {
+
+            item.$props.field.selected = Math.round(item.$props.field.selected);
+            item.$el.querySelector("input").value = Math.round(item.$el.querySelector("input").value);
+            self.$forceUpdate();
+          });
+          this.$forceUpdate();
+        }*/
 
         let allowed = [
           'total_permited_speciments_main', 'valid_total_permited_speciments_main',
           'number_permitted_specimens_main', 'number_speciments_held_by_non_compliant_establishments_main'
         ];
 
+
         // make the row the same measurement unit
-        console.log(field.type);
         row.fields.forEach((fieldO, fkey) => {
+
           if(fieldO.type === "add" && fieldO.name !== field.name ){
-            fieldO.fields.forEach((sfield, sfieldk) => {
-              if(fieldO.fields[sfieldk].fields.length === 2 && sfieldk === sfkey){
+            fieldO.fields.forEach((subfield, subfieldkey) => {
+              if(fieldO.fields[subfieldkey].fields.length === 2 ){
                 let fd = fieldO.fields[0].fields[1];
-                fd.selected = $event;
+                // make same measurement unit
+                if( subfieldkey === sfkey){
+                  fd = fieldO.fields[0].fields[1]
+                  fd.selected = $event;
+                  let found = Object.keys(this.$refs).map((r) => {
+                    if(r.indexOf(fd.name) !== -1){
+                      let refer = self.$refs[r][0];
 
-                let found = Object.keys(this.$refs).map((r) => {
-                  if(r.indexOf(fd.name) !== -1){
-                    let refer = self.$refs[r][0];
+                      let str = r.split("_");
+                      let sfk = str[ str.length-2 ];
+                      let rk = str[1];
 
-                    let str = r.split("_");
-                    let sfk = str[ str.length-2 ];
-                    let rk = str[1];
-
-                    if(sfkey === parseInt(sfk) && parseInt(rk) === rkey ){
-                      if(refer.name !== field.name) {
-                        refer.field.selected = $event;
-                        let el = refer.$el.querySelector("select");
-                        let found = null;
-                        for (let i = 0; i < el.length; i++) {
-                          if (el.options[i].value === $event) found = i;
-                        }
-
-                        if (found !== null) el.selectedIndex = found;
-
-                        self.$nextTick().then((res) => {
+                      if(sfkey === parseInt(sfk) && parseInt(rk) === rkey ){
+                        if(refer.name !== field.name) {
                           refer.field.selected = $event;
-                          self.$forceUpdate();
-                        });
+                          let el = refer.$el.querySelector("select");
+                          let found = null;
+                          for (let i = 0; i < el.length; i++) {
+                            if (el.options[i].value === $event) found = i;
+                          }
+
+                          if (found !== null) el.selectedIndex = found;
+
+                          self.$nextTick().then((res) => {
+                            refer.field.selected = $event;
+                            self.$forceUpdate();
+                          });
+                        }
                       }
                     }
-                  }
-
-                });
+                  });
+                }
               }
             });
 
+          } else {
+            if(isNumeric){
+              fieldO.fields.forEach((subfield, subfieldkey) => {
+                let fd = fieldO.fields[0].fields[1];
+                let totali = fieldO.fields[0].fields[0];
+
+                if( subfieldkey === sfkey){
+                  console.log(totali);
+
+                  //totali.selected !== "" ? fieldO.fields[0].fields[0].selected = Math.round(totali.selected) : totali.selected = "";
+                  Object.keys(this.$refs).map((r) => {
+                    if( r.indexOf(totali.name) !== -1 ){
+                      if( r.indexOf("measurement") === -1 ){
+                        console.log(r);
+
+                      }
+                      /*let refer = self.$refs[r][0];
+
+                      let str = r.split("_");
+                      let sfk = str[ str.length-2 ];
+                      let rk = str[1];
+
+                      if(sfkey === parseInt(sfk) && parseInt(rk) === rkey ){
+                        if(refer.name !== field.name) {
+                          refer.field.selected = Math.floor(refer.field.selected);
+                          self.$nextTick().then((res) => {
+                            refer.field.selected = Math.floor(refer.field.selected);;
+                            self.$forceUpdate();
+                          });
+                        }
+                      }*/
+                    }
+                  });
+                }
+
+
+              });
+
+
+            }
           }
+        });
+
+        Promise.all(promises).then((res) => {
+          self.$forceUpdate();
+        }).catch((err) => {
+          console.error(err);
         });
 
         this.$forceUpdate();
