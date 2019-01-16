@@ -25,15 +25,24 @@
               >
               </b-form-input>
             </span>
-            <b-form-input v-else :type="field.type" v-model="field.selected"
-              v-bind:key="'sectionc_' + field.name"
-              v-bind:data-vv-name="'sectionc_' + field.name"
-              v-bind:data-vv-scope="'sectionc_' + field.name"
-            ></b-form-input>
+            <span v-else>
+              <b-badge variant="danger" v-if="errors.has('sectionc_' + field.name , 'sectionc_' + field.name)">
+                {{ errors.collect('sectionc_' + field.name, 'sectionc_' + field.name).join('\n') }}
+              </b-badge>
+              <b-form-input
+                :type="field.type"
+                v-model="field.selected"
+                v-bind:key="'sectionc_' + field.name"
+                v-bind:data-vv-name="'sectionc_' + field.name"
+                v-bind:data-vv-scope="'sectionc_' + field.name"
+                v-validate.continues="'undefined' !== typeof field.validation ? field.validation : ''"
+                :data-vv-as="field.label"
+              ></b-form-input>
+            </span>
+
           </div>
 
           <div v-else-if="field.type === 'textarea'">
-
             <!-- for weblinks -->
             <span v-if="weblinksFields.indexOf(field.name) !== -1 ">
               <b-badge variant="danger" v-if="errors.has('sectionc_' + field.name , 'sectionc_' + field.name)">
@@ -42,7 +51,7 @@
               <textarea class="form-control"
                 v-model="field.selected"
                 :data-vv-as="field.label"
-                v-validate.continues="'weblinks'"
+                v-validate.continues="'required|weblinks'"
                 v-bind:key="'sectionc_' + field.name"
                 v-bind:data-vv-name="'sectionc_' + field.name"
                 v-bind:data-vv-scope="'sectionc_' + field.name"
@@ -51,7 +60,18 @@
             </span>
 
             <span v-else>
-              <textarea class="form-control" v-model="field.selected" :ref="field.name" ></textarea>
+              <b-badge variant="danger" v-if="errors.has('sectionc_' + field.name , 'sectionc_' + field.name)">
+                {{ errors.collect('sectionc_' + field.name, 'sectionc_' + field.name).join('\n') }}
+              </b-badge>
+              <textarea class="form-control"
+                        v-model="field.selected"
+                        :data-vv-as="field.label"
+                        v-validate.continues="'required|weblinks'"
+                        v-bind:key="'sectionc_' + field.name"
+                        v-bind:data-vv-name="'sectionc_' + field.name"
+                        v-bind:data-vv-scope="'sectionc_' + field.name"
+                        :ref="field.name"
+              ></textarea>
             </span>
           </div>
 
@@ -127,7 +147,7 @@ export default {
   data () {
     return {
       weblinksFields: [
-        'web_link',
+        //'web_link',
         'action_plans_art13',
         'official_control_system',
         'surveillance_system_art14',
@@ -378,7 +398,6 @@ export default {
       }
 
       self.validateRequired();
-
       self.$forceUpdate();
 
       return new Promise(function(resolve, reject) {
