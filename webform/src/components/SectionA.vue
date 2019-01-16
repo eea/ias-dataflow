@@ -708,7 +708,6 @@
                 <div class="table-wrapper">
                 <table class="table table-striped" style="margin-bottom: 0 !important;">
                 <thead class="bg-primary">
-               <!--{{ section.tables.table_4.table_sections[0].table_fields[0].fields.length }}-->
                 <th v-for="(field, fix) in section.tables.table_4.table_sections[0].table_fields[0].fields">
                   <span style="color: white;">{{ field.label }}</span>
                 </th>
