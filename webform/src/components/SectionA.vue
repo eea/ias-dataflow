@@ -65,7 +65,7 @@
           <div class="mt-4" v-if="section.mandatory_item.selected !== 1">
             <div>
               <hr>
-              <h6>
+              <h6 v-if="section.mandatory_item.selected === true">
                 {{section.depending_on_mandatory.label}}
               </h6>
 
