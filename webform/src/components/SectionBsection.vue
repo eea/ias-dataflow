@@ -76,7 +76,6 @@
             </h6>
             <div class="mt-4">
 
-              <!-- TODO: clear on collapse -->
               <PatternField
                 v-if="sectionProp.mandatory_item.selected === true"
                 :patternfields="sectionProp.depending_on_mandatory.reproduction_patterns"
@@ -309,7 +308,6 @@
           },
 
           updateSectionCommonName($event,selkey){
-            //TODO: validation?
             let reg = /(.*?)\[(.*?)\]/;
             let temp = {
               "none": []

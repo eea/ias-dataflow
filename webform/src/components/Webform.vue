@@ -17,7 +17,7 @@
             <b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_2.label)" ref="sectionb_tab" style="overflow-y: auto;">
               <sectionb v-bind:data-vv-scope="'sectionb'" tabId="2" :info.sync="form.tab_2" ref="sectionb"></sectionb>
             </b-tab>
-            <!-- TODO: enable WIP -->
+
             <b-tab :title-link-class="'titletab'" :title="doTitle(form.tab_3.label)" ref="sectionc_tab" style="overflow-y: auto;">
               <sectionc tabId="3" :info.sync="form.tab_3" ref="sectionc" :jsondata="form.jsondata"></sectionc>
             </b-tab>
@@ -463,6 +463,9 @@ export default {
                   sectionF.tables.table_3.tables.push(temp);
                 });
               }
+
+              // TODO : table_4
+
             }
             return sectionF;
           });
@@ -471,15 +474,6 @@ export default {
       }
 
       if("undefined" !== typeof data.IAS.tab_2 && "function" === typeof data.IAS.tab_2.sections.map ){
-        //TODO : remove
-        let regionOptions = [
-          {
-            text: 'Romania', value: 'RO',
-          },
-          {
-            text: 'France', value: 'FR',
-          },
-        ];
 
         function newSection(sci_name,com_name ){
           let tab_1_section = {
@@ -554,8 +548,7 @@ export default {
                       text: 'Unknown whether the species reproduces in the Member State', value: 5,
                     }
                   ],
-                  //TODO : remove
-                  regionOptions: regionOptions
+
                 }
               ],
               spread_pattterns:[
@@ -631,8 +624,7 @@ export default {
                       value: 9
                     }
                   ],
-                  //TODO : remove
-                  regionOptions: regionOptions
+
                 },
               ]
             },
@@ -739,6 +731,7 @@ export default {
               ]
             }
           };
+
           return tab_1_section;
         }
         let sections = [];

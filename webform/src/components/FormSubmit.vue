@@ -234,7 +234,7 @@ export default {
                 acc = acc.concat(fs.fields);
                 return acc;
               }, []).map((field) => {
-                //TODO: process options for selected
+
                 if(field.selected === ''){
                   //return false;
                 } else {
@@ -281,7 +281,6 @@ export default {
                   return acc;
                 }, [])
                 .map((field) => {
-                  //TODO: process options for selected
                   if(field.selected === ''){
                     //return false;
                   } else {
@@ -388,7 +387,7 @@ export default {
 
               for(let fieldProp of Object.keys(field)){
 
-                //TODO: cleaning not allowed properties
+                //cleaning not allowed properties
                 //if(allowed.indexOf(fieldProp) === -1 ) delete field[fieldProp];
 
                 if( todelete.indexOf(fieldProp) !== -1 ) delete field[fieldProp];
@@ -410,6 +409,8 @@ export default {
               let table_1 = section[prop].table_1;
               let table_2 = section[prop].table_2;
               let table_3 = section[prop].table_3;
+              let table_4 = section[prop].table_4;
+
 
               if(table_1.question.selected !== true){
                 table_1 = null;
@@ -436,6 +437,9 @@ export default {
                 section[ section[prop].table_3.name ] = processTable3( section[prop].table_3 );
                 delete section[prop].table_3;
               }
+
+              section[ section[prop].table_4.name ] = section[prop].table_4;
+              delete section[prop].table_4;
 
               //if(Object.keys(section[prop]).length === 0) delete section[prop];
             }

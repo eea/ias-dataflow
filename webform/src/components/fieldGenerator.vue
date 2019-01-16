@@ -1,21 +1,26 @@
 <template>
 	<div v-if="field">
-
 		<div v-if="field.type === 'text' ||  field.type ==='email' || field.type === 'number'" >
       <span v-if="validation !== 'false'">
-
+        <b-badge v-if="errors.has(vname, vscope) && field.type === 'number'"
+                 variant="danger" class="error-badge"
+                 :id="'permits_' + field.name + '_' + fieldkey + 'badge'"
+                 :title="errors.collect(vname, vscope).join('\n')"
+                 v-b-tooltip.hover
+        >{{ errors.first(vname, vscope) }}</b-badge>
         <!-- TODO : decimals for kgs-->
         <b-form-input
             :disabled="disabled"
             :name="field.name"
             v-model="field.selected"
             v-if="field.type === 'number'"
+            :type="field.type"
             @input="changeInput($event)"
             v-bind:key="vname"
             v-bind:name="vkey"
             :data-vv-as="field.label"
             v-bind:data-vv-scope="vscope"
-            v-validate.continues="validation"
+            v-validate.continues="'undefined' !== typeof validation ? validation : 'required'"
          ></b-form-input>
 
         <b-form-input
@@ -30,19 +35,22 @@
             v-bind:name="vkey"
             :data-vv-as="field.label"
             v-bind:data-vv-scope="vscope"
-            v-validate.continues="'required'"
+            v-validate.continues="'undefined' !== typeof validation ? validation : 'required'"
         >
         </b-form-input>
       </span>
 
       <span v-else>
-        <b-form-input :disabled="disabled" :name="field.name"
+        <b-form-input
+          :disabled="disabled"
+          :name="field.name"
           v-model="field.selected" :type="field.type" v-if="field.type === 'number'"
           @input="changeInput($event)"
           v-bind:key="vname"
           v-bind:name="vkey"
           :data-vv-as="field.label"
           v-bind:data-vv-scope="vscope"
+          v-validate.continues="'undefined' !== typeof validation ? validation : ''"
         ></b-form-input>
 
         <b-form-input :disabled="disabled" :name="field.name"
@@ -52,6 +60,7 @@
           v-bind:name="vkey"
           :data-vv-as="field.label"
           v-bind:data-vv-scope="vscope"
+          v-validate.continues="'undefined' !== typeof validation ? validation : ''"
         ></b-form-input>
       </span>
     </div>
@@ -91,7 +100,7 @@
           .map((err) => { return err.msg}).join('\n')
           }}
         </b-badge>
-        <!-- TODO: validation issue; probably add a custom validation rule -->
+
         <b-form-input :disabled="disabled" :name="field.name"
           v-model="field.selected"
           :type="field.type"
@@ -159,7 +168,7 @@
       </span>
 
       <span v-else>
-        <!-- TODO: delay in validation at units of measurement -->
+
         <b-form-select v-if="field.options.length < 20"
           v-model="field.selected" :options="field.options"
           v-bind:key="vname"
@@ -241,7 +250,9 @@
         v-model="field.selected"
         :data-vv-as="field.label"
         :type="field.type"
-        @input="$emit('input', $event)" >
+        @input="$emit('input', $event)"
+        v-validate.continues="'undefined' !== typeof validation ? validation : ''"
+      >
       </b-form-input>
     </div>
 
@@ -384,4 +395,14 @@ export default {
 }
 </script>
 <style lang="css" scoped>
+  .error-badge {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 85%;
+    position: absolute;
+    max-width: 85%;
+    top: -1px;
+  }
 </style>

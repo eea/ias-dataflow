@@ -193,7 +193,6 @@
                   Add population
                 </b-btn>
 
-                <!-- TODO : fix validation -->
                 <div v-for="(population, popkey) in section.tables.table_2.tables" style="margin-bottom: 1rem;">
                   <b-card v-if="section.tables.table_2.question.selected === true">
                     <b-row>
@@ -301,7 +300,7 @@
                                            v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                                 && item.scope === 'sectiona_'  + seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
                                 && item.field === row.name + '_' + rowkey;}).length > 0">
-                                    <!-- TODO: refactor, move in method -->
+
                                     <!-- filtering errors for each field and scope-->
                                     {{ errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                                     && item.scope === 'sectiona_'  + seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
@@ -354,7 +353,7 @@
                                              v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                                 && item.scope === 'sectiona_'  + seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
                                 && item.field === row.name + '_' + rowkey;}).length > 0">
-                                      <!--  TODO: refactor, move in method -->
+
                                       <!--  filtering errors for each field and scope -->
                                       {{ errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                                       && item.scope === 'sectiona_'  + seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
@@ -381,7 +380,7 @@
                               return 'undefined' !== typeof item.scope
                                 && item.scope === 'sectiona_'  + seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey
                                 && item.field === row.inner_field.name + '_' + rowkey;}).length > 0">
-                                      <!--  TODO: refactor, move in method -->
+
                                       <!--  filtering errors for each field and scope -->
                                       {{ errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                                       && item.scope === 'sectiona_'  + seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey
@@ -568,7 +567,7 @@
                                            v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                                 && item.scope === 'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
                                 && item.field === row.name + '_' + rowkey;}).length > 0">
-                                    <!-- TODO: refactor, move in method -->
+
                                     <!-- filtering errors for each field and scope-->
                                     {{ errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                                     && item.scope === 'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
@@ -620,7 +619,7 @@
                                              v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                                 && item.scope === 'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
                                 && item.field === row.name + '_' + rowkey;}).length > 0">
-                                      <!-- TODO: refactor, move in method -->
+
                                       <!-- filtering errors for each field and scope -->
                                       {{ errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                                       && item.scope === 'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey
@@ -647,7 +646,7 @@
                               return 'undefined' !== typeof item.scope
                                 && item.scope === 'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey
                                 && item.field === row.inner_field.name + '_' + rowkey;}).length > 0">
-                                      <!-- TODO: refactor, move in method -->
+
                                       <!-- filtering errors for each field and scope -->
                                       {{ errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
                                       && item.scope === 'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey
@@ -1139,7 +1138,7 @@ export default {
       });
     },
 
-    //TODO: fix validation for population
+
     validateQuestion12(){
       let self = this;
       const reg = /(sectiona_([0-9]*))_table_[0-9]_([0-9]*)_([0-9]*)\w+(part_territory|biogeographical_region|river_basin_subunits|marine_sub_regions)_[0-9]/;
@@ -1226,7 +1225,7 @@ export default {
 
             let table_res = vscope.match(reg2);
 
-            // TODO :
+
             if(table_res !== null){
               let table_type = table_res[3]; // table_2 or table_3
               let population = table_res[5];

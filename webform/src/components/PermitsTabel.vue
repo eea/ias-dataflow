@@ -64,44 +64,66 @@
             <div class="selects-wrapper" v-for="(sfield, sfkey) in field.fields" v-if="field.type === 'add'" >
                 <div>
                   <div v-for="(fiel, fiekey) in sfield.fields"  style="margin-bottom: 5px;padding: 0">
-                    <b-badge v-if="errors.has('permits_' + fiel.name + '_' + fiekey, 'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey )"
-                             variant="danger" class="error-badge"
-                             :id="'permits_' + fiel.name + '_' + fiekey + 'badge'"
-                             :title="errors.collect('permits_' + fiel.name + '_' + fiekey , 'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey).join('\n')"
-                             v-b-tooltip.hover
-                             >
-                    {{ errors.collect( 'permits_' + fiel.name + '_' + fiekey, 'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey  ).join('\n') }}
-                    </b-badge>
+                    <div v-if="sfield.fields.length === 1">
+                      <field-generator
+                        v-if="sfield.fields.length === 1"
+                        :field="fiel"
+                        :validation="'required|min_value:1|numeric'"
+                        :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                        :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                        :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                        :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
+                        @change="field.fields.length > 1 ? changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey ): null"
+                        @input="field.fields.length > 1 ? changeInput( $event, field, row, rkey, fkey, sfkey, fiekey,'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey ) : null"
+                      ></field-generator>
+                    </div>
+                    <!--  decimals for kg and integers for pcs-->
+                    <div v-else-if="sfield.fields.length === 2">
+                      <div v-if="fiel.type === 'number'">
+                        <field-generator
+                          v-if="sfield.fields.length === 2 || sfield.fields[1].selected === 'pcs'"
+                          :field="fiel" :validation="'required|min_value:1|numeric'"
+                          :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
 
-                    <!--{{ rkey }}
-                    {{ fkey }}
-                    {{ sfkey }}
-                    {{ fiekey }}-->
+                        ></field-generator>
 
-                    <field-generator
-                      v-if="sfield.fields.length === 1"
-                      :field="fiel" :validation="'required|min_value:1|numeric'"
-                       :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
-                       :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
-                       :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
-                       :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
-                       @change="field.fields.length > 1 ? changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey ): null"
-                       @input="field.fields.length > 1 ? changeInput( $event, field, row, rkey, fkey, sfkey, fiekey,'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey ) : null"
-                    ></field-generator>
+                        <field-generator
+                          v-else
+                          :field="fiel" :validation="'required|min_value:1|decimal'"
+                          :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
+                        ></field-generator>
+                      </div>
+                      <div v-else>
+                        <b-badge v-if="errors.has( 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey,
+                        'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey)"
+                                 style="position: relative"
+                                 variant="danger" class="error-badge"
+                                 :id="'permits_' + fiel.name + '_' + fkey + 'badge'"
+                                 :title="errors.collect('permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey,
+                                  'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey).join('\n')"
+                                 v-b-tooltip.hover
+                        >{{ errors.first('permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey,
+                          'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey) }}</b-badge>
 
-                    <!-- TODO: decimals for kg and integers for pcs-->
-                    <!--{{ sfield.fields.length > 1 ? sfield.fields[1].selected : '' }}-->
-                    <field-generator
-                      v-if="sfield.fields.length === 2"
-                      :field="fiel" :validation="'required|min_value:1|decimal'"
-                      :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
-                      :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
-                      :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
-                      :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
-                      @change="changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey )"
-                      @input="changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey )"
-                    ></field-generator>
+                        {{ fiel.selected }}
+                        <field-generator
+                          :field="fiel" :validation="field.validation"
+                          :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
+                          @change="changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey )"
+                          @input="changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey )"
+                        ></field-generator>
+                      </div>
 
+                    </div>
 
                   </div>
 
@@ -333,7 +355,8 @@
 
         for( let ref in self.$refs){
           if(self.$refs.hasOwnProperty(ref)) {
-            promises.push( self.$refs[ref][0].$validator.validate() );
+
+            promises.push( self.$refs[ref][0].$validator.validate(self.$refs[ref][0].vname) );
 
             if('undefined' !== typeof self.$refs[ref][0].validate){
               promises.push( self.$refs[ref][0].validate() );
@@ -341,6 +364,7 @@
           }
         }
 
+        let lorf = [];
         return new Promise(function(resolve, reject) {
           Promise.all(promises).then((res) => {
             // if no errors
@@ -355,7 +379,7 @@
             reject(e);
           });
         }).catch((err) => {
-          //console.error(err);
+          console.error(err);
         });
       },
 
@@ -373,51 +397,34 @@
         this.$forceUpdate();
       },
 
-      changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, ref){
+      changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, ref, isNumeric){
         let self = this;
+
+        // force number instead of decimal
+        if(isNumeric){
+          let item = self.$refs[ref][0];
+          //item.$props.field.selected = Math.floor($event);
+          //self.$set(item.$props.field, "selected",  Math.floor($event));
+
+          //item.$el.querySelector("input").value = Math.floor($event);
+
+          /*self.$nextTick().then((res) => {
+            item.$props.field.selected = Math.floor($event);
+            item.$el.querySelector("input").value = Math.floor($event);
+            self.$forceUpdate();
+          });*/
+          this.$forceUpdate();
+        }
 
         let allowed = [
           'total_permited_speciments_main', 'valid_total_permited_speciments_main',
           'number_permitted_specimens_main', 'number_speciments_held_by_non_compliant_establishments_main'
         ];
 
-        /*row.fields.filter((fieldO, fieldkey) => {
-          if( allowed.indexOf(fieldO.name) !== -1){
-            fieldO.fields[0].fields.forEach((sfield, sfieldk) => {
-              if(sfieldk === sfkey){
-                let fd = fieldO.fields[0].fields[1];
-                fd.selected = $event;
-
-                let found = Object.keys(this.$refs).map((r) => {
-                  if(r.indexOf(fd.name) !== -1){
-                    let refer = self.$refs[r][0];
-
-                    let str = r.split("_");
-                    let sfk = str[ str.length-2 ];
-                    let rk = str[1];
-
-                    refer.field.selected = $event;
-                    let el = refer.$el.querySelector("select");
-                    let found = null;
-                    for (let i = 0; i < el.length; i++) {
-                      if (el.options[i].value === $event) found = i;
-                    }
-                    if (found !== null) {
-                      el.selectedIndex = found;
-                      self.$nextTick().then((res) => {
-                        refer.field.selected = $event;
-                        self.$forceUpdate();
-                      });
-                    }
-                  }
-                });
-              }
-            });
-          }
-        });*/
+        // make the row the same measurement unit
+        console.log(field.type);
         row.fields.forEach((fieldO, fkey) => {
           if(fieldO.type === "add" && fieldO.name !== field.name ){
-
             fieldO.fields.forEach((sfield, sfieldk) => {
               if(fieldO.fields[sfieldk].fields.length === 2 && sfieldk === sfkey){
                 let fd = fieldO.fields[0].fields[1];
@@ -430,7 +437,6 @@
                     let str = r.split("_");
                     let sfk = str[ str.length-2 ];
                     let rk = str[1];
-                    //TODO : filter for rowkey
 
                     if(sfkey === parseInt(sfk) && parseInt(rk) === rkey ){
                       if(refer.name !== field.name) {

@@ -297,7 +297,8 @@ function form() {
                                   name: 'total_permited_speciments',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 {
                                   label: 'Unit of measurement',
@@ -325,7 +326,8 @@ function form() {
                                   name: 'valid_total_permited_speciments',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 {
                                   label: 'Unit of measurement',
@@ -365,7 +367,8 @@ function form() {
                                   name: 'permits_number',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                               ],
                             }
@@ -385,7 +388,8 @@ function form() {
                                   name: 'valid_permits_number',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                               ],
                             }
@@ -405,7 +409,8 @@ function form() {
                                   name: 'total_permited_speciments',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 {
                                   label: 'Unit of measurement',
@@ -432,7 +437,8 @@ function form() {
                                   name: 'valid_total_permited_speciments',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 {
                                   label: 'Unit of measurement',
@@ -472,7 +478,8 @@ function form() {
                                   name: 'permits_number',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                               ],
                             }
@@ -492,7 +499,8 @@ function form() {
                                   name: 'valid_permits_number',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                               ],
                             }
@@ -512,7 +520,8 @@ function form() {
                                   name: 'total_permited_speciments',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 {
                                   label: 'Unit of measurement',
@@ -539,7 +548,8 @@ function form() {
                                   name: 'valid_total_permited_speciments',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 {
                                   label: 'Unit of measurement',
@@ -579,7 +589,8 @@ function form() {
                                   name: 'permits_number',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                               ],
                             }
@@ -599,7 +610,8 @@ function form() {
                                   name: 'valid_permits_number',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                               ],
                             }
@@ -619,7 +631,8 @@ function form() {
                                   name: 'total_permited_speciments',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 {
                                   label: 'Unit of measurement',
@@ -646,7 +659,8 @@ function form() {
                                   name: 'valid_total_permited_speciments',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 {
                                   label: 'Unit of measurement',
@@ -706,7 +720,8 @@ function form() {
                                   name: 'number_establishments_inspections',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                /* {
                                   label: 'Unit of measurement',
@@ -734,7 +749,8 @@ function form() {
                                   name: 'number_permitted_specimens',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 {
                                   label: 'Unit of measurement',
@@ -762,7 +778,8 @@ function form() {
                                   name: 'establishments_non_compliant',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 /*{
                                   label: 'Unit of measurement',
@@ -791,7 +808,8 @@ function form() {
                                   name: 'number_speciments_held_by_non_compliant_establishments',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 {
                                   label: 'Unit of measurement',
@@ -831,7 +849,8 @@ function form() {
                                   name: 'number_establishments_inspections',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 /*{
                                   label: 'Unit of measurement',
@@ -858,7 +877,8 @@ function form() {
                                   name: 'number_permitted_specimens',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 {
                                   label: 'Unit of measurement',
@@ -885,7 +905,8 @@ function form() {
                                   name: 'establishments_non_compliant',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 /*{
                                   label: 'Unit of measurement',
@@ -913,7 +934,8 @@ function form() {
                                   name: 'number_speciments_held_by_non_compliant_establishments',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 {
                                   label: 'Unit of measurement',
@@ -951,7 +973,8 @@ function form() {
                                   name: 'number_establishments_inspections',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 /*{
                                   label: 'Unit of measurement',
@@ -977,7 +1000,8 @@ function form() {
                                   name: 'number_permitted_specimens',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 {
                                   label: 'Unit of measurement',
@@ -1003,7 +1027,8 @@ function form() {
                                   name: 'establishments_non_compliant',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 /*{
                                   label: 'Unit of measurement',
@@ -1030,7 +1055,8 @@ function form() {
                                   name: 'number_speciments_held_by_non_compliant_establishments',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 {
                                   label: 'Unit of measurement',
@@ -1068,7 +1094,8 @@ function form() {
                                   name: 'number_establishments_inspections',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 /*{
                                   label: 'Unit of measurement',
@@ -1094,7 +1121,8 @@ function form() {
                                   name: 'number_permitted_specimens',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 {
                                   label: 'Unit of measurement',
@@ -1120,7 +1148,8 @@ function form() {
                                   name: 'establishments_non_compliant',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 /*{
                                   label: 'Unit of measurement',
@@ -1147,7 +1176,8 @@ function form() {
                                   name: 'number_speciments_held_by_non_compliant_establishments',
                                   type: 'number',
                                   selected: '',
-                                  required: 'required'
+                                  required: 'required',
+                                  validation: 'required',
                                 },
                                 {
                                   label: 'Unit of measurement',
