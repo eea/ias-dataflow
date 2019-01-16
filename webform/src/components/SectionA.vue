@@ -699,7 +699,7 @@
               </div>
             </b-card>
 
-            <b-card class="inner-card">
+            <b-card class="inner-card observations">
               <div class="card-section">
                 <center>
                   <h6>{{section.tables.table_4.label}}</h6>
@@ -719,7 +719,9 @@
                 </thead>
                 <tbody>
                   <tr v-for="(row, rix ) in section.tables.table_4.table_sections[0].table_fields">
-                    <td v-for="(field, fix) in row.fields" style="padding-left: 10px; padding-right: 10px; max-width: 15%; width: 20%;">
+                    <td v-for="(field, fix) in row.fields" style="padding-left: 10px; padding-right: 10px; max-width: 15%; width: 20%;"
+                        :style="field.name === 'impact' ? 'max-width: 20%; width:20%;' : ''"
+                    >
                       <fieldGenerator
                         :field="field"
                         :fieldkey="fix"
@@ -731,7 +733,7 @@
                         :vscope="'sectiona_'  + seckey + '_' + 'table_4_' + rix + field.name + '_' + fix"
                       ></fieldGenerator>
                     </td>
-                    <td><b-btn variant="danger" @click="removeObservation( section.tables.table_4.table_sections[0].table_fields , row, rix)">X</b-btn></td>
+                    <td style="max-width: 10%;width:10%;"><b-btn variant="danger" @click="removeObservation( section.tables.table_4.table_sections[0].table_fields , row, rix)">X</b-btn></td>
                   </tr>
                 </tbody>
                 </table>
@@ -1012,11 +1014,11 @@ export default {
     },
 
     removeObservation( table_fields , row, rix){
-      if(rix === 0) return false;
+      if(rix === 0 && table_fields.length === 1) {
+        return false;
+      }
 
       table_fields.splice(rix, 1);
-
-      table_fields = rest;
       this.$forceUpdate();
     },
 
@@ -1399,6 +1401,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+
+
   .table-wrapper {
     margin-bottom: 2rem;
     /*overflow-x: auto;*/
@@ -1491,9 +1496,18 @@ export default {
     font-weight: 600;
   }
 
+  .observations textarea {
+    max-width: 100%;
+    width: 100%;
+  }
+
   .observations .multiselect {
     max-width: 100%;
     width: 100%;
+  }
+
+  .observations .multiselect__tag {
+    white-space: normal;
   }
 
   .observations .multiselect__content-wrapper /*, .multiselect__element */ {
