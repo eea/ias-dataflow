@@ -407,7 +407,7 @@
 
                               </tbody>
                             </table>
-                            <b-btn variant="primary" class="addnew" style="max-width: 100%;width: 100%;"  @click="addSpecies(sub_section)">Add</b-btn>
+                            <b-btn variant="primary" class="addnew" style="max-width: 100%;width: 100%;"  @click="addSpecies(sub_section)">+ Add row</b-btn>
                           </div>
 
                         </div>
@@ -708,7 +708,6 @@
                 <div class="table-wrapper">
                 <table class="table table-striped" style="margin-bottom: 0 !important;">
                 <thead class="bg-primary">
-               <!--{{ section.tables.table_4.table_sections[0].table_fields[0].fields.length }}-->
                 <th v-for="(field, fix) in section.tables.table_4.table_sections[0].table_fields[0].fields">
                   <span style="color: white;">{{ field.label }}</span>
                 </th>
@@ -731,11 +730,11 @@
                         :vscope="'sectiona_'  + seckey + '_' + 'table_4_' + rix + field.name + '_' + fix"
                       ></fieldGenerator>
                     </td>
-                    <td style="max-width: 10%;width:10%;"><b-btn variant="danger" @click="removeObservation( section.tables.table_4.table_sections[0].table_fields , row, rix)">X</b-btn></td>
+                    <td style="max-width: 10%;width:10%;"><b-btn variant="danger" @click="removeObservation( section.tables.table_4.table_sections[0].table_fields , row, rix)">Remove</b-btn></td>
                   </tr>
                 </tbody>
                 </table>
-                <b-btn variant="primary" class="addnew" style="max-width: 100%;width: 100%;" @click="addObservation( section.tables.table_4.table_sections[0].table_fields )">Add</b-btn>
+                <b-btn variant="primary" class="addnew" style="max-width: 100%;width: 100%;" @click="addObservation( section.tables.table_4.table_sections[0].table_fields )">+ Add row</b-btn>
               </div>
               </div>
             </b-card>

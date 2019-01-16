@@ -1755,14 +1755,14 @@ function form() {
                         type: "multiselect",
                         name: "protected_habitats",
                         selected: "",
-                        options: protected_habitats.map((op) => { return { text: op.label, value: op.id };} )
+                        options: protected_habitats.map((op) => { return { text: op.id  + ' - ' +  op.label, value: op.id };} )
                       },
                       {
                         label: "Ecosystem services",
                         type: "multiselect",
                         name: "ecosystem_services",
                         selected: "",
-                        options: ecosystems.map((op) => { return { text: op.class, value: op.class };} )
+                        options: ecosystems.map((op) => { return { text: op.group + ' - ' + op.class, value: op.class };} )
                       },
                     ]
                   }

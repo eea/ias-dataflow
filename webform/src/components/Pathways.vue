@@ -27,8 +27,8 @@
       </tr>
       </tbody>
     </table>
-    <b-btn variant="default" class="addnew"  @click="addPathway(field)">
-      + Add another pathway
+    <b-btn variant="primary" class="addnew"  @click="addPathway(field)">
+      + Add row
     </b-btn>
 
   </div>
