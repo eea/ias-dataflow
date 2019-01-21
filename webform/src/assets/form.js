@@ -1329,6 +1329,16 @@ function form() {
                           },
                           ]
                         },
+                        {
+                          type: "checkbox",
+                          name: "noimpacts",
+                          //label: "No negative impacts observed",
+                          selected: false,
+                          options: [
+                            {text: 'No negative impacts observed', value: true },
+                          ]
+                        },
+
                       ]
                     },
                     additional_info: {
@@ -1452,6 +1462,17 @@ function form() {
                         }
                       }, ]
                     },
+
+                    {
+                      type: "checkbox",
+                      name: "noimpacts",
+                      //label: "No negative impacts observed",
+                      selected: false,
+                      options: [
+                        {text: 'No negative impacts observed', value: true },
+                      ]
+                    },
+
                   ]
                 },
 
@@ -1591,6 +1612,15 @@ function form() {
                           }
                         }, ]
                       },
+                      {
+                        type: "checkbox",
+                        name: "noimpacts",
+                        //label: "No negative impacts observed",
+                        selected: false,
+                        options: [
+                          {text: 'No negative impacts observed', value: true },
+                        ]
+                      },
                     ]
                   },
                   additional_info: {
@@ -1718,6 +1748,16 @@ function form() {
                         validation:'required',
                       }
                     }, ]
+                  },
+
+                  {
+                    type: "checkbox",
+                    name: "noimpacts",
+                    //label: "No negative impacts observed",
+                    selected: false,
+                    options: [
+                      {text: 'No negative impacts observed', value: true },
+                    ]
                   },
                 ]
               },
