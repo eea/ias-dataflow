@@ -20,7 +20,7 @@
 
               <!-- v-validate.continues="'required'" @input="validate" -->
               <b-form-select :options="field.options" v-model="field.selected.pattern"
-                             v-validate="'required'"
+                             v-validate="'falserequire'"
                              data-vv-as="pattern"  v-bind:key="scope + '_pattern_' + fieldkey"
                              v-bind:data-vv-scope="scope"
                              v-bind:name="scope + '_pattern_' + fieldkey"
@@ -44,7 +44,7 @@
 
               <multiselect :options="field.options"
                  v-model="field.selected.pattern"
-                 v-validate="'required'"
+                 v-validate="'falserequire'"
                  data-vv-as="pattern"
                  v-bind:key="scope + '_pattern_' + fieldkey"
                  v-bind:data-vv-scope="scope"

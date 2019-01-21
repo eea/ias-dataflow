@@ -127,6 +127,7 @@
         :disabled="disabled"
         v-model="field.selected"
         :options="field.options"
+        @input="changeInput"
       >
       </b-form-checkbox-group>
     </div>
@@ -379,6 +380,8 @@ export default {
         self.validate();
       });
     },
+
+
 
     validate(){
       let self = this;

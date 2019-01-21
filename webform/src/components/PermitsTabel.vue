@@ -20,8 +20,9 @@
             <div class="selects-wrapper">
               <b-badge
                 v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey )"
-                variant="danger" class="error-badge" v-b-tooltip.hover
-                :title="errors.first('permits_' + field.name + '_' + rkey , 'sectiona_'+ scope + '_permits_' + field.name + '_' + rkey  )">
+                variant="danger" class="error-badge"
+                v-b-tooltip.hover
+                :title="errors.first( 'permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey  )">
                 {{ errors.first('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey ) }}
               </b-badge>
               <b-form-select  v-model="field.selected" :options="field.options"
@@ -68,7 +69,7 @@
                       <field-generator
                         v-if="sfield.fields.length === 1"
                         :field="fiel"
-                        :validation="'required|min_value:1|numeric'"
+                        :validation="'required|min_value:0|numeric'"
                         :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                         :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                         :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
@@ -181,6 +182,18 @@
     <b-input-group>
       <b-btn class="btnAdd" variant="primary" @click="addRow">+ Add row</b-btn>
     </b-input-group>
+
+    <div v-if="table_section.name === 'inspection_table' ">
+
+      <!-- :ref="'permits_' + table_section.noinspections.name" -->
+      <fieldGenerator
+        :field="table_section.noinspections"
+        :validation="'falserequire'"
+
+        @input="disableValidation($event)"
+
+      ></fieldGenerator>
+    </div>
   </div>
 </template>
 
@@ -191,7 +204,7 @@
     name: "PermitsTable",
     props: ['table_section', 'yearoptions', 'scope','seckey'],
     components: { fieldGenerator },
-    inject: ['$validator'],
+    //inject: ['$validator'],
     data(){
       return {
         index: [],
@@ -305,6 +318,31 @@
           .map((name) => { temp.push(uniq[name]) });
         return { duplicates: duplicates, fields: temp };
       },
+      disableValidation($event){
+        if($event.filter(Boolean).length > 0){
+          this.$validator.reset();
+          this.$validator.pause();
+
+          for( let ref in self.$refs){
+            if(self.$refs.hasOwnProperty(ref)) {
+              if("undefined" !== typeof self.$refs[ref][0].$validator) {
+                self.$refs[ref][0].$validator.reset();
+                self.$refs[ref][0].$validator.pause();
+              }
+            }
+          }
+        } else {
+          this.$validator.resume();
+          for( let ref in self.$refs){
+            if(self.$refs.hasOwnProperty(ref)) {
+              if("undefined" !== typeof self.$refs[ref][0].$validator) {
+                self.$refs[ref][0].$validator.resume();
+              }
+            }
+          }
+          self.validate();
+        }
+      },
 
       validateUnique(){
         let self = this;
@@ -367,18 +405,36 @@
         });
       },
 
+      validateTotalNr(){
+
+
+      },
+
       validate(){
         let promises = [];
         let self = this;
+
+        if("undefined" !== typeof self.table_section.noinspections ){
+
+          if (self.table_section.noinspections.selected.filter(Boolean) ){
+            //console.log(self.table_section.noinspections);
+            return new Promise(function(resolve, reject) {
+                resolve(true);
+            }).catch((err) => {
+              console.error(err);
+            });
+          } else {
+            promises.push(self.validateTotalNr());
+          }
+        }
 
         promises.push(self.validateUnique());
 
         for( let ref in self.$refs){
           if(self.$refs.hasOwnProperty(ref)) {
+            if("undefined" !== typeof self.$refs[ref][0].$validator) promises.push( self.$refs[ref][0].$validator.validate(self.$refs[ref][0].vname) );
 
-            promises.push( self.$refs[ref][0].$validator.validate(self.$refs[ref][0].vname) );
-
-            if('undefined' !== typeof self.$refs[ref][0].validate){
+            if('undefined' !== typeof self.$refs[ref] && 'undefined' !== typeof self.$refs[ref][0] && 'undefined' !== typeof self.$refs[ref][0].validate){
               promises.push( self.$refs[ref][0].validate() );
             }
           }
@@ -481,14 +537,12 @@
           if(fieldO.type === "add" ){
             fieldO.fields.forEach((subfield, subfieldkey) => {
               if(fieldO.fields[subfieldkey].fields.length === 2 ){
-
                 let fd = fieldO.fields[0].fields[1];
                 let totali = fieldO.fields[0].fields[0];
 
                 // make same measurement unit
                 if( subfieldkey === sfkey){
                   fd = fieldO.fields[0].fields[1];
-                  console.log(fd);
                   //fd.selected = $event;
 
                   let found = Object.keys(this.$refs).map((r) => {
@@ -553,6 +607,7 @@
                       }
                     }
                   });
+
                 }
               }
             });

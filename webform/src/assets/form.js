@@ -716,7 +716,7 @@ function form() {
                               name: 'subfield',
                               fields:[
                                 {
-                                  label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                                  label: 'Number or volume of establishments corresponding to the permits held by the inspected establishments',
                                   name: 'number_establishments_inspections',
                                   type: 'number',
                                   selected: '',
@@ -845,7 +845,7 @@ function form() {
                               name: 'subfield',
                               fields:[
                                 {
-                                  label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                                  label: 'Number or volume of establishments corresponding to the permits held by the inspected establishments',
                                   name: 'number_establishments_inspections',
                                   type: 'number',
                                   selected: '',
@@ -969,7 +969,7 @@ function form() {
                               name: 'subfield',
                               fields:[
                                 {
-                                  label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                                  label: 'Number or volume of establishments corresponding to the permits held by the inspected establishments',
                                   name: 'number_establishments_inspections',
                                   type: 'number',
                                   selected: '',
@@ -1090,7 +1090,7 @@ function form() {
                               name: 'subfield',
                               fields:[
                                 {
-                                  label: 'Number or volume of permitted specimens corresponding to the permits held by the inspected establishments',
+                                  label: 'Number or volume of establishments corresponding to the permits held by the inspected establishments',
                                   name: 'number_establishments_inspections',
                                   type: 'number',
                                   selected: '',
@@ -1193,6 +1193,15 @@ function form() {
                       ]
                     },
                   ],
+                },
+                noinspections: {
+                  type: "checkbox",
+                  name: "noinspections",
+                  //label: "No negative impacts observed",
+                  selected: [],
+                  options: [
+                    {text: 'No inspections carried out over the reporting period', value: true },
+                  ]
                 },
                 additional_info: {
                   label: 'Additional information (optional)',
@@ -1333,7 +1342,7 @@ function form() {
                           type: "checkbox",
                           name: "noimpacts",
                           //label: "No negative impacts observed",
-                          selected: false,
+                          selected: [],
                           options: [
                             {text: 'No negative impacts observed', value: true },
                           ]
@@ -1467,7 +1476,7 @@ function form() {
                       type: "checkbox",
                       name: "noimpacts",
                       //label: "No negative impacts observed",
-                      selected: false,
+                      selected: [],
                       options: [
                         {text: 'No negative impacts observed', value: true },
                       ]
