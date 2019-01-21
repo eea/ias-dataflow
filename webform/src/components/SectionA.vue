@@ -337,11 +337,16 @@
                             <table class="table table-striped"
                                    v-if="sub_section.name === 'impacted_nontargeted_species_main'">
                               <thead class="bg-primary">
-                              <tr style="">
-                                <th style="color: white;font-size: 1.2em" >{{sub_section.fields[0].label}}</th>
-                                <th style="color: white;font-size: 1.2em" >{{sub_section.fields[0].inner_field.label }}</th>
-                                <th style="color: white;font-size: 1.2em" >Action</th>
-                              </tr>
+                                <tr>
+                                  <th colspan="3">
+                                    <span style="color: white;"><center>{{ sub_section.main_header }}</center></span>
+                                  </th>
+                                </tr>
+                                <tr style="">
+                                  <th style="color: white;font-size: 1.2em" >{{sub_section.fields[0].label}}</th>
+                                  <th style="color: white;font-size: 1.2em" >{{sub_section.fields[0].inner_field.label }}</th>
+                                  <th style="color: white;font-size: 1.2em" >Action</th>
+                                </tr>
                               </thead>
                               <tbody>
 
@@ -603,6 +608,11 @@
                           <div class="impact-table" v-if="sub_section.name === 'impacted_nontargeted_species_main'">
                             <table class="table table-striped ">
                               <thead class="bg-primary">
+                              <tr>
+                                <th colspan="3">
+                                  <span style="color: white;"><center>{{ sub_section.main_header }}</center></span>
+                                </th>
+                              </tr>
                               <tr style="">
                                 <th style="color: white;font-size: 1.2em" >{{sub_section.fields[0].label}}</th>
                                 <th style="color: white;font-size: 1.2em" >{{sub_section.fields[0].inner_field.label }}</th>
@@ -708,11 +718,10 @@
                 <div class="table-wrapper">
                 <table class="table table-striped" style="margin-bottom: 0 !important;">
                 <thead class="bg-primary">
-                <th v-for="(field, fix) in section.tables.table_4.table_sections[0].table_fields[0].fields">
-                  <span style="color: white;">{{ field.label }}</span>
-                </th>
-                <th><span style="color: white;">Action</span></th>
-
+                  <th v-for="(field, fix) in section.tables.table_4.table_sections[0].table_fields[0].fields">
+                    <span style="color: white;">{{ field.label }}</span>
+                  </th>
+                  <th><span style="color: white;">Action</span></th>
                 </thead>
                 <tbody>
                   <tr v-for="(row, rix ) in section.tables.table_4.table_sections[0].table_fields">

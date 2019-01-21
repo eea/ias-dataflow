@@ -504,7 +504,7 @@ export default {
               name: 'mandatory_question',
             },
             depending_on_mandatory: {
-              label: 'A distribution map for this species is included in the file which will be uploaded in the \'Distribution map for SECTION B\' field available on \'DISTRIBUTION MAP\' section.',
+              label: 'A distribution map for this species has to be included in the file which will be uploaded in the \'Distribution map for SECTION B\' field available on \'DISTRIBUTION MAP\' section (optional).',
               index: 4,
               name: 'distribution_of_species',
               fields: [

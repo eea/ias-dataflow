@@ -79,7 +79,7 @@ function form() {
         },
 
         depending_on_mandatory: {
-          label: 'A distribution map for this species is included in the file which will be uploaded in the \'Distribution map for SECTION A\' field available on \'DISTRIBUTION MAP\' section.',
+          label: 'A distribution map for this species has to be included in the file which will be uploaded in the \'Distribution map for SECTION A\' field available on \'DISTRIBUTION MAP\' section.',
           index: 4,
           name: 'distribution_of_species',
           fields: [
@@ -209,7 +209,7 @@ function form() {
 
         tables: {
           table_1: {
-            label: 'Information on the permits issued for this species to be completed only for invasive alien species of Union concern',
+            label: 'Information on the permits issued for this species (to be completed only for invasive alien species of Union concern)',
             name: 'permits_info',
             question: {
               label: 'Have permits been issued for this species during the reporting period? ',
@@ -1310,6 +1310,7 @@ function form() {
                           label: 'Impacted non-targeted species',
                           type: 'add',
                           name: 'impacted_nontargeted_species_main',
+                          main_header: "Observed negative impacts of the measure on non-targeted species",
                           description:'Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)',
                           fields: [
                             {
@@ -1434,6 +1435,7 @@ function form() {
                       label: 'Impacted non-targeted species',
                       type: 'add',
                       name: 'impacted_nontargeted_species_main',
+                      main_header: "Observed negative impacts of the measure on non-targeted species",
                       description:'Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)',
                       fields: [{
                         label: 'Impacted non-targeted species',
@@ -1572,6 +1574,7 @@ function form() {
                         label: 'Impacted non-targeted species',
                         type: 'add',
                         name: 'impacted_nontargeted_species_main',
+                        main_header: "Observed negative impacts of the measure on non-targeted species",
                         description:'Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)',
                         fields: [{
                           label: 'Impacted non-targeted species',
@@ -1700,6 +1703,7 @@ function form() {
                     type: 'add',
                     name: 'impacted_nontargeted_species_main',
                     description:'Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)',
+                    main_header: "Observed negative impacts of the measure on non-targeted species",
                     fields: [{
                       label: 'Impacted non-targeted species',
                       type: 'text',
@@ -1730,7 +1734,6 @@ function form() {
             label: "Information on the impact of this species (Optional)",
             name: "observations_table",
             info: "Observations on the impact of the species during the reporting period",
-
             table_sections: [
               {
                 table_fields: [

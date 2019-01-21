@@ -297,7 +297,7 @@
           <selected>true</selected>
         </mandatory_item>
         <permits_info>
-          <label>Information on the permits issued for this species to be completed only for invasive alien species of Union concern</label>
+          <label>Information on the permits issued for this species (to be completed only for invasive alien species of Union concern)</label>
           <name>permits_info</name>
           <question>
             <label>Have permits been issued for this species during the reporting period? </label>
@@ -546,7 +546,7 @@
             </element>
           </fields>
           <index>4</index>
-          <label>A distribution map for this species is included in the file which will be uploaded in the 'Distribution map for SECTION B' field available on 'DISTRIBUTION MAP' section.</label>
+          <label>A distribution map for this species has to be included in the file which will be uploaded in the 'Distribution map for SECTION B' field available on 'DISTRIBUTION MAP' section.</label>
           <name>distribution_of_species</name>
         </depending_on_mandatory>
         <mandatory_item>
