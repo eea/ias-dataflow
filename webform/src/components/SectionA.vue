@@ -244,7 +244,7 @@
                         <div v-for="(sub_section, sinx) in table_section.table_fields.fields"
                         >
 
-                          <table class="table" v-if="sub_section.name !== 'impacted_nontargeted_species_main'">
+                          <table class="table" v-if="sub_section.name !== 'impacted_nontargeted_species_main' && sub_section.name !== 'noimpacts'">
                             <thead>
                             <tr>
                               <th
@@ -277,7 +277,7 @@
 
                                 <fieldGenerator
                                   :field="row" :fieldkey="rowkey"
-                                  :validation="row.required ? row.required : 'false'"
+                                  :validation="row.required ? row.required : 'falserequire'"
                                   :vname="row.name + '_' + rowkey"
                                   :sub_section="sub_section"
                                   :vkey="row.name + '_' + rowkey"
@@ -315,7 +315,7 @@
                                     :vname="row.name + '_' + rowkey"
                                     :vkey="row.name + '_' + rowkey"
                                     :data-vv-as="row.label"
-                                    :validation="'false'"
+                                    :validation="'falserequire'"
                                     :ref="'sectiona_'  + seckey + '_' +  seckey + '_' + row.name + '_' + rowkey"
                                     :vscope="'sectiona_'  + seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
                                   ></fieldGenerator>
@@ -366,16 +366,32 @@
                                       return item.msg;
                                       }).join('\n')  }}
                                     </b-badge>
-                                    <fieldGenerator
-                                      :field="row"
-                                      :fieldkey="rowkey"
-                                      :vname="row.name + '_' + rowkey"
-                                      :vkey="row.name + '_' + rowkey"
-                                      :data-vv-as="row.label"
-                                      :validation="row.validation"
-                                      :ref="'sectiona_'  + seckey + '_' +  seckey + '_' + row.name + '_' + rowkey"
-                                      :vscope="'sectiona_'  + seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
-                                    ></fieldGenerator>
+
+                                    <span v-if="table_section.table_fields.fields[sinx+1].selected.length === 0">
+                                      <fieldGenerator
+                                        :field="row"
+                                        :fieldkey="rowkey"
+                                        :vname="row.name + '_' + rowkey"
+                                        :vkey="row.name + '_' + rowkey"
+                                        :data-vv-as="row.label"
+                                        :validation="row.validation"
+                                        :ref="'sectiona_'  + seckey + '_' +  seckey + '_' + row.name + '_' + rowkey"
+                                        :vscope="'sectiona_'  + seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
+                                      ></fieldGenerator>
+                                    </span>
+                                    <span v-else>
+                                     <fieldGenerator
+                                       :field="row"
+                                       :fieldkey="rowkey"
+                                       :vname="row.name + '_' + rowkey"
+                                       :vkey="row.name + '_' + rowkey"
+                                       :data-vv-as="row.label"
+                                       :ref="'sectiona_'  + seckey + '_' +  seckey + '_' + row.name + '_' + rowkey"
+                                       :vscope="'sectiona_'  + seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
+                                       :validation="'falserequire'"
+                                     ></fieldGenerator>
+                                    </span>
+
                                   </b-col>
                                 </td>
 
@@ -394,15 +410,29 @@
                                       }).join('\n') }}
                                     </b-badge>
 
-                                    <fieldGenerator
-                                      :vname="row.inner_field.name + '_' + rowkey"
-                                      :vkey="row.inner_field.name + '_' + rowkey"
-                                      :data-vv-as="row.inner_field.label"
-                                      :ref="'sectiona_'  + seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey"
-                                      :vscope="'sectiona_'  + seckey + '_' + 'table_2_'  + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey"
-                                      :validation="row.inner_field.validation"
-                                      :field="row.inner_field">
-                                    </fieldGenerator>
+                                    <span v-if="table_section.table_fields.fields[sinx+1].selected.length === 0">
+                                      <fieldGenerator
+                                        :vname="row.inner_field.name + '_' + rowkey"
+                                        :vkey="row.inner_field.name + '_' + rowkey"
+                                        :data-vv-as="row.inner_field.label"
+                                        :ref="'sectiona_'  + seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey"
+                                        :vscope="'sectiona_'  + seckey + '_' + 'table_2_'  + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey"
+                                        :validation="row.inner_field.validation"
+                                        :field="row.inner_field">
+                                      </fieldGenerator>
+                                    </span>
+                                    <span v-else>
+                                      <fieldGenerator
+                                        :vname="row.inner_field.name + '_' + rowkey"
+                                        :vkey="row.inner_field.name + '_' + rowkey"
+                                        :data-vv-as="row.inner_field.label"
+                                        :ref="'sectiona_'  + seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey"
+                                        :vscope="'sectiona_'  + seckey + '_' + 'table_2_'  + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey"
+                                        :validation="'falserequire'"
+                                        :field="row.inner_field">
+                                      </fieldGenerator>
+                                    </span>
+
                                   </b-col>
                                 </td>
                                 <td>
@@ -413,6 +443,30 @@
                               </tbody>
                             </table>
                             <b-btn variant="primary" class="addnew" style="max-width: 100%;width: 100%;"  @click="addSpecies(sub_section)">+ Add row</b-btn>
+                          </div>
+
+                          <div v-if="sub_section.name === 'noimpacts'"  style="margin-bottom: 1rem;">
+                           <span
+                              v-if="table_section.table_fields.fields[sinx-1].fields.filter((f) => { return f.selected !== ''}).length > 0
+                              && table_section.table_fields.fields[sinx-1].fields.filter((f) => { return f.inner_field.selected !== ''}).length > 0"
+                            >
+                              <b-form-checkbox-group
+                                :disabled="true"
+                                v-model="sub_section.selected"
+                                :options="sub_section.options"
+                              >
+                              </b-form-checkbox-group>
+                            </span>
+                            <span v-else>
+                              <fieldGenerator
+                                :field="sub_section"
+                                :validation="'falserequire'"
+                                :sub_section="sub_section"
+                                :ref="'sectiona_'+ seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + sub_section.name + '_' + sinx"
+                                :vscope="'sectiona_'+ seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + sub_section.name + '_' + sinx"
+                              ></fieldGenerator>
+                            </span>
+
                           </div>
 
                         </div>
@@ -517,7 +571,7 @@
                         <div v-for="(sub_section, sinx) in table_section.table_fields.fields" class="table-wrapper"
                         >
 
-                          <table class="table" v-if="sub_section.name !== 'impacted_nontargeted_species_main'">
+                          <table class="table" v-if="sub_section.name !== 'impacted_nontargeted_species_main' && sub_section.name !== 'noimpacts'">
                             <thead>
                             <tr>
                               <th
@@ -550,7 +604,7 @@
 
                                 <fieldGenerator
                                   :field="row" :fieldkey="rowkey"
-                                  :validation="row.required ? row.required : 'false'"
+                                  :validation="row.required ? row.required : 'falserequire'"
                                   :vname="row.name + '_' + rowkey"
                                   :sub_section="sub_section"
                                   :vkey="row.name + '_' + rowkey"
@@ -587,7 +641,7 @@
                                     :vname="row.name + '_' + rowkey"
                                     :vkey="row.name + '_' + rowkey"
                                     :data-vv-as="row.label"
-                                    :validation="'false'"
+                                    :validation="'falserequire'"
                                     :ref="'sectiona_'  + seckey + '_' +  seckey + '_' + row.name + '_' + rowkey"
                                     :vscope="'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
                                   ></fieldGenerator>
@@ -637,16 +691,31 @@
                                       return item.msg;
                                       }).join('\n')  }}
                                     </b-badge>
-                                    <fieldGenerator
-                                      :field="row"
-                                      :fieldkey="rowkey"
-                                      :vname="row.name + '_' + rowkey"
-                                      :vkey="row.name + '_' + rowkey"
-                                      :data-vv-as="row.label"
-                                      :validation="row.validation"
-                                      :ref="'sectiona_'  + seckey + '_' +  seckey + '_' + row.name + '_' + rowkey"
-                                      :vscope="'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
-                                    ></fieldGenerator>
+                                    <span v-if="table_section.table_fields.fields[sinx+1].selected.length === 0">
+                                      <fieldGenerator
+                                        :field="row"
+                                        :fieldkey="rowkey"
+                                        :vname="row.name + '_' + rowkey"
+                                        :vkey="row.name + '_' + rowkey"
+                                        :data-vv-as="row.label"
+                                        :validation="row.validation"
+                                        :ref="'sectiona_'  + seckey + '_' +  seckey + '_' + row.name + '_' + rowkey"
+                                        :vscope="'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
+                                      ></fieldGenerator>
+                                    </span>
+                                    <span v-else>
+                                       <fieldGenerator
+                                         :field="row"
+                                         :fieldkey="rowkey"
+                                         :vname="row.name + '_' + rowkey"
+                                         :vkey="row.name + '_' + rowkey"
+                                         :data-vv-as="row.label"
+                                         :validation="'falserequire'"
+                                         :ref="'sectiona_'  + seckey + '_' +  seckey + '_' + row.name + '_' + rowkey"
+                                         :vscope="'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
+                                       ></fieldGenerator>
+                                    </span>
+
                                   </b-col>
                                 </td>
 
@@ -665,15 +734,29 @@
                                       }).join('\n') }}
                                     </b-badge>
 
-                                    <fieldGenerator
-                                      :vname="row.inner_field.name + '_' + rowkey"
-                                      :vkey="row.inner_field.name + '_' + rowkey"
-                                      :data-vv-as="row.inner_field.label"
-                                      :ref="'sectiona_'  + seckey + '_' + 'table_3_'  + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey"
-                                      :vscope="'sectiona_'  + seckey + '_' + 'table_3_'  + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey"
-                                      :validation="row.inner_field.validation"
-                                      :field="row.inner_field">
-                                    </fieldGenerator>
+                                    <span v-if="table_section.table_fields.fields[sinx+1].selected.length === 0">
+                                      <fieldGenerator
+                                        :vname="row.inner_field.name + '_' + rowkey"
+                                        :vkey="row.inner_field.name + '_' + rowkey"
+                                        :data-vv-as="row.inner_field.label"
+                                        :ref="'sectiona_'  + seckey + '_' + 'table_3_'  + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey"
+                                        :vscope="'sectiona_'  + seckey + '_' + 'table_3_'  + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey"
+                                        :validation="row.inner_field.validation"
+                                        :field="row.inner_field">
+                                      </fieldGenerator>
+                                    </span>
+                                    <span v-else>
+                                      <fieldGenerator
+                                        :vname="row.inner_field.name + '_' + rowkey"
+                                        :vkey="row.inner_field.name + '_' + rowkey"
+                                        :data-vv-as="row.inner_field.label"
+                                        :ref="'sectiona_'  + seckey + '_' + 'table_3_'  + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey"
+                                        :vscope="'sectiona_'  + seckey + '_' + 'table_3_'  + table_key  + '_' + popkey + '_' + row.inner_field.name + '_' + rowkey"
+                                        :validation="'falserequire'"
+                                        :field="row.inner_field">
+                                      </fieldGenerator>
+                                    </span>
+
                                   </b-col>
                                 </td>
                                 <td>
@@ -684,6 +767,30 @@
                               </tbody>
                             </table>
                             <b-btn variant="primary" class="addnew" style="max-width: 100%;width: 100%;" @click="addSpecies(sub_section)">Add</b-btn>
+                          </div>
+
+                          <div v-if="sub_section.name === 'noimpacts'" style="margin-bottom: 1rem;">
+                           <span
+                             v-if="table_section.table_fields.fields[sinx-1].fields.filter((f) => { return f.selected !== ''}).length > 0
+                              && table_section.table_fields.fields[sinx-1].fields.filter((f) => { return f.inner_field.selected !== ''}).length > 0"
+                           >
+                              <b-form-checkbox-group
+                                :disabled="true"
+                                v-model="sub_section.selected"
+                                :options="sub_section.options"
+                              >
+                              </b-form-checkbox-group>
+                            </span>
+                            <span v-else>
+                              <fieldGenerator
+                                :field="sub_section"
+                                :validation="'falserequire'"
+                                :sub_section="sub_section"
+                                :ref="'sectiona_'+ seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + sub_section.name + '_' + sinx"
+                                :vscope="'sectiona_'+ seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + sub_section.name + '_' + sinx"
+                              ></fieldGenerator>
+                            </span>
+
                           </div>
 
                         </div>

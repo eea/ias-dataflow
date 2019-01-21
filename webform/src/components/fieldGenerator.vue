@@ -1,5 +1,6 @@
 <template>
 	<div v-if="field">
+
 		<div v-if="field.type === 'text' ||  field.type ==='email' || field.type === 'number'" >
       <span v-if="validation !== 'false'">
         <b-badge v-if="errors.has(vname, vscope) && field.type === 'number'"
@@ -54,7 +55,8 @@
         ></b-form-input>
 
         <b-form-input :disabled="disabled" :name="field.name"
-          v-model="field.selected" :type="field.type" v-if="field.type !== 'number'"
+          v-model="field.selected"
+          :type="field.type" v-if="field.type !== 'number'"
           @input="changeInput($event)"
           v-bind:key="vname"
           v-bind:name="vkey"
@@ -121,7 +123,11 @@
     </div>
 
     <div v-else-if="field.type === 'checkbox'">
-      <b-form-checkbox-group :disabled="disabled" v-model="field.selected" :options="field.options">
+      <b-form-checkbox-group
+        :disabled="disabled"
+        v-model="field.selected"
+        :options="field.options"
+      >
       </b-form-checkbox-group>
     </div>
 

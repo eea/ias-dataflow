@@ -80,13 +80,13 @@
                     <!--  decimals for kg and integers for pcs-->
                     <div v-else-if="sfield.fields.length === 2">
                       <div v-if="fiel.type === 'number'">
-
-                        <br>
-                        
+                        <b-badge  v-if="sfield.fields.length === 2 && sfield.fields[1].selected === 'kg'" style="margin-top: 12px;">
+                          Please use "." instead of "," for decimal number
+                        </b-badge>
                         <field-generator
-                          v-if="sfield.fields.length === 2 || sfield.fields[1].selected === 'pcs'"
+                          v-if="sfield.fields.length === 2 && sfield.fields[1].selected === ''"
                           :field="fiel"
-                          :validation="'required|min_value:1|numeric'"
+                          :validation="'required|min_value:0|numeric'"
                           :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                           :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                           :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
@@ -96,7 +96,19 @@
                         ></field-generator>
 
                         <field-generator
-                          v-else
+                          v-else-if="sfield.fields.length === 2 && sfield.fields[1].selected === 'pcs'"
+                          :field="fiel"
+                          :validation="'required|min_value:0|numeric'"
+                          :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
+                          @change="changeNumeric( $event, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey ,sfield  )"
+                          @input="changeNumeric( $event,'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey, sfield )"
+                        ></field-generator>
+
+                        <field-generator
+                          v-if="sfield.fields.length === 2 && sfield.fields[1].selected === 'kg'"
                           :field="fiel"
                           :validation="'required|decimal'"
                           :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
@@ -120,7 +132,8 @@
                           'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey) }}</b-badge>
 
                         <field-generator
-                          :field="fiel" :validation="field.validation"
+                          :field="fiel"
+                          :validation="field.validation"
                           :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                           :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
                           :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
