@@ -21,6 +21,7 @@
               <label>{{info.scientific_name.label}}</label>
             </b-col>
             <b-col lg="7">
+              <!-- @input="updateSelected()" -->
                 <multiselect
                   v-model="value"
                   :options="info.scientific_name.options"
@@ -31,7 +32,7 @@
                   track-by="text"
                   @select="fillCommon($event)"
                   :custom-label="customLabel"
-                  @input="updateSelected()"
+
                   @remove="remove($event)"
                 >
                 </multiselect>
@@ -131,9 +132,9 @@ export default {
       let self = this;
 
       if(self.info.sections.length === 0){
-        self.info.scientific_name.selected.forEach((item, ix) => {
+        self.value.forEach((item, ix) => {
           if(!this.info.sections[ix]){
-            this.addSpecies( this.info.scientific_name.selected[ix], this.info.common_name.selected[ix], ix);
+            this.addSpecies( item, this.info.common_name.selected[ix], ix);
           }
         });
       } else {
@@ -141,7 +142,7 @@ export default {
 
         let sections = self.info.sections.map((section ) => { return section.scientific_name.selected.value; });
 
-        let f = self.info.scientific_name.selected.map((name,nix) => {
+        let f = self.value.map((name,nix) => {
           if(sections.indexOf(name.value) === -1){
             let cn = self.info.common_name.selected.filter((c) => { return c.name === name.value });
             this.addSpecies( name , cn , self.info.sections.length );
@@ -162,22 +163,35 @@ export default {
     },
 
     remove(sci_name){
+      let self = this;
       let vm = this;
       let key = null;
-      this.info.common_name.selected.forEach(function (val, ix) {
+
+      /*this.info.common_name.selected.forEach(function (val, ix) {
         if("undefined" !== typeof vm.info.scientific_name.selected[ix]){
           if(sci_name.value === vm.info.scientific_name.selected[ix].value){
+            vm.$delete(vm.info.scientific_name.selected, ix);
             key = ix;
             return false;
           }
+
         } else if(sci_name.value === val.name ) {
-          key = ix;
+          vm.$delete(vm.info.scientific_name.selected, ix);
           return false;
         }
+      });*/
+      this.info.sections.map((sc, ix) => {
+        if( sc.scientific_name.selected.value === sci_name.value ){
+          key = ix;
+        }
       });
+
+      let newcn = self.info.common_name.selected.filter((cn) => { return cn.name !== sci_name.value});
+      self.$set(this.info.common_name, 'selected', newcn);
+
       vm.$delete(vm.info.sections, key);
-      vm.$delete(vm.info.common_name.selected, key);
-      vm.$delete(vm.info.scientific_name.selected, key);
+      //vm.$delete(vm.info.common_name.selected, key);
+      //vm.$delete(vm.info.scientific_name.selected, key);
       vm.$delete(this.expanded, key);
       vm.$forceUpdate();
     },
