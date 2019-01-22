@@ -1,6 +1,5 @@
 <template>
   <div v-if="info">
-
     <div class="question-wrapper">
       <h2><center>{{info.question}}</center></h2>
       <br/>
@@ -22,16 +21,19 @@
               <label>{{info.scientific_name.label}}</label>
             </b-col>
             <b-col lg="7">
-
-                <multiselect v-model="value" :options="info.scientific_name.options"  :multiple="true"
-                :close-on-select="false" :clear-on-select="false" :preserve-search="true" track-by="text"
-                @select="fillCommon($event)" :custom-label="customLabel"
-                             @input="updateSelected()" @remove="remove($event)"
+                <multiselect
+                  v-model="value"
+                  :options="info.scientific_name.options"
+                  :multiple="true"
+                  :close-on-select="false"
+                  :clear-on-select="false"
+                  :preserve-search="true"
+                  track-by="text"
+                  @select="fillCommon($event)"
+                  :custom-label="customLabel"
+                  @input="updateSelected()"
+                  @remove="remove($event)"
                 >
-
-
-
-
                 </multiselect>
 
             </b-col>
@@ -119,19 +121,6 @@ export default {
       expanded: [],
     }
   },
-  created (){
-    let self = this;
-    //self.value = this.info.scientific_name.selected;
-    /*this.info.sections.map((section,sidx) => {
-      console.log(sidx);
-      //this.info.sections.push(section);
-      this.value.push(section.scientific_name.selected);
-      /!*this.info.scientific_name.selected = this.value;
-      this.$forceUpdate();*!/
-
-    });*/
-    //console.log(this.info);
-  },
 
   methods: {
     titleSlugify(text) {
@@ -139,12 +128,28 @@ export default {
     },
 
     addBySelection() {
-      //console.log(this.info.scientific_name);
-      this.info.scientific_name.selected.forEach((item, ix) => {
-        if(!this.info.sections[ix]){
-          this.addSpecies( this.info.scientific_name.selected[ix], this.info.common_name.selected[ix], ix);
-        }
-      });
+      let self = this;
+
+      if(self.info.sections.length === 0){
+        self.info.scientific_name.selected.forEach((item, ix) => {
+          if(!this.info.sections[ix]){
+            this.addSpecies( this.info.scientific_name.selected[ix], this.info.common_name.selected[ix], ix);
+          }
+        });
+      } else {
+        let foundS = [];
+
+        let sections = self.info.sections.map((section ) => { return section.scientific_name.selected.value; });
+
+        let f = self.info.scientific_name.selected.map((name,nix) => {
+          if(sections.indexOf(name.value) === -1){
+            let cn = self.info.common_name.selected.filter((c) => { return c.name === name.value });
+            this.addSpecies( name , cn , self.info.sections.length );
+          }
+        });
+
+      }
+
     },
 
     fillCommon(sci_name){
@@ -172,14 +177,32 @@ export default {
       });
       vm.$delete(vm.info.sections, key);
       vm.$delete(vm.info.common_name.selected, key);
+      vm.$delete(vm.info.scientific_name.selected, key);
       vm.$delete(this.expanded, key);
       vm.$forceUpdate();
     },
 
-    removeSection(selkey){
+    removeSection(selkey,field){
+      let self = this;
       this.$delete(this.info.sections, selkey);
-      this.$delete(this.info.common_name.selected, selkey);
-      this.$delete(this.value, selkey);
+
+      let name = field.scientific_name.selected.value;
+
+      let newcn = self.info.common_name.selected.filter((cn) => { return cn.name !== name});
+      self.$set(this.info.common_name, 'selected', newcn);
+
+      self.value.map((v, ix) => {
+        if(name === v.value) self.$delete( self.value, ix);
+      });
+
+      self.info.scientific_name.selected = self.info.scientific_name.selected.filter((v,ix) => {
+        return (name !== v.value)
+      });
+
+
+      //this.$delete(this.info.common_name.selected, selkey);
+      //this.$delete(this.value, selkey);
+
       this.$delete(this.expanded, selkey);
       this.$forceUpdate();
     },
@@ -214,8 +237,8 @@ export default {
         };
         let selkey = this.info.sections.length;
 
-        this.$set(this.info.common_name.selected, selkey, com_name );
-        this.$set(this.info.scientific_name.selected, selkey, sci_name );
+        //this.$set(this.info.common_name.selected, selkey, com_name );
+        //this.$set(this.info.scientific_name.selected, selkey, sci_name );
 
         this.selected.common_name = '';
         this.selected.sci_name = '';
@@ -511,7 +534,6 @@ export default {
       }
       return new Promise(function(resolve, reject) {
         Promise.all(promises).then((res) => {
-
           // if no errors
           if(res.filter((it)=>{ return it === false}).length === 0){
             resolve(res);

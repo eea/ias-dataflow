@@ -140,18 +140,6 @@ let falserequire = {
   },
 };
 
-// import Promise from './polyfills.js'
-Vue.component('multiselect', Multiselect);
-Vue.use(BootstrapVue);
-Vue.use(VeeValidate);
-Vue.use(vueScrollto);
-
-Validator.extend('filesAllowed', filesAllowed);
-Validator.extend('selectRequiredBoolean', selectRequiredBoolean);
-Validator.extend('selectRequiredNumber', selectRequiredNumber);
-Validator.extend('selectRequired', selectRequired);
-Validator.extend('weblinks', weblinks);
-
 let isLess = {
   getMessage(field, args){
     return field + " must be less or equal to 'number of establishments subjected to inspections' and cannot be larger" ;
@@ -182,10 +170,21 @@ let spreadvalidate = {
       if(allowedFirst.indexOf(v.index) !== -1) first.push(v.index);
       if(allowedSecond.indexOf(v.index) !== -1) second.push(v.index);
     });
-
     return first.length > 0 && second.length > 0;
   }
 };
+
+// import Promise from './polyfills.js'
+Vue.component('multiselect', Multiselect);
+Vue.use(BootstrapVue);
+Vue.use(VeeValidate);
+Vue.use(vueScrollto);
+
+Validator.extend('filesAllowed', filesAllowed);
+Validator.extend('selectRequiredBoolean', selectRequiredBoolean);
+Validator.extend('selectRequiredNumber', selectRequiredNumber);
+Validator.extend('selectRequired', selectRequired);
+Validator.extend('weblinks', weblinks);
 
 /*
 /*(value,[otherValue]) => {

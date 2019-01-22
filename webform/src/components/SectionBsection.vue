@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <b-card class="mt-5 mb-5">
       <b-badge variant="danger" v-if="errors.items.filter((err) => {return err.scope.indexOf('sectionb_' + selkey + '_') !== -1; }).length > 0"
         style="cursor: pointer;"
@@ -229,7 +228,8 @@
                     if('undefined' !== typeof field){
                       let error = {
                         field: field.name,
-                        msg: "At least one of option must be chosen",
+                        //msg: "At least one of option must be chosen",
+                        msg: "At least one answer must be selected for measures applied in the territory.",
                         scope: field.scope,
                         rule: 'required',
                         //vmId: field.vmId
@@ -282,6 +282,7 @@
                 }
               }
             }
+
             this.validateCheks();
 
             return new Promise(function(resolve, reject) {
@@ -340,7 +341,8 @@
           },
 
           removeSection(selkey){
-            this.$emit('remove-section', selkey);
+
+            this.$emit('remove-section', selkey, this.sectionProp);
           },
 
           removePattern(fields, fieldkey){
