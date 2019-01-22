@@ -152,10 +152,60 @@ Validator.extend('selectRequiredNumber', selectRequiredNumber);
 Validator.extend('selectRequired', selectRequired);
 Validator.extend('weblinks', weblinks);
 
+let isLess = {
+  getMessage(field, args){
+    return field + " must be less or equal to 'number of establishments subjected to inspections' and cannot be larger" ;
+  },
+  validate(value, [otherValue] ){
+    let ref = vm.$el.querySelector('[name="' + otherValue + '"]');
+    if( "undefined" !== typeof ref ){
+      if( value <= parseInt(ref.value, 10) ){
+        return true;
+      }
+    }
+
+    return false;
+  }
+};
+
+let spreadvalidate = {
+  getMessage(field, args){
+    return "At least one of b/c/d/e must be chosen and at least one of f/g/h/i must be chosen.";
+  },
+  validate(val, args){
+    let first = [];
+    let second = [];
+    const allowedFirst = [ "b","c","d","e"];
+    const allowedSecond = ["f","g","h","i"];
+
+    val.map((v) => {
+      if(allowedFirst.indexOf(v.index) !== -1) first.push(v.index);
+      if(allowedSecond.indexOf(v.index) !== -1) second.push(v.index);
+    });
+
+    return first.length > 0 && second.length > 0;
+  }
+};
+
+/*
+/*(value,[otherValue]) => {
+  console.log("#########");
+  console.log(value);
+  console.log(otherValue);
+  console.log("#########");
+  return value <= otherValue;
+},
+**/
+
+Validator.extend('isLess',  isLess, {
+  hasTarget: true
+});
+
+Validator.extend('spreadvalidate', spreadvalidate);
 Validator.extend('falserequire', falserequire );
 // Vue.config.productionTip = false
 
-new Vue({
+let vm = new Vue({
   el: '#app',
   render: h => h(App)
-})
+});

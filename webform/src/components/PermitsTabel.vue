@@ -66,17 +66,34 @@
                 <div>
                   <div v-for="(fiel, fiekey) in sfield.fields"  style="margin-bottom: 5px;padding: 0">
                     <div v-if="sfield.fields.length === 1">
-                      <field-generator
-                        v-if="sfield.fields.length === 1"
-                        :field="fiel"
-                        :validation="'required|min_value:0|numeric'"
-                        :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
-                        :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
-                        :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
-                        :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
-                        @change="field.fields.length > 1 ? changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey ): null"
-                        @input="field.fields.length > 1 ? changeInput( $event, field, row, rkey, fkey, sfkey, fiekey,'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey ) : null"
-                      ></field-generator>
+                      <!-- 'number_establishments_inspections_main', -->
+                      <span v-if="field.name === 'establishments_non_compliant_main'">
+                        <field-generator
+                          v-if="sfield.fields.length === 1"
+                          :field="fiel"
+                          :validation="'required|min_value:0|numeric|isLess:' + 'permits_' + rkey +  '_' + 'number_establishments_inspections' + '_' + sfkey + '_' + fiekey"
+                          :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
+                          @change="field.fields.length > 1 ? changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey ): null"
+                          @input="field.fields.length > 1 ? changeInput( $event, field, row, rkey, fkey, sfkey, fiekey,'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey ) : null"
+                        ></field-generator>
+                      </span>
+                      <span v-else>
+                        <field-generator
+                          v-if="sfield.fields.length === 1"
+                          :field="fiel"
+                          :validation="'required|min_value:0|numeric'"
+                          :ref="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vname="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vkey="'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey"
+                          :vscope="'sectiona_' + seckey + '_' + scope + '_permits_' + fiel.name + '_' + rkey"
+                          @change="field.fields.length > 1 ? changeInput( $event, field, row, rkey, fkey, sfkey, fiekey, 'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey ): null"
+                          @input="field.fields.length > 1 ? changeInput( $event, field, row, rkey, fkey, sfkey, fiekey,'permits_' + rkey +  '_' + fiel.name + '_' + sfkey + '_' + fiekey ) : null"
+                        ></field-generator>
+                      </span>
+
                     </div>
                     <!--  decimals for kg and integers for pcs-->
                     <div v-else-if="sfield.fields.length === 2">
@@ -154,6 +171,7 @@
             </div>
 
             <div v-if="field.name !== 'year' && field.type !== 'add'">
+
               <b-badge
                 v-if=" errors.has('permits_' + field.name + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey )"
                 variant="danger" class="error-badge" :id="'permits_' + field.name + '_' + rkey + 'badge'"

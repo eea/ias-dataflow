@@ -26,6 +26,7 @@
                              v-bind:name="scope + '_pattern_' + fieldkey"
                              :ref="scope + '_pattern_' + fieldkey"
                              @change="validate"
+                             @input="validate"
 
               ></b-form-select>
 
@@ -42,9 +43,11 @@
                 >{{ errors.first(scope + '_pattern_' + fieldkey, scope) }}</b-badge>
               </b-input-group-prepend>
 
-              <multiselect :options="field.options"
+              <!-- @input="validateSpread" @select="selectChange" -->
+              <multiselect
+                 :options="field.options"
                  v-model="field.selected.pattern"
-                 v-validate="'falserequire'"
+                 v-validate="'falserequire|spreadvalidate'"
                  data-vv-as="pattern"
                  v-bind:key="scope + '_pattern_' + fieldkey"
                  v-bind:data-vv-scope="scope"
@@ -56,8 +59,6 @@
                  :preserve-search="true"
                  track-by="value"
                  :multiple=true
-                 @select="validate"
-                 @input="validate"
                  :class="'spreadmulti'"
                  :allow-empty="true"
                  :selectLabel = "''"
@@ -115,7 +116,7 @@
       }
     },
     watch: {
-      spreadvals(vals, oldVals){
+      /*spreadvals(vals, oldVals){
         let self = this;
 
         if(vals.length === 0){
@@ -125,18 +126,25 @@
             let scope = el.getAttribute('data-vv-scope');
 
             if('undefined' !== typeof self.$validator){
-              let field = self.$validator.fields.find({ name: name, scope: scope });
+              self.$validator.reset();
+              self.$forceUpdate();
+              self.validate();
+              /!*let field = self.$validator.fields.find({ name: name, scope: scope });
 
               let foundP = this.errors.items.filter((item) => {
                 return item.field === field.name && item.scope === field.scope;
               });
               foundP.map((err)=> {
                 self.$validator.errors.removeById(err.id);
-              });
+              });*!/
             }
           });
         } else {
-          if(vals.length === 0) return true;
+          if(vals.length === 0) {
+            self.$validator.reset();
+            self.validate();
+            return true;
+          }
           vals = vals.filter((itm) => { return itm !== 'undefined' });
 
           vals.map((ref) => {
@@ -197,7 +205,7 @@
 
           });
         }
-      },
+      },*/
 
     },
 
@@ -212,7 +220,16 @@
         return `${text}`
       },
 
-      validateSpread(){
+      selectChange(){
+        this.spreadvals = [];
+        this.$forceUpdate();
+
+        this.validateSpread().then((res) => {
+          console.log(res);
+        });
+      },
+
+      /*validateSpread(){
         let self = this;
 
         return new Promise(function (resolve, reject){
@@ -252,7 +269,6 @@
                   errtype: "bferr",
                 });
               }
-
               return self.$refs[name][0];
             } else {
               return null;
@@ -267,16 +283,18 @@
             resolve(true);
           }
           self.$forceUpdate();
+        }).catch((err) => {
+          console.error(err);
         });
-      },
+      },*/
 
       validate(){
         let promises = [];
         let self = this;
 
-        if( self.patternfields[0].patternType === "spread"){
+        /*if( self.patternfields[0].patternType === "spread"){
           promises.push( self.validateSpread() );
-        }
+        }*/
 
         for( let ref in self.$refs){
           if( self.$refs.hasOwnProperty(ref) ){
