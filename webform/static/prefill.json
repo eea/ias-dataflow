@@ -4,18 +4,609 @@
       "tables": {
         "table_1": {
           "fields": [
+            {
+              "name": "partyname",
+              "label": "Member State",
+              "selected": "BE"
+            },
+            {
+              "name": "rep_period_from",
+              "label": "Reporting period from (year)",
+              "selected": "2015-01-01"
+            },
+            {
+              "name": "rep_period_to",
+              "label": "Reporting period to (year)",
+              "selected": "2018-12-31"
+            }
           ]
         }
       }
     },
     "tab_0": [
-
+      {
+        "name": "partyname",
+        "label": "Member State",
+        "selected": "BE"
+      },
+      {
+        "name": "rep_period_from",
+        "label": "Reporting period from (year)",
+        "selected": "2015-01-01"
+      },
+      {
+        "name": "rep_period_to",
+        "label": "Reporting period to (year)",
+        "selected": "2018-12-31"
+      }
     ],
+
     "tab_1": {
       "sections": [
-
+        {
+          "scientific_name": "Alopochen aegyptiacus Linnaeus, 1766",
+          "common_name": {
+            "EN": "Egyptian goose",
+            "BE": "gasca"
+          },
+          "species_code": "R00644",
+          "mandatory_item": {
+            "selected": true,
+            "name": "mandatory_question"
+          },
+          "depending_on_mandatory": {
+            "name": "distribution_of_species",
+            "fields": [
+              {
+                "label": "Tick if yes",
+                "type": "checkbox",
+                "name": "distribution_maps_check",
+                "selected": false
+              }
+            ]
+          },
+          "additional_info": {
+            "selected": "zzaazaazz",
+            "name": "additional_info"
+          },
+          "tables": {},
+          "reproduction_patterns": [
+            {
+              "patternType": "reproduction",
+              "pattern": "Sexual"
+            }
+          ],
+          "spread_pattterns": [
+            {
+              "patternType": "spread",
+              "pattern": [
+                "a) The species was already widely spread before 2015",
+                "b) The species predominantly entered through natural dispersal from a neighbouring country",
+                "i) There is no evidence of spread within the Member State"
+              ]
+            }
+          ],
+          "permits_info": {
+            "label": "Information on the permits issued for this species (to be completed only for invasive alien species of Union concern)",
+            "name": "permits_info",
+            "question": {
+              "label": "Have permits been issued for this species during the reporting period? ",
+              "options": [
+                {
+                  "value": true,
+                  "text": "Yes"
+                },
+                {
+                  "value": false,
+                  "text": "No"
+                }
+              ],
+              "selected": true
+            },
+            "table_sections": [
+              {
+                "name": "permits_table",
+                "additional_info": {
+                  "label": "Additional information (optional)",
+                  "name": "additional_info",
+                  "selected": "azazza",
+                  "type": "textarea"
+                },
+                "rows": [
+                  {
+                    "label": "Permits for ex situ conservation",
+                    "fields": [
+                      {
+                        "year": 2016
+                      },
+                      {
+                        "permits_number": [
+                          {
+                            "permits_number": "2"
+                          }
+                        ]
+                      },
+                      {
+                        "valid_permits_number": [
+                          {
+                            "valid_permits_number": "1"
+                          }
+                        ]
+                      },
+                      {
+                        "total_permited_speciments": [
+                          {
+                            "total_permited_speciments": 1,
+                            "total_permited_speciments_measurement": "kg"
+                          }
+                        ]
+                      },
+                      {
+                        "valid_total_permited_speciments": [
+                          {
+                            "valid_total_permited_speciments": "1",
+                            "valid_total_permited_speciments_measurement": "kg"
+                          }
+                        ]
+                      }
+                    ],
+                    "index": 1
+                  }
+                ]
+              },
+              {
+                "name": "inspection_table",
+                "additional_info": {
+                  "label": "Additional information (optional)",
+                  "name": "additional_info",
+                  "selected": "qqqqqq",
+                  "type": "textarea",
+                  "index": 10
+                },
+                "rows": [
+                  {
+                    "label": "Permits for research",
+                    "fields": [
+                      {
+                        "year": ""
+                      },
+                      {
+                        "number_establishments_inspections": [
+                          {
+                            "number_establishments_inspections": ""
+                          }
+                        ]
+                      },
+                      {
+                        "number_permitted_specimens": [
+                          {
+                            "number_permitted_specimens": "",
+                            "number_permitted_specimens_measurement": ""
+                          }
+                        ]
+                      },
+                      {
+                        "establishments_non_compliant": [
+                          {
+                            "establishments_non_compliant": ""
+                          }
+                        ]
+                      },
+                      {
+                        "number_speciments_held_by_non_compliant_establishments_main": ""
+                      },
+                      {
+                        "number_speciments_held_by_non_compliant_establishments": [
+                          {
+                            "number_speciments_held_by_non_compliant_establishments": "",
+                            "measurement_noncompliant": ""
+                          }
+                        ]
+                      }
+                    ],
+                    "index": 0
+                  }
+                ]
+              }
+            ]
+          },
+          "eradication_measures_info": {
+            "label": "Information on rapid eradication measure(s) taken for this species (Article 17 of Regulation (EU) No 1143/2014)",
+            "name": "eradication_measures_info",
+            "question": {
+              "label": "Has the species been subject to rapid eradication measures during the reporting period?",
+              "name": "eradicated",
+              "selected": "Yes"
+            },
+            "tables": [
+              {
+                "name": "National Population #1",
+                "table_sections": [
+                  {
+                    "label": "",
+                    "table_fields": [
+                      {
+                        "label": "Starting date",
+                        "name": "starting_date",
+                        "selected": "2018-12-30"
+                      },
+                      {
+                        "label": "End date",
+                        "name": "duration_or_end",
+                        "selected": "2019-01-31"
+                      },
+                      {
+                        "label": "Part of the territory",
+                        "name": "part_territory",
+                        "selected": [
+                          {
+                            "text": "BE1 - RÉGION DE BRUXELLES-CAPITALE / BRUSSELS HOOFDSTEDELIJK GEWEST",
+                            "value": "BE1"
+                          },
+                          {
+                            "text": "BE21 - Prov. Antwerpen",
+                            "value": "BE21"
+                          }
+                        ],
+                        "comments": ""
+                      },
+                      {
+                        "label": "Biogeographical region(s)",
+                        "name": "biogeographical_region",
+                        "selected": [
+                          {
+                            "text": "Continental",
+                            "value": "CON"
+                          }
+                        ]
+                      },
+                      {
+                        "label": "River basin sub-unit(s)",
+                        "name": "river_basin_subunits",
+                        "selected": [
+                          {
+                            "text": "Scheldt",
+                            "value": "Scheldt"
+                          },
+                          {
+                            "text": "Rhine",
+                            "value": "Rhine"
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Marine sub-region(s)",
+                        "name": "marine_sub_regions",
+                        "selected": [
+                          {
+                            "text": "Greater North Sea",
+                            "value": "ANS"
+                          },
+                          {
+                            "text": "North East Atlantic",
+                            "value": "ATL"
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Method(s) used",
+                        "name": "methods_used",
+                        "selected": [
+                          {
+                            "text": "Chemical",
+                            "value": 1
+                          },
+                          {
+                            "text": "Other",
+                            "value": 3
+                          }
+                        ]
+                      },
+                      {
+                        "label": "",
+                        "name": "effectiveness_measure",
+                        "selected": [
+                          {
+                            "text": "Population decreasing",
+                            "value": 1
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Impacted non-targeted species",
+                        "selected": "aaqqq",
+                        "name": "impacted_nontargeted_species",
+                        "inner_field": {
+                          "label": "Impact per species",
+                          "type": "text",
+                          "selected": "decreasing",
+                          "name": "impact_per_species",
+                          "validation": "required"
+                        }
+                      },
+                      {
+                        "label": "Impacted non-targeted species",
+                        "selected": "qqqqq",
+                        "name": "impacted_nontargeted_species",
+                        "inner_field": {
+                          "label": "Impact per species",
+                          "type": "text",
+                          "selected": "eradicated",
+                          "name": "impact_per_species",
+                          "validation": "required"
+                        }
+                      }
+                    ],
+                    "additional_info": {
+                      "label": "Additional information (optional)",
+                      "name": "additional_info",
+                      "selected": "aaaazzzzz",
+                      "index": 13,
+                      "type": "textarea"
+                    }
+                  }
+                ],
+                "label": "National Population #1"
+              }
+            ]
+          },
+          "management_measures_info": {
+            "label": "Information on management measure(s) taken for this species (Article 19 of Regulation (EU) No 1143/2014)",
+            "name": "management_measures_info",
+            "question": {
+              "label": "Has the species been subject to management measures during the reporting period?",
+              "selected": "Yes"
+            },
+            "tables": [
+              {
+                "name": "National Population #1",
+                "label": "National Population #1",
+                "table_sections": [
+                  {
+                    "label": "",
+                    "index": 15,
+                    "table_fields": [
+                      {
+                        "label": "Starting date",
+                        "name": "starting_date",
+                        "selected": "2019-01-07"
+                      },
+                      {
+                        "label": "End date",
+                        "name": "duration_or_end",
+                        "selected": "2019-01-25"
+                      },
+                      {
+                        "label": "Objective of the measure(s) ",
+                        "name": "measures_objective",
+                        "selected": [
+                          {
+                            "text": "Control",
+                            "value": 1
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Part of the territory",
+                        "name": "part_territory",
+                        "selected": [
+                          {
+                            "text": "BE100 - Arr. de Bruxelles-Capitale / Arr. van Brussel-Hoofdstad",
+                            "value": "BE100"
+                          },
+                          {
+                            "text": "BE254 - Arr. Kortrijk",
+                            "value": "BE254"
+                          }
+                        ],
+                        "comments": ""
+                      },
+                      {
+                        "label": "Biogeographical region(s)",
+                        "name": "biogeographical_region",
+                        "selected": [
+                          {
+                            "text": "Continental",
+                            "value": "CON"
+                          }
+                        ]
+                      },
+                      {
+                        "label": "River basin sub-unit(s)",
+                        "name": "river_basin_subunits",
+                        "selected": [
+                          {
+                            "text": "Rhine",
+                            "value": "Rhine"
+                          },
+                          {
+                            "text": "Seine",
+                            "value": "Seine"
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Marine sub-region(s)",
+                        "name": "marine_basin_subunits",
+                        "selected": [
+                          {
+                            "text": "North East Atlantic",
+                            "value": "ATL"
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Method(s) used",
+                        "name": "methods_used",
+                        "selected": [
+                          {
+                            "text": "Biological",
+                            "value": 2
+                          }
+                        ]
+                      },
+                      {
+                        "label": "",
+                        "name": "effectiveness_measure",
+                        "selected": [
+                          {
+                            "text": "Eradicated",
+                            "value": 0
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Impacted non-targeted species",
+                        "selected": "qqqwww",
+                        "name": "impacted_nontargeted_species",
+                        "inner_field": {
+                          "label": "Impact per species",
+                          "type": "text",
+                          "selected": "control",
+                          "name": "impact_per_species",
+                          "validation": "required"
+                        }
+                      },
+                      {
+                        "label": "Impacted non-targeted species",
+                        "selected": "qqqaaaaaa",
+                        "name": "impacted_nontargeted_species",
+                        "inner_field": {
+                          "label": "Impact per species",
+                          "type": "text",
+                          "selected": "eraadicated",
+                          "name": "impact_per_species",
+                          "validation": "required"
+                        }
+                      }
+                    ],
+                    "additional_info": {
+                      "label": "Additional information (optional)",
+                      "name": "additional_info",
+                      "selected": "opopoopo",
+                      "index": 16,
+                      "type": "textarea"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "observations_table": {
+            "label": "Information on the impact of this species (Optional)",
+            "name": "observations_table",
+            "info": "Observations on the impact of the species during the reporting period",
+            "table_sections": [
+              {
+                "table_fields": [
+                  {
+                    "name": "section",
+                    "fields": [
+                      {
+                        "label": "Impact ",
+                        "type": "textarea",
+                        "selected": "adad",
+                        "name": "impact"
+                      },
+                      {
+                        "label": "Protected species",
+                        "type": "multiselect",
+                        "name": "protected_species",
+                        "selected": [
+                          {
+                            "text": "Abies nebrodensis",
+                            "value": "1431"
+                          },
+                          {
+                            "text": "Achondrostoma occidentale",
+                            "value": "6914"
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Protected habitats",
+                        "type": "multiselect",
+                        "name": "protected_habitats",
+                        "selected": [
+                          {
+                            "text": "1120 - Posidonia beds (Posidonion oceanicae)",
+                            "value": "1120"
+                          },
+                          {
+                            "text": "1140 - Mudflats and sandflats not covered by seawater at low tide",
+                            "value": "1140"
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Ecosystem services",
+                        "type": "multiselect",
+                        "name": "ecosystem_services",
+                        "selected": [
+                          {
+                            "text": "Biomass - Reared animals and their outputs",
+                            "value": "Reared animals and their outputs"
+                          },
+                          {
+                            "text": "Biomass - Plants and algae from in-situ aquaculture ",
+                            "value": "Plants and algae from in-situ aquaculture "
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "section",
+                    "fields": [
+                      {
+                        "label": "Impact ",
+                        "type": "textarea",
+                        "selected": ";l,lkmlk",
+                        "name": "impact"
+                      },
+                      {
+                        "label": "Protected species",
+                        "type": "multiselect",
+                        "name": "protected_species",
+                        "selected": [
+                          {
+                            "text": "Ablepharus kitaibelii",
+                            "value": "1276"
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Protected habitats",
+                        "type": "multiselect",
+                        "name": "protected_habitats",
+                        "selected": [
+                          {
+                            "text": "1120 - Posidonia beds (Posidonion oceanicae)",
+                            "value": "1120"
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Ecosystem services",
+                        "type": "multiselect",
+                        "name": "ecosystem_services",
+                        "selected": [
+                          {
+                            "text": "Water - Surface water for drinking",
+                            "value": "Surface water for drinking"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
       ]
     },
+
     "tab_2": {
       "label": "SECTION B",
       "question": "Information to be submitted for each of the invasive alien species of Member State concern",
@@ -55,16 +646,7 @@
         "type": "text",
         "disabled": true,
         "selected": [
-          {
-            "oligohaline": "0",
-            "status": "A",
-            "eu_concern": "0",
-            "code": "R00001",
-            "terrestrial": "1",
-            "name": "Abax parallelus",
-            "marine": "0",
-            "freshwater": "0"
-          }
+
         ]
       },
       "species_code": {
@@ -76,84 +658,7 @@
         "index": 2
       },
       "sections": [
-        {
-          "scientific_name": "Abax parallelus",
-          "common_name": {
-            "label": "Common name of the species (optional)",
-            "selected": {
-              "value": "adadadad[RO]; adafff[FR];shjkshsjk",
-              "common_names": {
-                "none": [
-                  "shjkshsjk"
-                ],
-                "RO": [
-                  "adadadad"
-                ],
-                "FR": [
-                  "adafff"
-                ]
-              }
-            },
-            "disabled": true,
-            "name": "common_name",
-            "type": "text",
-            "index": 2
-          },
-          "mandatory_item": {
-            "label": "Is the species present in the territory of the Member State?",
-            "type": "select",
-            "selected": "Yes",
-            "index": 3,
-            "name": "mandatory_question"
-          },
-          "depending_on_mandatory": {
-            "label": "A distribution map for this species has to be included in the file which will be uploaded in the 'Distribution map for SECTION B' field available on 'DISTRIBUTION MAP' section.",
-            "index": 4,
-            "name": "distribution_of_species",
-            "fields": [
-              {
-                "label": "Tick if yes",
-                "type": "checkbox",
-                "name": "distribution_maps_check",
-                "selected": false
-              }
-            ]
-          },
-          "additional_info": {
-            "label": "Additional information (optional)",
-            "type": "textarea",
-            "index": 5,
-            "selected": "zZzzzz",
-            "name": "additional_info"
-          },
-          "section": {
-            "label": "Measure(s) applied in the territory of the Member State in relation to the species",
-            "fields": [
-              {
-                "type": "checkbox",
-                "name": "derogations_within_art8",
-                "label": "Derogations foreseen within the permit system under Article 8  ",
-                "selected": true
-              },
-              {
-                "type": "checkbox",
-                "name": "addressed_art13",
-                "label": "Addressed in the action plans pursuant to Article 13 ",
-                "selected": true
-              },
-              {
-                "type": "textarea",
-                "name": "additional_info",
-                "label": "Additional information (optional)",
-                "selected": "zzzwqqqq"
-              }
-            ]
-          },
-          "reproduction_patterns": [
-          ],
-          "spread_patterns": [
-          ]
-        }
+
       ]
     },
     "tab_3": {

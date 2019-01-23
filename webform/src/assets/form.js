@@ -1339,13 +1339,15 @@ function form() {
                           ]
                         },
                         {
+                          label:'',
                           type: "checkbox",
                           name: "noimpacts",
                           //label: "No negative impacts observed",
                           selected: [],
                           options: [
                             {text: 'No negative impacts observed', value: true },
-                          ]
+                          ],
+                          fields:[]
                         },
 
                       ]
@@ -1471,17 +1473,17 @@ function form() {
                         }
                       }, ]
                     },
-
                     {
+                      label:'',
                       type: "checkbox",
                       name: "noimpacts",
                       //label: "No negative impacts observed",
                       selected: [],
                       options: [
                         {text: 'No negative impacts observed', value: true },
-                      ]
-                    },
-
+                      ],
+                      fields: []
+                    }
                   ]
                 },
 
@@ -1628,7 +1630,8 @@ function form() {
                         selected: false,
                         options: [
                           {text: 'No negative impacts observed', value: true },
-                        ]
+                        ],
+                        fields: [],
                       },
                     ]
                   },

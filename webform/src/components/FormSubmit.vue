@@ -135,7 +135,7 @@ export default {
         return res.filter(Boolean);
       }
 
-      function processPermitsRow( fields ){
+      function processPermitsRow( fields, empty ){
         let res = [];
 
         fields.map((itm,fk) => {
@@ -192,15 +192,22 @@ export default {
         let sections = table.table_sections.map((tsection) => {
           delete tsection.table_fields.optionsFields;
           if(Object.keys(tsection.field).length === 0) delete tsection.field;
+
           let rows = tsection.table_fields.fields.map((itm) => {
             itm['fields'] = processPermitsRow(itm.fields);
             return itm;
           });
-          res = {};
+
+          let res = {};
+
+          if( "undefined" !== typeof tsection.noinspections && tsection.noinspections.selected.filter(Boolean).length > 0 ){
+            rows = [];
+          }
+
           res['name'] = tsection.name;
           res['additional_info'] = tsection.additional_info;
           res['rows'] = rows;
-          //console.log(res);
+
           return res;
         });
 
@@ -227,30 +234,34 @@ export default {
         delete res.table_sections;
 
         res.tables = res.tables.map( (table, ix) => {
-          //if('undefined' !== typeof tsection.selected) res.table_sections[ix] = { name: tsection.name, selected: tsection.selected };
           table.table_sections.map(( tsection) => {
             if("undefined" !== typeof tsection.table_fields){
+
               tsection.table_fields = tsection.table_fields.fields.reduce((acc, fs) => {
                 acc = acc.concat(fs.fields);
                 return acc;
               }, []).map((field) => {
 
-                if(field.selected === ''){
-                  //return false;
-                } else {
-                  if (field.selected instanceof Array){
-                  } else {
-                    if("undefined" !== typeof field.options){
-                      let found = field.options.filter((op) => { return op.value === field.selected });
-                      if(found.length > 0) field.selected = found;
+                if("undefined" !== typeof field){
+                  if( "undefined" !== typeof field.selected ){
+                    if( field.selected === ''){
+                      //return false;
+                    } else {
+                      if ( field.selected instanceof Array && field.selected.length > 0 ){
+                      } else {
+                        if("undefined" !== typeof field.options){
+                          let found = field.options.filter((op) => { return op.value === field.selected });
+                          if(found.length > 0) field.selected = found;
+                        }
+                      }
                     }
                   }
+                  delete field.options;
+                  delete field.required;
+                  delete field.type;
+                  delete field.validation;
+                  delete field.addoption;
                 }
-                delete field.options;
-                delete field.required;
-                delete field.type;
-                delete field.validation;
-                delete field.addoption;
                 return field;
               }).filter(Boolean);
             }
@@ -281,22 +292,25 @@ export default {
                   return acc;
                 }, [])
                 .map((field) => {
-                  if(field.selected === ''){
-                    //return false;
-                  } else {
-                    if (field.selected instanceof Array){
+                  if("undefined" !== typeof field){
+                    if(field.selected === ''){
+                      //return false;
                     } else {
-                      if("undefined" !== typeof field.options){
-                        let found = field.options.filter((op) => { return op.value === field.selected });
-                        if(found.length > 0) field.selected = found;
+                      if (field.selected instanceof Array){
+                      } else {
+                        if("undefined" !== typeof field.options){
+                          let found = field.options.filter((op) => { return op.value === field.selected });
+                          if(found.length > 0) field.selected = found;
+                        }
                       }
                     }
+                    delete field.required;
+                    delete field.options;
+                    delete field.type;
+                    delete field.validation;
+                    delete field.addoption;
                   }
-                  delete field.required;
-                  delete field.options;
-                  delete field.type;
-                  delete field.validation;
-                  delete field.addoption;
+
                   return field;
                 }).filter(Boolean);
               return tsection;
@@ -306,6 +320,8 @@ export default {
         });
         return res;
       }
+
+
 
       newDatasetObject.country = {};
       newDatasetObject.country.tables = {};
@@ -384,9 +400,7 @@ export default {
                 section['spread_pattterns'] = processsPattern(field.spread_pattterns );
                 delete field['spread_pattterns'];
               }
-
               for(let fieldProp of Object.keys(field)){
-
                 //cleaning not allowed properties
                 //if(allowed.indexOf(fieldProp) === -1 ) delete field[fieldProp];
 
@@ -394,9 +408,9 @@ export default {
 
                 if(fieldProp === 'options') {
                   if(field.selected !== ''){
-                    /*field.options.map((opt) => {
-                      if(opt.value === field.selected) field.selected = opt.text;
-                    });*/
+                    //field.options.map((opt) => {
+                    //  if(opt.value === field.selected) field.selected = opt.text;
+                    //});
                     delete field.options;
                   } else {
                     delete field.options;
@@ -410,7 +424,6 @@ export default {
               let table_2 = section[prop].table_2;
               let table_3 = section[prop].table_3;
               let table_4 = section[prop].table_4;
-
 
               if(table_1.question.selected !== true){
                 table_1 = null;
@@ -437,6 +450,14 @@ export default {
                 section[ section[prop].table_3.name ] = processTable3( section[prop].table_3 );
                 delete section[prop].table_3;
               }
+
+              section[prop].table_4.table_sections[0].table_fields = section[prop].table_4.table_sections[0].table_fields.map((row) => {
+                row.fields = row.fields.map((f) => {
+                  delete f.options;
+                  return f;
+                });
+                return row;
+              });
 
               section[ section[prop].table_4.name ] = section[prop].table_4;
               delete section[prop].table_4;
@@ -564,6 +585,7 @@ export default {
       });
       newDatasetObject.tab_4 = newDataset.tab_4;
 
+      console.log(JSON.stringify(newDatasetObject));
       return newDatasetObject;
     },
 

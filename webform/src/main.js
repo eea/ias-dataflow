@@ -146,7 +146,7 @@ let isLess = {
   },
   validate(value, [otherValue] ){
     let ref = vm.$el.querySelector('[name="' + otherValue + '"]');
-    if( "undefined" !== typeof ref ){
+    if( "undefined" !== typeof ref && ref !== null){
       if( value <= parseInt(ref.value, 10) ){
         return true;
       }
