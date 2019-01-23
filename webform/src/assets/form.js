@@ -1954,12 +1954,14 @@ function form() {
                 name: "action_plans_art13",
                 label: "Action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014  ",
                 selected: '',
+                extensions: "doc,docx,pdf,zip,dot,docb,dotx,docm",
               },
               {
                 type: "file",
                 name: "action_plans_art13_file",
                 label: "File regarding the action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014  ",
                 selected: '',
+                extensions: "doc,docx,pdf,zip,dot,docb,dotx,docm",
               },
               {
                 type: "add",
@@ -1992,12 +1994,14 @@ function form() {
                 name: "surveillance_system_art14",
                 label: "Description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014",
                 selected: '',
+
               },
               {
                 type: "file",
                 name: "surveillance_system_art14_file",
                 label: "File regarding the description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014",
                 selected: '',
+                extensions: "doc,docx,pdf,zip,dot,docb,dotx,docm",
               },
 
               {
@@ -2011,6 +2015,7 @@ function form() {
                 name: "official_control_system_file",
                 label: "File regarding the description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014  ",
                 selected: '',
+                extensions: "doc,docx,pdf,zip,dot,docb,dotx,docm",
               },
               {
                 type: "textarea",
@@ -2023,6 +2028,7 @@ function form() {
                 name: "measures_to_inform_public_file",
                 label: "File regarding the description of measures taken to inform the public  ",
                 selected: '',
+                extensions: "doc,docx,pdf,zip,dot,docb,dotx,docm",
               },
               {
                 type: "text",
@@ -2035,6 +2041,7 @@ function form() {
                 name: "cost_file",
                 label: "File regarding the cost of action undertaken to comply with the Regulation (EU) No 1143/2014 ",
                 selected: '',
+                extensions: "doc,docx,pdf,zip,dot,docb,dotx,docm",
               },
               {
                 type: "textarea",
@@ -2047,6 +2054,7 @@ function form() {
                 name: "additional_info_file",
                 label: "File regarding the additional information (optional)",
                 selected: '',
+                extensions: "doc,docx,pdf,zip,dot,docb,dotx,docm",
               },
 
             ]
