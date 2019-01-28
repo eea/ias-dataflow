@@ -558,6 +558,7 @@ export default {
       newDatasetObject.tab_3.section.fields = newDataset.tab_3.section.fields.filter((section) => {
         if(section.name === "priority_pathways"){
           section.fields = section.fields.map((field) => {
+            delete field.options;
             if("undefined" !== field.inner_field.options){
               delete field.inner_field.options;
             }
@@ -570,9 +571,9 @@ export default {
       /*
       * TAB 4
       * */
-      newDataset.tab_4.section.fields = newDataset.tab_4.section.fields.filter((field) => {
+      /*newDataset.tab_4.section.fields = newDataset.tab_4.section.fields.filter((field) => {
         return field.selected instanceof Array && field.selected.length > 0;
-      });
+      });*/
       newDatasetObject.tab_4 = newDataset.tab_4;
 
       console.log(JSON.stringify(newDatasetObject));
