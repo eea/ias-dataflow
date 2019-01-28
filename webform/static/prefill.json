@@ -636,6 +636,10 @@
           {
             "text": "Abax parallelus",
             "value": "Abax parallelus"
+          },
+          {
+            "text": "Abies alba",
+            "value": "Abies alba"
           }
         ]
       },
@@ -646,7 +650,26 @@
         "type": "text",
         "disabled": true,
         "selected": [
-
+          {
+            "oligohaline": "0",
+            "status": "A",
+            "eu_concern": "0",
+            "code": "R00001",
+            "terrestrial": "1",
+            "name": "Abax parallelus",
+            "marine": "0",
+            "freshwater": "0"
+          },
+          {
+            "oligohaline": "0",
+            "status": "A",
+            "eu_concern": "0",
+            "code": "R00005",
+            "terrestrial": "1",
+            "name": "Abies alba",
+            "marine": "0",
+            "freshwater": "0"
+          }
         ]
       },
       "species_code": {
@@ -658,9 +681,219 @@
         "index": 2
       },
       "sections": [
-
+        {
+          "scientific_name": {
+            "text": "Abax parallelus",
+            "value": "Abax parallelus"
+          },
+          "common_name": {
+            "label": "Common name of the species (optional)",
+            "selected": {
+              "value": "para",
+              "common_names": {
+                "none": [
+                  "para"
+                ]
+              }
+            },
+            "disabled": true,
+            "name": "common_name",
+            "type": "text",
+            "index": 2
+          },
+          "mandatory_item": {
+            "label": "Is the species present in the territory of the Member State?",
+            "type": "select",
+            "selected": "Yes",
+            "index": 3,
+            "name": "mandatory_question"
+          },
+          "depending_on_mandatory": {
+            "label": "A distribution map for this species has to be included in the file which will be uploaded in the 'Distribution map for SECTION B' field available on 'DISTRIBUTION MAP' section (optional).",
+            "index": 4,
+            "name": "distribution_of_species",
+            "fields": [
+              {
+                "label": "Tick if yes",
+                "type": "checkbox",
+                "name": "distribution_maps_check",
+                "selected": false
+              }
+            ]
+          },
+          "additional_info": {
+            "label": "Additional information (optional)",
+            "type": "textarea",
+            "index": 5,
+            "selected": "qqqqa",
+            "name": "additional_info"
+          },
+          "section": {
+            "label": "Measure(s) applied in the territory of the Member State in relation to the species",
+            "fields": [
+              {
+                "type": "checkbox",
+                "name": "restriction_internationally_transport",
+                "label": "Restriction to intentionally transport, except in the context of eradication",
+                "selected": true
+              },
+              {
+                "type": "textarea",
+                "name": "additional_info",
+                "label": "Additional information (optional)",
+                "selected": "qqqazz"
+              }
+            ]
+          },
+          "reproduction_patterns": [
+            {
+              "patternType": "reproduction",
+              "region": null,
+              "pattern": "Asexual"
+            }
+          ],
+          "spread_patterns": [
+            {
+              "patternType": "spread",
+              "region": null,
+              "pattern": [
+                "a) The species was already widely spread before 2015",
+                "b) The species predominantly entered through natural dispersal from a neighbouring country",
+                "g) The species predominantly spread with unintentional human assistance"
+              ]
+            }
+          ]
+        },
+        {
+          "scientific_name": {
+            "text": "Abies alba",
+            "value": "Abies alba"
+          },
+          "common_name": {
+            "label": "Common name of the species (optional)",
+            "selected": [
+              {
+                "oligohaline": "0",
+                "status": "A",
+                "eu_concern": "0",
+                "code": "R00005",
+                "terrestrial": "1",
+                "name": "Abies alba",
+                "marine": "0",
+                "freshwater": "0"
+              }
+            ],
+            "disabled": true,
+            "name": "common_name",
+            "type": "text",
+            "index": 2
+          },
+          "mandatory_item": {
+            "label": "Is the species present in the territory of the Member State?",
+            "type": "select",
+            "selected": 1,
+            "index": 3,
+            "name": "mandatory_question"
+          },
+          "depending_on_mandatory": {
+            "label": "A distribution map for this species has to be included in the file which will be uploaded in the 'Distribution map for SECTION B' field available on 'DISTRIBUTION MAP' section (optional).",
+            "index": 4,
+            "name": "distribution_of_species",
+            "fields": [
+              {
+                "label": "Tick if yes",
+                "type": "checkbox",
+                "name": "distribution_maps_check",
+                "selected": false
+              }
+            ]
+          },
+          "additional_info": {
+            "label": "Additional information (optional)",
+            "type": "textarea",
+            "index": 5,
+            "selected": "",
+            "name": "additional_info"
+          },
+          "section": {
+            "label": "Measure(s) applied in the territory of the Member State in relation to the species",
+            "fields": [
+              {
+                "type": "textarea",
+                "name": "additional_info",
+                "label": "Additional information (optional)",
+                "selected": ""
+              }
+            ]
+          },
+          "reproduction_patterns": [],
+          "spread_patterns": []
+        },
+        {
+          "scientific_name": {
+            "country": "",
+            "text": "specie noua",
+            "value": "specie noua",
+            "manual": true
+          },
+          "common_name": {
+            "label": "Common name of the species (optional)",
+            "selected": {
+              "value": "sn",
+              "country": "",
+              "permitsIssued": true,
+              "speciesCode": "",
+              "name": "sn"
+            },
+            "disabled": true,
+            "name": "common_name",
+            "type": "text",
+            "index": 2
+          },
+          "mandatory_item": {
+            "label": "Is the species present in the territory of the Member State?",
+            "type": "select",
+            "selected": 1,
+            "index": 3,
+            "name": "mandatory_question"
+          },
+          "depending_on_mandatory": {
+            "label": "A distribution map for this species has to be included in the file which will be uploaded in the 'Distribution map for SECTION B' field available on 'DISTRIBUTION MAP' section (optional).",
+            "index": 4,
+            "name": "distribution_of_species",
+            "fields": [
+              {
+                "label": "Tick if yes",
+                "type": "checkbox",
+                "name": "distribution_maps_check",
+                "selected": false
+              }
+            ]
+          },
+          "additional_info": {
+            "label": "Additional information (optional)",
+            "type": "textarea",
+            "index": 5,
+            "selected": "",
+            "name": "additional_info"
+          },
+          "section": {
+            "label": "Measure(s) applied in the territory of the Member State in relation to the species",
+            "fields": [
+              {
+                "type": "textarea",
+                "name": "additional_info",
+                "label": "Additional information (optional)",
+                "selected": ""
+              }
+            ]
+          },
+          "reproduction_patterns": [],
+          "spread_patterns": []
+        }
       ]
     },
+
     "tab_3": {
       "label": "SECTION C",
       "question": "Horizontal information",

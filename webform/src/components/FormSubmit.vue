@@ -119,14 +119,14 @@ export default {
 
       function processsPattern( pattern ){
         let res = pattern.map((pat) => {
-          if(pat.selected.pattern !== null && pat.selected.region !== null){
+          if(pat.selected.pattern !== null){
             if( pat.selected.pattern instanceof Array ){
               let pats = pat.selected.pattern.map((el) => {
                 return el.text;
               });
-              return {patternType: pat.patternType, region:pat.selected.region, pattern: pats };
+              return {patternType: pat.patternType, /*region:pat.selected.region,*/ pattern: pats };
             } else {
-              return {patternType: pat.patternType, region:pat.selected.region, pattern: pat.options[pat.selected.pattern].text };
+              return {patternType: pat.patternType, /*region:pat.selected.region,*/ pattern: pat.options[pat.selected.pattern].text };
             }
           } else {
             return null;
@@ -491,9 +491,6 @@ export default {
 
       let sectionB = newDataset.tab_2.sections;
 
-      for(let val of Object.keys(newDataset.tab_2)){
-        //if (val !== 'sections') delete newDataset.tab_2[val];
-      }
       if("undefined" !== typeof sectionB){
         const todeleteB = [
           'index',
@@ -503,12 +500,6 @@ export default {
         ];
 
         newDataset.tab_2.sections = sectionB.map((section, k) => {
-          if(section.mandatory_item.selected === 1){
-            //todelete.push(k);
-            //newDataset.tab_2.sections[k] = null;
-            //return false;
-          }
-
           if('object' === typeof section.depending_on_mandatory.reproduction_patterns ){
             section['reproduction_patterns'] = processsPattern(section.depending_on_mandatory.reproduction_patterns);
             delete section.depending_on_mandatory['reproduction_patterns'];
@@ -519,7 +510,6 @@ export default {
             delete section.depending_on_mandatory['spread_pattterns'];
           }
 
-          //console.log("###################specie############");
           for(let prop of Object.keys(section)){
             let field = section[prop];
 
@@ -549,7 +539,7 @@ export default {
                 });
               }
             } else if(prop === "scientific_name"){
-              section[prop] = section.scientific_name.selected.value;
+              section[prop] = section.scientific_name.selected;
             }
           }
 

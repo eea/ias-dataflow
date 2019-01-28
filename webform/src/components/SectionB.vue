@@ -32,7 +32,7 @@
                   track-by="text"
                   @select="fillCommon($event)"
                   :custom-label="customLabel"
-
+                  :options-limit="300"
                   @remove="remove($event)"
                 >
                 </multiselect>
@@ -121,6 +121,12 @@ export default {
       },
       expanded: [],
     }
+  },
+  created(){
+    let self = this;
+    this.info.scientific_name.selected.map((op) => {
+      self.value.push(op);
+    });
   },
 
   methods: {

@@ -797,19 +797,32 @@ export default {
         }
         let sections = [];
 
-        fdata.tab_2.scientific_name.selected = data.IAS.tab_2.scientific_name.selected;
+        //TODO : add if from options
+        // TODO: change sections to add scientific name as key?? optimization
+        let tosearch = data.IAS.tab_2.sections.map((s) => { return s.scientific_name.value});
+
+        let foundsn = fdata.tab_2.scientific_name.options.filter((op) => {
+          return tosearch.indexOf(op.value) !== -1;
+        });
+        foundsn.map((sn) => { fdata.tab_2.scientific_name.selected.push(sn); });
+
+        //fdata.tab_2.scientific_name.selected = data.IAS.tab_2.scientific_name.selected;
         fdata.tab_2.common_name.selected = data.IAS.tab_2.common_name.selected;
 
-        data.IAS.tab_2.scientific_name.selected.map((name) => {
+        /*data.IAS.tab_2.scientific_name.selected.map((name) => {
           let newsection = newSection(name, {});
+          sections.push(newsection);
+        });*/
+
+        data.IAS.tab_2.sections.map((section) => {
+          let newsection = newSection(section.scientific_name, {});
           sections.push(newsection);
         });
 
         sections = sections.map((section) => {
           data.IAS.tab_2.sections.map((sectionI) => {
-            if(sectionI.scientific_name === section.scientific_name.selected.value){
-              //console.log(sectionI.mandatory_item);
 
+            if( sectionI.scientific_name.value === section.scientific_name.selected.value){
               section.common_name.selected = sectionI.common_name.selected;
 
               let f = section.mandatory_item.options.filter((op) => {
@@ -854,7 +867,7 @@ export default {
                   });
                   if(found.length > 0) {
                     section.depending_on_mandatory.spread_pattterns[ix].selected.pattern = found;
-                    section.depending_on_mandatory.spread_pattterns[ix].selected.region =  pat.region;
+                    //section.depending_on_mandatory.spread_pattterns[ix].selected.region =  pat.region;
                   }
                 });
               }
@@ -871,7 +884,6 @@ export default {
           });
           return section;
         });
-
         fdata.tab_2.sections = sections;
       }
 
