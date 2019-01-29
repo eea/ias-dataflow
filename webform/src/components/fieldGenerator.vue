@@ -9,7 +9,8 @@
                  :title="errors.collect(vname, vscope).join('\n')"
                  v-b-tooltip.hover
         >{{ errors.first(vname, vscope) }}</b-badge>
-        <!-- TODO : decimals for kgs-->
+
+        <!-- decimals for kgs-->
         <b-form-input
             :disabled="disabled"
             :name="field.name"

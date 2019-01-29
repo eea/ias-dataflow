@@ -1363,7 +1363,7 @@ function form() {
                 ],
               },
             ],
-            //TODO: remove from prefill
+
             table_sections: [
               {
                 label: '',
@@ -1645,7 +1645,7 @@ function form() {
                 }],
               },
             ],
-            //TODO: remove from prefill
+            
             table_sections: [{
               label: '',
               index: 15,

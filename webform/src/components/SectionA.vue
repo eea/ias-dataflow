@@ -519,7 +519,6 @@
                   Add population
                 </b-btn>
 
-                <!-- TODO : fix validation -->
                 <div v-for="(population, popkey) in section.tables.table_3.tables" style="margin-bottom: 1rem;">
 
                   <b-card v-if="section.tables.table_3.question.selected === true">

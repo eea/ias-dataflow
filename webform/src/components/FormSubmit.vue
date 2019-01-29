@@ -219,7 +219,6 @@ export default {
         return res;
       }
 
-      // TODO: maybe simplify: use one function for table 2 and 3
       function processTable2( table ){
         let res = JSON.parse(JSON.stringify( table ));
         delete res.question.type;
@@ -269,7 +268,6 @@ export default {
           });
           return table;
         });
-        //TODO : additional_info
         return res;
       }
 
@@ -320,8 +318,6 @@ export default {
         });
         return res;
       }
-
-
 
       newDatasetObject.country = {};
       newDatasetObject.country.tables = {};
