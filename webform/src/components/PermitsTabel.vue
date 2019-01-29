@@ -443,7 +443,7 @@
               console.error(err);
             });
           } else {
-            promises.push(self.validateTotalNr());
+            //promises.push(self.validateTotalNr());
           }
         }
 

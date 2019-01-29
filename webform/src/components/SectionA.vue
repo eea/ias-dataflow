@@ -261,6 +261,7 @@
                                 <span style="font-size: 1.2em">{{row.label}}</span>
                               </td>
 
+
                               <td v-if="!row.addoption">
 
                                 <b-badge variant="danger" class="error-badge" v-if="errors.items.filter((item)=>{ return 'undefined' !== typeof item.scope
@@ -274,9 +275,9 @@
                                   }).join('\n')
                                   }}
                                 </b-badge>
-
                                 <fieldGenerator
-                                  :field="row" :fieldkey="rowkey"
+                                  :field="row"
+                                  :fieldkey="rowkey"
                                   :validation="row.required ? row.required : 'falserequire'"
                                   :vname="row.name + '_' + rowkey"
                                   :sub_section="sub_section"
@@ -316,7 +317,7 @@
                                     :vkey="row.name + '_' + rowkey"
                                     :data-vv-as="row.label"
                                     :validation="'falserequire'"
-                                    :ref="'sectiona_'  + seckey + '_' +  seckey + '_' + row.name + '_' + rowkey"
+                                    :ref="'sectiona_'+ seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
                                     :vscope="'sectiona_'  + seckey + '_' + 'table_2_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
                                   ></fieldGenerator>
 
@@ -641,7 +642,7 @@
                                     :vkey="row.name + '_' + rowkey"
                                     :data-vv-as="row.label"
                                     :validation="'falserequire'"
-                                    :ref="'sectiona_'  + seckey + '_' +  seckey + '_' + row.name + '_' + rowkey"
+                                    :ref="'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
                                     :vscope="'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
                                   ></fieldGenerator>
 
@@ -698,7 +699,7 @@
                                         :vkey="row.name + '_' + rowkey"
                                         :data-vv-as="row.label"
                                         :validation="row.validation"
-                                        :ref="'sectiona_'  + seckey + '_' +  seckey + '_' + row.name + '_' + rowkey"
+                                        :ref="'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
                                         :vscope="'sectiona_'  + seckey + '_' + 'table_3_' + table_key  + '_' + popkey + '_' + row.name + '_' + rowkey"
                                       ></fieldGenerator>
                                     </span>
@@ -841,8 +842,8 @@
                         :vkey="field.name + '_' + rix"
                         :data-vv-as="field.label"
                         :validation="'false'"
-                        :ref="'sectiona_'  + seckey + '_' + 'table_4_' + rix + field.name + '_' + fix "
-                        :vscope="'sectiona_'  + seckey + '_' + 'table_4_' + rix + field.name + '_' + fix"
+                        :ref="'sectiona_'  + seckey + '_' + 'table_4_' + rix + '_' + field.name + '_' + fix "
+                        :vscope="'sectiona_'  + seckey + '_' + 'table_4_' + rix + '_' + field.name + '_' + fix"
                       ></fieldGenerator>
                     </td>
                     <td style="max-width: 10%;width:10%;"><b-btn variant="danger" @click="removeObservation( section.tables.table_4.table_sections[0].table_fields , row, rix)">Remove</b-btn></td>
@@ -965,6 +966,28 @@ export default {
     tableErrors(errorsSections, oldErrors){
       let self = this;
 
+      //TODO : use the differnce between oldErrors and errorsSections
+       Object.keys( oldErrors ).map((section) => {
+        let sectionTables = oldErrors[section];
+
+        Object.keys(sectionTables).map((table) => {
+          let err =  sectionTables[table];
+
+          let ref = self.$refs[err.item];
+
+          //TODO : reset errors
+          ref[0].$validator.errors.items.map((er) => {
+            console.log(er.id);
+            ref[0].$validator.errors.removeById(er.id);
+            self.$forceUpdate();
+          });
+
+          ref[0].$validator.reset();
+          ref[0].$validator.errors.clear();
+
+        });
+      });
+
       Object.keys( errorsSections ).map((section) => {
         let sectionTables = errorsSections[section];
 
@@ -974,42 +997,15 @@ export default {
           let fieldFound = null;
           let refFound = null;
 
-          if('undefined' !== typeof self.$validator){
-            self.$validator.fields.items.filter((field) => {
-              if(field.name === err.name && field.scope === err.scope){
-                fieldFound = field;
-              }
-            });
-            let ref = self.$refs[err.item];
+          let ref = self.$refs[err.item];
 
-            if(fieldFound === null){
-              if("undefined" !== typeof ref[0].$validator){
-                ref[0].$validator.fields.items.filter((field) => {
-                  if(field.name === err.name  && field.scope === err.scope){
-                    refFound = self.$refs[err.item][0];
-                    fieldFound = field;
-                  }
-                });
-              }
-            }
-          }
-
-          if(fieldFound !== null){
-            let error = {
-              field: fieldFound.name,
-              msg: err.msg,
-              scope: fieldFound.scope,
-              rule: "required",
-            };
-
-            if(refFound !== null){
-              refFound.$validator.errors.add(error);
-            } else {
-              self.$validator.errors.add(error);
-            }
-          } else {
-
-          }
+          let error = {
+            field: err.name,
+            msg: err.msg,
+            scope: err.scope,
+            rule: "required",
+          };
+          ref[0].$validator.errors.add(error);
         });
       });
     },
@@ -1255,7 +1251,7 @@ export default {
 
     validateQuestion12(){
       let self = this;
-      const reg = /(sectiona_([0-9]*))_table_[0-9]_([0-9]*)_([0-9]*)\w+(part_territory|biogeographical_region|river_basin_subunits|marine_sub_regions)_[0-9]/;
+      const reg = /(sectiona_([0-9]*))_table_[0-9]_([0-9]*)_([0-9]*)\w+(part_territory|biogeographical_region|river_basin_subunits|marine_sub_regions|marine_basin_subunits)_[0-9]/;
 
       let temp = {};
 
@@ -1289,7 +1285,7 @@ export default {
         });
 
         if(found.length > 0){
-          //finalResult = false;
+
         } else {
           finalResult = Array.from(table).map((el2) => {
             return {
@@ -1302,14 +1298,12 @@ export default {
             }
           });
         }
-
         return finalResult;
       }
 
       // find all fields and arrange by tables
       Object.keys(self.$refs).map((item) => {
         let res = item.match(reg);
-
         if(res !== null){
           let name = res[0];
           let section = res[1];
@@ -1334,18 +1328,22 @@ export default {
             el = ref[0].$el.querySelector('[data-vv-scope]');
           }
 
-          if(vscope!== null ){
+          if(vscope !== null ){
+
             let reg2 = /(sectiona_([0-9]*)_(table_[0-9]*)_([0-9]*)_([0-9]*))\w+/;
 
             let table_res = vscope.match(reg2);
 
-
             if(table_res !== null){
+
               let table_type = table_res[3]; // table_2 or table_3
               let population = table_res[5];
 
+              if('undefined' === typeof temp[section]) {
+                temp[section] = {};
+              }
               if('undefined' === typeof temp[section][table_type]){
-                temp[section][table_type] = [];
+                temp[section][table_type] = {};
               }
               if('undefined' === typeof temp[section][table_type][population]){
                 temp[section][table_type][population] = new Set();
@@ -1485,6 +1483,7 @@ export default {
 
       self.validateQuestion12();
       self.validatePopulation();
+
 
       return new Promise(function(resolve, reject) {
         Promise.all(promises).then((res) => {
