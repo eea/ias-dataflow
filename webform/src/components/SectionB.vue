@@ -350,7 +350,7 @@ export default {
               ]
             }
           ],
-          spread_pattterns:[
+          spread_patterns:[
             {
               label: 'Spread patterns',
               type: 'select',

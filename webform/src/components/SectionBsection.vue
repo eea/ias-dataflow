@@ -86,10 +86,10 @@
 
               <PatternField
                 v-if="sectionProp.mandatory_item.selected === true"
-                :patternfields="sectionProp.depending_on_mandatory.spread_pattterns"
+                :patternfields="sectionProp.depending_on_mandatory.spread_patterns"
                 :scope="'sectionb_' + selkey + '_spread'"
                 :ref="'sectionb_' + selkey + '_spread'"
-                :multiple="sectionProp.depending_on_mandatory.spread_pattterns.multiple"
+                :multiple="sectionProp.depending_on_mandatory.spread_patterns.multiple"
                 @add-new-pattern="addNewPattern" @remove-pattern="removePattern">
               </PatternField>
 

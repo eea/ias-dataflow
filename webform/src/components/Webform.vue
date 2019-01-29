@@ -154,7 +154,7 @@ export default {
           //console.dir(result);
           this.country = result;
           this.prefill(instance_data,fdata);
-          //this.form = fdata;
+          this.form = fdata;
           this.prefilled = true;
         })
       })
@@ -169,6 +169,8 @@ export default {
     },
 
     prefill(data,fdata){
+			this.prefilled = true
+			return
       let self = this;
       if('undefined' !== typeof data.IAS.country){
         if('undefined' !== typeof data.IAS.country.tables &&
@@ -219,23 +221,23 @@ export default {
                 });
               }
 
-              if( sectionI.spread_pattterns.length > 0 ){
-                let blank = JSON.parse(JSON.stringify(sectionF.depending_on_mandatory.spread_pattterns[0]));
+              if( sectionI.spread_patterns.length > 0 ){
+                let blank = JSON.parse(JSON.stringify(sectionF.depending_on_mandatory.spread_patterns[0]));
 
-                sectionI.spread_pattterns.map((pat, ix) => {
+                sectionI.spread_patterns.map((pat, ix) => {
                   if(ix !== 0){
-                    sectionF.depending_on_mandatory.spread_pattterns[ix] = JSON.parse(JSON.stringify(blank));
+                    sectionF.depending_on_mandatory.spread_patterns[ix] = JSON.parse(JSON.stringify(blank));
                   }
 
                   let found = pat.pattern.map((p) => {
-                    let f = sectionF.depending_on_mandatory.spread_pattterns[ix].options.filter((ops) => {
+                    let f = sectionF.depending_on_mandatory.spread_patterns[ix].options.filter((ops) => {
                       return ops.text === p;
                     });
                     return f[0];
                   });
                   if(found.length > 0) {
-                    sectionF.depending_on_mandatory.spread_pattterns[ix].selected.pattern = found;
-                    sectionF.depending_on_mandatory.spread_pattterns[ix].selected.region =  pat.region;
+                    sectionF.depending_on_mandatory.spread_patterns[ix].selected.pattern = found;
+                    sectionF.depending_on_mandatory.spread_patterns[ix].selected.region =  pat.region;
                   }
                 });
               }
@@ -612,7 +614,7 @@ export default {
 
                 }
               ],
-              spread_pattterns:[
+              spread_patterns:[
                 {
                   label: 'Spread patterns',
                   type: 'select',
@@ -852,22 +854,22 @@ export default {
               }
 
               if( sectionI.spread_patterns.length > 0 ){
-                let blank = JSON.parse(JSON.stringify(section.depending_on_mandatory.spread_pattterns[0]));
+                let blank = JSON.parse(JSON.stringify(section.depending_on_mandatory.spread_patterns[0]));
 
                 sectionI.spread_patterns.map((pat, ix) => {
                   if(ix !== 0){
-                    section.depending_on_mandatory.spread_pattterns[ix] = JSON.parse(JSON.stringify(blank));
+                    section.depending_on_mandatory.spread_patterns[ix] = JSON.parse(JSON.stringify(blank));
                   }
 
                   let found = pat.pattern.map((p) => {
-                    let f = section.depending_on_mandatory.spread_pattterns[ix].options.filter((ops) => {
+                    let f = section.depending_on_mandatory.spread_patterns[ix].options.filter((ops) => {
                       return ops.text === p;
                     });
                     return f[0];
                   });
                   if(found.length > 0) {
-                    section.depending_on_mandatory.spread_pattterns[ix].selected.pattern = found;
-                    //section.depending_on_mandatory.spread_pattterns[ix].selected.region =  pat.region;
+                    section.depending_on_mandatory.spread_patterns[ix].selected.pattern = found;
+                    //section.depending_on_mandatory.spread_patterns[ix].selected.region =  pat.region;
                   }
                 });
               }

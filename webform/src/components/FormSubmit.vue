@@ -28,49 +28,224 @@ export default {
   },
   created() {
     this.dataset = this.info;
+		this.currentCountry = this.country
     this.validate()
   },
   data () {
     return {
       dataset: null,
+			structure: {
+					sectionASpecies: {
+					reportId: null,
+					EASINCode: null,
+					common_name_national: null,
+					present_in_ms: null,
+					reproduction_pattern: null,
+					additional_information: null,
+					permits_issued: null,
+					additional_information_permits_issued: null,
+					no_inspections_reported: null,
+					additional_information_inspections: null,
+					eradication_measures: null,
+					subject_management_measures: null,
+					row_id: null
+				},
+				spreadPatterns: {
+					reportId: null,
+					EASINCode: null,
+					row_id: null,
+					parent_row_id: null,
+					section: null,
+					spread_pattern: null,
+				},
+				permitsIssuedReported: {
+					reportId: null,
+					EASINCode: null,
+					row_id: null,
+					parent_row_id: null,
+					year: null,
+					permit_purpose: null,
+					number_issued: null,
+					number_valid: null	
+				},
+				permitedSpecimens: {
+					reportId: null,
+					row_id: null,
+					parent_row_id: null,
+					permit_type: null,
+					value: null,
+					unit: null
+				},
+				permitsIssuedReported: {
+					reportId: null,
+					EASINCode: null,
+					row_id: null,
+					parent_row_id: null,
+					year: null,
+					permit_purpose: null,
+					number_establishment: null,
+					number_inspected: null	
+				},
+				inspectionPermits: {
+					reportID: null,
+          row_id: null,
+          parent_row_id: null,
+        	inspection_status: null,
+        	value: null,
+          unit: null
+				},
+			},
+			currentCountry: null,
       validation: [],
       valid: this.validated,
       jsonemptyinstance: {
-          "BC_PEP": {
-              "@xmlns": "https://dd.info-rac.org/namespaces/4",
-              "@xmlns:xsi": "https://www.w3.org/2001/XMLSchema-instance",
-              "@xsi:schemaLocation": "https://dd.info-rac.org/namespaces/4 https://converterstest.eionet.europa.eu/schemas/IAS/2018",
-              "country": null,
-              "contacting_party":{
-                "partyname":null,
-                "rep_period_from":null,
-                "rep_period_to":null,
-                "institution_name":null,
-                "officer_name":null,
-                "mailing_address":null,
-                "tel":null,
-                "fax":null,
-                "email":null,
-                "contact_point":null,
-                "instituion_full_name":null,
-                "national_mailing_address":null,
-                "national_tel":null,
-                "national_fax":null,
-                "national_email":null,
-                "national_signature":null,
-                "national_date":null,
-                "org_name":null,
-                "org_contact_point":null,
-                "org_tel":null,
-                "org_fax":null,
-                "org_email":null,
-
-              },
-              "measuresdata": {Row:[]},
-              "measuredata_difficulty": {Row:[]},
-              "pollincidents": {Row:[]},
-              "pollincidentsInfo": null,
-          }
+							"IAS": {
+								"@xmlns": "http://dd.eionet.europa.eu/namespaces/884",
+								"@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+								"@xsi:schemaLocation": "http://dd.eionet.europa.eu/namespaces/884  http://dd.eionet.europa.eu/v2/dataset/3421/schema-dst-3421.xsd",
+								"inspectionsPermitsReported": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/895",
+									"Row": [
+										
+									]
+								},
+								"permitsIssuedReported": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/893",
+									"Row": [
+										
+									]
+								},
+								"sectionC": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/889",
+									"Row": [
+										
+									]
+								},
+								"sectionBSpecies": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/888",
+									"Row": [
+										
+									]
+								},
+								"distributionMap": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/890",
+									"Row": [
+										
+									]
+								},
+								"sectionASpecies": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/887",
+									"Row": [
+										
+									]
+								},
+								"partTerritory": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/899",
+									"Row": [
+										
+									]
+								},
+								"inspectionsPermits": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/896",
+									"Row": [
+										
+									]
+								},
+								"permitedSpecimens": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/894",
+									"Row": [
+										
+									]
+								},
+								"sectionAMeasures": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/898",
+									"Row": [
+										
+									]
+								},
+								"sectionBMeasures": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/897",
+									"Row": [
+										
+									]
+								},
+								"priorityPathway": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/891",
+									"Row": [
+										
+									]
+								},
+								"spreadPatterns": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/892",
+									"Row": [
+										
+									]
+								},
+								"reporting": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/885",
+									"Row": {
+										StartYear: null,
+										EndYear: null,
+										reportId: null,
+										has_national_list_MS: null,
+										CountryCode: null,
+									}
+								},
+								"biogeographicalRegion": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/900",
+									"Row": [
+										
+									]
+								},
+								"riverBasinSubUnit": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/901",
+									"Row": [
+										
+									]
+								},
+								"marineSubRegions": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/902",
+									"Row": [
+										
+									]
+								},
+								"methodsUsed": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/903",
+									"Row": [
+										
+									]
+								},
+								"observedNegativeImpacts": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/904",
+									"Row": [
+										
+									]
+								},
+								"infoImpactSpecies": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/905",
+									"Row": [
+										
+									]
+								},
+								"protectedSpecies": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/906",
+									"Row": [
+										
+									]
+								},
+								"protectedHabitats": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/907",
+									"Row": [
+										
+									]
+								},
+								"ecosystems": {
+									"@xmlns": "http://dd.eionet.europa.eu/namespaces/908",
+									"Row": [
+										
+									]
+								}
+							}
       },
       dismissSecs: 2,
       dismissCountDown: 0,
@@ -97,488 +272,152 @@ export default {
     },
 
     saveForm(){
-      let datatoSave = this.prefill();
-      saveInstance(datatoSave);
+      let emptyInstance = JSON.parse(JSON.stringify(this.jsonemptyinstance))
+      let data = JSON.parse(JSON.stringify(this.dataset))
+			let reportId = `${this.currentCountry}-2015-2018`
+			// console.log(reportingId)
 
-      this.showAlert();
+			this.sectionASpecies(data, emptyInstance, reportId)
+
+			// saveInstance(datatoSave);
+
+      // this.showAlert();
     },
 
-    prefill(){
-      let newDataset = JSON.parse(JSON.stringify(this.dataset));
-      let newDatasetObject = {};
 
-      function iterationCopy(src) {
-        let target = {};
-        for (let prop in src) {
-          if (src.hasOwnProperty(prop)) {
-            target[prop] = src[prop];
-          }
-        }
-        return target;
-      }
+		sectionASpecies(data, emptyInstance, reportId){
+	
+			data.tab_1.sections.forEach((section, index) => {
+				// structure === sectionASpecies
+				
+				const structure =  Object.assign({}, this.structure.sectionASpecies)
+				structure.reportId = reportId
+				structure.EASINCode = section.species_code.selected
+				structure.common_name_national = section.common_name.selected[this.currentCountry]
+				structure.present_in_ms = section.mandatory_item.selected
+				structure.additional_information = section.additional_info.selected
+				structure.row_id = index
+				if(section.mandatory_item.selected !== true) {
+					emptyInstance.IAS.sectionASpecies.Row.push(structure)
+					return
+				}
+				
+				structure.reproduction_pattern = section.depending_on_mandatory.reproduction_patterns[0].selected.pattern
+				
+				// spread patterns
+				if(section.depending_on_mandatory.spread_patterns[0].selected.pattern) {
+					section.depending_on_mandatory.spread_patterns[0].selected.pattern.forEach((pattern, pattern_index) => {
+						console.log(this.structure.spreadPatterns)
+						const spreadPattern = Object.assign({}, this.structure.spreadPatterns)
+						console.log(spreadPattern)
+						spreadPattern.reportId = reportId
+						spreadPattern.EASINCode = section.species_code.selected
+						spreadPattern.row_id = pattern_index
+						spreadPattern.section = 'A'
+						spreadPattern.spread_pattern = pattern.value
+						spreadPattern.parent_row_id = index
+						emptyInstance.IAS.spreadPatterns.Row.push(spreadPattern)
+					})
+				}
 
-      function processsPattern( pattern ){
-        let res = pattern.map((pat) => {
-          if(pat.selected.pattern !== null){
-            if( pat.selected.pattern instanceof Array ){
-              let pats = pat.selected.pattern.map((el) => {
-                return el.text;
-              });
-              return {patternType: pat.patternType, /*region:pat.selected.region,*/ pattern: pats };
-            } else {
-              return {patternType: pat.patternType, /*region:pat.selected.region,*/ pattern: pat.options[pat.selected.pattern].text };
-            }
-          } else {
-            return null;
-          }
-        });
-        return res.filter(Boolean);
-      }
+				structure.permits_issued = section.tables.table_1.question.selected
+				structure.additional_information_permits_issued = section.tables.table_1.question.selected
 
-      function processPermitsRow( fields, empty ){
-        let res = [];
+				if(structure.permits_issued) {
+						section.tables.table_1.table_sections[0].table_fields.fields.forEach((permitsTableRow, permitsTableRow_index) => {
+							const permitsIssuedReported = Object.assign({}, this.structure.permitsIssuedReported)
+							permitsIssuedReported.reportId = reportId
+							permitsIssuedReported.row_id = permitsTableRow_index
+							permitsIssuedReported.parent_row_id = index
+							permitsIssuedReported.year = permitsTableRow.fields.find(field => field.name === 'year').selected
+							permitsIssuedReported.permit_purpose = permitsTableRow.fields.find(field => field.name === 'purpose_of_permit').selected
+							permitsIssuedReported.number_issued = permitsTableRow.fields.find(field => field.name === 'permits_number_main').fields[0].fields[0].selected
+							permitsIssuedReported.number_valid = permitsTableRow.fields.find(field => field.name === 'valid_permits_number_main').fields[0].fields[0].selected
+							
+							// issued
+							permitsTableRow.fields.find(field => field.name === 'total_permited_speciments_main').fields.forEach((permitedSpecimen, permitedSpecimen_index) => {
+									const permitedSpecimens = Object.assign({}, this.structure.permitedSpecimens)
+									permitedSpecimens.reportId = reportId
+									permitedSpecimens.row_id = permitedSpecimen_index
+									permitedSpecimens.parent_row_id = permitsTableRow_index
+									permitedSpecimens.permit_type ='issued'
+									permitedSpecimens.value = permitedSpecimen.fields[0].selected
+									permitedSpecimens.unit = permitedSpecimen.fields[1].selected
+									emptyInstance.IAS.permitedSpecimens.Row.push(permitedSpecimens)
+							})
 
-        fields.map((itm,fk) => {
-          if('undefined' !== typeof itm.selected) {
-            let iname = itm.name;
-            let temp = {};
-            temp[iname] = itm.selected;
-            res.push(temp);
-          }
+							// valid
+							permitsTableRow.fields.find(field => field.name === 'valid_total_permited_speciments_main').fields.forEach((permitedSpecimen, permitedSpecimen_index) => {
+									const permitedSpecimens = Object.assign({}, this.structure.permitedSpecimens)
+									permitedSpecimens.reportId = reportId
+									permitedSpecimens.row_id = permitedSpecimen_index
+									permitedSpecimens.parent_row_id = permitsTableRow_index
+									permitedSpecimens.permit_type ='valid'
+									permitedSpecimens.value = permitedSpecimen.fields[0].selected
+									permitedSpecimens.unit = permitedSpecimen.fields[1].selected
+									emptyInstance.IAS.permitedSpecimens.Row.push(permitedSpecimens)
+							})
+							
+							emptyInstance.IAS.permitsIssuedReported.Row.push(permitsIssuedReported)
 
-          if('undefined' !== typeof itm.type && itm.type === "add"){
-            let subfield = null;
+						})
 
-            if(itm.name.indexOf("main") !== -1){
-              subfield = itm.fields.map((field) => { return field.fields;});
-            } else {
-              subfield = itm.fields[0].fields;
-            }
+					// inspections
+						section.tables.table_1.table_sections[1].table_fields.fields.forEach((inspectionsTableRow, inspectionsTableRow_index) => {
+							const inspectionsPermitsReported = Object.assign({}, this.structure.inspectionsPermitsReported)
+							inspectionsPermitsReported.reportId = reportId
+							inspectionsPermitsReported.row_id = inspectionsTableRow_index
+							inspectionsPermitsReported.parent_row_id = index
+							inspectionsPermitsReported.year = inspectionsTableRow.fields.find(field => field.name === 'year').selected
+							inspectionsPermitsReported.permit_purpose = inspectionsTableRow.fields.find(field => field.name === 'purpose_of_permit').selected
+							inspectionsPermitsReported.number_establishment = inspectionsTableRow.fields.find(field => field.name === 'number_establishments_inspections_main').fields[0].fields[0].selected
+							inspectionsPermitsReported.number_inspected = inspectionsTableRow.fields.find(field => field.name === 'establishments_non_compliant_main').fields[0].fields[0].selected
+							// TODO: CHECK width dd
+							// compliant
+							inspectionsTableRow.fields.find(field => field.name === 'number_permitted_specimens_main').fields.forEach((permitedSpecimen, permitedSpecimen_index) => {
+									const permitedSpecimens = Object.assign({}, this.structure.inspectionPermits)
+									permitedSpecimens.reportId = reportId
+									permitedSpecimens.row_id = permitedSpecimen_index
+									permitedSpecimens.parent_row_id = inspectionsTableRow_index
+									permitedSpecimens.inspection_status ='compliant'
+									permitedSpecimens.value = permitedSpecimen.fields[0].selected
+									permitedSpecimens.unit = permitedSpecimen.fields[1].selected
+									emptyInstance.IAS.permitedSpecimens.Row.push(permitedSpecimens)
+							})
 
-            let subs = subfield.map((sub) => {
-              if(sub instanceof Array) {
-                let ret = [];
-                sub.map((field) => {
-                  ret.push({ name: field.name, selected: field.selected })
-                });
-                return ret;
-              } else {
-                return { name: sub.name, selected: sub.selected};
-              }
-            }).reduce((acc, item) => {
-              if(item instanceof Array){
-                if('undefined' === typeof acc[item[0].name]){ acc[item[0].name] = [] }
-                let temp = {};
-                item.map((fi) => {
-                  temp[fi.name] = fi.selected;
-                });
-                acc[item[0].name].push(temp);
-                return acc;
-              } else {
-                acc[item.name] = item.selected;
-                return acc;
-              }
-            },{});
-            res.push(subs);
-          }
-        });
-        return res;
-      }
+							// non-compliant
+							inspectionsTableRow.fields.find(field => field.name === 'number_speciments_held_by_non_compliant_establishments_main').fields.forEach((permitedSpecimen, permitedSpecimen_index) => {
+									const permitedSpecimens = Object.assign({}, this.structure.inspectionPermits)
+									permitedSpecimens.reportId = reportId
+									permitedSpecimens.row_id = permitedSpecimen_index
+									permitedSpecimens.parent_row_id = inspectionsTableRow_index
+									permitedSpecimens.inspection_status ='non-compliant'
+									permitedSpecimens.value = permitedSpecimen.fields[0].selected
+									permitedSpecimens.unit = permitedSpecimen.fields[1].selected
+									emptyInstance.IAS.permitedSpecimens.Row.push(permitedSpecimens)
+							})
+							
+							emptyInstance.IAS.inspectionsPermitsReported.Row.push(inspectionsPermitsReported)
 
-      function processTable1(table){
-        delete table.question.type;
-        delete table.question.index;
-
-        let sections = table.table_sections.map((tsection) => {
-          delete tsection.table_fields.optionsFields;
-          if(Object.keys(tsection.field).length === 0) delete tsection.field;
-
-          let rows = tsection.table_fields.fields.map((itm) => {
-            itm['fields'] = processPermitsRow(itm.fields);
-            return itm;
-          });
-
-          let res = {};
-
-          if( "undefined" !== typeof tsection.noinspections && tsection.noinspections.selected.filter(Boolean).length > 0 ){
-            rows = [];
-          }
-
-          res['name'] = tsection.name;
-          res['additional_info'] = tsection.additional_info;
-          res['rows'] = rows;
-
-          return res;
-        });
-
-        let res = JSON.parse(JSON.stringify(table));
-        if(sections.length > 0){
-          delete res.table_sections;
-          res.table_sections = sections;
-        }
-        return res;
-      }
-
-      // TODO: maybe simplify: use one function for table 2 and 3
-      function processTable2( table ){
-        let res = JSON.parse(JSON.stringify( table ));
-        delete res.question.type;
-        delete res.question.index;
-        res.question.options.map((op) => {
-          if(op.value === res.question.selected) res.question.selected = op.text;
-        });
-        delete res.question.options;
-        delete res.question.type;
-        delete res.question.index;
-
-        delete res.table_sections;
-
-        res.tables = res.tables.map( (table, ix) => {
-          table.table_sections.map(( tsection) => {
-            if("undefined" !== typeof tsection.table_fields){
-
-              tsection.table_fields = tsection.table_fields.fields.reduce((acc, fs) => {
-                acc = acc.concat(fs.fields);
-                return acc;
-              }, []).map((field) => {
-
-                if("undefined" !== typeof field){
-                  if( "undefined" !== typeof field.selected ){
-                    if( field.selected === ''){
-                      //return false;
-                    } else {
-                      if ( field.selected instanceof Array && field.selected.length > 0 ){
-                      } else {
-                        if("undefined" !== typeof field.options){
-                          let found = field.options.filter((op) => { return op.value === field.selected });
-                          if(found.length > 0) field.selected = found;
-                        }
-                      }
-                    }
-                  }
-                  delete field.options;
-                  delete field.required;
-                  delete field.type;
-                  delete field.validation;
-                  delete field.addoption;
-                }
-                return field;
-              }).filter(Boolean);
-            }
-            return tsection;
-          });
-          return table;
-        });
-        //TODO : additional_info
-        return res;
-      }
-
-      function processTable3( table ) {
-        let res = JSON.parse(JSON.stringify( table ));
-        delete res.question.type;
-        delete res.question.index;
-        res.question.options.map((op) => {
-          if(op.value === res.question.selected) res.question.selected = op.text;
-        });
-        delete res.question.options;
-        delete res.table_sections;
-
-        res.tables = res.tables.map( (table, ix) => {
-          table.table_sections = table.table_sections.map( (tsection, ix) => {
-            if("undefined" !== typeof tsection.table_fields){
-              tsection.table_fields = tsection.table_fields.fields
-                .reduce((acc, fs) => {
-                  acc = acc.concat(fs.fields);
-                  return acc;
-                }, [])
-                .map((field) => {
-                  if("undefined" !== typeof field){
-                    if(field.selected === ''){
-                      //return false;
-                    } else {
-                      if (field.selected instanceof Array){
-                      } else {
-                        if("undefined" !== typeof field.options){
-                          let found = field.options.filter((op) => { return op.value === field.selected });
-                          if(found.length > 0) field.selected = found;
-                        }
-                      }
-                    }
-                    delete field.required;
-                    delete field.options;
-                    delete field.type;
-                    delete field.validation;
-                    delete field.addoption;
-                  }
-
-                  return field;
-                }).filter(Boolean);
-              return tsection;
-            }
-          });
-          return table;
-        });
-        return res;
-      }
+						})
+						
+				}
 
 
 
-      newDatasetObject.country = {};
-      newDatasetObject.country.tables = {};
-      let country_tab = newDataset.country.tables;
-      if(typeof country_tab === "object"){
-        for(let table in country_tab) {
-          if( country_tab.hasOwnProperty(table)){
-            if(typeof country_tab[table] === "object"){
-              for (let value of Object.keys( country_tab[table])) {
-                if(value !== 'fields'){
 
-                  //delete newDatasetObject.country.tables[table][value];
-                } else {
-                  newDatasetObject.country.tables[table] = {};
-                  newDatasetObject.country.tables[table].fields = country_tab[table].fields.map((it) => {
-                    delete it.type;
-                    delete it.disabled;
-                    return it;
-                  });
-                }
-              }
-            }
-          }
-        }
-      }
 
-      newDatasetObject.tab_0 = newDataset.tab_0.tables.table_1.fields.map((it) => {
-        delete it.type;
-        delete it.disabled;
-        return it;
-      });
 
-      /*
-      * TAB 1
-      * */
-      for(let val of Object.keys(newDataset.tab_1)){
-        if (val !== 'sections') delete newDataset.tab_1[val];
-      }
-      let todelete = [];
 
-      newDatasetObject.tab_1 = {};
-      if("undefined" !== typeof newDataset.tab_1.sections){
-        newDatasetObject.tab_1.sections = newDataset.tab_1.sections.map((section, k) => {
-          if(section.mandatory_item.selected === 1){
-            todelete.push(k);
-            newDataset.tab_1.sections[k] = null;
-            return false;
-          }
 
-          for(let prop of Object.keys(section)){
-            if(prop !== 'tables'){
-              let field = section[prop];
-              const allowed = [
-                'name',
-                'fields',
-                'selected',
-                'reproduction_patterns',
-                'spread_pattterns',
-                //'options',
-                'nopermits'
-              ];
+				emptyInstance.IAS.sectionASpecies.Row.push(structure)
+				console.log(emptyInstance.IAS.sectionASpecies.Row)
+			})
+			
+		},
 
-              const todelete = [
-                'index',
-                'label',
-                'disabled',
-                'type'
-              ];
 
-              if('object' === typeof field.reproduction_patterns ){
-                section['reproduction_patterns'] = processsPattern(field.reproduction_patterns);
-                delete field['reproduction_patterns'];
-              }
-
-              if('object' === typeof field.spread_pattterns ){
-                section['spread_pattterns'] = processsPattern(field.spread_pattterns );
-                delete field['spread_pattterns'];
-              }
-              for(let fieldProp of Object.keys(field)){
-                //cleaning not allowed properties
-                //if(allowed.indexOf(fieldProp) === -1 ) delete field[fieldProp];
-
-                if( todelete.indexOf(fieldProp) !== -1 ) delete field[fieldProp];
-
-                if(fieldProp === 'options') {
-                  if(field.selected !== ''){
-                    //field.options.map((opt) => {
-                    //  if(opt.value === field.selected) field.selected = opt.text;
-                    //});
-                    delete field.options;
-                  } else {
-                    delete field.options;
-                  }
-                }
-              }
-
-            } else {
-              // flatten tables
-              let table_1 = section[prop].table_1;
-              let table_2 = section[prop].table_2;
-              let table_3 = section[prop].table_3;
-              let table_4 = section[prop].table_4;
-
-              if(table_1.question.selected !== true){
-                table_1 = null;
-                delete section[prop].table_1;
-              } else {
-                // section[prop].table_1 = processTable1(section[prop].table_1);
-                let newtable1 = processTable1( section[prop].table_1 );
-                section[ section[prop].table_1.name ] = newtable1;
-                delete section[prop].table_1;
-              }
-
-              if(table_2.question.selected !== true){
-                table_2 = null;
-                delete section[prop].table_2;
-              } else {
-                section[ section[prop].table_2.name ] = processTable2( section[prop].table_2 );
-                delete section[prop].table_2;
-              }
-
-              if(table_3.question.selected !== true){
-                table_3 = null;
-                delete section[prop].table_3;
-              } else {
-                section[ section[prop].table_3.name ] = processTable3( section[prop].table_3 );
-                delete section[prop].table_3;
-              }
-
-              section[prop].table_4.table_sections[0].table_fields = section[prop].table_4.table_sections[0].table_fields.map((row) => {
-                row.fields = row.fields.map((f) => {
-                  delete f.options;
-                  return f;
-                });
-                return row;
-              });
-
-              section[ section[prop].table_4.name ] = section[prop].table_4;
-              delete section[prop].table_4;
-
-              //if(Object.keys(section[prop]).length === 0) delete section[prop];
-            }
-          }
-          // flattening simple { name, selected } object into string
-          section.scientific_name = section.scientific_name.selected;
-          section.species_code = section.species_code.selected;
-          section.common_name = section.common_name.selected;
-          return section;
-        }).filter(Boolean);
-      }
-
-      /*
-      * TAB 2
-      * */
-      newDatasetObject.tab_2 = {};
-      function processFields(fields) {
-        let f = fields.map((field) => {
-          if(field.type === "checkbox" ){
-            if(field.selected === true) return field;
-            if(field.selected === false) return false;
-          } else {
-            return field;
-          }
-        }).filter(Boolean);
-        return f;
-      }
-
-      let sectionB = newDataset.tab_2.sections;
-
-      if("undefined" !== typeof sectionB){
-        const todeleteB = [
-          'index',
-          'label',
-          'disabled',
-          'type'
-        ];
-
-        newDataset.tab_2.sections = sectionB.map((section, k) => {
-          if('object' === typeof section.depending_on_mandatory.reproduction_patterns ){
-            section['reproduction_patterns'] = processsPattern(section.depending_on_mandatory.reproduction_patterns);
-            delete section.depending_on_mandatory['reproduction_patterns'];
-          }
-
-          if('object' === typeof section.depending_on_mandatory.spread_pattterns ){
-            section['spread_patterns'] = processsPattern(section.depending_on_mandatory.spread_pattterns );
-            delete section.depending_on_mandatory['spread_pattterns'];
-          }
-
-          for(let prop of Object.keys(section)){
-            let field = section[prop];
-
-            for(let fieldProp of Object.keys(field)){
-              //if( todeleteB.indexOf(fieldProp) !== -1 ) delete field[fieldProp];
-
-              if(fieldProp === 'options'  && prop !== "depending_on_mandatory") {
-                if(field.selected !== ''){
-                  field.options.map((opt) => {
-                    if(opt.value === field.selected) field.selected = opt.text;
-                  });
-                  delete field.options;
-                } else {
-                  delete field.options;
-                }
-              } else if(fieldProp === "fields" && prop !== "depending_on_mandatory" ){
-                field[fieldProp] = processFields( field[fieldProp] );
-
-              }
-            }
-
-            if(prop === "common_name"){
-              section["code_name"] = field.selected.code;
-              if( "undefined" !== typeof field.selected.common_names && field.selected.common_names.length > 0){
-                section[prop] = Object.keys(field.selected.common_names).map((ctry) => {
-                  return { country: ctry, name: field.selected.common_names[ctry][0] };
-                });
-              }
-            } else if(prop === "scientific_name"){
-              section[prop] = section.scientific_name.selected;
-            }
-          }
-
-          return section;
-        });
-
-        delete newDataset.tab_2.scientific_name.options;
-        newDatasetObject.tab_2 = newDataset.tab_2;
-
-      }
-
-      /*
-      * TAB 3
-      * */
-      newDatasetObject.tab_3 = newDataset.tab_3;
-      newDatasetObject.tab_3.section.fields = newDataset.tab_3.section.fields.filter((section) => {
-        if(section.name === "priority_pathways"){
-          section.fields = section.fields.map((field) => {
-            delete field.options;
-            if("undefined" !== field.inner_field.options){
-              delete field.inner_field.options;
-            }
-            return field;
-          });
-        }
-        return section.selected !== '';
-      });
-
-      /*
-      * TAB 4
-      * */
-      /*newDataset.tab_4.section.fields = newDataset.tab_4.section.fields.filter((field) => {
-        return field.selected instanceof Array && field.selected.length > 0;
-      });*/
-      newDatasetObject.tab_4 = newDataset.tab_4;
-
-      console.log(JSON.stringify(newDatasetObject));
-      return newDatasetObject;
-    },
+		
 
     validate(){
 
@@ -598,7 +437,7 @@ export default {
     },
     country: {
       handler: function(old_val,new_val) {
-        this.jsonemptyinstance.BC_PEP.country = new_val
+        this.currentCountry = new_val
       },
       deep: true,
       immediate: true,

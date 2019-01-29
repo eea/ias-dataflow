@@ -4,7 +4,6 @@
     <table class="table table-striped">
       <thead style="background-color: #337dcc;">
       <th class="year-column" ><span v-tooltip=" table_section.table_fields.optionsFields[0].fields[0].tooltip" v-if=" table_section.table_fields.optionsFields[0].fields[0].label ">{{ table_section.table_fields.optionsFields[0].fields[0].label }}</span></th>
-      <th class="permits-column"><span v-tooltip=" table_section.table_fields.header" v-if=" table_section.table_fields.header ">{{ table_section.table_fields.header }}</span></th>
       <th class="header-column" v-for="header in table_section.table_fields.fields[0].fields" v-if="header.label !=='Year' ">
         <span v-tooltip="header.tooltip" v-if="header.label" >{{ header.label  }}</span>
         <span v-else>
@@ -33,28 +32,6 @@
                 v-bind:name="'permits_' + field.name + '_' + rkey"
                 v-bind:data-vv-scope="'sectiona_' + seckey + '_' + scope + '_permits_' + field.name + '_' + rkey"
                 @change="validate"
-              ></b-form-select>
-            </div>
-          </td>
-
-          <td style="min-width: 15%;" >
-            <div class="selects-wrapper">
-              <b-badge
-                v-if=" errors.has( 'permits_' + 'permit' + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey )"
-                variant="danger" class="error-badge">
-                {{ errors.first( 'permits_' + 'permit' + '_' + rkey , 'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey ) }}
-              </b-badge>
-
-              <b-form-select :options="options" v-model="index[rkey]"
-                v-b-tooltip.hover
-                :title="row.label"
-                @change="changeRow($event, rkey)"
-                v-bind:key="'permits_' + 'permit' + '_' + rkey"
-                v-bind:name="'permits_' + 'permit' + '_' + rkey"
-                :ref="'permits_' + 'permit' + '_' + rkey"
-                data-vv-as="permits "
-                v-bind:data-vv-scope="'sectiona_' + seckey + '_' + scope + '_permits_' + 'permit' + '_' + rkey"
-                v-validate="'required'"
               ></b-form-select>
             </div>
           </td>

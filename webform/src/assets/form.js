@@ -123,7 +123,7 @@ function form() {
               ]
             }
           ],
-          spread_pattterns:[
+          spread_patterns:[
             {
               label: 'Spread patterns',
               type: 'select',
@@ -240,7 +240,18 @@ function form() {
                           selected: '',
                           options: years,
                         },
-
+												{
+													label: "Purpose of permit", tooltip: "Purpose of permit",
+													type: 'select',
+													options: [
+														{text: 'Permits for research', value: 0},
+														{text: 'Permits for ex situ conservation', value: 1},
+														{text: 'Permits for scientific production and subsequent medicinal use to advance human health', value: 2},
+														{text: 'Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)', value: 3}
+													],
+													selected: '',
+													name: 'purpose_of_permit'
+												},
                         {
                           label: 'Number of permits issued',
                           tooltip: 'Number of permits issued in the calendar year',
@@ -353,7 +364,18 @@ function form() {
                           selected: '',
                           options: years,
                         },
-
+												{
+													label: "Purpose of permit", tooltip: "Purpose of permit",
+													type: 'select',
+													options: [
+														{text: 'Permits for research', value: 0},
+														{text: 'Permits for ex situ conservation', value: 1},
+														{text: 'Permits for scientific production and subsequent medicinal use to advance human health', value: 2},
+														{text: 'Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)', value: 3}
+													],
+													selected: '',
+													name: 'purpose_of_permit'
+												},
                         {
                           label: 'Number of permits issued in the calendar year',
                           name: 'permits_number_main',
@@ -464,7 +486,18 @@ function form() {
                           selected: '',
                           options: years,
                         },
-
+												{
+													label: "Purpose of permit", tooltip: "Purpose of permit",
+													type: 'select',
+													options: [
+														{text: 'Permits for research', value: 0},
+														{text: 'Permits for ex situ conservation', value: 1},
+														{text: 'Permits for scientific production and subsequent medicinal use to advance human health', value: 2},
+														{text: 'Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)', value: 3}
+													],
+													selected: '',
+													name: 'purpose_of_permit'
+												},
                         {
                           label: 'Number of permits issued in the calendar year',
                           name: 'permits_number_main',
@@ -575,7 +608,18 @@ function form() {
                           selected: '',
                           options: years,
                         },
-
+												{
+													label: "Purpose of permit", tooltip: "Purpose of permit",
+													type: 'select',
+													options: [
+														{text: 'Permits for research', value: 0},
+														{text: 'Permits for ex situ conservation', value: 1},
+														{text: 'Permits for scientific production and subsequent medicinal use to advance human health', value: 2},
+														{text: 'Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)', value: 3}
+													],
+													selected: '',
+													name: 'purpose_of_permit'
+												},
                         {
                           label: 'Number of permits issued in the calendar year',
                           name: 'permits_number_main',
@@ -705,7 +749,18 @@ function form() {
                           selected: '',
                           options: years,
                         },
-
+												{
+													label: "Purpose of permit", tooltip: "Purpose of permit",
+													type: 'select',
+													options: [
+														{text: 'Permits for research', value: 0},
+														{text: 'Permits for ex situ conservation', value: 1},
+														{text: 'Permits for scientific production and subsequent medicinal use to advance human health', value: 2},
+														{text: 'Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)', value: 3}
+													],
+													selected: '',
+													name: 'purpose_of_permit'
+												},
                         {
                           label: 'Number of establishments',
                           tooltip: 'Number of establishments subjected to the inspections',
@@ -835,7 +890,18 @@ function form() {
                           selected: '',
                           options: years,
                         },
-
+												{
+													label: "Purpose of permit", tooltip: "Purpose of permit",
+													type: 'select',
+													options: [
+														{text: 'Permits for research', value: 0},
+														{text: 'Permits for ex situ conservation', value: 1},
+														{text: 'Permits for scientific production and subsequent medicinal use to advance human health', value: 2},
+														{text: 'Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)', value: 3}
+													],
+													selected: '',
+													name: 'purpose_of_permit'
+												},
                         {
                           label: 'Number of establishments subjected to the inspections',
                           name: 'number_establishments_inspections_main',
@@ -960,6 +1026,18 @@ function form() {
                           selected: '',
                           options: years,
                         },
+												{
+													label: "Purpose of permit", tooltip: "Purpose of permit",
+													type: 'select',
+													options: [
+														{text: 'Permits for research', value: 0},
+														{text: 'Permits for ex situ conservation', value: 1},
+														{text: 'Permits for scientific production and subsequent medicinal use to advance human health', value: 2},
+														{text: 'Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)', value: 3}
+													],
+													selected: '',
+													name: 'purpose_of_permit'
+												},
                         {
                           label: 'Number of establishments subjected to the inspections',
                           name: 'number_establishments_inspections_main',
@@ -1081,6 +1159,18 @@ function form() {
                           selected: '',
                           options: years,
                         },
+												{
+													label: "Purpose of permit", tooltip: "Purpose of permit",
+													type: 'select',
+													options: [
+														{text: 'Permits for research', value: 0},
+														{text: 'Permits for ex situ conservation', value: 1},
+														{text: 'Permits for scientific production and subsequent medicinal use to advance human health', value: 2},
+														{text: 'Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)', value: 3}
+													],
+													selected: '',
+													name: 'purpose_of_permit'
+												},
                         {
                           label: 'Number of establishments subjected to the inspections',
                           name: 'number_establishments_inspections_main',
