@@ -224,6 +224,7 @@
                       });
                     }
 
+                    console.log(field);
                     if('undefined' !== typeof field){
                       let error = {
                         field: field.name,

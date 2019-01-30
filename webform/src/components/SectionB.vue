@@ -109,6 +109,7 @@ export default {
     return {
       //value: this.info.scientific_name.selected,
       value: [] ,
+			speciesB: null,
       selected: {
         sci_name: '',
         text: '',
@@ -127,6 +128,11 @@ export default {
     this.info.scientific_name.selected.map((op) => {
       self.value.push(op);
     });
+
+			Promise.all([speciesB()]).then((vals) => {
+				this.speciesB = vals[0]
+			})
+
   },
 
   methods: {
@@ -160,7 +166,7 @@ export default {
     },
 
     fillCommon(sci_name){
-      for(let specie of speciesB) {
+      for(let specie of this.speciesB) {
         if(sci_name.value === specie.name) {
           this.info.common_name.selected.push(specie);
           break;

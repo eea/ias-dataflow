@@ -30,13 +30,15 @@ let years = [
 function form() {
   return new Promise(function( resolve, reject){
 
-    Promise.all([ nuts(), marine_subregions(),biogeoghraphical_regions(),river_basins() ]).then((vals) => {
+    Promise.all([ nuts(), marine_subregions(),biogeoghraphical_regions(),river_basins(), speciesB()]).then((vals) => {
       let country = vals[0].country.trim();
       let regions = vals[0].data;
       let msubregs = vals[1];
       let bioregions = vals[2];
 
       let riverbasins = vals[3];
+
+			let speciesb = vals[4];
 
       const ppathways = pathways.map((p) => {
         return { text: p.name, value: p.code};
@@ -2189,11 +2191,11 @@ function form() {
         }
       };
 
-      for (let specie of speciesB) {
+      for (let specie of speciesb) {
         form.tab_2.scientific_name.options.push({
           text: specie.name,
           value: specie.name,
-          country: specie.country
+          cname: specie.cname
         });
       }
 

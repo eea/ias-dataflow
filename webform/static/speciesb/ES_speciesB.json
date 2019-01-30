@@ -1,0 +1,927 @@
+[
+  {
+    "cname": "",
+    "code": "R00039",
+    "name": "Acacia dealbata"
+  },
+  {
+    "cname": "",
+    "code": "R00041",
+    "name": "Acacia farnesiana"
+  },
+  {
+    "cname": "",
+    "code": "R00052",
+    "name": "Acacia salicina"
+  },
+  {
+    "cname": "",
+    "code": "R19254",
+    "name": "Achatina fulica = Lissachatina fulica"
+  },
+  {
+    "cname": "",
+    "code": "N00002",
+    "name": "Acridotheres spp."
+  },
+  {
+    "cname": "",
+    "code": "R00226",
+    "name": "Acrothamnion preissii"
+  },
+  {
+    "cname": "",
+    "code": "R17713",
+    "name": "Aedes albopictus"
+  },
+  {
+    "cname": "",
+    "code": "",
+    "name": "Agave americana"
+  },
+  {
+    "cname": "",
+    "code": "R00394",
+    "name": "Ageratina adenophora"
+  },
+  {
+    "cname": "",
+    "code": "R00396",
+    "name": "Ageratina riparia"
+  },
+  {
+    "cname": "",
+    "code": "R00460",
+    "name": "Ailanthus altissima"
+  },
+  {
+    "cname": "",
+    "code": "R00481",
+    "name": "Alburnus alburnus"
+  },
+  {
+    "cname": "",
+    "code": "R00644",
+    "name": "Alopochen aegyptiacus = Alopochen aegyptiaca"
+  },
+  {
+    "cname": "",
+    "code": "R00669",
+    "name": "Alternanthera philoxeroides"
+  },
+  {
+    "cname": "",
+    "code": "R00713",
+    "name": "Amandava amandava"
+  },
+  {
+    "cname": "",
+    "code": "R00818",
+    "name": "Ambrosia artemisiifolia"
+  },
+  {
+    "cname": "",
+    "code": "R00826",
+    "name": "Ameiurus melas"
+  },
+  {
+    "cname": "",
+    "code": "R00858",
+    "name": "Ammotragus lervia"
+  },
+  {
+    "cname": "",
+    "code": "N00022",
+    "name": "Ampullariidae spp."
+  },
+  {
+    "cname": "",
+    "code": "R01344",
+    "name": "Araujia sericifera"
+  },
+  {
+    "cname": "",
+    "code": "R01346",
+    "name": "Arbutus unedo"
+  },
+  {
+    "cname": "",
+    "code": "R01436",
+    "name": "Armadillidium vulgare"
+  },
+  {
+    "cname": "",
+    "code": "R01515",
+    "name": "Arundo donax"
+  },
+  {
+    "cname": "",
+    "code": "R01543",
+    "name": "Asparagopsis armata"
+  },
+  {
+    "cname": "",
+    "code": "R01544",
+    "name": "Asparagopsis taxiformis"
+  },
+  {
+    "cname": "",
+    "code": "R01546",
+    "name": "Asparagus asparagoides"
+  },
+  {
+    "cname": "",
+    "code": "",
+    "name": "Atelerix albiventris"
+  },
+  {
+    "cname": "",
+    "code": "R01721",
+    "name": "Atriplex semilunaris"
+  },
+  {
+    "cname": "",
+    "code": "R03607",
+    "name": "Australoheros facetus"
+  },
+  {
+    "cname": "",
+    "code": "N00003",
+    "name": "Azolla spp."
+  },
+  {
+    "cname": "",
+    "code": "R01830",
+    "name": "Baccharis halimifolia"
+  },
+  {
+    "cname": "",
+    "code": "R01933",
+    "name": "Batrachocytrium dendrobatidis = Batrachochytrium dendrobatidis"
+  },
+  {
+    "cname": "",
+    "code": "R02253",
+    "name": "Branta canadensis"
+  },
+  {
+    "cname": "",
+    "code": "R02410",
+    "name": "Buddleja davidii"
+  },
+  {
+    "cname": "",
+    "code": "",
+    "name": "Bufo marinus = Rhinella marina"
+  },
+  {
+    "cname": "",
+    "code": "R02459",
+    "name": "Bursaphelenchus xylophilus"
+  },
+  {
+    "cname": "",
+    "code": "R02476",
+    "name": "Cabomba caroliniana"
+  },
+  {
+    "cname": "",
+    "code": "R02594",
+    "name": "Calotropis procera"
+  },
+  {
+    "cname": "",
+    "code": "",
+    "name": "Carcinus maenas"
+  },
+  {
+    "cname": "",
+    "code": "R02860",
+    "name": "Carpobrotus acinaciformis"
+  },
+  {
+    "cname": "",
+    "code": "R02862",
+    "name": "Carpobrotus edulis"
+  },
+  {
+    "cname": "",
+    "code": "",
+    "name": "Caulerpa racemosa"
+  },
+  {
+    "cname": "",
+    "code": "R02956",
+    "name": "Caulerpa taxifolia"
+  },
+  {
+    "cname": "",
+    "code": "",
+    "name": "Centranthus ruber"
+  },
+  {
+    "cname": "",
+    "code": "N00004",
+    "name": "Channa spp."
+  },
+  {
+    "cname": "",
+    "code": "R03444",
+    "name": "Cherax destructor"
+  },
+  {
+    "cname": "",
+    "code": "R03552",
+    "name": "Chrysemys picta"
+  },
+  {
+    "cname": "",
+    "code": "R03843",
+    "name": "Codium fragile"
+  },
+  {
+    "cname": "",
+    "code": "N00020",
+    "name": "Colubridae spp."
+  },
+  {
+    "cname": "",
+    "code": "R04013",
+    "name": "Corbicula fluminea"
+  },
+  {
+    "cname": "",
+    "code": "R04027",
+    "name": "Cordylophora caspia"
+  },
+  {
+    "cname": "",
+    "code": "N00005",
+    "name": "Cortaderia spp."
+  },
+  {
+    "cname": "",
+    "code": "R04264",
+    "name": "Cotula coronopifolia"
+  },
+  {
+    "cname": "",
+    "code": "R04272",
+    "name": "Coturnix japonica"
+  },
+  {
+    "cname": "",
+    "code": "R04306",
+    "name": "Crassula helmsii"
+  },
+  {
+    "cname": "",
+    "code": "R04358",
+    "name": "Crepidula fornicata"
+  },
+  {
+    "cname": "",
+    "code": "N00006",
+    "name": "Cylindropuntia spp."
+  },
+  {
+    "cname": "",
+    "code": "R04750",
+    "name": "Cyprinus carpi = Cyprinus carpio"
+  },
+  {
+    "cname": "",
+    "code": "R04756",
+    "name": "Cyrtomium falcatum"
+  },
+  {
+    "cname": "",
+    "code": "R04771",
+    "name": "Cytisus scoparius"
+  },
+  {
+    "cname": "",
+    "code": "",
+    "name": "Didymosphenia geminata"
+  },
+  {
+    "cname": "",
+    "code": "R05139",
+    "name": "Dikerogammarus villosus"
+  },
+  {
+    "cname": "",
+    "code": "",
+    "name": "Dreissena bugensis"
+  },
+  {
+    "cname": "",
+    "code": "R05292",
+    "name": "Dreissena polymorpha"
+  },
+  {
+    "cname": "",
+    "code": "",
+    "name": "Duttaphrynus melanostictus"
+  },
+  {
+    "cname": "",
+    "code": "R05343",
+    "name": "Dysdera crocata"
+  },
+  {
+    "cname": "",
+    "code": "R05349",
+    "name": "Dyspanopeus sayi"
+  },
+  {
+    "cname": "",
+    "code": "R05431",
+    "name": "Egeria densa"
+  },
+  {
+    "cname": "",
+    "code": "R05440",
+    "name": "Eichhornia crassipes"
+  },
+  {
+    "cname": "",
+    "code": "R10739",
+    "name": "Elaphe guttata = Pantherophis guttatus"
+  },
+  {
+    "cname": "",
+    "code": "R05500",
+    "name": "Elodea canadensis"
+  },
+  {
+    "cname": "",
+    "code": "R05501",
+    "name": "Elodea nuttallii"
+  },
+  {
+    "cname": "",
+    "code": "R05836",
+    "name": "Eriocheir sinensis"
+  },
+  {
+    "cname": "",
+    "code": "R05979",
+    "name": "Eschscholzia californica"
+  },
+  {
+    "cname": "",
+    "code": "R05980",
+    "name": "Esox lucius"
+  },
+  {
+    "cname": "",
+    "code": "N00007",
+    "name": "Estrilda spp."
+  },
+  {
+    "cname": "",
+    "code": "N00008",
+    "name": "Euplectes spp."
+  },
+  {
+    "cname": "",
+    "code": "R18445",
+    "name": "Fallopia baldschuanica"
+  },
+  {
+    "cname": "",
+    "code": "R18201",
+    "name": "Fallopia japonica"
+  },
+  {
+    "cname": "",
+    "code": "R06316",
+    "name": "Ficopomatus enigmaticus"
+  },
+  {
+    "cname": "",
+    "code": "R06466",
+    "name": "Fundulus heteroclitus = Fundulus heteroclitus heteroclitus"
+  },
+  {
+    "cname": "",
+    "code": "R06469",
+    "name": "Furcraea foetida"
+  },
+  {
+    "cname": "",
+    "code": "R06574",
+    "name": "Gambusia holbrooki"
+  },
+  {
+    "cname": "",
+    "code": "R06855",
+    "name": "Gracilaria vermiculophylla"
+  },
+  {
+    "cname": "",
+    "code": "R06885",
+    "name": "Grateloupia turuturu"
+  },
+  {
+    "cname": "",
+    "code": "R07073",
+    "name": "Harmonia axyridis"
+  },
+  {
+    "cname": "",
+    "code": "R07106",
+    "name": "Hedychium gardnerianum"
+  },
+  {
+    "cname": "",
+    "code": "R07136",
+    "name": "Helianthus tuberosus"
+  },
+  {
+    "cname": "",
+    "code": "R17643",
+    "name": "Hemiechinus auritus"
+  },
+  {
+    "cname": "",
+    "code": "R07248",
+    "name": "Heracleum mantegazzianum"
+  },
+  {
+    "cname": "",
+    "code": "R07276",
+    "name": "Herpestes javanicus"
+  },
+  {
+    "cname": "",
+    "code": "R07537",
+    "name": "Hydrocotyle ranunculoides"
+  },
+  {
+    "cname": "",
+    "code": "R07692",
+    "name": "Ictalurus punctatus"
+  },
+  {
+    "cname": "",
+    "code": "R07765",
+    "name": "Ipomoea indica"
+  },
+  {
+    "cname": "",
+    "code": "R08182",
+    "name": "Lasius neglectus"
+  },
+  {
+    "cname": "",
+    "code": "R08283",
+    "name": "Leiothrix lutea"
+  },
+  {
+    "cname": "",
+    "code": "R08376",
+    "name": "Lepomis gibbosus"
+  },
+  {
+    "cname": "",
+    "code": "R08399",
+    "name": "Leptoglossus occidentalis"
+  },
+  {
+    "cname": "",
+    "code": "R08440",
+    "name": "Leucaena leucocephala"
+  },
+  {
+    "cname": "",
+    "code": "",
+    "name": "Limnoperna securis"
+  },
+  {
+    "cname": "",
+    "code": "R08610",
+    "name": "Linepithema humile"
+  },
+  {
+    "cname": "",
+    "code": "R08679",
+    "name": "Lithobates catesbeianus"
+  },
+  {
+    "cname": "",
+    "code": "R08782",
+    "name": "Lophocladia lallemandii"
+  },
+  {
+    "cname": "",
+    "code": "N00009",
+    "name": "Ludwigia spp.(except Ludwigia palustris, Ludwigia peploides, Ludwigia grandiflora)"
+  },
+  {
+    "cname": "",
+    "code": "R08998",
+    "name": "Maireana brevifolia"
+  },
+  {
+    "cname": "",
+    "code": "",
+    "name": "Melanoides tuberculatus"
+  },
+  {
+    "cname": "",
+    "code": "R09442",
+    "name": "Micropterus salmoides"
+  },
+  {
+    "cname": "",
+    "code": "R09519",
+    "name": "Misgurnus anguillicaudatus"
+  },
+  {
+    "cname": "",
+    "code": "R09524",
+    "name": "Mnemiopsis leidyi"
+  },
+  {
+    "cname": "",
+    "code": "N00010",
+    "name": "Monochamus spp. (non European species)"
+  },
+  {
+    "cname": "",
+    "code": "R09577",
+    "name": "Monomorium destructor"
+  },
+  {
+    "cname": "",
+    "code": "R09715",
+    "name": "Myiopsitta monachus"
+  },
+  {
+    "cname": "",
+    "code": "R09720",
+    "name": "Myocastor coypus"
+  },
+  {
+    "cname": "",
+    "code": "R18934",
+    "name": "Myriophyllum aquaticum"
+  },
+  {
+    "cname": "",
+    "code": "R09775",
+    "name": "Mytilopsis leucophaeata"
+  },
+  {
+    "cname": "",
+    "code": "R09852",
+    "name": "Nassella neesiana"
+  },
+  {
+    "cname": "",
+    "code": "N00011",
+    "name": "Nasua spp. (except Nasua nasua)"
+  },
+  {
+    "cname": "",
+    "code": "R09952",
+    "name": "Neovison vison"
+  },
+  {
+    "cname": "",
+    "code": "R10085",
+    "name": "Nyctereutes procyonoides"
+  },
+  {
+    "cname": "",
+    "code": "R10094",
+    "name": "Nymphaea mexicana"
+  },
+  {
+    "cname": "",
+    "code": "R10309",
+    "name": "Ommatoiulus moreletii"
+  },
+  {
+    "cname": "",
+    "code": "R10330",
+    "name": "Oncorhynchus mykiss"
+  },
+  {
+    "cname": "",
+    "code": "R10336",
+    "name": "Ondatra zibethicus"
+  },
+  {
+    "cname": "",
+    "code": "R18942",
+    "name": "Opuntia dillenii"
+  },
+  {
+    "cname": "",
+    "code": "R10422",
+    "name": "Opuntia maxima"
+  },
+  {
+    "cname": "",
+    "code": "R10428",
+    "name": "Opuntia stricta"
+  },
+  {
+    "cname": "",
+    "code": "R10443",
+    "name": "Orconectes limosus"
+  },
+  {
+    "cname": "",
+    "code": "R10605",
+    "name": "Ovis musimon = Ovis aries"
+  },
+  {
+    "cname": "",
+    "code": "R10619",
+    "name": "Oxalis pes-caprae"
+  },
+  {
+    "cname": "",
+    "code": "R10652",
+    "name": "Oxyura jamaicensis"
+  },
+  {
+    "cname": "",
+    "code": "R10676",
+    "name": "Pacifastacus leniusculus"
+  },
+  {
+    "cname": "",
+    "code": "R10852",
+    "name": "Paratrechina longicornis"
+  },
+  {
+    "cname": "",
+    "code": "R10954",
+    "name": "Paysandisia archon"
+  },
+  {
+    "cname": "",
+    "code": "R18186",
+    "name": "Pennisetum clandestinum"
+  },
+  {
+    "cname": "",
+    "code": "R02999",
+    "name": "Pennisetum purpureum = Cenchrus purpureus"
+  },
+  {
+    "cname": "",
+    "code": "R03000",
+    "name": "Pennisetum setaceum"
+  },
+  {
+    "cname": "",
+    "code": "R11023",
+    "name": "Pennisetum villosum"
+  },
+  {
+    "cname": "",
+    "code": "R11032",
+    "name": "Perca fluviatilis"
+  },
+  {
+    "cname": "",
+    "code": "R11035",
+    "name": "Percnon gibbesi"
+  },
+  {
+    "cname": "",
+    "code": "R11352",
+    "name": "Phoenix dactylifera"
+  },
+  {
+    "cname": "",
+    "code": "R11671",
+    "name": "Pistia stratiotes"
+  },
+  {
+    "cname": "",
+    "code": "N00012",
+    "name": "Ploceus spp."
+  },
+  {
+    "cname": "",
+    "code": "",
+    "name": "Potamocorbula amurensis"
+  },
+  {
+    "cname": "",
+    "code": "R12141",
+    "name": "Potamopyrgus antipodarum"
+  },
+  {
+    "cname": "",
+    "code": "R12250",
+    "name": "Procambarus clarkii"
+  },
+  {
+    "cname": "",
+    "code": "R12260",
+    "name": "Procyon lotor"
+  },
+  {
+    "cname": "",
+    "code": "R12451",
+    "name": "Pseudorasbora parva"
+  },
+  {
+    "cname": "",
+    "code": "R12477",
+    "name": "Psittacula krameri"
+  },
+  {
+    "cname": "",
+    "code": "",
+    "name": "Pterois volitans"
+  },
+  {
+    "cname": "",
+    "code": "R12684",
+    "name": "Pycnonotus cafer"
+  },
+  {
+    "cname": "",
+    "code": "R12685",
+    "name": "Pycnonotus jocosus"
+  },
+  {
+    "cname": "",
+    "code": "R12754",
+    "name": "Quelea quelea"
+  },
+  {
+    "cname": "",
+    "code": "R12864",
+    "name": "Rattus norvegicus"
+  },
+  {
+    "cname": "",
+    "code": "R12865",
+    "name": "Rattus rattus"
+  },
+  {
+    "cname": "",
+    "code": "R12942",
+    "name": "Rhithropanopeus harrisii"
+  },
+  {
+    "cname": "",
+    "code": "R12995",
+    "name": "Rhopilema nomadica"
+  },
+  {
+    "cname": "",
+    "code": "R13007",
+    "name": "Rhynchophorus ferrugineus"
+  },
+  {
+    "cname": "",
+    "code": "R13044",
+    "name": "Ricinus communis"
+  },
+  {
+    "cname": "",
+    "code": "",
+    "name": "Rousettus aegyptiacus"
+  },
+  {
+    "cname": "",
+    "code": "R13316",
+    "name": "Rutilus rutilus"
+  },
+  {
+    "cname": "",
+    "code": "R13462",
+    "name": "Salvelinus fontinalis"
+  },
+  {
+    "cname": "",
+    "code": "N00013",
+    "name": "Salvinia spp."
+  },
+  {
+    "cname": "",
+    "code": "R13510",
+    "name": "Sander lucioperca"
+  },
+  {
+    "cname": "",
+    "code": "R13548",
+    "name": "Sargassum muticum"
+  },
+  {
+    "cname": "",
+    "code": "R13617",
+    "name": "Scardinius erythrophthalmus"
+  },
+  {
+    "cname": "",
+    "code": "N00021",
+    "name": "Sciuridae spp. (except Sciurus carolinensis,Sciurus niger,Callosciurus erythraeus)"
+  },
+  {
+    "cname": "",
+    "code": "R13872",
+    "name": "Senecio inaequidens"
+  },
+  {
+    "cname": "",
+    "code": "R14099",
+    "name": "Silurus glanis"
+  },
+  {
+    "cname": "",
+    "code": "R14111",
+    "name": "Sinanodonta woodiana"
+  },
+  {
+    "cname": "",
+    "code": "R14362",
+    "name": "Spartina alterniflora"
+  },
+  {
+    "cname": "",
+    "code": "R14365",
+    "name": "Spartina densiflora"
+  },
+  {
+    "cname": "",
+    "code": "",
+    "name": "Spartina patens"
+  },
+  {
+    "cname": "",
+    "code": "R14371",
+    "name": "Spartium junceum"
+  },
+  {
+    "cname": "",
+    "code": "R14642",
+    "name": "Streptopelia roseogrisea"
+  },
+  {
+    "cname": "",
+    "code": "R14703",
+    "name": "Stypopodium schimperi"
+  },
+  {
+    "cname": "",
+    "code": "R14908",
+    "name": "Tapinoma melanocephalum"
+  },
+  {
+    "cname": "",
+    "code": "R15136",
+    "name": "Threskiornis aethiopicus"
+  },
+  {
+    "cname": "",
+    "code": "R18154",
+    "name": "Trachemys scripta"
+  },
+  {
+    "cname": "",
+    "code": "R15301",
+    "name": "Tradescantia fluminensis"
+  },
+  {
+    "cname": "",
+    "code": "",
+    "name": "Triops longicaudatus"
+  },
+  {
+    "cname": "",
+    "code": "R15662",
+    "name": "Ulex europaeus"
+  },
+  {
+    "cname": "",
+    "code": "R15692",
+    "name": "Undaria pinnatifida"
+  },
+  {
+    "cname": "",
+    "code": "N00014",
+    "name": "Vespa spp. (non European species)"
+  },
+  {
+    "cname": "",
+    "code": "R16172",
+    "name": "Womersleyella setacea"
+  },
+  {
+    "cname": "",
+    "code": "R16225",
+    "name": "Xenopus laevis"
+  }
+]
