@@ -178,6 +178,50 @@ export default {
 					group: null,
 					class: null	
 				},
+				sectionBSpecies: {
+					reportID: null,
+					EASINCode: null,
+					scientific_name: null,
+					common_name_naltional: null,
+					present_in_MS: null,
+					reproduction_pattern: null,
+					additional_information: null,
+					additional_information_measures: null,
+					row_id: null
+				},
+				sectionBMeasures: {
+					reportID: null,
+					row_id: null,
+					parent_row_id: null,
+					measure: null
+				},
+				sectionC: {
+					reportID: null,
+					weblink_permits: null,
+					action_plans: null,
+					file_action_plans: null,
+					surveillance_system: null,
+					file_surveillance_system: null,
+					official_control_system: null,
+					file_official_control_system: null,
+					cost_of_action: null,
+					file_cost_of_action: null,
+					additional_information: null,
+					file_additional_information: null
+				},
+				priorityPathway: {
+					reportID: null,
+					row_id: null,
+					pathway_code: null,
+					EASINCode: null
+				},
+				distributionMap: {
+					reportID: null,
+					distributionMap_sectionA: null,
+          distributionMap_sectionB: null,
+          inspireMetadata_sectionA: null,
+          inspireMetadata_sectionB: null
+				},
 			},
 			currentCountry: null,
       validation: [],
@@ -362,15 +406,106 @@ export default {
 			// console.log(reportingId)
 
 			this.sectionASpecies(data, emptyInstance, reportID)
+			this.sectionBSpecies(data, emptyInstance, reportID)
+			this.sectionC(data, emptyInstance, reportID)
+			this.distributionMaps(data, emptyInstance, reportID)
 
-			// saveInstance(datatoSave);
+			saveInstance(emptyInstance);
 
       // this.showAlert();
     },
 
+		distributionMaps(data, emptyInstance, reportID) {
+			const structure = Object.assign({}, this.structure.distributionMap)
+			const section = data.tab_4.section.fields
+			structure.reportID = reportID
+			structure.distributionMap_sectionA = section.find(field => field.name === 'section_a_distribution_file').selected[0]
+			structure.distributionMap_sectionB = section.find(field => field.name === 'section_b_distribution_file').selected[0]
+			structure.inspireMetadata_sectionA = section.find(field => field.name === 'section_a_inspire').selected[0]
+			structure.inspireMetadata_sectionB = section.find(field => field.name === 'section_b_inspire').selected[0]
+			emptyInstance.IAS.distributionMap.Row.push(structure)
+		},
+
+		sectionC(data, emptyInstance, reportID){
+			const structure = Object.assign({}, this.structure.sectionC)
+			const section = data.tab_3.section.fields
+			structure.reportID = reportID
+			structure.weblink_permits = section.find(field => field.name === 'web_link').selected
+			structure.action_plans = section.find(field => field.name === 'action_plans_art13').selected
+			structure.file_action_plans = section.find(field => field.name === 'action_plans_art13_file').selected
+			structure.surveillance_system = section.find(field => field.name === 'surveillance_system_art14').selected
+			structure.file_surveillance_system = section.find(field => field.name === 'surveillance_system_art14_file').selected
+			structure.official_control_system = section.find(field => field.name === 'official_control_system').selected
+			structure.file_official_control_system= section.find(field => field.name === 'official_control_system_file').selected
+			//TODO: missing mescription of measures taken
+			structure.cost_of_action = section.find(field => field.name === 'cost').selected
+			structure.file_cost_of_action = section.find(field => field.name === 'cost_file').selected
+			structure.additional_information = section.find(field => field.name === 'additional_info').selected
+			structure.file_additional_information = section.find(field => field.name === 'additional_info_file').selected
+			console.log(section.find(field => field.name === 'priority_pathways'))
+			section.find(field => field.name === 'priority_pathways').fields.forEach((pathway, pathway_index) => {
+				pathway.inner_field.selected.forEach((species, species_index) => {
+				const priorityPathway = Object.assign({}, this.structure.priorityPathway)
+					priorityPathway.reportID = reportID
+					priorityPathway.row_id = pathway_index
+					priorityPathway.pathway_code = pathway.selected.value
+					priorityPathway.EASINCode = species.code
+					emptyInstance.IAS.priorityPathway.Row.push(priorityPathway)
+				})
+			})
+			emptyInstance.IAS.sectionC.Row.push(structure)
+			console.log('c',emptyInstance)
+		},
+
+		sectionBSpecies(data, emptyInstance, reportID){
+			if(!data.tab_2.sections.length) return
+			data.tab_2.sections.forEach((section, index) => {
+				const structure =  Object.assign({}, this.structure.sectionBSpecies)
+				structure.reportID = reportID
+				structure.row_id = index
+				structure.EASINCode = section.common_name.selected.code
+
+				structure.common_name_national = section.common_name.name
+
+				structure.scientific_name = section.scientific_name.selected.value
+
+				structure.present_in_ms = section.mandatory_item.selected
+				if(structure.present_in_ms) {
+					structure.reproduction_pattern = section.depending_on_mandatory.reproduction_patterns[0].selected.pattern
+					structure.additional_information = section.additional_info.selected
+					structure.additional_information_measures = section.section.fields.find(field => field.name === 'additional_info').selected
+				
+				
+					if(section.depending_on_mandatory.spread_patterns[0].selected.pattern) {
+						section.depending_on_mandatory.spread_patterns[0].selected.pattern.forEach((pattern, pattern_index) => {
+							const spreadPattern = Object.assign({}, this.structure.spreadPatterns)
+							spreadPattern.reportID = reportID
+							spreadPattern.EASINCode = section.common_name.selected.code
+							spreadPattern.row_id = pattern_index
+							spreadPattern.section = 'B'
+							spreadPattern.spread_pattern = pattern.value
+							spreadPattern.parent_row_id = index
+							emptyInstance.IAS.spreadPatterns.Row.push(spreadPattern)
+						})
+					}
+
+					section.section.fields.filter(measure => measure.selected).forEach((measure, measure_index) => {
+						const sectionBMeasures = Object.assign({}, this.structure.sectionBMeasures)
+						sectionBMeasures.reportID = reportID
+						sectionBMeasures.row_id = measure_index
+						sectionBMeasures.parent_row_id = index
+						sectionBMeasures.measure = measure.name
+						emptyInstance.IAS.sectionBMeasures.Row.push(sectionBMeasures)
+					})
+				
+				}
+				emptyInstance.IAS.sectionBSpecies.Row.push(structure)
+				console.log('b', emptyInstance)
+			})
+
+		},
 
 		sectionASpecies(data, emptyInstance, reportID){
-	
 			data.tab_1.sections.forEach((section, index) => {
 				// structure === sectionASpecies
 				

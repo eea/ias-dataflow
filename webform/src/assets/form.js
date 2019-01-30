@@ -2063,13 +2063,13 @@ function form() {
                 {
                   label: 'Priority pathways addressed ',
                   type: 'select',
-                  selected: '',
+                  selected: [],
                   options: ppathways,
                   name: 'priority_pathways_addressed',
                   inner_field: {
                     label: 'Species covered  ',
                     type: 'multiselect',
-                    selected: '',
+                    selected: [],
                     options: species.map((specie) => {
                       return {
                         value: specie.speciesName,
