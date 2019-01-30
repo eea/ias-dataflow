@@ -1,778 +1,241 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<IAS xmlns="https://converterstest.eionet.europa.eu/namespaces/4"
-     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
-     xsi:schemaLocation="http://converterstest.eionet.europa.eu/namespaces/4 https://converterstest.eionet.europa.eu/schemas/IAS/2018">
-  <country>
-    <tables>
-      <table_1>
-        <fields>
-          <element>
-            <label>Member State</label>
-            <name>partyname</name>
-            <selected>DK</selected>
-          </element>
-          <element>
-            <label>Reporting period from (year)</label>
-            <name>rep_period_from</name>
-            <selected>2015-01-01</selected>
-          </element>
-          <element>
-            <label>Reporting period to (year)</label>
-            <name>rep_period_to</name>
-            <selected>2018-12-31</selected>
-          </element>
-        </fields>
-      </table_1>
-    </tables>
-  </country>
-  <tab_0>
-    <element>
-      <label>Member State</label>
-      <name>partyname</name>
-      <selected>DK</selected>
-    </element>
-    <element>
-      <label>Reporting period from (year)</label>
-      <name>rep_period_from</name>
-      <selected>2015-01-01</selected>
-    </element>
-    <element>
-      <label>Reporting period to (year)</label>
-      <name>rep_period_to</name>
-      <selected>2018-12-31</selected>
-    </element>
-  </tab_0>
-  <tab_1>
-    <sections>
-      <element>
-        <additional_info>
-          <name>additional_info</name>
-          <selected>adadadda</selected>
-        </additional_info>
-        <common_name>
-          <DK>Nilgås</DK>
-          <EN>Egyptian goose</EN>
-        </common_name>
-        <depending_on_mandatory>
-          <fields>
-            <element>
-              <label>Tick if yes</label>
-              <name>distribution_maps_check</name>
-              <selected>false</selected>
-              <type>checkbox</type>
-            </element>
-          </fields>
-          <name>distribution_of_species</name>
-        </depending_on_mandatory>
-        <eradication_measures_info>
-          <label>Information on rapid eradication measure(s) taken for this species (Article 17 of Regulation (EU) No 1143/2014)</label>
-          <name>eradication_measures_info</name>
-          <question>
-            <label>Has the species been subject to rapid eradication measures during the reporting period?</label>
-            <name>eradicated</name>
-            <selected>Yes</selected>
-          </question>
-          <tables>
-            <element>
-              <label>National Population #1</label>
-              <name>National Population #1</name>
-              <table_sections>
-                <element>
-                  <additional_info>
-                    <index>13</index>
-                    <label>Additional information (optional)</label>
-                    <name>additional_info</name>
-                    <selected>adaazqqqqq</selected>
-                    <type>textarea</type>
-                  </additional_info>
-                  <label />
-                  <table_fields>
-                    <element>
-                      <label>Starting date</label>
-                      <name>starting_date</name>
-                      <selected>2018-12-31</selected>
-                    </element>
-                    <element>
-                      <label>End date</label>
-                      <name>duration_or_end</name>
-                      <selected>2019-02-02</selected>
-                    </element>
-                    <element>
-                      <comments />
-                      <label>Part of the territory</label>
-                      <name>part_territory</name>
-                      <selected>
-                        <text>DANMARK</text>
-                        <value>DK0</value>
-                      </selected>
-                    </element>
-                    <element>
-                      <label>Biogeographical region(s)</label>
-                      <name>biogeographical_region</name>
-                      <selected>
-                        <element>
-                          <text>second option</text>
-                          <value>1</value>
-                        </element>
-                        <element>
-                          <text>third option</text>
-                          <value>2</value>
-                        </element>
-                      </selected>
-                    </element>
-                    <element>
-                      <label>River basin sub-unit(s)</label>
-                      <name>river_basin_subunits</name>
-                      <selected>first option</selected>
-                    </element>
-                    <element>
-                      <label>Marine sub-region(s)</label>
-                      <name>marine_sub_regions</name>
-                      <selected>
-                        <element>
-                          <text>North East Atlantic</text>
-                          <value>ATL</value>
-                        </element>
-                      </selected>
-                    </element>
-                    <element>
-                      <label>Method(s) used</label>
-                      <name>methods_used</name>
-                      <selected>
-                        <element>
-                          <text>Biological</text>
-                          <value>2</value>
-                        </element>
-                        <element>
-                          <text>Chemical</text>
-                          <value>1</value>
-                        </element>
-                      </selected>
-                    </element>
-                    <element>
-                      <label />
-                      <name>effectiveness_measure</name>
-                      <selected>
-                        <element>
-                          <text>Population stable</text>
-                          <value>2</value>
-                        </element>
-                      </selected>
-                    </element>
-                    <element>
-                      <inner_field>
-                        <label>Impact per species</label>
-                        <name>impact_per_species</name>
-                        <selected>eradicated</selected>
-                        <type>text</type>
-                        <validation>false</validation>
-                      </inner_field>
-                      <label>Impacted non-targeted species</label>
-                      <name>impacted_nontargeted_species</name>
-                      <selected>Asclepias syriaca L. </selected>
-                    </element>
-                  </table_fields>
-                </element>
-              </table_sections>
-            </element>
-          </tables>
-        </eradication_measures_info>
-        <management_measures_info>
-          <label>Information on management measure(s) taken for this species (Article 19 of Regulation (EU) No 1143/2014)</label>
-          <name>management_measures_info</name>
-          <question>
-            <label>Has the species been subject to management measures during the reporting period?</label>
-            <selected>Yes</selected>
-          </question>
-          <tables>
-            <element>
-              <label>National Population #1</label>
-              <name>National Population #1</name>
-              <table_sections>
-                <element>
-                  <additional_info>
-                    <index>16</index>
-                    <label>Additional information (optional)</label>
-                    <name>additional_info</name>
-                    <selected>qqqqqqqqqqqqqqqqqqqqqq</selected>
-                    <type>textarea</type>
-                  </additional_info>
-                  <index>15</index>
-                  <label />
-                  <table_fields>
-                    <element>
-                      <label>Starting date</label>
-                      <name>starting_date</name>
-                      <selected>2018-12-30</selected>
-                    </element>
-                    <element>
-                      <label>End date</label>
-                      <name>duration_or_end</name>
-                      <selected>2019-02-22</selected>
-                    </element>
-                    <element>
-                      <label>Objective of the measure(s) </label>
-                      <name>measures_objective</name>
-                      <selected>
-                        <element>
-                          <text>Control</text>
-                          <value>1</value>
-                        </element>
-                      </selected>
-                    </element>
-                    <element>
-                      <comments />
-                      <label>Part of the territory</label>
-                      <name>part_territory</name>
-                      <selected>
-                        <text>Hovedstaden</text>
-                        <value>DK01</value>
-                      </selected>
-                    </element>
-                    <element>
-                      <label>Biogeographical region(s)</label>
-                      <name>biogeographical_region</name>
-                      <selected>
-                        <element>
-                          <text>second option</text>
-                          <value>1</value>
-                        </element>
-                      </selected>
-                    </element>
-                    <element>
-                      <label>River basin sub-unit(s)</label>
-                      <name>river_basin_subunits</name>
-                      <selected>first option</selected>
-                    </element>
-                    <element>
-                      <label>Marine sub-region(s)</label>
-                      <name>marine_basin_subunits</name>
-                      <selected>
-                        <element>
-                          <text>Baltic Sea</text>
-                          <value>BAL</value>
-                        </element>
-                      </selected>
-                    </element>
-                    <element>
-                      <label>Method(s) used</label>
-                      <name>methods_used</name>
-                      <selected>
-                        <element>
-                          <text>Biological</text>
-                          <value>2</value>
-                        </element>
-                      </selected>
-                    </element>
-                    <element>
-                      <label />
-                      <name>effectiveness_measure</name>
-                      <selected>
-                        <element>
-                          <text>Population decreasing</text>
-                          <value>1</value>
-                        </element>
-                      </selected>
-                    </element>
-                    <element>
-                      <inner_field>
-                        <label>Impact per species</label>
-                        <name>impact_per_species</name>
-                        <selected>decreasing</selected>
-                        <type>text</type>
-                        <validation>false</validation>
-                      </inner_field>
-                      <label>Impacted non-targeted species</label>
-                      <name>impacted_nontargeted_species</name>
-                      <selected>Asclepias syriaca L. AAAA</selected>
-                    </element>
-                  </table_fields>
-                </element>
-              </table_sections>
-            </element>
-          </tables>
-        </management_measures_info>
-        <mandatory_item>
-          <name>mandatory_question</name>
-          <selected>true</selected>
-        </mandatory_item>
-        <permits_info>
-          <label>Information on the permits issued for this species (to be completed only for invasive alien species of Union concern)</label>
-          <name>permits_info</name>
-          <question>
-            <label>Have permits been issued for this species during the reporting period? </label>
-            <options>
-              <element>
-                <text>Yes</text>
-                <value>true</value>
-              </element>
-              <element>
-                <text>No</text>
-                <value>false</value>
-              </element>
-            </options>
-            <selected>true</selected>
-          </question>
-          <table_sections>
-            <element>
-              <additional_info>
-                <label>Additional information (optional)</label>
-                <name>additional_info</name>
-                <selected>adadadad</selected>
-                <type>textarea</type>
-              </additional_info>
-              <name>permits_table</name>
-              <rows>
-                <element>
-                  <fields>
-                    <element>
-                      <year>2015</year>
-                    </element>
-                    <element>
-                      <permits_number>
-                        <element>
-                          <measurement>kg</measurement>
-                          <permits_number>3</permits_number>
-                        </element>
-                        <element>
-                          <measurement>pcs</measurement>
-                          <permits_number>2</permits_number>
-                        </element>
-                      </permits_number>
-                    </element>
-                    <element>
-                      <valid_permits_number>
-                        <element>
-                          <valid_measurement>pcs</valid_measurement>
-                          <valid_permits_number>1</valid_permits_number>
-                        </element>
-                      </valid_permits_number>
-                    </element>
-                    <element>
-                      <total_permited_speciments>
-                        <element>
-                          <total_permited_speciments>4</total_permited_speciments>
-                          <total_permited_speciments_measurement>kg</total_permited_speciments_measurement>
-                        </element>
-                      </total_permited_speciments>
-                    </element>
-                    <element>
-                      <valid_total_permited_speciments>
-                        <element>
-                          <valid_total_permited_speciments>3</valid_total_permited_speciments>
-                          <valid_total_permited_speciments_measurement>pcs</valid_total_permited_speciments_measurement>
-                        </element>
-                      </valid_total_permited_speciments>
-                    </element>
-                  </fields>
-                  <index>0</index>
-                  <label>Permits for research</label>
-                </element>
-              </rows>
-            </element>
-            <element>
-              <additional_info>
-                <index>10</index>
-                <label>Additional information (optional)</label>
-                <name>additional_info</name>
-                <selected>adadadd</selected>
-                <type>textarea</type>
-              </additional_info>
-              <name>inspection_table</name>
-              <rows>
-                <element>
-                  <fields>
-                    <element>
-                      <year>2017</year>
-                    </element>
-                    <element>
-                      <number_establishments_inspections>
-                        <element>
-                          <inspections_measurement>kg</inspections_measurement>
-                          <number_establishments_inspections>1</number_establishments_inspections>
-                        </element>
-                      </number_establishments_inspections>
-                    </element>
-                    <element>
-                      <number_permitted_specimens>
-                        <element>
-                          <number_permitted_specimens>2</number_permitted_specimens>
-                          <number_permitted_specimens_measurement>pcs</number_permitted_specimens_measurement>
-                        </element>
-                      </number_permitted_specimens>
-                    </element>
-                    <element>
-                      <establishments_non_compliant>
-                        <element>
-                          <establishments_non_compliant>3</establishments_non_compliant>
-                          <establishments_non_compliant_measurement>kg</establishments_non_compliant_measurement>
-                        </element>
-                      </establishments_non_compliant>
-                    </element>
-                    <element>
-                      <number_speciments_held_by_non_compliant_establishments_main />
-                    </element>
-                    <element>
-                      <number_speciments_held_by_non_compliant_establishments>
-                        <element>
-                          <measurement_noncompliant>pcs</measurement_noncompliant>
-                          <number_speciments_held_by_non_compliant_establishments>4</number_speciments_held_by_non_compliant_establishments>
-                        </element>
-                      </number_speciments_held_by_non_compliant_establishments>
-                    </element>
-                  </fields>
-                  <index>1</index>
-                  <label>Permits for ex situ conservation</label>
-                </element>
-              </rows>
-            </element>
-          </table_sections>
-        </permits_info>
-        <reproduction_patterns>
-          <element>
-            <pattern>Asexual</pattern>
-            <patternType>reproduction</patternType>
-            <region>RO</region>
-          </element>
-          <element>
-            <pattern>Both (sexual and asexual)</pattern>
-            <patternType>reproduction</patternType>
-            <region>FR</region>
-          </element>
-        </reproduction_patterns>
-        <scientific_name>Alopochen aegyptiacus Linnaeus, 1766</scientific_name>
-        <species_code>R00644</species_code>
-        <spread_pattterns>
-          <element>
-            <pattern>
-              <element>b) The species predominantly entered through natural dispersal from a neighbouring country</element>
-              <element>g) The species predominantly spread with unintentional human assistance</element>
-            </pattern>
-            <patternType>spread</patternType>
-            <region>RO</region>
-          </element>
-        </spread_pattterns>
-        <tables />
-      </element>
-    </sections>
-  </tab_1>
-  <tab_2>
-    <common_name>
-      <disabled>true</disabled>
-      <label>Common name of the species (optional)</label>
-      <name>common_name</name>
-      <options />
-      <selected>
-        <element>
-          <code>R00001</code>
-          <eu_concern>0</eu_concern>
-          <freshwater>0</freshwater>
-          <marine>0</marine>
-          <name>Abax parallelus</name>
-          <oligohaline>0</oligohaline>
-          <status>A</status>
-          <terrestrial>1</terrestrial>
-        </element>
-      </selected>
-      <type>text</type>
-    </common_name>
-    <label>SECTION B</label>
-    <mandatory_item>
-      <index>3</index>
-      <label>Has the Member State established a national list of invasive alien species of Member State concern? If yes, questions below have to be answered for each of the species on this list</label>
-      <name>mandatory_question</name>
-      <options>
-        <element>
-          <text>Yes</text>
-          <value>true</value>
-        </element>
-        <element>
-          <text>No</text>
-          <value>false</value>
-        </element>
-      </options>
-      <selected>true</selected>
-      <type>select</type>
-    </mandatory_item>
-    <question>Information to be submitted for each of the invasive alien species of Member State concern</question>
-    <scientific_name>
-      <label>Species scientific name </label>
-      <name>scientific_name</name>
-      <selected>
-        <element>
-          <text>Abax parallelus</text>
-          <value>Abax parallelus</value>
-        </element>
-      </selected>
-      <type>multiselect</type>
-    </scientific_name>
-    <sections>
-      <element>
-        <additional_info>
-          <index>5</index>
-          <label>Additional information (optional)</label>
-          <name>additional_info</name>
-          <selected>zZzzzz</selected>
-          <type>textarea</type>
-        </additional_info>
-        <common_name>
-          <disabled>true</disabled>
-          <index>2</index>
-          <label>Common name of the species (optional)</label>
-          <name>common_name</name>
-          <selected>
-            <common_names>
-              <FR>
-                <element>adafff</element>
-              </FR>
-              <RO>
-                <element>adadadad</element>
-              </RO>
-              <none>
-                <element>shjkshsjk</element>
-              </none>
-            </common_names>
-            <value>adadadad[RO]; adafff[FR];shjkshsjk</value>
-          </selected>
-          <type>text</type>
-        </common_name>
-        <depending_on_mandatory>
-          <fields>
-            <element>
-              <label>Tick if yes</label>
-              <name>distribution_maps_check</name>
-              <selected>false</selected>
-              <type>checkbox</type>
-            </element>
-          </fields>
-          <index>4</index>
-          <label>A distribution map for this species has to be included in the file which will be uploaded in the 'Distribution map for SECTION B' field available on 'DISTRIBUTION MAP' section.</label>
-          <name>distribution_of_species</name>
-        </depending_on_mandatory>
-        <mandatory_item>
-          <index>3</index>
-          <label>Is the species present in the territory of the Member State?</label>
-          <name>mandatory_question</name>
-          <selected>Yes</selected>
-          <type>select</type>
-        </mandatory_item>
-        <reproduction_patterns>
-          <element>
-            <pattern>Sexual</pattern>
-            <patternType>reproduction</patternType>
-            <region>RO</region>
-          </element>
-          <element>
-            <pattern>Unclear (sexual or asexual) </pattern>
-            <patternType>reproduction</patternType>
-            <region>FR</region>
-          </element>
-        </reproduction_patterns>
-        <scientific_name>Abax parallelus</scientific_name>
-        <section>
-          <fields>
-            <element>
-              <label>Derogations foreseen within the permit system under Article 8  </label>
-              <name>derogations_within_art8</name>
-              <selected>true</selected>
-              <type>checkbox</type>
-            </element>
-            <element>
-              <label>Addressed in the action plans pursuant to Article 13 </label>
-              <name>addressed_art13</name>
-              <selected>true</selected>
-              <type>checkbox</type>
-            </element>
-            <element>
-              <label>Additional information (optional)</label>
-              <name>additional_info</name>
-              <selected>zzzwqqqq</selected>
-              <type>textarea</type>
-            </element>
-          </fields>
-          <label>Measure(s) applied in the territory of the Member State in relation to the species</label>
-        </section>
-        <spread_patterns>
-          <element>
-            <pattern>
-              <element>b) The species predominantly entered through natural dispersal from a neighbouring country</element>
-              <element>f) The species predominantly spread through natural dispersal</element>
-            </pattern>
-            <patternType>spread</patternType>
-            <region>RO</region>
-          </element>
-          <element>
-            <pattern>
-              <element>c) The species predominantly entered with unintentional human assistance</element>
-              <element>h) The species predominantly spread with intentional human assistance</element>
-            </pattern>
-            <patternType>spread</patternType>
-            <region>FR</region>
-          </element>
-        </spread_patterns>
-      </element>
-    </sections>
-    <species_code>
-      <disabled>true</disabled>
-      <index>2</index>
-      <label>EASIN identifier</label>
-      <name>species_code</name>
-      <selected />
-      <type>text</type>
-    </species_code>
-    <table_label />
-  </tab_2>
-  <tab_3>
-    <label>SECTION C</label>
-    <question>Horizontal information</question>
-    <section>
-      <fields>
-        <element>
-          <label>Web link to information on the internet regarding the permits issued as required under Article 8(7) of Regulation (EU) No 1143/2014</label>
-          <name>web_link</name>
-          <selected>http://www.google.ro</selected>
-          <type>textarea</type>
-        </element>
-        <element>
-          <label>File regarding the permits issued as required under Article 8(7) of Regulation (EU) No 1143/2014</label>
-          <name>web_link_file</name>
-          <selected>
-            <element>null/file_2</element>
-          </selected>
-          <type>file</type>
-        </element>
-        <element>
-          <label>Action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014  </label>
-          <name>action_plans_art13</name>
-          <selected>http://www.google.ro2</selected>
-          <type>textarea</type>
-        </element>
-        <element>
-          <label>File regarding the action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014  </label>
-          <name>action_plans_art13_file</name>
-          <selected>
-            <element>null/file_2</element>
-          </selected>
-          <type>file</type>
-        </element>
-        <element>
-          <fields>
-            <element>
-              <inner_field>
-                <label>Species covered  </label>
-                <name>species_covered</name>
-                <selected>Asclepias syriaca</selected>
-                <type>select</type>
-              </inner_field>
-              <label>Priority pathways addressed </label>
-              <name>priority_pathways_addressed</name>
-              <selected>R01529</selected>
-              <type>text</type>
-            </element>
-            <element>
-              <inner_field>
-                <label>Species covered  </label>
-                <name>species_covered</name>
-                <selected>Baccharis halimifolia</selected>
-                <type>select</type>
-              </inner_field>
-              <label>Priority pathways addressed </label>
-              <name>priority_pathways_addressed</name>
-              <selected>R01830</selected>
-              <type>text</type>
-            </element>
-          </fields>
-          <name>priority_pathways</name>
-          <type>add</type>
-        </element>
-        <element>
-          <label>Description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014</label>
-          <name>surveillance_system_art14</name>
-          <selected>http://www.google.ro3</selected>
-          <type>textarea</type>
-        </element>
-        <element>
-          <label>File regarding the description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014</label>
-          <name>surveillance_system_art14_file</name>
-          <selected>
-            <element>null/file_2</element>
-          </selected>
-          <type>file</type>
-        </element>
-        <element>
-          <label>Description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014  </label>
-          <name>official_control_system</name>
-          <selected>http://www.google.ro4</selected>
-          <type>textarea</type>
-        </element>
-        <element>
-          <label>File regarding the description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014  </label>
-          <name>official_control_system_file</name>
-          <selected>
-            <element>null/file_2</element>
-          </selected>
-          <type>file</type>
-        </element>
-        <element>
-          <label>Description of measures taken to inform the public  </label>
-          <name>measures_to_inform_public</name>
-          <selected>http://www.google.ro5</selected>
-          <type>textarea</type>
-        </element>
-        <element>
-          <label>File regarding the description of measures taken to inform the public  </label>
-          <name>measures_to_inform_public_file</name>
-          <selected>
-            <element>null/file_2</element>
-          </selected>
-          <type>file</type>
-        </element>
-        <element>
-          <label>Cost of action undertaken to comply with the Regulation (EU) No 1143/2014 </label>
-          <name>cost</name>
-          <selected>http://www.google.ro6</selected>
-          <type>text</type>
-        </element>
-        <element>
-          <label>File regarding the cost of action undertaken to comply with the Regulation (EU) No 1143/2014 </label>
-          <name>cost_file</name>
-          <selected>
-            <element>null/file_2</element>
-          </selected>
-          <type>file</type>
-        </element>
-        <element>
-          <label>Additional information (optional)</label>
-          <name>additional_info</name>
-          <selected>http://www.google.ro7</selected>
-          <type>textarea</type>
-        </element>
-        <element>
-          <label>File regarding the additional information (optional)</label>
-          <name>additional_info_file</name>
-          <selected>
-            <element>null/file_2</element>
-          </selected>
-          <type>file</type>
-        </element>
-      </fields>
-    </section>
-  </tab_3>
-  <tab_4>
-    <help_text>Upload here the required files is described in the guidelines. Please note that in addition to the file with the spatial data also Inspire conform metadata are required.</help_text>
-    <label>DISTRIBUTION MAPS</label>
-    <question>Distribution maps for the Section A - IAS of Union concern and Section B – IAS of Member States concern</question>
-    <section>
-      <fields>
-        <element>
-          <label>Distribution map for SECTION A</label>
-          <name>section_a_distribution_file</name>
-          <selected>
-            <element>null/file_2</element>
-          </selected>
-          <type>file</type>
-        </element>
-      </fields>
-    </section>
-  </tab_4>
+<IAS xmlns="http://dd.eionet.europa.eu/namespaces/884" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://dd.eionet.europa.eu/namespaces/884  http://dd.eionet.europa.eu/v2/dataset/3421/schema-dst-3421.xsd">
+    <inspectionsPermitsReported xmlns="http://dd.eionet.europa.eu/namespaces/895">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <parent_row_id/>
+            <year/>
+            <permit_purpose/>
+            <number_establishment/>
+            <number_inspected/>
+        </Row>
+    </inspectionsPermitsReported>
+    <permitsIssuedReported xmlns="http://dd.eionet.europa.eu/namespaces/893">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <parent_row_id/>
+            <year/>
+            <permit_purpose/>
+            <number_issued/>
+            <number_valid/>
+        </Row>
+    </permitsIssuedReported>
+    <sectionC xmlns="http://dd.eionet.europa.eu/namespaces/889">
+        <Row>
+            <reportID/>
+            <weblink_permits/>
+            <action_plans/>
+            <file_action_plans/>
+            <surveillance_system/>
+            <file_surveillance_system/>
+            <official_control_system/>
+            <file_official_control_system/>
+            <cost_of_action/>
+            <file_cost_of_action/>
+            <additional_information/>
+            <file_additional_information/>
+        </Row>
+    </sectionC>
+    <sectionBSpecies xmlns="http://dd.eionet.europa.eu/namespaces/888">
+        <Row>
+            <reportID/>
+            <EASINCode/>
+            <scientific_name/>
+            <common_name_naltional/>
+            <present_in_MS/>
+            <reproduction_pattern/>
+            <additional_information/>
+            <additional_information_measures/>
+            <row_id/>
+        </Row>
+    </sectionBSpecies>
+    <distributionMap xmlns="http://dd.eionet.europa.eu/namespaces/890">
+        <Row>
+            <reportID/>
+            <distributionMap_sectionA/>
+            <distributionMap_sectionB/>
+            <inspireMetadata_sectionA/>
+            <inspireMetadata_sectionB/>
+        </Row>
+    </distributionMap>
+    <sectionASpecies xmlns="http://dd.eionet.europa.eu/namespaces/887">
+        <Row>
+            <reportID/>
+            <EASINCode/>
+            <common_name_naltional/>
+            <present_in_MS/>
+            <reproduction_pattern/>
+            <additional_information/>
+            <permits_issued/>
+            <additional_information_permits_issued/>
+            <no_inspections_reported/>
+            <additional_information_inspections/>
+            <eradication_measures/>
+            <subject_management_measures/>
+            <row_id/>
+        </Row>
+    </sectionASpecies>
+    <partTerritory xmlns="http://dd.eionet.europa.eu/namespaces/899">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <parent_row_id/>
+            <name/>
+            <code/>
+        </Row>
+    </partTerritory>
+    <inspectionsPermits xmlns="http://dd.eionet.europa.eu/namespaces/896">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <parent_row_id/>
+            <inspection_status/>
+            <value/>
+            <unit/>
+        </Row>
+    </inspectionsPermits>
+    <permitedSpecimens xmlns="http://dd.eionet.europa.eu/namespaces/894">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <parent_row_id/>
+            <permit_type/>
+            <value/>
+            <unit/>
+        </Row>
+    </permitedSpecimens>
+    <sectionAMeasures xmlns="http://dd.eionet.europa.eu/namespaces/898">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <parent_row_id/>
+            <population_name/>
+            <population_code/>
+            <start_date/>
+            <end_date/>
+            <measure_type/>
+            <no_negative_impact/>
+            <measure_effectiveness/>
+            <additional_information/>
+            <measure_objective/>
+        </Row>
+    </sectionAMeasures>
+    <sectionBMeasures xmlns="http://dd.eionet.europa.eu/namespaces/897">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <parent_row_id/>
+            <measure/>
+        </Row>
+    </sectionBMeasures>
+    <priorityPathway xmlns="http://dd.eionet.europa.eu/namespaces/891">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <pathway_code/>
+            <EASINCode/>
+        </Row>
+    </priorityPathway>
+    <spreadPatterns xmlns="http://dd.eionet.europa.eu/namespaces/892">
+        <Row>
+            <reportID/>
+            <EASINCode/>
+            <row_id/>
+            <parent_row_id/>
+            <section/>
+            <spread_pattern/>
+        </Row>
+    </spreadPatterns>
+    <reporting xmlns="http://dd.eionet.europa.eu/namespaces/885">
+        <Row>
+            <StartYear/>
+            <EndYear/>
+            <reportID/>
+            <has_national_list_MS/>
+            <CountryCode/>
+        </Row>
+    </reporting>
+    <biogeographicalRegion xmlns="http://dd.eionet.europa.eu/namespaces/900">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <parent_row_id/>
+            <code/>
+            <name/>
+            <CountryCode/>
+        </Row>
+    </biogeographicalRegion>
+    <riverBasinSubUnit xmlns="http://dd.eionet.europa.eu/namespaces/901">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <parent_row_id/>
+            <CountryCode/>
+            <name/>
+        </Row>
+    </riverBasinSubUnit>
+    <marineSubRegions xmlns="http://dd.eionet.europa.eu/namespaces/902">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <parent_row_id/>
+            <CountryCode/>
+            <code/>
+            <name/>
+        </Row>
+    </marineSubRegions>
+    <methodsUsed xmlns="http://dd.eionet.europa.eu/namespaces/903">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <parent_row_id/>
+            <methods_used/>
+        </Row>
+    </methodsUsed>
+    <observedNegativeImpacts xmlns="http://dd.eionet.europa.eu/namespaces/904">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <parent_row_id/>
+            <non_targeted_species/>
+            <species/>
+        </Row>
+    </observedNegativeImpacts>
+    <infoImpactSpecies xmlns="http://dd.eionet.europa.eu/namespaces/905">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <parent_row_id/>
+            <impact/>
+        </Row>
+    </infoImpactSpecies>
+    <protectedSpecies xmlns="http://dd.eionet.europa.eu/namespaces/906">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <parent_row_id/>
+            <code/>
+            <name/>
+        </Row>
+    </protectedSpecies>
+    <protectedHabitats xmlns="http://dd.eionet.europa.eu/namespaces/907">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <parent_row_id/>
+            <code/>
+            <name/>
+        </Row>
+    </protectedHabitats>
+    <ecosystems xmlns="http://dd.eionet.europa.eu/namespaces/908">
+        <Row>
+            <reportID/>
+            <row_id/>
+            <parent_row_id/>
+            <group/>
+            <class/>
+        </Row>
+    </ecosystems>
 </IAS>
