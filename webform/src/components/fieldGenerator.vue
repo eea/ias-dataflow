@@ -9,7 +9,8 @@
                  :title="errors.collect(vname, vscope).join('\n')"
                  v-b-tooltip.hover
         >{{ errors.first(vname, vscope) }}</b-badge>
-        <!-- TODO : decimals for kgs-->
+
+        <!-- decimals for kgs-->
         <b-form-input
             :disabled="disabled"
             :name="field.name"
@@ -221,17 +222,20 @@
       <span v-if="validation !== 'false'">
         <multiselect  :close-on-select="false" :clear-on-select="false"
           :hide-selected="true" :preserve-search="true"
-          :multiple=true track-by="text" label="text" v-model="field.selected" :options="field.options"
+          :multiple=true track-by="text" label="text"
+          v-model="field.selected"
+          :options="field.options"
           v-bind:key="vname"
           v-bind:name="vkey"
           :data-vv-as="field.label"
           v-bind:data-vv-scope="vscope"
-          v-validate ="'required'"
+          :v-validate ="validation !== null ? validation : 'falserequire'"
           :disabled="disabled || field.options.length === 0"
         ></multiselect>
       </span>
       <span v-else>
-        <multiselect  :close-on-select="false" :clear-on-select="false"
+        <multiselect
+          :close-on-select="false" :clear-on-select="false"
           :hide-selected="true" :preserve-search="true"
           :multiple=true track-by="text" label="text" v-model="field.selected" :options="field.options"
           v-bind:key="vname"

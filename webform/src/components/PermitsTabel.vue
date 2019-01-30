@@ -319,6 +319,7 @@
           .map((name) => { temp.push(uniq[name]) });
         return { duplicates: duplicates, fields: temp };
       },
+
       disableValidation($event){
         if($event.filter(Boolean).length > 0){
           this.$validator.reset();
@@ -425,7 +426,7 @@
               console.error(err);
             });
           } else {
-            promises.push(self.validateTotalNr());
+            //promises.push(self.validateTotalNr());
           }
         }
 
@@ -483,15 +484,9 @@
         let vname =$el.getAttribute('name');
 
         if(isNumeric){
-
-          //self.$nextTick().then((res) => {
-
-          //self.$set(item.$props.field, "selected",  Math.round($event));
             $el.value = Math.round($event);
             item.$props.field.selected = Math.round($event);
             item.$el.querySelector("input").value = Math.round($event);
-          //});
-          //this.$forceUpdate();
         } else {
           let vf = item.$validator.fields.find(vname);
           if(vf){
@@ -511,21 +506,6 @@
         let promises = [];
 
         // force number instead of decimal
-        /*if(isNumeric){
-          let item = self.$refs[ref][0];
-
-          self.$set(item.$props.field, "selected",  Math.round(item.$props.field.selected));
-          item.$el.querySelector("input").value = Math.round(item.$el.querySelector("input").value);
-
-          self.$nextTick().then((res) => {
-
-            item.$props.field.selected = Math.round(item.$props.field.selected);
-            item.$el.querySelector("input").value = Math.round(item.$el.querySelector("input").value);
-            self.$forceUpdate();
-          });
-          this.$forceUpdate();
-        }*/
-
         let allowed = [
           'total_permited_speciments_main', 'valid_total_permited_speciments_main',
           'number_permitted_specimens_main', 'number_speciments_held_by_non_compliant_establishments_main'

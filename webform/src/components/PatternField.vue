@@ -68,27 +68,6 @@
           </b-col>
         </td>
 
-        <!--<td>
-          <b-input-group>
-            <b-input-group-prepend v-if="errors.has(scope + '_region_' + fieldkey,scope)">
-              <b-badge class="error-badge"  variant="danger"
-                       :title="errors.collect(scope + '_region_' + fieldkey, scope).join('\n')"
-                       v-b-tooltip.hover
-              >{{ errors.first(scope + '_region_' + fieldkey, scope) }}</b-badge>
-            </b-input-group-prepend>
-
-            <b-form-select :options="field.regionOptions" v-model="field.selected.region" v-validate="'required'"
-              data-vv-as="region" v-bind:name="scope + '_region_' + fieldkey"
-              v-bind:key="scope + '_region_' + fieldkey"
-              v-bind:data-vv-scope="scope"
-              :ref="scope + '_region_' + fieldkey"
-              :custom-label="customLabel"
-              @change="validate"
-            ></b-form-select>
-          </b-input-group>
-        </td>-->
-
-        <!--<td v-if='patternfields[0].patternType === "spread"'><b-btn variant="danger" @click="removeRow(fieldkey)">X</b-btn></td>-->
       </tr>
       </tbody>
     </table>

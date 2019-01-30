@@ -505,7 +505,6 @@ export default {
                 });
               }
 
-              // TODO : table_4
               if("undefined" !== typeof sectionI.observations_table){
                 let tmp = JSON.parse(JSON.stringify(sectionF.tables.table_4.table_sections[0].table_fields[0]));
 
@@ -810,11 +809,6 @@ export default {
 
         //fdata.tab_2.scientific_name.selected = data.IAS.tab_2.scientific_name.selected;
         fdata.tab_2.common_name.selected = data.IAS.tab_2.common_name.selected;
-
-        /*data.IAS.tab_2.scientific_name.selected.map((name) => {
-          let newsection = newSection(name, {});
-          sections.push(newsection);
-        });*/
 
         data.IAS.tab_2.sections.map((section) => {
           let newsection = newSection(section.scientific_name, {});
