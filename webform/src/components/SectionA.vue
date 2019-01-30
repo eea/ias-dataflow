@@ -23,12 +23,7 @@
             {{section.common_name.label}}: {{section.common_name.selected.EN}}
           </h5>
 
-          <b-input-group :prepend="section.common_name.labelLanguage" class="inputgroup" style="margin-bottom: 1rem;">
-            <!--  @change="updateSectionCommonName($event,selkey)" -->
-            <b-input v-model="section.common_name.selected[ jsondata.country ]"
-            ></b-input>
-
-          </b-input-group>
+      
 
           <!--<h6>
             {{section.common_name.labelLanguage}}:<span style="font-weight: 600"> {{ section.common_name.selected[ jsondata.country ]}} </span>
@@ -36,7 +31,12 @@
             </b-col>
           </b-row>
         </div>
+    		<b-input-group :prepend="section.common_name.labelLanguage" class="inputgroup" style="margin-bottom: 1rem;">
+            <!--  @change="updateSectionCommonName($event,selkey)" -->
+            <b-input v-model="section.common_name.selected[ jsondata.country ]"
+            ></b-input>
 
+          </b-input-group>
         <b-badge variant="danger" v-if="errors.items.filter((err) => {
           return err.scope === 'sectiona_mandatory_item_'+ seckey || err.scope.indexOf('sectiona_' + seckey + '_') !== -1; }).length > 0"
         v-b-tooltip.hover

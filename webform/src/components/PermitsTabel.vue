@@ -143,8 +143,8 @@
                   </div>
 
                 </div>
-                <b-btn v-if="sfkey === 0" variant="primary" @click="addSubfield(field)" style="margin-bottom: 5px; width: 100%">+</b-btn>
-                <b-btn v-if="sfkey !== 0" variant="danger" @click="removeSubfield(field,sfkey)" style="margin-bottom: 5px; width: 100%">X</b-btn>
+                	<b-btn v-if="sfkey === 0 && excludeSomeFields(field.name)" variant="primary" @click="addSubfield(field)" style="margin-bottom: 5px; width: 100%">+</b-btn>
+                	<b-btn v-if="sfkey !== 0" variant="danger" @click="removeSubfield(field,sfkey)" style="margin-bottom: 5px; width: 100%">X</b-btn>
             </div>
 
             <div v-if="field.name !== 'year' && field.type !== 'add'">
@@ -275,6 +275,12 @@
           this.validate();
           this.$forceUpdate();
       },
+
+			excludeSomeFields(fieldName) {
+				console.log(fieldName)
+				if(['permits_number_main','valid_permits_number_main', 'number_establishments_inspections_main', 'establishments_non_compliant_main'].includes(fieldName)) return false
+				else return true
+			},
 
       changeRow($event, rkey){
         let newlabel = this.initialRows[$event].label;
