@@ -100,9 +100,12 @@ var webpackConfig = merge(baseWebpackConfig, {
         from: path.resolve(__dirname, '../static/river_basins'),
         to: config.build.assetsSubDirectory
       },{
+        from: path.resolve(__dirname, '../static/speciesb'),
+        to: config.build.assetsSubDirectory
+      },{
         from: path.resolve(__dirname, '../static'),
         to: config.build.assetsSubDirectory,
-        ignore: ['.*','files.json','prefill.json', 'biogeoghraphical_regions', 'marine_subregions', 'nuts_regions', 'river_basins']
+        ignore: ['.*','files.json','prefill.json', 'biogeoghraphical_regions', 'marine_subregions', 'nuts_regions', 'river_basins', 'speciesb']
       },{
         from: path.resolve(__dirname, '../dist-example'),
         to: config.build.assetsSubDirectory,

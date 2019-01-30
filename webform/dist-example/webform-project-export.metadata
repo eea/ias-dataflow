@@ -1342,6 +1342,50 @@
     "remoteForm": false,
     "fileType": "FILE"
   },
+	{
+    "title": "EE_speciesB.json",
+    "file":
+    {
+      "name": "EE_speciesB.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+	{
+    "title": "ES_speciesB.json",
+    "file":
+    {
+      "name": "ES_speciesB.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+	{
+    "title": "FR_speciesB.json",
+    "file":
+    {
+      "name": "FR_speciesB.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+	{
+    "title": "IE_speciesB.json",
+    "file":
+    {
+      "name": "IE_speciesB.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
   {
     "title": "IAS",
     "file":
