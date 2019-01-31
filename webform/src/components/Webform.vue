@@ -110,7 +110,9 @@ import DistributionMap from './DistributionMap.vue'
 import Countrytab from './Country.vue'
 import FormSubmit from './FormSubmit.vue'
 import form from '../assets/form.js'
+import pathways from '../assets/priority_pathways.js'
 // import incidentJson from '../assets/incident.js';
+import bstructure from '../assets/sectionBSpeciesStructure.js'
 
 export default {
   name: 'Webform',
@@ -153,9 +155,8 @@ export default {
         getCountry().then((result) => {
           //console.dir(result);
           this.country = result;
-          this.prefill(instance_data,fdata);
           this.form = fdata;
-          this.prefilled = true;
+          this.prefill(instance_data,fdata);
         })
       })
     }).catch((rej) => {
@@ -167,761 +168,191 @@ export default {
     openErrorModal(){
       if("undefined" !== typeof this.$refs.errorsModal) this.$refs.errorsModal.show();
     },
+  sanitizeSection(data, prefillData) {
+        let section = data.IAS[prefillData].Row
+        if(!section)
+          section = []
+        if(section && !Array.isArray(section))
+          section = [section]
+        return section
+  },
+   prefill(data, form) {
+     this.prefillSectionA(data, form)
+     this.prefillSectionB(data, form)
+     this.prefillSectionC(data, form)
+     this.prefillDistributionMaps(data, form)
+     this.prefilled = true
+   },
 
-    prefill(data,fdata){
-			this.prefilled = true
-			return
-      let self = this;
-      if('undefined' !== typeof data.IAS.country){
-        if('undefined' !== typeof data.IAS.country.tables &&
-          'undefined' !== typeof data.IAS.country.tables.table_1 &&
-          'undefined' !== typeof data.IAS.country.tables.table_1.fields
-          && "function" === typeof data.IAS.country.tables.table_1.fields.map
-        )
-        data.IAS.country.tables.table_1.fields.map((field, ix) => {
-          fdata.country.tables.table_1.fields[ix].selected = field.selected;
-        });
-      }
+   prefillSectionA(data, form) {
+      const prefillData = data.IAS.sectionASpecies.Row
+      const spreadPatterns = this.sanitizeSection(data, 'spreadPatterns')
+      const sectionAMeasures = this.sanitizeSection(data, 'sectionAMeasures')
+      const permitedSpecimens = this.sanitizeSection(data, 'permitedSpecimens')
+      const permitsIssuedReported = this.sanitizeSection(data, 'permitsIssuedReported')
+      const inspectionsPermitsReported = this.sanitizeSection(data , 'inspectionsPermitsReported')
+      const partTerritory = this.sanitizeSection(data, 'partTerritory')
+      const biogeographicalRegion = this.sanitizeSection(data, 'biogeographicalRegion')
+      const riverBasinSubUnit = this.sanitizeSection(data, 'riverBasinSubUnit')
+      const marineSubRegions = this.sanitizeSection(data, 'marineSubRegions')
+      const methodsUsed = this.sanitizeSection(data, 'methodsUsed')
+      const observedNegativeImpacts = this.sanitizeSection(data, 'observedNegativeImpacts')
+      const infoImpactSpecies = this.sanitizeSection(data, 'infoImpactSpecies')
+      const protectedSpecies = this.sanitizeSection(data, 'protectedSpecies')
+      const protectedHabitats = this.sanitizeSection(data, 'protectedHabitats')
+      const ecosystems = this.sanitizeSection(data, 'ecosystems')
 
-      if('undefined' !== typeof data.IAS.tab_0 && "function" === typeof data.IAS.tab_0.map){
-        data.IAS.tab_0.map((field) => {
-          fdata.tab_0.tables.table_1.fields.map((f) => {
-            if(f.name === field.name) f.selected = field.selected;
-          });
-        });
-      }
+      prefillData.forEach(species => {
+        const currentFormSection = form.tab_1.sections.find(formSection => species.EASINCode === formSection.species_code.selected)
+        currentFormSection.common_name.selected[this.country] = species.common_name_national
+        currentFormSection.mandatory_item.selected = species.present_in_ms
+        currentFormSection.additional_info.selected = species.additional_information
+        currentFormSection.depending_on_mandatory.reproduction_patterns[0].selected.pattern = species.reproduction_pattern
+        const row_id = species.row_id
+        currentFormSection.depending_on_mandatory.spread_patterns[0].selected.pattern = []
+        
+        // tables
 
-      if('undefined' !== typeof data.IAS.tab_1 && "function" === typeof data.IAS.tab_1.sections.map){
-        data.IAS.tab_1.sections.map((sectionI) => {
-          fdata.tab_1.sections = fdata.tab_1.sections.map((sectionF) => {
-            if(sectionI.scientific_name === sectionF.scientific_name.selected){
-              if( sectionF.mandatory_item.selected !== '') sectionF.mandatory_item.selected = sectionI.mandatory_item.selected;
+        currentFormSection.tables.table_1.question.selected = species.permits_issued
+        currentFormSection.tables.table_2.question.selected = species.eradication_measures
+        currentFormSection.tables.table_3.question.selected = species.subject_management_measures
 
-              //TODO: common name
-              let country = fdata.country.tables.table_1.fields[0].selected;
-              if( "undefined" !== typeof sectionI.common_name[country] ){
-                sectionF.common_name.selected[country] = sectionI.common_name[country];
-              }
 
-              // reproduction_patterns
-              if( sectionI.reproduction_patterns.length > 0 ){
-                let blank = JSON.parse(JSON.stringify(sectionF.depending_on_mandatory.reproduction_patterns[0]));
+        spreadPatterns.forEach(pattern => {
+          pattern.section === 'A' 
+          && pattern.parent_row_id === row_id 
+          && currentFormSection.depending_on_mandatory.spread_patterns[0].selected.pattern.push(currentFormSection.depending_on_mandatory.spread_patterns[0].options.find(o => 
+            o.value === pattern.spread_pattern
+          ))
+        })
 
-                sectionI.reproduction_patterns.map((pat, ix) => {
-                  if(ix !== 0){
-                    sectionF.depending_on_mandatory.reproduction_patterns[ix] = JSON.parse(JSON.stringify(blank));
-                  }
-                  let found = sectionF.depending_on_mandatory.reproduction_patterns[ix].options.filter((op) => {
-                    return op.text === pat.pattern;
-                  });
-                  if(found.length > 0) {
-                    sectionF.depending_on_mandatory.reproduction_patterns[ix].selected.pattern =  found[0].value;
-                    sectionF.depending_on_mandatory.reproduction_patterns[ix].selected.region =  pat.region;
-                  }
-                });
-              }
-
-              if( sectionI.spread_patterns.length > 0 ){
-                let blank = JSON.parse(JSON.stringify(sectionF.depending_on_mandatory.spread_patterns[0]));
-
-                sectionI.spread_patterns.map((pat, ix) => {
-                  if(ix !== 0){
-                    sectionF.depending_on_mandatory.spread_patterns[ix] = JSON.parse(JSON.stringify(blank));
-                  }
-
-                  let found = pat.pattern.map((p) => {
-                    let f = sectionF.depending_on_mandatory.spread_patterns[ix].options.filter((ops) => {
-                      return ops.text === p;
-                    });
-                    return f[0];
-                  });
-                  if(found.length > 0) {
-                    sectionF.depending_on_mandatory.spread_patterns[ix].selected.pattern = found;
-                    sectionF.depending_on_mandatory.spread_patterns[ix].selected.region =  pat.region;
-                  }
-                });
-              }
-
-              if( "undefined" !== typeof sectionI.additional_info && sectionI.additional_info.selected !== ''){
-                sectionF.additional_info.selected = sectionI.additional_info.selected;
-              }
-
-              if("undefined" !== typeof sectionI.permits_info &&
-                "undefined" !== typeof sectionI.permits_info.question &&
-                sectionI.permits_info.question.selected !== '' ){
-                // permits_info
-
-                if("undefined" !== sectionI.permits_info.question){
-                  sectionF.tables.table_1.question.selected = sectionI.permits_info.question.selected;
-                }
-
-                // table
-                sectionI.permits_info.table_sections.map((tabel,ix) => {
-                  if("undefined" === typeof sectionF.tables.table_1.table_sections[ix].additional_info){ return false; }
-
-                  sectionF.tables.table_1.table_sections[ix].additional_info.selected = tabel.additional_info.selected;
-
-                   sectionF.tables.table_1.table_sections.map((ts, itx) => {
-                     if(ts.name === tabel.name){
-                       if(tabel.rows.length === 0) return true;
-
-                       tabel.rows.map((row) => {
-                         let newf = ts.table_fields.optionsFields.filter((r, ri) => {
-                           if(r.label === row.label){
-                             r.index = ri;
-                             return r;
-                           }
-                           //return false;
-                         })[0];
-
-                         let newr = JSON.parse(JSON.stringify(newf));
-                         newr.label = row.label;
-
-                         row.fields.map((rfield) => {
-                           newr.fields.map((field, fi) => {
-
-                             Object.keys(rfield).map((prop) => {
-                               if(prop === field.name || prop+'_main' === field.name){
-                                 //if array
-                                 if(rfield[prop] instanceof Array){
-                                    let deffield = JSON.parse(JSON.stringify(field.fields[0]));
-                                    newr.fields[fi].fields = [];
-
-                                    rfield[prop].map((rfp, ri) => {
-                                      let tmpf = JSON.parse(JSON.stringify(deffield));
-
-                                      tmpf.fields = tmpf.fields.map((f) => {
-                                        f.selected = rfp[f.name];
-                                        return f;
-                                      });
-                                      newr.fields[fi].fields.push(tmpf);
-                                    });
-                                 } else {
-                                   if(typeof rfield[prop] === "number"){
-                                     newr.fields[fi].selected = rfield[prop];
-                                   } else {
-                                     if("undefined" !== typeof newr.fields[fi].fields){
-                                       newr.fields[fi].fields = newr.fields[fi].fields.map((nwfield) => {
-                                         if( "undefined" !== typeof nwfield.fields){
-                                           nwfield.fields = nwfield.fields.map((nwf) => {
-                                             nwf.selected = rfield[nwf.name];
-                                             return nwf;
-                                           });
-                                           return nwfield;
-                                         }
-                                       });
-                                     }
-                                   }
-                                 }
-                               }
-                             });
-
-                           });
-                         });
-
-                         sectionF.tables.table_1.table_sections[itx].table_fields.fields.push(newr);
-                       });
-                     }
-                   });
-                });
-              }
-
-              // eradication_measures_info
-              if( "undefined" !== typeof sectionI.eradication_measures_info &&
-                "undefined" !== typeof sectionI.eradication_measures_info.question &&
-                sectionI.eradication_measures_info.question.selected !== '' ){
-                let found = sectionF.tables.table_2.question.options.filter((op) => {
-                  return op.text === sectionI.eradication_measures_info.question.selected;
-                });
-                if(found.length > 0) sectionF.tables.table_2.question.selected = found[0].value;
-
-                let oldt = JSON.parse(JSON.stringify(sectionF.tables.table_2.tables[0]));
-
-                sectionF.tables.table_2.tables = [];
-
-                sectionI.eradication_measures_info.tables.map((populationO) => {
-                  let temp = JSON.parse(JSON.stringify(oldt));
-                  temp.name = populationO.name;
-                  temp.label = populationO.name;
-
-                  populationO.table_sections.map((pts) => {
-                    temp.table_sections = temp.table_sections.map((ts) => {
-                      ts.table_fields.fields = ts.table_fields.fields.map((subfield) => {
-                        let arr = [];
-                        subfield.fields = subfield.fields.map((field, fix) => {
-                          let found = pts.table_fields.filter((pfield) => {
-                            return pfield.name === field.name;
-                          });
-                          if(found.length > 1){
-                            if("undefined" !== typeof subfield.type && subfield.type === "add"){
-                              found.map((foundfield, fidx) => {
-                                let tmptf = JSON.parse(JSON.stringify(field));
-                                if("undefined" !== typeof tmptf){
-                                  tmptf.selected = foundfield.selected;
-                                  if("undefined" !== typeof tmptf.inner_field){
-                                    tmptf.inner_field.selected = foundfield.inner_field.selected;
-                                  }
-                                  arr.push(tmptf);
-                                }
-                              });
-                            } else {
-                              if(found instanceof Array){
-                                found.map((foundfield, fidx) => {
-                                  if(foundfield.name === field.name){
-                                    field.selected = foundfield.selected;
-                                  }
-                                });
-                              } else {
-                                console.log(found);
-                              }
-
-                            }
-                            //return false;
-                          }  else {
-                            const arr = [
-                              //"river_basin_subunits",
-                              //"marine_sub_regions",
-                              "effectiveness_measure"
-                            ];
-                            if(arr.indexOf(field.name) !== -1){
-                              if("undefined" !== typeof found[0].selected[0]  && found[0].selected instanceof Array){
-                                field.selected = found[0].selected[0].value;
-                              } else {
-                                field.selected = found[0].selected;
-                              }
-                            } else {
-                              field.selected = found[0].selected;
-                              if("undefined" !== typeof found[0].inner_field){
-                                field.inner_field.selected = found[0].inner_field.selected;
-                              }
-                            }
-
-                          }
-                          return field;
-                        }).filter(Boolean);
-                        if(arr.length > 0) subfield.fields = arr;
-                        return subfield;
-                      });
-                      if("undefined" !== typeof pts.additional_info.selected) ts.additional_info.selected = pts.additional_info.selected;
-                      return ts;
-                    });
-
-                  });
-                  /*if(populationO.name === "National Population #3"){
-                    console.log(temp.table_sections);
-                  }*/
-                  sectionF.tables.table_2.tables.push(temp);
-                });
-              }
-
-              // management_measures_info
-              if( "undefined" !== typeof sectionI.management_measures_info &&
-                "undefined" !== typeof sectionI.management_measures_info.question &&
-                sectionI.management_measures_info.question.selected !== '' ){
-                let found = sectionF.tables.table_3.question.options.filter((op) => {
-                  return op.text === sectionI.management_measures_info.question.selected;
-                });
-                if(found.length > 0) sectionF.tables.table_3.question.selected = found[0].value;
-
-                let oldt = JSON.parse(JSON.stringify(sectionF.tables.table_3.tables[0]));
-
-                sectionF.tables.table_3.tables = [];
-
-                sectionI.management_measures_info.tables.map((populationO) => {
-                  let temp = JSON.parse(JSON.stringify(oldt));
-                  temp.name = populationO.name;
-                  temp.label = populationO.name;
-
-                  // populations
-                  populationO.table_sections.map((pts) => {
-                    temp.table_sections = temp.table_sections.map((ts) => {
-
-                      ts.table_fields.fields = ts.table_fields.fields.map((subfield) => {
-                        let arr = [];
-                        subfield.fields = subfield.fields.map((field, fix) => {
-                          let found = pts.table_fields.filter((pfield) => {
-                            return pfield.name === field.name;
-                          });
-
-                          if(found.length > 1){
-                            if("undefined" !== typeof subfield.type && subfield.type === "add"){
-
-                              found.map((foundfield, fidx) => {
-                                let tmptf = JSON.parse(JSON.stringify(field));
-                                if("undefined" !== typeof tmptf){
-                                  if("undefined" !== typeof tmptf.inner_field){
-                                    tmptf.selected = foundfield.selected;
-                                    tmptf.inner_field.selected = foundfield.inner_field.selected;
-                                  }
-                                  arr.push(tmptf);
-                                }
-                              });
-                            } else {
-                              if(found instanceof Array){
-
-                                found.map((foundfield, fidx) => {
-                                  if(foundfield.name === field.name){
-                                    field.selected = foundfield.selected;
-                                  }
-                                });
-                              } else {
-                                console.log(found);
-                              }
-
-                            }
-                          } else if(found.length === 1) {
-                            const arr = [
-                              "measures_objective",
-                              //"river_basin_subunits",
-                              //"marine_basin_subunits",
-                              "effectiveness_measure"
-                            ];
-                            if(arr.indexOf(field.name) !== -1){
-                              if("undefined" !== typeof found[0].selected[0] && found[0].selected instanceof Array){
-                                field.selected = found[0].selected[0].value;
-                              } else {
-                                field.selected = found[0].selected;
-                              }
-                            } else {
-                              field.selected = found[0].selected;
-
-                              if("undefined" !== typeof found[0].inner_field){
-                                field.inner_field.selected = found[0].inner_field.selected;
-                              }
-                            }
-                          } else {
-                            //return false;
-                          }
-                          return field;
-                        }).filter(Boolean);
-                        if(arr.length > 0) subfield.fields = arr;
-                        return subfield;
-                      });
-                      if("undefined" !== typeof pts.additional_info.selected) ts.additional_info.selected = pts.additional_info.selected;
-                      return ts;
-                    });
-                  });
-                  sectionF.tables.table_3.tables.push(temp);
-                });
-              }
-
-              if("undefined" !== typeof sectionI.observations_table){
-                let tmp = JSON.parse(JSON.stringify(sectionF.tables.table_4.table_sections[0].table_fields[0]));
-
-                sectionI.observations_table.table_sections[0].table_fields.map((rI, rix) =>{
-                  if(rix === 0 ) sectionF.tables.table_4.table_sections[0].table_fields = [];
-                  let newr = JSON.parse(JSON.stringify(tmp));
-                  rI.fields.map((rf, rfi) => {
-                    newr.fields.map((f, fi) => {
-                      if (rf.name === f.name){
-                        if(rf.selected instanceof Array) {
-                          newr.fields[fi].selected = rf.selected;
-                        } else {
-                          newr.fields[fi].selected = rf.selected;
-                        }
-                      }
-                    });
-                  });
-
-                  sectionF.tables.table_4.table_sections[0].table_fields.push(newr);
-                })
-
-              }
-
-            }
-            return sectionF;
-          });
-
-        });
-      }
-
-      if("undefined" !== typeof data.IAS.tab_2 && "function" === typeof data.IAS.tab_2.sections.map ){
-
-        function newSection(sci_name,com_name ){
-          let tab_1_section = {
-            scientific_name: {
-              label: 'Species scientific name',
-              selected: sci_name,
-              type: 'text',
-              disabled: true,
-              name: 'scientific_name',
-              index: 1,
-            },
-            common_name: {
-              label: "Common name of the species (optional)",
-              selected: com_name,
-              disabled: true,
-              name: 'common_name',
-              type: 'text',
-              index: 2,
-            },
-            mandatory_item: {
-              label: 'Is the species present in the territory of the Member State?',
-              type: 'select',
-              selected: 1,
-              options: [{ value: true, text: "Yes" }, { value: false, text: "No" },
-                 { value: 'unknown', text: "Currently unknown" }
-              ],
-              index: 3,
-              name: 'mandatory_question',
-            },
-            depending_on_mandatory: {
-              label: 'A distribution map for this species has to be included in the file which will be uploaded in the \'Distribution map for SECTION B\' field available on \'DISTRIBUTION MAP\' section (optional).',
-              index: 4,
-              name: 'distribution_of_species',
-              fields: [
-                {
-                  label: 'Tick if yes',
-                  type: 'checkbox',
-                  name: 'distribution_maps_check',
-                  selected: false,
-                },
-              ],
-
-              reproduction_patterns: [
-                {
-                  label: 'Reproduction patterns',
-                  type: 'select',
-                  add: true,
-                  patternType: 'reproduction',
-                  name: 'reproduction patterns',
-                  multiple: false,
-                  selected: {
-                    region: null,
-                    pattern: null
-                  },
-                  options:[
-                    {
-                      text: 'Sexual', value: 0,
-                    },
-                    {
-                      text: 'Asexual', value: 1,
-                    },
-                    {
-                      text: 'Both (sexual and asexual)', value : 2,
-                    },
-                    {
-                      text: 'Unclear (sexual or asexual) ', value: 3,
-                    },
-                    {
-                      text: 'Not reproducing in the Member State', value: 4,
-                    },
-                    {
-                      text: 'Unknown whether the species reproduces in the Member State', value: 5,
-                    }
-                  ],
-
-                }
-              ],
-              spread_patterns:[
-                {
-                  label: 'Spread patterns',
-                  type: 'select',
-                  patternType: 'spread',
-                  name: 'spread_patterns',
-                  add: true,
-                  multiple: true,
-                  selected: {
-                    region: null,
-                    pattern: null
-                  },
-                  options:[
-                    {
-                      text: 'a) The species was already widely spread before 2015',
-                      index: 'a',
-                      value: 0,
-                    },
-
-                    {
-                      text: 'b) The species predominantly entered through natural dispersal from a neighbouring country',
-                      index: 'b',
-                      value: 1,
-                    },
-
-                    {
-                      text:'c) The species predominantly entered with unintentional human assistance',
-                      index: 'c',
-                      value : 2,
-                    },
-
-                    {
-                      text: 'd) The species predominantly entered with intentional human assistance',
-                      index: 'd',
-                      value: 3,
-                    },
-
-                    {
-                      text: 'e) There is no evidence of new entries into the Member State',
-                      index: 'e',
-                      value: 4,
-                    },
-
-                    {
-                      text: 'f) The species predominantly spread through natural dispersal',
-                      index: 'f',
-                      value: 5,
-                    },
-
-                    {
-                      text: 'g) The species predominantly spread with unintentional human assistance',
-                      index: 'g',
-                      value: 6,
-                    },
-
-                    {
-                      text: 'h) The species predominantly spread with intentional human assistance',
-                      index: 'h',
-                      value: 7,
-                    },
-
-                    {
-                      text: 'i) There is no evidence of spread within the Member State',
-                      index: 'i',
-                      value: 8,
-                    },
-
-                    {
-                      text: 'j) The species spread from the Member State into other Member State(s)',
-                      index: 'j',
-                      value: 9
-                    }
-                  ],
-
-                },
-              ]
-            },
-            additional_info: {
-              label: 'Additional information (optional)',
-              type: 'textarea',
-              index: 5,
-              selected: '',
-              name: 'additional_info'
-            },
-            section: {
-              label: "Measure(s) applied in the territory of the Member State in relation to the species",
-              fields: [
-                {
-                  type: "checkbox",
-                  name: "restTransport",
-                  label: "Restriction to intentionally transport, except in the context of eradication",
-                  selected: false,
-                },
-                {
-                  type: "checkbox",
-                  name: "restMarket",
-                  label: "Restriction to intentionally place on the market",
-                  selected: false,
-                },
-                {
-                  type: "checkbox",
-                  name: "restUse",
-                  label: "Restriction to intentionally use or exchange ",
-                  selected: false,
-                },
-                {
-                  type: "checkbox",
-                  name: "restReproduce",
-                  label: "Restriction to intentionally permit to reproduce, grown or cultivated, including in contained holding ",
-                  selected: false,
-                },
-                {
-                  type: "checkbox",
-                  name: "restRelease",
-                  label: "Restriction to intentionally release into the environment",
-                  selected: false,
-                },
-                {
-                  type: "checkbox",
-                  name: "derogations",
-                  label: "Derogations foreseen within the permit system under Article 8  ",
-                  selected: false,
-                },
-                {
-                  type: "checkbox",
-                  name: "actionPlans",
-                  label: "Addressed in the action plans pursuant to Article 13 ",
-                  selected: false,
-                },
-                {
-                  type: "checkbox",
-                  name: "survSystem",
-                  label: "Covered by the surveillance system pursuant to Article 14",
-                  selected: false,
-                },
-                {
-                  type: "checkbox",
-                  name: "officialControls",
-                  label: "Official controls to prevent the intentional introduction",
-                  selected: false,
-                },
-                {
-                  type: "checkbox",
-                  name: "earlyDetection",
-                  label: "Subject to early detection system",
-                  selected: false,
-                },
-                {
-                  type: "checkbox",
-                  name: "rapidEradication",
-                  label: "Subject to rapid eradication following an early detection  ",
-                  selected: false,
-                },
-                {
-                  type: "checkbox",
-                  name: "managMeasures",
-                  label: "Subject to management measures if widely spread",
-                  selected: false,
-                },
-                {
-                  type: "checkbox",
-                  name: "restMeasures",
-                  label: "Restoration measures",
-                  selected: false,
-                },
-                {
-                  type: "checkbox",
-                  name: "not_included",
-                  label: "The species is included in the national list but is not subject to any measures",
-                  selected: false,
-                },
-                {
-                  type: "textarea",
-                  name: "additional_info",
-                  label: "Additional information (optional)",
-                  selected: '',
-                },
-              ]
-            }
-          };
-
-          return tab_1_section;
+        if(species.permits_issued) {
+          // permits
+          permitedSpecimens.filter(permitedSpecimen => permitedSpecimen.parent_row_id === row_id).forEach(permitedSpecimen => {
+            
+          })
         }
-        let sections = [];
 
-        //TODO : add if from options
-        // TODO: change sections to add scientific name as key?? optimization
-        let tosearch = data.IAS.tab_2.sections.map((s) => { return s.scientific_name.value});
+        if(species.eradication_measures) {
+          // eradications measures
+        }
 
-        let foundsn = fdata.tab_2.scientific_name.options.filter((op) => {
-          return tosearch.indexOf(op.value) !== -1;
-        });
-        foundsn.map((sn) => { fdata.tab_2.scientific_name.selected.push(sn); });
+        if(species.subject_management_measures) {
+          // management measures
+        }
 
-        //fdata.tab_2.scientific_name.selected = data.IAS.tab_2.scientific_name.selected;
-        fdata.tab_2.common_name.selected = data.IAS.tab_2.common_name.selected;
+      })
 
-        data.IAS.tab_2.sections.map((section) => {
-          let newsection = newSection(section.scientific_name, {});
-          sections.push(newsection);
-        });
 
-        sections = sections.map((section) => {
-          data.IAS.tab_2.sections.map((sectionI) => {
+   },
 
-            if( sectionI.scientific_name.value === section.scientific_name.selected.value){
-              section.common_name.selected = sectionI.common_name.selected;
+    prefillSectionB(data, form) {
+      let prefillData = data.IAS.sectionBSpecies.Row
+      if(!prefillData) 
+        return
 
-              let f = section.mandatory_item.options.filter((op) => {
-                return op.text === sectionI.mandatory_item.selected;
-              });
-              if(f.length > 0) section.mandatory_item.selected = JSON.parse(JSON.stringify(f[0])).value;
+      if(prefillData && !Array.isArray(prefillData)) 
+        prefillData = [prefillData]
 
-              section.additional_info.selected = sectionI.additional_info.selected;
+      let spreadPatterns = this.sanitizeSection(data, 'spreadPatterns')
+      let sectionBMeasures = this.sanitizeSection(data, 'sectionBMeasures')
 
-              if( sectionI.reproduction_patterns.length > 0 ){
+      prefillData.forEach(section => {
+        const sci_name = {
+          cname: section.common_name_national,
+          code: section.EASINCode,
+          text: section.scientific_name
+        }
+        const common_name = {
+          cname: section.common_name_national,
+          text: section.common_name_national,
+          value: section.common_name_national
+        } 
+        const sectionB = bstructure(sci_name, common_name)
+        form.tab_2.sections.push(sectionB)
 
-                let blank = JSON.parse(JSON.stringify(section.depending_on_mandatory.reproduction_patterns[0]));
+        const row_id = section.row_id
 
-                sectionI.reproduction_patterns.map((pat, ix) => {
-                  if(ix !== 0){
-                    section.depending_on_mandatory.reproduction_patterns[ix] = JSON.parse(JSON.stringify(blank));
-                  }
-                  let found = section.depending_on_mandatory.reproduction_patterns[ix].options.filter((op) => {
-                    return op.text === pat.pattern;
-                  });
-                  if(found.length > 0) {
-                    section.depending_on_mandatory.reproduction_patterns[ix].selected.pattern =  found[0].value;
-                    section.depending_on_mandatory.reproduction_patterns[ix].selected.region =  pat.region;
-                  }
-                });
+        sectionB.additional_info.selected = section.additional_information
+        sectionB.mandatory_item.selected = section.present_in_MS
+        sectionB.depending_on_mandatory.reproduction_patterns[0].selected = {pattern: section.reproduction_pattern, region: null}
+        sectionB.depending_on_mandatory.spread_patterns[0].selected.pattern = []
+        sectionB.section.fields.find(field => field.name === 'additional_info').selected = section.additional_information_measures
+        spreadPatterns.forEach(pattern => {
+          pattern.section === 'B' 
+          && pattern.parent_row_id === row_id 
+          && sectionB.depending_on_mandatory.spread_patterns[0].selected.pattern.push(sectionB.depending_on_mandatory.spread_patterns[0].options.find(o => 
+            o.value === pattern.spread_pattern
+          ))
+        })
 
-              }
+        sectionBMeasures.forEach(measure => {
+          if(measure.parent_row_id === row_id) {
+            console.log(measure.measure)
+            sectionB.section.fields.find(checkbox => checkbox.name === measure.measure).selected = true
+          } 
+        })
 
-              if( sectionI.spread_patterns.length > 0 ){
-                let blank = JSON.parse(JSON.stringify(section.depending_on_mandatory.spread_patterns[0]));
+      })
 
-                sectionI.spread_patterns.map((pat, ix) => {
-                  if(ix !== 0){
-                    section.depending_on_mandatory.spread_patterns[ix] = JSON.parse(JSON.stringify(blank));
-                  }
+    },
 
-                  let found = pat.pattern.map((p) => {
-                    let f = section.depending_on_mandatory.spread_patterns[ix].options.filter((ops) => {
-                      return ops.text === p;
-                    });
-                    return f[0];
-                  });
-                  if(found.length > 0) {
-                    section.depending_on_mandatory.spread_patterns[ix].selected.pattern = found;
-                    //section.depending_on_mandatory.spread_patterns[ix].selected.region =  pat.region;
-                  }
-                });
-              }
+    prefillDistributionMaps(data, form) {
+      const prefillData = data.IAS.distributionMap.Row
+      const section = form.tab_4.section.fields
+      section.find(field => field.name === 'section_a_distribution_file').selected[0] = prefillData.distributionMap_sectionA
+      section.find(field => field.name === 'section_b_distribution_file').selected[0] = prefillData.distributionMap_sectionB
+      section.find(field => field.name === 'section_a_inspire').selected[0] = prefillData.inspireMetadata_sectionA
+      section.find(field => field.name === 'section_b_inspire').selected[0] = prefillData.inspireMetadata_sectionB
+    },
 
-              sectionI.section.fields.map((field) => {
-                section.section.fields = section.section.fields.map((sfield) => {
-                  if(sfield.name === field.name){
-                    sfield.selected = field.selected;
-                  }
-                  return sfield;
-                });
-              });
-            }
-          });
-          return section;
-        });
-        fdata.tab_2.sections = sections;
-      }
 
-      if("undefined" !== typeof data.IAS.tab_3 && "function" === typeof data.IAS.tab_3.section.fields.map){
-        data.IAS.tab_3.section.fields.map((sectionI) => {
-          fdata.tab_3.section.fields = fdata.tab_3.section.fields.map((fsection) => {
-            if(sectionI.name === fsection.name){
-              if( sectionI.type !== "add"){
-                fsection.selected = sectionI.selected;
-              } else {
-                let temp = JSON.parse(JSON.stringify(fsection.fields[0]));
-                if(sectionI.fields.length > 0){
-                  fsection.fields = [];
-                  sectionI.fields.map((field) => {
-                    let newfield = JSON.parse(JSON.stringify(temp));
-                    newfield.selected = field.selected;
-                    newfield.inner_field.selected = field.inner_field.selected;
-                    fsection.fields.push(newfield);
-                  });
-                }
+    prefillSectionC(data, form) {
+      const prefillData = data.IAS.sectionC.Row
+      const section = form.tab_3.section.fields
+      const priorityPathwayData = data.IAS.priorityPathway.Row
+      const priorityPathwayDestination = section.find(field => field.name === 'priority_pathways').fields
 
-              }
 
-            }
-            return fsection;
-          });
-        });
-      }
+      section.find(field => field.name === 'web_link').selected = prefillData.weblink_permits 
+      section.find(field => field.name === 'action_plans_art13').selected = prefillData.action_plans
+      section.find(field => field.name === 'action_plans_art13_file').selected = [prefillData.file_action_plans]
+      section.find(field => field.name === 'surveillance_system_art14').selected = prefillData.surveillance_system
+      section.find(field => field.name === 'surveillance_system_art14_file').selected = [prefillData.file_surveillance_system]
+      section.find(field => field.name === 'official_control_system').selected = prefillData.official_control_system
+      section.find(field => field.name === 'official_control_system_file').selected = [prefillData.file_official_control_system]
+      //TODO: missing mescription of measures taken
+      section.find(field => field.name === 'cost').selected = prefillData.cost_of_action
+      section.find(field => field.name === 'cost_file').selected = [prefillData.file_cost_of_action]
+      section.find(field => field.name === 'additional_info').selected = prefillData.additional_information
+      section.find(field => field.name === 'additional_info_file').selected = [prefillData.file_additional_information]
 
-      if("undefined" !== typeof data.IAS.tab_4 && "function" === typeof data.IAS.tab_4.section.fields.map){
-        data.IAS.tab_4.section.fields.map((field) => {
-          fdata.tab_4.section.fields = fdata.tab_4.section.fields.map((sfield) => {
-            if(field.name === sfield.name){
-              sfield.selected = field.selected;
-            }
-            return sfield;
-          });
-        });
-      }
+      const mergedPathways = []
 
-      this.form = fdata;
-      this.prefilled = true;
+      Array.isArray(priorityPathwayData) && priorityPathwayData.forEach(pathway => {
+        const existing = mergedPathways.find(mergedPathway => mergedPathway.row_id === pathway.row_id && mergedPathway.pathway_code === pathway.pathway_code)
+        if(existing) {
+          existing.EASINCode = [...(Array.isArray(existing.EASINCode) ? existing.EASINCode: [existing.EASINCode]), pathway.EASINCode]
+        } else {
+          mergedPathways.push(pathway)
+        }
+      })
+
+      if(!Array.isArray(priorityPathwayData)) {
+        priorityPathwayData.EASINCode = [priorityPathwayData.EASINCode]
+        mergedPathways.push(priorityPathwayData)
+      } 
+
+      mergedPathways.forEach((pathway, index) => {
+        const priorityPathwayEmpty = JSON.parse(JSON.stringify(section.find(field => field.name === 'priority_pathways').fields[0]))
+        priorityPathwayEmpty.selected = priorityPathwayEmpty.options.find(p => p.value == pathway.pathway_code)
+        priorityPathwayEmpty.inner_field.selected = pathway.EASINCode.map(easincode => priorityPathwayEmpty.inner_field.options.find(f => f.code == easincode))
+        if(index === 0)
+          priorityPathwayDestination[0] = priorityPathwayEmpty
+        else
+          priorityPathwayDestination.push(priorityPathwayEmpty)
+      })
+
     },
 
     doTitle(title) {

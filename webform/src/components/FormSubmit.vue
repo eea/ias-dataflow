@@ -469,8 +469,8 @@ export default {
 
 				structure.scientific_name = section.scientific_name.selected.value
 
-				structure.present_in_ms = section.mandatory_item.selected
-				if(structure.present_in_ms) {
+				structure.present_in_MS = section.mandatory_item.selected
+				if(structure.present_in_MS) {
 					structure.reproduction_pattern = section.depending_on_mandatory.reproduction_patterns[0].selected.pattern
 					structure.additional_information = section.additional_info.selected
 					structure.additional_information_measures = section.section.fields.find(field => field.name === 'additional_info').selected
@@ -489,7 +489,7 @@ export default {
 						})
 					}
 
-					section.section.fields.filter(measure => measure.selected).forEach((measure, measure_index) => {
+					section.section.fields.filter(measure => measure.selected === true).forEach((measure, measure_index) => {
 						const sectionBMeasures = Object.assign({}, this.structure.sectionBMeasures)
 						sectionBMeasures.reportID = reportID
 						sectionBMeasures.row_id = measure_index
@@ -513,7 +513,7 @@ export default {
 				structure.reportID = reportID
 				structure.EASINCode = section.species_code.selected
 				structure.common_name_national = section.common_name.selected[this.currentCountry]
-				structure.present_in_ms = section.mandatory_item.selected
+				structure.present_in_MS = section.mandatory_item.selected
 				structure.additional_information = section.additional_info.selected
 				structure.row_id = index
 				if(section.mandatory_item.selected !== true) {
