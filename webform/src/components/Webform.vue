@@ -115,6 +115,7 @@ import pathways from '../assets/priority_pathways.js'
 import bstructure from '../assets/sectionBSpeciesStructure.js'
 import permitsStructure from '../assets/permitsTable.js'
 import inspectionPermitsStructure from '../assets/inspectionPermitsTable.js'
+import eradicationMeasuresStructure from '../assets/eradicationMeasuresTable.js'
 
 export default {
   name: 'Webform',
@@ -303,17 +304,7 @@ export default {
 								permitStructure.fields.find(p => p.name === 'number_speciments_held_by_non_compliant_establishments_main').fields.push(permittedSpecimenStructure)
 							}
 						})
-
-
-					
-
-
-
-
-
-
 						destinationPermits.push(permitStructure)
-
 					})
 
 
@@ -321,11 +312,153 @@ export default {
 
         if(species.eradication_measures) {
           // eradications measures
+					sectionAMeasures.filter(m => m.measure_type === 'eradication' && m.parent_row_id === row_id).forEach((measure, measure_index) => {
+						const measureStructure = JSON.parse(JSON.stringify(eradicationMeasuresStructure()))
+						const destinationMeasures = currentFormSection.tables.table_2.tables
+						measureStructure.name = measure.population_name
+						measureStructure.table_sections[0].table_fields.fields[0].fields.find(m => m.name === 'starting_date').selected = measure.start_date
+						measureStructure.table_sections[0].table_fields.fields[0].fields.find(m => m.name === 'duration_or_end').selected = measure.end_date
+						measureStructure.table_sections[0].table_fields.fields[1].fields.find(m => m.name === 'effectiveness_measure').selected = measure.measure_effectiveness
+						
+						measureStructure.table_sections[0].table_fields.fields[3].selected = [measure.no_negative_impact]
+						measureStructure.table_sections[0].additional_info.selected = measure.additional_information
+						const measure_id = measure.row_id
+
+						partTerritory.filter(pt => pt.parent_row_id === measure_id).forEach(pt => {
+							measureStructure.table_sections[0].table_fields.fields[0].fields.find(m => m.name === 'part_territory').selected.push({
+								text: pt.name,
+								value: pt.code
+							})
+						})
+						
+						biogeographicalRegion.filter(br => br.parent_row_id === measure_id).forEach(br => {
+							measureStructure.table_sections[0].table_fields.fields[0].fields.find(m => m.name === 'biogeographical_region').selected.push({
+								text: br.name,
+								value: br.code,
+								country: br.CountryCode
+							})
+						})
+						
+						
+						riverBasinSubUnit.filter(br => br.parent_row_id === measure_id).forEach(br => {
+							measureStructure.table_sections[0].table_fields.fields[0].fields.find(m => m.name === 'river_basin_subunits').selected.push({
+								text: br.name,
+								value: br.name
+							})
+						})
+						
+									
+						marineSubRegions.filter(br => br.parent_row_id === measure_id).forEach(br => {
+							measureStructure.table_sections[0].table_fields.fields[0].fields.find(m => m.name === 'marine_sub_regions').selected.push({
+								text: br.name,
+								value: br.code
+							})
+						})
+						
+						
+						methodsUsed.filter(br => br.parent_row_id === measure_id).forEach(br => {
+							measureStructure.table_sections[0].table_fields.fields[0].fields.find(m => m.name === 'methods_used').selected.push(
+								measureStructure.table_sections[0].table_fields.fields[0].fields.find(m => m.name === 'methods_used').options.find(o => o.value === br.methods_used)
+							)
+						})
+						
+						observedNegativeImpacts.filter(ni => ni.parent_row_id === measure_id).forEach((oni,oni_index) => {
+							const impactStructure = JSON.parse(JSON.stringify(measureStructure.table_sections[0].table_fields.fields[2].fields[0]))
+							const destinationMeasures = measureStructure.table_sections[0].table_fields.fields[2].fields
+							impactStructure.selected = oni.non_targeted_species
+							impactStructure.inner_field.selected = oni.species
+							if(oni_index === 0) {
+								destinationMeasures[0] = impactStructure
+							} else {
+								destinationMeasures.push(impactStructure)
+							}
+
+						})
+						
+						
+						if(measure_index === 0) {
+							destinationMeasures[0] = measureStructure
+						} else {
+							destinationMeasures.push(measureStructure)
+						}
+					})
         }
 
         if(species.subject_management_measures) {
           // management measures
+						sectionAMeasures.filter(m => m.measure_type === 'management' && m.parent_row_id === row_id).forEach((measure, measure_index) => {
+						const measureStructure = JSON.parse(JSON.stringify(eradicationMeasuresStructure()))
+						const destinationMeasures = currentFormSection.tables.table_3.tables
+						measureStructure.name = measure.population_name
+						measureStructure.table_sections[0].table_fields.fields[0].fields.find(m => m.name === 'starting_date').selected = measure.start_date
+						measureStructure.table_sections[0].table_fields.fields[0].fields.find(m => m.name === 'duration_or_end').selected = measure.end_date
+						measureStructure.table_sections[0].table_fields.fields[1].fields.find(m => m.name === 'effectiveness_measure').selected = measure.measure_effectiveness
+						
+						measureStructure.table_sections[0].table_fields.fields[3].selected = [measure.no_negative_impact]
+						measureStructure.table_sections[0].additional_info.selected = measure.additional_information
+						const measure_id = measure.row_id
+
+						partTerritory.filter(pt => pt.parent_row_id === measure_id).forEach(pt => {
+							measureStructure.table_sections[0].table_fields.fields[0].fields.find(m => m.name === 'part_territory').selected.push({
+								text: pt.name,
+								value: pt.code
+							})
+						})
+						
+						biogeographicalRegion.filter(br => br.parent_row_id === measure_id).forEach(br => {
+							measureStructure.table_sections[0].table_fields.fields[0].fields.find(m => m.name === 'biogeographical_region').selected.push({
+								text: br.name,
+								value: br.code,
+								country: br.CountryCode
+							})
+						})
+						
+						
+						riverBasinSubUnit.filter(br => br.parent_row_id === measure_id).forEach(br => {
+							measureStructure.table_sections[0].table_fields.fields[0].fields.find(m => m.name === 'river_basin_subunits').selected.push({
+								text: br.name,
+								value: br.name
+							})
+						})
+						
+									
+						marineSubRegions.filter(br => br.parent_row_id === measure_id).forEach(br => {
+							measureStructure.table_sections[0].table_fields.fields[0].fields.find(m => m.name === 'marine_sub_regions').selected.push({
+								text: br.name,
+								value: br.code
+							})
+						})
+						
+						
+						methodsUsed.filter(br => br.parent_row_id === measure_id).forEach(br => {
+							measureStructure.table_sections[0].table_fields.fields[0].fields.find(m => m.name === 'methods_used').selected.push(
+								measureStructure.table_sections[0].table_fields.fields[0].fields.find(m => m.name === 'methods_used').options.find(o => o.value === br.methods_used)
+							)
+						})
+						
+						observedNegativeImpacts.filter(ni => ni.parent_row_id === measure_id).forEach((oni,oni_index) => {
+							const impactStructure = JSON.parse(JSON.stringify(measureStructure.table_sections[0].table_fields.fields[2].fields[0]))
+							const destinationMeasures = measureStructure.table_sections[0].table_fields.fields[2].fields
+							impactStructure.selected = oni.non_targeted_species
+							impactStructure.inner_field.selected = oni.species
+							if(oni_index === 0) {
+								destinationMeasures[0] = impactStructure
+							} else {
+								destinationMeasures.push(impactStructure)
+							}
+
+						})
+						
+						
+						if(measure_index === 0) {
+							destinationMeasures[0] = measureStructure
+						} else {
+							destinationMeasures.push(measureStructure)
+						}
+					})
         }
+
+				
 
       })
 
