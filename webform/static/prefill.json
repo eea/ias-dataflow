@@ -120,6 +120,7 @@
           "reproduction_pattern": 0,
           "additional_information": "test",
           "permits_issued": true,
+          "no_inspections_reported": true,
           "additional_information_permits_issued": "aaaaaaaaaaaaaa",
           "additional_information_inspections": "sfsssssss",
           "eradication_measures": true,

@@ -277,7 +277,6 @@
       },
 
 			excludeSomeFields(fieldName) {
-				console.log(fieldName)
 				if(['permits_number_main','valid_permits_number_main', 'number_establishments_inspections_main', 'establishments_non_compliant_main'].includes(fieldName)) return false
 				else return true
 			},

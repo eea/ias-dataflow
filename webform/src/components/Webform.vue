@@ -113,6 +113,8 @@ import form from '../assets/form.js'
 import pathways from '../assets/priority_pathways.js'
 // import incidentJson from '../assets/incident.js';
 import bstructure from '../assets/sectionBSpeciesStructure.js'
+import permitsStructure from '../assets/permitsTable.js'
+import inspectionPermitsStructure from '../assets/inspectionPermitsTable.js'
 
 export default {
   name: 'Webform',
@@ -216,7 +218,10 @@ export default {
         currentFormSection.tables.table_1.question.selected = species.permits_issued
         currentFormSection.tables.table_2.question.selected = species.eradication_measures
         currentFormSection.tables.table_3.question.selected = species.subject_management_measures
-
+				currentFormSection.tables.table_1.table_sections[0].additional_info.selected = species.additional_information_permits_issued
+				currentFormSection.tables.table_1.table_sections[1].additional_info.selected = species.additional_information_inspections
+				
+				currentFormSection.tables.table_1.table_sections[1].noinspections.selected = species.no_inspections_reported
 
         spreadPatterns.forEach(pattern => {
           pattern.section === 'A' 
@@ -228,9 +233,90 @@ export default {
 
         if(species.permits_issued) {
           // permits
-          permitedSpecimens.filter(permitedSpecimen => permitedSpecimen.parent_row_id === row_id).forEach(permitedSpecimen => {
-            
-          })
+					permitsIssuedReported.filter(permit => permit.parent_row_id === row_id).forEach(permit => {
+						const permitStructure = JSON.parse(JSON.stringify(permitsStructure()))
+						const destinationPermits = currentFormSection.tables.table_1.table_sections[0].table_fields.fields
+						permitStructure.fields.find(p => p.name === 'year').selected = permitStructure.fields.find(p => p.name === 'year').options.find(o => o.text == permit.year).value
+						permitStructure.fields.find(p => p.name === 'purpose_of_permit').selected = permit.permit_purpose
+						permitStructure.fields.find(p => p.name === 'permits_number_main').fields[0].fields[0].selected = permit.number_issued 
+						permitStructure.fields.find(p => p.name === 'valid_permits_number_main').fields[0].fields[0].selected = permit.number_valid 
+						const permit_id = permit.row_id
+
+						permitedSpecimens.filter(s => s.permit_type === 'issued' && s.parent_row_id == permit_id).forEach((pspecimen, pspeciment_index) => {
+							const permittedSpecimenStructure = JSON.parse(JSON.stringify(permitStructure.fields.find(p => p.name === 'total_permited_speciments_main').fields[0]))
+							permittedSpecimenStructure.fields[0].selected = pspecimen.value
+							permittedSpecimenStructure.fields[1].selected = pspecimen.unit
+							if(pspeciment_index === 0) {
+								permitStructure.fields.find(p => p.name === 'total_permited_speciments_main').fields[0] = permittedSpecimenStructure
+							} else {
+								permitStructure.fields.find(p => p.name === 'total_permited_speciments_main').fields.push(permittedSpecimenStructure)
+							}
+						})
+
+
+						permitedSpecimens.filter(s => s.permit_type === 'valid' && s.parent_row_id == permit_id).forEach((pspecimen, pspeciment_index) => {
+							const permittedSpecimenStructure = JSON.parse(JSON.stringify(permitStructure.fields.find(p => p.name === 'valid_total_permited_speciments_main').fields[0]))
+							permittedSpecimenStructure.fields[0].selected = pspecimen.value
+							permittedSpecimenStructure.fields[1].selected = pspecimen.unit
+							if(pspeciment_index === 0) {
+								permitStructure.fields.find(p => p.name === 'valid_total_permited_speciments_main').fields[0] = permittedSpecimenStructure
+							} else {
+								permitStructure.fields.find(p => p.name === 'valid_total_permited_speciments_main').fields.push(permittedSpecimenStructure)
+							}
+						})
+
+						destinationPermits.push(permitStructure)
+					})
+
+
+					// inspections 
+					inspectionsPermitsReported.filter(permit => permit.parent_row_id === row_id).forEach(permit => {
+						const permitStructure = JSON.parse(JSON.stringify(inspectionPermitsStructure()))
+						const destinationPermits = currentFormSection.tables.table_1.table_sections[1].table_fields.fields
+						permitStructure.fields.find(p => p.name === 'year').selected = permitStructure.fields.find(p => p.name === 'year').options.find(o => o.text == permit.year).value
+						permitStructure.fields.find(p => p.name === 'purpose_of_permit').selected = permit.permit_purpose
+						permitStructure.fields.find(p => p.name === 'number_establishments_inspections_main').fields[0].fields[0].selected = permit.number_inspected 
+						permitStructure.fields.find(p => p.name === 'establishments_non_compliant_main').fields[0].fields[0].selected = permit.number_establishment
+						const permit_id = permit.row_id
+						
+						permitedSpecimens.filter(s => s.inspection_status === 'compliant' && s.parent_row_id == permit_id).forEach((pspecimen, pspeciment_index) => {
+							const permittedSpecimenStructure = JSON.parse(JSON.stringify(permitStructure.fields.find(p => p.name === 'number_permitted_specimens_main').fields[0]))
+							permittedSpecimenStructure.fields[0].selected = pspecimen.value
+							permittedSpecimenStructure.fields[1].selected = pspecimen.unit
+							if(pspeciment_index === 0) {
+								permitStructure.fields.find(p => p.name === 'number_permitted_specimens_main').fields[0] = permittedSpecimenStructure
+							} else {
+								permitStructure.fields.find(p => p.name === 'number_permitted_specimens_main').fields.push(permittedSpecimenStructure)
+							}
+						})
+
+
+
+
+						permitedSpecimens.filter(s => s.inspection_status === 'non-compliant' && s.parent_row_id == permit_id).forEach((pspecimen, pspeciment_index) => {
+							const permittedSpecimenStructure = JSON.parse(JSON.stringify(permitStructure.fields.find(p => p.name === 'number_speciments_held_by_non_compliant_establishments_main').fields[0]))
+							permittedSpecimenStructure.fields[0].selected = pspecimen.value
+							permittedSpecimenStructure.fields[1].selected = pspecimen.unit
+							if(pspeciment_index === 0) {
+								permitStructure.fields.find(p => p.name === 'number_speciments_held_by_non_compliant_establishments_main').fields[0] = permittedSpecimenStructure
+							} else {
+								permitStructure.fields.find(p => p.name === 'number_speciments_held_by_non_compliant_establishments_main').fields.push(permittedSpecimenStructure)
+							}
+						})
+
+
+					
+
+
+
+
+
+
+						destinationPermits.push(permitStructure)
+
+					})
+
+
         }
 
         if(species.eradication_measures) {
@@ -288,7 +374,6 @@ export default {
 
         sectionBMeasures.forEach(measure => {
           if(measure.parent_row_id === row_id) {
-            console.log(measure.measure)
             sectionB.section.fields.find(checkbox => checkbox.name === measure.measure).selected = true
           } 
         })
