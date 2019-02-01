@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <IAS xmlns="http://dd.eionet.europa.eu/namespaces/884" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://dd.eionet.europa.eu/namespaces/884  http://dd.eionet.europa.eu/v2/dataset/3421/schema-dst-3421.xsd">
-    <inspectionsPermitsReported xmlns="http://dd.eionet.europa.eu/namespaces/895">
+    <noPrefillData>True</noPrefillData>
+		<inspectionsPermitsReported xmlns="http://dd.eionet.europa.eu/namespaces/895">
         <Row>
             <reportID/>
             <row_id/>

@@ -180,6 +180,10 @@ export default {
         return section
   },
    prefill(data, form) {
+		 if(data.IAS.noPrefillData) {
+			 this.prefilled = true
+			 return
+		 }
      this.prefillSectionA(data, form)
      this.prefillSectionB(data, form)
      this.prefillSectionC(data, form)
@@ -189,6 +193,7 @@ export default {
 
    prefillSectionA(data, form) {
       const prefillData = data.IAS.sectionASpecies.Row
+			if(!Array.isArray(prefillData)) return
       const spreadPatterns = this.sanitizeSection(data, 'spreadPatterns')
       const sectionAMeasures = this.sanitizeSection(data, 'sectionAMeasures')
       const permitedSpecimens = this.sanitizeSection(data, 'permitedSpecimens')
@@ -509,7 +514,8 @@ export default {
         })
 
         sectionBMeasures.forEach(measure => {
-          if(measure.parent_row_id === row_id) {
+					console.log(measure)
+          if(measure.measure && measure.parent_row_id === row_id) {
             sectionB.section.fields.find(checkbox => checkbox.name === measure.measure).selected = true
           } 
         })
