@@ -186,13 +186,13 @@ export function deleteFile(fileName) {
     let deleteData = encodeURIComponent(`ids:list=${fileName}&manage_delObjects:method=Delete`)
 
     return axios({
-      method: 'post',
+      method: 'get',
       withCredentials: true,
       cache: false,
-      headers: {'content-type': 'application/x-www-form-urlencoded'},
+      // headers: {'content-type': 'application/x-www-form-urlencoded'},
       // contentType: "multipart/form-data",
-      url: envelope,
-      data: deleteData
+      url: envelope + '/delete_envelope_file?fileName=' + fileName,
+      // data: deleteData
     })
   }
 }
