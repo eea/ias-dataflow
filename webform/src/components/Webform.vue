@@ -273,8 +273,11 @@ export default {
 					// inspections 
 					inspectionsPermitsReported.filter(permit => permit.parent_row_id === row_id).forEach(permit => {
 						const permitStructure = JSON.parse(JSON.stringify(inspectionPermitsStructure()))
+						console.log(permitStructure.fields.find(p => p.name === 'purpose_of_permit'))
 						const destinationPermits = currentFormSection.tables.table_1.table_sections[1].table_fields.fields
-						permitStructure.fields.find(p => p.name === 'year').selected = permitStructure.fields.find(p => p.name === 'year').options.find(o => o.text == permit.year).value
+						const yearObj = permitStructure.fields.find(p => p.name === 'year').options.find(o => o.text == permit.year)
+						const yearValue = yearObj ? yearObj.value : null
+						permitStructure.fields.find(p => p.name === 'year').selected = yearValue
 						permitStructure.fields.find(p => p.name === 'purpose_of_permit').selected = permit.permit_purpose
 						permitStructure.fields.find(p => p.name === 'number_establishments_inspections_main').fields[0].fields[0].selected = permit.number_inspected 
 						permitStructure.fields.find(p => p.name === 'establishments_non_compliant_main').fields[0].fields[0].selected = permit.number_establishment
