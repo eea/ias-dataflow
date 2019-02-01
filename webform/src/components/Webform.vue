@@ -556,7 +556,7 @@ export default {
         }
       })
 
-      if(!Array.isArray(priorityPathwayData)) {
+      if(priorityPathwayData && !Array.isArray(priorityPathwayData)) {
         priorityPathwayData.EASINCode = [priorityPathwayData.EASINCode]
         mergedPathways.push(priorityPathwayData)
       } 
