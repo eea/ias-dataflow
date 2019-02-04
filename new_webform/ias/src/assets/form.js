@@ -1,6 +1,7 @@
 import species from './species'
 import sectionASpecies from './sectionASpecies'
 import sectionBSpecies from './sectionBSpecies'
+import pathway from './sectionBPathway'
 
 const form = (country, formData) => ({
 	tabs: {
@@ -34,7 +35,7 @@ const form = (country, formData) => ({
 			get form_fields() {
 				const allSp = []
 				species.forEach(sp => {
-					allSp.push(sectionASpecies(sp, country))
+					allSp.push(sectionASpecies(sp, country, formData))
 				})
 				return allSp
 			}
@@ -130,6 +131,9 @@ const form = (country, formData) => ({
                         return []
                     }
                 },
+								priority_pathways: [
+									pathway
+								],
                 file_cost_of_action: {
                     type: 'file',
                     selected: '',

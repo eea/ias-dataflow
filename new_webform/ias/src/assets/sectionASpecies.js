@@ -1,7 +1,7 @@
 import permitsIssuedReported from './permitsIssuedReported'
 import sectionAMeasures from './sectionAMeasures'
 
-const species = (currentSpecies, country) => ({
+const species = (currentSpecies, country, formData) => ({
 	EASINCode: {
 		name: 'EASINCode',
 		type: 'nonInput',
@@ -73,7 +73,12 @@ const species = (currentSpecies, country) => ({
 
 	sectioAMeasures: {
 		fields: [
-			sectionAMeasures(nuts)
+			sectionAMeasures({
+				nuts: formData.nuts_regions, 
+				b_regions: formData.biogeographical_regions,
+				r_b_subunits: formData.river_basins,
+				marine_subregions: formData.marine_subregions
+				})
 		]
 	},
 

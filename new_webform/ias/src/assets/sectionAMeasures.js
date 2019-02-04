@@ -1,4 +1,5 @@
-const sectionAMeasures = (nuts) => ({
+
+const sectionAMeasures = ({ nuts, marine_subregions, r_b_subunits, b_regions }) => ({
 	population_name: {
 		type: 'text',
 		selected: null,
@@ -71,9 +72,48 @@ const sectionAMeasures = (nuts) => ({
 		selected: [],
 		name: 'partTerritory',
 		label: 'Part of the territory',
-		options: nuts.map(n => ({value: n.id, text: n.label})),
+		options: nuts.map(n => ({ value: n.id, text: n.label })),
 		get validation() {
 			return []
 		},
-	}
+	},
+	biogeographicalRegion: {
+		type: 'multiselect',
+		selected: [],
+		name: 'partTerritory',
+		label: 'Part of the territory',
+		options: b_regions.map(n => ({ value: n.regionCode, text: n.name })),
+		get validation() {
+			return []
+		},
+	},
+	marineSubRegions: {
+		type: 'multiselect',
+		selected: [],
+		name: 'marineSubRegions',
+		label: 'Marine sub-region(s)',
+		options: marine_subregions.map(region => ({value: region.id, text: region.label}))
+	},
+	riverBasinSubUnit: {
+		type: 'multiselect',
+		selected: [],
+		name: 'riverBasinSubUnit',
+		label: 'River basin sub-unit(s)',
+		options: r_b_subunits.map(r => ({value: r.name, text: r.name}))
+	},
+	methodsUsed: {
+		type: 'multiselect',
+		selected: [],
+		name: 'methodsUsed',
+		label: 'Method(s) used',
+		options: [
+			{ text: 'Mechanical/Physical', value: 'Mechanical/Physical' },
+			{ text: 'Chemical', value: 'Chemical' },
+			{ text: 'Biological', value: 'Biological' },
+			{ text: 'Other', value: 'Other' },
+		]
+	},
+
 })
+
+export default sectionAMeasures
