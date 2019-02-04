@@ -1,5 +1,6 @@
 import species from './species'
 import sectionASpecies from './sectionASpecies'
+import sectionBSpecies from './sectionBSpecies'
 
 const form = (country, formData) => ({
 	tabs: {
@@ -39,7 +40,9 @@ const form = (country, formData) => ({
 			}
 		},
 		tab_2: {
-
+			form_fields: [
+				sectionBSpecies
+			]
 		},
 		tab_3: {
 			form_fields: {

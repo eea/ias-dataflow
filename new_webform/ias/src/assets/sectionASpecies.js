@@ -45,6 +45,7 @@ const species = (currentSpecies, country) => ({
 		permitsIssuedReported()
 	],
 
+	// additional_information_
 
 	permits_issued: {
 		name: 'permits_issued',
