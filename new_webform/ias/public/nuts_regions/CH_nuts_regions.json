@@ -1,0 +1,142 @@
+[
+  {
+    "label": "Schweiz/Suisse/Svizzera",
+    "id": "CH"
+  },
+  {
+    "label": "Schweiz/Suisse/Svizzera",
+    "id": "CH0"
+  },
+  {
+    "label": "Région lémanique",
+    "id": "CH01"
+  },
+  {
+    "label": "Vaud",
+    "id": "CH011"
+  },
+  {
+    "label": "Valais",
+    "id": "CH012"
+  },
+  {
+    "label": "Genève",
+    "id": "CH013"
+  },
+  {
+    "label": "Espace Mittelland",
+    "id": "CH02"
+  },
+  {
+    "label": "Bern",
+    "id": "CH021"
+  },
+  {
+    "label": "Freiburg",
+    "id": "CH022"
+  },
+  {
+    "label": "Solothurn",
+    "id": "CH023"
+  },
+  {
+    "label": "Neuchâtel",
+    "id": "CH024"
+  },
+  {
+    "label": "Jura",
+    "id": "CH025"
+  },
+  {
+    "label": "Nordwestschweiz",
+    "id": "CH03"
+  },
+  {
+    "label": "Basel-Stadt",
+    "id": "CH031"
+  },
+  {
+    "label": "Basel-Landschaft",
+    "id": "CH032"
+  },
+  {
+    "label": "Aargau",
+    "id": "CH033"
+  },
+  {
+    "label": "Zürich",
+    "id": "CH04"
+  },
+  {
+    "label": "Zürich",
+    "id": "CH040"
+  },
+  {
+    "label": "Ostschweiz",
+    "id": "CH05"
+  },
+  {
+    "label": "Glarus",
+    "id": "CH051"
+  },
+  {
+    "label": "Schaffhausen",
+    "id": "CH052"
+  },
+  {
+    "label": "Appenzell Ausserrhoden",
+    "id": "CH053"
+  },
+  {
+    "label": "Appenzell Innerrhoden",
+    "id": "CH054"
+  },
+  {
+    "label": "St. Gallen",
+    "id": "CH055"
+  },
+  {
+    "label": "Graubünden",
+    "id": "CH056"
+  },
+  {
+    "label": "Thurgau",
+    "id": "CH057"
+  },
+  {
+    "label": "Zentralschweiz",
+    "id": "CH06"
+  },
+  {
+    "label": "Luzern",
+    "id": "CH061"
+  },
+  {
+    "label": "Uri",
+    "id": "CH062"
+  },
+  {
+    "label": "Schwyz",
+    "id": "CH063"
+  },
+  {
+    "label": "Obwalden",
+    "id": "CH064"
+  },
+  {
+    "label": "Nidwalden",
+    "id": "CH065"
+  },
+  {
+    "label": "Zug",
+    "id": "CH066"
+  },
+  {
+    "label": "Ticino",
+    "id": "CH07"
+  },
+  {
+    "label": "Ticino",
+    "id": "CH070"
+  }
+]

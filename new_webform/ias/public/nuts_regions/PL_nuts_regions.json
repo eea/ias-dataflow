@@ -1,0 +1,394 @@
+[
+  {
+    "label": "POLSKA",
+    "id": "PL"
+  },
+  {
+    "label": "REGION CENTRALNY",
+    "id": "PL1"
+  },
+  {
+    "label": "Łódzkie",
+    "id": "PL11"
+  },
+  {
+    "label": "Miasto Łódź",
+    "id": "PL113"
+  },
+  {
+    "label": "Łódzki",
+    "id": "PL114"
+  },
+  {
+    "label": "Piotrkowski",
+    "id": "PL115"
+  },
+  {
+    "label": "Sieradzki",
+    "id": "PL116"
+  },
+  {
+    "label": "Skierniewicki",
+    "id": "PL117"
+  },
+  {
+    "label": "Mazowieckie",
+    "id": "PL12"
+  },
+  {
+    "label": "Miasto Warszawa",
+    "id": "PL127"
+  },
+  {
+    "label": "Radomski",
+    "id": "PL128"
+  },
+  {
+    "label": "Warszawski wschodni",
+    "id": "PL129"
+  },
+  {
+    "label": "Warszawski zachodni",
+    "id": "PL12A"
+  },
+  {
+    "label": "Ciechanowski",
+    "id": "PL12B"
+  },
+  {
+    "label": "Płocki",
+    "id": "PL12C"
+  },
+  {
+    "label": "Ostrołęcki",
+    "id": "PL12D"
+  },
+  {
+    "label": "Siedlecki",
+    "id": "PL12E"
+  },
+  {
+    "label": "REGION POŁUDNIOWY",
+    "id": "PL2"
+  },
+  {
+    "label": "Małopolskie",
+    "id": "PL21"
+  },
+  {
+    "label": "Miasto Kraków",
+    "id": "PL213"
+  },
+  {
+    "label": "Krakowski",
+    "id": "PL214"
+  },
+  {
+    "label": "Tarnowski",
+    "id": "PL217"
+  },
+  {
+    "label": "Nowosądecki",
+    "id": "PL218"
+  },
+  {
+    "label": "Nowotarski",
+    "id": "PL219"
+  },
+  {
+    "label": "Oświęcimski",
+    "id": "PL21A"
+  },
+  {
+    "label": "Śląskie",
+    "id": "PL22"
+  },
+  {
+    "label": "Częstochowski",
+    "id": "PL224"
+  },
+  {
+    "label": "Bielski",
+    "id": "PL225"
+  },
+  {
+    "label": "Rybnicki",
+    "id": "PL227"
+  },
+  {
+    "label": "Bytomski",
+    "id": "PL228"
+  },
+  {
+    "label": "Gliwicki",
+    "id": "PL229"
+  },
+  {
+    "label": "Katowicki",
+    "id": "PL22A"
+  },
+  {
+    "label": "Sosnowiecki",
+    "id": "PL22B"
+  },
+  {
+    "label": "Tyski",
+    "id": "PL22C"
+  },
+  {
+    "label": "REGION WSCHODNI",
+    "id": "PL3"
+  },
+  {
+    "label": "Lubelskie",
+    "id": "PL31"
+  },
+  {
+    "label": "Bialski",
+    "id": "PL311"
+  },
+  {
+    "label": "Chełmsko-zamojski",
+    "id": "PL312"
+  },
+  {
+    "label": "Lubelski",
+    "id": "PL314"
+  },
+  {
+    "label": "Puławski",
+    "id": "PL315"
+  },
+  {
+    "label": "Podkarpackie",
+    "id": "PL32"
+  },
+  {
+    "label": "Krośnieński",
+    "id": "PL323"
+  },
+  {
+    "label": "Przemyski",
+    "id": "PL324"
+  },
+  {
+    "label": "Rzeszowski",
+    "id": "PL325"
+  },
+  {
+    "label": "Tarnobrzeski",
+    "id": "PL326"
+  },
+  {
+    "label": "Świętokrzyskie",
+    "id": "PL33"
+  },
+  {
+    "label": "Kielecki",
+    "id": "PL331"
+  },
+  {
+    "label": "Sandomiersko-jędrzejowski",
+    "id": "PL332"
+  },
+  {
+    "label": "Podlaskie",
+    "id": "PL34"
+  },
+  {
+    "label": "Białostocki",
+    "id": "PL343"
+  },
+  {
+    "label": "Łomżyński",
+    "id": "PL344"
+  },
+  {
+    "label": "Suwalski",
+    "id": "PL345"
+  },
+  {
+    "label": "REGION PÓŁNOCNO-ZACHODNI",
+    "id": "PL4"
+  },
+  {
+    "label": "Wielkopolskie",
+    "id": "PL41"
+  },
+  {
+    "label": "Pilski",
+    "id": "PL411"
+  },
+  {
+    "label": "Koniński",
+    "id": "PL414"
+  },
+  {
+    "label": "Miasto Poznań",
+    "id": "PL415"
+  },
+  {
+    "label": "Kaliski",
+    "id": "PL416"
+  },
+  {
+    "label": "Leszczyński",
+    "id": "PL417"
+  },
+  {
+    "label": "Poznański",
+    "id": "PL418"
+  },
+  {
+    "label": "Zachodniopomorskie",
+    "id": "PL42"
+  },
+  {
+    "label": "Miasto Szczecin",
+    "id": "PL424"
+  },
+  {
+    "label": "Koszaliński",
+    "id": "PL426"
+  },
+  {
+    "label": "Szczecinecko-pyrzycki",
+    "id": "PL427"
+  },
+  {
+    "label": "Szczeciński",
+    "id": "PL428"
+  },
+  {
+    "label": "Lubuskie",
+    "id": "PL43"
+  },
+  {
+    "label": "Gorzowski",
+    "id": "PL431"
+  },
+  {
+    "label": "Zielonogórski",
+    "id": "PL432"
+  },
+  {
+    "label": "REGION POŁUDNIOWO-ZACHODNI",
+    "id": "PL5"
+  },
+  {
+    "label": "Dolnośląskie",
+    "id": "PL51"
+  },
+  {
+    "label": "Miasto Wrocław",
+    "id": "PL514"
+  },
+  {
+    "label": "Jeleniogórski",
+    "id": "PL515"
+  },
+  {
+    "label": "Legnicko-Głogowski",
+    "id": "PL516"
+  },
+  {
+    "label": "Wałbrzyski",
+    "id": "PL517"
+  },
+  {
+    "label": "Wrocławski",
+    "id": "PL518"
+  },
+  {
+    "label": "Opolskie",
+    "id": "PL52"
+  },
+  {
+    "label": "Nyski",
+    "id": "PL523"
+  },
+  {
+    "label": "Opolski",
+    "id": "PL524"
+  },
+  {
+    "label": "REGION PÓŁNOCNY",
+    "id": "PL6"
+  },
+  {
+    "label": "Kujawsko-Pomorskie",
+    "id": "PL61"
+  },
+  {
+    "label": "Bydgosko-Toruński",
+    "id": "PL613"
+  },
+  {
+    "label": "Grudziądzki",
+    "id": "PL616"
+  },
+  {
+    "label": "Inowrocławski",
+    "id": "PL617"
+  },
+  {
+    "label": "Świecki",
+    "id": "PL618"
+  },
+  {
+    "label": "Włocławski",
+    "id": "PL619"
+  },
+  {
+    "label": "Warmińsko-Mazurskie",
+    "id": "PL62"
+  },
+  {
+    "label": "Elbląski",
+    "id": "PL621"
+  },
+  {
+    "label": "Olsztyński",
+    "id": "PL622"
+  },
+  {
+    "label": "Ełcki",
+    "id": "PL623"
+  },
+  {
+    "label": "Pomorskie",
+    "id": "PL63"
+  },
+  {
+    "label": "Trójmiejski",
+    "id": "PL633"
+  },
+  {
+    "label": "Gdański",
+    "id": "PL634"
+  },
+  {
+    "label": "Słupski",
+    "id": "PL636"
+  },
+  {
+    "label": "Chojnicki",
+    "id": "PL637"
+  },
+  {
+    "label": "Starogardzki",
+    "id": "PL638"
+  },
+  {
+    "label": "EXTRA-REGIO NUTS 1",
+    "id": "PLZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 2",
+    "id": "PLZZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 3",
+    "id": "PLZZZ"
+  }
+]

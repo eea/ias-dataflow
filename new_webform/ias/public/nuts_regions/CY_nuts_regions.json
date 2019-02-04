@@ -1,0 +1,30 @@
+[
+  {
+    "label": "ΚΥΠΡΟΣ (KÝPROS)",
+    "id": "CY"
+  },
+  {
+    "label": "ΚΥΠΡΟΣ",
+    "id": "CY0"
+  },
+  {
+    "label": "Κύπρος",
+    "id": "CY00"
+  },
+  {
+    "label": "Κύπρος",
+    "id": "CY000"
+  },
+  {
+    "label": "EXTRA-REGIO NUTS 1",
+    "id": "CYZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 2",
+    "id": "CYZZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 3",
+    "id": "CYZZZ"
+  }
+]

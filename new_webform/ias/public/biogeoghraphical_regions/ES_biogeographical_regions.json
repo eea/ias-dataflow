@@ -1,0 +1,22 @@
+[
+  {
+    "regionCode": "ALP",
+    "realm": "terrestrial",
+    "name": "Alpine"
+  },
+  {
+    "regionCode": "ATL",
+    "realm": "terrestrial",
+    "name": "Atlantic"
+  },
+  {
+    "regionCode": "MAC",
+    "realm": "terrestrial",
+    "name": "Macaronesian"
+  },
+  {
+    "regionCode": "MED",
+    "realm": "terrestrial",
+    "name": "Mediterranean"
+  }
+]

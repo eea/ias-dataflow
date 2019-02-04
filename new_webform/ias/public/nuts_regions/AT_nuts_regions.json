@@ -1,0 +1,206 @@
+[
+  {
+    "label": "ÖSTERREICH",
+    "id": "AT"
+  },
+  {
+    "label": "OSTÖSTERREICH",
+    "id": "AT1"
+  },
+  {
+    "label": "Burgenland (AT)",
+    "id": "AT11"
+  },
+  {
+    "label": "Mittelburgenland",
+    "id": "AT111"
+  },
+  {
+    "label": "Nordburgenland",
+    "id": "AT112"
+  },
+  {
+    "label": "Südburgenland",
+    "id": "AT113"
+  },
+  {
+    "label": "Niederösterreich",
+    "id": "AT12"
+  },
+  {
+    "label": "Mostviertel-Eisenwurzen",
+    "id": "AT121"
+  },
+  {
+    "label": "Niederösterreich-Süd",
+    "id": "AT122"
+  },
+  {
+    "label": "Sankt Pölten",
+    "id": "AT123"
+  },
+  {
+    "label": "Waldviertel",
+    "id": "AT124"
+  },
+  {
+    "label": "Weinviertel",
+    "id": "AT125"
+  },
+  {
+    "label": "Wiener Umland/Nordteil",
+    "id": "AT126"
+  },
+  {
+    "label": "Wiener Umland/Südteil",
+    "id": "AT127"
+  },
+  {
+    "label": "Wien",
+    "id": "AT13"
+  },
+  {
+    "label": "Wien",
+    "id": "AT130"
+  },
+  {
+    "label": "SÜDÖSTERREICH",
+    "id": "AT2"
+  },
+  {
+    "label": "Kärnten",
+    "id": "AT21"
+  },
+  {
+    "label": "Klagenfurt-Villach",
+    "id": "AT211"
+  },
+  {
+    "label": "Oberkärnten",
+    "id": "AT212"
+  },
+  {
+    "label": "Unterkärnten",
+    "id": "AT213"
+  },
+  {
+    "label": "Steiermark",
+    "id": "AT22"
+  },
+  {
+    "label": "Graz",
+    "id": "AT221"
+  },
+  {
+    "label": "Liezen",
+    "id": "AT222"
+  },
+  {
+    "label": "Östliche Obersteiermark",
+    "id": "AT223"
+  },
+  {
+    "label": "Oststeiermark",
+    "id": "AT224"
+  },
+  {
+    "label": "West- und Südsteiermark",
+    "id": "AT225"
+  },
+  {
+    "label": "Westliche Obersteiermark",
+    "id": "AT226"
+  },
+  {
+    "label": "WESTÖSTERREICH",
+    "id": "AT3"
+  },
+  {
+    "label": "Oberösterreich",
+    "id": "AT31"
+  },
+  {
+    "label": "Innviertel",
+    "id": "AT311"
+  },
+  {
+    "label": "Linz-Wels",
+    "id": "AT312"
+  },
+  {
+    "label": "Mühlviertel",
+    "id": "AT313"
+  },
+  {
+    "label": "Steyr-Kirchdorf",
+    "id": "AT314"
+  },
+  {
+    "label": "Traunviertel",
+    "id": "AT315"
+  },
+  {
+    "label": "Salzburg",
+    "id": "AT32"
+  },
+  {
+    "label": "Lungau",
+    "id": "AT321"
+  },
+  {
+    "label": "Pinzgau-Pongau",
+    "id": "AT322"
+  },
+  {
+    "label": "Salzburg und Umgebung",
+    "id": "AT323"
+  },
+  {
+    "label": "Tirol",
+    "id": "AT33"
+  },
+  {
+    "label": "Außerfern",
+    "id": "AT331"
+  },
+  {
+    "label": "Innsbruck",
+    "id": "AT332"
+  },
+  {
+    "label": "Osttirol",
+    "id": "AT333"
+  },
+  {
+    "label": "Tiroler Oberland",
+    "id": "AT334"
+  },
+  {
+    "label": "Tiroler Unterland",
+    "id": "AT335"
+  },
+  {
+    "label": "Vorarlberg",
+    "id": "AT34"
+  },
+  {
+    "label": "Bludenz-Bregenzer Wald",
+    "id": "AT341"
+  },
+  {
+    "label": "Rheintal-Bodenseegebiet",
+    "id": "AT342"
+  },
+  {
+    "label": "EXTRA-REGIO NUTS 1",
+    "id": "ATZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 2",
+    "id": "ATZZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 3",
+    "id": "ATZZZ"
+  }
+]
