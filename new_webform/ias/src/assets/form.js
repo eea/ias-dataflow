@@ -1,3 +1,6 @@
+import species from './species'
+import sectionASpecies from './sectionASpecies'
+
 const form = (country, formData) => ({
 	tabs: {
 		tab_0: {
@@ -27,7 +30,13 @@ const form = (country, formData) => ({
 			},
 		},
 		tab_1: {
-			formData
+			get form_fields() {
+				const allSp = []
+				species.forEach(sp => {
+					allSp.push(sectionASpecies(sp, country))
+				})
+				return allSp
+			}
 		},
 		tab_2: {
 
@@ -36,7 +45,14 @@ const form = (country, formData) => ({
 
 		},
 		tab_4: {
-
+			form_fields: {
+				distributionMap_sectionA: {
+					type: 'file',
+					selected: '',
+					name: 'distributionMap_sectionA',
+					label: 'Distribution map for SECTION A'
+				},
+			}
 		}
 	}
 })
