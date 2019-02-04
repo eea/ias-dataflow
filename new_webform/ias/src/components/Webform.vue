@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-		<div><b-btn variant="danger">test</b-btn></div>
+		<div><b-btn variant="danger">{{country}}</b-btn></div>
 		<!-- <Multiselect trackBy="value" text="text"></Multiselect> -->
   </div>
 </template>
@@ -10,7 +10,6 @@
 import Multiselect from "./ModifiedMultiselect.vue"
 
 export default {
-
 	components: {
 		Multiselect
 	},
@@ -18,11 +17,23 @@ export default {
   props: {
 
   },
-	created(){
 
+	data() {
+		return {
+		}
 	},
-	computed: {
 
+	beforeCreate() {
+	},
+
+	created(){
+		this.$store.dispatch('getCurrentCountry')
+	},
+
+	computed: {
+		country() {
+			return this.$store.getters.getCurrentCountryState
+		}
 	},
 	methods: {
 
