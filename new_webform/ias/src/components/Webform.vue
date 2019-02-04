@@ -1,11 +1,20 @@
 <template>
   <div class="hello">
 		<div><b-btn variant="danger">test</b-btn></div>
+		<!-- <Multiselect trackBy="value" text="text"></Multiselect> -->
   </div>
 </template>
 
+
 <script>
+import Multiselect from "./ModifiedMultiselect.vue"
+
 export default {
+
+	components: {
+		Multiselect
+	},
+
   props: {
 
   },
@@ -16,7 +25,7 @@ export default {
 
 	},
 	methods: {
-		
+
 	},
 }
 </script>
