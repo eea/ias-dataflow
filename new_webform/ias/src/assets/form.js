@@ -1,4 +1,4 @@
-const form = (country) => ({
+const form = (country, formData) => ({
 	tabs: {
 		tab_0: {
 			description: 'Information submitted in application of Article 24(1) of regulation (EU) No 1143/2014',
@@ -27,7 +27,7 @@ const form = (country) => ({
 			},
 		},
 		tab_1: {
-
+			formData
 		},
 		tab_2: {
 
