@@ -1,4 +1,5 @@
 import permitsIssuedReported from './permitsIssuedReported'
+import sectionAMeasures from './sectionAMeasures'
 
 const species = (currentSpecies, country) => ({
 	EASINCode: {
@@ -69,6 +70,13 @@ const species = (currentSpecies, country) => ({
 			{text: 'Currently unknown', value: 'unknown'}
 		]
 	},
+
+	sectioAMeasures: {
+		fields: [
+			sectionAMeasures(nuts)
+		]
+	},
+
 	subject_management_measures: {
 		name: 'permits_issued',
 		type: 'select',
