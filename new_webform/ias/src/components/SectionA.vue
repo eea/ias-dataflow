@@ -39,7 +39,9 @@
 										<FieldGenerator :field="species.permits_issued"></FieldGenerator> 
 									</b-input-group>
 								</h5>
-								<SectionAPermits :species_index="species_index" :species="species" v-if="species.permits_issued.selected === true" class="table-section">	</SectionAPermits>
+								<b-card>
+									<SectionAPermits :species_index="species_index" :species="species" v-if="species.permits_issued.selected === true" class="table-section">	</SectionAPermits>
+								</b-card>
 								
 
 								<h6 class="text-center">Information on rapid eradication measure(s) taken for this species (Article 17 of Regulation (EU) No 1143/2014)</h6>
@@ -49,17 +51,19 @@
 										<FieldGenerator :field="species.eradication_measures"></FieldGenerator> 
 									</b-input-group>
 								</h5>
-								<SectionAMeasures type="sectionAMeasures" :species_index="species_index" :species="species" v-if="species.eradication_measures.selected === true" class="table-section"></SectionAMeasures>
-							
+								<b-card>
+									<SectionAMeasures type="sectionAMeasures" :species_index="species_index" :species="species" v-if="species.eradication_measures.selected === true" class="table-section"></SectionAMeasures>
+								</b-card>
+								
 								<h5>
 									<b-input-group :prepend="species.subject_management_measures.label">
 										<FieldGenerator :field="species.subject_management_measures"></FieldGenerator> 
 									</b-input-group>
 								</h5>
-								<SectionAMeasures type="sectionAMeasuresManagement" :species_index="species_index" :species="species" v-if="species.subject_management_measures.selected === true" class="table-section"></SectionAMeasures>
-
+								<b-card>
+									<SectionAMeasures type="sectionAMeasuresManagement" :species_index="species_index" :species="species" v-if="species.subject_management_measures.selected === true" class="table-section"></SectionAMeasures>
+								</b-card>
 							</div>
-							
 						</div>	
 
 					</b-collapse>

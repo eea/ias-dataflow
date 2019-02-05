@@ -44,8 +44,6 @@
 				<tfoot>
 					<b-btn @click="$store.commit('addImpact', {species_index, measure_index, type})" variant="primary">Add</b-btn>
 				</tfoot>
-
-
 			</table>
 			<label class="mb-2 mt-2" style="display: flex;"> <FieldGenerator :field="measure.no_negative_impact"></FieldGenerator> {{measure.no_negative_impact.label}} </label>
 			<FieldGenerator :field="measure.additional_information"></FieldGenerator>
