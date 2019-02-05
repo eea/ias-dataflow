@@ -53,7 +53,7 @@ const form = (country, formData) => ({
 					"terrestrial": "1",
 					"name": "Abax parallelus",
 					"marine": "0",
-					"freshwater": "0"},country)
+					"freshwater": "0"} ,country)
 			]
 		},
 		tab_3: {
