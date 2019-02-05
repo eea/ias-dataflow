@@ -30,6 +30,7 @@
 						<hr>
 
 						<div class="inner-card" v-if="species.present_in_MS.selected === true">
+							
 							<div class="card-body">
 								<h6 class="text-center">Information on the permits issued for this species (to be completed only for invasive alien species of Union concern)</h6>
 								<hr>
@@ -48,7 +49,7 @@
 										<FieldGenerator :field="species.eradication_measures"></FieldGenerator> 
 									</b-input-group>
 								</h5>
-								<SectionAMeasures :species_index="species_index" :species="species" v-if="species.eradication_measures.selected === true" class="table-section"></SectionAMeasures>
+								<SectionAMeasures type="sectionAMeasures" :species_index="species_index" :species="species" v-if="species.eradication_measures.selected === true" class="table-section"></SectionAMeasures>
 							
 								<h5>
 									<b-input-group :prepend="species.subject_management_measures.label">
@@ -56,6 +57,7 @@
 									</b-input-group>
 								</h5>
 							</div>
+							
 						</div>	
 
 					</b-collapse>

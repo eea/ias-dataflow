@@ -5,6 +5,7 @@ import getForm from '@/assets/form'
 import permitedSpecimens from '@/assets/permitedSpecimens'
 import permitsIssuedReported from '@/assets/permitsIssuedReported'
 import inspectionsPermitsReported from '@/assets/inspectionsPermitsReported'
+import sectionAMeasures from '@/assets/sectionAMeasures'
 
 Vue.use(Vuex)
 
@@ -71,5 +72,14 @@ export default new Vuex.Store({
 				RemovePermitsRow(state, {section_type, species_index, row_index}) {
 					state.form.tabs.tab_1.form_fields[species_index][section_type].splice(row_index, 1)
 				},
+				AddPopulation(state, {species_index, type}) {
+					console.log(species_index, type)
+					state.form.tabs.tab_1.form_fields[species_index][type].fields.push(sectionAMeasures({ 
+						nuts: state.formData.nuts_regions,
+					 	b_regions: state.formData.biogeographical_regions,
+					 	r_b_subunits: state.formData.river_basins,
+					  marine_subregions: state.formData.marine_subregions
+					}))
+				}
     },
 })

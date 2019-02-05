@@ -93,7 +93,18 @@ const species = (currentSpecies, country, formData) => ({
 		]
 	},
 
-	sectioAMeasures: {
+	sectionAMeasures: {
+		fields: [
+			sectionAMeasures({
+				nuts: formData.nuts_regions, 
+				b_regions: formData.biogeographical_regions,
+				r_b_subunits: formData.river_basins,
+				marine_subregions: formData.marine_subregions
+				})
+		]
+	},
+
+	sectionAMeasuresManagement: {
 		fields: [
 			sectionAMeasures({
 				nuts: formData.nuts_regions, 
