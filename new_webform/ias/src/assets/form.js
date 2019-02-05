@@ -41,6 +41,15 @@ const form = (country, formData) => ({
 			}
 		},
 		tab_2: {
+			ias_list: {
+				type: 'select',
+				selected: null,
+				label: 'Has the Member State established a national list of invasive alien species of Member State concern? If yes, questions below have to be answered for each of the species on this list',
+				options: [
+					{text: 'Yes', value: true},
+					{text: 'No', value: false},
+				]
+			},
 			form_fields: [
 				sectionBSpecies
 			]

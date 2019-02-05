@@ -1,23 +1,24 @@
 <template>
-  <b-container fluid class="main-layout">
+  <b-container v-if="form" fluid class="main-layout">
     <center><h1 class="mb-3 mt-2">IAS dataflow</h1></center>
     <center><h5><span class="text-muted">Technical formats to be used by the Member States for transmitting to the Commission the information pursuant to paragraph 1 of Article 24 of Regulation (EU) No 1143/2014 on the prevention and management of the introduction of invasive alien species</span></h5></center>
 		<b-card>
-			<b-tabs v-if="$store.state.form">
+			<b-btn @click="doStuff()">fasfsafas</b-btn>
+			<b-tabs>
 				<b-tab title="REPORTING PARTY">
-					<reportingParty :data="$store.state.form.tabs.tab_0"></reportingParty>
+					<reportingParty :data="form.tabs.tab_0"></reportingParty>
 				</b-tab>
 				<b-tab title="SECTION A">
-					<SectionA :data="$store.state.form.tabs.tab_1"></SectionA>
+					<SectionA :data="form.tabs.tab_1"></SectionA>
 				</b-tab>
 				<b-tab title="SECTION B">
-					<SectionB :data="$store.state.form.tabs.tab_2"></SectionB>
+					<SectionB :data="form.tabs.tab_2"></SectionB>
 				</b-tab>
 				<b-tab title="SECTION C">
-					<SectionC :data="$store.state.form.tabs.tab_3"></SectionC>
+					<SectionC :data="form.tabs.tab_3"></SectionC>
 				</b-tab>
 				<b-tab title="DISTRIBUTION MAPS">
-					<DistributionMaps :data="$store.state.form.tabs.tab_4"></DistributionMaps>
+					<DistributionMaps :data="form.tabs.tab_4"></DistributionMaps>
 				</b-tab>
 
 			</b-tabs>
@@ -52,6 +53,7 @@ export default {
 
 	data() {
 		return {
+			form: null,
 		}
 	},
 
@@ -60,6 +62,7 @@ export default {
 	},
 
 	created(){
+		this.form = this.$store.state.form
 	},
 
 	computed: {
@@ -68,8 +71,19 @@ export default {
 		},
 	},
 	methods: {
-
+		doStuff(){
+			this.form.tabs.tab_1.form_fields[0].common_name_national.selected = 'asd'
+		},
 	},
+	watch: {
+		'$store.state.form': {
+			handler(new_val, old_val) {
+				console.log(old_val, new_val)
+				if(!this.form && new_val)
+				this.form = new_val
+			}
+		}
+	}
 }
 </script>
 

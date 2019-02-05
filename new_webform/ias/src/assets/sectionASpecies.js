@@ -22,11 +22,11 @@ const species = (currentSpecies, country, formData) => ({
 		label: 'Common name of the species (english) : Egyptian goose'
 	},
 
-	common_name_naltional: {
-		name: 'common_name_naltional',
+	common_name_national: {
+		name: 'common_name_national',
 		type: 'text',
 		selected: currentSpecies[`${country}_CommonName`] || null,
-		label: 'Scientific name'
+		label: 'Common name of the species (national language)'
 	},
 
 	present_in_MS: {
@@ -60,7 +60,7 @@ const species = (currentSpecies, country, formData) => ({
 		]
 	},
 	eradication_measures: {
-		name: 'permits_issued',
+		name: 'eradication_measures',
 		type: 'select',
 		selected: null,
 		label: 'Has the species been subject to rapid eradication measures during the reporting period?',
@@ -83,7 +83,7 @@ const species = (currentSpecies, country, formData) => ({
 	},
 
 	subject_management_measures: {
-		name: 'permits_issued',
+		name: 'subject_management_measures',
 		type: 'select',
 		selected: null,
 		label: 'Has the species been subject to management measures during the reporting period?',

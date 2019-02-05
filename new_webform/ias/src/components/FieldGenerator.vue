@@ -1,8 +1,6 @@
 <template>
   <div v-if="field">
-    <div v-if="['text', 'number', 'date', 'email'].includes(field.type)">
-        <input :disabled="field.disabled" class="form-control" v-model="field.selected" :type="field.type">
-    </div>
+    <input v-if="['text', 'number', 'date', 'email'].includes(field.type)" :disabled="field.disabled" class="form-control" v-model="field.selected" :type="field.type">
 		<b-form-file v-else-if="field.type === 'file'" v-model="field.selected"></b-form-file>
     <b-form-radio-group :id="field.name" v-else-if="field.type === 'radio'" v-model="field.selected" :options="field.options"></b-form-radio-group>
     <b-form-checkbox v-else-if="field.type === 'checkbox'" v-model="field.selected"></b-form-checkbox>
@@ -22,23 +20,10 @@
 import Multiselect from '@/components/ModifiedMultiselect'
 export default {
 	props: {
-		field: Object,
-		id: String
+		field: Object
 	},
 	components: {
 		Multiselect
 	},
-	created() {
-
-	},
-	data() {
-		return {
-		}
-	},
-	computed: {
-
-	},
-	methods: {
-	}
 }
 </script>
