@@ -17,7 +17,6 @@
 					<h5>
 						<b-input-group :prepend="species.common_name_national.label">
 							<FieldGenerator :field="species.common_name_national"></FieldGenerator>
-							<b-btn @click="$store.state.form.tabs.tab_1.form_fields[0].common_name_national.selected = 'asd'">fasfsafas</b-btn>
 						</b-input-group>
 					</h5>
 

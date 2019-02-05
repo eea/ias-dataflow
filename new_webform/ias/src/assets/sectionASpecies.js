@@ -25,8 +25,13 @@ const species = (currentSpecies, country, formData) => ({
 	common_name_national: {
 		name: 'common_name_national',
 		type: 'text',
-		selected: currentSpecies[`${country}_CommonName`] || null,
-		label: 'Common name of the species (national language)'
+		selected: currentSpecies[`${country}_CommonName`],
+		label: 'Common name of the species (national language)',
+		get validation() {
+			if(!this.selected) {
+				return ['invalid']
+			}
+		}
 	},
 
 	present_in_MS: {

@@ -22,8 +22,8 @@ export default new Vuex.Store({
         getCurrentCountry(context) {
             getCountry().then(r => {
                 context.commit('addCurrentCountry', r.data)
-                context.dispatch('getCurrentFormData', {country: r.data}).then(() => {
-									context.commit('initiateForm')
+                context.dispatch('getCurrentFormData', {country: r.data}).then((formData) => {
+									context.commit('initiateForm', formData)
 								})
             })
         },
@@ -38,7 +38,7 @@ export default new Vuex.Store({
 							fieldsArray.forEach((field, index) => {
 								context.state.formData[field] = values[index].data
 							})
-							resolve()
+							resolve(context.state.formData)
 						});
 					});
         }
@@ -48,8 +48,8 @@ export default new Vuex.Store({
         addCurrentCountry(state, data) {
             state.country = data
         },
-        initiateForm(state) {
-            state.form = getForm(state.country, state.formData)
+        initiateForm(state, data) {
+            state.form = getForm(state.country, data)
         },
         addFormData(state, {field, data}) {
             state.formData[field] = data

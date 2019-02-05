@@ -32,13 +32,7 @@ const form = (country, formData) => ({
 			},
 		},
 		tab_1: {
-			get form_fields() {
-				const allSp = []
-				species.forEach(sp => {
-					allSp.push(sectionASpecies(sp, country, formData))
-				})
-				return allSp
-			}
+			form_fields: species.map(sp => sectionASpecies(sp, country, formData))
 		},
 		tab_2: {
 			ias_list: {
