@@ -708,3 +708,16 @@ body {
 .nav-tabs .nav-link {
   color: #444;
 }
+
+.custom-form-label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.file-upload {
+  .file-upload-location {
+    padding-top: 5px;
+    font-weight: 500;
+  }
+}

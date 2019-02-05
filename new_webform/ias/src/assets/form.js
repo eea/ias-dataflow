@@ -188,7 +188,7 @@ const form = (country, formData) => ({
 					type: 'file',
 					selected: '',
 					name: 'inspireMetadata_sectionA',
-					label: 'Inspire metadata for SECTION A',
+					label: 'INSPIRE metadata for SECTION A',
 					get validation() {
 						return []
 					}
@@ -206,7 +206,7 @@ const form = (country, formData) => ({
 					type: 'file',
 					selected: '',
 					name: 'inspireMetadata_sectionB',
-					label: 'Inspire metadata for SECTION B',
+					label: 'INSPIRE metadata for SECTION B',
 					get validation() {
 						return []
 					}
