@@ -1,8 +1,9 @@
 <template>
   <div v-if="field">
-    <div v-if="field.type === 'text' || field.type === 'number' || field.type === 'date' || field.type ==='email'">
+    <div v-if="['text', 'number', 'date', 'email'].includes(field.type)">
         <input :disabled="field.disabled" class="form-control" v-model="field.selected" :type="field.type">
     </div>
+		<b-form-file v-else-if="field.type === 'file'" v-model="field.selected"></b-form-file>
     <b-form-radio-group :id="field.name" v-else-if="field.type === 'radio'" v-model="field.selected" :options="field.options"></b-form-radio-group>
     <b-form-checkbox v-else-if="field.type === 'checkbox'" v-model="field.selected"></b-form-checkbox>
 		<div v-else-if="['select', 'multiselect'].includes(field.type)">

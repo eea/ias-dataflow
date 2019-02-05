@@ -3,10 +3,23 @@
     <center><h1 class="mb-3 mt-2">IAS dataflow</h1></center>
     <center><h5><span class="text-muted">Technical formats to be used by the Member States for transmitting to the Commission the information pursuant to paragraph 1 of Article 24 of Regulation (EU) No 1143/2014 on the prevention and management of the introduction of invasive alien species</span></h5></center>
 		<b-card>
-			<b-tabs>
-				<b-tab title="Reporting party">
-					<reportingParty :data="tab_0"></reportingParty>
+			<b-tabs v-if="$store.state.form">
+				<b-tab title="REPORTING PARTY">
+					<reportingParty :data="$store.state.form.tabs.tab_0"></reportingParty>
 				</b-tab>
+				<b-tab title="SECTION A">
+					<SectionA :data="$store.state.form.tabs.tab_1"></SectionA>
+				</b-tab>
+				<b-tab title="SECTION B">
+					<SectionB :data="$store.state.form.tabs.tab_2"></SectionB>
+				</b-tab>
+				<b-tab title="SECTION C">
+					<SectionC :data="$store.state.form.tabs.tab_3"></SectionC>
+				</b-tab>
+				<b-tab title="DISTRIBUTION MAPS">
+					<DistributionMaps :data="$store.state.form.tabs.tab_4"></DistributionMaps>
+				</b-tab>
+
 			</b-tabs>
 		</b-card>
 
@@ -14,15 +27,23 @@
   </b-container>
 </template>
 
-
 <script>
+
 import Multiselect from "@/components/ModifiedMultiselect"
 import reportingParty from '@/components/ReportingParty'
+import SectionA from '@/components/SectionA'
+import SectionB from '@/components/SectionB'
+import SectionC from '@/components/SectionC'
+import DistributionMaps from '@/components/DistributionMaps'
 
 export default {
 	components: {
 		Multiselect,
-		reportingParty
+		reportingParty,
+		SectionA,
+		SectionB,
+		SectionC,
+		DistributionMaps 
 	},
 
   props: {
@@ -44,9 +65,6 @@ export default {
 	computed: {
 		country() {
 			return this.$store.getters.getCurrentCountryState
-		},
-		tab_0(){
-			return this.$store.state.form && this.$store.state.form.tabs.tab_0
 		},
 	},
 	methods: {
