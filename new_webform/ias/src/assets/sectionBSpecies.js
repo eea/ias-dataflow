@@ -4,27 +4,27 @@ const species = (currentSpecies, country) => ({
     EASINCode: {
         name: 'EASINCode',
         type: 'nonInput',
-        selected: currentSpecies.speciesCode || null,
+        selected: currentSpecies.code || null,
         label: 'EASIN identifier',
     },
     scientific_name: {
         name: 'scientific_name',
         type: 'nonInput',
-        selected: currentSpecies.speciesNameLegi || null,
+        selected: currentSpecies.code || null,
         label: 'Scientific name'
     },
 
     common_name: {
         name: 'common_name',
         type: 'nonInput',
-        selected: currentSpecies.speciesCNameEN || null,
+        selected: currentSpecies.name || null,
         label: 'Common name of the species (english) : Egyptian goose'
     },
 
     common_name_naltional: {
         name: 'common_name_naltional',
         type: 'text',
-        selected: currentSpecies[`${country}_CommonName`] || null,
+        selected: null,
         label: 'Scientific name'
     },
 

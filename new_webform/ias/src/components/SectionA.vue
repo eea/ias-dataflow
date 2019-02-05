@@ -31,22 +31,25 @@
 
 						<div class="inner-card" v-if="species.present_in_MS.selected === true">
 							<div class="card-body">
+								<h6 class="text-center">Information on the permits issued for this species (to be completed only for invasive alien species of Union concern)</h6>
+								<hr>
 								<h5>
 									<b-input-group :prepend="species.permits_issued.label">
 										<FieldGenerator :field="species.permits_issued"></FieldGenerator> 
 									</b-input-group>
 								</h5>
+								<SectionAPermits :species_index="species_index" :species="species" v-if="species.permits_issued.selected === true" class="table-section">	</SectionAPermits>
+								
 
-								<SectionAPermits :species="species" v-if="species.permits_issued.selected === true" class="table-section">	</SectionAPermits>
-
-
-
+								<h6 class="text-center">Information on rapid eradication measure(s) taken for this species (Article 17 of Regulation (EU) No 1143/2014)</h6>
+								<hr>
 								<h5>
 									<b-input-group :prepend="species.eradication_measures.label">
 										<FieldGenerator :field="species.eradication_measures"></FieldGenerator> 
 									</b-input-group>
 								</h5>
-
+								<SectionAMeasures :species_index="species_index" :species="species" v-if="species.eradication_measures.selected === true" class="table-section"></SectionAMeasures>
+							
 								<h5>
 									<b-input-group :prepend="species.subject_management_measures.label">
 										<FieldGenerator :field="species.subject_management_measures"></FieldGenerator> 
@@ -66,6 +69,7 @@
 import FieldGenerator from '@/components/FieldGenerator'
 import Multiselect from '@/components/ModifiedMultiselect'
 import SectionAPermits from '@/components/SectionAPermits'
+import SectionAMeasures from '@/components/SectionAMeasures'
 
 export default {
 	props: {
@@ -74,7 +78,8 @@ export default {
 	components: {
 		FieldGenerator,
 		Multiselect,
-		SectionAPermits
+		SectionAPermits,
+		SectionAMeasures
 	},
 	methods: {
 

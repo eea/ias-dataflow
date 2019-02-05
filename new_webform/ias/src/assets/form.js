@@ -45,7 +45,15 @@ const form = (country, formData) => ({
 				]
 			},
 			form_fields: [
-				sectionBSpecies
+				sectionBSpecies({
+					"oligohaline": "0",
+					"status": "A",
+					"eu_concern": "0",
+					"code": "R00001",
+					"terrestrial": "1",
+					"name": "Abax parallelus",
+					"marine": "0",
+					"freshwater": "0"},country)
 			]
 		},
 		tab_3: {

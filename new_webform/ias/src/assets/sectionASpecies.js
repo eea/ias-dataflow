@@ -84,7 +84,7 @@ const species = (currentSpecies, country, formData) => ({
 	eradication_measures: {
 		name: 'eradication_measures',
 		type: 'select',
-		selected: null,
+		selected: true,
 		label: 'Has the species been subject to rapid eradication measures during the reporting period?',
 		options: [
 			{text: 'Yes', value: true},
