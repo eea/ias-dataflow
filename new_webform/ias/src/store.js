@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import {getCountry, getFormData} from './api'
 import getForm from '@/assets/form'
+import permitedSpecimens from '@/assets/permitedSpecimens'
+import permitsIssuedReported from '@/assets/permitsIssuedReported'
+import inspectionsPermitsReported from '@/assets/inspectionsPermitsReported'
 
 Vue.use(Vuex)
 
@@ -53,6 +56,20 @@ export default new Vuex.Store({
         },
         addFormData(state, {field, data}) {
             state.formData[field] = data
-        }
+        },
+				AddPermittedSpecimen(state, {section_type, species_index, row_index, type}) {
+					state.form.tabs.tab_1.form_fields[species_index][section_type][row_index][type].fields.push(permitedSpecimens())
+				},
+				RemovePermittedSpecimen(state, {section_type, species_index, row_index, type, field_index}) {
+					state.form.tabs.tab_1.form_fields[species_index][section_type][row_index][type].fields.splice(field_index, 1)
+				},
+				AddPermitsRow(state, {section_type, species_index}) {
+					console.log(section_type)
+					const row = section_type === 'permitsIssuedReported' ? permitsIssuedReported() : inspectionsPermitsReported()
+					state.form.tabs.tab_1.form_fields[species_index][section_type].push(row)
+				},
+				RemovePermitsRow(state, {section_type, species_index, row_index}) {
+					state.form.tabs.tab_1.form_fields[species_index][section_type].splice(row_index, 1)
+				},
     },
 })

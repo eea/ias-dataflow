@@ -11,8 +11,8 @@ const permitedSpecimens = () => ({
 		options: [
 			{text: 'KG of seeds', value: 'kgSeeds'},
 			{text: 'Number of specimens', value: 'number'}
-		]
-	}
+		],
+	},
 })
 
 export default permitedSpecimens

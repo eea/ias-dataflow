@@ -24,36 +24,36 @@ const permits = () => ({
 		]
 	},
 
-	number_issued: {
+	number_establishment: {
 		type: 'number',
 		selected: null,
-		name: 'number_valid',
-		label: 'Number of permits issued',
-		tooltip: 'Number of permits issued in the calendar year'
+		name: 'number_establishment',
+		label: 'Number of establishments',
+		tooltip: 'Number of establishments subjected to the inspections'
 	},
 
-	number_valid: {
+	number_inspected: {
 		type: 'number',
-		name: 'number_valid',
+		name: 'number_inspected',
 		selected: null,
-		label: 'Number permits valid',
-		tooltip: 'Number permits valid in the calendar year'
+		label: 'Inspected establishments non-compliant',
+		tooltip: 'Inspected establishments deemed non-compliant with the conditions set out in the permits'
 	},
 
-	permitedSpecimensIssued: {
-		name: 'permitedSpecimensIssued',
-		label: 'Permitted specimens - permits issued',
-		type: 'issued',
+	inspectionsPermitsComplient: {
+		name: 'inspectionsPermitsComplient',
+		label: 'Permitted specimens - permits held by the inspected est.	',
+		type: 'complient',
 		fields: [
-			permitedSpecimens('issued')
+			permitedSpecimens()
 		]
 	},
-	permitedSpecimensValid: {
-		name: 'permitedSpecimensValid',
-		label: 'Permitted specimens - valid permits',
-		type: 'valid',
+	inspectionsPermitsNoncompliant: {
+		name: 'inspectionsPermitsNoncompliant',
+		label: 'Permitted specimens - permits held by the inspected est. non-compliant',
+		type: 'noncompliant',
 		fields: [
-			permitedSpecimens('valid')
+			permitedSpecimens()
 		]
 	},
 	get validation() {
