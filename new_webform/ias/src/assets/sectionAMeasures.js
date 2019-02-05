@@ -1,3 +1,5 @@
+import observedNegativeImpacts from '@/assets/observedNegativeImpacts'
+
 const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions }) => ({
 	population_name: {
 		type: 'text',
@@ -42,8 +44,19 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions }) 
 			return []
 		}
 	},
+	
+	observedNegativeImpacts: {
+		label: 'Observed negative impacts of the measure on non-targeted species',
+		name: 'observedNegativeImpacts',
+		fields: [
+			observedNegativeImpacts()
+		]
+	},
+
+
 	measure_effectiveness: {
 		name: 'measure_effectiveness',
+		label: 'Effectiveness of the measure(s)',
 		selected: null,
 		type: 'select',
 		options: [
@@ -61,7 +74,7 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions }) 
 		type: 'textarea',
 		selected: null,
 		name: 'additional_information',
-		label: 'Additional information',
+		label: 'Additional information (optional)',
 		get validation() {
 			return []
 		}
@@ -79,7 +92,7 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions }) 
 	biogeographicalRegion: {
 		type: 'multiselect',
 		selected: [],
-		name: 'partTerritory',
+		name: 'biogeographicalRegion',
 		label: 'Part of the territory',
 		options: b_regions.map(n => ({ value: n.regionCode, text: n.name })),
 		get validation() {

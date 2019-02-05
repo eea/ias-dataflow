@@ -1,5 +1,5 @@
 <template>
-  <div v-if="data">
+  <div v-if="data && null">
     <b-card class="mb-4">
       <h4 v-b-toggle="`collapse_species_${species_index}`">
         <i class="fas fa-chevron-right"></i>

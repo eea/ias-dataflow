@@ -118,7 +118,7 @@ const species = (currentSpecies, country, formData) => ({
 	subject_management_measures: {
 		name: 'subject_management_measures',
 		type: 'select',
-		selected: null,
+		selected: true,
 		label: 'Has the species been subject to management measures during the reporting period?',
 		options: [
 			{text: 'Yes', value: true},

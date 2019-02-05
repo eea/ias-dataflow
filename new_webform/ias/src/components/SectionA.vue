@@ -56,6 +56,8 @@
 										<FieldGenerator :field="species.subject_management_measures"></FieldGenerator> 
 									</b-input-group>
 								</h5>
+								<SectionAMeasures type="sectionAMeasuresManagement" :species_index="species_index" :species="species" v-if="species.subject_management_measures.selected === true" class="table-section"></SectionAMeasures>
+
 							</div>
 							
 						</div>	
