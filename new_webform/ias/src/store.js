@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import {getCountry, getFormData} from './api'
 import getForm from '@/assets/form'
+import permitedSpecimens from '@/assets/permitedSpecimens'
+import permitsIssuedReported from '@/assets/permitsIssuedReported'
+import inspectionsPermitsReported from '@/assets/inspectionsPermitsReported'
 
 Vue.use(Vuex)
 
@@ -22,8 +25,8 @@ export default new Vuex.Store({
         getCurrentCountry(context) {
             getCountry().then(r => {
                 context.commit('addCurrentCountry', r.data)
-                context.dispatch('getCurrentFormData', {country: r.data}).then(() => {
-									context.commit('initiateForm')
+                context.dispatch('getCurrentFormData', {country: r.data}).then((formData) => {
+									context.commit('initiateForm', formData)
 								})
             })
         },
@@ -38,7 +41,7 @@ export default new Vuex.Store({
 							fieldsArray.forEach((field, index) => {
 								context.state.formData[field] = values[index].data
 							})
-							resolve()
+							resolve(context.state.formData)
 						});
 					});
         }
@@ -48,11 +51,25 @@ export default new Vuex.Store({
         addCurrentCountry(state, data) {
             state.country = data
         },
-        initiateForm(state) {
-            state.form = getForm(state.country, state.formData)
+        initiateForm(state, data) {
+            state.form = getForm(state.country, data)
         },
         addFormData(state, {field, data}) {
             state.formData[field] = data
-        }
+        },
+				AddPermittedSpecimen(state, {section_type, species_index, row_index, type}) {
+					state.form.tabs.tab_1.form_fields[species_index][section_type][row_index][type].fields.push(permitedSpecimens())
+				},
+				RemovePermittedSpecimen(state, {section_type, species_index, row_index, type, field_index}) {
+					state.form.tabs.tab_1.form_fields[species_index][section_type][row_index][type].fields.splice(field_index, 1)
+				},
+				AddPermitsRow(state, {section_type, species_index}) {
+					console.log(section_type)
+					const row = section_type === 'permitsIssuedReported' ? permitsIssuedReported() : inspectionsPermitsReported()
+					state.form.tabs.tab_1.form_fields[species_index][section_type].push(row)
+				},
+				RemovePermitsRow(state, {section_type, species_index, row_index}) {
+					state.form.tabs.tab_1.form_fields[species_index][section_type].splice(row_index, 1)
+				},
     },
 })

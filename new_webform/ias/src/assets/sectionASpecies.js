@@ -1,5 +1,7 @@
 import permitsIssuedReported from './permitsIssuedReported'
 import sectionAMeasures from './sectionAMeasures'
+import inspectionsPermitsReported from './inspectionsPermitsReported'
+
 
 const species = (currentSpecies, country, formData) => ({
 	EASINCode: {
@@ -25,14 +27,19 @@ const species = (currentSpecies, country, formData) => ({
 	common_name_national: {
 		name: 'common_name_national',
 		type: 'text',
-		selected: currentSpecies[`${country}_CommonName`] || null,
-		label: 'Common name of the species (national language)'
+		selected: currentSpecies[`${country}_CommonName`],
+		label: 'Common name of the species (national language)',
+		get validation() {
+			if(!this.selected) {
+				return ['invalid']
+			}
+		}
 	},
 
 	present_in_MS: {
 		name: 'present_in_MS',
 		type: 'select',
-		selected: null,
+		selected: true,
 		label: 'Is the species present in the territory of the Member State ?',
 		options: [
 			{text: 'Yes', value: true},
@@ -46,7 +53,22 @@ const species = (currentSpecies, country, formData) => ({
 		permitsIssuedReported()
 	],
 
-	// additional_information_
+	inspectionsPermitsReported: [
+		inspectionsPermitsReported()
+	],
+
+	additional_information_permits: {
+		type: 'textarea',
+		selected: '',
+		label: 'Additional information (optional)'
+	},
+
+	additional_information_inspections: {
+		type: 'textarea',
+		selected: '',
+		label: 'Additional information (optional)'
+	},
+
 
 	permits_issued: {
 		name: 'permits_issued',

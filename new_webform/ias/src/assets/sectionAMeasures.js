@@ -1,5 +1,4 @@
-
-const sectionAMeasures = ({ nuts, marine_subregions, r_b_subunits, b_regions }) => ({
+const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions }) => ({
 	population_name: {
 		type: 'text',
 		selected: null,

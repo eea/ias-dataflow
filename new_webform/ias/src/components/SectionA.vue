@@ -17,9 +17,9 @@
 					<h5>
 						<b-input-group :prepend="species.common_name_national.label">
 							<FieldGenerator :field="species.common_name_national"></FieldGenerator>
-							<b-btn @click="$store.state.form.tabs.tab_1.form_fields[0].common_name_national.selected = 'asd'">fasfsafas</b-btn>
 						</b-input-group>
 					</h5>
+
 
 					<b-collapse :id="`collapse_species_${species_index}`" visible>
 						<h5>
@@ -27,26 +27,36 @@
 								<FieldGenerator :field="species.present_in_MS"></FieldGenerator> 
 							</b-input-group>
 						</h5>
+						<hr>
 
-						<h5>
-							<b-input-group :prepend="species.permits_issued.label">
-								<FieldGenerator :field="species.permits_issued"></FieldGenerator> 
-							</b-input-group>
-						</h5>
+						<div class="inner-card" v-if="species.present_in_MS.selected === true">
+							<div class="card-body">
+								<h5>
+									<b-input-group :prepend="species.permits_issued.label">
+										<FieldGenerator :field="species.permits_issued"></FieldGenerator> 
+									</b-input-group>
+								</h5>
 
-						<h5>
-							<b-input-group :prepend="species.eradication_measures.label">
-								<FieldGenerator :field="species.eradication_measures"></FieldGenerator> 
-							</b-input-group>
-						</h5>
+								<SectionAPermits :species="species" v-if="species.permits_issued.selected === true" class="table-section">	</SectionAPermits>
 
-						<h5>
-							<b-input-group :prepend="species.subject_management_measures.label">
-								<FieldGenerator :field="species.subject_management_measures"></FieldGenerator> 
-							</b-input-group>
-						</h5>
+
+
+								<h5>
+									<b-input-group :prepend="species.eradication_measures.label">
+										<FieldGenerator :field="species.eradication_measures"></FieldGenerator> 
+									</b-input-group>
+								</h5>
+
+								<h5>
+									<b-input-group :prepend="species.subject_management_measures.label">
+										<FieldGenerator :field="species.subject_management_measures"></FieldGenerator> 
+									</b-input-group>
+								</h5>
+							</div>
+						</div>	
 
 					</b-collapse>
+
 				
 				</b-card>
 		</div>
@@ -54,13 +64,20 @@
 
 <script>
 import FieldGenerator from '@/components/FieldGenerator'
+import Multiselect from '@/components/ModifiedMultiselect'
+import SectionAPermits from '@/components/SectionAPermits'
 
 export default {
 	props: {
 		data: null
 	},
 	components: {
-		FieldGenerator
+		FieldGenerator,
+		Multiselect,
+		SectionAPermits
 	},
+	methods: {
+
+	}
 }
 </script>
