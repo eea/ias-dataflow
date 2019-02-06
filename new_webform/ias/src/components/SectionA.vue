@@ -39,8 +39,8 @@
 										<FieldGenerator :field="species.permits_issued"></FieldGenerator> 
 									</b-input-group>
 								</h5>
-								<b-card>
-									<SectionAPermits :species_index="species_index" :species="species" v-if="species.permits_issued.selected === true" class="table-section">	</SectionAPermits>
+								<b-card v-if="species.permits_issued.selected === true">
+									<SectionAPermits :species_index="species_index" :species="species" class="table-section">	</SectionAPermits>
 								</b-card>
 								
 
@@ -51,8 +51,8 @@
 										<FieldGenerator :field="species.eradication_measures"></FieldGenerator> 
 									</b-input-group>
 								</h5>
-								<b-card>
-									<SectionAMeasures type="sectionAMeasures" :species_index="species_index" :species="species" v-if="species.eradication_measures.selected === true" class="table-section"></SectionAMeasures>
+								<b-card v-if="species.eradication_measures.selected === true" >
+									<SectionAMeasures type="sectionAMeasures" :species_index="species_index" :species="species" class="table-section"></SectionAMeasures>
 								</b-card>
 								
 								<h5>
@@ -60,8 +60,8 @@
 										<FieldGenerator :field="species.subject_management_measures"></FieldGenerator> 
 									</b-input-group>
 								</h5>
-								<b-card>
-									<SectionAMeasures type="sectionAMeasuresManagement" :species_index="species_index" :species="species" v-if="species.subject_management_measures.selected === true" class="table-section"></SectionAMeasures>
+								<b-card v-if="species.subject_management_measures.selected === true" >
+									<SectionAMeasures type="sectionAMeasuresManagement" :species_index="species_index" :species="species" class="table-section"></SectionAMeasures>
 								</b-card>
 
 								<b-card>
