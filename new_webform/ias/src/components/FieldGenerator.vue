@@ -16,7 +16,7 @@
           <b-btn size='sm' variant='danger' @click='removeFile'><b>Delete file</b></b-btn>
         </div>
       </div>
-      <hr />
+      <hr/>
     </div>
     <b-form-radio-group :id="field.name" v-else-if="field.type === 'radio'" v-model="field.selected" :options="field.options"></b-form-radio-group>
     <b-form-checkbox v-else-if="field.type === 'checkbox'" v-model="field.selected"></b-form-checkbox>

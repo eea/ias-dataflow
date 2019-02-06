@@ -1,7 +1,7 @@
 import species from './species'
 import sectionASpecies from './sectionASpecies'
 import sectionBSpecies from './sectionBSpecies'
-import pathway from './sectionBPathway'
+import pathway from './sectionCPathway'
 
 const form = (country, formData) => ({
 	tabs: {
@@ -143,9 +143,9 @@ const form = (country, formData) => ({
 						return []
 					}
 				},
-				priority_pathways: [
-					pathway
-				],
+				priority_pathways: {
+					fields: [pathway()]
+				},
 				file_cost_of_action: {
 					type: 'file',
 					selected: '',

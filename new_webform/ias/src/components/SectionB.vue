@@ -38,9 +38,9 @@
             <b-col>
               <b-btn @click="$store.commit('addSectionBSpecies', 
               {selected_species: manual_species.species_scientific_name, common_name: manual_species.species_common_name});
-              manual_species.species_scientific_name = null;
-              manual_species.species_common_name = null" 
-              variant="primary">Add</b-btn>
+                manual_species.species_scientific_name = null;
+                manual_species.species_common_name = null" 
+                variant="primary">Add</b-btn>
             </b-col>
 
           </b-row>
@@ -54,9 +54,34 @@
         <i class="fas fa-chevron-right"></i>
         Species scientific name: {{species.scientific_name.selected}}
       </h4>
+      <b-btn variant='danger' style="float:right; margin-top:-2rem" @click="$store.commit('RemoveBSpecies', {species_index})">Remove</b-btn>
 
-      <b-collapse :id="`collapse_species_${species_index}`" visible>
-        <b-btn variant='danger' @click='remove'>Remove</b-btn>
+      <h5>
+						<b-input-group :prepend="species.common_name_national.label">
+							<FieldGenerator :field="species.common_name_national"></FieldGenerator>
+						</b-input-group>
+			</h5>
+      <h5>
+					<b-input-group :prepend="species.present_in_MS.label">
+						<FieldGenerator :field="species.present_in_MS"></FieldGenerator> 
+					</b-input-group>
+			</h5>
+			<hr>
+      <b-collapse :id="`collapse_species_${species_index}`" :visible="species.present_in_MS.selected === true">
+        <b>A distribution map for this species has to be included in the file which will be uploaded in the 'Distribution map for SECTION B' field available on 'DISTRIBUTION MAP' section (optional).</b>
+        <div v-for="pattern in ['reproduction_patterns','spreadPatterns']" class="patterns" :key="`${species_index}_${pattern}`">
+          <div class="patterns-label">{{species[pattern].label}}</div>
+          <FieldGenerator :field="species[pattern]"></FieldGenerator>
+        </div>
+        <FieldGenerator :field="species.additional_information"></FieldGenerator>
+        <h4 class="text-center">Measure(s) applied in the territory of the Member State in relation to the species</h4>
+        <div v-for="(measure, measure_index) in species.sectionBMeasures" :key="`${measure_index}_${species_index}`">
+          <label class="d-flex">
+            <FieldGenerator :field="measure"></FieldGenerator>
+            {{measure.label}}
+          </label>
+        </div>
+        <FieldGenerator :field="species.additional_information_measures"></FieldGenerator>
       </b-collapse>
   </b-card>
 

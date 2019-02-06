@@ -7,7 +7,7 @@
 					<FieldGenerator :id="field_index" :field="field"></FieldGenerator>
 				</div> -->
 				<b-card v-for="(species, species_index) in data.form_fields" :key="`species_${species_index}`" class="mb-4">
-					<h3 v-b-toggle="`collapse_species_${species_index}`">
+					<h3 v-b-toggle="`collapse_species_${species_index}_A`">
 						<b>
 							<i class="fas fa-chevron-right"></i> {{species.scientific_name.selected}}
 						</b>
@@ -21,7 +21,7 @@
 					</h5>
 
 
-					<b-collapse :id="`collapse_species_${species_index}`" visible>
+					<b-collapse :id="`collapse_species_${species_index}_A`" visible>
 						<h5>
 							<b-input-group :prepend="species.present_in_MS.label">
 								<FieldGenerator :field="species.present_in_MS"></FieldGenerator> 

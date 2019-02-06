@@ -6,8 +6,29 @@
     </h2>
     <br/>
     <b-card>
+     
+
       <div v-for="(field, field_index) in data.form_fields" :key="field_index">
-        <FieldGenerator :id="field_index" :field="field"></FieldGenerator>
+        <FieldGenerator v-if="field_index != 'priority_pathways'" :id="field_index" :field="field"></FieldGenerator>
+        <table v-else>
+          <thead>
+            <tr>
+              <th v-for="(header,header_index) in field.fields[0]" :key="header_index">
+                {{header.label}}
+              </th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(row, row_index) in field.fields" :key="row_index">
+              <td v-for="(cell, cell_index) in row" :key="`${row_index}_${cell_index}`">
+                <FieldGenerator :field="cell"></FieldGenerator>
+              </td>
+              <td><b-btn variant="danger" @click="$store.commit('removePathway', {row_index})">Remove</b-btn></td>
+            </tr>
+          </tbody>
+          <tfoot><b-btn variant="primary" @click="$store.commit('addPathway')">Add</b-btn></tfoot>
+        </table>
       </div>
     </b-card>
   </div>

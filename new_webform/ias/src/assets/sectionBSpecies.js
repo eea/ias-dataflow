@@ -1,5 +1,3 @@
-import permitsIssuedReported from './permitsIssuedReported'
-
 const species = (currentSpecies, country) => ({
     EASINCode: {
         name: 'EASINCode',
@@ -21,8 +19,8 @@ const species = (currentSpecies, country) => ({
         label: 'Common name of the species (english)'
     },
 
-    common_name_naltional: {
-        name: 'common_name_naltional',
+    common_name_national: {
+        name: 'Common name of the species (optional)',
         type: 'text',
         selected: currentSpecies.cname || null,
         label: 'Scientific name'
@@ -31,7 +29,7 @@ const species = (currentSpecies, country) => ({
     present_in_MS: {
         name: 'present_in_MS',
         type: 'select',
-        selected: null,
+        selected: true,
         label: 'Is the species present in the territory of the Member State ?',
         options: [
             {text: 'Yes', value: true},
@@ -46,7 +44,6 @@ const species = (currentSpecies, country) => ({
         add: true,
         patternType: 'reproduction',
         name: 'reproduction patterns',
-        multiple: false,
         selected: {
             region: null,
             pattern: null
@@ -61,17 +58,25 @@ const species = (currentSpecies, country) => ({
         ]
     },
 
+    additional_information: {
+        type: 'textarea',
+        selected: '',
+        name: 'additional_information',
+        label: "Additional information (optional)",
+    },
+    additional_information_measures: {
+        type: 'textarea',
+        selected: '',
+        name: 'additional_information_measures',
+        label: "Additional information (optional)",
+    },
+
     spreadPatterns: {
         label: 'Spread patterns',
-        type: 'select',
+        type: 'multiselect',
         patternType: 'spread',
         name: 'spread_patterns',
-        add: true,
-        multiple: true,
-        selected: {
-            region: null,
-            pattern: null
-        },
+        selected: [],
         options:[
             {
                 text: 'a) The species was already widely spread before 2015',
@@ -157,8 +162,8 @@ const species = (currentSpecies, country) => ({
         restReproduce: {
             type: 'checkbox',
             selected: false,
-            name: 'Restriction to intentionally permit to reproduce, grown or cultivated, including in contained holding',
-            label: 'restReproduce',
+            name: 'restReproduce',
+            label: 'Restriction to intentionally permit to reproduce, grown or cultivated, including in contained holding',
         },
         restRelease: {
             type: 'checkbox',
@@ -169,8 +174,8 @@ const species = (currentSpecies, country) => ({
         derogations: {
             type: 'checkbox',
             selected: false,
-            label: 'derogations',
-            name: 'Derogations foreseen within the permit system under Article 8',
+            label: 'Derogations foreseen within the permit system under Article 8',
+            name: 'derogations',
         },
         actionPlans: {
             type: 'checkbox',
@@ -219,12 +224,6 @@ const species = (currentSpecies, country) => ({
             selected: false,
             noMeasures: 'restTransport',
             label: "The species is included in the national list but is not subject to any measures",
-        },
-        additional_info: {
-            type: 'checkbox',
-            selected: false,
-            name: 'restTransport',
-            label: "Additional information (optional)",
         }
     }
 

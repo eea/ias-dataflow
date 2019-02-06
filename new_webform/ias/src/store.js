@@ -9,6 +9,7 @@ import sectionAMeasures from '@/assets/sectionAMeasures'
 import observedNegativeImpacts from '@/assets/observedNegativeImpacts'
 import infoImpactSpecies from '@/assets/infoImpactSpecies'
 import sectionBSpecies from '@/assets/sectionBSpecies'
+import sectionCPathway from '@/assets/sectionCPathway'
 
 Vue.use(Vuex)
 
@@ -110,5 +111,14 @@ export default new Vuex.Store({
 				)
 			})
 		},
+		RemoveBSpecies(state, {species_index}) {
+			state.form.tabs.tab_2.form_fields.splice(species_index,1)
+		},
+		removePathway(state, {row_index}){
+			state.form.tabs.tab_3.form_fields.priority_pathways.fields.splice(row_index, 1)
+		},
+		addPathway(state) {
+			state.form.tabs.tab_3.form_fields.priority_pathways.fields.push(sectionCPathway())
+		}
 	},
 })

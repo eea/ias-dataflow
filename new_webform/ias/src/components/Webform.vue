@@ -2,6 +2,7 @@
   <b-container v-if="$store.state.form" fluid class="main-layout">
     <center><h1 class="mb-3 mt-2">IAS dataflow</h1></center>
     <center><h5><span class="text-muted">Technical formats to be used by the Member States for transmitting to the Commission the information pursuant to paragraph 1 of Article 24 of Regulation (EU) No 1143/2014 on the prevention and management of the introduction of invasive alien species</span></h5></center>
+		<FormSubmit :form="$store.state.form" :country="$store.state.country"></FormSubmit>
 		<b-card>
 			<b-tabs>
 				<b-tab title="REPORTING PARTY">
@@ -34,6 +35,7 @@ import SectionA from '@/components/SectionA'
 import SectionB from '@/components/SectionB'
 import SectionC from '@/components/SectionC'
 import DistributionMaps from '@/components/DistributionMaps'
+import FormSubmit from '@/components/FormSubmit'
 
 export default {
 	components: {
@@ -42,7 +44,8 @@ export default {
 		SectionA,
 		SectionB,
 		SectionC,
-		DistributionMaps 
+		DistributionMaps,
+		FormSubmit
 	},
 
   props: {
