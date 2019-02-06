@@ -10,6 +10,7 @@ const permitedSpecimens = () => ({
 		label: 'Unit',
 		options: [
 			{text: 'KG of seeds', value: 'kgSeeds'},
+			{text: 'kg of specimen', value: 'kgSpecimens'},
 			{text: 'Number of specimens', value: 'number'}
 		],
 	},

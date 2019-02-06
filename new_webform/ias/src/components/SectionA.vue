@@ -63,6 +63,11 @@
 								<b-card>
 									<SectionAMeasures type="sectionAMeasuresManagement" :species_index="species_index" :species="species" v-if="species.subject_management_measures.selected === true" class="table-section"></SectionAMeasures>
 								</b-card>
+
+								<b-card>
+									<SectionAImpact :species_index="species_index" :species="species" class="table-section"></SectionAImpact>
+								</b-card>
+
 							</div>
 						</div>	
 
@@ -78,6 +83,7 @@ import FieldGenerator from '@/components/FieldGenerator'
 import Multiselect from '@/components/ModifiedMultiselect'
 import SectionAPermits from '@/components/SectionAPermits'
 import SectionAMeasures from '@/components/SectionAMeasures'
+import SectionAImpact from '@/components/SectionAImpact'
 
 export default {
 	props: {
@@ -87,7 +93,8 @@ export default {
 		FieldGenerator,
 		Multiselect,
 		SectionAPermits,
-		SectionAMeasures
+		SectionAMeasures,
+		SectionAImpact
 	},
 	methods: {
 

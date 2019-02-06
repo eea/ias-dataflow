@@ -1,7 +1,7 @@
 import permitsIssuedReported from './permitsIssuedReported'
 import sectionAMeasures from './sectionAMeasures'
 import inspectionsPermitsReported from './inspectionsPermitsReported'
-
+import infoImpactSpecies from './infoImpactSpecies'
 
 const species = (currentSpecies, country, formData) => ({
 	EASINCode: {
@@ -124,6 +124,11 @@ const species = (currentSpecies, country, formData) => ({
 			{text: 'Yes', value: true},
 			{text: 'No', value: false},
 			{text: 'Currently unknown', value: 'unknown'}
+		]
+	},
+	infoImpactSpecies : {
+		fields: [
+			infoImpactSpecies()
 		]
 	}
 })
