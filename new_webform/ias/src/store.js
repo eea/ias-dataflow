@@ -8,6 +8,7 @@ import inspectionsPermitsReported from '@/assets/inspectionsPermitsReported'
 import sectionAMeasures from '@/assets/sectionAMeasures'
 import observedNegativeImpacts from '@/assets/observedNegativeImpacts'
 import infoImpactSpecies from '@/assets/infoImpactSpecies'
+import sectionBSpecies from '@/assets/sectionBSpecies'
 
 Vue.use(Vuex)
 
@@ -93,6 +94,21 @@ export default new Vuex.Store({
 		},
 		removeInfoImpact(state, {species_index, row_index}){
 			state.form.tabs.tab_1.form_fields[species_index].infoImpactSpecies.fields.splice(row_index, 1)
+		},
+		addSectionBSpecies(state, {selected_species, species_common_name}) {
+			if(!Array.isArray(selected_species))
+				selected_species = [selected_species]
+
+			selected_species.forEach(species => {
+				const speciesData = state.formData.speciesB.find(s => s.code === species) || {}
+				state.form.tabs.tab_2.form_fields.push(
+					sectionBSpecies({
+						code: species,
+						name: speciesData.name || species,
+						cname: speciesData.cname || species_common_name
+					}, state.country)
+				)
+			})
 		},
 	},
 })

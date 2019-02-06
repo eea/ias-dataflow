@@ -10,21 +10,21 @@ const species = (currentSpecies, country) => ({
     scientific_name: {
         name: 'scientific_name',
         type: 'nonInput',
-        selected: currentSpecies.code || null,
+        selected: currentSpecies.name || null,
         label: 'Scientific name'
     },
 
     common_name: {
         name: 'common_name',
         type: 'nonInput',
-        selected: currentSpecies.name || null,
-        label: 'Common name of the species (english) : Egyptian goose'
+        selected: currentSpecies.cname || null,
+        label: 'Common name of the species (english)'
     },
 
     common_name_naltional: {
         name: 'common_name_naltional',
         type: 'text',
-        selected: null,
+        selected: currentSpecies.cname || null,
         label: 'Scientific name'
     },
 
