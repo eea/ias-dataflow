@@ -45,15 +45,7 @@ const form = (country, formData) => ({
 				]
 			},
 			form_fields: [
-				sectionBSpecies({
-					"oligohaline": "0",
-					"status": "A",
-					"eu_concern": "0",
-					"code": "R00001",
-					"terrestrial": "1",
-					"name": "Abax parallelus",
-					"marine": "0",
-					"freshwater": "0"} ,country)
+		
 			]
 		},
 		tab_3: {
@@ -61,6 +53,7 @@ const form = (country, formData) => ({
 				weblink_permits: {
 					type: 'textarea',
 					name: 'weblink_permits',
+					selected: null,
 					label: 'Web link to information on the internet regarding the permits issued as required under Article 8(7) of Regulation (EU) No 1143/2014',
 					get validation() {
 						return []
@@ -69,6 +62,7 @@ const form = (country, formData) => ({
 				action_plans: {
 					type: 'textarea',
 					name: 'action_plans',
+					selected: null,
 					label: 'Action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014',
 					get validation() {
 						return []
@@ -76,7 +70,7 @@ const form = (country, formData) => ({
 				},
 				file_action_plans: {
 					type: 'file',
-					selected: '',
+					selected: null,
 					name: 'file_action_plans',
 					label: 'File regarding the action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014',
 					get validation() {
@@ -86,7 +80,7 @@ const form = (country, formData) => ({
 				surveillance_system: {
 					type: 'textarea',
 					name: 'surveillance_system',
-					selected: '',
+					selected: null,
 					label: 'Description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014',
 					get validation() {
 						return []
@@ -94,7 +88,7 @@ const form = (country, formData) => ({
 				},
 				file_surveillance_system: {
 					type: 'file',
-					selected: '',
+					selected: null,
 					name: 'file_surveillance_system',
 					label: 'File regarding the description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014',
 					get validation() {
@@ -104,6 +98,7 @@ const form = (country, formData) => ({
 				official_control_system: {
 					type: 'textarea',
 					name: 'official_control_system',
+					selected: null,
 					label: 'Description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014',
 					get validation() {
 						return []
@@ -138,6 +133,7 @@ const form = (country, formData) => ({
 				cost_of_action: {
 					type: 'input',
 					name: 'cost_of_action',
+					selected: null,
 					label: 'Cost of action undertaken to comply with the Regulation (EU) No 1143/2014',
 					get validation() {
 						return []
@@ -158,6 +154,7 @@ const form = (country, formData) => ({
 				additional_information: {
 					type: 'textarea',
 					name: 'additional_information',
+					selected: null,
 					label: 'Additional information (optional)',
 					get validation() {
 						return []

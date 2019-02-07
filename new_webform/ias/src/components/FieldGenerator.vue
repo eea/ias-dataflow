@@ -30,7 +30,7 @@
     </div>
     <div v-else-if="field.type === 'textarea'">
       <div class="custom-form-label">{{field.label}}</div>
-      <textarea class="form-control"   v-model="field.select"></textarea>
+      <textarea class="form-control"   v-model="field.selected"></textarea>
       <hr />
     </div>
   </div>

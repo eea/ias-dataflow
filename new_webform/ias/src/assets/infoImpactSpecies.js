@@ -13,21 +13,21 @@ const impact = () => ({
     },
     protectedSpecies: {
         type: 'multiselect',
-        selected: null,
+        selected: [],
         label: 'Protected species',
         name: 'protectedSpecies',
         options: protectedSpeciesList.map(sp => ({text: sp.label, value: sp.id}))
     },
     protectedHabitats: {
         type: 'multiselect',
-        selected: null,
+        selected: [],
         label: 'Protected habitats',
         name: 'protectedHabitats',
         options: protectedHabitatsList.map(sp => ({text: sp.label, value: sp.id}))
     },
     ecosystems: {
         type: 'multiselect',
-        selected: null,
+        selected: [],
         label: 'Ecosystem services',
         name: 'ecosystems',
         options: ecosystemsList.map(sp => ({text: `${sp.group} - ${sp.class}`, value: sp.class, group: sp.group}))

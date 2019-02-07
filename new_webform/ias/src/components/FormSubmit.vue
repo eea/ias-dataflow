@@ -19,6 +19,7 @@
 <script>
 
 import {saveInstance, envelope} from '@/api';
+import ecosystemsList from '@/assets/ecosystems'
 
 export default {
   name: 'FormSubmit',
@@ -36,7 +37,7 @@ export default {
                 reportID: null,
                 EASINCode: null,
                 common_name_national: null,
-                present_in_ms: null,
+                present_in_MS: null,
                 reproduction_pattern: null,
                 additional_information: null,
                 permits_issued: null,
@@ -73,8 +74,8 @@ export default {
                 value: null,
                 unit: null
             },
-            permitsIssuedReported: {
-                reportID: null,
+						inspectionsPermitsReported: {
+							  reportID: null,
                 EASINCode: null,
                 row_id: null,
                 parent_row_id: null,
@@ -82,7 +83,7 @@ export default {
                 permit_purpose: null,
                 number_establishment: null,
                 number_inspected: null	
-            },
+						},
             inspectionPermits: {
                 reportID: null,
                 row_id: null,
@@ -204,7 +205,9 @@ export default {
                 cost_of_action: null,
                 file_cost_of_action: null,
                 additional_information: null,
-                file_additional_information: null
+								file_additional_information: null,
+								measures_inform_public: null,
+								file_measures_inform_public: null
             },
             priorityPathway: {
                 reportID: null,
@@ -399,13 +402,21 @@ export default {
       let data = JSON.parse(JSON.stringify(this.dataset))
 			let reportID = `${this.currentCountry}-2015-2018`
 			// console.log(reportingId)
+			emptyInstance.IAS.reporting.Row.has_national_list_MS = data.tabs.tab_2.ias_list.selected
+			emptyInstance.IAS.reporting.Row.reportID = reportID
+			emptyInstance.IAS.reporting.Row.StartYear = 2015
+			emptyInstance.IAS.reporting.Row.EndYear = 2018
+			emptyInstance.IAS.reporting.Row.CountryCode = this.currentCountry
 
-			// this.sectionASpecies(data, emptyInstance, reportID)
-			// this.sectionBSpecies(data, emptyInstance, reportID)
-			// this.sectionC(data, emptyInstance, reportID)
+
+
+
+			this.sectionASpecies(data, emptyInstance, reportID)
+			this.sectionBSpecies(data, emptyInstance, reportID)
+			this.sectionC(data, emptyInstance, reportID)
 			this.distributionMaps(data, emptyInstance, reportID)
-
-			saveInstance(emptyInstance);
+			console.log(emptyInstance)
+			// saveInstance(emptyInstance);
 
       // this.showAlert();
     },
@@ -415,35 +426,28 @@ export default {
 			const section = data.tabs.tab_4.form_fields
 			structure.reportID = reportID
 			Object.keys(section).forEach(field => {
-				structure[field] = section[field].selected
+				if(structure.hasOwnProperty(field)) structure[field] = section[field].selected
 			})
 			emptyInstance.IAS.distributionMap.Row.push(structure)
 		},
 
 		sectionC(data, emptyInstance, reportID){
-			const structure = Object.assign({}, this.structure.sectionC)
-			const section = data.tab_3.section.fields
+			const structure = JSON.parse(JSON.stringify(this.structure.sectionC))
+			const section = data.tabs.tab_3.form_fields
 			structure.reportID = reportID
-			structure.weblink_permits = section.find(field => field.name === 'web_link').selected
-			structure.action_plans = section.find(field => field.name === 'action_plans_art13').selected
-			structure.file_action_plans = section.find(field => field.name === 'action_plans_art13_file').selected
-			structure.surveillance_system = section.find(field => field.name === 'surveillance_system_art14').selected
-			structure.file_surveillance_system = section.find(field => field.name === 'surveillance_system_art14_file').selected
-			structure.official_control_system = section.find(field => field.name === 'official_control_system').selected
-			structure.file_official_control_system= section.find(field => field.name === 'official_control_system_file').selected
-			//TODO: missing mescription of measures taken
-			structure.cost_of_action = section.find(field => field.name === 'cost').selected
-			structure.file_cost_of_action = section.find(field => field.name === 'cost_file').selected
-			structure.additional_information = section.find(field => field.name === 'additional_info').selected
-			structure.file_additional_information = section.find(field => field.name === 'additional_info_file').selected
-			console.log(section.find(field => field.name === 'priority_pathways'))
-			section.find(field => field.name === 'priority_pathways').fields.forEach((pathway, pathway_index) => {
-				pathway.inner_field.selected.forEach((species, species_index) => {
-				const priorityPathway = Object.assign({}, this.structure.priorityPathway)
+
+			Object.keys(section).forEach(field => {
+				if(structure.hasOwnProperty(field)) structure[field] = section[field].selected
+			})
+
+
+			section.priority_pathways.fields.forEach((pathway, pathway_index) => {
+				pathway.EASINCode.selected.forEach((species, species_index) => {
+				const priorityPathway = JSON.parse(JSON.stringify(this.structure.priorityPathway))
 					priorityPathway.reportID = reportID
 					priorityPathway.row_id = pathway_index
-					priorityPathway.pathway_code = pathway.selected.value
-					priorityPathway.EASINCode = species.code
+					priorityPathway.pathway_code = pathway.pathway_code.selected
+					priorityPathway.EASINCode = species
 					emptyInstance.IAS.priorityPathway.Row.push(priorityPathway)
 				})
 			})
@@ -452,43 +456,44 @@ export default {
 		},
 
 		sectionBSpecies(data, emptyInstance, reportID){
-			if(!data.tab_2.sections.length) return
-			data.tab_2.sections.forEach((section, index) => {
-				const structure =  Object.assign({}, this.structure.sectionBSpecies)
+			if(!data.tabs.tab_2.form_fields.length) return
+			if(!data.tabs.tab_2.ias_list.selected) return
+			data.tabs.tab_2.form_fields.forEach((section, index) => {
+				const structure =  JSON.parse(JSON.stringify(this.structure.sectionBSpecies))
 				structure.reportID = reportID
 				structure.row_id = index
-				structure.EASINCode = section.common_name.selected.code
+				structure.EASINCode = section.EASINCode.selected
 
-				structure.common_name_national = section.common_name.name
+				structure.common_name_national = section.common_name_national.selected
 
-				structure.scientific_name = section.scientific_name.selected.value
+				structure.scientific_name = section.scientific_name.selected
 
-				structure.present_in_MS = section.mandatory_item.selected
+				structure.present_in_MS = section.present_in_MS.selected
+
 				if(structure.present_in_MS) {
-					structure.reproduction_pattern = section.depending_on_mandatory.reproduction_patterns[0].selected.pattern
-					structure.additional_information = section.additional_info.selected
-					structure.additional_information_measures = section.section.fields.find(field => field.name === 'additional_info').selected
+					structure.reproduction_pattern = section.reproduction_patterns.selected
+					structure.additional_information = section.additional_information.selected
+					structure.additional_information_measures = section.additional_information_measures.selected
 				
-				
-					if(section.depending_on_mandatory.spread_patterns[0].selected.pattern) {
-						section.depending_on_mandatory.spread_patterns[0].selected.pattern.forEach((pattern, pattern_index) => {
-							const spreadPattern = Object.assign({}, this.structure.spreadPatterns)
-							spreadPattern.reportID = reportID
-							spreadPattern.EASINCode = section.common_name.selected.code
-							spreadPattern.row_id = pattern_index
-							spreadPattern.section = 'B'
-							spreadPattern.spread_pattern = pattern.value
-							spreadPattern.parent_row_id = index
-							emptyInstance.IAS.spreadPatterns.Row.push(spreadPattern)
-						})
-					}
+			
+					section.spreadPatterns.selected.forEach((pattern, pattern_index) => {
+						const spreadPattern = JSON.parse(JSON.stringify(this.structure.spreadPatterns))
+						spreadPattern.reportID = reportID
+						spreadPattern.EASINCode = section.EASINCode.selected
+						spreadPattern.row_id = pattern_index
+						spreadPattern.section = 'B'
+						spreadPattern.spread_pattern = pattern
+						spreadPattern.parent_row_id = index
+						emptyInstance.IAS.spreadPatterns.Row.push(spreadPattern)
+					})
 
-					section.section.fields.filter(measure => measure.selected === true).forEach((measure, measure_index) => {
-						const sectionBMeasures = Object.assign({}, this.structure.sectionBMeasures)
+					Object.keys(section.sectionBMeasures).filter(measure => section.sectionBMeasures[measure].selected === true).forEach((measure, measure_index) => {
+						const sectionBMeasures = JSON.parse(JSON.stringify(this.structure.sectionBMeasures))
+						console.log(measure,measure_index)
 						sectionBMeasures.reportID = reportID
 						sectionBMeasures.row_id = measure_index
 						sectionBMeasures.parent_row_id = index
-						sectionBMeasures.measure = measure.name
+						sectionBMeasures.measure = measure
 						emptyInstance.IAS.sectionBMeasures.Row.push(sectionBMeasures)
 					})
 				
@@ -500,72 +505,70 @@ export default {
 		},
 
 		sectionASpecies(data, emptyInstance, reportID){
-			data.tab_1.sections.forEach((section, index) => {
-				// structure === sectionASpecies
+			data.tabs.tab_1.form_fields.forEach((section, index) => {
+				const structure =  JSON.parse(JSON.stringify(this.structure.sectionASpecies))
 				
-				const structure =  Object.assign({}, this.structure.sectionASpecies)
+				
 				structure.reportID = reportID
-				structure.EASINCode = section.species_code.selected
-				structure.common_name_national = section.common_name.selected[this.currentCountry]
-				structure.present_in_MS = section.mandatory_item.selected
-				structure.additional_information = section.additional_info.selected
+				structure.EASINCode = section.EASINCode.selected
+				structure.common_name_national = section.common_name_national.selected
+				structure.present_in_MS = section.present_in_MS.selected
+				structure.additional_information = section.additional_information.selected
 				structure.row_id = index
-				if(section.mandatory_item.selected !== true) {
+				if(section.present_in_MS.selected !== true) {
 					emptyInstance.IAS.sectionASpecies.Row.push(structure)
 					return
 				}
 				
-				structure.reproduction_pattern = section.depending_on_mandatory.reproduction_patterns[0].selected.pattern
+				structure.reproduction_pattern = section.reproduction_patterns.selected
 				
 				// spread patterns
-				if(section.depending_on_mandatory.spread_patterns[0].selected.pattern) {
-					section.depending_on_mandatory.spread_patterns[0].selected.pattern.forEach((pattern, pattern_index) => {
-						const spreadPattern = Object.assign({}, this.structure.spreadPatterns)
-						spreadPattern.reportID = reportID
-						spreadPattern.EASINCode = section.species_code.selected
-						spreadPattern.row_id = pattern_index
-						spreadPattern.section = 'A'
-						spreadPattern.spread_pattern = pattern.value
-						spreadPattern.parent_row_id = index
-						emptyInstance.IAS.spreadPatterns.Row.push(spreadPattern)
-					})
-				}
+				section.spreadPatterns.selected.forEach((pattern, pattern_index) => {
+					const spreadPattern = JSON.parse(JSON.stringify(this.structure.spreadPatterns))
+					spreadPattern.reportID = reportID
+					spreadPattern.EASINCode = section.EASINCode.selected
+					spreadPattern.row_id = pattern_index
+					spreadPattern.section = 'A'
+					spreadPattern.spread_pattern = pattern
+					spreadPattern.parent_row_id = index
+					emptyInstance.IAS.spreadPatterns.Row.push(spreadPattern)
+				})
 
-				structure.permits_issued = section.tables.table_1.question.selected
+				structure.permits_issued = section.permits_issued.selected
 
 				if(structure.permits_issued) {
-						structure.additional_information_permits_issued = section.tables.table_1.table_sections[0].additional_info.selected
-						section.tables.table_1.table_sections[0].table_fields.fields.forEach((permitsTableRow, permitsTableRow_index) => {
-							const permitsIssuedReported = Object.assign({}, this.structure.permitsIssuedReported)
+						structure.additional_information_permits_issued = section.additional_information_permits.selected
+						section.permitsIssuedReported.fields.forEach((permitsTableRow, permitsTableRow_index) => {
+							const permitsIssuedReported = JSON.parse(JSON.stringify(this.structure.permitsIssuedReported))
 							permitsIssuedReported.reportID = reportID
 							permitsIssuedReported.row_id = permitsTableRow_index
 							permitsIssuedReported.parent_row_id = index
-							permitsIssuedReported.year = permitsTableRow.fields.find(field => field.name === 'year').selected
-							permitsIssuedReported.permit_purpose = permitsTableRow.fields.find(field => field.name === 'purpose_of_permit').selected
-							permitsIssuedReported.number_issued = permitsTableRow.fields.find(field => field.name === 'permits_number_main').fields[0].fields[0].selected
-							permitsIssuedReported.number_valid = permitsTableRow.fields.find(field => field.name === 'valid_permits_number_main').fields[0].fields[0].selected
+							permitsIssuedReported.year = permitsTableRow.year.selected
+							permitsIssuedReported.permit_purpose = permitsTableRow.permit_purpose.selected
+							permitsIssuedReported.number_issued = permitsTableRow.number_issued.selected
+							permitsIssuedReported.number_valid = permitsTableRow.number_valid.selected
 							
 							// issued
-							permitsTableRow.fields.find(field => field.name === 'total_permited_speciments_main').fields.forEach((permitedSpecimen, permitedSpecimen_index) => {
-									const permitedSpecimens = Object.assign({}, this.structure.permitedSpecimens)
+							permitsTableRow.permitedSpecimensIssued.fields.forEach((permitedSpecimen, permitedSpecimen_index) => {
+									const permitedSpecimens = JSON.parse(JSON.stringify(this.structure.permitedSpecimens))
 									permitedSpecimens.reportID = reportID
 									permitedSpecimens.row_id = permitedSpecimen_index
 									permitedSpecimens.parent_row_id = permitsTableRow_index
 									permitedSpecimens.permit_type ='issued'
-									permitedSpecimens.value = permitedSpecimen.fields[0].selected
-									permitedSpecimens.unit = permitedSpecimen.fields[1].selected
+									permitedSpecimens.value = permitedSpecimen.value.selected
+									permitedSpecimens.unit = permitedSpecimen.unit.selected
 									emptyInstance.IAS.permitedSpecimens.Row.push(permitedSpecimens)
 							})
 
 							// valid
-							permitsTableRow.fields.find(field => field.name === 'valid_total_permited_speciments_main').fields.forEach((permitedSpecimen, permitedSpecimen_index) => {
-									const permitedSpecimens = Object.assign({}, this.structure.permitedSpecimens)
+						permitsTableRow.permitedSpecimensValid.fields.forEach((permitedSpecimen, permitedSpecimen_index) => {
+									const permitedSpecimens = JSON.parse(JSON.stringify(this.structure.permitedSpecimens))
 									permitedSpecimens.reportID = reportID
 									permitedSpecimens.row_id = permitedSpecimen_index
 									permitedSpecimens.parent_row_id = permitsTableRow_index
 									permitedSpecimens.permit_type ='valid'
-									permitedSpecimens.value = permitedSpecimen.fields[0].selected
-									permitedSpecimens.unit = permitedSpecimen.fields[1].selected
+									permitedSpecimens.value = permitedSpecimen.value.selected
+									permitedSpecimens.unit = permitedSpecimen.unit.selected
 									emptyInstance.IAS.permitedSpecimens.Row.push(permitedSpecimens)
 							})
 							
@@ -575,43 +578,43 @@ export default {
 					
 					// inspections
 
-						structure.no_inspections_reported = section.tables.table_1.table_sections[1].noinspections.selected
-						structure.additional_information_inspections = section.tables.table_1.table_sections[1].additional_info.selected
+						structure.no_inspections_reported = section.inspectionsPermitsReported.no_inspections_reported.selected
+						structure.additional_information_inspections = section.additional_information_inspections.selected
 
-						section.tables.table_1.table_sections[1].table_fields.fields.forEach((inspectionsTableRow, inspectionsTableRow_index) => {
-							const inspectionsPermitsReported = Object.assign({}, this.structure.inspectionsPermitsReported)
+						section.inspectionsPermitsReported.fields.forEach((inspectionsTableRow, inspectionsTableRow_index) => {
+							const inspectionsPermitsReported = JSON.parse(JSON.stringify(this.structure.inspectionsPermitsReported))
 							inspectionsPermitsReported.reportID = reportID
 							inspectionsPermitsReported.row_id = inspectionsTableRow_index
 							inspectionsPermitsReported.parent_row_id = index
-							inspectionsPermitsReported.year = inspectionsTableRow.fields.find(field => field.name === 'year').selected
-							inspectionsPermitsReported.permit_purpose = inspectionsTableRow.fields.find(field => field.name === 'purpose_of_permit').selected
-							inspectionsPermitsReported.number_establishment = inspectionsTableRow.fields.find(field => field.name === 'number_establishments_inspections_main').fields[0].fields[0].selected
-							inspectionsPermitsReported.number_inspected = inspectionsTableRow.fields.find(field => field.name === 'establishments_non_compliant_main').fields[0].fields[0].selected
+							inspectionsPermitsReported.year = inspectionsTableRow.year.selected
+							inspectionsPermitsReported.permit_purpose = inspectionsTableRow.permit_purpose.selected
+							inspectionsPermitsReported.number_establishment = inspectionsTableRow.number_establishment.selected
+							inspectionsPermitsReported.number_inspected = inspectionsTableRow.number_inspected.selected
 							// TODO: CHECK width dd
 							// compliant
-							inspectionsTableRow.fields.find(field => field.name === 'number_permitted_specimens_main').fields.forEach((permitedSpecimen, permitedSpecimen_index) => {
-									const permitedSpecimens = Object.assign({}, this.structure.inspectionPermits)
+							inspectionsTableRow.inspectionsPermitsComplient.fields.forEach((permitedSpecimen, permitedSpecimen_index) => {
+									const permitedSpecimens = JSON.parse(JSON.stringify(this.structure.inspectionPermits))
 									permitedSpecimens.reportID = reportID
 									permitedSpecimens.row_id = permitedSpecimen_index
 									permitedSpecimens.parent_row_id = inspectionsTableRow_index
-									permitedSpecimens.inspection_status ='compliant'
-									permitedSpecimens.value = permitedSpecimen.fields[0].selected
-									permitedSpecimens.unit = permitedSpecimen.fields[1].selected
+									permitedSpecimens.inspection_status ='complient'
+									permitedSpecimens.value = permitedSpecimen.value.selected
+									permitedSpecimens.unit = permitedSpecimen.unit.selected
 									emptyInstance.IAS.permitedSpecimens.Row.push(permitedSpecimens)
 							})
 
 							// non-compliant
-							inspectionsTableRow.fields.find(field => field.name === 'number_speciments_held_by_non_compliant_establishments_main').fields.forEach((permitedSpecimen, permitedSpecimen_index) => {
-									const permitedSpecimens = Object.assign({}, this.structure.inspectionPermits)
+							inspectionsTableRow.inspectionsPermitsNoncompliant.fields.forEach((permitedSpecimen, permitedSpecimen_index) => {
+									const permitedSpecimens = JSON.parse(JSON.stringify(this.structure.inspectionPermits))
 									permitedSpecimens.reportID = reportID
 									permitedSpecimens.row_id = permitedSpecimen_index
 									permitedSpecimens.parent_row_id = inspectionsTableRow_index
-									permitedSpecimens.inspection_status ='non-compliant'
-									permitedSpecimens.value = permitedSpecimen.fields[0].selected
-									permitedSpecimens.unit = permitedSpecimen.fields[1].selected
+									permitedSpecimens.inspection_status ='noncompliant'
+									permitedSpecimens.value = permitedSpecimen.value.selected
+									permitedSpecimens.unit = permitedSpecimen.unit.selected
 									emptyInstance.IAS.permitedSpecimens.Row.push(permitedSpecimens)
 							})
-							
+
 							emptyInstance.IAS.inspectionsPermitsReported.Row.push(inspectionsPermitsReported)
 
 						})
@@ -619,87 +622,85 @@ export default {
 				}
 
 				// eradication measures - table 2
-				structure.eradication_measures = section.tables.table_2.question.selected
+				structure.eradication_measures = section.eradication_measures.selected
 				if(structure.eradication_measures) {
-					section.tables.table_2.tables.forEach((measure, measure_index) => {
-						console.log('here')
-							const sectionAMeasures = Object.assign({}, this.structure.sectionAMeasures)
+					section.sectionAMeasures.fields.forEach((measure, measure_index) => {
+							const sectionAMeasures = JSON.parse(JSON.stringify(this.structure.sectionAMeasures))
 							sectionAMeasures.measure_type = 'eradication'
 							sectionAMeasures.reportID = reportID
 							sectionAMeasures.row_id = measure_index
 							sectionAMeasures.parent_row_id = index
-							sectionAMeasures.population_name = measure.name
-							sectionAMeasures.population_code = measure.name
-							sectionAMeasures.start_date = measure.table_sections[0].table_fields.fields[0].fields.find(row => row.name === 'starting_date').selected
-							sectionAMeasures.end_date = measure.table_sections[0].table_fields.fields[0].fields.find(row => row.name === 'duration_or_end').selected
-							console.log(measure.table_sections[0].table_fields.fields[0].fields)
-						
+							sectionAMeasures.population_name = measure.population_name.selected
+							sectionAMeasures.population_code = measure.population_code.selected
+							sectionAMeasures.start_date = measure.start_date.selected
+							sectionAMeasures.end_date = measure.end_date.selected
+							sectionAMeasures.no_negative_impact = measure.no_negative_impact.selected
+							sectionAMeasures.measure_effectiveness = measure.measure_effectiveness.selected
+							sectionAMeasures.additional_information = measure.additional_information.selected
+
 							// part of territory
-							measure.table_sections[0].table_fields.fields[0].fields.find(row => row.name === 'part_territory').selected.forEach((territory, territory_index) => {
-									const partTerritory = Object.assign({}, this.structure.partTerritory)
+							measure.partTerritory.selected.forEach((territory, territory_index) => {
+									const partTerritory = JSON.parse(JSON.stringify(this.structure.partTerritory))
 									partTerritory.reportID = reportID
 									partTerritory.row_id = territory_index
 									partTerritory.parent_row_id = measure_index
-									partTerritory.name = territory.text
-									partTerritory.code = territory.value
+									partTerritory.name = this.$store.state.formData.nuts_regions.find(r => r.id === territory).label
+									partTerritory.code = territory
 									emptyInstance.IAS.partTerritory.Row.push(partTerritory)
 							})
 
 						// biogeographical regions
-				    measure.table_sections[0].table_fields.fields[0].fields.find(row => row.name === 'biogeographical_region').selected.forEach((region, region_index) => {
-                  const biogeographicalRegion = Object.assign({}, this.structure.biogeographicalRegion)
+				    measure.biogeographicalRegion.selected.forEach((region, region_index) => {
+                  const biogeographicalRegion = JSON.parse(JSON.stringify(this.structure.biogeographicalRegion))
                   biogeographicalRegion.reportID = reportID
                   biogeographicalRegion.row_id = region_index
                   biogeographicalRegion.parent_row_id = measure_index
-                  biogeographicalRegion.name = region.text
-                  biogeographicalRegion.code = region.value
+                  biogeographicalRegion.name = measure.biogeographicalRegion.options.find(r => r.value === region).text
+                  biogeographicalRegion.code = region
                   biogeographicalRegion.CountryCode = this.currentCountry
                   emptyInstance.IAS.biogeographicalRegion.Row.push(biogeographicalRegion)
               })
 						
 						// river basins subunit
-						measure.table_sections[0].table_fields.fields[0].fields.find(row => row.name === 'river_basin_subunits').selected.forEach((river, river_index) => {
-                  const riverBasinSubUnit = Object.assign({}, this.structure.riverBasinSubUnit)
+						measure.riverBasinSubUnit.selected.forEach((river, river_index) => {
+                  const riverBasinSubUnit = JSON.parse(JSON.stringify(this.structure.riverBasinSubUnit))
                   riverBasinSubUnit.reportID = reportID
                   riverBasinSubUnit.row_id = river_index
                   riverBasinSubUnit.parent_row_id = measure_index
-                  riverBasinSubUnit.name = river.text
+                  riverBasinSubUnit.name = river
                   riverBasinSubUnit.CountryCode = this.currentCountry
                   emptyInstance.IAS.riverBasinSubUnit.Row.push(riverBasinSubUnit)
               })
 						// marine sub-regions
-						measure.table_sections[0].table_fields.fields[0].fields.find(row => row.name === 'marine_sub_regions').selected.forEach((marine, marine_index) => {
-                  const marineSubRegions = Object.assign({}, this.structure.marineSubRegions)
+						measure.marineSubRegions.selected.forEach((marine, marine_index) => {
+                  const marineSubRegions = JSON.parse(JSON.stringify(this.structure.marineSubRegions))
                   marineSubRegions.reportID = reportID
                   marineSubRegions.row_id = marine_index
                   marineSubRegions.parent_row_id = measure_index
-                  marineSubRegions.name = marine.text
-                  marineSubRegions.code = marine.value
+                  marineSubRegions.name = measure.marineSubRegions.options.find(r => r.value === marine).text
+                  marineSubRegions.code = marine
                   marineSubRegions.CountryCode = this.currentCountry
                   emptyInstance.IAS.marineSubRegions.Row.push(marineSubRegions)
               })
 
 						// methods used
-						measure.table_sections[0].table_fields.fields[0].fields.find(row => row.name === 'methods_used').selected.forEach((method, method_index) => {
+						measure.methodsUsed.selected.forEach((method, method_index) => {
                   const methodsUsed = Object.assign({}, this.structure.methodsUsed)
                   methodsUsed.reportID = reportID
                   methodsUsed.row_id = method_index
                   methodsUsed.parent_row_id = measure_index
-                  methodsUsed.methods_used = method.value
+                  methodsUsed.methods_used = method
                   emptyInstance.IAS.methodsUsed.Row.push(methodsUsed)
               })
 
-						sectionAMeasures.measure_effectiveness = measure.table_sections[0].table_fields.fields[1].fields.find(row => row.name === 'effectiveness_measure').selected
-						sectionAMeasures.no_negative_impact = measure.table_sections[0].table_fields.fields[3].selected
-						sectionAMeasures.additional_information = measure.table_sections[0].additional_info.selected
-
-						measure.table_sections[0].table_fields.fields[2].fields.forEach((impact, impact_index) => {
-									const observedNegativeImpacts = Object.assign({}, this.structure.observedNegativeImpacts)
+	
+						measure.observedNegativeImpacts.fields.forEach((impact, impact_index) => {
+									const observedNegativeImpacts = JSON.parse(JSON.stringify(this.structure.observedNegativeImpacts))
 									observedNegativeImpacts.reportID = reportID
 									observedNegativeImpacts.row_id = impact_index
 									observedNegativeImpacts.parent_row_id = measure_index
-									observedNegativeImpacts.non_targeted_species = impact.selected
-									observedNegativeImpacts.species = impact.inner_field.selected
+									observedNegativeImpacts.non_targeted_species = impact.non_targeted_species.selected
+									observedNegativeImpacts.species = impact.species.selected
                   emptyInstance.IAS.observedNegativeImpacts.Row.push(observedNegativeImpacts)
 						})
 						emptyInstance.IAS.sectionAMeasures.Row.push(sectionAMeasures)
@@ -709,87 +710,85 @@ export default {
 
 
 
-				structure.subject_management_measures = section.tables.table_3.question.selected
+				structure.subject_management_measures = section.subject_management_measures.selected
 				if(structure.subject_management_measures) {
-					section.tables.table_3.tables.forEach((measure, measure_index) => {
-							const sectionAMeasures = Object.assign({}, this.structure.sectionAMeasures)
+					section.sectionAMeasuresManagement.fields.forEach((measure, measure_index) => {
+							const sectionAMeasures = JSON.parse(JSON.stringify(this.structure.sectionAMeasures))
 							sectionAMeasures.measure_type = 'management'
 							sectionAMeasures.reportID = reportID
 							sectionAMeasures.row_id = measure_index
 							sectionAMeasures.parent_row_id = index
-							sectionAMeasures.population_name = measure.name
-							sectionAMeasures.population_code = measure.name
-							sectionAMeasures.start_date = measure.table_sections[0].table_fields.fields[0].fields.find(row => row.name === 'starting_date').selected
-							sectionAMeasures.end_date = measure.table_sections[0].table_fields.fields[0].fields.find(row => row.name === 'duration_or_end').selected
-							sectionAMeasures.measure_objective = measure.table_sections[0].table_fields.fields[0].fields.find(row => row.name === 'measures_objective').selected
-						
+							sectionAMeasures.population_name = measure.population_name.selected
+							sectionAMeasures.population_code = measure.population_code.selected
+							sectionAMeasures.start_date = measure.start_date.selected
+							sectionAMeasures.end_date = measure.end_date.selected
+							sectionAMeasures.no_negative_impact = measure.no_negative_impact.selected
+							sectionAMeasures.measure_effectiveness = measure.measure_effectiveness.selected
+							sectionAMeasures.additional_information = measure.additional_information.selected
+
 							// part of territory
-							measure.table_sections[0].table_fields.fields[0].fields.find(row => row.name === 'part_territory').selected.forEach((territory, territory_index) => {
-									const partTerritory = Object.assign({}, this.structure.partTerritory)
+							measure.partTerritory.selected.forEach((territory, territory_index) => {
+									const partTerritory = JSON.parse(JSON.stringify(this.structure.partTerritory))
 									partTerritory.reportID = reportID
 									partTerritory.row_id = territory_index
 									partTerritory.parent_row_id = measure_index
-									partTerritory.name = territory.text
-									partTerritory.code = territory.value
+									partTerritory.name = this.$store.state.formData.nuts_regions.find(r => r.id === territory).label
+									partTerritory.code = territory
 									emptyInstance.IAS.partTerritory.Row.push(partTerritory)
 							})
 
 						// biogeographical regions
-				    measure.table_sections[0].table_fields.fields[0].fields.find(row => row.name === 'biogeographical_region').selected.forEach((region, region_index) => {
-                  const biogeographicalRegion = Object.assign({}, this.structure.biogeographicalRegion)
+				    measure.biogeographicalRegion.selected.forEach((region, region_index) => {
+                  const biogeographicalRegion = JSON.parse(JSON.stringify(this.structure.biogeographicalRegion))
                   biogeographicalRegion.reportID = reportID
                   biogeographicalRegion.row_id = region_index
                   biogeographicalRegion.parent_row_id = measure_index
-                  biogeographicalRegion.name = region.text
-                  biogeographicalRegion.code = region.value
+                  biogeographicalRegion.name = measure.biogeographicalRegion.options.find(r => r.value === region).text
+                  biogeographicalRegion.code = region
                   biogeographicalRegion.CountryCode = this.currentCountry
                   emptyInstance.IAS.biogeographicalRegion.Row.push(biogeographicalRegion)
               })
 						
 						// river basins subunit
-						measure.table_sections[0].table_fields.fields[0].fields.find(row => row.name === 'river_basin_subunits').selected.forEach((river, river_index) => {
-                  const riverBasinSubUnit = Object.assign({}, this.structure.riverBasinSubUnit)
+						measure.riverBasinSubUnit.selected.forEach((river, river_index) => {
+                  const riverBasinSubUnit = JSON.parse(JSON.stringify(this.structure.riverBasinSubUnit))
                   riverBasinSubUnit.reportID = reportID
                   riverBasinSubUnit.row_id = river_index
                   riverBasinSubUnit.parent_row_id = measure_index
-                  riverBasinSubUnit.name = river.text
+                  riverBasinSubUnit.name = river
                   riverBasinSubUnit.CountryCode = this.currentCountry
                   emptyInstance.IAS.riverBasinSubUnit.Row.push(riverBasinSubUnit)
               })
-						
 						// marine sub-regions
-						measure.table_sections[0].table_fields.fields[0].fields.find(row => row.name === 'marine_basin_subunits').selected.forEach((marine, marine_index) => {
-                  const marineSubRegions = Object.assign({}, this.structure.marineSubRegions)
+						measure.marineSubRegions.selected.forEach((marine, marine_index) => {
+                  const marineSubRegions = JSON.parse(JSON.stringify(this.structure.marineSubRegions))
                   marineSubRegions.reportID = reportID
                   marineSubRegions.row_id = marine_index
                   marineSubRegions.parent_row_id = measure_index
-                  marineSubRegions.name = marine.text
-                  marineSubRegions.code = marine.value
+                  marineSubRegions.name = measure.marineSubRegions.options.find(r => r.value === marine).text
+                  marineSubRegions.code = marine
                   marineSubRegions.CountryCode = this.currentCountry
                   emptyInstance.IAS.marineSubRegions.Row.push(marineSubRegions)
               })
 
 						// methods used
-						measure.table_sections[0].table_fields.fields[0].fields.find(row => row.name === 'methods_used').selected.forEach((method, method_index) => {
+						measure.methodsUsed.selected.forEach((method, method_index) => {
                   const methodsUsed = Object.assign({}, this.structure.methodsUsed)
                   methodsUsed.reportID = reportID
                   methodsUsed.row_id = method_index
                   methodsUsed.parent_row_id = measure_index
-                  methodsUsed.methods_used = method.value
+                  methodsUsed.methods_used = method
                   emptyInstance.IAS.methodsUsed.Row.push(methodsUsed)
               })
 
-						sectionAMeasures.measure_effectiveness = measure.table_sections[0].table_fields.fields[1].fields.find(row => row.name === 'effectiveness_measure').selected
-						sectionAMeasures.no_negative_impact = measure.table_sections[0].table_fields.fields[3].selected
-						sectionAMeasures.additional_information = measure.table_sections[0].additional_info.selected
-
-						measure.table_sections[0].table_fields.fields[2].fields.forEach((impact, impact_index) => {
-									const observedNegativeImpacts = Object.assign({}, this.structure.observedNegativeImpacts)
+	
+						measure.observedNegativeImpacts.fields.forEach((impact, impact_index) => {
+									const observedNegativeImpacts = JSON.parse(JSON.stringify(this.structure.observedNegativeImpacts))
 									observedNegativeImpacts.reportID = reportID
 									observedNegativeImpacts.row_id = impact_index
 									observedNegativeImpacts.parent_row_id = measure_index
-									observedNegativeImpacts.non_targeted_species = impact.selected
-									observedNegativeImpacts.species = impact.inner_field.selected
+									observedNegativeImpacts.non_targeted_species = impact.non_targeted_species.selected
+									observedNegativeImpacts.species = impact.species.selected
                   emptyInstance.IAS.observedNegativeImpacts.Row.push(observedNegativeImpacts)
 						})
 						emptyInstance.IAS.sectionAMeasures.Row.push(sectionAMeasures)
@@ -797,40 +796,47 @@ export default {
 
 				}
 
-				section.tables.table_4.table_sections[0].table_fields.forEach((infoImpact, infoImpact_index) => {
-							const infoImpactSpecies = Object.assign({}, this.structure.infoImpactSpecies)
+
+				section.infoImpactSpecies.fields.forEach((infoImpact, infoImpact_index) => {
+					console.log('infoimpact',infoImpact)
+							const infoImpactSpecies = JSON.parse(JSON.stringify(this.structure.infoImpactSpecies))
 							infoImpactSpecies.reportID = reportID
 							infoImpactSpecies.row_id = infoImpact_index
 							infoImpactSpecies.parent_row_id = index
-							infoImpactSpecies.impact = infoImpact.fields.find(cell => cell.name === 'impact').selected
-							console.log(infoImpact.fields.find(cell => cell.name === 'protected_species'))
-							infoImpact.fields.find(cell => cell.name === 'protected_species').selected.forEach((entry, entry_index) => {
-									const protectedSpecies = Object.assign({}, this.structure.protectedSpecies)
+							infoImpactSpecies.impact = infoImpact.impact.selected
+
+							infoImpact.protectedSpecies.selected.forEach((entry, entry_index) => {
+									const protectedSpecies = JSON.parse(JSON.stringify(this.structure.protectedSpecies))
 									protectedSpecies.reportID = reportID
 									protectedSpecies.row_id = entry_index
 									protectedSpecies.parent_row_id = infoImpact_index
-									protectedSpecies.code = entry.value
-									protectedSpecies.name = entry.text
+									protectedSpecies.code = entry
+									protectedSpecies.name = infoImpact.protectedSpecies.options.find(i => i.value === entry).text
 									emptyInstance.IAS.protectedSpecies.Row.push(protectedSpecies)
 							})
-							infoImpact.fields.find(cell => cell.name === 'protected_habitats').selected.forEach((entry, entry_index) => {
-									const protectedHabitats = Object.assign({}, this.structure.protectedHabitats)
-									protectedHabitats.reportID = reportID
-									protectedHabitats.row_id = entry_index
-									protectedHabitats.parent_row_id = infoImpact_index
-									protectedHabitats.code = entry.value
-									protectedHabitats.name = entry.text
-									emptyInstance.IAS.protectedHabitats.Row.push(protectedHabitats)
+
+							infoImpact.protectedHabitats.selected.forEach((entry, entry_index) => {
+									const protectedSpecies = JSON.parse(JSON.stringify(this.structure.protectedHabitats))
+									protectedSpecies.reportID = reportID
+									protectedSpecies.row_id = entry_index
+									protectedSpecies.parent_row_id = infoImpact_index
+									protectedSpecies.code = entry
+									protectedSpecies.name = infoImpact.protectedHabitats.options.find(i => i.value === entry).text
+									emptyInstance.IAS.protectedHabitats.Row.push(protectedSpecies)
 							})
-							infoImpact.fields.find(cell => cell.name === 'ecosystem_services').selected.forEach((entry, entry_index) => {
-									const ecosystems = Object.assign({}, this.structure.ecosystems)
-									ecosystems.reportID = reportID
-									ecosystems.row_id = entry_index
-									ecosystems.parent_row_id = infoImpact_index
-									ecosystems.group = entry.value
-									ecosystems.class = entry.text
-									emptyInstance.IAS.ecosystems.Row.push(ecosystems)
+							
+							infoImpact.ecosystems.selected.forEach((entry, entry_index) => {
+									const protectedSpecies = JSON.parse(JSON.stringify(this.structure.ecosystems))
+									protectedSpecies.reportID = reportID
+									protectedSpecies.row_id = entry_index
+									protectedSpecies.parent_row_id = infoImpact_index
+									protectedSpecies.group = ecosystemsList.find(i => i.class === entry).group
+									protectedSpecies.class = entry
+									emptyInstance.IAS.ecosystems.Row.push(protectedSpecies)
 							})
+
+							emptyInstance.IAS.infoImpactSpecies.Row.push(infoImpactSpecies)
+							
 				})
 
 				emptyInstance.IAS.sectionASpecies.Row.push(structure)

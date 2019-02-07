@@ -1,7 +1,14 @@
 <template>
   <div v-if="data">
     <b-card>
-      <b-card-header>
+      <h2>
+        Information to be submitted for each of the invasive alien species of Member State concern
+      </h2>
+      <b-row class="mt-2 mb-2">
+        <b-col>{{data.ias_list.label}}</b-col>
+        <b-col><FieldGenerator :field="data.ias_list"></FieldGenerator></b-col>
+      </b-row>
+      <b-card-header v-if="data.ias_list.selected === true">
         <div>
           <h4>Chose how you want to add a species</h4>
           <hr>
@@ -49,7 +56,7 @@
     </b-card>
 
 
-    <b-card v-for="(species, species_index) in data.form_fields" :key="`species_${species_index}`" class="mb-4">
+    <b-card v-if="data.ias_list.selected === true" v-for="(species, species_index) in data.form_fields" :key="`species_${species_index}`" class="mb-4">
       <h4 v-b-toggle="`collapse_species_${species_index}`">
         <i class="fas fa-chevron-right"></i>
         Species scientific name: {{species.scientific_name.selected}}
@@ -57,14 +64,14 @@
       <b-btn variant='danger' style="float:right; margin-top:-2rem" @click="$store.commit('RemoveBSpecies', {species_index})">Remove</b-btn>
 
       <h5>
-						<b-input-group :prepend="species.common_name_national.label">
-							<FieldGenerator :field="species.common_name_national"></FieldGenerator>
-						</b-input-group>
+          <b-input-group :prepend="species.common_name_national.label">
+            <FieldGenerator :field="species.common_name_national"></FieldGenerator>
+          </b-input-group>
 			</h5>
       <h5>
-					<b-input-group :prepend="species.present_in_MS.label">
-						<FieldGenerator :field="species.present_in_MS"></FieldGenerator> 
-					</b-input-group>
+        <b-input-group :prepend="species.present_in_MS.label">
+          <FieldGenerator :field="species.present_in_MS"></FieldGenerator> 
+        </b-input-group>
 			</h5>
 			<hr>
       <b-collapse :id="`collapse_species_${species_index}`" :visible="species.present_in_MS.selected === true">

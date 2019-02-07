@@ -3,14 +3,14 @@
 			<table>
 				<thead>
 					<tr>
-						<th v-if="index != 'validation'" v-for="(header, index) in species.permitsIssuedReported[0]" :key="`${index}_${header.name}`">
+						<th v-if="index != 'validation'" v-for="(header, index) in species.permitsIssuedReported.fields[0]" :key="`${index}_${header.name}`">
 							{{header.label}}
 						</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr v-for="(row, row_index) in species.permitsIssuedReported" :key="row_index">
+					<tr v-for="(row, row_index) in species.permitsIssuedReported.fields" :key="row_index">
 						<td v-for="(cell, cell_index) in row" v-if="!['permitedSpecimensIssued', 'permitedSpecimensValid', 'validation'].includes(cell.name)" :key="cell_index">
 							<fieldGenerator :field="cell"></fieldGenerator>
 						</td>
@@ -27,7 +27,6 @@
 									<input v-else class="form-control" v-model="field.selected" type="field.type">
 								</div>
 								<b-btn @click="$store.commit('RemovePermittedSpecimen',  {section_type: 'permitsIssuedReported', species_index, row_index, type: cell, field_index: sub_row_index})" variant="danger">X</b-btn>
-
 							</div>
 							<b-btn @click="$store.commit('AddPermittedSpecimen', {section_type: 'permitsIssuedReported', species_index, row_index, type: cell})" variant="primary">+</b-btn>
 						</td>
@@ -45,14 +44,14 @@
 				<table>
 					<thead>
 						<tr>
-							<th v-if="index != 'validation'" v-for="(header, index) in species.inspectionsPermitsReported[0]" :key="`${index}_${header.name}`">
+							<th v-if="index != 'validation'" v-for="(header, index) in species.inspectionsPermitsReported.fields[0]" :key="`${index}_${header.name}`">
 								{{header.label}}
 							</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr v-for="(row, row_index) in species.inspectionsPermitsReported" :key="row_index">
+						<tr v-for="(row, row_index) in species.inspectionsPermitsReported.fields" :key="row_index">
 							<td v-for="(cell, cell_index) in row" v-if="!['inspectionsPermitsComplient', 'inspectionsPermitsNoncompliant', 'validation'].includes(cell.name)" :key="cell_index">
 								<fieldGenerator :field="cell"></fieldGenerator>
 							</td>
@@ -69,7 +68,6 @@
 										<input v-else class="form-control" v-model="field.selected" type="field.type">
 									</div>
 									<b-btn @click="$store.commit('RemovePermittedSpecimen', {section_type: 'inspectionsPermitsReported', species_index, row_index, type: cell, field_index: sub_row_index,})" variant="danger">X</b-btn>
-
 								</div>
 								<b-btn @click="$store.commit('AddPermittedSpecimen', {section_type: 'inspectionsPermitsReported', species_index, row_index, type: cell})" variant="primary">+</b-btn>
 							</td>

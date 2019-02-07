@@ -93,7 +93,7 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions }) 
 		type: 'multiselect',
 		selected: [],
 		name: 'biogeographicalRegion',
-		label: 'Part of the territory',
+		label: 'Biogeographical regions(s)',
 		options: b_regions.map(n => ({ value: n.regionCode, text: n.name })),
 		get validation() {
 			return []

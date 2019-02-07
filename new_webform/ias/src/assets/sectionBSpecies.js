@@ -1,4 +1,4 @@
-const species = (currentSpecies, country) => ({
+const species = (currentSpecies) => ({
     EASINCode: {
         name: 'EASINCode',
         type: 'nonInput',
@@ -29,7 +29,7 @@ const species = (currentSpecies, country) => ({
     present_in_MS: {
         name: 'present_in_MS',
         type: 'select',
-        selected: true,
+        selected: null,
         label: 'Is the species present in the territory of the Member State ?',
         options: [
             {text: 'Yes', value: true},
@@ -41,13 +41,9 @@ const species = (currentSpecies, country) => ({
     reproduction_patterns: {
         label: 'Reproduction patterns',
         type: 'select',
-        add: true,
         patternType: 'reproduction',
         name: 'reproduction patterns',
-        selected: {
-            region: null,
-            pattern: null
-        },
+        selected: null,
         options: [
             {text: 'Asexual', value: 'asexual',},
             {text: 'Not reproducing in the Member State', value: 'notReproducing',},
@@ -75,7 +71,7 @@ const species = (currentSpecies, country) => ({
         label: 'Spread patterns',
         type: 'multiselect',
         patternType: 'spread',
-        name: 'spread_patterns',
+        name: 'spreadPatterns',
         selected: [],
         options:[
             {

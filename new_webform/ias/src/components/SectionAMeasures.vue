@@ -61,7 +61,7 @@ export default {
 	},
 	data() {
 		return {
-			measureTableFields: ['partTerritory', 'biogeographicalRegion', 'marineSubRegions', 'riverBasinSubUnit', 'methodsUsed']
+			measureTableFields: ['start_date', 'end_date', 'partTerritory', 'biogeographicalRegion', 'marineSubRegions', 'riverBasinSubUnit', 'methodsUsed']
 		}
 	},
 	components: {
