@@ -456,8 +456,6 @@ export default {
 					}
 					sectionASpeciesStructure.infoImpactSpecies.fields.push(infoImpactSpeciesStructure)
 				})
-
-
 			})
 
 		},
