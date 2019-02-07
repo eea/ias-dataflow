@@ -1,0 +1,147 @@
+.disabled {
+    display: none;
+}
+#container {
+    width: 75em;
+    margin: auto;
+    border: solid 1px #CCC;
+}
+div.newline-separated + div.newline-separated {
+    margin-top: 1em;
+}
+.part-label {
+    margin: 1em;
+}
+.form-section {
+    border: solid 1px #CCC;
+    border-radius: 1em;
+    background-clip: border-box;
+    background-color: rgb(245, 245, 245);
+    margin: 1em;
+}
+.fs-title {
+    background-clip: border-box;
+    border-radius: 1em 1em 0 0;
+    border-bottom: solid 1px #CCC;
+}
+.fs-container {
+    padding: 1em;
+}
+.fs-container.fs-data + .fs-container.fs-data {
+  /*border-top: solid 1px #CCC;*/
+  padding-top: 0;
+  /*margin-top: 1em;*/
+}
+table {
+    font-size: medium;
+    border-collapse: collapse;
+    width: 100%;
+}
+table.bilateral th,
+table.bilateral td{
+    padding: 0.2em 1em;
+    text-align: left;
+    width: 15%;
+}
+.table-measures {
+    border-collapse: initial !important;
+    border-spacing: 0.5em;
+}
+.bordered{
+    border: solid 1px #CCC;
+}
+.padding {
+    padding: 0.5em;
+}
+th, td {
+    background-color: white;
+    padding: 0.2em;
+}
+th {
+    width: 50%;
+    text-align: right;
+}
+.article-title {
+    padding-bottom: 0em;
+    font-weight: bold;
+    font-size: 18px;
+}
+.article-title:not(.border-bottom) + .fs-data {
+  padding-top: 0px;
+}
+.article-title .title-sub {
+    font-weight: normal;
+    font-size: initial;
+    padding-top: 8px;
+}
+.title {
+  font-size: 18px;
+  padding: 0.5em 0;
+}
+.fs-data > :first-child {
+  border-top: solid 1px #CCC;
+  padding-top: 1em;
+  width: 100%;
+}
+.additional-description {
+  border-top: solid 1px #CCC;
+  padding-top: 16px;
+}
+.additional-description + h4 {
+  border: 0px;
+}
+ul {
+  padding-left: 16px;
+  margin: 0px;
+}
+h2 {
+    margin: 0.5em;
+}
+h4 {
+    padding: 1em 0em;
+    margin: 0em;
+    font-size: 17px;
+}
+span.right span {
+  font-weight: normal;
+}
+span.right {
+  float: right;
+}
+span.optional {
+    color: grey;
+}
+span.header {
+  font-weight: bold;
+}
+span.value {
+  display: block;
+}
+div.print-row + div.print-row {
+  padding-top: 8px;
+}
+div.print-row + span.optional {
+  display: block;
+  padding-bottom: 0;
+}
+.line-separated + .line-separated {
+  border-top: solid 1px #CCC;
+  padding-top: 0.3em;
+  margin-top: 0.3em;
+}
+.border-bottom {
+    border-bottom: solid 1px #CCC;
+    padding-bottom: 8px;
+}
+.padding-fix {
+  padding: 16px;
+}
+.sub-title {
+  margin: 0 12px;
+}
+li {
+  font-size: small;
+}
+li span {
+  font-size: initial;
+}
