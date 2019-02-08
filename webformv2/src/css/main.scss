@@ -831,3 +831,13 @@ td .badge {
   white-space: nowrap;
   overflow: hidden;
 }
+
+.input-group .multiselect__tags {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.input-group .form-control {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
