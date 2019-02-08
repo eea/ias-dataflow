@@ -74,12 +74,15 @@
         </b-input-group>
 			</h5>
 			<hr>
-      <b-collapse :id="`collapse_species_${species_index}`" :visible="species.present_in_MS.selected === true">
-        <b>A distribution map for this species has to be included in the file which will be uploaded in the 'Distribution map for SECTION B' field available on 'DISTRIBUTION MAP' section (optional).</b>
-        <div v-for="pattern in ['reproduction_patterns','spreadPatterns']" class="patterns mt-3 mb-3" :key="`${species_index}_${pattern}`">
-          <div class="patterns-label bg-primary">{{species[pattern].label}}</div>
-          <FieldGenerator :field="species[pattern]"></FieldGenerator>
+      <b-collapse :id="`collapse_species_${species_index}`" :visible="species.present_in_MS.selected !== null"  v-if="species.present_in_MS.selected !== null">
+        <div v-if="species.present_in_MS.selected === true">
+          <b>A distribution map for this species has to be included in the file which will be uploaded in the 'Distribution map for SECTION B' field available on 'DISTRIBUTION MAP' section (optional).</b>
+          <div v-for="pattern in ['reproduction_patterns','spreadPatterns']" class="patterns mt-3 mb-3" :key="`${species_index}_${pattern}`">
+            <div class="patterns-label bg-primary">{{species[pattern].label}}</div>
+            <FieldGenerator :field="species[pattern]"></FieldGenerator>
+          </div>
         </div>
+
         <FieldGenerator :field="species.additional_information"></FieldGenerator>
         <h4 class="text-center">Measure(s) applied in the territory of the Member State in relation to the species</h4>
         <div v-for="(measure, measure_index) in species.sectionBMeasures" :key="`${measure_index}_${species_index}`">

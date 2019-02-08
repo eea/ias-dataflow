@@ -105,6 +105,7 @@ export default {
 		},
 		getPrefillData(){
 			getInstance().then((response) => {
+				console.log(JSON.stringify(response.data))
 				this.prefill(response.data);
 			})
 		},

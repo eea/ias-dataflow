@@ -29,12 +29,15 @@
 						</h5>
 						<hr>
 
-						<b-card v-if="species.present_in_MS.selected === true">
-							 <b>A distribution map for this species has to be included in the file which will be uploaded in the 'Distribution map for SECTION A' field available on 'DISTRIBUTION MAP' section (optional).</b>
-							<div v-for="pattern in ['reproduction_patterns','spreadPatterns']" class="patterns mt-3 mb-3" :key="`${species_index}_${pattern}`">
-								<div class="patterns-label bg-primary">{{species[pattern].label}}</div>
-								<FieldGenerator :field="species[pattern]"></FieldGenerator>
+						<b-card  v-if="species.present_in_MS.selected !== null">
+							<div v-if="species.present_in_MS.selected === true">
+							 	<b>A distribution map for this species has to be included in the file which will be uploaded in the 'Distribution map for SECTION A' field available on 'DISTRIBUTION MAP' section (optional).</b>
+								<div v-for="pattern in ['reproduction_patterns','spreadPatterns']" class="patterns mt-3 mb-3" :key="`${species_index}_${pattern}`">
+									<div class="patterns-label bg-primary">{{species[pattern].label}}</div>
+									<FieldGenerator :field="species[pattern]"></FieldGenerator>
+								</div>
 							</div>
+
 							<FieldGenerator :field="species.additional_information"></FieldGenerator>
 								<b-card class="inner-card">
 									<h6 class="text-center">Information on the permits issued for this species (to be completed only for invasive alien species of Union concern)</h6>
