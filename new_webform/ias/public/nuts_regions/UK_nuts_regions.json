@@ -1,9 +1,5 @@
 [
   {
-    "label": "UNITED KINGDOM",
-    "id": "UK"
-  },
-  {
     "label": "NORTH EAST (ENGLAND)",
     "id": "UKC"
   },
@@ -96,7 +92,7 @@
     "id": "UKD42"
   },
   {
-    "label": "Lancaster & Wyre",
+    "label": "Lancaster and Wyre",
     "id": "UKD44"
   },
   {
@@ -108,7 +104,7 @@
     "id": "UKD46"
   },
   {
-    "label": "Chorley & West Lancashire",
+    "label": "Chorley and West Lancashire",
     "id": "UKD47"
   },
   {
@@ -364,15 +360,15 @@
     "id": "UKH14"
   },
   {
-    "label": "Norwich & East Norfolk",
+    "label": "Norwich and East Norfolk",
     "id": "UKH15"
   },
   {
-    "label": "North & West Norfolk",
+    "label": "North and West Norfolk",
     "id": "UKH16"
   },
   {
-    "label": "Breckland & South Norfolk",
+    "label": "Breckland and South Norfolk",
     "id": "UKH17"
   },
   {
@@ -428,11 +424,11 @@
     "id": "UKI"
   },
   {
-    "label": "Inner London - West",
+    "label": "Inner London — West",
     "id": "UKI3"
   },
   {
-    "label": "Camden & City of London",
+    "label": "Camden and City of London",
     "id": "UKI31"
   },
   {
@@ -440,7 +436,7 @@
     "id": "UKI32"
   },
   {
-    "label": "Kensington and Chelsea & Hammersmith and Fulham",
+    "label": "Kensington & Chelsea and Hammersmith & Fulham",
     "id": "UKI33"
   },
   {
@@ -448,11 +444,11 @@
     "id": "UKI34"
   },
   {
-    "label": "Inner London - East",
+    "label": "Inner London — East",
     "id": "UKI4"
   },
   {
-    "label": "Hackney & Newham",
+    "label": "Hackney and Newham",
     "id": "UKI41"
   },
   {
@@ -460,11 +456,11 @@
     "id": "UKI42"
   },
   {
-    "label": "Haringey & Islington",
+    "label": "Haringey and Islington",
     "id": "UKI43"
   },
   {
-    "label": "Lewisham & Southwark",
+    "label": "Lewisham and Southwark",
     "id": "UKI44"
   },
   {
@@ -472,19 +468,19 @@
     "id": "UKI45"
   },
   {
-    "label": "Outer London - East and North East",
+    "label": "Outer London — East and North East",
     "id": "UKI5"
   },
   {
-    "label": "Bexley & Greenwich",
+    "label": "Bexley and Greenwich",
     "id": "UKI51"
   },
   {
-    "label": "Barking and Dagenham & Havering",
+    "label": "Barking & Dagenham and Havering",
     "id": "UKI52"
   },
   {
-    "label": "Redbridge & Waltham Forest",
+    "label": "Redbridge and Waltham Forest",
     "id": "UKI53"
   },
   {
@@ -492,7 +488,7 @@
     "id": "UKI54"
   },
   {
-    "label": "Outer London - South",
+    "label": "Outer London — South",
     "id": "UKI6"
   },
   {
@@ -504,11 +500,11 @@
     "id": "UKI62"
   },
   {
-    "label": "Merton, Kingston upon Thames & Sutton",
+    "label": "Merton, Kingston upon Thames and Sutton",
     "id": "UKI63"
   },
   {
-    "label": "Outer London - West and North West",
+    "label": "Outer London — West and North West",
     "id": "UKI7"
   },
   {
@@ -524,11 +520,11 @@
     "id": "UKI73"
   },
   {
-    "label": "Harrow & Hillingdon",
+    "label": "Harrow and Hillingdon",
     "id": "UKI74"
   },
   {
-    "label": "Hounslow & Richmond upon Thames",
+    "label": "Hounslow and Richmond upon Thames",
     "id": "UKI75"
   },
   {
@@ -768,78 +764,6 @@
     "id": "UKM"
   },
   {
-    "label": "Eastern Scotland",
-    "id": "UKM2"
-  },
-  {
-    "label": "Angus and Dundee City",
-    "id": "UKM21"
-  },
-  {
-    "label": "Clackmannanshire and Fife",
-    "id": "UKM22"
-  },
-  {
-    "label": "East Lothian and Midlothian",
-    "id": "UKM23"
-  },
-  {
-    "label": "Scottish Borders",
-    "id": "UKM24"
-  },
-  {
-    "label": "Edinburgh, City of",
-    "id": "UKM25"
-  },
-  {
-    "label": "Falkirk",
-    "id": "UKM26"
-  },
-  {
-    "label": "Perth & Kinross and Stirling",
-    "id": "UKM27"
-  },
-  {
-    "label": "West Lothian",
-    "id": "UKM28"
-  },
-  {
-    "label": "South Western Scotland",
-    "id": "UKM3"
-  },
-  {
-    "label": "East Dunbartonshire, West Dunbartonshire and Helensburgh & Lomond",
-    "id": "UKM31"
-  },
-  {
-    "label": "Dumfries & Galloway",
-    "id": "UKM32"
-  },
-  {
-    "label": "East Ayrshire and North Ayrshire mainland",
-    "id": "UKM33"
-  },
-  {
-    "label": "Glasgow City",
-    "id": "UKM34"
-  },
-  {
-    "label": "Inverclyde, East Renfrewshire and Renfrewshire",
-    "id": "UKM35"
-  },
-  {
-    "label": "North Lanarkshire",
-    "id": "UKM36"
-  },
-  {
-    "label": "South Ayrshire",
-    "id": "UKM37"
-  },
-  {
-    "label": "South Lanarkshire",
-    "id": "UKM38"
-  },
-  {
     "label": "North Eastern Scotland",
     "id": "UKM5"
   },
@@ -864,7 +788,7 @@
     "id": "UKM63"
   },
   {
-    "label": "Eilean Siar (Western Isles)",
+    "label": "Na h-Eileanan Siar (Western Isles)",
     "id": "UKM64"
   },
   {
@@ -876,6 +800,82 @@
     "id": "UKM66"
   },
   {
+    "label": "Eastern Scotland",
+    "id": "UKM7"
+  },
+  {
+    "label": "Angus and Dundee City",
+    "id": "UKM71"
+  },
+  {
+    "label": "Clackmannanshire and Fife",
+    "id": "UKM72"
+  },
+  {
+    "label": "East Lothian and Midlothian",
+    "id": "UKM73"
+  },
+  {
+    "label": "Edinburgh, City of",
+    "id": "UKM75"
+  },
+  {
+    "label": "Falkirk",
+    "id": "UKM76"
+  },
+  {
+    "label": "Perth & Kinross and Stirling",
+    "id": "UKM77"
+  },
+  {
+    "label": "West Lothian",
+    "id": "UKM78"
+  },
+  {
+    "label": "West Central Scotland",
+    "id": "UKM8"
+  },
+  {
+    "label": "East Dunbartonshire, West Dunbartonshire and Helensburgh & Lomond",
+    "id": "UKM81"
+  },
+  {
+    "label": "Glasgow City",
+    "id": "UKM82"
+  },
+  {
+    "label": "Inverclyde, East Renfrewshire and Renfrewshire",
+    "id": "UKM83"
+  },
+  {
+    "label": "North Lanarkshire",
+    "id": "UKM84"
+  },
+  {
+    "label": "Southern Scotland",
+    "id": "UKM9"
+  },
+  {
+    "label": "Scottish Borders",
+    "id": "UKM91"
+  },
+  {
+    "label": "Dumfries & Galloway",
+    "id": "UKM92"
+  },
+  {
+    "label": "East Ayrshire and North Ayrshire mainland",
+    "id": "UKM93"
+  },
+  {
+    "label": "South Ayrshire",
+    "id": "UKM94"
+  },
+  {
+    "label": "South Lanarkshire",
+    "id": "UKM95"
+  },
+  {
     "label": "NORTHERN IRELAND",
     "id": "UKN"
   },
@@ -885,23 +885,47 @@
   },
   {
     "label": "Belfast",
-    "id": "UKN01"
+    "id": "UKN06"
   },
   {
-    "label": "Outer Belfast",
-    "id": "UKN02"
+    "label": "Armagh City, Banbridge and Craigavon",
+    "id": "UKN07"
   },
   {
-    "label": "East of Northern Ireland",
-    "id": "UKN03"
+    "label": "Newry, Mourne and Down",
+    "id": "UKN08"
   },
   {
-    "label": "North of Northern Ireland",
-    "id": "UKN04"
+    "label": "Ards and North Down",
+    "id": "UKN09"
   },
   {
-    "label": "West and South of Northern Ireland",
-    "id": "UKN05"
+    "label": "Derry City and Strabane",
+    "id": "UKN10"
+  },
+  {
+    "label": "Mid Ulster",
+    "id": "UKN11"
+  },
+  {
+    "label": "Causeway Coast and Glens",
+    "id": "UKN12"
+  },
+  {
+    "label": "Antrim and Newtownabbey",
+    "id": "UKN13"
+  },
+  {
+    "label": "Lisburn and Castlereagh",
+    "id": "UKN14"
+  },
+  {
+    "label": "Mid and East Antrim",
+    "id": "UKN15"
+  },
+  {
+    "label": "Fermanagh and Omagh",
+    "id": "UKN16"
   },
   {
     "label": "EXTRA-REGIO NUTS 1",

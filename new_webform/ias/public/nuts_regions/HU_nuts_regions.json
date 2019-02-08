@@ -1,23 +1,23 @@
 [
   {
-    "label": "MAGYARORSZÁG",
-    "id": "HU"
-  },
-  {
     "label": "KÖZÉP-MAGYARORSZÁG",
     "id": "HU1"
   },
   {
-    "label": "Közép-Magyarország",
-    "id": "HU10"
+    "label": "Budapest",
+    "id": "HU11"
   },
   {
     "label": "Budapest",
-    "id": "HU101"
+    "id": "HU110"
   },
   {
     "label": "Pest",
-    "id": "HU102"
+    "id": "HU12"
+  },
+  {
+    "label": "Pest",
+    "id": "HU120"
   },
   {
     "label": "DUNÁNTÚL",

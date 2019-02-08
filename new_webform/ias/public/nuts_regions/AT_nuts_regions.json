@@ -1,14 +1,10 @@
 [
   {
-    "label": "ÖSTERREICH",
-    "id": "AT"
-  },
-  {
     "label": "OSTÖSTERREICH",
     "id": "AT1"
   },
   {
-    "label": "Burgenland (AT)",
+    "label": "Burgenland",
     "id": "AT11"
   },
   {

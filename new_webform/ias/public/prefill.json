@@ -864,13 +864,6 @@
             "Row": [
                 {
                     "reportID": "FR-2015-2018",
-                    "row_id": 0,
-                    "parent_row_id": 0,
-                    "name": "FRANCE",
-                    "code": "FR"
-                },
-                {
-                    "reportID": "FR-2015-2018",
                     "row_id": 1,
                     "parent_row_id": 0,
                     "name": "Île de France",
@@ -888,7 +881,7 @@
                     "row_id": 0,
                     "parent_row_id": 0,
                     "name": "FRANCE",
-                    "code": "FR"
+                    "code": "FR1"
                 }
             ]
         },

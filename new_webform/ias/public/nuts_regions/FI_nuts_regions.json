@@ -1,9 +1,5 @@
 [
   {
-    "label": "SUOMI / FINLAND",
-    "id": "FI"
-  },
-  {
     "label": "MANNER-SUOMI",
     "id": "FI1"
   },
@@ -80,20 +76,20 @@
     "id": "FI1D3"
   },
   {
-    "label": "Kainuu",
-    "id": "FI1D4"
-  },
-  {
     "label": "Keski-Pohjanmaa",
     "id": "FI1D5"
   },
   {
-    "label": "Pohjois-Pohjanmaa",
-    "id": "FI1D6"
-  },
-  {
     "label": "Lappi",
     "id": "FI1D7"
+  },
+  {
+    "label": "Kainuu",
+    "id": "FI1D8"
+  },
+  {
+    "label": "Pohjois-Pohjanmaa",
+    "id": "FI1D9"
   },
   {
     "label": "ÅLAND",
