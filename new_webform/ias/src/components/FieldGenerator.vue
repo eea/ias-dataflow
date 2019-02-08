@@ -5,12 +5,12 @@
     <div class="file-upload" v-else-if="field.type === 'file'">
       <div class="custom-form-label">{{field.label}}</div>
       <b-input-group>
-        <b-file v-model="field.selected" @change="handleFileUpload"></b-file>
+        <b-file :accept="field.extensions.join(', ')" v-model="field.selected" @change="handleFileUpload"></b-file>
         <b-input-group-append>
           <b-btn variant='success' @click='submitFile'>Upload</b-btn>
         </b-input-group-append>
       </b-input-group>
-      <b-badge class="mb-2" variant="default"><b>Allowed file extension : files</b></b-badge>
+      <b-badge class="mb-2" variant="default"><b>Allowed file extension : {{field.extensions.join(', ')}}</b></b-badge>
       <div v-if="field.selected" class="d-flex mb-4">
         <div class="file-upload-location">File uploaded: <a :href="field.selected">{{field.selected}}</a></div>
         <div class="remove-file-button ml-3">
@@ -26,6 +26,8 @@
           :multiple="field.type === 'select' ? false : true"
           label="text"
           trackBy="value"
+          v-b-tooltip
+          :title="doSelectTitle(field)"
           v-model="field.selected"
           :options="field.options" />
     </div>
@@ -58,6 +60,15 @@
     },
 
     methods: {
+      doSelectTitle(field) {
+        if(field.type === 'select') {
+          const option = field.options.find(o => o.value === field.selected) 
+          if(!field.options || !option) return ''
+          if(option.text) return option.text
+        } else {
+          return ''
+        }
+      },
       handleFileUpload(e) {
         this.file = e.target.files[0]
       },

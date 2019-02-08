@@ -791,7 +791,6 @@ td {
 
 .table-wrapper {
   margin-bottom: 2rem;
-  overflow: hidden;
   border-radius: .5rem;
   margin-top: 1rem;
 }
@@ -824,4 +823,9 @@ td .badge {
 
 .custom-control-inline {
       margin-right: 0; 
+}
+
+.multiselect__single {
+  white-space: nowrap;
+  overflow: hidden;
 }

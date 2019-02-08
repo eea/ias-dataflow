@@ -82,7 +82,8 @@ const form = (country, formData) => ({
 					type: 'file',
 					selected: null,
 					name: 'file_action_plans',
-					label: 'File regarding the action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014'
+					label: 'File regarding the action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014',
+					extensions: ['.doc','.docx','.pdf','.zip','.dot','.docb','.dotx','.docm']
 				},
 				surveillance_system: {
 					type: 'textarea',
@@ -102,7 +103,8 @@ const form = (country, formData) => ({
 					type: 'file',
 					selected: null,
 					name: 'file_surveillance_system',
-					label: 'File regarding the description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014'
+					label: 'File regarding the description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014',
+					extensions: ['.doc','.docx','.pdf','.zip','.dot','.docb','.dotx','.docm'],
 				},
 				official_control_system: {
 					type: 'textarea',
@@ -122,7 +124,8 @@ const form = (country, formData) => ({
 					type: 'file',
 					selected: '',
 					name: 'file_official_control_system',
-					label: 'File regarding the description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014'
+					label: 'File regarding the description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014',
+					extensions: ['.doc','.docx','.pdf','.zip','.dot','.docb','.dotx','.docm']
 				},
 				measures_inform_public: {
 					type: 'textarea',
@@ -141,7 +144,8 @@ const form = (country, formData) => ({
 					type: 'file',
 					selected: '',
 					name: 'file_measures_inform_public',
-					label: 'File regarding the description of measures taken to inform the public'
+					label: 'File regarding the description of measures taken to inform the public',
+					extensions: ['.doc','.docx','.pdf','.zip','.dot','.docb','.dotx','.docm']
 				},
 				cost_of_action: {
 					type: 'input',
@@ -165,6 +169,7 @@ const form = (country, formData) => ({
 					selected: '',
 					name: 'file_cost_of_action',
 					label: 'File regarding the cost of action undertaken to comply with the Regulation (EU) No 1143/2014',
+					extensions: ['.doc','.docx','.pdf','.zip','.dot','.docb','.dotx','.docm']
 				},
 				additional_information: {
 					type: 'textarea',
@@ -176,7 +181,8 @@ const form = (country, formData) => ({
 					type: 'file',
 					selected: '',
 					name: 'file_additional_information',
-					label: 'File regarding the additional information (optional)'
+					label: 'File regarding the additional information (optional)',
+					extensions: ['.doc','.docx','.pdf','.zip','.dot','.docb','.dotx','.docm'],
 				},
 			}
 
@@ -188,15 +194,17 @@ const form = (country, formData) => ({
 					selected: '',
 					name: 'distributionMap_sectionA',
 					label: 'Distribution map for SECTION A',
+					extensions: ['.shp','.geojson','.gml','.zip'],
 					get validation() {
 						return []
-					}
+					},
 				},
 				inspireMetadata_sectionA: {
 					type: 'file',
 					selected: '',
 					name: 'inspireMetadata_sectionA',
 					label: 'INSPIRE metadata for SECTION A',
+					extensions: ['.shp','.geojson','.gml','.zip'],
 					get validation() {
 						return []
 					}
@@ -206,6 +214,7 @@ const form = (country, formData) => ({
 					selected: '',
 					name: 'distributionMap_sectionB',
 					label: 'Distribution map for SECTION B',
+					extensions: ['.shp','.geojson','.gml','.zip'],
 					get validation() {
 						return []
 					}
@@ -215,6 +224,7 @@ const form = (country, formData) => ({
 					selected: '',
 					name: 'inspireMetadata_sectionB',
 					label: 'INSPIRE metadata for SECTION B',
+					extensions: ['.shp','.geojson','.gml','.zip'],
 					get validation() {
 						return []
 					}
