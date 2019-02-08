@@ -26,7 +26,7 @@
 										@input="forceValueInSameRow($event, row, sub_row_index, cell, 'permitsIssuedReported')"
 										v-model="field.selected"
 										:options="field.options" />
-									<input v-else class="form-control" v-model="field.selected" type="field.type">
+									<input v-else class="form-control" v-model="field.selected" :type="field.type">
 								</div>
 								<b-btn @click="$store.commit('RemovePermittedSpecimen',  {section_type: 'permitsIssuedReported', species_index, row_index, type: cell, field_index: sub_row_index})" variant="danger">X</b-btn>
 							</div>
@@ -68,7 +68,7 @@
 												@input="forceValueInSameRow($event, row, sub_row_index, cell, 'inspectionsPermitsReported')"
 												v-model="field.selected"
 												:options="field.options" />
-											<input v-else class="form-control" v-model="field.selected" type="field.type">
+											<input v-else class="form-control" v-model="field.selected" :type="field.type">
 										</div>
 										<b-btn @click="$store.commit('RemovePermittedSpecimen', {section_type: 'inspectionsPermitsReported', species_index, row_index, type: cell, field_index: sub_row_index,})" variant="danger">X</b-btn>
 									</div>

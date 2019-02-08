@@ -1,6 +1,12 @@
 <template>
   <b-container fluid class="main-layout">
-    <center><h1 class="mb-3 mt-2">IAS dataflow</h1></center>
+		<h3 class="text-center" style="color: blue">
+			Important: if the loading spinner doesn't dissapear in less than 30 seconds, please create a new envelope or delete the file "IAS_-_Invasive_Alien_Species__1.xml" in your current envelpe			
+		</h3>
+
+
+  
+		<center><h1 class="mb-3 mt-2">IAS dataflow</h1></center>
     <center><h5><span class="text-muted">Technical formats to be used by the Member States for transmitting to the Commission the information pursuant to paragraph 1 of Article 24 of Regulation (EU) No 1143/2014 on the prevention and management of the introduction of invasive alien species</span></h5></center>
 
 		<div v-if="prefilled && $store.state.form">
@@ -29,15 +35,14 @@
 
 	
       <div v-if="!prefilled" class="spinner">
-        <!-- <div class="loader"></div> -->
-						<h1>
-					This webform is under maintenance
-					<br>
-					Please return after 1 PM Central European Time (CET)<br>
-					We are sorry for the inconvenience
-				</h1>
+        <div class="loader"></div>
       </div>
-
+			
+  	<h5 class="text-center" style="color: red">
+			This webform is under maintenance
+			<br>
+			You are free to use it, but you might experience technical difficulties during the maintenance time.
+		</h5>
   </b-container>
 </template>
 
@@ -81,12 +86,7 @@ export default {
 	},
 
 	beforeCreate() {
-		getSupportingFiles().then(r => {
-			if(r.data.includes('maintenance')) {
-				console.log('it does')
-				this.$store.dispatch('getCurrentCountry')
-			}
-		})
+		this.$store.dispatch('getCurrentCountry')
 	},
 
 	computed: {

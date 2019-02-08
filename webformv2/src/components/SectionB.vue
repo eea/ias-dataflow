@@ -14,7 +14,7 @@
           <hr>
           <h5>Add by selecting a scientific name from the predefined list</h5>
           <b-row>
-            <b-col>Common name of the species (optional)</b-col>
+            <b-col>Species scientific name</b-col>
             <b-col cols="8">
               <Multiselect trackBy='value' label='text' v-model="selected_species" :options="speciesList" :multiple='true'></Multiselect>
             </b-col>

@@ -4,7 +4,7 @@
       <b-btn variant="success" @click="saveForm">Save</b-btn>
       <!-- <b-btn variant="primary" @click="validateSections" style="">Validate</b-btn> -->
       <!-- <b-btn variant="danger" @click="openErrorModal" v-if="errors.items.length > 0">Errors</b-btn> -->
-      <!-- <b-btn variant="danger" @click="exitForm">Back to envelope</b-btn> -->
+      <b-btn variant="danger" @click="exitForm">Back to envelope</b-btn>
     </div>
 
     <b-alert :show="dismissCountDown"

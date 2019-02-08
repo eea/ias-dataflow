@@ -20,10 +20,10 @@ const species = (currentSpecies) => ({
     },
 
     common_name_national: {
-        name: 'Common name of the species (optional)',
+        name: 'common_name_national',
         type: 'text',
         selected: currentSpecies.cname || null,
-        label: 'Scientific name'
+        label: 'Common name of the species (optional)'
     },
 
     present_in_MS: {
