@@ -1,9 +1,5 @@
 [
   {
-    "label": "ESPAÑA",
-    "id": "ES"
-  },
-  {
     "label": "NOROESTE",
     "id": "ES1"
   },
@@ -216,15 +212,15 @@
     "id": "ES52"
   },
   {
-    "label": "Alicante / Alacant",
+    "label": "Alicante/Alacant",
     "id": "ES521"
   },
   {
-    "label": "Castellón / Castelló",
+    "label": "Castellón/Castelló",
     "id": "ES522"
   },
   {
-    "label": "Valencia / València",
+    "label": "Valencia/València",
     "id": "ES523"
   },
   {

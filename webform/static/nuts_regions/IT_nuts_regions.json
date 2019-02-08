@@ -1,9 +1,5 @@
 [
   {
-    "label": "ITALIA",
-    "id": "IT"
-  },
-  {
     "label": "NORD-OVEST",
     "id": "ITC"
   },
@@ -44,11 +40,11 @@
     "id": "ITC18"
   },
   {
-    "label": "Valle d'Aosta/Vallée d'Aoste",
+    "label": "Valle d’Aosta/Vallée d’Aoste",
     "id": "ITC2"
   },
   {
-    "label": "Valle d'Aosta/Vallée d'Aoste",
+    "label": "Valle d’Aosta/Vallée d’Aoste",
     "id": "ITC20"
   },
   {
@@ -132,7 +128,7 @@
     "id": "ITF1"
   },
   {
-    "label": "L'Aquila",
+    "label": "L’Aquila",
     "id": "ITF11"
   },
   {
@@ -332,7 +328,7 @@
     "id": "ITH"
   },
   {
-    "label": "Provincia Autonoma di Bolzano/Bozen",
+    "label": "Provincia Autonoma di Bolzano/Bozen (1)",
     "id": "ITH1"
   },
   {
@@ -412,7 +408,7 @@
     "id": "ITH52"
   },
   {
-    "label": "Reggio nell'Emilia",
+    "label": "Reggio nell’Emilia",
     "id": "ITH53"
   },
   {

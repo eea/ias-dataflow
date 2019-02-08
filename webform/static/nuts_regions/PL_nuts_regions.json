@@ -1,74 +1,6 @@
 [
   {
-    "label": "POLSKA",
-    "id": "PL"
-  },
-  {
-    "label": "REGION CENTRALNY",
-    "id": "PL1"
-  },
-  {
-    "label": "Łódzkie",
-    "id": "PL11"
-  },
-  {
-    "label": "Miasto Łódź",
-    "id": "PL113"
-  },
-  {
-    "label": "Łódzki",
-    "id": "PL114"
-  },
-  {
-    "label": "Piotrkowski",
-    "id": "PL115"
-  },
-  {
-    "label": "Sieradzki",
-    "id": "PL116"
-  },
-  {
-    "label": "Skierniewicki",
-    "id": "PL117"
-  },
-  {
-    "label": "Mazowieckie",
-    "id": "PL12"
-  },
-  {
-    "label": "Miasto Warszawa",
-    "id": "PL127"
-  },
-  {
-    "label": "Radomski",
-    "id": "PL128"
-  },
-  {
-    "label": "Warszawski wschodni",
-    "id": "PL129"
-  },
-  {
-    "label": "Warszawski zachodni",
-    "id": "PL12A"
-  },
-  {
-    "label": "Ciechanowski",
-    "id": "PL12B"
-  },
-  {
-    "label": "Płocki",
-    "id": "PL12C"
-  },
-  {
-    "label": "Ostrołęcki",
-    "id": "PL12D"
-  },
-  {
-    "label": "Siedlecki",
-    "id": "PL12E"
-  },
-  {
-    "label": "REGION POŁUDNIOWY",
+    "label": "MAKROREGION POŁUDNIOWY",
     "id": "PL2"
   },
   {
@@ -136,79 +68,7 @@
     "id": "PL22C"
   },
   {
-    "label": "REGION WSCHODNI",
-    "id": "PL3"
-  },
-  {
-    "label": "Lubelskie",
-    "id": "PL31"
-  },
-  {
-    "label": "Bialski",
-    "id": "PL311"
-  },
-  {
-    "label": "Chełmsko-zamojski",
-    "id": "PL312"
-  },
-  {
-    "label": "Lubelski",
-    "id": "PL314"
-  },
-  {
-    "label": "Puławski",
-    "id": "PL315"
-  },
-  {
-    "label": "Podkarpackie",
-    "id": "PL32"
-  },
-  {
-    "label": "Krośnieński",
-    "id": "PL323"
-  },
-  {
-    "label": "Przemyski",
-    "id": "PL324"
-  },
-  {
-    "label": "Rzeszowski",
-    "id": "PL325"
-  },
-  {
-    "label": "Tarnobrzeski",
-    "id": "PL326"
-  },
-  {
-    "label": "Świętokrzyskie",
-    "id": "PL33"
-  },
-  {
-    "label": "Kielecki",
-    "id": "PL331"
-  },
-  {
-    "label": "Sandomiersko-jędrzejowski",
-    "id": "PL332"
-  },
-  {
-    "label": "Podlaskie",
-    "id": "PL34"
-  },
-  {
-    "label": "Białostocki",
-    "id": "PL343"
-  },
-  {
-    "label": "Łomżyński",
-    "id": "PL344"
-  },
-  {
-    "label": "Suwalski",
-    "id": "PL345"
-  },
-  {
-    "label": "REGION PÓŁNOCNO-ZACHODNI",
+    "label": "MAKROREGION PÓŁNOCNO-ZACHODNI",
     "id": "PL4"
   },
   {
@@ -272,7 +132,7 @@
     "id": "PL432"
   },
   {
-    "label": "REGION POŁUDNIOWO-ZACHODNI",
+    "label": "MAKROREGION POŁUDNIOWO-ZACHODNI",
     "id": "PL5"
   },
   {
@@ -288,7 +148,7 @@
     "id": "PL515"
   },
   {
-    "label": "Legnicko-Głogowski",
+    "label": "Legnicko-głogowski",
     "id": "PL516"
   },
   {
@@ -312,15 +172,15 @@
     "id": "PL524"
   },
   {
-    "label": "REGION PÓŁNOCNY",
+    "label": "MAKROREGION PÓŁNOCNY",
     "id": "PL6"
   },
   {
-    "label": "Kujawsko-Pomorskie",
+    "label": "Kujawsko-pomorskie",
     "id": "PL61"
   },
   {
-    "label": "Bydgosko-Toruński",
+    "label": "Bydgosko-toruński",
     "id": "PL613"
   },
   {
@@ -340,7 +200,7 @@
     "id": "PL619"
   },
   {
-    "label": "Warmińsko-Mazurskie",
+    "label": "Warmińsko-mazurskie",
     "id": "PL62"
   },
   {
@@ -378,6 +238,154 @@
   {
     "label": "Starogardzki",
     "id": "PL638"
+  },
+  {
+    "label": "MAKROREGION CENTRALNY",
+    "id": "PL7"
+  },
+  {
+    "label": "Łódzkie",
+    "id": "PL71"
+  },
+  {
+    "label": "Miasto Łódź",
+    "id": "PL711"
+  },
+  {
+    "label": "Łódzki",
+    "id": "PL712"
+  },
+  {
+    "label": "Piotrkowski",
+    "id": "PL713"
+  },
+  {
+    "label": "Sieradzki",
+    "id": "PL714"
+  },
+  {
+    "label": "Skierniewicki",
+    "id": "PL715"
+  },
+  {
+    "label": "Świętokrzyskie",
+    "id": "PL72"
+  },
+  {
+    "label": "Kielecki",
+    "id": "PL721"
+  },
+  {
+    "label": "Sandomiersko-jędrzejowski",
+    "id": "PL722"
+  },
+  {
+    "label": "MAKROREGION WSCHODNI",
+    "id": "PL8"
+  },
+  {
+    "label": "Lubelskie",
+    "id": "PL81"
+  },
+  {
+    "label": "Bialski",
+    "id": "PL811"
+  },
+  {
+    "label": "Chełmsko-zamojski",
+    "id": "PL812"
+  },
+  {
+    "label": "Lubelski",
+    "id": "PL814"
+  },
+  {
+    "label": "Puławski",
+    "id": "PL815"
+  },
+  {
+    "label": "Podkarpackie",
+    "id": "PL82"
+  },
+  {
+    "label": "Krośnieński",
+    "id": "PL821"
+  },
+  {
+    "label": "Przemyski",
+    "id": "PL822"
+  },
+  {
+    "label": "Rzeszowski",
+    "id": "PL823"
+  },
+  {
+    "label": "Tarnobrzeski",
+    "id": "PL824"
+  },
+  {
+    "label": "Podlaskie",
+    "id": "PL84"
+  },
+  {
+    "label": "Białostocki",
+    "id": "PL841"
+  },
+  {
+    "label": "Łomżyński",
+    "id": "PL842"
+  },
+  {
+    "label": "Suwalski",
+    "id": "PL843"
+  },
+  {
+    "label": "MAKROREGION WOJEWÓDZTWO MAZOWIECKIE",
+    "id": "PL9"
+  },
+  {
+    "label": "Warszawski stołeczny",
+    "id": "PL91"
+  },
+  {
+    "label": "Miasto Warszawa",
+    "id": "PL911"
+  },
+  {
+    "label": "Warszawski wschodni",
+    "id": "PL912"
+  },
+  {
+    "label": "Warszawski zachodni",
+    "id": "PL913"
+  },
+  {
+    "label": "Mazowiecki regionalny",
+    "id": "PL92"
+  },
+  {
+    "label": "Radomski",
+    "id": "PL921"
+  },
+  {
+    "label": "Ciechanowski",
+    "id": "PL922"
+  },
+  {
+    "label": "Płocki",
+    "id": "PL923"
+  },
+  {
+    "label": "Ostrołęcki",
+    "id": "PL924"
+  },
+  {
+    "label": "Siedlecki",
+    "id": "PL925"
+  },
+  {
+    "label": "Żyrardowski",
+    "id": "PL926"
   },
   {
     "label": "EXTRA-REGIO NUTS 1",

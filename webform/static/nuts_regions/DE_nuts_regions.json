@@ -1,9 +1,5 @@
 [
   {
-    "label": "DEUTSCHLAND",
-    "id": "DE"
-  },
-  {
     "label": "BADEN-WÜRTTEMBERG",
     "id": "DE1"
   },
@@ -876,6 +872,10 @@
     "id": "DE80J"
   },
   {
+    "label": "Vorpommern-Greifswald",
+    "id": "DE80N"
+  },
+  {
     "label": "Landkreis Rostock",
     "id": "DE80K"
   },
@@ -886,10 +886,6 @@
   {
     "label": "Nordwestmecklenburg",
     "id": "DE80M"
-  },
-  {
-    "label": "Vorpommern-Greifswald",
-    "id": "DE80N"
   },
   {
     "label": "Ludwigslust-Parchim",
@@ -920,10 +916,6 @@
     "id": "DE914"
   },
   {
-    "label": "Göttingen",
-    "id": "DE915"
-  },
-  {
     "label": "Goslar",
     "id": "DE916"
   },
@@ -936,16 +928,16 @@
     "id": "DE918"
   },
   {
-    "label": "Osterode am Harz",
-    "id": "DE919"
-  },
-  {
     "label": "Peine",
     "id": "DE91A"
   },
   {
     "label": "Wolfenbüttel",
     "id": "DE91B"
+  },
+  {
+    "label": "Göttingen",
+    "id": "DE91C"
   },
   {
     "label": "Hannover",
@@ -1128,7 +1120,7 @@
     "id": "DEA15"
   },
   {
-    "label": "Mülheim an der Ruhr,Kreisfreie Stadt",
+    "label": "Mülheim an der Ruhr, Kreisfreie Stadt",
     "id": "DEA16"
   },
   {
@@ -1364,10 +1356,6 @@
     "id": "DEB15"
   },
   {
-    "label": "Cochem-Zell",
-    "id": "DEB16"
-  },
-  {
     "label": "Mayen-Koblenz",
     "id": "DEB17"
   },
@@ -1376,16 +1364,20 @@
     "id": "DEB18"
   },
   {
-    "label": "Rhein-Hunsrück-Kreis",
-    "id": "DEB19"
-  },
-  {
     "label": "Rhein-Lahn-Kreis",
     "id": "DEB1A"
   },
   {
     "label": "Westerwaldkreis",
     "id": "DEB1B"
+  },
+  {
+    "label": "Cochem-Zell",
+    "id": "DEB1C"
+  },
+  {
+    "label": "Rhein-Hunsrück-Kreis",
+    "id": "DEB1D"
   },
   {
     "label": "Trier",
@@ -1632,7 +1624,7 @@
     "id": "DEE07"
   },
   {
-    "label": "Burgenland (DE)",
+    "label": "Burgenlandkreis",
     "id": "DEE08"
   },
   {
