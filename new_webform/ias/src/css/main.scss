@@ -811,3 +811,17 @@ td {
 .table td .custom-form-label {
   display: none;
 }
+
+.input-group .badge {
+  position: absolute;
+  top: 0;
+}
+
+td .badge {
+  width: 100%;
+  overflow: hidden;
+}
+
+.custom-control-inline {
+      margin-right: 0; 
+}

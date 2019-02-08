@@ -1,7 +1,8 @@
 <template>
   <div v-if="field">
+    <b-badge v-b-tooltip :title="field.validation" variant="danger" v-if="field.validation && field.validation.length">{{field.validation}}</b-badge>
     <input v-if="['text', 'number', 'date', 'email'].includes(field.type)" :disabled="field.disabled" class="form-control" v-model="field.selected" :type="field.type">
-    <div class="file-upload" v-else-if="field.type === 'file'" v-model="field.selected">
+    <div class="file-upload" v-else-if="field.type === 'file'">
       <div class="custom-form-label">{{field.label}}</div>
       <b-input-group>
         <b-file v-model="field.selected" @change="handleFileUpload"></b-file>

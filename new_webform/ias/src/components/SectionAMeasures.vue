@@ -2,15 +2,17 @@
 	<div v-if="species">
 		<b-btn @click="$store.commit('AddPopulation', {species_index, type})">Add population</b-btn>
 		<div v-for="(measure, measure_index) in species[type].fields" :key="measure_index">
-			<b-row>
+			<b-row class="mt-3">
 				<b-col cols="7">
 					<b-input-group :prepend="measure.population_name.label">
-						<input class="form-control" v-model="measure.population_name.selected">
+						<FieldGenerator :field="measure.population_name"></FieldGenerator>
 					</b-input-group>
 				</b-col>
 			</b-row>
+    		
 			<p class="muted">Measure(s)</p>
-			<b-row v-for="(measure_field, measure_field_index) in measureTableFields" :key="`${measure_index}_${measure_field_index}`">
+			<b-badge variant="danger" v-if="measure.validation">{{measure.validation}}</b-badge>			
+			<b-row class="mb-2 mt-2" v-for="(measure_field, measure_field_index) in measureTableFields" :key="`${measure_index}_${measure_field_index}`">
 				<b-col cols="2">
 					{{ measure[measure_field].label }}
 				</b-col>

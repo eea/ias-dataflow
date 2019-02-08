@@ -98,7 +98,6 @@ export default {
 		},
 	
 		prefill(data) {
-			console.log(data)
 			if(data.IAS.noPrefillData) {
 				this.prefilled = true
 				return
@@ -344,7 +343,6 @@ export default {
 								marine_subregions: this.$store.state.formData.marine_subregions
 							})
 						Object.keys(measure).forEach(key => {
-							console.log(key)
 							if(sectionAMeasuresStructure.hasOwnProperty(key)) sectionAMeasuresStructure[key].selected = measure[key]
 						})
 
@@ -399,7 +397,6 @@ export default {
 								marine_subregions: this.$store.state.formData.marine_subregions
 							})
 						Object.keys(measure).forEach(key => {
-							console.log(key)
 							if(sectionAMeasuresStructure.hasOwnProperty(key)) sectionAMeasuresStructure[key].selected = measure[key]
 						})
 

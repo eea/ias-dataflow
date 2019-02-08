@@ -18,6 +18,7 @@
 						<td v-for="cell in ['permitedSpecimensIssued', 'permitedSpecimensValid']" :key="cell">
 							<div v-for="(sub_row, sub_row_index) in row[cell].fields" :key="sub_row_index">
 								<div v-for="(field, field_index) in sub_row" :key="field_index">	
+									<b-badge variant="danger" v-b-tooltip :title="field.validation" v-if="field.validation">{{field.validation}}</b-badge>			
 									<multiselect
 										label="text"
 										v-if="field.type === 'select'"
@@ -53,12 +54,13 @@
 						</thead>
 						<tbody>
 							<tr v-for="(row, row_index) in species.inspectionsPermitsReported.fields" :key="row_index">
-								<td v-for="(cell, cell_index) in row" v-if="!['inspectionsPermitsComplient', 'inspectionsPermitsNoncompliant', 'validation'].includes(cell.name)" :key="cell_index">
+								<td v-for="(cell, cell_index) in row" v-if="!['inspectionsPermitsComplient', 'inspectionsPermitsNoncompliant', 'validation'].includes(cell_index)" :key="cell_index">
 									<fieldGenerator :field="cell"></fieldGenerator>
 								</td>
 								<td v-for="(cell, cell_index) in ['inspectionsPermitsComplient', 'inspectionsPermitsNoncompliant']" :key="cell_index">
 									<div v-for="(sub_row, sub_row_index) in row[cell].fields" :key="sub_row_index">
 										<div v-for="(field, field_index) in sub_row" :key="field_index">	
+											<b-badge variant="danger" v-if="field.validation">{{field.field}}</b-badge>			
 											<multiselect
 												label="text"
 												v-if="field.type === 'select'"

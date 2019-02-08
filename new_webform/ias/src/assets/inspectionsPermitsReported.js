@@ -10,7 +10,11 @@ const permits = () => ({
 			{text: 2016, value: 2016},
 			{text: 2017, value: 2017},
 			{text: 2018, value: 2018}
-		]
+		],
+		get validation() {
+			if(!this.selected) 
+				return `${this.label} is required ${this.type === 'number' ? ', can only contain numeric characters and must be 0 or more' : ''}`
+		}
 	},
 	permit_purpose: {
 		type: 'select',
@@ -21,7 +25,11 @@ const permits = () => ({
 			{text: 'Permits for ex situ conservation', value: 'exsitu'},
 			{text: 'Permits for scientific production and subsequent medicinal use to advance human health', value: 'medUse'},
 			{text: 'Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)', value: 'other'}
-		]
+		],
+		get validation() {
+			if(!this.selected) 
+				return `${this.label} is required ${this.type === 'number' ? ', can only contain numeric characters and must be 0 or more' : ''}`
+		}
 	},
 
 	number_establishment: {
@@ -29,7 +37,11 @@ const permits = () => ({
 		selected: null,
 		name: 'number_establishment',
 		label: 'Number of establishments',
-		tooltip: 'Number of establishments subjected to the inspections'
+		tooltip: 'Number of establishments subjected to the inspections',
+		get validation() {
+			if(!this.selected) 
+				return `${this.label} is required ${this.type === 'number' ? ', can only contain numeric characters and must be 0 or more' : ''}`
+		}
 	},
 
 	number_inspected: {
@@ -37,7 +49,11 @@ const permits = () => ({
 		name: 'number_inspected',
 		selected: null,
 		label: 'Inspected establishments non-compliant',
-		tooltip: 'Inspected establishments deemed non-compliant with the conditions set out in the permits'
+		tooltip: 'Inspected establishments deemed non-compliant with the conditions set out in the permits',
+		get validation() {
+			if(!this.selected) 
+				return `${this.label} is required ${this.type === 'number' ? ', can only contain numeric characters and must be 0 or more' : ''}`
+		}
 	},
 
 	inspectionsPermitsComplient: {
@@ -56,11 +72,6 @@ const permits = () => ({
 			permitedSpecimens()
 		]
 	},
-	get validation() {
-		return {
-			name: 'validation'
-		}
-	}
 })
 
 export default permits

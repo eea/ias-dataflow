@@ -73,6 +73,22 @@ const species = (currentSpecies) => ({
         patternType: 'spread',
         name: 'spreadPatterns',
         selected: [],
+        get validation() {
+			if(
+				!((
+				this.selected.includes(3) || 
+				this.selected.includes(1) ||
+				this.selected.includes(2) || 
+				this.selected.includes(4)
+				) && (
+					this.selected.includes(5) || 
+					this.selected.includes(6) ||
+					this.selected.includes(7) ||
+					this.selected.includes(8) 
+				))
+			)
+			return 'At least one of b/c/d/e must be chosen and at least one of f/g/h/i must be chosen.'
+		},
         options:[
             {
                 text: 'a) The species was already widely spread before 2015',

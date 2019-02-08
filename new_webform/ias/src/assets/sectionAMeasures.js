@@ -6,7 +6,8 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions }) 
 		selected: null,
 		label: 'Population',
 		get validation() {
-			return []
+			if(!this.selected) 
+				return `${this.label} is required` 
 		}
 	},
 	population_code: {
@@ -23,7 +24,8 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions }) 
 		label: 'Starting date',
 		name: 'start_date',
 		get validation() {
-			return []
+			if(!this.selected) 
+				return `${this.label} is required` 
 		}
 	},
 	end_date: {
@@ -32,7 +34,8 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions }) 
 		selected: null,
 		label: 'End date',
 		get validation() {
-			return []
+			if(!this.selected) 
+				return `${this.label} is required` 
 		}
 	},
 	no_negative_impact: {
@@ -67,7 +70,8 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions }) 
 			{ text: 'Unclear population trend', value: 'unclear' }
 		],
 		get validation() {
-			return []
+			if(!this.selected) 
+				return `${this.label} is required` 
 		}
 	},
 	additional_information: {
@@ -125,6 +129,19 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions }) 
 			{ text: 'Other', value: 'Other' },
 		]
 	},
+
+	get validation(){
+		if(this.riverBasinSubUnit.selected.length === 0 && this.marineSubRegions.selected.length === 0 && this.biogeographicalRegion.selected.length === 0) {
+			return 'At least one of the fields: Biogeographical regions(s), Marine sub-region(s), River basin sub-unit(s) are required'
+		}
+		if(this.no_negative_impact.selected) {
+			this.observedNegativeImpacts.fields.forEach(field => {
+				console.log(field)
+				field.non_targeted_species.validation = ''
+				field.species.validation = ''
+			})
+		}
+	}
 
 })
 

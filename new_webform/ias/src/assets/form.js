@@ -56,7 +56,12 @@ const form = (country, formData) => ({
 					selected: null,
 					label: 'Web link to information on the internet regarding the permits issued as required under Article 8(7) of Regulation (EU) No 1143/2014',
 					get validation() {
-						return []
+						if(!this.selected) {
+							return `${this.label} field is required`
+						}
+						if(this.selected && !(this.selected.includes('www.') || this.selected.includes('http://') || this.selected.includes('https://'))) {
+							return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
+						}
 					}
 				},
 				action_plans: {
@@ -65,17 +70,19 @@ const form = (country, formData) => ({
 					selected: null,
 					label: 'Action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014',
 					get validation() {
-						return []
+						if(!this.selected) {
+							return `${this.label} field is required`
+						}
+						if(this.selected && !(this.selected.includes('www.') || this.selected.includes('http://') || this.selected.includes('https://'))) {
+							return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
+						}
 					}
 				},
 				file_action_plans: {
 					type: 'file',
 					selected: null,
 					name: 'file_action_plans',
-					label: 'File regarding the action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014',
-					get validation() {
-						return []
-					}
+					label: 'File regarding the action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014'
 				},
 				surveillance_system: {
 					type: 'textarea',
@@ -83,17 +90,19 @@ const form = (country, formData) => ({
 					selected: null,
 					label: 'Description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014',
 					get validation() {
-						return []
+						if(!this.selected) {
+							return `${this.label} field is required`
+						}
+						if(this.selected && !(this.selected.includes('www.') || this.selected.includes('http://') || this.selected.includes('https://'))) {
+							return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
+						}
 					}
 				},
 				file_surveillance_system: {
 					type: 'file',
 					selected: null,
 					name: 'file_surveillance_system',
-					label: 'File regarding the description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014',
-					get validation() {
-						return []
-					}
+					label: 'File regarding the description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014'
 				},
 				official_control_system: {
 					type: 'textarea',
@@ -101,34 +110,38 @@ const form = (country, formData) => ({
 					selected: null,
 					label: 'Description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014',
 					get validation() {
-						return []
+						if(!this.selected) {
+							return `${this.label} field is required`
+						}
+						if(this.selected && !(this.selected.includes('www.') || this.selected.includes('http://') || this.selected.includes('https://'))) {
+							return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
+						}
 					}
 				},
 				file_official_control_system: {
 					type: 'file',
 					selected: '',
 					name: 'file_official_control_system',
-					label: 'File regarding the description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014',
-					get validation() {
-						return []
-					}
+					label: 'File regarding the description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014'
 				},
 				measures_inform_public: {
 					type: 'textarea',
 					name: 'measures_inform_public',
 					label: 'Description of measures taken to inform the public',
 					get validation() {
-						return []
+						if(!this.selected) {
+							return `${this.label} field is required`
+						}
+						if(this.selected && !(this.selected.includes('www.') || this.selected.includes('http://') || this.selected.includes('https://'))) {
+							return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
+						}
 					}
 				},
 				file_measures_inform_public: {
 					type: 'file',
 					selected: '',
 					name: 'file_measures_inform_public',
-					label: 'File regarding the description of measures taken to inform the public',
-					get validation() {
-						return []
-					}
+					label: 'File regarding the description of measures taken to inform the public'
 				},
 				cost_of_action: {
 					type: 'input',
@@ -136,7 +149,12 @@ const form = (country, formData) => ({
 					selected: null,
 					label: 'Cost of action undertaken to comply with the Regulation (EU) No 1143/2014',
 					get validation() {
-						return []
+						if(!this.selected) {
+							return `${this.label} field is required`
+						}
+						if(this.selected && !(this.selected.includes('www.') || this.selected.includes('http://') || this.selected.includes('https://'))) {
+							return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
+						}
 					}
 				},
 				priority_pathways: {
@@ -147,27 +165,18 @@ const form = (country, formData) => ({
 					selected: '',
 					name: 'file_cost_of_action',
 					label: 'File regarding the cost of action undertaken to comply with the Regulation (EU) No 1143/2014',
-					get validation() {
-						return []
-					}
 				},
 				additional_information: {
 					type: 'textarea',
 					name: 'additional_information',
 					selected: null,
-					label: 'Additional information (optional)',
-					get validation() {
-						return []
-					}
+					label: 'Additional information (optional)'
 				},
 				file_additional_information: {
 					type: 'file',
 					selected: '',
 					name: 'file_additional_information',
-					label: 'File regarding the additional information (optional)',
-					get validation() {
-						return []
-					}
+					label: 'File regarding the additional information (optional)'
 				},
 			}
 
