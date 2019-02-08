@@ -731,3 +731,83 @@ body {
 .multiselect--active {
   z-index: 2;
 }
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 500;
+}
+
+.input-group div:not([class]) {
+  flex-grow: 1;
+}
+
+.inner-card {
+  background: #eee;
+  margin: 1rem 0;
+}
+
+.patterns-label {
+  padding: .7rem;
+}
+
+.bg-primary {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.table-section {
+  background: #fff;
+    border-radius: .25em;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+td button {
+  width: 100%;
+  margin: .2rem;
+}
+
+.table.table-striped thead {
+  background-color: rgb(51, 125, 204);
+  th {
+    color: white;
+    text-align: center;
+  }
+}
+
+.btn-big {
+  width: 100%;
+  border-radius: 0 0 .5rem .5rem;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+td {
+  border-bottom: 1px solid #000;
+}
+
+.table-wrapper {
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border-radius: .5rem;
+  margin-top: 1rem;
+}
+
+.table-fixed {
+  table-layout: fixed;
+}
+
+.table thead {
+  font-size: 1.2em;
+}
+
+.multiselect__tag {
+  white-space: normal;
+}
+
+.table td .custom-form-label {
+  display: none;
+}

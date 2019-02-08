@@ -6,7 +6,7 @@ import ecosystemsList from '@/assets/ecosystems'
 
 const impact = () => ({
     impact: {
-        type: 'text',
+        type: 'textarea',
         selected: null,
         label: 'Impact',
         name: 'impact'

@@ -61,7 +61,7 @@
         <i class="fas fa-chevron-right"></i>
         Species scientific name: {{species.scientific_name.selected}}
       </h4>
-      <b-btn variant='danger' style="float:right; margin-top:-2rem" @click="$store.commit('RemoveBSpecies', {species_index})">Remove</b-btn>
+      <b-btn variant='danger' style="float:right; margin-top:-2rem; margin-bottom: 1rem;" @click="$store.commit('RemoveBSpecies', {species_index})">Remove</b-btn>
 
       <h5>
           <b-input-group :prepend="species.common_name_national.label">
@@ -76,8 +76,8 @@
 			<hr>
       <b-collapse :id="`collapse_species_${species_index}`" :visible="species.present_in_MS.selected === true">
         <b>A distribution map for this species has to be included in the file which will be uploaded in the 'Distribution map for SECTION B' field available on 'DISTRIBUTION MAP' section (optional).</b>
-        <div v-for="pattern in ['reproduction_patterns','spreadPatterns']" class="patterns" :key="`${species_index}_${pattern}`">
-          <div class="patterns-label">{{species[pattern].label}}</div>
+        <div v-for="pattern in ['reproduction_patterns','spreadPatterns']" class="patterns mt-3 mb-3" :key="`${species_index}_${pattern}`">
+          <div class="patterns-label bg-primary">{{species[pattern].label}}</div>
           <FieldGenerator :field="species[pattern]"></FieldGenerator>
         </div>
         <FieldGenerator :field="species.additional_information"></FieldGenerator>

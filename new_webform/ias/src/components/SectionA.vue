@@ -29,26 +29,28 @@
 						</h5>
 						<hr>
 
-						<div class="inner-card" v-if="species.present_in_MS.selected === true">
+						<b-card v-if="species.present_in_MS.selected === true">
 							 <b>A distribution map for this species has to be included in the file which will be uploaded in the 'Distribution map for SECTION A' field available on 'DISTRIBUTION MAP' section (optional).</b>
-							<div v-for="pattern in ['reproduction_patterns','spreadPatterns']" class="patterns" :key="`${species_index}_${pattern}`">
-							<div class="patterns-label">{{species[pattern].label}}</div>
-							<FieldGenerator :field="species[pattern]"></FieldGenerator>
+							<div v-for="pattern in ['reproduction_patterns','spreadPatterns']" class="patterns mt-3 mb-3" :key="`${species_index}_${pattern}`">
+								<div class="patterns-label bg-primary">{{species[pattern].label}}</div>
+								<FieldGenerator :field="species[pattern]"></FieldGenerator>
 							</div>
 							<FieldGenerator :field="species.additional_information"></FieldGenerator>
-							<div class="card-body">
-								<h6 class="text-center">Information on the permits issued for this species (to be completed only for invasive alien species of Union concern)</h6>
-								<hr>
-								<h5>
-									<b-input-group :prepend="species.permits_issued.label">
-										<FieldGenerator :field="species.permits_issued"></FieldGenerator> 
-									</b-input-group>
-								</h5>
-								<b-card v-if="species.permits_issued.selected === true">
-									<SectionAPermits :species_index="species_index" :species="species" class="table-section">	</SectionAPermits>
+								<b-card class="inner-card">
+									<h6 class="text-center">Information on the permits issued for this species (to be completed only for invasive alien species of Union concern)</h6>
+									<hr>
+									<h5>
+										<b-input-group :prepend="species.permits_issued.label">
+											<FieldGenerator :field="species.permits_issued"></FieldGenerator> 
+										</b-input-group>
+									</h5>
+									<b-card class="inner-card" v-if="species.permits_issued.selected === true">
+										<SectionAPermits :species_index="species_index" :species="species" class="table-section">	</SectionAPermits>
+									</b-card>
 								</b-card>
-								
 
+								
+							<b-card class="inner-card">
 								<h6 class="text-center">Information on rapid eradication measure(s) taken for this species (Article 17 of Regulation (EU) No 1143/2014)</h6>
 								<hr>
 								<h5>
@@ -59,7 +61,9 @@
 								<b-card v-if="species.eradication_measures.selected === true" >
 									<SectionAMeasures type="sectionAMeasures" :species_index="species_index" :species="species" class="table-section"></SectionAMeasures>
 								</b-card>
+							</b-card>
 								
+							<b-card class="inner-card">
 								<h5>
 									<b-input-group :prepend="species.subject_management_measures.label">
 										<FieldGenerator :field="species.subject_management_measures"></FieldGenerator> 
@@ -72,9 +76,8 @@
 								<b-card>
 									<SectionAImpact :species_index="species_index" :species="species" class="table-section"></SectionAImpact>
 								</b-card>
-
-							</div>
-						</div>	
+							</b-card>
+						</b-card>	
 
 					</b-collapse>
 
