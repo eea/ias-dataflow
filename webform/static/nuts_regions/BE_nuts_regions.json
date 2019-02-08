@@ -1,18 +1,14 @@
 [
   {
-    "label": "BELGIQUE-BELGIË",
-    "id": "BE"
-  },
-  {
-    "label": "RÉGION DE BRUXELLES-CAPITALE / BRUSSELS HOOFDSTEDELIJK GEWEST",
+    "label": "RÉGION DE BRUXELLES-CAPITALE/BRUSSELS HOOFDSTEDELIJK GEWEST",
     "id": "BE1"
   },
   {
-    "label": "Région de Bruxelles-Capitale / Brussels Hoofdstedelijk Gewest",
+    "label": "Région de Bruxelles-Capitale/Brussels Hoofdstedelijk Gewest",
     "id": "BE10"
   },
   {
-    "label": "Arr. de Bruxelles-Capitale / Arr. van Brussel-Hoofdstad",
+    "label": "Arr. (1) de Bruxelles-Capitale/Arr. van Brussel-Hoofdstad",
     "id": "BE100"
   },
   {
@@ -20,7 +16,7 @@
     "id": "BE2"
   },
   {
-    "label": "Prov. Antwerpen",
+    "label": "Prov. (2)Antwerpen",
     "id": "BE21"
   },
   {
@@ -132,7 +128,7 @@
     "id": "BE3"
   },
   {
-    "label": "Prov. Brabant Wallon",
+    "label": "Prov. Brabant wallon",
     "id": "BE31"
   },
   {
@@ -188,11 +184,11 @@
     "id": "BE334"
   },
   {
-    "label": "Arr. Verviers - communes francophones",
+    "label": "Arr. Verviers — communes francophones",
     "id": "BE335"
   },
   {
-    "label": "Bezirk Verviers - Deutschsprachige Gemeinschaft",
+    "label": "Bezirk Verviers — Deutschsprachige Gemeinschaft",
     "id": "BE336"
   },
   {

@@ -1,22 +1,22 @@
 [
   {
-    "label": "Ísland",
-    "id": "IS"
+    "id": "IS",
+    "label": "Ísland"
   },
   {
-    "label": "Ísland",
-    "id": "IS0"
+    "id": "IS0",
+    "label": "Ísland"
   },
   {
-    "label": "Ísland",
-    "id": "IS00"
+    "id": "IS00",
+    "label": "Ísland"
   },
   {
-    "label": "Höfuðborgarsvæði",
-    "id": "IS001"
+    "id": "IS001",
+    "label": "Höfuðborgarsvæði"
   },
   {
-    "label": "Landsbyggð",
-    "id": "IS002"
+    "id": "IS002",
+    "label": "Landsbyggð"
   }
 ]

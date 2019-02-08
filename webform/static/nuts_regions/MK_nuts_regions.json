@@ -1,46 +1,46 @@
 [
   {
-    "label": "Poranešna Jugoslovenska Republika Makedonija",
-    "id": "MK"
+    "id": "MK",
+    "label": "Poranešna Jugoslovenska Republika Makedonija"
   },
   {
-    "label": "Poranešna Jugoslovenska Republika Makedonija",
-    "id": "MK0"
+    "id": "MK0",
+    "label": "Poranešna Jugoslovenska Republika Makedonija"
   },
   {
-    "label": "Poranešna Jugoslovenska Republika Makedonija",
-    "id": "MK00"
+    "id": "MK00",
+    "label": "Poranešna Jugoslovenska Republika Makedonija"
   },
   {
-    "label": "Vardarski",
-    "id": "MK001"
+    "id": "MK001",
+    "label": "Vardarski"
   },
   {
-    "label": "Istočen",
-    "id": "MK002"
+    "id": "MK002",
+    "label": "Istočen"
   },
   {
-    "label": "Jugozapaden",
-    "id": "MK003"
+    "id": "MK003",
+    "label": "Jugozapaden"
   },
   {
-    "label": "Jugoistočen",
-    "id": "MK004"
+    "id": "MK004",
+    "label": "Jugoistočen"
   },
   {
-    "label": "Pelagoniski",
-    "id": "MK005"
+    "id": "MK005",
+    "label": "Pelagoniski"
   },
   {
-    "label": "Pološki",
-    "id": "MK006"
+    "id": "MK006",
+    "label": "Pološki"
   },
   {
-    "label": "Severoistočen",
-    "id": "MK007"
+    "id": "MK007",
+    "label": "Severoistočen"
   },
   {
-    "label": "Skopski",
-    "id": "MK008"
+    "id": "MK008",
+    "label": "Skopski"
   }
 ]

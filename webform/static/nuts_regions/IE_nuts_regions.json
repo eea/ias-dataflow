@@ -1,51 +1,51 @@
 [
   {
     "label": "IRELAND",
-    "id": "IE"
-  },
-  {
-    "label": "IRELAND",
     "id": "IE0"
   },
   {
-    "label": "Border, Midland and Western",
-    "id": "IE01"
+    "label": "Northern and Western",
+    "id": "IE04"
   },
   {
     "label": "Border",
-    "id": "IE011"
-  },
-  {
-    "label": "Midland",
-    "id": "IE012"
+    "id": "IE041"
   },
   {
     "label": "West",
-    "id": "IE013"
+    "id": "IE042"
   },
   {
-    "label": "Southern and Eastern",
-    "id": "IE02"
-  },
-  {
-    "label": "Dublin",
-    "id": "IE021"
-  },
-  {
-    "label": "Mid-East",
-    "id": "IE022"
+    "label": "Southern",
+    "id": "IE05"
   },
   {
     "label": "Mid-West",
-    "id": "IE023"
+    "id": "IE051"
   },
   {
-    "label": "South-East (IE)",
-    "id": "IE024"
+    "label": "South-East",
+    "id": "IE052"
   },
   {
-    "label": "South-West (IE)",
-    "id": "IE025"
+    "label": "South-West",
+    "id": "IE053"
+  },
+  {
+    "label": "Eastern and Midland",
+    "id": "IE06"
+  },
+  {
+    "label": "Dublin",
+    "id": "IE061"
+  },
+  {
+    "label": "Mid-East",
+    "id": "IE062"
+  },
+  {
+    "label": "Midland",
+    "id": "IE063"
   },
   {
     "label": "EXTRA-REGIO NUTS 1",

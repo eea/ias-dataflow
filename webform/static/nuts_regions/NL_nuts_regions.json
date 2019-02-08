@@ -1,9 +1,5 @@
 [
   {
-    "label": "NEDERLAND",
-    "id": "NL"
-  },
-  {
     "label": "NOORD-NEDERLAND",
     "id": "NL1"
   },
@@ -29,15 +25,15 @@
   },
   {
     "label": "Noord-Friesland",
-    "id": "NL121"
+    "id": "NL124"
   },
   {
     "label": "Zuidwest-Friesland",
-    "id": "NL122"
+    "id": "NL125"
   },
   {
     "label": "Zuidoost-Friesland",
-    "id": "NL123"
+    "id": "NL126"
   },
   {
     "label": "Drenthe",
@@ -124,10 +120,6 @@
     "id": "NL321"
   },
   {
-    "label": "Alkmaar en omgeving",
-    "id": "NL322"
-  },
-  {
     "label": "IJmond",
     "id": "NL323"
   },
@@ -140,19 +132,23 @@
     "id": "NL325"
   },
   {
-    "label": "Groot-Amsterdam",
-    "id": "NL326"
-  },
-  {
     "label": "Het Gooi en Vechtstreek",
     "id": "NL327"
+  },
+  {
+    "label": "Alkmaar en omgeving",
+    "id": "NL328"
+  },
+  {
+    "label": "Groot-Amsterdam",
+    "id": "NL329"
   },
   {
     "label": "Zuid-Holland",
     "id": "NL33"
   },
   {
-    "label": "Agglomeratie 's-Gravenhage",
+    "label": "Agglomeratie “s-Gravenhage",
     "id": "NL332"
   },
   {
@@ -164,16 +160,16 @@
     "id": "NL337"
   },
   {
+    "label": "Zuidoost-Zuid-Holland",
+    "id": "NL33A"
+  },
+  {
     "label": "Oost-Zuid-Holland",
-    "id": "NL338"
+    "id": "NL33B"
   },
   {
     "label": "Groot-Rijnmond",
-    "id": "NL339"
-  },
-  {
-    "label": "Zuidoost-Zuid-Holland",
-    "id": "NL33A"
+    "id": "NL33C"
   },
   {
     "label": "Zeeland",

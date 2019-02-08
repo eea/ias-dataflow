@@ -1,55 +1,55 @@
 [
   {
     "label": "LIETUVA",
-    "id": "LT"
-  },
-  {
-    "label": "LIETUVA",
     "id": "LT0"
   },
   {
-    "label": "Lietuva",
-    "id": "LT00"
-  },
-  {
-    "label": "Alytaus apskritis",
-    "id": "LT001"
-  },
-  {
-    "label": "Kauno apskritis",
-    "id": "LT002"
-  },
-  {
-    "label": "Klaipėdos apskritis",
-    "id": "LT003"
-  },
-  {
-    "label": "Marijampolės apskritis",
-    "id": "LT004"
-  },
-  {
-    "label": "Panevėžio apskritis",
-    "id": "LT005"
-  },
-  {
-    "label": "Šiaulių apskritis",
-    "id": "LT006"
-  },
-  {
-    "label": "Tauragės apskritis",
-    "id": "LT007"
-  },
-  {
-    "label": "Telšių apskritis",
-    "id": "LT008"
-  },
-  {
-    "label": "Utenos apskritis",
-    "id": "LT009"
+    "label": "Sostinės regionas",
+    "id": "LT01"
   },
   {
     "label": "Vilniaus apskritis",
-    "id": "LT00A"
+    "id": "LT011"
+  },
+  {
+    "label": "Vidurio ir vakarų Lietuvos regionas",
+    "id": "LT02"
+  },
+  {
+    "label": "Alytaus apskritis",
+    "id": "LT021"
+  },
+  {
+    "label": "Kauno apskritis",
+    "id": "LT022"
+  },
+  {
+    "label": "Klaipėdos apskritis",
+    "id": "LT023"
+  },
+  {
+    "label": "Marijampolės apskritis",
+    "id": "LT024"
+  },
+  {
+    "label": "Panevėžio apskritis",
+    "id": "LT025"
+  },
+  {
+    "label": "Šiaulių apskritis",
+    "id": "LT026"
+  },
+  {
+    "label": "Tauragės apskritis",
+    "id": "LT027"
+  },
+  {
+    "label": "Telšių apskritis",
+    "id": "LT028"
+  },
+  {
+    "label": "Utenos apskritis",
+    "id": "LT029"
   },
   {
     "label": "EXTRA-REGIO NUTS 1",

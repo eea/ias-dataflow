@@ -1,142 +1,142 @@
 [
   {
-    "label": "Schweiz/Suisse/Svizzera",
-    "id": "CH"
+    "id": "CH",
+    "label": "Schweiz/Suisse/Svizzera"
   },
   {
-    "label": "Schweiz/Suisse/Svizzera",
-    "id": "CH0"
+    "id": "CH0",
+    "label": "Schweiz/Suisse/Svizzera"
   },
   {
-    "label": "Région lémanique",
-    "id": "CH01"
+    "id": "CH01",
+    "label": "Région lémanique"
   },
   {
-    "label": "Vaud",
-    "id": "CH011"
+    "id": "CH011",
+    "label": "Vaud"
   },
   {
-    "label": "Valais",
-    "id": "CH012"
+    "id": "CH012",
+    "label": "Valais"
   },
   {
-    "label": "Genève",
-    "id": "CH013"
+    "id": "CH013",
+    "label": "Genève"
   },
   {
-    "label": "Espace Mittelland",
-    "id": "CH02"
+    "id": "CH02",
+    "label": "Espace Mittelland"
   },
   {
-    "label": "Bern",
-    "id": "CH021"
+    "id": "CH021",
+    "label": "Bern"
   },
   {
-    "label": "Freiburg",
-    "id": "CH022"
+    "id": "CH022",
+    "label": "Freiburg"
   },
   {
-    "label": "Solothurn",
-    "id": "CH023"
+    "id": "CH023",
+    "label": "Solothurn"
   },
   {
-    "label": "Neuchâtel",
-    "id": "CH024"
+    "id": "CH024",
+    "label": "Neuchâtel"
   },
   {
-    "label": "Jura",
-    "id": "CH025"
+    "id": "CH025",
+    "label": "Jura"
   },
   {
-    "label": "Nordwestschweiz",
-    "id": "CH03"
+    "id": "CH03",
+    "label": "Nordwestschweiz"
   },
   {
-    "label": "Basel-Stadt",
-    "id": "CH031"
+    "id": "CH031",
+    "label": "Basel-Stadt"
   },
   {
-    "label": "Basel-Landschaft",
-    "id": "CH032"
+    "id": "CH032",
+    "label": "Basel-Landschaft"
   },
   {
-    "label": "Aargau",
-    "id": "CH033"
+    "id": "CH033",
+    "label": "Aargau"
   },
   {
-    "label": "Zürich",
-    "id": "CH04"
+    "id": "CH04",
+    "label": "Zürich"
   },
   {
-    "label": "Zürich",
-    "id": "CH040"
+    "id": "CH040",
+    "label": "Zürich"
   },
   {
-    "label": "Ostschweiz",
-    "id": "CH05"
+    "id": "CH05",
+    "label": "Ostschweiz"
   },
   {
-    "label": "Glarus",
-    "id": "CH051"
+    "id": "CH051",
+    "label": "Glarus"
   },
   {
-    "label": "Schaffhausen",
-    "id": "CH052"
+    "id": "CH052",
+    "label": "Schaffhausen"
   },
   {
-    "label": "Appenzell Ausserrhoden",
-    "id": "CH053"
+    "id": "CH053",
+    "label": "Appenzell Ausserrhoden"
   },
   {
-    "label": "Appenzell Innerrhoden",
-    "id": "CH054"
+    "id": "CH054",
+    "label": "Appenzell Innerrhoden"
   },
   {
-    "label": "St. Gallen",
-    "id": "CH055"
+    "id": "CH055",
+    "label": "St. Gallen"
   },
   {
-    "label": "Graubünden",
-    "id": "CH056"
+    "id": "CH056",
+    "label": "Graubünden"
   },
   {
-    "label": "Thurgau",
-    "id": "CH057"
+    "id": "CH057",
+    "label": "Thurgau"
   },
   {
-    "label": "Zentralschweiz",
-    "id": "CH06"
+    "id": "CH06",
+    "label": "Zentralschweiz"
   },
   {
-    "label": "Luzern",
-    "id": "CH061"
+    "id": "CH061",
+    "label": "Luzern"
   },
   {
-    "label": "Uri",
-    "id": "CH062"
+    "id": "CH062",
+    "label": "Uri"
   },
   {
-    "label": "Schwyz",
-    "id": "CH063"
+    "id": "CH063",
+    "label": "Schwyz"
   },
   {
-    "label": "Obwalden",
-    "id": "CH064"
+    "id": "CH064",
+    "label": "Obwalden"
   },
   {
-    "label": "Nidwalden",
-    "id": "CH065"
+    "id": "CH065",
+    "label": "Nidwalden"
   },
   {
-    "label": "Zug",
-    "id": "CH066"
+    "id": "CH066",
+    "label": "Zug"
   },
   {
-    "label": "Ticino",
-    "id": "CH07"
+    "id": "CH07",
+    "label": "Ticino"
   },
   {
-    "label": "Ticino",
-    "id": "CH070"
+    "id": "CH070",
+    "label": "Ticino"
   }
 ]

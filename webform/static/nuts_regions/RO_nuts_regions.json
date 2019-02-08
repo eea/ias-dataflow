@@ -1,9 +1,5 @@
 [
   {
-    "label": "ROMÂNIA",
-    "id": "RO"
-  },
-  {
     "label": "MACROREGIUNEA UNU",
     "id": "RO1"
   },
@@ -16,7 +12,7 @@
     "id": "RO111"
   },
   {
-    "label": "Bistriţa-Năsăud",
+    "label": "Bistrița-Năsăud",
     "id": "RO112"
   },
   {
@@ -24,7 +20,7 @@
     "id": "RO113"
   },
   {
-    "label": "Maramureş",
+    "label": "Maramureș",
     "id": "RO114"
   },
   {
@@ -44,7 +40,7 @@
     "id": "RO121"
   },
   {
-    "label": "Braşov",
+    "label": "Brașov",
     "id": "RO122"
   },
   {
@@ -56,7 +52,7 @@
     "id": "RO124"
   },
   {
-    "label": "Mureş",
+    "label": "Mureș",
     "id": "RO125"
   },
   {
@@ -76,15 +72,15 @@
     "id": "RO211"
   },
   {
-    "label": "Botoşani",
+    "label": "Botoșani",
     "id": "RO212"
   },
   {
-    "label": "Iaşi",
+    "label": "Iași",
     "id": "RO213"
   },
   {
-    "label": "Neamţ",
+    "label": "Neamț",
     "id": "RO214"
   },
   {
@@ -108,11 +104,11 @@
     "id": "RO222"
   },
   {
-    "label": "Constanţa",
+    "label": "Constanța",
     "id": "RO223"
   },
   {
-    "label": "Galaţi",
+    "label": "Galați",
     "id": "RO224"
   },
   {
@@ -128,19 +124,19 @@
     "id": "RO3"
   },
   {
-    "label": "Sud - Muntenia",
+    "label": "Sud-Muntenia",
     "id": "RO31"
   },
   {
-    "label": "Argeş",
+    "label": "Argeș",
     "id": "RO311"
   },
   {
-    "label": "Călăraşi",
+    "label": "Călărași",
     "id": "RO312"
   },
   {
-    "label": "Dâmboviţa",
+    "label": "Dâmbovița",
     "id": "RO313"
   },
   {
@@ -148,7 +144,7 @@
     "id": "RO314"
   },
   {
-    "label": "Ialomiţa",
+    "label": "Ialomița",
     "id": "RO315"
   },
   {
@@ -160,11 +156,11 @@
     "id": "RO317"
   },
   {
-    "label": "Bucureşti - Ilfov",
+    "label": "București-Ilfov",
     "id": "RO32"
   },
   {
-    "label": "Bucureşti",
+    "label": "București",
     "id": "RO321"
   },
   {
@@ -188,7 +184,7 @@
     "id": "RO412"
   },
   {
-    "label": "Mehedinţi",
+    "label": "Mehedinți",
     "id": "RO413"
   },
   {
@@ -208,7 +204,7 @@
     "id": "RO421"
   },
   {
-    "label": "Caraş-Severin",
+    "label": "Caraș-Severin",
     "id": "RO422"
   },
   {
@@ -216,7 +212,7 @@
     "id": "RO423"
   },
   {
-    "label": "Timiş",
+    "label": "Timiș",
     "id": "RO424"
   },
   {

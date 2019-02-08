@@ -1,10 +1,6 @@
 [
   {
     "label": "MALTA",
-    "id": "MT"
-  },
-  {
-    "label": "MALTA",
     "id": "MT0"
   },
   {
@@ -16,7 +12,7 @@
     "id": "MT001"
   },
   {
-    "label": "Gozo and Comino / Għawdex u Kemmuna",
+    "label": "Gozo and Comino/Għawdex u Kemmuna",
     "id": "MT002"
   },
   {
