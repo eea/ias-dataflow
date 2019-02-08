@@ -1,0 +1,42 @@
+[
+  {
+    "label": "EESTI",
+    "id": "EE0"
+  },
+  {
+    "label": "Eesti",
+    "id": "EE00"
+  },
+  {
+    "label": "Põhja-Eesti",
+    "id": "EE001"
+  },
+  {
+    "label": "Lääne-Eesti",
+    "id": "EE004"
+  },
+  {
+    "label": "Kesk-Eesti",
+    "id": "EE006"
+  },
+  {
+    "label": "Kirde-Eesti",
+    "id": "EE007"
+  },
+  {
+    "label": "Lõuna-Eesti",
+    "id": "EE008"
+  },
+  {
+    "label": "EXTRA-REGIO NUTS 1",
+    "id": "EEZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 2",
+    "id": "EEZZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 3",
+    "id": "EEZZZ"
+  }
+]

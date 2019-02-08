@@ -1,0 +1,1403 @@
+{
+  "projectFiles": [
+  {
+    "title": "app.js",
+    "file":
+    {
+      "name": "app.js"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "app.css",
+    "file":
+    {
+      "name": "app.css"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "manifest.js",
+    "file":
+    {
+      "name": "manifest.js"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "vendor.js",
+    "file":
+    {
+      "name": "vendor.js"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "empty.xml",
+    "file":
+    {
+      "name": "empty.xml"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "schema.xsd",
+    "file":
+    {
+      "name": "schema.xsd"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "AT_nuts_regions.json",
+    "file":
+    {
+      "name": "AT_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "BE_nuts_regions.json",
+    "file":
+    {
+      "name": "BE_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "BG_nuts_regions.json",
+    "file":
+    {
+      "name": "BG_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "CH_nuts_regions.json",
+    "file":
+    {
+      "name": "CH_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "CY_nuts_regions.json",
+    "file":
+    {
+      "name": "CY_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "CZ_nuts_regions.json",
+    "file":
+    {
+      "name": "CZ_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "DE_nuts_regions.json",
+    "file":
+    {
+      "name": "DE_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "DK_nuts_regions.json",
+    "file":
+    {
+      "name": "DK_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "EE_nuts_regions.json",
+    "file":
+    {
+      "name": "EE_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "EL_nuts_regions.json",
+    "file":
+    {
+      "name": "EL_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "ES_nuts_regions.json",
+    "file":
+    {
+      "name": "ES_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "FI_nuts_regions.json",
+    "file":
+    {
+      "name": "FI_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "FR_nuts_regions.json",
+    "file":
+    {
+      "name": "FR_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "HR_nuts_regions.json",
+    "file":
+    {
+      "name": "HR_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "HU_nuts_regions.json",
+    "file":
+    {
+      "name": "HU_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "IE_nuts_regions.json",
+    "file":
+    {
+      "name": "IE_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "IS_nuts_regions.json",
+    "file":
+    {
+      "name": "IS_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "IT_nuts_regions.json",
+    "file":
+    {
+      "name": "IT_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "LI_nuts_regions.json",
+    "file":
+    {
+      "name": "LI_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "LT_nuts_regions.json",
+    "file":
+    {
+      "name": "LT_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "LU_nuts_regions.json",
+    "file":
+    {
+      "name": "LU_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "LV_nuts_regions.json",
+    "file":
+    {
+      "name": "LV_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "ME_nuts_regions.json",
+    "file":
+    {
+      "name": "ME_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "MK_nuts_regions.json",
+    "file":
+    {
+      "name": "MK_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "MT_nuts_regions.json",
+    "file":
+    {
+      "name": "MT_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "NL_nuts_regions.json",
+    "file":
+    {
+      "name": "NL_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "NO_nuts_regions.json",
+    "file":
+    {
+      "name": "NO_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "PL_nuts_regions.json",
+    "file":
+    {
+      "name": "PL_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "PT_nuts_regions.json",
+    "file":
+    {
+      "name": "PT_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "RO_nuts_regions.json",
+    "file":
+    {
+      "name": "RO_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "SE_nuts_regions.json",
+    "file":
+    {
+      "name": "SE_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "SI_nuts_regions.json",
+    "file":
+    {
+      "name": "SI_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "SK_nuts_regions.json",
+    "file":
+    {
+      "name": "SK_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "TR_nuts_regions.json",
+    "file":
+    {
+      "name": "TR_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "UK_nuts_regions.json",
+    "file":
+    {
+      "name": "UK_nuts_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "BE_marine_subregions.json",
+    "file":
+    {
+      "name": "BE_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "BG_marine_subregions.json",
+    "file":
+    {
+      "name": "BG_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+     "title": "CY_marine_subregions.json",
+     "file":
+     {
+       "name": "CY_marine_subregions.json"
+     },
+     "active": false,
+     "localForm": false,
+     "remoteForm": false,
+     "fileType": "FILE"
+  },
+  {
+    "title": "DE_marine_subregions.json",
+    "file":
+    {
+      "name": "DE_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "DK_marine_subregions.json",
+    "file":
+    {
+      "name": "DK_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+     "title": "EE_marine_subregions.json",
+     "file":
+     {
+       "name": "EE_marine_subregions.json"
+     },
+     "active": false,
+     "localForm": false,
+     "remoteForm": false,
+     "fileType": "FILE"
+  },
+  {
+    "title": "ES_marine_subregions.json",
+    "file":
+    {
+      "name": "ES_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "FI_marine_subregions.json",
+    "file":
+    {
+      "name": "FI_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "FR_marine_subregions.json",
+    "file":
+    {
+      "name": "FR_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "GR_marine_subregions.json",
+    "file":
+    {
+      "name": "GR_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "HR_marine_subregions.json",
+    "file":
+    {
+      "name": "HR_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "IE_marine_subregions.json",
+    "file":
+    {
+      "name": "IE_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "IS_marine_subregions.json",
+    "file":
+    {
+      "name": "IS_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "IT_marine_subregions.json",
+    "file":
+    {
+      "name": "IT_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "LT_marine_subregions.json",
+    "file":
+    {
+      "name": "LT_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "LV_marine_subregions.json",
+    "file":
+    {
+      "name": "LV_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "MT_marine_subregions.json",
+    "file":
+    {
+      "name": "MT_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "NL_marine_subregions.json",
+    "file":
+    {
+      "name": "NL_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "NO_marine_subregions.json",
+    "file":
+    {
+      "name": "NO_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "PL_marine_subregions.json",
+    "file":
+    {
+      "name": "PL_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "PT_marine_subregions.json",
+    "file":
+    {
+      "name": "PT_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "RO_marine_subregions.json",
+    "file":
+    {
+      "name": "RO_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "SE_marine_subregions.json",
+    "file":
+    {
+      "name": "SE_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "SI_marine_subregions.json",
+    "file":
+    {
+      "name": "SI_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "TR_marine_subregions.json",
+    "file":
+    {
+      "name": "TR_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "UK_marine_subregions.json",
+    "file":
+    {
+      "name": "UK_marine_subregions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "AT_biogeographical_regions.json",
+    "file":
+    {
+      "name": "AT_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "BE_biogeographical_regions.json",
+    "file":
+    {
+      "name": "BE_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "BG_biogeographical_regions.json",
+    "file":
+    {
+      "name": "BG_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "CY_biogeographical_regions.json",
+    "file":
+    {
+      "name": "CY_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "CZ_biogeographical_regions.json",
+    "file":
+    {
+      "name": "CZ_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "DE_biogeographical_regions.json",
+    "file":
+    {
+      "name": "DE_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "DK_biogeographical_regions.json",
+    "file":
+    {
+      "name": "DK_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "EE_biogeographical_regions.json",
+    "file":
+    {
+      "name": "EE_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "ES_biogeographical_regions.json",
+    "file":
+    {
+      "name": "ES_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "FI_biogeographical_regions.json",
+    "file":
+    {
+      "name": "FI_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "FR_biogeographical_regions.json",
+    "file":
+    {
+      "name": "FR_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "GR_biogeographical_regions.json",
+    "file":
+    {
+      "name": "GR_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "HR_biogeographical_regions.json",
+    "file":
+    {
+      "name": "HR_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "HU_biogeographical_regions.json",
+    "file":
+    {
+      "name": "HU_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "IE_biogeographical_regions.json",
+    "file":
+    {
+      "name": "IE_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "IT_biogeographical_regions.json",
+    "file":
+    {
+      "name": "IT_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "LT_biogeographical_regions.json",
+    "file":
+    {
+      "name": "LT_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "LU_biogeographical_regions.json",
+    "file":
+    {
+      "name": "LU_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "LV_biogeographical_regions.json",
+    "file":
+    {
+      "name": "LV_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "MT_biogeographical_regions.json",
+    "file":
+    {
+      "name": "MT_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "NL_biogeographical_regions.json",
+    "file":
+    {
+      "name": "NL_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "PL_biogeographical_regions.json",
+    "file":
+    {
+      "name": "PL_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "PT_biogeographical_regions.json",
+    "file":
+    {
+      "name": "PT_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "RO_biogeographical_regions.json",
+    "file":
+    {
+      "name": "RO_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "SE_biogeographical_regions.json",
+    "file":
+    {
+      "name": "SE_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "SI_biogeographical_regions.json",
+    "file":
+    {
+      "name": "SI_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "SK_biogeographical_regions.json",
+    "file":
+    {
+      "name": "SK_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "UK_biogeographical_regions.json",
+    "file":
+    {
+      "name": "UK_biogeographical_regions.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "AT_river_basins.json",
+    "file":
+    {
+      "name": "AT_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "BE_river_basins.json",
+    "file":
+    {
+      "name": "BE_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "BG_river_basins.json",
+    "file":
+    {
+      "name": "BG_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "CY_river_basins.json",
+    "file":
+    {
+      "name": "CZ_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "DE_river_basins.json",
+    "file":
+    {
+      "name": "DE_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "DK_river_basins.json",
+    "file":
+    {
+      "name": "DK_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "EE_river_basins.json",
+    "file":
+    {
+      "name": "EE_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "ES_river_basins.json",
+    "file":
+    {
+      "name": "ES_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "FI_river_basins.json",
+    "file":
+    {
+      "name": "FR_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "GB_river_basins.json",
+    "file":
+    {
+      "name": "GB_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "GR_river_basins.json",
+    "file":
+    {
+      "name": "GR_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "HR_river_basins.json",
+    "file":
+    {
+      "name": "HR_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "HU_river_basins.json",
+    "file":
+    {
+      "name": "HU_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "IE_river_basins.json",
+    "file":
+    {
+      "name": "IE_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "IT_river_basins.json",
+    "file":
+    {
+      "name": "IT_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "LT_river_basins.json",
+    "file":
+    {
+      "name": "LT_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "LU_river_basins.json",
+    "file":
+    {
+      "name": "LU_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "LV_river_basins.json",
+    "file":
+    {
+      "name": "LV_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "MT_river_basins.json",
+    "file":
+    {
+      "name": "MT_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "NL_river_basins.json",
+    "file":
+    {
+      "name": "NL_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "PL_river_basins.json",
+    "file":
+    {
+      "name": "PL_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "PT_river_basins.json",
+    "file":
+    {
+      "name": "PT_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "RO_river_basins.json",
+    "file":
+    {
+      "name": "RO_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "SE_river_basins.json",
+    "file":
+    {
+      "name": "SE_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "SI_river_basins.json",
+    "file":
+    {
+      "name": "SI_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "SK_river_basins.json",
+    "file":
+    {
+      "name": "SK_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "UK_river_basins.json",
+    "file":
+    {
+      "name": "UK_river_basins.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+	{
+    "title": "EE_speciesB.json",
+    "file":
+    {
+      "name": "EE_speciesB.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+	{
+    "title": "ES_speciesB.json",
+    "file":
+    {
+      "name": "ES_speciesB.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+	{
+    "title": "FR_speciesB.json",
+    "file":
+    {
+      "name": "FR_speciesB.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+	{
+    "title": "IE_speciesB.json",
+    "file":
+    {
+      "name": "IE_speciesB.json"
+    },
+    "active": false,
+    "localForm": false,
+    "remoteForm": false,
+    "fileType": "FILE"
+  },
+  {
+    "title": "IAS",
+    "file":
+    {
+      "name": "index.html"
+    },
+    "newXmlFileName": "ias-report-2018.xml",
+    "emptyInstanceUrl": "https://webq2test.eionet.europa.eu/download/project/ias/file/empty.xml",
+    "xmlSchema": "http://dd.eionet.europa.eu/v2/dataset/3421/schema-dst-3421.xsd",
+    "active": true,
+    "localForm": true,
+    "remoteForm": true,
+    "fileType": "WEBFORM"
+  }]
+}

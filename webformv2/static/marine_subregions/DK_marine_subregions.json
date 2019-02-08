@@ -1,0 +1,18 @@
+[
+  {
+    "label": "Greater North Sea",
+    "id": "ANS"
+  },
+  {
+    "label": "North East Atlantic",
+    "id": "ATL"
+  },
+  {
+    "label": "Baltic Sea",
+    "id": "BAL"
+  },
+  {
+    "label": "White Sea",
+    "id": "WHI"
+  }
+]

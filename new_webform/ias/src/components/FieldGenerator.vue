@@ -7,7 +7,7 @@
       <b-input-group>
         <b-file :accept="field.extensions.join(', ')" v-model="field.selected" @change="handleFileUpload"></b-file>
         <b-input-group-append>
-          <b-btn variant='success' @click='submitFile'>Upload</b-btn>
+          <b-btn variant='success' :disabled="!file" @click='submitFile'>Upload</b-btn>
         </b-input-group-append>
       </b-input-group>
       <b-badge class="mb-2" variant="default"><b>Allowed file extension : {{field.extensions.join(', ')}}</b></b-badge>
@@ -70,7 +70,14 @@
         }
       },
       handleFileUpload(e) {
-        this.file = e.target.files[0]
+        const fileNameArr = e.target.files[0].name.split('.')
+        const extension = '.' + fileNameArr[fileNameArr.length - 1]
+
+        if(!this.field.extensions.includes(extension)) {
+          this.file = null
+        } else {
+         this.file = e.target.files[0]
+        }
       },
       submitFile() {
         uploadFile(this.file)
@@ -88,7 +95,7 @@
           }, error => console.log(error))
       },
       removeFile() {
-        deleteFile(this.uploadedFile)
+        deleteFile(this.field.selected)
           .then(({data}) => {
             console.log(`File ${data} deleted successfully`)
           }, error => console.log(error))

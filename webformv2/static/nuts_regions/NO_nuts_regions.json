@@ -1,0 +1,114 @@
+[
+  {
+    "id": "NO",
+    "label": "Norge"
+  },
+  {
+    "id": "NO0",
+    "label": "Norge"
+  },
+  {
+    "id": "NO01",
+    "label": "Oslo og Akershus"
+  },
+  {
+    "id": "NO011",
+    "label": "Oslo"
+  },
+  {
+    "id": "NO012",
+    "label": "Akershus"
+  },
+  {
+    "id": "NO02",
+    "label": "Hedmark og Oppland"
+  },
+  {
+    "id": "NO021",
+    "label": "Hedmark"
+  },
+  {
+    "id": "NO022",
+    "label": "Oppland"
+  },
+  {
+    "id": "NO03",
+    "label": "Sør-Østlandet"
+  },
+  {
+    "id": "NO031",
+    "label": "Østfold"
+  },
+  {
+    "id": "NO032",
+    "label": "Buskerud"
+  },
+  {
+    "id": "NO033",
+    "label": "Vestfold"
+  },
+  {
+    "id": "NO034",
+    "label": "Telemark"
+  },
+  {
+    "id": "NO04",
+    "label": "Agder og Rogaland"
+  },
+  {
+    "id": "NO041",
+    "label": "Aust-Agder"
+  },
+  {
+    "id": "NO042",
+    "label": "Vest-Agder"
+  },
+  {
+    "id": "NO043",
+    "label": "Rogaland"
+  },
+  {
+    "id": "NO05",
+    "label": "Vestlandet"
+  },
+  {
+    "id": "NO051",
+    "label": "Hordaland"
+  },
+  {
+    "id": "NO052",
+    "label": "Sogn og Fjordane"
+  },
+  {
+    "id": "NO053",
+    "label": "Møre og Romsdal"
+  },
+  {
+    "id": "NO06",
+    "label": "Trøndelag"
+  },
+  {
+    "id": "NO061",
+    "label": "Sør-Trøndelag"
+  },
+  {
+    "id": "NO062",
+    "label": "Nord-Trøndelag"
+  },
+  {
+    "id": "NO07",
+    "label": "Nord-Norge"
+  },
+  {
+    "id": "NO071",
+    "label": "Nordland"
+  },
+  {
+    "id": "NO072",
+    "label": "Troms"
+  },
+  {
+    "id": "NO073",
+    "label": "Finnmark"
+  }
+]

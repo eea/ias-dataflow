@@ -195,9 +195,6 @@ const form = (country, formData) => ({
 					name: 'distributionMap_sectionA',
 					label: 'Distribution map for SECTION A',
 					extensions: ['.shp','.geojson','.gml','.zip'],
-					get validation() {
-						return []
-					},
 				},
 				inspireMetadata_sectionA: {
 					type: 'file',
@@ -205,9 +202,6 @@ const form = (country, formData) => ({
 					name: 'inspireMetadata_sectionA',
 					label: 'INSPIRE metadata for SECTION A',
 					extensions: ['.shp','.geojson','.gml','.zip'],
-					get validation() {
-						return []
-					}
 				},
 				distributionMap_sectionB: {
 					type: 'file',
@@ -215,9 +209,6 @@ const form = (country, formData) => ({
 					name: 'distributionMap_sectionB',
 					label: 'Distribution map for SECTION B',
 					extensions: ['.shp','.geojson','.gml','.zip'],
-					get validation() {
-						return []
-					}
 				},
 				inspireMetadata_sectionB: {
 					type: 'file',
@@ -225,9 +216,6 @@ const form = (country, formData) => ({
 					name: 'inspireMetadata_sectionB',
 					label: 'INSPIRE metadata for SECTION B',
 					extensions: ['.shp','.geojson','.gml','.zip'],
-					get validation() {
-						return []
-					}
 				},
 			}
 		}
