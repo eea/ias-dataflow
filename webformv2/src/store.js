@@ -48,13 +48,15 @@ export default new Vuex.Store({
 						if(field === 'speciesB') {
 						    const new_url = process.env.NODE_ENV === 'production' ? 'speciesBall.json' : `${field}/speciesBall.json`
 						    return getFormData(new_url)
+						} else {
+							return []
 						}
 					});
 				})
 
 				return Promise.all(promiseList).then(function (values) {
 					fieldsArray.forEach((field, index) => {
-						context.state.formData[field] = values[index].data
+						context.state.formData[field] = values[index].data || []
 					})
 					resolve(context.state.formData)
 				});

@@ -29,11 +29,6 @@ const species = (currentSpecies, country, formData) => ({
 		type: 'text',
 		selected: currentSpecies[`${country}_CommonName`],
 		label: 'Common name of the species (national language)',
-		get validation() {
-			if(!this.selected) {
-				return ['invalid']
-			}
-		}
 	},
 
 	present_in_MS: {
@@ -45,7 +40,12 @@ const species = (currentSpecies, country, formData) => ({
 			{text: 'Yes', value: true},
 			{text: 'No', value: false},
 			{text: 'Currently unknown', value: 'unknown'}
-		]
+		],
+		get validation() {
+			if(this.selected === null) {
+				return `${this.label} is required`
+			}
+		}
 	},
 	spreadPatterns: {
         label: 'Spread patterns',

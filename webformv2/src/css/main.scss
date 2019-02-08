@@ -813,7 +813,9 @@ td {
 
 .input-group .badge {
   position: absolute;
-  top: 0;
+  top: -7px;
+  z-index: 1;
+  font-size: .7rem;
 }
 
 td .badge {
