@@ -1,4 +1,5 @@
 const species = (currentSpecies) => ({
+	expanded: false,
     EASINCode: {
         name: 'EASINCode',
         type: 'nonInput',

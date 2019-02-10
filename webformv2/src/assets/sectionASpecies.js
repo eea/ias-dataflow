@@ -4,6 +4,7 @@ import inspectionsPermitsReported from './inspectionsPermitsReported'
 import infoImpactSpecies from './infoImpactSpecies'
 
 const species = (currentSpecies, country, formData) => ({
+	expanded: false,
 	EASINCode: {
 		name: 'EASINCode',
 		type: 'nonInput',
@@ -243,7 +244,9 @@ const species = (currentSpecies, country, formData) => ({
 		fields: [
 			infoImpactSpecies()
 		]
-	}
+	},
+
+	validation: null,
 })
 
 export default species

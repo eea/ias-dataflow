@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper">
-    <div>
+    <div class="buttons-wrapper">
       <b-btn variant="success" @click="saveForm">Save</b-btn>
-      <!-- <b-btn variant="primary" @click="validateSections" style="">Validate</b-btn> -->
-      <!-- <b-btn variant="danger" @click="openErrorModal" v-if="errors.items.length > 0">Errors</b-btn> -->
+      <b-btn variant="primary" @click="validateSections" style="">Validate</b-btn>
+      <b-btn variant="danger" @click="openErrorModal" v-if="hasErrors">Errors</b-btn>
       <b-btn variant="danger" @click="exitForm">Back to envelope</b-btn>
     </div>
 
@@ -13,6 +13,26 @@
        @dismiss-count-down="countDownChanged">
         <h3 style="color: black; font-weight: bold;">The report is saved</h3>
       </b-alert>
+
+    <b-modal size="lg" style="text-align:left" ref="errorsModal" hide-footer title="Errors">
+          <div v-if="sectionAErrors.length">
+              <h4>Section A</h4>
+              <b-list-group>
+                  <b-list-group-item v-for="(error, error_index) in sectionAErrors" :key="`A_${error_index}`">
+                      <h5>
+                        <a @click="clickSectionA(error.sci_name)" :href="`#${error.sci_name}`">{{error.sci_name}} <span style="float:right">{{error.EASINCode}}</span></a></h5>
+                      <b-list-group>
+                          <b-list-group-item v-for="(field_error, field_error_index) in error.errors" :key="field_error_index">
+                            <b-badge variant="danger">
+                                {{field_error}}
+                            </b-badge> 
+                          </b-list-group-item>
+                      </b-list-group>
+                  </b-list-group-item>
+              </b-list-group>
+          </div>
+      <!-- <b-btn class="mt-3" variant="outline-danger" block @click="hideModal">Close Me</b-btn> -->
+    </b-modal>
   </div>
 </template>
 
@@ -384,12 +404,55 @@ export default {
       dismissSecs: 2,
       dismissCountDown: 0,
       showDismissibleAlert: false,
+      sectionAErrors: [],
+      sectionBErrors: [],
+      sectionCErrors: [],
+      distributionMapsErrors: [],
     }
+  },
+
+  computed: {
+      hasErrors(){
+          return this.sectionAErrors.length || this.sectionBErrors.length || this.sectionCErrors.length || this.distributionMapsErrors.length  
+      }
   },
 
   methods: {
     openErrorModal(){
-      this.$emit('open-error-modal');
+        console.log(this.sectionAErrors)
+        this.$refs.errorsModal.show()
+ 
+    },
+    clickSectionA(anchor){
+        document.querySelector('.nav.nav-tabs li:nth-child(2) a').click()
+    },  
+    validateSections(){
+        this.sectionAErrors = []
+        const sectionA = document.querySelector('.sectionA')
+        const sectionASpecies = sectionA.querySelectorAll('.sectionASpecies')
+        sectionASpecies.forEach(species => {
+            const errors = species.querySelectorAll('.badge.badge-danger')
+            const species_header = species.querySelector('[EASINCode]')
+            const easin = species_header.getAttribute('EASINCode')
+            const current_form_section = this.$store.state.form.tabs.tab_1.form_fields.find(field => field.EASINCode.selected == easin)
+            if(errors.length) {
+                const scientific_name = species_header.getAttribute('id')
+                if(current_form_section) current_form_section.validation = 'invalid'
+                 const errorObj = {
+                    EASINCode: easin,
+                    sci_name: scientific_name,
+                    errors: []
+                }
+                errors.forEach(error => {
+                    errorObj.errors.push(error.innerText)
+                })
+                this.sectionAErrors.push(errorObj)
+            } else {
+                if(current_form_section) current_form_section.validation = null
+            }
+        
+        })
+        console.log(this.sectionAErrors)
     },
 
     exitForm(){
@@ -869,7 +932,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 
 .alert.alert-success {
   position: fixed;
@@ -879,8 +942,17 @@ export default {
 }
 
 .wrapper {
-      text-align: right;
-    margin-bottom: 1rem;
+    text-align: right;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    margin-bottom: .5rem;
+    .buttons-wrapper {
+        display: inline-block;
+        padding: .5rem;
+        background: white;
+        border: 1px solid #eee;
+    }
 }
 
 @media screen and (max-width: 768px) {

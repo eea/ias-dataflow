@@ -1,5 +1,5 @@
 <template>
-  <div v-if="data">
+  <div class="sectionB" v-if="data">
     <b-card>
       <h2>
         Information to be submitted for each of the invasive alien species of Member State concern
@@ -56,10 +56,13 @@
     </b-card>
 
 
-    <b-card v-if="data.ias_list.selected === true" v-for="(species, species_index) in data.form_fields" :key="`species_${species_index}`" class="mb-4">
-      <h4 v-b-toggle="`collapse_species_${species_index}`">
-        <i class="fas fa-chevron-right"></i>
-        Species scientific name: {{species.scientific_name.selected}}
+    <b-card class="sectionBSpecies mb-3 mt-3" v-if="data.ias_list.selected === true" v-for="(species, species_index) in data.form_fields" :key="`species_${species_index}`">
+      <h4 :id="species.scientific_name.selected" v-b-toggle="`collapse_species_${species_index}`"
+					@click="species.expanded = !species.expanded"
+					style="cursor:pointer"
+			>
+				<i v-if="species.validation" class="fas fa-exclamation"></i>
+       	<i v-if="!species.expanded" class="fas fa-chevron-right"></i> <i v-if="species.expanded" class="fas fa-chevron-down"></i>  Species scientific name: {{species.scientific_name.selected}}
       </h4>
       <b-btn variant='danger' style="float:right; margin-top:-2rem; margin-bottom: 1rem;" @click="$store.commit('RemoveBSpecies', {species_index})">Remove</b-btn>
 

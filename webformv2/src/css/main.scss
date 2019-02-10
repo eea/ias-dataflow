@@ -841,3 +841,30 @@ td .badge {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+
+.card.invalid {
+  border-color: #dc3545;
+  border-width: 1px;
+}
+i.fas.fa-exclamation {
+  display: none;
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  font-size: 1rem;
+  padding: .3rem .6rem;
+  background: white;
+  border-radius: 50%;
+  color: #dc3545;
+  border: 3px solid #dc3545;
+}
+
+:target {
+  .card & {
+    margin-top: -3rem;
+    padding-top: 3rem;
+  }
+  i.fas.fa-exclamation {
+    display: block;
+  }
+}
