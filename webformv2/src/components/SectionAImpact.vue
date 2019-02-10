@@ -16,10 +16,13 @@
                 </thead>
                 <tbody>
                     <tr v-for="(row, row_index) in species.infoImpactSpecies.fields" :key="row_index">
-                        <td v-for="(cell, cell_index) in row" :key="cell_index">
+                        <td v-if="cell_index === 'impact'" style="min-width: 250px;" v-for="(cell, cell_index) in row" :key="cell_index">
                             <FieldGenerator :field="cell"></FieldGenerator>
                         </td>
-                        <td><b-btn variant="danger" @click="$store.commit('removeInfoImpact', {species_index, row_index})">Remove</b-btn></td>
+                        <td v-else style="width: 25%;">
+                            <FieldGenerator :field="cell"></FieldGenerator>
+                        </td>
+                        <td style="width: 50px"><b-btn variant="danger" @click="$store.commit('removeInfoImpact', {species_index, row_index})">X</b-btn></td>
                     </tr>
                 </tbody>
             </table>

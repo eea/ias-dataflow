@@ -74,8 +74,8 @@ export default {
                 value: null,
                 unit: null
             },
-						inspectionsPermitsReported: {
-							  reportID: null,
+            inspectionsPermitsReported: {
+			    reportID: null,
                 EASINCode: null,
                 row_id: null,
                 parent_row_id: null,
@@ -83,7 +83,7 @@ export default {
                 permit_purpose: null,
                 number_establishment: null,
                 number_inspected: null	
-						},
+            },
             inspectionPermits: {
                 reportID: null,
                 row_id: null,
@@ -176,11 +176,19 @@ export default {
                 group: null,
                 class: null	
             },
+            inspectionsPermits: {
+                reportID: null,
+                row_id: null,
+                parent_row_id: null,
+                inspection_status: null,
+                value: null,
+                unit: null
+            },
             sectionBSpecies: {
                 reportID: null,
                 EASINCode: null,
                 scientific_name: null,
-                common_name_naltional: null,
+                common_name_national: null,
                 present_in_MS: null,
                 reproduction_pattern: null,
                 additional_information: null,
@@ -205,9 +213,9 @@ export default {
                 cost_of_action: null,
                 file_cost_of_action: null,
                 additional_information: null,
-								file_additional_information: null,
-								measures_inform_public: null,
-								file_measures_inform_public: null
+                file_additional_information: null,
+                measures_inform_public: null,
+                file_measures_inform_public: null
             },
             priorityPathway: {
                 reportID: null,
@@ -228,7 +236,7 @@ export default {
                     "IAS": {
                         "@xmlns": "http://dd.eionet.europa.eu/namespaces/884",
                         "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-                        "@xsi:schemaLocation": "http://dd.eionet.europa.eu/namespaces/884  http://dd.eionet.europa.eu/v2/dataset/3421/schema-dst-3421.xsd",
+                        "@xsi:schemaLocation": "http://dd.eionet.europa.eu/namespaces/884  http://dd.eionet.europa.eu/v2/dataset/3422/schema-dst-3422.xsd",
                         "inspectionsPermitsReported": {
                             "@xmlns": "http://dd.eionet.europa.eu/namespaces/895",
                             "Row": [
@@ -463,41 +471,44 @@ export default {
 				structure.reportID = reportID
 				structure.row_id = index
 				structure.EASINCode = section.EASINCode.selected
-
+                
+                console.log('-------', structure.common_name_national, section.common_name_national.selected)
 				structure.common_name_national = section.common_name_national.selected
+
+
 
 				structure.scientific_name = section.scientific_name.selected
 
 				structure.present_in_MS = section.present_in_MS.selected
 
 				if(structure.present_in_MS) {
-					structure.reproduction_pattern = section.reproduction_patterns.selected
-					structure.additional_information = section.additional_information.selected
-					structure.additional_information_measures = section.additional_information_measures.selected
-				
-			
-					section.spreadPatterns.selected.forEach((pattern, pattern_index) => {
-						const spreadPattern = JSON.parse(JSON.stringify(this.structure.spreadPatterns))
-						spreadPattern.reportID = reportID
-						spreadPattern.EASINCode = section.EASINCode.selected
-						spreadPattern.row_id = pattern_index
-						spreadPattern.section = 'B'
-						spreadPattern.spread_pattern = pattern
-						spreadPattern.parent_row_id = index
-						emptyInstance.IAS.spreadPatterns.Row.push(spreadPattern)
-					})
+                    structure.reproduction_pattern = section.reproduction_patterns.selected
+                    section.spreadPatterns.selected.forEach((pattern, pattern_index) => {
+                        const spreadPattern = JSON.parse(JSON.stringify(this.structure.spreadPatterns))
+                        spreadPattern.reportID = reportID
+                        spreadPattern.EASINCode = section.EASINCode.selected
+                        spreadPattern.row_id = pattern_index
+                        spreadPattern.section = 'B'
+                        spreadPattern.spread_pattern = pattern
+                        spreadPattern.parent_row_id = index
+                        emptyInstance.IAS.spreadPatterns.Row.push(spreadPattern)
+                    })
 
-					Object.keys(section.sectionBMeasures).filter(measure => section.sectionBMeasures[measure].selected === true).forEach((measure, measure_index) => {
-						const sectionBMeasures = JSON.parse(JSON.stringify(this.structure.sectionBMeasures))
-						console.log(measure,measure_index)
-						sectionBMeasures.reportID = reportID
-						sectionBMeasures.row_id = measure_index
-						sectionBMeasures.parent_row_id = index
-						sectionBMeasures.measure = measure
-						emptyInstance.IAS.sectionBMeasures.Row.push(sectionBMeasures)
-					})
+                }
+                structure.additional_information = section.additional_information.selected
+                structure.additional_information_measures = section.additional_information_measures.selected
+            
+        
+        
+                Object.keys(section.sectionBMeasures).filter(measure => section.sectionBMeasures[measure].selected === true).forEach((measure, measure_index) => {
+                    const sectionBMeasures = JSON.parse(JSON.stringify(this.structure.sectionBMeasures))
+                    sectionBMeasures.reportID = reportID
+                    sectionBMeasures.row_id = measure_index
+                    sectionBMeasures.parent_row_id = index
+                    sectionBMeasures.measure = measure
+                    emptyInstance.IAS.sectionBMeasures.Row.push(sectionBMeasures)
+                })
 				
-				}
 				emptyInstance.IAS.sectionBSpecies.Row.push(structure)
 				console.log('b', emptyInstance)
 			})
@@ -584,7 +595,7 @@ export default {
 						section.inspectionsPermitsReported.fields.forEach((inspectionsTableRow, inspectionsTableRow_index) => {
 							const inspectionsPermitsReported = JSON.parse(JSON.stringify(this.structure.inspectionsPermitsReported))
 							inspectionsPermitsReported.reportID = reportID
-							inspectionsPermitsReported.row_id = inspectionsTableRow_index
+							inspectionsPermitsReported.row_id = `${index}_${inspectionsTableRow_index}`
 							inspectionsPermitsReported.parent_row_id = index
 							inspectionsPermitsReported.year = inspectionsTableRow.year.selected
 							inspectionsPermitsReported.permit_purpose = inspectionsTableRow.permit_purpose.selected
@@ -596,11 +607,11 @@ export default {
 									const permitedSpecimens = JSON.parse(JSON.stringify(this.structure.inspectionPermits))
 									permitedSpecimens.reportID = reportID
 									permitedSpecimens.row_id = permitedSpecimen_index
-									permitedSpecimens.parent_row_id = inspectionsTableRow_index
+									permitedSpecimens.parent_row_id = inspectionsPermitsReported.row_id
 									permitedSpecimens.inspection_status ='complient'
 									permitedSpecimens.value = permitedSpecimen.value.selected
 									permitedSpecimens.unit = permitedSpecimen.unit.selected
-									emptyInstance.IAS.permitedSpecimens.Row.push(permitedSpecimens)
+									emptyInstance.IAS.inspectionsPermits.Row.push(permitedSpecimens)
 							})
 
 							// non-compliant
@@ -608,11 +619,11 @@ export default {
 									const permitedSpecimens = JSON.parse(JSON.stringify(this.structure.inspectionPermits))
 									permitedSpecimens.reportID = reportID
 									permitedSpecimens.row_id = permitedSpecimen_index
-									permitedSpecimens.parent_row_id = inspectionsTableRow_index
+									permitedSpecimens.parent_row_id = inspectionsPermitsReported.row_id
 									permitedSpecimens.inspection_status ='noncompliant'
 									permitedSpecimens.value = permitedSpecimen.value.selected
 									permitedSpecimens.unit = permitedSpecimen.unit.selected
-									emptyInstance.IAS.permitedSpecimens.Row.push(permitedSpecimens)
+									emptyInstance.IAS.inspectionsPermits.Row.push(permitedSpecimens)
 							})
 
 							emptyInstance.IAS.inspectionsPermitsReported.Row.push(inspectionsPermitsReported)
@@ -628,7 +639,7 @@ export default {
 							const sectionAMeasures = JSON.parse(JSON.stringify(this.structure.sectionAMeasures))
 							sectionAMeasures.measure_type = 'eradication'
 							sectionAMeasures.reportID = reportID
-							sectionAMeasures.row_id = measure_index
+							sectionAMeasures.row_id = `${index}_${measure_index}_eradication`
 							sectionAMeasures.parent_row_id = index
 							sectionAMeasures.population_name = measure.population_name.selected
 							sectionAMeasures.population_code = measure.population_code.selected
@@ -643,7 +654,7 @@ export default {
 									const partTerritory = JSON.parse(JSON.stringify(this.structure.partTerritory))
 									partTerritory.reportID = reportID
 									partTerritory.row_id = territory_index
-									partTerritory.parent_row_id = measure_index
+									partTerritory.parent_row_id = sectionAMeasures.row_id
 									partTerritory.name = this.$store.state.formData.nuts_regions.find(r => r.id === territory).label
 									partTerritory.code = territory
 									emptyInstance.IAS.partTerritory.Row.push(partTerritory)
@@ -654,7 +665,7 @@ export default {
                   const biogeographicalRegion = JSON.parse(JSON.stringify(this.structure.biogeographicalRegion))
                   biogeographicalRegion.reportID = reportID
                   biogeographicalRegion.row_id = region_index
-                  biogeographicalRegion.parent_row_id = measure_index
+                  biogeographicalRegion.parent_row_id = sectionAMeasures.row_id
                   biogeographicalRegion.name = measure.biogeographicalRegion.options.find(r => r.value === region).text
                   biogeographicalRegion.code = region
                   biogeographicalRegion.CountryCode = this.currentCountry
@@ -666,7 +677,7 @@ export default {
                   const riverBasinSubUnit = JSON.parse(JSON.stringify(this.structure.riverBasinSubUnit))
                   riverBasinSubUnit.reportID = reportID
                   riverBasinSubUnit.row_id = river_index
-                  riverBasinSubUnit.parent_row_id = measure_index
+                  riverBasinSubUnit.parent_row_id = sectionAMeasures.row_id
                   riverBasinSubUnit.name = river
                   riverBasinSubUnit.CountryCode = this.currentCountry
                   emptyInstance.IAS.riverBasinSubUnit.Row.push(riverBasinSubUnit)
@@ -676,7 +687,7 @@ export default {
                   const marineSubRegions = JSON.parse(JSON.stringify(this.structure.marineSubRegions))
                   marineSubRegions.reportID = reportID
                   marineSubRegions.row_id = marine_index
-                  marineSubRegions.parent_row_id = measure_index
+                  marineSubRegions.parent_row_id = sectionAMeasures.row_id
                   marineSubRegions.name = measure.marineSubRegions.options.find(r => r.value === marine).text
                   marineSubRegions.code = marine
                   marineSubRegions.CountryCode = this.currentCountry
@@ -688,7 +699,7 @@ export default {
                   const methodsUsed = Object.assign({}, this.structure.methodsUsed)
                   methodsUsed.reportID = reportID
                   methodsUsed.row_id = method_index
-                  methodsUsed.parent_row_id = measure_index
+                  methodsUsed.parent_row_id = sectionAMeasures.row_id
                   methodsUsed.methods_used = method
                   emptyInstance.IAS.methodsUsed.Row.push(methodsUsed)
               })
@@ -698,7 +709,7 @@ export default {
 									const observedNegativeImpacts = JSON.parse(JSON.stringify(this.structure.observedNegativeImpacts))
 									observedNegativeImpacts.reportID = reportID
 									observedNegativeImpacts.row_id = impact_index
-									observedNegativeImpacts.parent_row_id = measure_index
+									observedNegativeImpacts.parent_row_id = sectionAMeasures.row_id
 									observedNegativeImpacts.non_targeted_species = impact.non_targeted_species.selected
 									observedNegativeImpacts.species = impact.species.selected
                   emptyInstance.IAS.observedNegativeImpacts.Row.push(observedNegativeImpacts)
@@ -716,7 +727,7 @@ export default {
 							const sectionAMeasures = JSON.parse(JSON.stringify(this.structure.sectionAMeasures))
 							sectionAMeasures.measure_type = 'management'
 							sectionAMeasures.reportID = reportID
-							sectionAMeasures.row_id = measure_index
+							sectionAMeasures.row_id = `${index}_${measure_index}_management`
 							sectionAMeasures.parent_row_id = index
 							sectionAMeasures.population_name = measure.population_name.selected
 							sectionAMeasures.population_code = measure.population_code.selected
@@ -731,7 +742,7 @@ export default {
 									const partTerritory = JSON.parse(JSON.stringify(this.structure.partTerritory))
 									partTerritory.reportID = reportID
 									partTerritory.row_id = territory_index
-									partTerritory.parent_row_id = measure_index
+									partTerritory.parent_row_id = sectionAMeasures.row_id
 									partTerritory.name = this.$store.state.formData.nuts_regions.find(r => r.id === territory).label
 									partTerritory.code = territory
 									emptyInstance.IAS.partTerritory.Row.push(partTerritory)
@@ -742,7 +753,7 @@ export default {
                   const biogeographicalRegion = JSON.parse(JSON.stringify(this.structure.biogeographicalRegion))
                   biogeographicalRegion.reportID = reportID
                   biogeographicalRegion.row_id = region_index
-                  biogeographicalRegion.parent_row_id = measure_index
+                  biogeographicalRegion.parent_row_id = sectionAMeasures.row_id
                   biogeographicalRegion.name = measure.biogeographicalRegion.options.find(r => r.value === region).text
                   biogeographicalRegion.code = region
                   biogeographicalRegion.CountryCode = this.currentCountry
@@ -754,7 +765,7 @@ export default {
                   const riverBasinSubUnit = JSON.parse(JSON.stringify(this.structure.riverBasinSubUnit))
                   riverBasinSubUnit.reportID = reportID
                   riverBasinSubUnit.row_id = river_index
-                  riverBasinSubUnit.parent_row_id = measure_index
+                  riverBasinSubUnit.parent_row_id = sectionAMeasures.row_id
                   riverBasinSubUnit.name = river
                   riverBasinSubUnit.CountryCode = this.currentCountry
                   emptyInstance.IAS.riverBasinSubUnit.Row.push(riverBasinSubUnit)
@@ -764,7 +775,7 @@ export default {
                   const marineSubRegions = JSON.parse(JSON.stringify(this.structure.marineSubRegions))
                   marineSubRegions.reportID = reportID
                   marineSubRegions.row_id = marine_index
-                  marineSubRegions.parent_row_id = measure_index
+                  marineSubRegions.parent_row_id = sectionAMeasures.row_id
                   marineSubRegions.name = measure.marineSubRegions.options.find(r => r.value === marine).text
                   marineSubRegions.code = marine
                   marineSubRegions.CountryCode = this.currentCountry
@@ -776,7 +787,7 @@ export default {
                   const methodsUsed = Object.assign({}, this.structure.methodsUsed)
                   methodsUsed.reportID = reportID
                   methodsUsed.row_id = method_index
-                  methodsUsed.parent_row_id = measure_index
+                  methodsUsed.parent_row_id = sectionAMeasures.row_id
                   methodsUsed.methods_used = method
                   emptyInstance.IAS.methodsUsed.Row.push(methodsUsed)
               })
@@ -786,7 +797,7 @@ export default {
 									const observedNegativeImpacts = JSON.parse(JSON.stringify(this.structure.observedNegativeImpacts))
 									observedNegativeImpacts.reportID = reportID
 									observedNegativeImpacts.row_id = impact_index
-									observedNegativeImpacts.parent_row_id = measure_index
+									observedNegativeImpacts.parent_row_id = sectionAMeasures.row_id
 									observedNegativeImpacts.non_targeted_species = impact.non_targeted_species.selected
 									observedNegativeImpacts.species = impact.species.selected
                   emptyInstance.IAS.observedNegativeImpacts.Row.push(observedNegativeImpacts)
@@ -798,10 +809,9 @@ export default {
 
 
 				section.infoImpactSpecies.fields.forEach((infoImpact, infoImpact_index) => {
-					console.log('infoimpact',infoImpact)
 							const infoImpactSpecies = JSON.parse(JSON.stringify(this.structure.infoImpactSpecies))
 							infoImpactSpecies.reportID = reportID
-							infoImpactSpecies.row_id = infoImpact_index
+							infoImpactSpecies.row_id = `${index}_${infoImpact_index}`
 							infoImpactSpecies.parent_row_id = index
 							infoImpactSpecies.impact = infoImpact.impact.selected
 
@@ -809,7 +819,7 @@ export default {
 									const protectedSpecies = JSON.parse(JSON.stringify(this.structure.protectedSpecies))
 									protectedSpecies.reportID = reportID
 									protectedSpecies.row_id = entry_index
-									protectedSpecies.parent_row_id = infoImpact_index
+									protectedSpecies.parent_row_id = infoImpactSpecies.row_id
 									protectedSpecies.code = entry
 									protectedSpecies.name = infoImpact.protectedSpecies.options.find(i => i.value === entry).text
 									emptyInstance.IAS.protectedSpecies.Row.push(protectedSpecies)
@@ -819,7 +829,7 @@ export default {
 									const protectedSpecies = JSON.parse(JSON.stringify(this.structure.protectedHabitats))
 									protectedSpecies.reportID = reportID
 									protectedSpecies.row_id = entry_index
-									protectedSpecies.parent_row_id = infoImpact_index
+									protectedSpecies.parent_row_id = infoImpactSpecies.row_id
 									protectedSpecies.code = entry
 									protectedSpecies.name = infoImpact.protectedHabitats.options.find(i => i.value === entry).text
 									emptyInstance.IAS.protectedHabitats.Row.push(protectedSpecies)
@@ -829,7 +839,7 @@ export default {
 									const protectedSpecies = JSON.parse(JSON.stringify(this.structure.ecosystems))
 									protectedSpecies.reportID = reportID
 									protectedSpecies.row_id = entry_index
-									protectedSpecies.parent_row_id = infoImpact_index
+									protectedSpecies.parent_row_id = infoImpactSpecies.row_id
 									protectedSpecies.group = ecosystemsList.find(i => i.class === entry).group
 									protectedSpecies.class = entry
 									emptyInstance.IAS.ecosystems.Row.push(protectedSpecies)

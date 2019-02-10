@@ -1,11 +1,5 @@
 <template>
   <b-container fluid class="main-layout">
-		<h3 class="text-center" style="color: blue">
-			Important: if the loading spinner doesn't dissapear in less than 30 seconds, please create a new envelope or delete the file "IAS_-_Invasive_Alien_Species__1.xml" in your current envelpe			
-		</h3>
-
-
-  
 		<center><h1 class="mb-3 mt-2">IAS dataflow</h1></center>
     <center><h5><span class="text-muted">Technical formats to be used by the Member States for transmitting to the Commission the information pursuant to paragraph 1 of Article 24 of Regulation (EU) No 1143/2014 on the prevention and management of the introduction of invasive alien species</span></h5></center>
 
@@ -39,9 +33,9 @@
       </div>
 			
   	<h5 class="text-center" style="color: red">
-			This webform is under maintenance
+			This webform is currently under maintenance The work will be finalised on Monday, 11/02/2019, 8 AM CET and then you can continue to test the webform.
 			<br>
-			You are free to use it, but you might experience technical difficulties during the maintenance time.
+			In the meantime you are free to use it, but you might experience technical difficulties during the maintenance time.
 		</h5>
   </b-container>
 </template>
@@ -105,7 +99,7 @@ export default {
 		},
 		getPrefillData(){
 			getInstance().then((response) => {
-				console.log(JSON.stringify(response.data))
+				// console.log(JSON.stringify(response.data))
 				this.prefill(response.data);
 			})
 		},
@@ -185,7 +179,7 @@ export default {
 				const speciesStructure = {
 					code: species.EASINCode,
 					name: species.scientific_name,
-					cname: species.common_name_naltional
+					cname: species.common_name_national
 				}
 				const sectionBSpeciesStructure = sectionBSpecies(speciesStructure)
 				const spreadPatterns = this.sanitizeSection(data, 'spreadPatterns')
@@ -250,17 +244,16 @@ export default {
 
 				sectionASpeciesStructure.present_in_MS.selected = species.present_in_MS
 				
-				if(!species.present_in_MS) {
-					return
+				if(species.present_in_MS) {
+					spreadPatterns.filter(p => p.section === 'A' && p.parent_row_id === row_id).forEach(pattern => {
+						sectionASpeciesStructure.spreadPatterns.selected.push(pattern.spread_pattern)
+					})
+					sectionASpeciesStructure.reproduction_patterns.selected = species.reproduction_pattern
 				}
-				sectionASpeciesStructure.reproduction_patterns.selected = species.reproduction_pattern
+				
 				sectionASpeciesStructure.additional_information.selected = species.additional_information
 				sectionASpeciesStructure.additional_information_permits.selected = species.additional_information_permits_issued
 				sectionASpeciesStructure.additional_information_inspections.selected = species.additional_information_inspections
-
-				spreadPatterns.filter(p => p.section === 'A' && p.parent_row_id === row_id).forEach(pattern => {
-					sectionASpeciesStructure.spreadPatterns.selected.push(pattern.spread_pattern)
-				})
 
 				sectionASpeciesStructure.permits_issued.selected = species.permits_issued
 				if(species.permits_issued) {
@@ -348,7 +341,7 @@ export default {
 
 				sectionASpeciesStructure.eradication_measures.selected = species.eradication_measures
 				if(species.eradication_measures) {
-					sectionAMeasuresData.filter(m => m.parent_row_id === row_id && m.measure_type === 'eradication').forEach(measure => {
+					sectionAMeasuresData.filter(m => m.parent_row_id === row_id && m.measure_type === 'eradication').forEach((measure, measure_index) => {
 						const measure_row_id = measure.row_id
 						const sectionAMeasuresStructure = sectionAMeasures({
 								nuts: this.$store.state.formData.nuts_regions,
@@ -388,7 +381,7 @@ export default {
 							sectionAMeasuresStructure.observedNegativeImpacts.fields.push(observedNegativeImpactsStructure)
 						})
 
-						if(measure_row_id === 0) {
+						if(measure_index === 0) {
 							sectionASpeciesStructure.sectionAMeasures.fields.splice(0,1)	
 						}
 						sectionASpeciesStructure.sectionAMeasures.fields.push(sectionAMeasuresStructure)
@@ -402,7 +395,7 @@ export default {
 				if(species.subject_management_measures) {
 
 
-						sectionAMeasuresData.filter(m => m.parent_row_id === row_id && m.measure_type === 'management').forEach(measure => {
+						sectionAMeasuresData.filter(m => m.parent_row_id === row_id && m.measure_type === 'management').forEach((measure, measure_index) => {
 						const measure_row_id = measure.row_id
 						const sectionAMeasuresStructure = sectionAMeasures({
 								nuts: this.$store.state.formData.nuts_regions,
@@ -442,7 +435,7 @@ export default {
 							sectionAMeasuresStructure.observedNegativeImpacts.fields.push(observedNegativeImpactsStructure)
 						})
 
-						if(measure_row_id === 0) {
+						if(measure_index === 0) {
 							sectionASpeciesStructure.sectionAMeasuresManagement.fields.splice(0,1)	
 						}
 						sectionASpeciesStructure.sectionAMeasuresManagement.fields.push(sectionAMeasuresStructure)
@@ -450,14 +443,13 @@ export default {
 
 				}
 
-				infoImpactSpceciesData.filter(i => i.parent_row_id === row_id).forEach(impact => {
+				infoImpactSpceciesData.filter(i => i.parent_row_id === row_id).forEach((impact, impact_index) => {
 					const impact_row_id = impact.row_id
 					const infoImpactSpeciesStructure = infoImpactSpecies()
 					infoImpactSpeciesStructure.impact.selected = impact.impact
 
 				
 					protectedSpecies.filter(p => p.parent_row_id === impact_row_id).forEach(field => {
-							console.log(field.code)
 							infoImpactSpeciesStructure.protectedSpecies.selected.push(field.code.toString())
 					})
 					protectedHabitats.filter(p => p.parent_row_id === impact_row_id).forEach(field => {
@@ -466,7 +458,7 @@ export default {
 					ecosystems.filter(p => p.parent_row_id === impact_row_id).forEach(field => {
 							infoImpactSpeciesStructure.ecosystems.selected.push(field.class)
 					})
-					if(impact_row_id === 0) {
+					if(impact_index === 0) {
 						sectionASpeciesStructure.infoImpactSpecies.fields.splice(0,1)
 					}
 					sectionASpeciesStructure.infoImpactSpecies.fields.push(infoImpactSpeciesStructure)
