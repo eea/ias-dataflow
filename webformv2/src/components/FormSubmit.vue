@@ -12,7 +12,7 @@
        @dismissed="dismissCountDown=0"
        @dismiss-count-down="countDownChanged">
         <h3 style="color: black; font-weight: bold; text-align: center">The report is saved</h3>
-      </b-alert>
+    </b-alert>
 
     <b-modal size="lg" style="text-align:left" ref="errorsModal" hide-footer title="Errors">
           <b-card v-if="sectionAErrors.length">
@@ -621,9 +621,13 @@ export default {
 			this.sectionC(data, emptyInstance, reportID)
 			this.distributionMaps(data, emptyInstance, reportID)
 			console.log(emptyInstance)
-			saveInstance(emptyInstance);
+			saveInstance(emptyInstance).then(r => {
+				  this.showAlert()
+			}).catch(error => { 
+				console.log(error)
+			})
 
-      this.showAlert();
+    
     },
 
 		distributionMaps(data, emptyInstance, reportID) {
@@ -747,7 +751,7 @@ export default {
 						section.permitsIssuedReported.fields.forEach((permitsTableRow, permitsTableRow_index) => {
 							const permitsIssuedReported = JSON.parse(JSON.stringify(this.structure.permitsIssuedReported))
 							permitsIssuedReported.reportID = reportID
-							permitsIssuedReported.row_id = permitsTableRow_index
+							permitsIssuedReported.row_id = `${index}_${permitsTableRow_index}`
 							permitsIssuedReported.parent_row_id = index
 							permitsIssuedReported.year = permitsTableRow.year.selected
 							permitsIssuedReported.permit_purpose = permitsTableRow.permit_purpose.selected
@@ -759,7 +763,7 @@ export default {
 									const permitedSpecimens = JSON.parse(JSON.stringify(this.structure.permitedSpecimens))
 									permitedSpecimens.reportID = reportID
 									permitedSpecimens.row_id = permitedSpecimen_index
-									permitedSpecimens.parent_row_id = permitsTableRow_index
+									permitedSpecimens.parent_row_id = permitsIssuedReported.row_id
 									permitedSpecimens.permit_type ='issued'
 									permitedSpecimens.value = permitedSpecimen.value.selected
 									permitedSpecimens.unit = permitedSpecimen.unit.selected
@@ -771,7 +775,7 @@ export default {
 									const permitedSpecimens = JSON.parse(JSON.stringify(this.structure.permitedSpecimens))
 									permitedSpecimens.reportID = reportID
 									permitedSpecimens.row_id = permitedSpecimen_index
-									permitedSpecimens.parent_row_id = permitsTableRow_index
+									permitedSpecimens.parent_row_id = permitsIssuedReported.row_id
 									permitedSpecimens.permit_type ='valid'
 									permitedSpecimens.value = permitedSpecimen.value.selected
 									permitedSpecimens.unit = permitedSpecimen.unit.selected

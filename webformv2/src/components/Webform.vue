@@ -252,7 +252,7 @@ export default {
 
 				sectionASpeciesStructure.permits_issued.selected = species.permits_issued
 				if(species.permits_issued) {
-					permitsIssuedReportedData.filter(p => p.parent_row_id === row_id).forEach(permit => {
+					permitsIssuedReportedData.filter(p => p.parent_row_id === row_id).forEach((permit, permit_index) => {
 						const permit_row_id = permit.row_id
 						const permitStructure = permitsIssuedReported()
 						
@@ -261,29 +261,29 @@ export default {
 						})
 
 						
-						permitedSpecimensData.filter(p => p.parent_row_id === permit_row_id && p.permit_type === 'issued').forEach(permitedSpecimen => {
+						permitedSpecimensData.filter(p => p.parent_row_id === permit_row_id && p.permit_type === 'issued').forEach((permitedSpecimen, permitedSpecimen_index) => {
 							const permitedSpecimensStructure = permitedSpecimens()
 							Object.keys(permitedSpecimen).forEach(field => {
 								if(permitedSpecimensStructure.hasOwnProperty(field)) permitedSpecimensStructure[field].selected = permitedSpecimen[field]
 							})
-							if(permitedSpecimen.row_id === 0) {
+							if(permitedSpecimen_index === 0) {
 								permitStructure.permitedSpecimensIssued.fields.splice(0,1)
 							}
 							permitStructure.permitedSpecimensIssued.fields.push(permitedSpecimensStructure)
 						})
 
-						permitedSpecimensData.filter(p => p.parent_row_id === permit_row_id && p.permit_type === 'valid').forEach(permitedSpecimen => {
+						permitedSpecimensData.filter(p => p.parent_row_id === permit_row_id && p.permit_type === 'valid').forEach((permitedSpecimen, permitedSpecimen_index) => {
 							const permitedSpecimensStructure = permitedSpecimens()
 							Object.keys(permitedSpecimen).forEach(field => {
 								if(permitedSpecimensStructure.hasOwnProperty(field)) permitedSpecimensStructure[field].selected = permitedSpecimen[field]
 							})
-							if(permitedSpecimen.row_id === 0) {
+							if(permitedSpecimen_index === 0) {
 								permitStructure.permitedSpecimensValid.fields.splice(0, 1)
 							}
 							permitStructure.permitedSpecimensValid.fields.push(permitedSpecimensStructure)
 						})
 
-						if(permit_row_id === 0) {
+						if(permit_index === 0) {
 							sectionASpeciesStructure.permitsIssuedReported.fields.splice(0, 1)
 							sectionASpeciesStructure.permitsIssuedReported.fields.push(permitStructure)
 						} else {
@@ -292,7 +292,7 @@ export default {
 					})
 
 
-					inspectionsPermitsReportedData.filter(p => p.parent_row_id === row_id).forEach(permit => {
+					inspectionsPermitsReportedData.filter(p => p.parent_row_id === row_id).forEach((permit, permit_index) => {
 						const permit_row_id = permit.row_id
 						const permitStructure = inspectionsPermitsReported()
 						
@@ -301,30 +301,30 @@ export default {
 						})
 
 						
-						inspectionsPermitsData.filter(p => p.parent_row_id === permit_row_id && p.inspection_status === 'complient').forEach(permitedSpecimen => {
+						inspectionsPermitsData.filter(p => p.parent_row_id === permit_row_id && p.inspection_status === 'complient').forEach((permitedSpecimen, permitedSpecimen_index) => {
 							const permitedSpecimensStructure = permitedSpecimens()
 							Object.keys(permitedSpecimen).forEach(field => {
 								if(permitedSpecimensStructure.hasOwnProperty(field)) permitedSpecimensStructure[field].selected = permitedSpecimen[field]
 							})
-							if(permitedSpecimen.row_id === 0) {
+							if(permitedSpecimen_index === 0) {
 								permitStructure.inspectionsPermitsComplient.fields.splice(0, 1)
 							}
 							permitStructure.inspectionsPermitsComplient.fields.push(permitedSpecimensStructure)
 						})
 
-						inspectionsPermitsData.filter(p => p.parent_row_id === permit_row_id && p.inspection_status === 'noncompliant').forEach(permitedSpecimen => {
+						inspectionsPermitsData.filter(p => p.parent_row_id === permit_row_id && p.inspection_status === 'noncompliant').forEach((permitedSpecimen, permitedSpecimen_index) => {
 							const permitedSpecimensStructure = permitedSpecimens()
 							Object.keys(permitedSpecimen).forEach(field => {
 								if(permitedSpecimensStructure.hasOwnProperty(field)) permitedSpecimensStructure[field].selected = permitedSpecimen[field]
 							})
-							if(permitedSpecimen.row_id === 0) {
+							if(permitedSpecimen_index === 0) {
 								permitStructure.inspectionsPermitsNoncompliant.fields.splice(0, 1)
 							}
 							permitStructure.inspectionsPermitsNoncompliant.fields.push(permitedSpecimensStructure)
 
 						})
 
-						if(permit_row_id === 0) {
+						if(permit_index === 0) {
 							sectionASpeciesStructure.inspectionsPermitsReported.fields.splice(0, 1)
 						}
 						sectionASpeciesStructure.inspectionsPermitsReported.fields.push(permitStructure)
