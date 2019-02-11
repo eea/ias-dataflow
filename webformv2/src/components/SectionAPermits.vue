@@ -60,7 +60,13 @@
 								<td v-for="(cell, cell_index) in ['inspectionsPermitsComplient', 'inspectionsPermitsNoncompliant']" :key="cell_index">
 									<div v-for="(sub_row, sub_row_index) in row[cell].fields" :key="sub_row_index">
 										<div v-for="(field, field_index) in sub_row" :key="field_index">	
-											<b-badge variant="danger" v-b-tooltip :title="field.validation" v-if="field.validation">{{field.validation}}</b-badge>		
+											<b-badge variant="danger" v-b-tooltip :title="field.validation" v-if="field.validation">{{field.validation}}</b-badge>
+											<b-badge variant="danger" 
+											v-if="field_index === 'value' && row.validation.length && row.validation.find(message=> message.index ===sub_row_index)"
+											v-b-tooltip :title="row.validation.find(message=> message.index ===sub_row_index).error"
+											>
+												{{row.validation.find(message=> message.index ===sub_row_index).error}}
+												</b-badge> 		
 											<multiselect
 												label="text"
 												v-if="field.type === 'select'"
