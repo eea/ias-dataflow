@@ -40,6 +40,7 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions, po
 		selected: false,
 		label: 'No negative impacts observed',
 		name: 'no_negative_impact',
+		disabled: false,
 	},
 	
 	observedNegativeImpacts: {
@@ -124,16 +125,25 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions, po
 	},
 
 	get validation(){
-		this.observedNegativeImpacts.fields.forEach(field => {
-
-			if(this.no_negative_impact.selected) {
-				field.non_targeted_species.setValidation('')
-				field.species.setValidation('')
-			} else {
-				field.non_targeted_species.setValidation('asd')
-				field.species.setValidation('asd')
-			}
-		})
+		const fieldHasData = this.observedNegativeImpacts.fields.some(field => field.non_targeted_species.selected || field.species.selected)
+		if(fieldHasData) {
+			this.no_negative_impact.disabled = true
+		} else {
+			this.no_negative_impact.disabled = false
+		}
+			this.observedNegativeImpacts.fields.forEach(field => {
+				if(this.no_negative_impact.selected) {
+					field.non_targeted_species.setValidation('')
+					field.species.setValidation('')
+					field.non_targeted_species.disabled = true
+					field.species.disabled = true
+				} else {
+					field.non_targeted_species.setValidation('asd')
+					field.species.setValidation('asd')
+					field.non_targeted_species.disabled = false
+					field.species.disabled = false
+				}
+			})
 		if(this.riverBasinSubUnit.selected.length === 0 && this.marineSubRegions.selected.length === 0 && this.biogeographicalRegion.selected.length === 0) {
 			return 'At least one of the fields: Biogeographical regions(s), Marine sub-region(s), River basin sub-unit(s) are required'
 		}

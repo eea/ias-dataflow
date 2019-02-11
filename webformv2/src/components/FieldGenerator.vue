@@ -20,7 +20,7 @@
       <hr/>
     </div>
     <b-form-radio-group :id="field.name" v-else-if="field.type === 'radio'" v-model="field.selected" :options="field.options"></b-form-radio-group>
-    <b-form-checkbox v-else-if="field.type === 'checkbox'" v-model="field.selected"></b-form-checkbox>
+    <b-form-checkbox v-else-if="field.type === 'checkbox'" :disabled="field.disabled" v-model="field.selected"></b-form-checkbox>
     <div v-else-if="['select', 'multiselect'].includes(field.type)">
       <multiselect
           :multiple="field.type === 'select' ? false : true"
