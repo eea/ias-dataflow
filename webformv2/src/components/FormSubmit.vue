@@ -854,9 +854,9 @@ export default {
 									partTerritory.reportID = reportID
 									partTerritory.row_id = territory_index
 									partTerritory.parent_row_id = sectionAMeasures.row_id
-                                    partTerritory.name = this.$store.state.formData.nuts_regions.find(r => r.id === territory) ?
-                                     this.$store.state.formData.nuts_regions.find(r => r.id === territory).label
-                                     : measure.partTerritory.options.find(r => r.value === territory).text
+                	partTerritory.name = this.$store.state.formData.nuts_regions.find(r => r.id === territory) ?
+                                    	this.$store.state.formData.nuts_regions.find(r => r.id === territory).label
+                                     : measure.partTerritory.options.find(r => r.value === territory).text.split(' - ')[1]
 									partTerritory.code = territory
 									emptyInstance.IAS.partTerritory.Row.push(partTerritory)
 							})

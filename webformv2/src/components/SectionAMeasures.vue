@@ -70,13 +70,14 @@
 		
 		</div>
     	<b-modal size="lg" style="text-align:left" ref="territoryModal" hide-footer title="Add option">
+				<b-badge v-if="invalidTerritory" class="mb-2" variant="danger">Do not use " - " proceeded and followed by a space in the name or code of the territory</b-badge>
 			<b-input-group prepend="Name" class="mb-2">
 				<input class="form-control" v-model="territory.name">
 			</b-input-group>
 			<b-input-group prepend="Code" class="mb-2">
 				<input class="form-control" v-model="territory.code">
 			</b-input-group>
-			<b-btn style="width: 100%" variant="primary" @click="actuallyAddTerritory">Add</b-btn>
+			<b-btn :disabled="invalidTerritory" style="width: 100%" variant="primary" @click="actuallyAddTerritory">Add</b-btn>
     	</b-modal>
 		
 	</div>
@@ -94,8 +95,8 @@ export default {
 		return {
 			measureTableFields: ['start_date', 'end_date', 'partTerritory', 'biogeographicalRegion', 'marineSubRegions', 'riverBasinSubUnit', 'methodsUsed'],
 			territory: {
-				name: null,
-				code: null,
+				name: '',
+				code: '',
 				current_field: null,
 			}
 		}
@@ -104,22 +105,28 @@ export default {
 		FieldGenerator,
 		Multiselect
 	},
+	computed: {
+		invalidTerritory() {
+			if(this.territory.code.includes(' - ') || this.territory.name.includes(' - '))
+				return true
+		},
+	},
 	methods: {
 		addTerritory(field) {
 			this.territory = {
-				name: null,
-				code: null,
+				name: '',
+				code: '',
 				current_field: null,
 			}
 			this.territory.current_field = field
         	this.$refs.territoryModal.show()
 		},
 		actuallyAddTerritory(){
-			this.territory.current_field.options.push({text: this.territory.name, value: this.territory.code})
+			this.territory.current_field.options.push({text: `${this.territory.code} - ${this.territory.name}`, value: this.territory.code})
 			this.territory.current_field.selected.push(this.territory.code)
 			this.territory = {
-				name: null,
-				code: null,
+				name: '',
+				code: '',
 				current_field: null,
 			}
         	this.$refs.territoryModal.hide()

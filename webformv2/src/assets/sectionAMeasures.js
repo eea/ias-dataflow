@@ -80,7 +80,7 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions, po
 		selected: [],
 		name: 'partTerritory',
 		label: 'Part of the territory',
-		options: nuts.map(n => ({ value: n.id, text: n.label })),
+		options: nuts.map(n => ({ value: n.id, text: `${n.id} - ${n.label}` })),
 		get validation() {
 			if(!this.selected.length) 
 				return `${this.label} is required` 
