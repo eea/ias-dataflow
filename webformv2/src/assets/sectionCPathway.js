@@ -7,7 +7,7 @@ const pathway = () => ({
 		label: 'Priority pathways addressed',
 		type: 'select',
 		selected: null,
-		options: pathways.map(p => ({text: `${p.code} ${p.name}`, value: p.code})),
+		options: pathways.map(p => ({text: `${p.value} - ${p.text}`, value: p.value})),
 		get validation() {
 			if(!this.selected) 
 			 return `${this.label} is required`

@@ -22,7 +22,7 @@
             </thead>
             <tbody>
               <tr v-for="(row, row_index) in field.fields" :key="row_index">
-                <td style="min-width: 40%;" v-for="(cell, cell_index) in row" :key="`${row_index}_${cell_index}`">
+                <td style="max-width: 250px; min-width: 40%;" v-for="(cell, cell_index) in row" :key="`${row_index}_${cell_index}`">
                   <FieldGenerator :field="cell"></FieldGenerator>
                 </td>
                 <td style="width: 50px"><b-btn variant="danger" @click="$store.commit('removePathway', {row_index})">X</b-btn></td>

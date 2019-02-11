@@ -70,7 +70,7 @@
 		
 		</div>
     	<b-modal size="lg" style="text-align:left" ref="territoryModal" hide-footer title="Add option">
-				<b-badge v-if="invalidTerritory" class="mb-2" variant="danger">Do not use " - " proceeded and followed by a space in the name or code of the territory</b-badge>
+				<b-badge v-if="invalidTerritory" class="mb-2" variant="danger">Do not use " - " preceded and followed by a space in the name or code of the territory</b-badge>
 			<b-input-group prepend="Name" class="mb-2">
 				<input class="form-control" v-model="territory.name">
 			</b-input-group>
