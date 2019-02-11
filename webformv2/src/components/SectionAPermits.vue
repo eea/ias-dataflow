@@ -12,7 +12,8 @@
 				</thead>
 				<tbody>
 					<tr v-for="(row, row_index) in species.permitsIssuedReported.fields" :key="row_index">
-						<td v-for="(cell, cell_index) in row" v-if="!['permitedSpecimensIssued', 'permitedSpecimensValid', 'validation'].includes(cell.name)" :key="cell_index">
+						<td v-for="(cell, cell_index) in row" v-if="!['permitedSpecimensIssued', 'permitedSpecimensValid', 'validation'].includes(cell_index)" :key="cell_index">
+							<b-badge variant="danger" v-if="['number_issued', 'number_valid'].includes(cell_index) && row.validation" v-b-tooltip :title="row.validation">{{row.validation}}</b-badge>
 							<fieldGenerator :field="cell"></fieldGenerator>
 						</td>
 						<td v-for="(cell, cell_index) in ['permitedSpecimensIssued', 'permitedSpecimensValid']" :key="cell">

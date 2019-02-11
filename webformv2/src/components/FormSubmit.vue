@@ -691,7 +691,7 @@ export default {
                         emptyInstance.IAS.spreadPatterns.Row.push(spreadPattern)
                     })
 
-                }
+        }
                 structure.additional_information = section.additional_information.selected
                 structure.additional_information_measures = section.additional_information_measures.selected
             
@@ -723,25 +723,23 @@ export default {
 				structure.present_in_MS = section.present_in_MS.selected
 				structure.additional_information = section.additional_information.selected
 				structure.row_id = index
-				if(section.present_in_MS.selected !== true) {
-					emptyInstance.IAS.sectionASpecies.Row.push(structure)
-					return
+				if(section.present_in_MS.selected === true) {
+					structure.reproduction_pattern = section.reproduction_patterns.selected
+						
+						// spread patterns
+						section.spreadPatterns.selected.forEach((pattern, pattern_index) => {
+							const spreadPattern = JSON.parse(JSON.stringify(this.structure.spreadPatterns))
+							spreadPattern.reportID = reportID
+							spreadPattern.EASINCode = section.EASINCode.selected
+							spreadPattern.row_id = pattern_index
+							spreadPattern.section = 'A'
+							spreadPattern.spread_pattern = pattern
+							spreadPattern.parent_row_id = index
+							emptyInstance.IAS.spreadPatterns.Row.push(spreadPattern)
+						})
 				}
 				
-				structure.reproduction_pattern = section.reproduction_patterns.selected
-				
-				// spread patterns
-				section.spreadPatterns.selected.forEach((pattern, pattern_index) => {
-					const spreadPattern = JSON.parse(JSON.stringify(this.structure.spreadPatterns))
-					spreadPattern.reportID = reportID
-					spreadPattern.EASINCode = section.EASINCode.selected
-					spreadPattern.row_id = pattern_index
-					spreadPattern.section = 'A'
-					spreadPattern.spread_pattern = pattern
-					spreadPattern.parent_row_id = index
-					emptyInstance.IAS.spreadPatterns.Row.push(spreadPattern)
-				})
-
+		
 				structure.permits_issued = section.permits_issued.selected
 
 				if(structure.permits_issued) {

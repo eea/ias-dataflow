@@ -59,7 +59,7 @@ const permits = () => ({
 	get validation() {
 		const messages = []
 		this.inspectionsPermitsComplient.fields.forEach((field, index) => {
-			if(parseFloat(field.value.selected) < parseFloat(this.inspectionsPermitsNoncompliant.fields[index].value.selected)){
+			if((field.value.selected && this.inspectionsPermitsNoncompliant.fields[index].value.selected) && parseFloat(field.value.selected) < parseFloat(this.inspectionsPermitsNoncompliant.fields[index].value.selected)){
 				const message =  {index: index, error: `${this.inspectionsPermitsNoncompliant.label} cannot be greater than ${this.inspectionsPermitsComplient.label}`}
 				messages.push(message)
 			} 

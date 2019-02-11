@@ -182,12 +182,15 @@ export default {
 				
 				sectionBSpeciesStructure.present_in_MS.selected = species.present_in_MS
 				
-				if(!species.present_in_MS) {
-					section.push(sectionBSpeciesStructure)
-					return
+				if(species.present_in_MS) {
+					sectionBSpeciesStructure.reproduction_patterns.selected = species.reproduction_pattern
+							
+					spreadPatterns.filter(p => p.section === 'B' && p.parent_row_id === row_id).forEach(pattern => {
+						sectionBSpeciesStructure.spreadPatterns.selected.push(pattern.spread_pattern)
+					})
 				}
 
-				sectionBSpeciesStructure.reproduction_patterns.selected = species.reproduction_pattern
+			
 				sectionBSpeciesStructure.additional_information.selected = species.additional_information
 				sectionBSpeciesStructure.additional_information_measures.selected = species.additional_information_measures
 
@@ -202,9 +205,6 @@ export default {
           } 
         })
 
-				spreadPatterns.filter(p => p.section === 'B' && p.parent_row_id === row_id).forEach(pattern => {
-					sectionBSpeciesStructure.spreadPatterns.selected.push(pattern.spread_pattern)
-				})
 
 
 
