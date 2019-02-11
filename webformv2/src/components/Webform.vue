@@ -31,12 +31,7 @@
       <div v-if="!prefilled" class="spinner">
         <div class="loader"></div>
       </div>
-			
-  	<h5 class="text-center" style="color: red">
-			This webform is currently under maintenance The work will be finalised on Monday, 11/02/2019, 8 AM CET and then you can continue to test the webform.
-			<br>
-			In the meantime you are free to use it, but you might experience technical difficulties during the maintenance time.
-		</h5>
+
   </b-container>
 </template>
 

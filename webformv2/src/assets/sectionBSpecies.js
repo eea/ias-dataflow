@@ -36,7 +36,12 @@ const species = (currentSpecies) => ({
             {text: 'Yes', value: true},
             {text: 'No', value: false},
             {text: 'Currently unknown', value: 'unknown'}
-        ]
+        ],
+        get validation() {
+			if(this.selected === null) {
+				return `${this.label} is required`
+			}
+		}
     },
 
     reproduction_patterns: {
@@ -237,8 +242,15 @@ const species = (currentSpecies) => ({
             selected: false,
             noMeasures: 'restTransport',
             label: "The species is included in the national list but is not subject to any measures",
+        },
+        get validation() {
+            const hasChecked = Object.keys(this).filter(field => field != 'validation' && this[field].selected)
+            if(!hasChecked.length) {
+                return 'At least one measure applied in the territory of the Member State in relation to the species is required'
+            }
         }
-    }
+    },
+	validation: null,
 
 })
 

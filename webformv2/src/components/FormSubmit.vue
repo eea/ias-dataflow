@@ -11,26 +11,72 @@
        variant="success"
        @dismissed="dismissCountDown=0"
        @dismiss-count-down="countDownChanged">
-        <h3 style="color: black; font-weight: bold;">The report is saved</h3>
+        <h3 style="color: black; font-weight: bold; text-align: center">The report is saved</h3>
       </b-alert>
 
     <b-modal size="lg" style="text-align:left" ref="errorsModal" hide-footer title="Errors">
-          <div v-if="sectionAErrors.length">
-              <h4>Section A</h4>
-              <b-list-group>
-                  <b-list-group-item v-for="(error, error_index) in sectionAErrors" :key="`A_${error_index}`">
-                      <h5>
-                        <a @click="clickSectionA(error.sci_name)" :href="`#${error.sci_name}`">{{error.sci_name}} <span style="float:right">{{error.EASINCode}}</span></a></h5>
-                      <b-list-group>
-                          <b-list-group-item v-for="(field_error, field_error_index) in error.errors" :key="field_error_index">
-                            <b-badge variant="danger">
-                                {{field_error}}
-                            </b-badge> 
-                          </b-list-group-item>
-                      </b-list-group>
-                  </b-list-group-item>
-              </b-list-group>
-          </div>
+          <b-card v-if="sectionAErrors.length">
+              <h4 class="errorSectionTitle"  @click="changeDirection('sectionAChevron')"  v-b-toggle.SectionAErrors><b-badge variant="danger"><i ref="sectionAChevron" class="fas fa-chevron-right"></i> Section A</b-badge></h4>
+              <b-collapse id="SectionAErrors">
+                <b-list-group>
+                    <b-list-group-item v-for="(error, error_index) in sectionAErrors" :key="`A_${error_index}`">
+                        <h6>
+                            <a @click="clickSectionA(error.EASINCode)" :href="`#${error.sci_name}`">{{error.sci_name}} <span style="float:right">{{error.EASINCode}}</span></a>
+                        </h6>
+                        <ul class="listing">
+                            <li v-for="(field_error, field_error_index) in error.errors" :key="field_error_index">
+                                <b-badge variant="danger">
+                                    {{field_error}}
+                                </b-badge> 
+                            </li>
+                        </ul>
+                    </b-list-group-item>
+                </b-list-group>
+              </b-collapse>
+          </b-card>
+
+
+        <b-card v-if="sectionBErrors.length">
+              <h4 class="errorSectionTitle"  @click="changeDirection('sectionBChevron')"  v-b-toggle.SectionBErrors><b-badge variant="danger"><i ref="sectionBChevron" class="fas fa-chevron-right"></i> Section B</b-badge></h4>
+              <b-collapse id="SectionBErrors">
+                <b-list-group>
+                    <b-list-group-item v-for="(error, error_index) in sectionBErrors" :key="`B_${error_index}`">
+                        <h6>
+                            <a @click="clickSectionB(error.EASINCode)" :href="`#${error.sci_name}`">{{error.sci_name}} </a>
+                        </h6>
+                        <ul class="listing">
+                            <li v-for="(field_error, field_error_index) in error.errors" :key="field_error_index">
+                                <b-badge variant="danger">
+                                    {{field_error}}
+                                </b-badge> 
+                            </li>
+                        </ul>
+                    </b-list-group-item>
+                </b-list-group>
+              </b-collapse>
+          </b-card>
+
+
+        <b-card v-if="sectionCErrors.length">
+              <h4 class="errorSectionTitle"  @click="changeDirection('sectionCChevron')"  v-b-toggle.SectionCErrors><b-badge variant="danger"><i ref="sectionCChevron" class="fas fa-chevron-right"></i> Section C</b-badge></h4>
+              <b-collapse id="SectionCErrors">
+                <b-list-group>
+                    <b-list-group-item v-for="(error, error_index) in sectionCErrors" :key="`C_${error_index}`">
+                        <h6>
+                            <a @click="clickSectionC(error.fieldid)" :href="`#${error.fieldid}`">{{error.fieldid}} </a>
+                        </h6>
+                        <ul class="listing">
+                            <li v-for="(field_error, field_error_index) in error.errors" :key="field_error_index">
+                                <b-badge variant="danger">
+                                    {{field_error}}
+                                </b-badge> 
+                            </li>
+                        </ul>
+                    </b-list-group-item>
+                </b-list-group>
+              </b-collapse>
+          </b-card>
+
       <!-- <b-btn class="mt-3" variant="outline-danger" block @click="hideModal">Close Me</b-btn> -->
     </b-modal>
   </div>
@@ -418,18 +464,76 @@ export default {
   },
 
   methods: {
+    changeDirection(currentRef) {
+        console.log(this.$refs)
+        if(this.$refs[currentRef].classList.contains('fa-chevron-right')) {
+            this.$refs[currentRef].classList.remove('fa-chevron-right')
+            this.$refs[currentRef].classList.add('fa-chevron-down')
+        } else {
+            this.$refs[currentRef].classList.remove('fa-chevron-down')
+            this.$refs[currentRef].classList.add('fa-chevron-right')
+        }
+    },
+
     openErrorModal(){
-        console.log(this.sectionAErrors)
+        this.validateSections()
         this.$refs.errorsModal.show()
- 
     },
     clickSectionA(anchor){
         document.querySelector('.nav.nav-tabs li:nth-child(2) a').click()
-    },  
+        const title = document.querySelector(`.sectionA h4[easincode='${anchor}']`)
+        const collapse = title.parentNode.querySelector('.collapse[id]')
+        if(!collapse.classList.contains('show')) {
+            title.click()
+        }
+    },
+    clickSectionB(anchor) {
+        document.querySelector('.nav.nav-tabs li:nth-child(3) a').click()
+        const title = document.querySelector(`.sectionB h4[easincode='${anchor}']`)
+        const collapse = title.parentNode.querySelector('.collapse[id]')
+        if(!collapse.classList.contains('show')) {
+            title.click()
+        }
+    },
     validateSections(){
         this.sectionAErrors = []
+        this.sectionBErrors = []
+        this.sectionCErrors = []
+
         const sectionA = document.querySelector('.sectionA')
         const sectionASpecies = sectionA.querySelectorAll('.sectionASpecies')
+
+        const sectionB = document.querySelector('.sectionB')
+        const sectionBSpecies = sectionB.querySelectorAll('.sectionBSpecies')
+
+        const sectionC = document.querySelector('.sectionC')
+        const sectionCFields = sectionC.querySelectorAll('.sectionCField')
+        
+        const ias_list = document.querySelector('#ias_list')
+        const ias_error = ias_list.querySelector('.badge') ? ias_list.querySelector('.badge').innerText : null
+
+        ias_error && this.sectionBErrors.push({
+                    EASINCode: 'ias_list',
+                    sci_name: 'ias_list',
+                    errors: ['Question regarding national list of invasive alien species field is required']})
+
+        sectionCFields.forEach(field => {
+            const errors = field.querySelectorAll('.badge.badge-danger')
+            const fieldid = field.getAttribute('id')
+            if(errors.length) {
+                 const errorObj = {
+                    fieldid: fieldid,
+                    errors: []
+                }
+                errors.forEach(error => {
+                    errorObj.errors.push(error.innerText)
+                })
+                this.sectionCErrors.push(errorObj)
+            } 
+        })
+
+
+
         sectionASpecies.forEach(species => {
             const errors = species.querySelectorAll('.badge.badge-danger')
             const species_header = species.querySelector('[EASINCode]')
@@ -452,7 +556,33 @@ export default {
             }
         
         })
-        console.log(this.sectionAErrors)
+
+
+        sectionBSpecies.forEach(species => {
+            const errors = species.querySelectorAll('.badge.badge-danger')
+            const species_header = species.querySelector('[EASINCode]')
+            console.log(species_header)
+            const easin = species_header.getAttribute('EASINCode')
+            const scientific_name = species_header.getAttribute('id')
+            const current_form_section = this.$store.state.form.tabs.tab_2.form_fields.find(field => field.scientific_name.selected == scientific_name)
+            if(errors.length) {
+                if(current_form_section) current_form_section.validation = 'invalid'
+                 const errorObj = {
+                    EASINCode: easin,
+                    sci_name: scientific_name,
+                    errors: []
+                }
+                errors.forEach(error => {
+                    errorObj.errors.push(error.innerText)
+                })
+                this.sectionBErrors.push(errorObj)
+            } else {
+                if(current_form_section) current_form_section.validation = null
+            }
+        
+        })
+
+
     },
 
     exitForm(){
@@ -945,7 +1075,7 @@ export default {
     text-align: right;
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 10;
     margin-bottom: .5rem;
     .buttons-wrapper {
         display: inline-block;
@@ -953,6 +1083,11 @@ export default {
         background: white;
         border: 1px solid #eee;
     }
+}
+
+.errorSectionTitle {
+    color: #dc3545;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

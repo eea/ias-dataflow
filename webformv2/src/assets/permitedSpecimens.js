@@ -4,7 +4,7 @@ const permitedSpecimens = () => ({
 		selected: null,
 		label: 'Number',
 		get validation() {
-			if(!this.selected) 
+			if(!this.selected || this.selected < 0) 
 				return `${this.label} is required ${this.type === 'number' ? ', can only contain numeric characters and must be 0 or more' : ''}`
 		}
 	},

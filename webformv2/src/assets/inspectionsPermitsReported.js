@@ -39,7 +39,7 @@ const permits = () => ({
 		label: 'Number of establishments',
 		tooltip: 'Number of establishments subjected to the inspections',
 		get validation() {
-			if(!this.selected) 
+			if(!this.selected || this.selected < 0) 
 				return `${this.label} is required ${this.type === 'number' ? ', can only contain numeric characters and must be 0 or more' : ''}`
 		}
 	},
@@ -51,7 +51,7 @@ const permits = () => ({
 		label: 'Inspected establishments non-compliant',
 		tooltip: 'Inspected establishments deemed non-compliant with the conditions set out in the permits',
 		get validation() {
-			if(!this.selected) 
+			if(!this.selected || this.selected < 0) 
 				return `${this.label} is required ${this.type === 'number' ? ', can only contain numeric characters and must be 0 or more' : ''}`
 		}
 	},

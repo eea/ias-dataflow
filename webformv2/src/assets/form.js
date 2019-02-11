@@ -42,7 +42,12 @@ const form = (country, formData) => ({
 				options: [
 					{text: 'Yes', value: true},
 					{text: 'No', value: false},
-				]
+				],
+				get validation() {
+					if(!this.selected) {
+						return `Question regarding national list of invasive alien species field is required`
+					}
+				}
 			},
 			form_fields: [
 		

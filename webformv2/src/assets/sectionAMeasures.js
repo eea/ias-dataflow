@@ -80,6 +80,10 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions }) 
 		name: 'partTerritory',
 		label: 'Part of the territory',
 		options: nuts.map(n => ({ value: n.id, text: n.label })),
+		get validation() {
+			if(!this.selected.length) 
+				return `${this.label} is required` 
+		}
 	},
 	biogeographicalRegion: {
 		type: 'multiselect',
@@ -112,19 +116,28 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions }) 
 			{ text: 'Chemical', value: 'Chemical' },
 			{ text: 'Biological', value: 'Biological' },
 			{ text: 'Other', value: 'Other' },
-		]
+		],
+		get validation() {
+			if(!this.selected.length) 
+				return `${this.label} is required` 
+		}
 	},
 
 	get validation(){
+		this.observedNegativeImpacts.fields.forEach(field => {
+
+			if(this.no_negative_impact.selected) {
+				field.non_targeted_species.setValidation('')
+				field.species.setValidation('')
+			} else {
+				field.non_targeted_species.setValidation('asd')
+				field.species.setValidation('asd')
+			}
+		})
 		if(this.riverBasinSubUnit.selected.length === 0 && this.marineSubRegions.selected.length === 0 && this.biogeographicalRegion.selected.length === 0) {
 			return 'At least one of the fields: Biogeographical regions(s), Marine sub-region(s), River basin sub-unit(s) are required'
 		}
-		if(this.no_negative_impact.selected) {
-			this.observedNegativeImpacts.fields.forEach(field => {
-				field.non_targeted_species.validation = ''
-				field.species.validation = ''
-			})
-		}
+	
 	}
 
 })

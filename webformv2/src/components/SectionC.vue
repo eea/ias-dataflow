@@ -1,5 +1,5 @@
 <template>
-  <div v-if="data">
+  <div class="sectionC" v-if="data">
     <br/>
     <h2>
       <center>Horizontal information</center>
@@ -8,10 +8,9 @@
     <b-card>
      
 
-      <div v-for="(field, field_index) in data.form_fields" :key="field_index">
+      <div v-for="(field, field_index) in data.form_fields" class="sectionCField" :id="field_index" :key="field_index">
         <FieldGenerator v-if="field_index != 'priority_pathways'" :id="field_index" :field="field"></FieldGenerator>
         <div class="table-wrapper" v-else>
-
           <table class="table table-striped">
             <thead>
               <tr>
@@ -23,10 +22,10 @@
             </thead>
             <tbody>
               <tr v-for="(row, row_index) in field.fields" :key="row_index">
-                <td v-for="(cell, cell_index) in row" :key="`${row_index}_${cell_index}`">
+                <td style="min-width: 40%;" v-for="(cell, cell_index) in row" :key="`${row_index}_${cell_index}`">
                   <FieldGenerator :field="cell"></FieldGenerator>
                 </td>
-                <td><b-btn variant="danger" @click="$store.commit('removePathway', {row_index})">Remove</b-btn></td>
+                <td style="width: 50px"><b-btn variant="danger" @click="$store.commit('removePathway', {row_index})">X</b-btn></td>
               </tr>
             </tbody>
           </table>

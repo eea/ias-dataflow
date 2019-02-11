@@ -7,15 +7,22 @@ const pathway = () => ({
 		label: 'Priority pathways addressed',
 		type: 'select',
 		selected: null,
-		options: pathways.map(p => ({text: `${p.code} ${p.name}`, value: p.code}))
-
+		options: pathways.map(p => ({text: `${p.code} ${p.name}`, value: p.code})),
+		get validation() {
+			if(!this.selected) 
+			 return `${this.label} is required`
+		}
 	},
 	EASINCode: {
 		name: 'EASINCode',
 		type: 'multiselect',
 		selected: [],
 		label: 'Species covered',
-		options: species.map(p => ({text: p.speciesNameLegi, value: p.speciesCode}))
+		options: species.map(p => ({text: p.speciesNameLegi, value: p.speciesCode})),
+		get validation() {
+			if(!this.selected.length) 
+			 return `${this.label} is required`
+		}
 	},
 })
 

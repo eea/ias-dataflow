@@ -193,7 +193,12 @@ const species = (currentSpecies, country, formData) => ({
 			{text: 'Yes', value: true},
 			{text: 'No', value: false},
 			{text: 'Currently unknown', value: 'unknown'}
-		]
+		],
+		get validation() {
+			if(this.selected === null) {
+				return `${this.label} is required`
+			}
+		}
 	},
 	eradication_measures: {
 		name: 'eradication_measures',
@@ -204,7 +209,12 @@ const species = (currentSpecies, country, formData) => ({
 			{text: 'Yes', value: true},
 			{text: 'No', value: false},
 			{text: 'Currently unknown', value: 'unknown'}
-		]
+		],
+		get validation() {
+			if(this.selected === null) {
+				return `${this.label} is required`
+			}
+		}
 	},
 
 	sectionAMeasures: {
@@ -238,7 +248,12 @@ const species = (currentSpecies, country, formData) => ({
 			{text: 'Yes', value: true},
 			{text: 'No', value: false},
 			{text: 'Currently unknown', value: 'unknown'}
-		]
+		],
+		get validation() {
+			if(this.selected === null) {
+				return `${this.label} is required`
+			}
+		}
 	},
 	infoImpactSpecies : {
 		fields: [

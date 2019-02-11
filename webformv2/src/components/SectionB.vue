@@ -4,7 +4,7 @@
       <h2>
         Information to be submitted for each of the invasive alien species of Member State concern
       </h2>
-      <b-row class="mt-2 mb-2">
+      <b-row id="ias_list" class="mt-2 mb-2">
         <b-col>{{data.ias_list.label}}</b-col>
         <b-col><FieldGenerator :field="data.ias_list"></FieldGenerator></b-col>
       </b-row>
@@ -56,10 +56,12 @@
     </b-card>
 
 
-    <b-card class="sectionBSpecies mb-3 mt-3" v-if="data.ias_list.selected === true" v-for="(species, species_index) in data.form_fields" :key="`species_${species_index}`">
-      <h4 :id="species.scientific_name.selected" v-b-toggle="`collapse_species_${species_index}`"
+    <b-card :class="{invalid: species.validation}" class="sectionBSpecies mb-3 mt-4" v-if="data.ias_list.selected === true" v-for="(species, species_index) in data.form_fields" :key="`species_${species_index}`">
+      <h4 :id="species.scientific_name.selected" 
+          v-b-toggle="`collapse_species_${species_index}`"
 					@click="species.expanded = !species.expanded"
 					style="cursor:pointer"
+          :EASINCode="slugify(species.scientific_name.selected)"
 			>
 				<i v-if="species.validation" class="fas fa-exclamation"></i>
        	<i v-if="!species.expanded" class="fas fa-chevron-right"></i> <i v-if="species.expanded" class="fas fa-chevron-down"></i>  Species scientific name: {{species.scientific_name.selected}}
@@ -71,30 +73,33 @@
             <FieldGenerator :field="species.common_name_national"></FieldGenerator>
           </b-input-group>
 			</h5>
-      <h5>
-        <b-input-group :prepend="species.present_in_MS.label">
-          <FieldGenerator :field="species.present_in_MS"></FieldGenerator> 
-        </b-input-group>
-			</h5>
+    
 			<hr>
-      <b-collapse :id="`collapse_species_${species_index}`" :visible="species.present_in_MS.selected !== null"  v-if="species.present_in_MS.selected !== null">
-        <div v-if="species.present_in_MS.selected === true">
-          <b>A distribution map for this species has to be included in the file which will be uploaded in the 'Distribution map for SECTION B' field available on 'DISTRIBUTION MAP' section (optional).</b>
-          <div v-for="pattern in ['reproduction_patterns','spreadPatterns']" class="patterns mt-3 mb-3" :key="`${species_index}_${pattern}`">
-            <div class="patterns-label bg-primary">{{species[pattern].label}}</div>
-            <FieldGenerator :field="species[pattern]"></FieldGenerator>
+      <b-collapse :id="`collapse_species_${species_index}`" :visible="species.present_in_MS.selected !== null">
+        <h5>
+          <b-input-group :prepend="species.present_in_MS.label">
+            <FieldGenerator :field="species.present_in_MS"></FieldGenerator> 
+          </b-input-group>
+        </h5>
+          <div v-if="species.present_in_MS.selected === true">
+            <b>A distribution map for this species has to be included in the file which will be uploaded in the 'Distribution map for SECTION B' field available on 'DISTRIBUTION MAP' section (optional).</b>
+            <div v-for="pattern in ['reproduction_patterns','spreadPatterns']" class="patterns mt-3 mb-3" :key="`${species_index}_${pattern}`">
+              <div class="patterns-label bg-primary">{{species[pattern].label}}</div>
+              <FieldGenerator :field="species[pattern]"></FieldGenerator>
+            </div>
           </div>
-        </div>
 
-        <FieldGenerator :field="species.additional_information"></FieldGenerator>
-        <h4 class="text-center">Measure(s) applied in the territory of the Member State in relation to the species</h4>
-        <div v-for="(measure, measure_index) in species.sectionBMeasures" :key="`${measure_index}_${species_index}`">
-          <label class="d-flex">
-            <FieldGenerator :field="measure"></FieldGenerator>
-            {{measure.label}}
-          </label>
-        </div>
-        <FieldGenerator :field="species.additional_information_measures"></FieldGenerator>
+          <FieldGenerator :field="species.additional_information"></FieldGenerator>
+          <h4>Measure(s) applied in the territory of the Member State in relation to the species</h4>
+          <b-badge variant="danger" v-if="species.sectionBMeasures.validation">{{species.sectionBMeasures.validation}}</b-badge>
+          <div v-if="measure_index != 'validation'" v-for="(measure, measure_index) in species.sectionBMeasures" :key="`${measure_index}_${species_index}`">
+            <label class="d-flex">
+              <FieldGenerator :field="measure"></FieldGenerator>
+              {{measure.label}}
+            </label>
+          </div>
+          <FieldGenerator :field="species.additional_information_measures"></FieldGenerator>
+        
       </b-collapse>
   </b-card>
 
@@ -129,8 +134,13 @@
       }
     },
     methods: {
-      remove() {
-
+     slugify(text){
+        return text.toString().toLowerCase()
+          .replace(/\s+/g, '-')           // Replace spaces with -
+          .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+          .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+          .replace(/^-+/, '')             // Trim - from start of text
+          .replace(/-+$/, '');            // Trim - from end of text
       }
     }
   }

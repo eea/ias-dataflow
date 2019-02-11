@@ -39,7 +39,7 @@ const permits = () => ({
 		label: 'Number of permits issued',
 		tooltip: 'Number of permits issued in the calendar year',
 		get validation() {
-			if(!this.selected) 
+			if(!this.selected || this.selected < 0) 
 				return `${this.label} is required ${this.type === 'number' ? 'can only contain numeric characters and must be 0 or more' : ''}`
 		}
 	},
@@ -51,7 +51,7 @@ const permits = () => ({
 		label: 'Number permits valid',
 		tooltip: 'Number permits valid in the calendar year',
 		get validation() {
-			if(!this.selected) 
+			if(!this.selected || this.selected < 0) 
 				return `${this.label} is required ${this.type === 'number' ? 'can only contain numeric characters and must be 0 or more' : ''}`
 		}
 	},

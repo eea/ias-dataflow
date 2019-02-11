@@ -15,7 +15,7 @@
 						<td v-for="(cell, cell_index) in row" v-if="!['permitedSpecimensIssued', 'permitedSpecimensValid', 'validation'].includes(cell.name)" :key="cell_index">
 							<fieldGenerator :field="cell"></fieldGenerator>
 						</td>
-						<td v-for="cell in ['permitedSpecimensIssued', 'permitedSpecimensValid']" :key="cell">
+						<td v-for="(cell, cell_index) in ['permitedSpecimensIssued', 'permitedSpecimensValid']" :key="cell">
 							<div v-for="(sub_row, sub_row_index) in row[cell].fields" :key="sub_row_index">
 								<div v-for="(field, field_index) in sub_row" :key="field_index">	
 									<b-badge variant="danger" v-b-tooltip :title="field.validation" v-if="field.validation">{{field.validation}}</b-badge>			
@@ -28,11 +28,11 @@
 										:options="field.options" />
 									<input v-else class="form-control" v-model="field.selected" :type="field.type">
 								</div>
-								<b-btn @click="$store.commit('RemovePermittedSpecimen',  {section_type: 'permitsIssuedReported', species_index, row_index, type: cell, field_index: sub_row_index})" variant="danger">X</b-btn>
+								<b-btn v-if="row[cell].fields.length > 1" @click="$store.commit('RemovePermittedSpecimen',  {section_type: 'permitsIssuedReported', species_index, row_index, type: cell, field_index: sub_row_index})" variant="danger">X</b-btn>
 							</div>
 							<b-btn @click="$store.commit('AddPermittedSpecimen', {section_type: 'permitsIssuedReported', species_index, row_index, type: cell})" variant="primary">+</b-btn>
 						</td>
-						<td><b-btn @click="$store.commit('RemovePermitsRow', {section_type: 'permitsIssuedReported', species_index, row_index})" variant="danger">X</b-btn></td>
+						<td><b-btn v-if="species.permitsIssuedReported.fields.length > 1" @click="$store.commit('RemovePermitsRow', {section_type: 'permitsIssuedReported', species_index, row_index})" variant="danger">X</b-btn></td>
 					</tr>
 				</tbody>
 			</table>
@@ -70,11 +70,11 @@
 												:options="field.options" />
 											<input v-else class="form-control" v-model="field.selected" :type="field.type">
 										</div>
-										<b-btn @click="$store.commit('RemovePermittedSpecimen', {section_type: 'inspectionsPermitsReported', species_index, row_index, type: cell, field_index: sub_row_index,})" variant="danger">X</b-btn>
+										<b-btn v-if="row[cell].fields.length > 1" @click="$store.commit('RemovePermittedSpecimen', {section_type: 'inspectionsPermitsReported', species_index, row_index, type: cell, field_index: sub_row_index,})" variant="danger">X</b-btn>
 									</div>
 									<b-btn @click="$store.commit('AddPermittedSpecimen', {section_type: 'inspectionsPermitsReported', species_index, row_index, type: cell})" variant="primary">+</b-btn>
 								</td>
-								<td><b-btn @click="$store.commit('RemovePermitsRow', {section_type: 'inspectionsPermitsReported', species_index, row_index})" variant="danger">X</b-btn></td>
+								<td><b-btn v-if="species.inspectionsPermitsReported.fields.length > 1" @click="$store.commit('RemovePermitsRow', {section_type: 'inspectionsPermitsReported', species_index, row_index})" variant="danger">X</b-btn></td>
 							</tr>
 						</tbody>
 					</table>

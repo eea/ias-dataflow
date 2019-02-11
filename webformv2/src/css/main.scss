@@ -728,10 +728,6 @@ body {
 }
 
 
-.multiselect--active {
-  z-index: 2;
-}
-
 h1,h2,h3,h4,h5,h6 {
   font-weight: 500;
 }
@@ -816,6 +812,8 @@ td {
   top: -7px;
   z-index: 1;
   font-size: .7rem;
+  transform: translateX(-100%);
+  left: 100%;
 }
 
 td .badge {
@@ -825,6 +823,7 @@ td .badge {
 
 .custom-control-inline {
       margin-right: 0; 
+      margin-top: -2px;
 }
 
 .multiselect__single {
@@ -867,4 +866,21 @@ i.fas.fa-exclamation {
   i.fas.fa-exclamation {
     display: block;
   }
+}
+
+.modal-body .badge {
+  white-space: normal;
+  font-size: .8rem;
+  text-align: left;
+}
+
+
+.multiselect--active,
+.multiselect__active {
+  z-index: 2!important;
+}
+
+
+.multiselect__content-wrapper {
+  min-width: 450px;
 }

@@ -1,7 +1,7 @@
 <template>
 		<div class="sectionA" v-if="data">
-			<h2 class="text-center"><b>Information to be submitted for each of the invasive alien species of Union concern and for each invasive alien species of regional concern subject to measures as provided for in Article 11(2) of Regulation (EU) No 1143/2014</b></h2>
-				<h4 class="text-center"><i>Information on the species, its distribution, spread and reproductive patterns</i></h4>
+			<h3 class="text-center mb-3"><b>Information to be submitted for each of the invasive alien species of Union concern and for each invasive alien species of regional concern subject to measures as provided for in Article 11(2) of Regulation (EU) No 1143/2014</b></h3>
+				<h5 class="text-center"><i>Information on the species, its distribution, spread and reproductive patterns</i></h5>
 				<!-- <div v-for="(field, field_index) in data.form_fields" :key="field_index">
 					{{field.label}}
 					<FieldGenerator :id="field_index" :field="field"></FieldGenerator>
