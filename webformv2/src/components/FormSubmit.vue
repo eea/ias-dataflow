@@ -16,7 +16,7 @@
 
     <b-modal size="lg" style="text-align:left" ref="errorsModal" hide-footer title="Errors">
           <b-card v-if="sectionAErrors.length">
-              <h4 class="errorSectionTitle"  @click="changeDirection('sectionAChevron')"  v-b-toggle.SectionAErrors><b-badge variant="danger"><i ref="sectionAChevron" class="fas fa-chevron-right"></i> Section A</b-badge></h4>
+              <h4 class="errorSectionTitle"  @click="changeDirection('sectionAChevron')"  v-b-toggle.SectionAErrors><b-badge style="font-size:inherit; width: 100%" variant="danger"><i ref="sectionAChevron" class="fas fa-chevron-right"></i> Section A</b-badge></h4>
               <b-collapse id="SectionAErrors">
                 <b-list-group>
                     <b-list-group-item v-for="(error, error_index) in sectionAErrors" :key="`A_${error_index}`">
@@ -37,7 +37,7 @@
 
 
         <b-card v-if="sectionBErrors.length">
-              <h4 class="errorSectionTitle"  @click="changeDirection('sectionBChevron')"  v-b-toggle.SectionBErrors><b-badge variant="danger"><i ref="sectionBChevron" class="fas fa-chevron-right"></i> Section B</b-badge></h4>
+              <h4 class="errorSectionTitle"  @click="changeDirection('sectionBChevron')"  v-b-toggle.SectionBErrors><b-badge style="font-size:inherit; width: 100%"  variant="danger"><i ref="sectionBChevron" class="fas fa-chevron-right"></i> Section B</b-badge></h4>
               <b-collapse id="SectionBErrors">
                 <b-list-group>
                     <b-list-group-item v-for="(error, error_index) in sectionBErrors" :key="`B_${error_index}`">
@@ -58,7 +58,7 @@
 
 
         <b-card v-if="sectionCErrors.length">
-              <h4 class="errorSectionTitle"  @click="changeDirection('sectionCChevron')"  v-b-toggle.SectionCErrors><b-badge variant="danger"><i ref="sectionCChevron" class="fas fa-chevron-right"></i> Section C</b-badge></h4>
+              <h4 class="errorSectionTitle"  @click="changeDirection('sectionCChevron')"  v-b-toggle.SectionCErrors><b-badge style="font-size:inherit; width: 100%"  variant="danger"><i ref="sectionCChevron" class="fas fa-chevron-right"></i> Section C</b-badge></h4>
               <b-collapse id="SectionCErrors">
                 <b-list-group>
                     <b-list-group-item v-for="(error, error_index) in sectionCErrors" :key="`C_${error_index}`">
@@ -495,6 +495,9 @@ export default {
             title.click()
         }
     },
+    clickSectionC(anchor) {
+        document.querySelector('.nav.nav-tabs li:nth-child(4) a').click()
+    },
     validateSections(){
         this.sectionAErrors = []
         this.sectionBErrors = []
@@ -848,7 +851,9 @@ export default {
 									partTerritory.reportID = reportID
 									partTerritory.row_id = territory_index
 									partTerritory.parent_row_id = sectionAMeasures.row_id
-									partTerritory.name = this.$store.state.formData.nuts_regions.find(r => r.id === territory).label
+                                    partTerritory.name = this.$store.state.formData.nuts_regions.find(r => r.id === territory) ?
+                                     this.$store.state.formData.nuts_regions.find(r => r.id === territory).label
+                                     : measure.partTerritory.options.find(r => r.value === territory).text
 									partTerritory.code = territory
 									emptyInstance.IAS.partTerritory.Row.push(partTerritory)
 							})

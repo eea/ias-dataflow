@@ -349,6 +349,9 @@ export default {
 						})
 
 						partTerritory.filter(p => p.parent_row_id === measure_row_id).forEach(field => {
+							if(!sectionAMeasuresStructure.partTerritory.options.find(o => o.value === field.code)){
+								sectionAMeasuresStructure.partTerritory.options.push({value: field.code, text: field.name})
+							}
 							sectionAMeasuresStructure.partTerritory.selected.push(field.code)
 						})
 

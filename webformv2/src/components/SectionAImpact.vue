@@ -1,7 +1,8 @@
 <template>
     <div v-if="species">
-        <h6 class="text-center">Information on the impact of this species (optional)</h6>
-        <p>Observations on the impact of the species during the reporting period</p>
+        <br>
+        <h5 class="text-center">Information on the impact of this species (optional)</h5>
+        <p class="ml-3">Observations on the impact of the species during the reporting period</p>
 
         <div class="table-wrapper">
 

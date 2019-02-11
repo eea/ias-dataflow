@@ -92,8 +92,13 @@ export default new Vuex.Store({
 				nuts: state.formData.nuts_regions,
 				b_regions: state.formData.biogeographical_regions,
 				r_b_subunits: state.formData.river_basins,
-				marine_subregions: state.formData.marine_subregions
+				marine_subregions: state.formData.marine_subregions,
+				population: `Population #${state.form.tabs.tab_1.form_fields[species_index][type].fields.length + 1}`
 			}))
+		},
+
+		RemovePopulation(state, {species_index, type, measure_index}) {
+			state.form.tabs.tab_1.form_fields[species_index][type].fields.splice(measure_index, 1)
 		},
 		addImpact(state, { species_index, measure_index, type }) {
 			state.form.tabs.tab_1.form_fields[species_index][type].fields[measure_index].observedNegativeImpacts.fields.push(observedNegativeImpacts())

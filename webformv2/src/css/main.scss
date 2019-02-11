@@ -884,3 +884,16 @@ i.fas.fa-exclamation {
 .multiselect__content-wrapper {
   min-width: 450px;
 }
+
+.measure-wrapper label:hover {
+  text-shadow: 1px 1px 3px #aaa;
+}
+
+.measure-wrapper label {
+  cursor: pointer;
+}
+
+ul.listing {
+  list-style-type: none;
+  padding-left: .5rem;
+}

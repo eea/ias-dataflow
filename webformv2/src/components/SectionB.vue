@@ -92,7 +92,7 @@
           <FieldGenerator :field="species.additional_information"></FieldGenerator>
           <h4>Measure(s) applied in the territory of the Member State in relation to the species</h4>
           <b-badge variant="danger" v-if="species.sectionBMeasures.validation">{{species.sectionBMeasures.validation}}</b-badge>
-          <div v-if="measure_index != 'validation'" v-for="(measure, measure_index) in species.sectionBMeasures" :key="`${measure_index}_${species_index}`">
+          <div class="measure-wrapper" v-if="measure_index != 'validation'" v-for="(measure, measure_index) in species.sectionBMeasures" :key="`${measure_index}_${species_index}`">
             <label class="d-flex">
               <FieldGenerator :field="measure"></FieldGenerator>
               {{measure.label}}

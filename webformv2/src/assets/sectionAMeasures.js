@@ -1,9 +1,9 @@
 import observedNegativeImpacts from '@/assets/observedNegativeImpacts'
 
-const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions }) => ({
+const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions, population }) => ({
 	population_name: {
 		type: 'text',
-		selected: null,
+		selected: population || null,
 		label: 'Population',
 		get validation() {
 			if(!this.selected) 

@@ -55,9 +55,9 @@
 											<FieldGenerator :field="species.permits_issued"></FieldGenerator> 
 										</b-input-group>
 									</h5>
-									<b-card class="inner-card" v-if="species.permits_issued.selected === true">
-										<SectionAPermits :species_index="species_index" :species="species" class="table-section">	</SectionAPermits>
-									</b-card>
+									<div class="inner-card" v-if="species.permits_issued.selected === true">
+										<SectionAPermits :species_index="species_index" :species="species">	</SectionAPermits>
+									</div>
 								</b-card>
 
 								
@@ -69,9 +69,9 @@
 										<FieldGenerator :field="species.eradication_measures"></FieldGenerator> 
 									</b-input-group>
 								</h5>
-								<b-card v-if="species.eradication_measures.selected === true" >
-									<SectionAMeasures type="sectionAMeasures" :species_index="species_index" :species="species" class="table-section"></SectionAMeasures>
-								</b-card>
+								<div v-if="species.eradication_measures.selected === true" class="inner-card">
+									<SectionAMeasures type="sectionAMeasures" :species_index="species_index" :species="species"></SectionAMeasures>
+								</div>
 							</b-card>
 								
 							<b-card class="inner-card">
@@ -80,13 +80,13 @@
 										<FieldGenerator :field="species.subject_management_measures"></FieldGenerator> 
 									</b-input-group>
 								</h5>
-								<b-card v-if="species.subject_management_measures.selected === true" >
-									<SectionAMeasures type="sectionAMeasuresManagement" :species_index="species_index" :species="species" class="table-section"></SectionAMeasures>
-								</b-card>
+								<div v-if="species.subject_management_measures.selected === true" class="inner-card">
+									<SectionAMeasures type="sectionAMeasuresManagement" :species_index="species_index" :species="species"></SectionAMeasures>
+								</div>
 
-								<b-card>
-									<SectionAImpact :species_index="species_index" :species="species" class="table-section"></SectionAImpact>
-								</b-card>
+								<div>
+									<SectionAImpact :species_index="species_index" :species="species" style="background: white"></SectionAImpact>
+								</div>
 							</b-card>
 						</b-card>
 

@@ -223,8 +223,9 @@ const species = (currentSpecies, country, formData) => ({
 				nuts: formData.nuts_regions, 
 				b_regions: formData.biogeographical_regions,
 				r_b_subunits: formData.river_basins,
-				marine_subregions: formData.marine_subregions
-				})
+				marine_subregions: formData.marine_subregions,
+				population: 'Population #1'
+			})
 		]
 	},
 
@@ -234,8 +235,9 @@ const species = (currentSpecies, country, formData) => ({
 				nuts: formData.nuts_regions, 
 				b_regions: formData.biogeographical_regions,
 				r_b_subunits: formData.river_basins,
-				marine_subregions: formData.marine_subregions
-				})
+				marine_subregions: formData.marine_subregions,
+				population: 'Population #1'
+			})
 		]
 	},
 
