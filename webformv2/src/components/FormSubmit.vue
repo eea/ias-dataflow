@@ -3,7 +3,7 @@
     <div class="buttons-wrapper">
       <b-btn variant="success" @click="saveForm">Save</b-btn>
       <b-btn variant="primary" @click="validateSections" style="">Validate</b-btn>
-      <b-btn variant="danger" @click="openErrorModal" v-if="hasErrors">Errors</b-btn>
+      <b-btn variant="danger" @click="openErrorModal">Errors</b-btn>
       <b-btn variant="danger" @click="exitForm">Back to envelope</b-btn>
     </div>
 
@@ -77,6 +77,7 @@
               </b-collapse>
           </b-card>
 
+        <div v-if="!hasErrors">No validation errors</div>
       <!-- <b-btn class="mt-3" variant="outline-danger" block @click="hideModal">Close Me</b-btn> -->
     </b-modal>
   </div>
