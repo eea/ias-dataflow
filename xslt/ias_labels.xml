@@ -3,14 +3,198 @@
         <options>
             <element>
                 <text>Kg of seeds</text>
-                <value>kg</value>
+                <value>kgSeeds</value>
+            </element>
+            <element>
+                <text>kg of specimen</text>
+                <value>kgSpecimens</value>
             </element>
             <element>
                 <text>Number of specimen</text>
-                <value>pcs</value>
+                <value>number</value>
             </element>
         </options>
     </measurement_units>
+    <priority_pathways>
+        <options>
+            <element>
+                <text>5.1 Corridor - Interconnected waterways/basins/seas</text>
+                <value>CR1</value>
+            </element>
+            <element>
+                <text>5.2 Corridor - Tunnels and land bridges</text>
+                <value>CR2</value>
+            </element>
+            <element>
+                <text>2.1 Escape from confinement - Agriculture (including biofuel feedstocks)</text>
+                <value>EC1</value>
+            </element>
+            <element>
+                <text>2.10 Escape from confinement - Research and ex situ breeding (in facilities)</text>
+                <value>EC10</value>
+            </element>
+            <element>
+                <text>2.11 Escape from confinement - Live food and live bait</text>
+                <value>EC11</value>
+            </element>
+            <element>
+                <text>2.12 Escape from confinement - Other escape from confinement</text>
+                <value>EC12</value>
+            </element>
+            <element>
+                <text>2.2 Escape from confinement - Aquaculture/mariculture</text>
+                <value>EC2</value>
+            </element>
+            <element>
+                <text>2.3 Escape from confinement - Botanical garden/zoo/aquaria (excluding domestic aquaria)</text>
+                <value>EC3</value>
+            </element>
+            <element>
+                <text>2.4 Escape from confinement - Pet/aquarium/terrarium species (including live food for such species)</text>
+                <value>EC4</value>
+            </element>
+            <element>
+                <text>2.5 Escape from confinement - Farmed animals (including animals left under limited control)</text>
+                <value>EC5</value>
+            </element>
+            <element>
+                <text>2.6 Escape from confinement - Forestry (including afforestation or reforestation)</text>
+                <value>EC6</value>
+            </element>
+            <element>
+                <text>2.7 Escape from confinement - Fur farms</text>
+                <value>EC7</value>
+            </element>
+            <element>
+                <text>2.8 Escape from confinement - Horticulture</text>
+                <value>EC8</value>
+            </element>
+            <element>
+                <text>2.9 Escape from confinement - Ornamental purpose other than horticulture</text>
+                <value>EC9</value>
+            </element>
+            <element>
+                <text>1.1 Release in nature - Biological control</text>
+                <value>RN1</value>
+            </element>
+            <element>
+                <text>1.2 Release in nature - Erosion control/dune stabilisation (windbreaks, hedges, ?)</text>
+                <value>RN2</value>
+            </element>
+            <element>
+                <text>1.3 Release in nature - Fishery in the wild (including game fishing)</text>
+                <value>RN3</value>
+            </element>
+            <element>
+                <text>1.4 Release in nature - Hunting</text>
+                <value>RN4</value>
+            </element>
+            <element>
+                <text>1.5 Release in nature - Landscape/flora/fauna 'improvement' in the wild</text>
+                <value>RN5</value>
+            </element>
+            <element>
+                <text>1.6 Release in nature - Introduction for conservation purposes or wildlife management</text>
+                <value>RN6</value>
+            </element>
+            <element>
+                <text>1.7 Release in nature - Release in nature for use (other than above, e.g. fur, transport, medical use)</text>
+                <value>RN7</value>
+            </element>
+            <element>
+                <text>1.8 Release in nature - Other intentional release</text>
+                <value>RN8</value>
+            </element>
+            <element>
+                <text>3.1 Transport ? contaminant - Contaminant nursery material</text>
+                <value>TC1</value>
+            </element>
+            <element>
+                <text>3.10 Transport ? contaminant - Transportation of habitat material (soil, vegetation, ?)</text>
+                <value>TC10</value>
+            </element>
+            <element>
+                <text>3.2 Transport ? contaminant - Contaminated bait</text>
+                <value>TC2</value>
+            </element>
+            <element>
+                <text>3.3 Transport ? contaminant - Food contaminant (including of live food)</text>
+                <value>TC3</value>
+            </element>
+            <element>
+                <text>3.4 Transport ? contaminant - Contaminant on animals (except parasites, species transported by host/vector)</text>
+                <value>TC4</value>
+            </element>
+            <element>
+                <text>3.5 Transport ? contaminant - Parasites on animals (including species transported by host and vector)</text>
+                <value>TC5</value>
+            </element>
+            <element>
+                <text>3.6 Transport ? contaminant - Contaminant on plants (except parasites, species transported by host/vector)</text>
+                <value>TC6</value>
+            </element>
+            <element>
+                <text>3.7 Transport ? contaminant - Parasites on plants (including species transported by host and vector)</text>
+                <value>TC7</value>
+            </element>
+            <element>
+                <text>3.8 Transport ? contaminant - Seed contaminant</text>
+                <value>TC8</value>
+            </element>
+            <element>
+                <text>3.9 Transport ? contaminant - Timber trade</text>
+                <value>TC9</value>
+            </element>
+            <element>
+                <text>4.1 Transport ? stowaway - Angling/fishing equipment</text>
+                <value>TS1</value>
+            </element>
+            <element>
+                <text>4.10 Transport ? stowaway - Vehicles (car, train, ?)</text>
+                <value>TS10</value>
+            </element>
+            <element>
+                <text>4.11 Transport ? stowaway - Other means of transport</text>
+                <value>TS11</value>
+            </element>
+            <element>
+                <text>4.2 Transport ? stowaway - Container/bulk</text>
+                <value>TS2</value>
+            </element>
+            <element>
+                <text>4.3 Transport ? stowaway - Hitchhikers in or on airplane</text>
+                <value>TS3</value>
+            </element>
+            <element>
+                <text>4.4 Transport ? stowaway - Hitchhikers on ship/boat (excluding ballast water and hull fouling)</text>
+                <value>TS4</value>
+            </element>
+            <element>
+                <text>4.5 Transport ? stowaway - Machinery/equipment</text>
+                <value>TS5</value>
+            </element>
+            <element>
+                <text>4.6 Transport ? stowaway - People and their luggage/equipment (in particular tourism)</text>
+                <value>TS6</value>
+            </element>
+            <element>
+                <text>4.7 Transport ? stowaway - Organic packing material, in particular wood packaging</text>
+                <value>TS7</value>
+            </element>
+            <element>
+                <text>4.8 Transport ? stowaway - Ship/boat ballast water</text>
+                <value>TS8</value>
+            </element>
+            <element>
+                <text>4.9 Transport ? stowaway - Ship/boat hull fouling</text>
+                <value>TS9</value>
+            </element>
+            <element>
+                <text>6.1 Corridor - Natural dispersal across borders of invasive alien species that have been introduced through pathways 1 to 5</text>
+                <value>UN1</value>
+            </element>
+        </options>
+    </priority_pathways>
     <tab_0>
         <description>
             Information submitted in application of Article 24(1) of regulation (EU) No 1143/2014
@@ -21,16 +205,16 @@
                 <name>CountryCode</name>
                 <type>text</type>
             </CountryCode>
-            <EndYear>
-                <label>Reporting period to (year)</label>
-                <name>rep_period_to</name>
-                <type>text</type>
-            </EndYear>
             <StartYear>
                 <label>Reporting period from (year)</label>
-                <name>rep_period_from</name>
+                <name>StartYear</name>
                 <type>text</type>
             </StartYear>
+            <EndYear>
+                <label>Reporting period to (year)</label>
+                <name>EndYear</name>
+                <type>text</type>
+            </EndYear>
         </form_fields>
     </tab_0>
     <tab_1>
@@ -48,33 +232,33 @@
                         <add>true</add>
                         <label>Reproduction patterns</label>
                         <multiple>false</multiple>
-                        <name>reproduction patterns</name>
+                        <name>reproduction_pattern</name>
                         <options>
                             <element>
                                 <text>Sexual</text>
-                                <value>0</value>
+                                <value>sexual</value>
                             </element>
                             <element>
                                 <text>Asexual</text>
-                                <value>1</value>
+                                <value>asexual</value>
                             </element>
                             <element>
                                 <text>Both (sexual and asexual)</text>
-                                <value>2</value>
+                                <value>sexualAndAsexual</value>
                             </element>
                             <element>
                                 <text>Unclear (sexual or asexual)</text>
-                                <value>3</value>
+                                <value>unclear</value>
                             </element>
                             <element>
                                 <text>Not reproducing in the Member State</text>
-                                <value>4</value>
+                                <value>notReproducing</value>
                             </element>
                             <element>
                                 <text>
                                     Unknown whether the species reproduces in the Member State
                                 </text>
-                                <value>5</value>
+                                <value>unknown</value>
                             </element>
                         </options>
                         <patternType>reproduction</patternType>
@@ -2264,23 +2448,23 @@
                                             <options>
                                                 <element>
                                                     <text>Permits for research</text>
-                                                    <value>0</value>
+                                                    <value>research</value>
                                                 </element>
                                                 <element>
                                                     <text>Permits for ex situ conservation</text>
-                                                    <value>1</value>
+                                                    <value>exsitu</value>
                                                 </element>
                                                 <element>
                                                     <text>
                                                         Permits for scientific production and subsequent medicinal use to advance human health
                                                     </text>
-                                                    <value>2</value>
+                                                    <value>medUse</value>
                                                 </element>
                                                 <element>
                                                     <text>
                                                         Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)
                                                     </text>
-                                                    <value>3</value>
+                                                    <value>other</value>
                                                 </element>
                                             </options>
                                             <selected/>
@@ -2446,23 +2630,23 @@
                                             <options>
                                                 <element>
                                                     <text>Permits for research</text>
-                                                    <value>0</value>
+                                                    <value>research</value>
                                                 </element>
                                                 <element>
                                                     <text>Permits for ex situ conservation</text>
-                                                    <value>1</value>
+                                                    <value>exsitu</value>
                                                 </element>
                                                 <element>
                                                     <text>
                                                         Permits for scientific production and subsequent medicinal use to advance human health
                                                     </text>
-                                                    <value>2</value>
+                                                    <value>medUse</value>
                                                 </element>
                                                 <element>
                                                     <text>
                                                         Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)
                                                     </text>
-                                                    <value>3</value>
+                                                    <value>other</value>
                                                 </element>
                                             </options>
                                             <selected/>
@@ -2587,7 +2771,7 @@
                                             <label>
                                                 Permitted specimens - permits held by the inspected est. non-compliant
                                             </label>
-                                            <inspection_status>non-compliant</inspection_status>
+                                            <inspection_status>noncompliant</inspection_status>
                                             <name>
                                                 number_speciments_held_by_non_compliant_establishments_main
                                             </name>
@@ -2690,19 +2874,19 @@
                                             <options>
                                                 <element>
                                                     <text>Mechanical/Physical</text>
-                                                    <value>0</value>
+                                                    <value>Mechanical/Physical</value>
                                                 </element>
                                                 <element>
                                                     <text>Chemical</text>
-                                                    <value>1</value>
+                                                    <value>Chemical</value>
                                                 </element>
                                                 <element>
                                                     <text>Biological</text>
-                                                    <value>2</value>
+                                                    <value>Biological</value>
                                                 </element>
                                                 <element>
                                                     <text>Other</text>
-                                                    <value>3</value>
+                                                    <value>Other</value>
                                                 </element>
                                             </options>
                                             <required>required</required>
@@ -2720,23 +2904,23 @@
                                             <options>
                                                 <element>
                                                     <text>Eradicated</text>
-                                                    <value>0</value>
+                                                    <value>eradicated</value>
                                                 </element>
                                                 <element>
                                                     <text>Population decreasing</text>
-                                                    <value>1</value>
+                                                    <value>decreasing</value>
                                                 </element>
                                                 <element>
                                                     <text>Population stable</text>
-                                                    <value>2</value>
+                                                    <value>stable</value>
                                                 </element>
                                                 <element>
                                                     <text>Population still increasing</text>
-                                                    <value>3</value>
+                                                    <value>increasing</value>
                                                 </element>
                                                 <element>
                                                     <text>Unclear population trend</text>
-                                                    <value>4</value>
+                                                    <value>unclear</value>
                                                 </element>
                                             </options>
                                             <selected/>
@@ -2899,19 +3083,19 @@
                                             <options>
                                                 <element>
                                                     <text>Mechanical/Physical</text>
-                                                    <value>0</value>
+                                                    <value>Mechanical/Physical</value>
                                                 </element>
                                                 <element>
                                                     <text>Chemical</text>
-                                                    <value>1</value>
+                                                    <value>Chemical</value>
                                                 </element>
                                                 <element>
                                                     <text>Biological</text>
-                                                    <value>2</value>
+                                                    <value>Biological</value>
                                                 </element>
                                                 <element>
                                                     <text>Other</text>
-                                                    <value>3</value>
+                                                    <value>Other</value>
                                                 </element>
                                             </options>
                                             <required>required</required>
@@ -2929,23 +3113,23 @@
                                             <options>
                                                 <element>
                                                     <text>Eradicated</text>
-                                                    <value>0</value>
+                                                    <value>eradicated</value>
                                                 </element>
                                                 <element>
                                                     <text>Population decreasing</text>
-                                                    <value>1</value>
+                                                    <value>decreasing</value>
                                                 </element>
                                                 <element>
                                                     <text>Population stable</text>
-                                                    <value>2</value>
+                                                    <value>stable</value>
                                                 </element>
                                                 <element>
                                                     <text>Population still increasing</text>
-                                                    <value>3</value>
+                                                    <value>increasing</value>
                                                 </element>
                                                 <element>
                                                     <text>Unclear population trend</text>
-                                                    <value>4</value>
+                                                    <value>unclear</value>
                                                 </element>
                                             </options>
                                             <selected/>
@@ -3107,19 +3291,19 @@
                                             <options>
                                                 <element>
                                                     <text>Mechanical/Physical</text>
-                                                    <value>0</value>
+                                                    <value>Mechanical/Physical</value>
                                                 </element>
                                                 <element>
                                                     <text>Chemical</text>
-                                                    <value>1</value>
+                                                    <value>Chemical</value>
                                                 </element>
                                                 <element>
                                                     <text>Biological</text>
-                                                    <value>2</value>
+                                                    <value>Biological</value>
                                                 </element>
                                                 <element>
                                                     <text>Other</text>
-                                                    <value>3</value>
+                                                    <value>Other</value>
                                                 </element>
                                             </options>
                                             <required>required</required>
@@ -3137,23 +3321,23 @@
                                             <options>
                                                 <element>
                                                     <text>Eradicated</text>
-                                                    <value>0</value>
+                                                    <value>eradicated</value>
                                                 </element>
                                                 <element>
                                                     <text>Population decreasing</text>
-                                                    <value>1</value>
+                                                    <value>decreasing</value>
                                                 </element>
                                                 <element>
                                                     <text>Population stable</text>
-                                                    <value>2</value>
+                                                    <value>stable</value>
                                                 </element>
                                                 <element>
                                                     <text>Population still increasing</text>
-                                                    <value>3</value>
+                                                    <value>increasing</value>
                                                 </element>
                                                 <element>
                                                     <text>Unclear population trend</text>
-                                                    <value>4</value>
+                                                    <value>unclear</value>
                                                 </element>
                                             </options>
                                             <selected/>
@@ -3294,19 +3478,19 @@
                                                     <options>
                                                         <element>
                                                             <text>Mechanical/Physical</text>
-                                                            <value>0</value>
+                                                            <value>Mechanical/Physical</value>
                                                         </element>
                                                         <element>
                                                             <text>Chemical</text>
-                                                            <value>1</value>
+                                                            <value>Chemical</value>
                                                         </element>
                                                         <element>
                                                             <text>Biological</text>
-                                                            <value>2</value>
+                                                            <value>Biological</value>
                                                         </element>
                                                         <element>
                                                             <text>Other</text>
-                                                            <value>3</value>
+                                                            <value>Other</value>
                                                         </element>
                                                     </options>
                                                     <required>required</required>
@@ -3324,23 +3508,23 @@
                                                     <options>
                                                         <element>
                                                             <text>Eradicated</text>
-                                                            <value>0</value>
+                                                            <value>eradicated</value>
                                                         </element>
                                                         <element>
                                                             <text>Population decreasing</text>
-                                                            <value>1</value>
+                                                            <value>decreasing</value>
                                                         </element>
                                                         <element>
                                                             <text>Population stable</text>
-                                                            <value>2</value>
+                                                            <value>stable</value>
                                                         </element>
                                                         <element>
                                                             <text>Population still increasing</text>
-                                                            <value>3</value>
+                                                            <value>increasing</value>
                                                         </element>
                                                         <element>
                                                             <text>Unclear population trend</text>
-                                                            <value>4</value>
+                                                            <value>unclear</value>
                                                         </element>
                                                     </options>
                                                     <selected/>
@@ -3417,24 +3601,24 @@
                                     </element>
                                     <element>
                                         <label>Protected species</label>
-                                        <name>protected_species</name>
+                                        <name>protectedSpecies</name>
                                         <options>protected_species</options>
                                         <selected/>
                                         <type>multiselect</type>
                                     </element>
                                     <element>
                                         <label>Protected habitats</label>
-                                        <name>protected_habitats</name>
+                                        <name>protectedHabitats</name>
                                         <options>protected_habitats</options>
                                         <selected/>
                                         <type>multiselect</type>
                                     </element>
                                     <element>
                                         <label>Ecosystem services</label>
-                                        <name>ecosystem_services</name>
+                                        <name>ecosystems</name>
                                         <options>ecosystems</options>
                                         <selected/>
-                                        <type>multiselect</type>
+                                        <type>custom</type>
                                     </element>
                                 </fields>
                                 <name>section</name>
@@ -3445,4 +3629,382 @@
             </table_4>
         </tables>
     </tab_1>
+    <tab_2>
+        <question>
+            <label>
+                Has the Member State established a national list of invasive alien species of Member State concern? If yes, questions below have to be answered for each of the species on this list
+            </label>
+            <options>
+                <element>
+                    <text>Yes</text>
+                    <value>true</value>
+                </element>
+                <element>
+                    <text>No</text>
+                    <value>false</value>
+                </element>
+            </options>
+            <selected null="true"/>
+            <type>select</type>
+        </question>
+        <fields>
+            <common_name>
+                <label>Common name of the species (english)</label>
+                <name>common_name</name>
+                <type>nonInput</type>
+            </common_name>
+            <present_in_MS>
+                <label>Is the species present in the territory of the Member State ?</label>
+                <name>present_in_MS</name>
+                <options>
+                   <element>
+                      <text>Yes</text>
+                      <value>true</value>
+                   </element>
+                   <element>
+                      <text>No</text>
+                      <value>false</value>
+                   </element>
+                   <element>
+                      <text>Currently unknown</text>
+                      <value>unknown</value>
+                   </element>
+                </options>
+                <type>select</type>
+            </present_in_MS>
+            <reproduction>
+                <label>Reproduction patterns</label>
+                <name>reproduction patterns</name>
+                <options>
+                    <element>
+                        <text>Sexual</text>
+                        <value>sexual</value>
+                    </element>
+                    <element>
+                        <text>Asexual</text>
+                        <value>asexual</value>
+                    </element>
+                    <element>
+                        <text>Both (sexual and asexual)</text>
+                        <value>sexualAndAsexual</value>
+                    </element>
+                    <element>
+                        <text>Unclear (sexual or asexual)</text>
+                        <value>unclear</value>
+                    </element>
+                    <element>
+                        <text>Not reproducing in the Member State</text>
+                        <value>notReproducing</value>
+                    </element>
+                    <element>
+                        <text>
+                            Unknown whether the species reproduces in the Member State
+                        </text>
+                        <value>unknown</value>
+                    </element>
+                </options>
+                <patternType>reproduction</patternType>
+                <type>select</type>
+            </reproduction>
+            <spread_patterns>
+                <add>true</add>
+                <label>Spread patterns</label>
+                <multiple>true</multiple>
+                <name>spread_patterns</name>
+                <options>
+                    <element>
+                        <index>a</index>
+                        <text>
+                            a) The species was already widely spread before 2015
+                        </text>
+                        <value>0</value>
+                    </element>
+                    <element>
+                        <index>b</index>
+                        <text>
+                            b) The species predominantly entered through natural dispersal from a neighbouring country
+                        </text>
+                        <value>1</value>
+                    </element>
+                    <element>
+                        <index>c</index>
+                        <text>
+                            c) The species predominantly entered with unintentional human assistance
+                        </text>
+                        <value>2</value>
+                    </element>
+                    <element>
+                        <index>d</index>
+                        <text>
+                            d) The species predominantly entered with intentional human assistance
+                        </text>
+                        <value>3</value>
+                    </element>
+                    <element>
+                        <index>e</index>
+                        <text>
+                            e) There is no evidence of new entries into the Member State
+                        </text>
+                        <value>4</value>
+                    </element>
+                    <element>
+                        <index>f</index>
+                        <text>
+                            f) The species predominantly spread through natural dispersal
+                        </text>
+                        <value>5</value>
+                    </element>
+                    <element>
+                        <index>g</index>
+                        <text>
+                            g) The species predominantly spread with unintentional human assistance
+                        </text>
+                        <value>6</value>
+                    </element>
+                    <element>
+                        <index>h</index>
+                        <text>
+                            h) The species predominantly spread with intentional human assistance
+                        </text>
+                        <value>7</value>
+                    </element>
+                    <element>
+                        <index>i</index>
+                        <text>
+                            i) There is no evidence of spread within the Member State
+                        </text>
+                        <value>8</value>
+                    </element>
+                    <element>
+                        <index>j</index>
+                        <text>
+                            j) The species spread from the Member State into other Member State(s)
+                        </text>
+                        <value>9</value>
+                    </element>
+                </options>
+                <patternType>spread</patternType>
+                <selected>
+                    <pattern null="true"/>
+                </selected>
+                <type>select</type>
+            </spread_patterns>
+            <additional_information>
+                <label>Additional information (optional)</label>
+                <name>additional_information</name>
+                <selected/>
+                <type>textarea</type>
+            </additional_information>
+            <measures>
+                <label>Measure(s) applied in the territory of the Member State in relation to the species</label>
+                <options>
+                    <element>
+                        <text>Restriction to intentionally transport, except in the context of eradication</text>
+                        <value>restTransport</value>
+                        <selected>false</selected>
+                        <type>checkbox</type>
+                    </element>
+                    <element>
+                        <text>Restriction to intentionally place on the market</text>
+                        <value>restMarket</value>
+                        <selected>false</selected>
+                        <type>checkbox</type>
+                    </element>
+                    <element>
+                        <text>Restriction to intentionally use or exchange</text>
+                        <value>restUse</value>
+                        <selected>false</selected>
+                        <type>checkbox</type>
+                    </element>
+                    <element>
+                        <text>Restriction to intentionally permit to reproduce, grown or cultivated, including in contained holding</text>
+                        <value>restReproduce</value>
+                        <selected>false</selected>
+                        <type>checkbox</type>
+                    </element>
+                    <element>
+                        <text>Restriction to intentionally release into the environment</text>
+                        <value>restRelease</value>
+                        <selected>false</selected>
+                        <type>checkbox</type>
+                    </element>
+                    <element>
+                        <text>Derogations foreseen within the permit system under Article 8</text>
+                        <value>derogations</value>
+                        <selected>false</selected>
+                        <type>checkbox</type>
+                    </element>
+                    <element>
+                        <text>Addressed in the action plans pursuant to Article 13</text>
+                        <value>actionPlans</value>
+                        <selected>false</selected>
+                        <type>checkbox</type>
+                    </element>
+                    <element>
+                        <text>Covered by the surveillance system pursuant to Article 14</text>
+                        <value>survSystem</value>
+                        <selected>false</selected>
+                        <type>checkbox</type>
+                    </element>
+                    <element>
+                        <text>Official controls to prevent the intentional introduction</text>
+                        <value>officialControls</value>
+                        <selected>false</selected>
+                        <type>checkbox</type>
+                    </element>
+                    <element>
+                        <text>Subject to early detection system</text>
+                        <value>earlyDetection</value>
+                        <selected>false</selected>
+                        <type>checkbox</type>
+                    </element>
+                    <element>
+                        <text>Subject to rapid eradication following an early detection</text>
+                        <value>rapidEradication</value>
+                        <selected>false</selected>
+                        <type>checkbox</type>
+                    </element>
+                    <element>
+                        <text>Subject to management measures if widely spread</text>
+                        <value>managMeasures</value>
+                        <selected>false</selected>
+                        <type>checkbox</type>
+                    </element>
+                    <element>
+                        <text>Restoration measures</text>
+                        <value>restMeasures</value>
+                        <selected>false</selected>
+                        <type>checkbox</type>
+                    </element>
+                    <element>
+                        <text>The species is included in the national list but is not subject to any measures</text>
+                        <value>noMeasures</value>
+                        <selected>false</selected>
+                        <type>checkbox</type>
+                    </element>
+                    <element>
+                        <text>Additional information (optional)</text>
+                        <value>additional_info</value>
+                        <selected/>
+                        <type>textarea</type>
+                    </element>
+                </options>
+            </measures>
+            <additional_info_measures>
+                <label>Additional information (optional)</label>
+                <name>additional_information_measures</name>
+                <selected/>
+                <type>textarea</type>
+            </additional_info_measures>
+        </fields>
+    </tab_2>
+    <tab_3>
+        <fields>
+            <action_plans>
+                <label>Action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014</label>
+                <name>action_plans</name>
+                <selected null="true"/>
+                <type>textarea</type>
+            </action_plans>
+            <additional_information>
+                <label>Additional information (optional)</label>
+                <name>additional_information</name>
+                <selected null="true"/>
+                <type>textarea</type>
+            </additional_information>
+            <cost_of_action>
+                <label>Cost of action undertaken to comply with the Regulation (EU) No 1143/2014</label>
+                <name>cost_of_action</name>
+                <selected null="true"/>
+                <type>textarea</type>
+            </cost_of_action>
+            <file_action_plans>
+                <label>File regarding the action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014</label>
+                <name>file_action_plans</name>
+                <selected null="true"/>
+                <type>file</type>
+            </file_action_plans>
+            <file_additional_information>
+                <label>File regarding the additional information (optional)</label>
+                <name>file_additional_information</name>
+                <selected/>
+                <type>file</type>
+            </file_additional_information>
+            <file_cost_of_action>
+                <label>File regarding the cost of action undertaken to comply with the Regulation (EU) No 1143/2014</label>
+                <name>file_cost_of_action</name>
+                <selected/>
+                <type>file</type>
+            </file_cost_of_action>
+            <file_measures_inform_public>
+                <label>File regarding the description of measures taken to inform the public</label>
+                <name>file_measures_inform_public</name>
+                <selected/>
+                <type>file</type>
+            </file_measures_inform_public>
+            <file_official_control_system>
+                <label>File regarding the description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014</label>
+                <name>file_official_control_system</name>
+                <selected/>
+                <type>file</type>
+            </file_official_control_system>
+            <file_surveillance_system>
+                <label>File regarding the description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014</label>
+                <name>file_surveillance_system</name>
+                <selected null="true"/>
+                <type>file</type>
+            </file_surveillance_system>
+            <measures_inform_public>
+                <label>Description of measures taken to inform the public</label>
+                <name>measures_inform_public</name>
+                <type>textarea</type>
+            </measures_inform_public>
+            <official_control_system>
+                <label>Description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014</label>
+                <name>official_control_system</name>
+                <selected null="true"/>
+                <type>textarea</type>
+            </official_control_system>
+            <surveillance_system>
+                <label>Description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014</label>
+                <name>surveillance_system</name>
+                <selected null="true"/>
+                <type>textarea</type>
+            </surveillance_system>
+            <weblink_permits>
+                <label>Web link to information on the internet regarding the permits issued as required under Article 8(7) of Regulation (EU) No 1143/2014</label>
+                <name>weblink_permits</name>
+                <selected null="true"/>
+                <type>textarea</type>
+            </weblink_permits>
+        </fields>
+    </tab_3>
+    <tab_4>
+        <fields>
+            <distributionMap_sectionA>
+                <label>Distribution map for SECTION A</label>
+                <name>distributionMap_sectionA</name>
+                <selected/>
+                <type>file</type>
+            </distributionMap_sectionA>
+            <inspireMetadata_sectionA>
+                <label>INSPIRE metadata for SECTION A</label>
+                <name>inspireMetadata_sectionA</name>
+                <selected/>
+                <type>file</type>
+            </inspireMetadata_sectionA>
+            <distributionMap_sectionB>
+                <label>Distribution map for SECTION B</label>
+                <name>distributionMap_sectionB</name>
+                <selected/>
+                <type>file</type>
+            </distributionMap_sectionB>
+            <inspireMetadata_sectionB>
+                <label>INSPIRE metadata for SECTION B</label>
+                <name>inspireMetadata_sectionB</name>
+                <selected/>
+                <type>file</type>
+            </inspireMetadata_sectionB>
+        </fields>
+    </tab_4>
 </root>

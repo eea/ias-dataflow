@@ -145,3 +145,18 @@ li {
 li span {
   font-size: initial;
 }
+table.pathways {
+  margin: 0.5em 0;
+}
+table.pathways th,
+table.pathways td {
+  text-align: center;
+  border-bottom: solid 1px #CCC;
+}
+table.pathways ul {
+  list-style-type: none;
+  font-size: initial;
+}
+table.pathways ul li {
+  font-size: initial;
+}

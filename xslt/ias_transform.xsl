@@ -35,8 +35,9 @@
                 <div id="container">
                     <xsl:call-template name="tab_0"/>
                     <xsl:call-template name="tab_1"/>
-                    <!--<xsl:call-template name="tab_2"/>-->
-                    <!--<xsl:call-template name="tab_3"/>-->
+                    <xsl:call-template name="tab_2"/>
+                    <xsl:call-template name="tab_3"/>
+                    <xsl:call-template name="tab_4"/>
                 </div>
             </body>
         </html>
@@ -44,7 +45,7 @@
 
     <xsl:template name="tab_0">
         <xsl:variable name="root" select="./*[1]"/>
-        <xsl:variable name="reporting_party" select="$root//reporting"/>
+        <xsl:variable name="reporting_party" select="$root//*:reporting"/>
 
         <h2>Information on the reporting party</h2>
         <div class="form-section">
@@ -65,7 +66,7 @@
                             <td>
                                 <xsl:call-template name="simple-print">
                                     <xsl:with-param name="label" select="''"/>
-                                    <xsl:with-param name="value" select="$reporting_party/Row/*[local-name() = current()/name]"/>
+                                    <xsl:with-param name="value" select="$reporting_party/*:Row/*[local-name() = current()/name]"/>
                                 </xsl:call-template>
                             </td>
                         </tr>
@@ -148,7 +149,7 @@
                                 <xsl:call-template name="multichoose-print">
                                     <xsl:with-param name="options" select="$fields/depending_on_mandatory/spread_patterns/element/options"/>
                                     <xsl:with-param name="label" select="$fields/depending_on_mandatory/spread_patterns/element/label"/>
-                                    <xsl:with-param name="values" select="$spreadPatterns/*:Row[*:EASINCode = $EASINCode]/*:spread_pattern"/>
+                                    <xsl:with-param name="values" select="$spreadPatterns/*:Row[*:EASINCode = $EASINCode and *:section='A']/*:spread_pattern"/>
                                 </xsl:call-template>
                                 <xsl:call-template name="simple-print">
                                     <xsl:with-param name="label" select="$fields/additional_info/label"/>
@@ -217,6 +218,7 @@
         <xsl:variable name="table1" select="$labels/tab_1/tables/table_1"/>
         <xsl:variable name="permits_issued" select="$report-node/*:permits_issued"/>
         <xsl:variable name="permitedSpecimens" select="$report-node/ancestor::IAS/*:permitedSpecimens"/>
+        <xsl:variable name="inspectionsPermits" select="$report-node/ancestor::IAS/*:inspectionsPermits"/>
 
         <div class="fs-container fs-data">
             <div class="article-title title">
@@ -287,7 +289,7 @@
                                         <xsl:when test="string-length($inspection_status) > 0">
                                             <xsl:call-template name="list-print">
                                                 <xsl:with-param name="label" select="$field/label"/>
-                                                <xsl:with-param name="values" select="$permitedSpecimens/*:Row[*:parent_row_id = $row_id and string-length(*:value) > 0
+                                                <xsl:with-param name="values" select="$inspectionsPermits/*:Row[*:parent_row_id = $row_id and string-length(*:value) > 0
                                                     and *:inspection_status = $inspection_status]/concat(*:value, ' ', local:get_label(*:unit, $measurement_units/descendant-or-self::options))"/>
                                             </xsl:call-template>
                                         </xsl:when>
@@ -578,6 +580,9 @@
         <xsl:param name="report-node"/>
         <xsl:param name="table"/>
 
+        <xsl:variable name="species_row_id" select="$report-node/*:row_id"/>
+        <xsl:variable name="infoImpactSpecies" select="$report-node/ancestor::IAS/*:infoImpactSpecies/*:Row[*:parent_row_id = $species_row_id]"/>
+
         <div class="fs-container fs-data">
             <div class="article-title title">
                 <xsl:value-of select="$table/label"/>
@@ -585,33 +590,255 @@
             <div class="title">
                 <xsl:value-of select="$table/info"/>
             </div>
-            <div class="fs-container bordered">
-                <xsl:for-each select="('bla', 'haha')">
-                    <div class="line-separated">
-                        <xsl:for-each select="$table/table_sections/element/table_fields/element/fields/element">
-                            <xsl:variable name="field" select="current()"/>
-                            <xsl:variable name="type" select="$field/type"/>
+            <xsl:choose>
+                <xsl:when test="count($infoImpactSpecies) > 0">
+                    <div class="fs-container bordered">
+                        <xsl:for-each select="$infoImpactSpecies">
+                            <xsl:variable name="impact-node" select="current()"/>
+                            <xsl:variable name="impact_row_id" select="$impact-node/*:row_id"/>
 
-                            <xsl:choose>
-                                <xsl:when test="$type = ('textarea')">
-                                    <xsl:call-template name="simple-print">
-                                        <xsl:with-param name="label" select="$field/label"/>
-                                        <xsl:with-param name="value" select="'#unknown'"/>
-                                    </xsl:call-template>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:call-template name="simple-print">
-                                        <xsl:with-param name="label" select="$field/label"/>
-                                        <xsl:with-param name="value" select="'#unknown'"/>
-                                    </xsl:call-template>
-                                </xsl:otherwise>
-                            </xsl:choose>
+                            <div class="line-separated">
+                                <xsl:for-each select="$table/table_sections/element/table_fields/element/fields/element">
+                                    <xsl:variable name="field" select="current()"/>
+                                    <xsl:variable name="type" select="$field/type"/>
+                                    <xsl:variable name="name" select="$field/name"/>
+
+                                    <xsl:choose>
+                                        <xsl:when test="$type = ('textarea')">
+                                            <xsl:call-template name="simple-print">
+                                                <xsl:with-param name="label" select="$field/label"/>
+                                                <xsl:with-param name="value" select="$impact-node/*:impact"/>
+                                            </xsl:call-template>
+                                        </xsl:when>
+                                        <xsl:when test="$type = ('multiselect')">
+                                            <xsl:call-template name="list-print">
+                                                <xsl:with-param name="label" select="$field/label"/>
+                                                <xsl:with-param name="values" select="$report-node/ancestor::IAS/*[local-name() = $name]/*:Row[*:parent_row_id = $impact_row_id]/*:name"/>
+                                            </xsl:call-template>
+                                        </xsl:when>
+                                        <xsl:when test="$type = ('custom')">
+                                            <xsl:call-template name="list-print">
+                                                <xsl:with-param name="label" select="$field/label"/>
+                                                <xsl:with-param name="values" select="$report-node/ancestor::IAS/*[local-name() = $name]
+                                                        /*:Row[*:parent_row_id = $impact_row_id]/concat(*:group, ' - ', *:class)"/>
+                                            </xsl:call-template>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:call-template name="simple-print">
+                                                <xsl:with-param name="label" select="$field/label"/>
+                                                <xsl:with-param name="value" select="'#unknown'"/>
+                                            </xsl:call-template>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:for-each>
+                            </div>
                         </xsl:for-each>
                     </div>
-                </xsl:for-each>
-            </div>
+                </xsl:when>
+                <xsl:otherwise>-</xsl:otherwise>
+            </xsl:choose>
         </div>
 
+    </xsl:template>
+
+    <xsl:template name="tab_2">
+        <xsl:variable name="tab2" select="$labels/tab_2"/>
+        <xsl:variable name="sectionBSpecies" select="//*:sectionBSpecies"/>
+        <xsl:variable name="sectionBMeasures" select="//*:sectionBMeasures"/>
+        <xsl:variable name="spreadPatterns" select="//*:spreadPatterns"/>
+        <xsl:variable name="tab2_reported">
+            <xsl:choose>
+                <xsl:when test="count($sectionBSpecies//*:Row) > 0">true</xsl:when>
+                <xsl:otherwise>false</xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="fields" select="$tab2/fields"/>
+
+        <h2>
+            Information to be submitted for each of the invasive alien species of Member State concern
+        </h2>
+        <div class="form-section">
+            <table class="table-measures">
+                <div class="fs-container">
+                    <xsl:call-template name="choose-print">
+                        <xsl:with-param name="options" select="$tab2/question/options"/>
+                        <xsl:with-param name="label" select="$tab2/question/label"/>
+                        <xsl:with-param name="value" select="$tab2_reported"/>
+                    </xsl:call-template>
+                </div>
+                <xsl:for-each select="$sectionBSpecies/*:Row">
+                    <xsl:variable name="species-node" select="current()"/>
+                    <xsl:variable name="EASINCode" select="$species-node/*:EASINCode"/>
+                    <xsl:variable name="species_id" select="$species-node/*:row_id"/>
+
+                    <tr>
+                    <td class="bordered">
+                        <div class="fs-container article-title">
+                            Species scientific name: <xsl:value-of select="$species-node/*:scientific_name"/>
+                        </div>
+                        <div class="fs-container fs-data">
+                            <xsl:call-template name="simple-print">
+                                <xsl:with-param name="label" select="$fields/common_name/label"/>
+                                <xsl:with-param name="value" select="$species-node/*:common_name_national"/>
+                            </xsl:call-template>
+                            <xsl:call-template name="choose-print">
+                                <xsl:with-param name="options" select="$fields/present_in_MS/options"/>
+                                <xsl:with-param name="label" select="$fields/present_in_MS/label"/>
+                                <xsl:with-param name="value" select="$species-node/*:present_in_MS"/>
+                            </xsl:call-template>
+                            <xsl:call-template name="choose-print">
+                                <xsl:with-param name="options" select="$fields/reproduction/options"/>
+                                <xsl:with-param name="label" select="$fields/reproduction/label"/>
+                                <xsl:with-param name="value" select="$species-node/*:reproduction_pattern"/>
+                            </xsl:call-template>
+                            <xsl:call-template name="multichoose-print">
+                                <xsl:with-param name="options" select="$fields/spread_patterns/options"/>
+                                <xsl:with-param name="label" select="$fields/spread_patterns/label"/>
+                                <xsl:with-param name="values" select="$spreadPatterns/*:Row[*:EASINCode = $EASINCode and *:section = 'B']/*:spread_pattern"/>
+                            </xsl:call-template>
+                            <xsl:call-template name="simple-print">
+                                <xsl:with-param name="label" select="$fields/additional_information/label"/>
+                                <xsl:with-param name="value" select="$species-node/*:additional_information"/>
+                            </xsl:call-template>
+                            <xsl:call-template name="multichoose-print">
+                                <xsl:with-param name="options" select="$fields/measures/options"/>
+                                <xsl:with-param name="label" select="$fields/measures/label"/>
+                                <xsl:with-param name="values" select="$sectionBMeasures/*:Row[*:parent_row_id = $species_id]/*:measure"/>
+                            </xsl:call-template>
+                            <xsl:call-template name="simple-print">
+                                <xsl:with-param name="label" select="$fields/additional_info_measures/label"/>
+                                <xsl:with-param name="value" select="$species-node/*:additional_information_measures"/>
+                            </xsl:call-template>
+                        </div>
+                    </td>
+                    </tr>
+                </xsl:for-each>
+            </table>
+        </div>
+    </xsl:template>
+
+    <xsl:template name="tab_3">
+        <xsl:variable name="tab3" select="$labels/tab_3"/>
+        <xsl:variable name="sectionC" select="//*:sectionC/*:Row"/>
+        <xsl:variable name="priorityPathway" select="//*:priorityPathway"/>
+        <xsl:variable name="row_ids" select="distinct-values($priorityPathway//*:row_id/text())"/>
+        <xsl:variable name="fields" select="$tab3/fields"/>
+
+        <h2>
+            Horizontal information
+        </h2>
+        <div class="form-section">
+            <table class="table-measures">
+                <tr>
+                <td class="bordered">
+                    <div class="fs-container">
+                        <xsl:call-template name="simple-print">
+                            <xsl:with-param name="label" select="$fields/weblink_permits/label"/>
+                            <xsl:with-param name="value" select="$sectionC/*:weblink_permits"/>
+                        </xsl:call-template>
+                        <xsl:call-template name="simple-print">
+                            <xsl:with-param name="label" select="$fields/action_plans/label"/>
+                            <xsl:with-param name="value" select="$sectionC/*:action_plans"/>
+                        </xsl:call-template>
+                        <xsl:call-template name="simple-print">
+                            <xsl:with-param name="label" select="$fields/file_action_plans/label"/>
+                            <xsl:with-param name="value" select="$sectionC/*:file_action_plans"/>
+                        </xsl:call-template>
+                        <xsl:call-template name="simple-print">
+                            <xsl:with-param name="label" select="$fields/surveillance_system/label"/>
+                            <xsl:with-param name="value" select="$sectionC/*:surveillance_system"/>
+                        </xsl:call-template>
+                        <xsl:call-template name="simple-print">
+                            <xsl:with-param name="label" select="$fields/file_surveillance_system/label"/>
+                            <xsl:with-param name="value" select="$sectionC/*:file_surveillance_system"/>
+                        </xsl:call-template>
+                        <xsl:call-template name="simple-print">
+                            <xsl:with-param name="label" select="$fields/official_control_system/label"/>
+                            <xsl:with-param name="value" select="$sectionC/*:official_control_system"/>
+                        </xsl:call-template>
+                        <xsl:call-template name="simple-print">
+                            <xsl:with-param name="label" select="$fields/file_official_control_system/label"/>
+                            <xsl:with-param name="value" select="$sectionC/*:file_official_control_system"/>
+                        </xsl:call-template>
+                        <xsl:call-template name="simple-print">
+                            <xsl:with-param name="label" select="$fields/measures_inform_public/label"/>
+                            <xsl:with-param name="value" select="$sectionC/*:measures_inform_public"/>
+                        </xsl:call-template>
+                        <xsl:call-template name="simple-print">
+                            <xsl:with-param name="label" select="$fields/file_measures_inform_public/label"/>
+                            <xsl:with-param name="value" select="$sectionC/*:file_measures_inform_public"/>
+                        </xsl:call-template>
+                        <xsl:call-template name="simple-print">
+                            <xsl:with-param name="label" select="$fields/cost_of_action/label"/>
+                            <xsl:with-param name="value" select="$sectionC/*:cost_of_action"/>
+                        </xsl:call-template>
+                        <xsl:if test="count($priorityPathway) > 0">
+                            <table class="pathways">
+                                <tr>
+                                    <th>Priority pathways addressed</th>
+                                    <th>Species covered</th>
+                                </tr>
+                                <xsl:for-each select="$row_ids">
+                                    <xsl:variable name="row_id" select="current()"/>
+                                    <tr>
+                                        <td>
+                                            <xsl:value-of select="local:get_label($priorityPathway/*:Row[*:row_id = $row_id][1]/*:pathway_code,
+                                                                                    $labels/priority_pathways/options)"/>
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <xsl:for-each select="$priorityPathway/*:Row[*:row_id = $row_id]/*:EASINCode">
+                                                    <li><xsl:value-of select="$labels/tab_1/species/element[speciesCode = current()]/speciesNameLegi"/></li>
+                                                </xsl:for-each>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </xsl:for-each>
+                            </table>
+                        </xsl:if>
+                        <xsl:call-template name="simple-print">
+                            <xsl:with-param name="label" select="$fields/file_cost_of_action/label"/>
+                            <xsl:with-param name="value" select="$sectionC/*:file_cost_of_action"/>
+                        </xsl:call-template>
+                        <xsl:call-template name="simple-print">
+                            <xsl:with-param name="label" select="$fields/additional_information/label"/>
+                            <xsl:with-param name="value" select="$sectionC/*:additional_information"/>
+                        </xsl:call-template>
+                        <xsl:call-template name="simple-print">
+                            <xsl:with-param name="label" select="$fields/file_additional_information/label"/>
+                            <xsl:with-param name="value" select="$sectionC/*:file_additional_information"/>
+                        </xsl:call-template>
+                    </div>
+                </td>
+                </tr>
+            </table>
+        </div>
+    </xsl:template>
+
+    <xsl:template name="tab_4">
+        <xsl:variable name="tab4" select="$labels/tab_4"/>
+        <xsl:variable name="distributionMap" select="//*:distributionMap/*:Row"/>
+        <xsl:variable name="fields" select="$tab4/fields/*"/>
+
+        <h2>
+            Distribution maps for the Section A - IAS of Union concern and Section B – IAS of Member States concern
+        </h2>
+        <div class="form-section">
+            <table class="table-measures">
+                <tr>
+                <td class="bordered">
+                    <div class="fs-container">
+                        <xsl:for-each select="$fields">
+                            <xsl:call-template name="simple-print">
+                                <xsl:with-param name="label" select="current()/label"/>
+                                <xsl:with-param name="value" select="$distributionMap/*[local-name() = current()/name]"/>
+                            </xsl:call-template>
+                        </xsl:for-each>
+                    </div>
+                </td>
+                </tr>
+            </table>
+        </div>
     </xsl:template>
 
     <xsl:template name="choose-print">
