@@ -47,8 +47,12 @@ table.bilateral td{
     border-collapse: initial !important;
     border-spacing: 0.5em;
 }
-.bordered{
+.bordered {
     border: solid 1px #CCC;
+}
+.noborder {
+  border: 0px !important;
+  padding-top: 0px !important;
 }
 .padding {
     padding: 0.5em;

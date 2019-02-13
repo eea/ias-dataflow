@@ -2684,6 +2684,31 @@
                                                     <fields>
                                                         <element>
                                                             <label>
+                                                                Number of inspected establishments deemed non-compliant with the conditions set out in the permits
+                                                            </label>
+                                                            <name>establishments_non_compliant</name>
+                                                            <required>required</required>
+                                                            <selected/>
+                                                            <type>number</type>
+                                                            <validation>required</validation>
+                                                        </element>
+                                                    </fields>
+                                                    <name>subfield</name>
+                                                </element>
+                                            </fields>
+                                            <label>Inspected establishments non-compliant</label>
+                                            <name>number_inspected</name>
+                                            <tooltip>
+                                                Number of inspected establishments deemed non-compliant with the conditions set out in the permits
+                                            </tooltip>
+                                            <type>add</type>
+                                        </element>
+                                        <element>
+                                            <fields>
+                                                <element>
+                                                    <fields>
+                                                        <element>
+                                                            <label>
                                                                 Number or volume of permitted specimens corresponding to the permits held by the inspected establishments
                                                             </label>
                                                             <name>number_permitted_specimens</name>
@@ -2706,35 +2731,10 @@
                                             <label>
                                                 Permitted specimens - permits held by the inspected est.
                                             </label>
-                                            <inspection_status>compliant</inspection_status>
+                                            <inspection_status>complient</inspection_status>
                                             <name>number_permitted_specimens_main</name>
                                             <tooltip>
                                                 Number or volume of permitted specimens corresponding to the permits held by the inspected establishments
-                                            </tooltip>
-                                            <type>add</type>
-                                        </element>
-                                        <element>
-                                            <fields>
-                                                <element>
-                                                    <fields>
-                                                        <element>
-                                                            <label>
-                                                                Number of inspected establishments deemed non-compliant with the conditions set out in the permits
-                                                            </label>
-                                                            <name>establishments_non_compliant</name>
-                                                            <required>required</required>
-                                                            <selected/>
-                                                            <type>number</type>
-                                                            <validation>required</validation>
-                                                        </element>
-                                                    </fields>
-                                                    <name>subfield</name>
-                                                </element>
-                                            </fields>
-                                            <label>Inspected establishments non-compliant</label>
-                                            <name>number_inspected</name>
-                                            <tooltip>
-                                                Number of inspected establishments deemed non-compliant with the conditions set out in the permits
                                             </tooltip>
                                             <type>add</type>
                                         </element>
@@ -2855,16 +2855,16 @@
                                             <type>listprint</type>
                                         </element>
                                         <element>
-                                            <label>River basin sub-unit(s)</label>
-                                            <name>riverBasinSubUnit</name>
-                                            <options>riverbasins</options>
+                                            <label>Marine sub-region(s)</label>
+                                            <name>marineSubRegions</name>
+                                            <options>msubregs</options>
                                             <selected/>
                                             <type>listprint</type>
                                         </element>
                                         <element>
-                                            <label>Marine sub-region(s)</label>
-                                            <name>marineSubRegions</name>
-                                            <options>msubregs</options>
+                                            <label>River basin sub-unit(s)</label>
+                                            <name>riverBasinSubUnit</name>
+                                            <options>riverbasins</options>
                                             <selected/>
                                             <type>listprint</type>
                                         </element>
@@ -3064,16 +3064,16 @@
                                             <type>listprint</type>
                                         </element>
                                         <element>
-                                            <label>River basin sub-unit(s)</label>
-                                            <name>riverBasinSubUnit</name>
-                                            <options>riverbasins</options>
+                                            <label>Marine sub-region(s)</label>
+                                            <name>marineSubRegions</name>
+                                            <options>msubregs</options>
                                             <selected/>
                                             <type>listprint</type>
                                         </element>
                                         <element>
-                                            <label>Marine sub-region(s)</label>
-                                            <name>marineSubRegions</name>
-                                            <options>msubregs</options>
+                                            <label>River basin sub-unit(s)</label>
+                                            <name>riverBasinSubUnit</name>
+                                            <options>riverbasins</options>
                                             <selected/>
                                             <type>listprint</type>
                                         </element>
@@ -3184,402 +3184,6 @@
                     </element>
                 </table_sections>
             </table_3>
-            <table_3_old>
-                <label>
-                    Information on management measure(s) taken for this species (Article 19 of Regulation (EU) No 1143/2014)
-                </label>
-                <name>management_measures_info</name>
-                <question>
-                    <index>14</index>
-                    <label>
-                        Has the species been subject to management measures during the reporting period?
-                    </label>
-                    <options>
-                        <element>
-                            <text>Yes</text>
-                            <value>true</value>
-                        </element>
-                        <element>
-                            <text>No</text>
-                            <value>false</value>
-                        </element>
-                    </options>
-                    <type>select</type>
-                </question>
-                <table_sections>
-                    <element>
-                        <additional_info>
-                            <index>16</index>
-                            <label>Additional information (optional)</label>
-                            <name>additional_info</name>
-                            <selected/>
-                            <type>textarea</type>
-                        </additional_info>
-                        <index>15</index>
-                        <label/>
-                        <table_fields>
-                            <fields>
-                                <element>
-                                    <fields>
-                                        <element>
-                                            <label>Starting date</label>
-                                            <name>starting_date</name>
-                                            <required>required</required>
-                                            <selected/>
-                                            <type>date</type>
-                                        </element>
-                                        <element>
-                                            <label>End date</label>
-                                            <name>duration_or_end</name>
-                                            <required>required</required>
-                                            <selected/>
-                                            <type>date</type>
-                                        </element>
-                                        <element>
-                                            <label>Objective of the measure(s)</label>
-                                            <name>measures_objective</name>
-                                            <options>
-                                                <element>
-                                                    <text>Eradication</text>
-                                                    <value>0</value>
-                                                </element>
-                                                <element>
-                                                    <text>Control</text>
-                                                    <value>1</value>
-                                                </element>
-                                                <element>
-                                                    <text>Containment</text>
-                                                    <value>2</value>
-                                                </element>
-                                            </options>
-                                            <selected/>
-                                            <type>select</type>
-                                        </element>
-                                        <element>
-                                            <addoption>true</addoption>
-                                            <comments/>
-                                            <label>Part of the territory</label>
-                                            <name>part_territory</name>
-                                            <options>regions</options>
-                                            <selected/>
-                                            <type>multiselect</type>
-                                        </element>
-                                        <element>
-                                            <label>Biogeographical region(s)</label>
-                                            <name>biogeographical_region</name>
-                                            <options>bioregions</options>
-                                            <selected/>
-                                            <type>multiselect</type>
-                                        </element>
-                                        <element>
-                                            <label>River basin sub-unit(s)</label>
-                                            <name>river_basin_subunits</name>
-                                            <options>riverbasins</options>
-                                            <selected/>
-                                            <type>multiselect</type>
-                                        </element>
-                                        <element>
-                                            <label>Marine sub-region(s)</label>
-                                            <name>marine_basin_subunits</name>
-                                            <options>msubregs</options>
-                                            <selected/>
-                                            <type>select</type>
-                                        </element>
-                                        <element>
-                                            <label>Method(s) used</label>
-                                            <name>methods_used</name>
-                                            <options>
-                                                <element>
-                                                    <text>Mechanical/Physical</text>
-                                                    <value>Mechanical/Physical</value>
-                                                </element>
-                                                <element>
-                                                    <text>Chemical</text>
-                                                    <value>Chemical</value>
-                                                </element>
-                                                <element>
-                                                    <text>Biological</text>
-                                                    <value>Biological</value>
-                                                </element>
-                                                <element>
-                                                    <text>Other</text>
-                                                    <value>Other</value>
-                                                </element>
-                                            </options>
-                                            <required>required</required>
-                                            <selected/>
-                                            <type>multiselect</type>
-                                        </element>
-                                    </fields>
-                                    <label>Measure(s)</label>
-                                </element>
-                                <element>
-                                    <fields>
-                                        <element>
-                                            <label/>
-                                            <name>effectiveness_measure</name>
-                                            <options>
-                                                <element>
-                                                    <text>Eradicated</text>
-                                                    <value>eradicated</value>
-                                                </element>
-                                                <element>
-                                                    <text>Population decreasing</text>
-                                                    <value>decreasing</value>
-                                                </element>
-                                                <element>
-                                                    <text>Population stable</text>
-                                                    <value>stable</value>
-                                                </element>
-                                                <element>
-                                                    <text>Population still increasing</text>
-                                                    <value>increasing</value>
-                                                </element>
-                                                <element>
-                                                    <text>Unclear population trend</text>
-                                                    <value>unclear</value>
-                                                </element>
-                                            </options>
-                                            <selected/>
-                                            <type>select</type>
-                                        </element>
-                                    </fields>
-                                    <label>Effectiveness of the measure(s)</label>
-                                </element>
-                                <element>
-                                    <description>
-                                        Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)
-                                    </description>
-                                    <fields>
-                                        <element>
-                                            <inner_field>
-                                                <label>Impact per species</label>
-                                                <name>impact_per_species</name>
-                                                <selected/>
-                                                <type>text</type>
-                                                <validation>required</validation>
-                                            </inner_field>
-                                            <label>Impacted non-targeted species</label>
-                                            <name>impacted_nontargeted_species</name>
-                                            <selected/>
-                                            <type>text</type>
-                                            <validation>required</validation>
-                                        </element>
-                                    </fields>
-                                    <label>Impacted non-targeted species</label>
-                                    <main_header>
-                                        Observed negative impacts of the measure on non-targeted species
-                                    </main_header>
-                                    <name>impacted_nontargeted_species_main</name>
-                                    <type>add</type>
-                                </element>
-                                <element>
-                                    <name>noimpacts</name>
-                                    <options>
-                                        <element>
-                                            <text>No negative impacts observed</text>
-                                            <value>true</value>
-                                        </element>
-                                    </options>
-                                    <selected>false</selected>
-                                    <type>checkbox</type>
-                                </element>
-                            </fields>
-                            <header/>
-                        </table_fields>
-                    </element>
-                </table_sections>
-                <tables>
-                    <element>
-                        <label>National Population #1</label>
-                        <name>National Population #1</name>
-                        <table_sections>
-                            <element>
-                                <additional_info>
-                                    <index>16</index>
-                                    <label>Additional information (optional)</label>
-                                    <name>additional_info</name>
-                                    <selected/>
-                                    <type>textarea</type>
-                                </additional_info>
-                                <index>15</index>
-                                <label/>
-                                <table_fields>
-                                    <fields>
-                                        <element>
-                                            <fields>
-                                                <element>
-                                                    <label>Starting date</label>
-                                                    <name>starting_date</name>
-                                                    <required>required</required>
-                                                    <selected/>
-                                                    <type>date</type>
-                                                </element>
-                                                <element>
-                                                    <label>End date</label>
-                                                    <name>duration_or_end</name>
-                                                    <required>required</required>
-                                                    <selected/>
-                                                    <type>date</type>
-                                                </element>
-                                                <element>
-                                                    <label>Objective of the measure(s)</label>
-                                                    <name>measures_objective</name>
-                                                    <options>
-                                                        <element>
-                                                            <text>Eradication</text>
-                                                            <value>0</value>
-                                                        </element>
-                                                        <element>
-                                                            <text>Control</text>
-                                                            <value>1</value>
-                                                        </element>
-                                                        <element>
-                                                            <text>Containment</text>
-                                                            <value>2</value>
-                                                        </element>
-                                                    </options>
-                                                    <selected/>
-                                                    <type>select</type>
-                                                </element>
-                                                <element>
-                                                    <addoption>true</addoption>
-                                                    <comments/>
-                                                    <label>Part of the territory</label>
-                                                    <name>part_territory</name>
-                                                    <options>regions</options>
-                                                    <selected/>
-                                                    <type>multiselect</type>
-                                                </element>
-                                                <element>
-                                                    <label>Biogeographical region(s)</label>
-                                                    <name>biogeographical_region</name>
-                                                    <options>bioregions</options>
-                                                    <selected/>
-                                                    <type>multiselect</type>
-                                                </element>
-                                                <element>
-                                                    <label>River basin sub-unit(s)</label>
-                                                    <name>river_basin_subunits</name>
-                                                    <options>riverbasins</options>
-                                                    <selected/>
-                                                    <type>multiselect</type>
-                                                </element>
-                                                <element>
-                                                    <label>Marine sub-region(s)</label>
-                                                    <name>marine_basin_subunits</name>
-                                                    <options>msubregs</options>
-                                                    <selected/>
-                                                    <type>multiselect</type>
-                                                </element>
-                                                <element>
-                                                    <label>Method(s) used</label>
-                                                    <name>methods_used</name>
-                                                    <options>
-                                                        <element>
-                                                            <text>Mechanical/Physical</text>
-                                                            <value>Mechanical/Physical</value>
-                                                        </element>
-                                                        <element>
-                                                            <text>Chemical</text>
-                                                            <value>Chemical</value>
-                                                        </element>
-                                                        <element>
-                                                            <text>Biological</text>
-                                                            <value>Biological</value>
-                                                        </element>
-                                                        <element>
-                                                            <text>Other</text>
-                                                            <value>Other</value>
-                                                        </element>
-                                                    </options>
-                                                    <required>required</required>
-                                                    <selected/>
-                                                    <type>multiselect</type>
-                                                </element>
-                                            </fields>
-                                            <label>Measure(s)</label>
-                                        </element>
-                                        <element>
-                                            <fields>
-                                                <element>
-                                                    <label/>
-                                                    <name>effectiveness_measure</name>
-                                                    <options>
-                                                        <element>
-                                                            <text>Eradicated</text>
-                                                            <value>eradicated</value>
-                                                        </element>
-                                                        <element>
-                                                            <text>Population decreasing</text>
-                                                            <value>decreasing</value>
-                                                        </element>
-                                                        <element>
-                                                            <text>Population stable</text>
-                                                            <value>stable</value>
-                                                        </element>
-                                                        <element>
-                                                            <text>Population still increasing</text>
-                                                            <value>increasing</value>
-                                                        </element>
-                                                        <element>
-                                                            <text>Unclear population trend</text>
-                                                            <value>unclear</value>
-                                                        </element>
-                                                    </options>
-                                                    <selected/>
-                                                    <type>select</type>
-                                                </element>
-                                            </fields>
-                                            <label>Effectiveness of the measure(s)</label>
-                                        </element>
-                                        <element>
-                                            <description>
-                                                Provide the scientific name(s) of non-targeted species impacted negatively by the measure(s)
-                                            </description>
-                                            <fields>
-                                                <element>
-                                                    <inner_field>
-                                                        <label>Impact per species</label>
-                                                        <name>impact_per_species</name>
-                                                        <selected/>
-                                                        <type>text</type>
-                                                        <validation>required</validation>
-                                                    </inner_field>
-                                                    <label>Impacted non-targeted species</label>
-                                                    <name>impacted_nontargeted_species</name>
-                                                    <selected/>
-                                                    <type>text</type>
-                                                    <validation>required</validation>
-                                                </element>
-                                            </fields>
-                                            <label>Impacted non-targeted species</label>
-                                            <main_header>
-                                                Observed negative impacts of the measure on non-targeted species
-                                            </main_header>
-                                            <name>impacted_nontargeted_species_main</name>
-                                            <type>add</type>
-                                        </element>
-                                        <element>
-                                            <fields/>
-                                            <name>noimpacts</name>
-                                            <options>
-                                                <element>
-                                                    <text>No negative impacts observed</text>
-                                                    <value>true</value>
-                                                </element>
-                                            </options>
-                                            <selected>false</selected>
-                                            <type>checkbox</type>
-                                        </element>
-                                    </fields>
-                                    <header/>
-                                </table_fields>
-                            </element>
-                        </table_sections>
-                    </element>
-                </tables>
-            </table_3_old>
             <table_4>
                 <info>
                     Observations on the impact of the species during the reporting period
@@ -3713,74 +3317,44 @@
                 <name>spread_patterns</name>
                 <options>
                     <element>
-                        <index>a</index>
-                        <text>
-                            a) The species was already widely spread before 2015
-                        </text>
-                        <value>0</value>
+                        <text>a) The species was already widely spread before 2015</text>
+                        <value>widelySpread</value>
                     </element>
                     <element>
-                        <index>b</index>
-                        <text>
-                            b) The species predominantly entered through natural dispersal from a neighbouring country
-                        </text>
-                        <value>1</value>
+                        <text>b) The species predominantly entered through natural dispersal from a neighbouring country</text>
+                        <value>enteredNeighbourCountry</value>
                     </element>
                     <element>
-                        <index>c</index>
-                        <text>
-                            c) The species predominantly entered with unintentional human assistance
-                        </text>
-                        <value>2</value>
+                        <text>c) The species predominantly entered with unintentional human assistance</text>
+                        <value>enteredUnintentional</value>
                     </element>
                     <element>
-                        <index>d</index>
-                        <text>
-                            d) The species predominantly entered with intentional human assistance
-                        </text>
-                        <value>3</value>
+                        <text>d) The species predominantly entered with intentional human assistance</text>
+                        <value>enteredIntentional</value>
                     </element>
                     <element>
-                        <index>e</index>
-                        <text>
-                            e) There is no evidence of new entries into the Member State
-                        </text>
-                        <value>4</value>
+                        <text>e) There is no evidence of new entries into the Member State</text>
+                        <value>enteredNot</value>
                     </element>
                     <element>
-                        <index>f</index>
-                        <text>
-                            f) The species predominantly spread through natural dispersal
-                        </text>
-                        <value>5</value>
+                        <text>f) The species predominantly spread through natural dispersal</text>
+                        <value>spreadNatural</value>
                     </element>
                     <element>
-                        <index>g</index>
-                        <text>
-                            g) The species predominantly spread with unintentional human assistance
-                        </text>
-                        <value>6</value>
+                        <text>g) The species predominantly spread with unintentional human assistance</text>
+                        <value>spreadUnintentional</value>
                     </element>
                     <element>
-                        <index>h</index>
-                        <text>
-                            h) The species predominantly spread with intentional human assistance
-                        </text>
-                        <value>7</value>
+                        <text>h) The species predominantly spread with intentional human assistance</text>
+                        <value>spreadIntentional</value>
                     </element>
                     <element>
-                        <index>i</index>
-                        <text>
-                            i) There is no evidence of spread within the Member State
-                        </text>
-                        <value>8</value>
+                        <text>i) There is no evidence of spread within the Member State</text>
+                        <value>spreadNotMs</value>
                     </element>
                     <element>
-                        <index>j</index>
-                        <text>
-                            j) The species spread from the Member State into other Member State(s)
-                        </text>
-                        <value>9</value>
+                        <text>j) The species spread from the Member State into other Member State(s)</text>
+                        <value>spreadMs</value>
                     </element>
                 </options>
                 <patternType>spread</patternType>

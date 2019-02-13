@@ -48,7 +48,7 @@
         <xsl:variable name="reporting_party" select="$root//*:reporting"/>
 
         <h2>Information on the reporting party</h2>
-        <div class="form-section">
+        <div class="tab_0 form-section">
             <div class="fs-container fs-title">
                 <xsl:for-each select="$labels/tab_0/description">
                     <div class="newline-separated">
@@ -88,7 +88,7 @@
         </h2>
         <!--<div class="sub-title">Sub title</div>-->
 
-        <div class="form-section">
+        <div class="tab_1 form-section">
             <table class="table-measures">
                 <div class="fs-container fs-title">
                     <xsl:value-of select="$tab1/description"/>
@@ -105,8 +105,8 @@
                     <tr>
                     <td class="bordered">
                         <!-- debug -->
-                        <div>EASINCode: <xsl:value-of select="$EASINCode"/></div>
-                        <div>row_id: <xsl:value-of select="$row_id"/></div>
+                        <!--<div>EASINCode: <xsl:value-of select="$EASINCode"/></div>-->
+                        <!--<div>row_id: <xsl:value-of select="$row_id"/></div>-->
                         <!--<div>options: <xsl:value-of select="$options-label"/></div>-->
 
                         <div class="fs-container article-title">
@@ -220,7 +220,7 @@
         <xsl:variable name="permitedSpecimens" select="$report-node/ancestor::IAS/*:permitedSpecimens"/>
         <xsl:variable name="inspectionsPermits" select="$report-node/ancestor::IAS/*:inspectionsPermits"/>
 
-        <div class="fs-container fs-data">
+        <div class="tab_1 table_1 fs-container fs-data">
             <div class="article-title title">
                 <xsl:value-of select="$table1/label"/>
             </div>
@@ -247,8 +247,8 @@
                                 <xsl:variable name="permits-node" select="current()"/>
                                 <xsl:variable name="row_id" select="$permits-node/*:row_id"/>
                                 <!-- debug -->
-                                <div>parent_row_id: <xsl:value-of select="$parent_row_id"/></div>
-                                <div>row_id: <xsl:value-of select="$row_id"/></div>
+                                <!--<div>parent_row_id: <xsl:value-of select="$parent_row_id"/></div>-->
+                                <!--<div>row_id: <xsl:value-of select="$row_id"/></div>-->
 
                                 <xsl:for-each select="$section/table_fields/optionsFields/element[1]/fields/element">
                                     <xsl:variable name="field" select="current()"/>
@@ -341,8 +341,8 @@
         <xsl:variable name="fields" select="$section/table_fields/fields"/>
         <xsl:variable name="observedNegativeImpacts" select="$report-node/ancestor::IAS/*:observedNegativeImpacts"/>
 
-        <div class="fs-container fs-data">
-            <div class="article-title title">
+        <div class="tab_1 table_2 fs-container fs-data">
+            <div class="article-title title noborder">
                 <xsl:value-of select="$table/label"/>
             </div>
             <xsl:call-template name="choose-print">
@@ -353,14 +353,14 @@
             <xsl:if test="$eradication_measures = 'true'">
                 <div class="fs-container bordered">
                     <!-- Debug -->
-                    <div>species_id: <xsl:value-of select="$species_id"/></div>
+                    <!--<div>species_id: <xsl:value-of select="$species_id"/></div>-->
 
                     <xsl:for-each select="$sectionAMeasures">
                         <xsl:variable name="sectionA-node" select="current()"/>
                         <xsl:variable name="measure_id" select="$sectionA-node/*:row_id"/>
                         <div class="line-separated">
                             <!-- debug -->
-                            <div>measure_id: <xsl:value-of select="$measure_id"/></div>
+                            <!--<div>measure_id: <xsl:value-of select="$measure_id"/></div>-->
 
                             <!-- Population -->
                             <xsl:call-template name="simple-print">
@@ -461,8 +461,8 @@
         <xsl:variable name="fields" select="$section/table_fields/fields"/>
         <xsl:variable name="observedNegativeImpacts" select="$report-node/ancestor::IAS/*:observedNegativeImpacts"/>
 
-        <div class="fs-container fs-data">
-            <div class="article-title title">
+        <div class="tab_1 table_3 fs-container fs-data">
+            <div class="article-title title noborder">
                 <xsl:value-of select="$table/label"/>
             </div>
             <xsl:call-template name="choose-print">
@@ -473,14 +473,14 @@
             <xsl:if test="$subject_management_measures = 'true'">
                 <div class="fs-container bordered">
                     <!-- Debug -->
-                    <div>species_id: <xsl:value-of select="$species_id"/></div>
+                    <!--<div>species_id: <xsl:value-of select="$species_id"/></div>-->
 
                     <xsl:for-each select="$sectionAMeasures">
                         <xsl:variable name="sectionA-node" select="current()"/>
                         <xsl:variable name="measure_id" select="$sectionA-node/*:row_id"/>
                         <div class="line-separated">
                             <!-- debug -->
-                            <div>measure_id: <xsl:value-of select="$measure_id"/></div>
+                            <!--<div>measure_id: <xsl:value-of select="$measure_id"/></div>-->
 
                             <!-- Population -->
                             <xsl:call-template name="simple-print">
@@ -583,8 +583,8 @@
         <xsl:variable name="species_row_id" select="$report-node/*:row_id"/>
         <xsl:variable name="infoImpactSpecies" select="$report-node/ancestor::IAS/*:infoImpactSpecies/*:Row[*:parent_row_id = $species_row_id]"/>
 
-        <div class="fs-container fs-data">
-            <div class="article-title title">
+        <div class="tab_1 table_4 fs-container fs-data">
+            <div class="article-title title noborder">
                 <xsl:value-of select="$table/label"/>
             </div>
             <div class="title">
@@ -657,7 +657,7 @@
         <h2>
             Information to be submitted for each of the invasive alien species of Member State concern
         </h2>
-        <div class="form-section">
+        <div class="tab_2 form-section">
             <table class="table-measures">
                 <div class="fs-container">
                     <xsl:call-template name="choose-print">
@@ -727,7 +727,7 @@
         <h2>
             Horizontal information
         </h2>
-        <div class="form-section">
+        <div class="tab_3 form-section">
             <table class="table-measures">
                 <tr>
                 <td class="bordered">
@@ -823,7 +823,7 @@
         <h2>
             Distribution maps for the Section A - IAS of Union concern and Section B – IAS of Member States concern
         </h2>
-        <div class="form-section">
+        <div class="tab_4 form-section">
             <table class="table-measures">
                 <tr>
                 <td class="bordered">
