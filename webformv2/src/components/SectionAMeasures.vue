@@ -10,7 +10,7 @@
 					</b-input-group>
 				</b-col>
 			</b-row>
-			<b-btn variant="danger" style="float:right;margin-top: -2.4rem;" @click="$store.commit('RemovePopulation', {species_index, type, measure_index})">Remove</b-btn>
+			<b-btn v-if="species[type].fields.length > 1" variant="danger" style="float:right;margin-top: -2.4rem;" @click="$store.commit('RemovePopulation', {species_index, type, measure_index})">Remove</b-btn>
 			
 			
 			<b-collapse :id="`${species_index}_${type}_${measure_index}`" visible>
