@@ -2,7 +2,7 @@
   <b-container fluid class="main-layout">
 		<center><h1 class="mb-3 mt-2">IAS dataflow</h1></center>
     <center><h5><span class="text-muted">Technical formats to be used by the Member States for transmitting to the Commission the information pursuant to paragraph 1 of Article 24 of Regulation (EU) No 1143/2014 on the prevention and management of the introduction of invasive alien species</span></h5></center>
-
+		<h5 class="text-center" v-if="isie" style="color:red"><small>Please do not use Internet Explorer for this application unless there is no alternative. We recommend any other browser.</small></h5>
 		<div v-if="prefilled && $store.state.form">
 
 			<FormSubmit :form="$store.state.form" :country="$store.state.country"></FormSubmit>
@@ -71,11 +71,19 @@ export default {
 	data() {
 		return {
 			prefilled: false,
+			isie: false
 		}
 	},
 
 	beforeCreate() {
 		this.$store.dispatch('getCurrentCountry')
+	},
+
+	created() {
+		if(navigator.userAgent.indexOf('MSIE')!==-1
+			|| navigator.appVersion.indexOf('Trident/') > -1){
+				this.isie=true
+			}
 	},
 
 	computed: {
