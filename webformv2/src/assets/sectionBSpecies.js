@@ -81,24 +81,26 @@ const species = (currentSpecies) => ({
         patternType: 'spread',
         name: 'spreadPatterns',
         selected: [],
-        get validation() {
+		get validation() {
+			console.log('here', this.selected)
 			if(
 				!((
-				this.selected.includes(3) || 
-				this.selected.includes(1) ||
-				this.selected.includes(2) || 
-				this.selected.includes(4)
+				this.selected.includes('enteredNeighbourCountry') || 
+				this.selected.includes('enteredUnintentional') ||
+				this.selected.includes('enteredIntentional') || 
+				this.selected.includes('enteredNot')
 				) && (
-					this.selected.includes(5) || 
-					this.selected.includes(6) ||
-					this.selected.includes(7) ||
-					this.selected.includes(8) 
+					this.selected.includes('spreadNatural') || 
+					this.selected.includes('spreadUnintentional') ||
+					this.selected.includes('spreadIntentional') ||
+					this.selected.includes('spreadNotMs') 
 				))
 			)
 			return 'At least one of b/c/d/e must be chosen and at least one of f/g/h/i must be chosen.'
 		},
         options: spreadPatterns
     },
+
 
     sectionBMeasures: {
         restTransport: {
