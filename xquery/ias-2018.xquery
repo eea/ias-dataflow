@@ -16,39 +16,6 @@ declare variable $source_url external;
  : --------------
  :)
 
-declare function ias:getNoDetails(
-) as element(div)* {
-    <div class="ias">
-        <div class="ias inner msg gray mmessage">
-            <span class="ias nowrap header">Not implemented yet</span>
-            <br/>
-            <span class="ias">This check is still under development</span>
-        </div>
-    </div>
-};
-
-declare function ias:getNotActive(
-) as element(div)* {
-    <div class="ias">
-        <div class="ias inner msg gray mnone">
-            <span class="ias nowrap header">Not active</span>
-            <br/>
-            <span class="ias">This check is active from 2018 reporting year onwards</span>
-        </div>
-    </div>
-};
-
-declare function ias:getNotApplicable(
-) as element(div)* {
-    <div class="ias">
-        <div class="ias inner msg gray mnone">
-            <span class="ias nowrap header">Not applicable</span>
-            <br/>
-            <span class="ias">This check is not applicable for your country</span>
-        </div>
-    </div>
-};
-
 declare function ias:getErrorDetails(
         $code as xs:QName,
         $description as xs:string?
@@ -60,86 +27,6 @@ declare function ias:getErrorDetails(
             <span class="ias">{$description}</span>
         </div>
     </div>
-};
-(:
-
-declare function ias:renderResult(
-        $refcode as xs:string,
-        $rulename as xs:string,
-        $type as xs:string,
-        $details as element()*
-) {
-    let $id := random:integer(65536)
-
-    let $label :=
-        <label class="ias" for="toggle-{$id}">
-            <span class="ias link">More...</span>
-        </label>
-
-    let $toggle :=
-        <input class="ias toggle" id="toggle-{$id}" type="checkbox" />
-
-    return
-        <div class="ias row">
-            <div class="ias col outer noborder">
-
-                <!-- report table -->
-                <div class="ias table">
-                    <div class="ias row">
-                        <div class="ias col ten center middle">
-                            <span class="ias medium {$type}">{$refcode}</span>
-                        </div>
-
-                        <div class="ias col left middle">
-                            <span class="ias">{$rulename}</span>
-                        </div>
-
-                        <div class="ias col quarter right middle">
-                            {if ($type = 'error') then
-                                <span class="ias nowrap">1 error</span>
-                            else
-                                <span class="ias nowrap">1 message</span>
-                            }
-                        </div>
-
-                        <div class="ias col ten center middle">
-                            {$label}
-                        </div>
-                    </div>
-                </div>
-
-                <!-- details table -->
-                {$toggle, $details}
-            </div>
-        </div>
-};
-:)
-
-declare function ias:notYet(
-        $refcode as xs:string,
-        $rulename as xs:string,
-        $root as element()
-) as element()* {
-    let $details := ias:getNoDetails()
-    return scripts:renderResult($refcode, $rulename, 'message', 1, $details)
-};
-
-declare function ias:notActive(
-        $refcode as xs:string,
-        $rulename as xs:string,
-        $root as element()
-) as element()* {
-    let $details := ias:getNotActive()
-    return scripts:renderResult($refcode, $rulename, 'message', 1, $details)
-};
-
-declare function ias:notApplicable(
-        $refcode as xs:string,
-        $rulename as xs:string,
-        $root as element()
-) as element()* {
-    let $details := ias:getNotApplicable()
-    return scripts:renderResult($refcode, $rulename, 'message', 1, $details)
 };
 
 declare function ias:failsafeWrapper(
@@ -167,8 +54,8 @@ declare function ias:runChecks01($root as element()) as element()* {
         <div class="ias header">{$rulename}</div>,
         <div class="ias table parent">{
             ias:failsafeWrapper("G1", "0.1 - Member State", $root, scripts:checkG1#3),
-            ias:failsafeWrapper("G2", "0.2 - Reporting period from", $root, scripts:checkG1#3),
-            ias:failsafeWrapper("G3", "0.2 - Reporting period to", $root, ias:notYet#3)
+            ias:failsafeWrapper("G2", "0.2 - Reporting period start", $root, scripts:checkG2#3),
+            ias:failsafeWrapper("G3", "0.2 - Reporting period end", $root, scripts:checkG3#3)
         }</div>
 };
 
@@ -183,32 +70,32 @@ declare function ias:runChecks02($root as element()) as element()* {
     return
         <div class="ias header">{$rulename}</div>,
         <div class="ias table parent">{
-            ias:failsafeWrapper("A1", "Question 1 - Scientific name", $root, ias:notYet#3),
-            ias:failsafeWrapper("A2", "Question 1 - EASIN Id", $root, ias:notYet#3),
-            ias:failsafeWrapper("A3", "Question 2 - Common name", $root, ias:notYet#3),
-            ias:failsafeWrapper("A4", "Question 3 - Presence", $root, ias:notYet#3),
-            ias:failsafeWrapper("A5", "Question 4 - Reproduction patterns", $root, ias:notYet#3),
-            ias:failsafeWrapper("A6", "Question 4 - Spread patterns", $root, ias:notYet#3),
+            ias:failsafeWrapper("A1", "Question 1 - Scientific name", $root, scripts:checkA1#3),
+            ias:failsafeWrapper("A2", "Question 1 - EASIN Id", $root, scripts:checkA2#3),
+            ias:failsafeWrapper("A3", "Question 2 - Common name", $root, scripts:checkA3#3),
+            ias:failsafeWrapper("A4", "Question 3 - Presence", $root, scripts:checkA4#3),
+            ias:failsafeWrapper("A5", "Question 4 - Reproduction patterns", $root, scripts:checkA5#3),
+            ias:failsafeWrapper("A6", "Question 4 - Spread patterns", $root, scripts:checkA6#3),
             ias:failsafeWrapper("A8",
                     "Question 5 - additional information on species, distribution, spread and reproduction patterns",
-                    $root, ias:notYet#3),
-            ias:failsafeWrapper("A9", "Question 7 - Information on permits, Year", $root, ias:notYet#3),
-            ias:failsafeWrapper("A10", "Question 7 - Information on permits, Purpose of permit", $root, ias:notYet#3),
-            ias:failsafeWrapper("A11", "Question 7 - Information on permits, Number of permits", $root, ias:notYet#3),
-            ias:failsafeWrapper("A12", "Question 7 - Information on permits, Total number or volume", $root, ias:notYet#3),
-            ias:failsafeWrapper("A13", "Question 7 - Information on permits, Unit", $root, ias:notYet#3),
-            ias:failsafeWrapper("A15", "Question 9 – information on inspections, Year", $root, ias:notYet#3),
-            ias:failsafeWrapper("A16", "Question 9 – information on inspections, Purpose of permit", $root, ias:notYet#3),
-            ias:failsafeWrapper("A17", "Question 9 – information on inspections, Number of establishments", $root, ias:notYet#3),
+                    $root, scripts:checkA8#3),
+            ias:failsafeWrapper("A9", "Question 7 - Information on permits, Year", $root, scripts:notYet#3),
+            ias:failsafeWrapper("A10", "Question 7 - Information on permits, Purpose of permit", $root, scripts:notYet#3),
+            ias:failsafeWrapper("A11", "Question 7 - Information on permits, Number of permits", $root, scripts:notYet#3),
+            ias:failsafeWrapper("A12", "Question 7 - Information on permits, Total number or volume", $root, scripts:notYet#3),
+            ias:failsafeWrapper("A13", "Question 7 - Information on permits, Unit", $root, scripts:notYet#3),
+            ias:failsafeWrapper("A15", "Question 9 – information on inspections, Year", $root, scripts:notYet#3),
+            ias:failsafeWrapper("A16", "Question 9 – information on inspections, Purpose of permit", $root, scripts:notYet#3),
+            ias:failsafeWrapper("A17", "Question 9 – information on inspections, Number of establishments", $root, scripts:notYet#3),
             ias:failsafeWrapper("A18",
                     "Question 9 – information on inspections, Number of volume of permitted specimens corresponding to permits",
-                    $root, ias:notYet#3),
-            ias:failsafeWrapper("A19", "Question 9 – information on inspections, Unit", $root, ias:notYet#3),
-            ias:failsafeWrapper("A20", "Question 9 – information on inspections, Number of inspected establishments", $root, ias:notYet#3),
+                    $root, scripts:notYet#3),
+            ias:failsafeWrapper("A19", "Question 9 – information on inspections, Unit", $root, scripts:notYet#3),
+            ias:failsafeWrapper("A20", "Question 9 – information on inspections, Number of inspected establishments", $root, scripts:notYet#3),
             ias:failsafeWrapper("A21",
                     "Question 9 – information on inspections, Number or volumen of permitted specimens corresponding to permits held by establishments",
-                    $root, ias:notYet#3),
-            ias:failsafeWrapper("A22", "Question 9 – information on inspections, Unit", $root, ias:notYet#3)
+                    $root, scripts:notYet#3),
+            ias:failsafeWrapper("A22", "Question 9 – information on inspections, Unit", $root, scripts:notYet#3)
         }</div>
 };
 
@@ -222,8 +109,8 @@ declare function ias:runChecks03($root as element()) as element()* {
     return
         <div class="ias header">{$rulename}</div>,
         <div class="ias table parent">{
-            ias:failsafeWrapper("B1", "Question 1 - National list established yes/no", $root, ias:notYet#3),
-            ias:failsafeWrapper("B2", "Question 2 - Scientific name", $root, ias:notYet#3)
+            ias:failsafeWrapper("B1", "Question 1 - National list established yes/no", $root, scripts:notYet#3),
+            ias:failsafeWrapper("B2", "Question 2 - Scientific name", $root, scripts:notYet#3)
         }</div>
 };
 
@@ -237,8 +124,8 @@ declare function ias:runChecks04($root as element()) as element()* {
     return
         <div class="ias header">{$rulename}</div>,
         <div class="ias table parent">{
-            ias:failsafeWrapper("C1", "Question 1 – Link to information - Art. 8(7)", $root, ias:notYet#3),
-            ias:failsafeWrapper("C2", "Question 2 – documents describing action plans – Art. 13(2)", $root, ias:notYet#3)
+            ias:failsafeWrapper("C1", "Question 1 – Link to information - Art. 8(7)", $root, scripts:notYet#3),
+            ias:failsafeWrapper("C2", "Question 2 – documents describing action plans – Art. 13(2)", $root, scripts:notYet#3)
         }</div>
 };
 

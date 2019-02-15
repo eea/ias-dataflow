@@ -112,3 +112,24 @@ declare function functx:if-empty(
     then data($arg)
     else $value
 };
+
+declare function functx:escape-for-regex
+  ( $arg as xs:string? )  as xs:string {
+
+   replace($arg,
+           '(\.|\[|\]|\\|\||\-|\^|\$|\?|\*|\+|\{|\}|\(|\))','\\$1')
+ } ;
+
+declare function functx:substring-after-last
+  ( $arg as xs:string? ,
+    $delim as xs:string )  as xs:string {
+
+   replace ($arg,concat('^.*',functx:escape-for-regex($delim)),'')
+ } ;
+
+declare function functx:value-intersect
+  ( $arg1 as xs:anyAtomicType* ,
+    $arg2 as xs:anyAtomicType* )  as xs:anyAtomicType* {
+
+  distinct-values($arg1[.=$arg2])
+ } ;

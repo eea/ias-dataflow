@@ -18,21 +18,21 @@ div.ias.inner { border: 1pt solid #aaa }
 div.ias.parent { margin-bottom: 1.5em }
 
 div.ias.th { border-bottom: 2pt solid #000; font-weight: 600 }
-div.ias.blocker { background-color: #fdf7f7; border-bottom: 2pt solid #d9534f }
-div.ias.error { background-color: #faf8f0; border-bottom: 2pt solid #f0ad4e }
-div.ias.warning { background-color: #5cb85c; border-bottom: 2pt solid #5cb85c }
+div.ias.blocker { background-color: #ecdbdb; border-bottom: 2pt solid #82211f }
+div.ias.error { background-color: #fdf7f7; border-bottom: 2pt solid #b94a48 }
+div.ias.warning { background-color: #faf8f0; border-bottom: 2pt solid #f0ad4e }
 div.ias.info { background-color: #f4f8fa; border-bottom: 2pt solid #5bc0de }
 
+div.ias.bred { background-color: #ecdbdb; color: #82211f }
 div.ias.red { background-color: #fdf7f7; color: #b94a48 }
 div.ias.yellow { background-color: #faf8f0; color: #8a6d3b }
-div.ias.green { background-color: #5cb85c; color: #5cb85c }
 div.ias.blue { background-color: #f4f8fa; color: #34789a }
 div.ias.gray { background-color: #eee; color: #555 }
 
 div.ias.msg { margin-top: 1em; margin-bottom: 1em; padding: 1em 2em }
-div.ias.msg.mblocker { border-color: #d9534f }
-div.ias.msg.merror { border-color: #f0ad4e }
-div.ias.msg.mwarning { border-color: #5cb85c }
+div.ias.msg.mblocker { border-color: #82211f }
+div.ias.msg.merror { border-color: #b94a48 }
+div.ias.msg.mwarning { border-color: #f0ad4e }
 div.ias.msg.minfo { border-color: #5bc0de }
 div.ias.msg.mmessage { border-color: #ccc }
 
@@ -68,9 +68,9 @@ span.ias.small { padding: 0.1em }
 span.ias.header { display: block; font-size: 16px; font-weight: 600 }
 
 span.ias.failed { color: #fff; background-color: #000000 }
-span.ias.blocker { color: #fff; background-color: #d9534f }
-span.ias.error { color: #fff; background-color: #f0ad4e }
-span.ias.warning { color: #fff; background-color: #5cb85c }
+span.ias.blocker { color: #fff; background-color: #82211f }
+span.ias.error { color: #fff; background-color: #d9534f }
+span.ias.warning { color: #fff; background-color: #f0ad4e }
 span.ias.info { color: #fff; background-color: #5bc0de }
 span.ias.pass { color: #fff; background-color: #5cb85c }
 span.ias.message { color: #fff; background-color: #999 }
