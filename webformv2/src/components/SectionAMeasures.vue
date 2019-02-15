@@ -56,7 +56,7 @@
 									<FieldGenerator :field="cell"></FieldGenerator>
 								</td>
 								<td style="width: 80px">
-									<b-btn @click="$store.commit('removeImpact', {species_index, measure_index, impact_index: row_index, type})" variant="danger">Remove</b-btn>
+									<b-btn v-if="measure.observedNegativeImpacts.fields.length > 1" @click="$store.commit('removeImpact', {species_index, measure_index, impact_index: row_index, type})" variant="danger">Remove</b-btn>
 								</td>
 							</tr>
 						</tbody>
