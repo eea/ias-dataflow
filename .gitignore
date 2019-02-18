@@ -3,6 +3,8 @@ node_modules/
 dist/
 npm-debug.log
 yarn-error.log
+new_webform.zip
+webform.zip
 
 # Editor directories and files
 .idea
