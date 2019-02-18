@@ -1,0 +1,92 @@
+[
+	{
+		"id": "ABI",
+		"label": "Bay of Biscay and Iberian Coast",
+		"countries": "ES;FR;PT"
+  },
+	{
+		"id": "ACS",
+		"label": "Celtic Seas",
+		"countries": "FR;UK;IE"
+	},
+	{
+		"id": "AMA",
+		"label": "Macaronesia",
+		"countries": "ES;PT"
+	},
+	{
+		"id": "ANS",
+		"label": "Greater North Sea",
+		"countries": "BE;DE;DK;FR;UK;NL;SE"
+	},
+	{
+		"id": "ATL",
+		"label": "North East Atlantic",
+		"countries": "BE;DE;DK;ES;FR;UK;IE;IS;NL;NO;PT;SE"
+	},
+	{
+		"id": "BAL",
+		"label": "Baltic Sea",
+		"countries": "DE;DK;EE;FI;LT;LV;PL;SE"
+	},
+	{
+		"id": "BAR",
+		"label": "Barents Sea",
+		"countries": "NO"
+	},
+	{
+		"id": "BLA",
+		"label": "Black Sea - sea of Azov",
+		"countries": "BG;RO;TR"
+	},
+	{
+		"id": "BLK",
+		"label": "Black Sea",
+		"countries": "BG;RO;TR"
+	},
+	{
+		"id": "BLM",
+		"label": "Black Sea - sea of Marmara",
+		"countries": "TR"
+	},
+	{
+		"id": "ICE",
+		"label": "Iceland Sea",
+		"countries": "IS"
+	},
+	{
+		"id": "MAD",
+		"label": "Adriatic Sea",
+		"countries": "GR;HR;IT;SI"
+	},
+	{
+		"id": "MAL",
+		"label": "Aegean-Levantine Sea",
+		"countries": "CY;GR"
+	},
+	{
+		"id": "MED",
+		"label": "Mediterranean Sea",
+		"countries": "CY;ES;FR;GR;HR;IT;MT;SI;TR"
+	},
+	{
+		"id": "MIC",
+		"label": "Ionian Sea and Central Mediterranean Sea",
+		"countries": "GR;IT;MT"
+	},
+	{
+		"id": "MWE",
+		"label": "Western Mediterranean Sea",
+		"countries": "ES;FR;IT"
+	},
+	{
+		"id": "NOR",
+		"label": "Norwegian Sea",
+		"countries": "NO"
+	},
+	{
+		"id": "WHI",
+		"label": "White Sea",
+		"countries": "BE;DE;DK;ES;FR;UK;IE;IS;NL;NO;PT;SE"
+	}
+]

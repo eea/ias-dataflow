@@ -1,0 +1,8212 @@
+{
+  "ES": [
+    {
+      "label": "ESPAÑA",
+      "id": "ES"
+    },
+    {
+      "label": "NOROESTE",
+      "id": "ES1"
+    },
+    {
+      "label": "Galicia",
+      "id": "ES11"
+    },
+    {
+      "label": "A Coruña",
+      "id": "ES111"
+    },
+    {
+      "label": "Lugo",
+      "id": "ES112"
+    },
+    {
+      "label": "Ourense",
+      "id": "ES113"
+    },
+    {
+      "label": "Pontevedra",
+      "id": "ES114"
+    },
+    {
+      "label": "Principado de Asturias",
+      "id": "ES12"
+    },
+    {
+      "label": "Asturias",
+      "id": "ES120"
+    },
+    {
+      "label": "Cantabria",
+      "id": "ES13"
+    },
+    {
+      "label": "Cantabria",
+      "id": "ES130"
+    },
+    {
+      "label": "NORESTE",
+      "id": "ES2"
+    },
+    {
+      "label": "País Vasco",
+      "id": "ES21"
+    },
+    {
+      "label": "Araba/Álava",
+      "id": "ES211"
+    },
+    {
+      "label": "Gipuzkoa",
+      "id": "ES212"
+    },
+    {
+      "label": "Bizkaia",
+      "id": "ES213"
+    },
+    {
+      "label": "Comunidad Foral de Navarra",
+      "id": "ES22"
+    },
+    {
+      "label": "Navarra",
+      "id": "ES220"
+    },
+    {
+      "label": "La Rioja",
+      "id": "ES23"
+    },
+    {
+      "label": "La Rioja",
+      "id": "ES230"
+    },
+    {
+      "label": "Aragón",
+      "id": "ES24"
+    },
+    {
+      "label": "Huesca",
+      "id": "ES241"
+    },
+    {
+      "label": "Teruel",
+      "id": "ES242"
+    },
+    {
+      "label": "Zaragoza",
+      "id": "ES243"
+    },
+    {
+      "label": "COMUNIDAD DE MADRID",
+      "id": "ES3"
+    },
+    {
+      "label": "Comunidad de Madrid",
+      "id": "ES30"
+    },
+    {
+      "label": "Madrid",
+      "id": "ES300"
+    },
+    {
+      "label": "CENTRO (ES)",
+      "id": "ES4"
+    },
+    {
+      "label": "Castilla y León",
+      "id": "ES41"
+    },
+    {
+      "label": "Ávila",
+      "id": "ES411"
+    },
+    {
+      "label": "Burgos",
+      "id": "ES412"
+    },
+    {
+      "label": "León",
+      "id": "ES413"
+    },
+    {
+      "label": "Palencia",
+      "id": "ES414"
+    },
+    {
+      "label": "Salamanca",
+      "id": "ES415"
+    },
+    {
+      "label": "Segovia",
+      "id": "ES416"
+    },
+    {
+      "label": "Soria",
+      "id": "ES417"
+    },
+    {
+      "label": "Valladolid",
+      "id": "ES418"
+    },
+    {
+      "label": "Zamora",
+      "id": "ES419"
+    },
+    {
+      "label": "Castilla-La Mancha",
+      "id": "ES42"
+    },
+    {
+      "label": "Albacete",
+      "id": "ES421"
+    },
+    {
+      "label": "Ciudad Real",
+      "id": "ES422"
+    },
+    {
+      "label": "Cuenca",
+      "id": "ES423"
+    },
+    {
+      "label": "Guadalajara",
+      "id": "ES424"
+    },
+    {
+      "label": "Toledo",
+      "id": "ES425"
+    },
+    {
+      "label": "Extremadura",
+      "id": "ES43"
+    },
+    {
+      "label": "Badajoz",
+      "id": "ES431"
+    },
+    {
+      "label": "Cáceres",
+      "id": "ES432"
+    },
+    {
+      "label": "ESTE",
+      "id": "ES5"
+    },
+    {
+      "label": "Cataluña",
+      "id": "ES51"
+    },
+    {
+      "label": "Barcelona",
+      "id": "ES511"
+    },
+    {
+      "label": "Girona",
+      "id": "ES512"
+    },
+    {
+      "label": "Lleida",
+      "id": "ES513"
+    },
+    {
+      "label": "Tarragona",
+      "id": "ES514"
+    },
+    {
+      "label": "Comunidad Valenciana",
+      "id": "ES52"
+    },
+    {
+      "label": "Alicante / Alacant",
+      "id": "ES521"
+    },
+    {
+      "label": "Castellón / Castelló",
+      "id": "ES522"
+    },
+    {
+      "label": "Valencia / València",
+      "id": "ES523"
+    },
+    {
+      "label": "Illes Balears",
+      "id": "ES53"
+    },
+    {
+      "label": "Eivissa y Formentera",
+      "id": "ES531"
+    },
+    {
+      "label": "Mallorca",
+      "id": "ES532"
+    },
+    {
+      "label": "Menorca",
+      "id": "ES533"
+    },
+    {
+      "label": "SUR",
+      "id": "ES6"
+    },
+    {
+      "label": "Andalucía",
+      "id": "ES61"
+    },
+    {
+      "label": "Almería",
+      "id": "ES611"
+    },
+    {
+      "label": "Cádiz",
+      "id": "ES612"
+    },
+    {
+      "label": "Córdoba",
+      "id": "ES613"
+    },
+    {
+      "label": "Granada",
+      "id": "ES614"
+    },
+    {
+      "label": "Huelva",
+      "id": "ES615"
+    },
+    {
+      "label": "Jaén",
+      "id": "ES616"
+    },
+    {
+      "label": "Málaga",
+      "id": "ES617"
+    },
+    {
+      "label": "Sevilla",
+      "id": "ES618"
+    },
+    {
+      "label": "Región de Murcia",
+      "id": "ES62"
+    },
+    {
+      "label": "Murcia",
+      "id": "ES620"
+    },
+    {
+      "label": "Ciudad Autónoma de Ceuta",
+      "id": "ES63"
+    },
+    {
+      "label": "Ceuta",
+      "id": "ES630"
+    },
+    {
+      "label": "Ciudad Autónoma de Melilla",
+      "id": "ES64"
+    },
+    {
+      "label": "Melilla",
+      "id": "ES640"
+    },
+    {
+      "label": "CANARIAS",
+      "id": "ES7"
+    },
+    {
+      "label": "Canarias",
+      "id": "ES70"
+    },
+    {
+      "label": "El Hierro",
+      "id": "ES703"
+    },
+    {
+      "label": "Fuerteventura",
+      "id": "ES704"
+    },
+    {
+      "label": "Gran Canaria",
+      "id": "ES705"
+    },
+    {
+      "label": "La Gomera",
+      "id": "ES706"
+    },
+    {
+      "label": "La Palma",
+      "id": "ES707"
+    },
+    {
+      "label": "Lanzarote",
+      "id": "ES708"
+    },
+    {
+      "label": "Tenerife",
+      "id": "ES709"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "ESZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "ESZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "ESZZZ"
+    }
+  ],
+  "AT": [
+    {
+      "label": "ÖSTERREICH",
+      "id": "AT"
+    },
+    {
+      "label": "OSTÖSTERREICH",
+      "id": "AT1"
+    },
+    {
+      "label": "Burgenland (AT)",
+      "id": "AT11"
+    },
+    {
+      "label": "Mittelburgenland",
+      "id": "AT111"
+    },
+    {
+      "label": "Nordburgenland",
+      "id": "AT112"
+    },
+    {
+      "label": "Südburgenland",
+      "id": "AT113"
+    },
+    {
+      "label": "Niederösterreich",
+      "id": "AT12"
+    },
+    {
+      "label": "Mostviertel-Eisenwurzen",
+      "id": "AT121"
+    },
+    {
+      "label": "Niederösterreich-Süd",
+      "id": "AT122"
+    },
+    {
+      "label": "Sankt Pölten",
+      "id": "AT123"
+    },
+    {
+      "label": "Waldviertel",
+      "id": "AT124"
+    },
+    {
+      "label": "Weinviertel",
+      "id": "AT125"
+    },
+    {
+      "label": "Wiener Umland/Nordteil",
+      "id": "AT126"
+    },
+    {
+      "label": "Wiener Umland/Südteil",
+      "id": "AT127"
+    },
+    {
+      "label": "Wien",
+      "id": "AT13"
+    },
+    {
+      "label": "Wien",
+      "id": "AT130"
+    },
+    {
+      "label": "SÜDÖSTERREICH",
+      "id": "AT2"
+    },
+    {
+      "label": "Kärnten",
+      "id": "AT21"
+    },
+    {
+      "label": "Klagenfurt-Villach",
+      "id": "AT211"
+    },
+    {
+      "label": "Oberkärnten",
+      "id": "AT212"
+    },
+    {
+      "label": "Unterkärnten",
+      "id": "AT213"
+    },
+    {
+      "label": "Steiermark",
+      "id": "AT22"
+    },
+    {
+      "label": "Graz",
+      "id": "AT221"
+    },
+    {
+      "label": "Liezen",
+      "id": "AT222"
+    },
+    {
+      "label": "Östliche Obersteiermark",
+      "id": "AT223"
+    },
+    {
+      "label": "Oststeiermark",
+      "id": "AT224"
+    },
+    {
+      "label": "West- und Südsteiermark",
+      "id": "AT225"
+    },
+    {
+      "label": "Westliche Obersteiermark",
+      "id": "AT226"
+    },
+    {
+      "label": "WESTÖSTERREICH",
+      "id": "AT3"
+    },
+    {
+      "label": "Oberösterreich",
+      "id": "AT31"
+    },
+    {
+      "label": "Innviertel",
+      "id": "AT311"
+    },
+    {
+      "label": "Linz-Wels",
+      "id": "AT312"
+    },
+    {
+      "label": "Mühlviertel",
+      "id": "AT313"
+    },
+    {
+      "label": "Steyr-Kirchdorf",
+      "id": "AT314"
+    },
+    {
+      "label": "Traunviertel",
+      "id": "AT315"
+    },
+    {
+      "label": "Salzburg",
+      "id": "AT32"
+    },
+    {
+      "label": "Lungau",
+      "id": "AT321"
+    },
+    {
+      "label": "Pinzgau-Pongau",
+      "id": "AT322"
+    },
+    {
+      "label": "Salzburg und Umgebung",
+      "id": "AT323"
+    },
+    {
+      "label": "Tirol",
+      "id": "AT33"
+    },
+    {
+      "label": "Außerfern",
+      "id": "AT331"
+    },
+    {
+      "label": "Innsbruck",
+      "id": "AT332"
+    },
+    {
+      "label": "Osttirol",
+      "id": "AT333"
+    },
+    {
+      "label": "Tiroler Oberland",
+      "id": "AT334"
+    },
+    {
+      "label": "Tiroler Unterland",
+      "id": "AT335"
+    },
+    {
+      "label": "Vorarlberg",
+      "id": "AT34"
+    },
+    {
+      "label": "Bludenz-Bregenzer Wald",
+      "id": "AT341"
+    },
+    {
+      "label": "Rheintal-Bodenseegebiet",
+      "id": "AT342"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "ATZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "ATZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "ATZZZ"
+    }
+  ],
+  "BE": [
+    {
+      "label": "BELGIQUE-BELGIË",
+      "id": "BE"
+    },
+    {
+      "label": "RÉGION DE BRUXELLES-CAPITALE / BRUSSELS HOOFDSTEDELIJK GEWEST",
+      "id": "BE1"
+    },
+    {
+      "label": "Région de Bruxelles-Capitale / Brussels Hoofdstedelijk Gewest",
+      "id": "BE10"
+    },
+    {
+      "label": "Arr. de Bruxelles-Capitale / Arr. van Brussel-Hoofdstad",
+      "id": "BE100"
+    },
+    {
+      "label": "VLAAMS GEWEST",
+      "id": "BE2"
+    },
+    {
+      "label": "Prov. Antwerpen",
+      "id": "BE21"
+    },
+    {
+      "label": "Arr. Antwerpen",
+      "id": "BE211"
+    },
+    {
+      "label": "Arr. Mechelen",
+      "id": "BE212"
+    },
+    {
+      "label": "Arr. Turnhout",
+      "id": "BE213"
+    },
+    {
+      "label": "Prov. Limburg (BE)",
+      "id": "BE22"
+    },
+    {
+      "label": "Arr. Hasselt",
+      "id": "BE221"
+    },
+    {
+      "label": "Arr. Maaseik",
+      "id": "BE222"
+    },
+    {
+      "label": "Arr. Tongeren",
+      "id": "BE223"
+    },
+    {
+      "label": "Prov. Oost-Vlaanderen",
+      "id": "BE23"
+    },
+    {
+      "label": "Arr. Aalst",
+      "id": "BE231"
+    },
+    {
+      "label": "Arr. Dendermonde",
+      "id": "BE232"
+    },
+    {
+      "label": "Arr. Eeklo",
+      "id": "BE233"
+    },
+    {
+      "label": "Arr. Gent",
+      "id": "BE234"
+    },
+    {
+      "label": "Arr. Oudenaarde",
+      "id": "BE235"
+    },
+    {
+      "label": "Arr. Sint-Niklaas",
+      "id": "BE236"
+    },
+    {
+      "label": "Prov. Vlaams-Brabant",
+      "id": "BE24"
+    },
+    {
+      "label": "Arr. Halle-Vilvoorde",
+      "id": "BE241"
+    },
+    {
+      "label": "Arr. Leuven",
+      "id": "BE242"
+    },
+    {
+      "label": "Prov. West-Vlaanderen",
+      "id": "BE25"
+    },
+    {
+      "label": "Arr. Brugge",
+      "id": "BE251"
+    },
+    {
+      "label": "Arr. Diksmuide",
+      "id": "BE252"
+    },
+    {
+      "label": "Arr. Ieper",
+      "id": "BE253"
+    },
+    {
+      "label": "Arr. Kortrijk",
+      "id": "BE254"
+    },
+    {
+      "label": "Arr. Oostende",
+      "id": "BE255"
+    },
+    {
+      "label": "Arr. Roeselare",
+      "id": "BE256"
+    },
+    {
+      "label": "Arr. Tielt",
+      "id": "BE257"
+    },
+    {
+      "label": "Arr. Veurne",
+      "id": "BE258"
+    },
+    {
+      "label": "RÉGION WALLONNE",
+      "id": "BE3"
+    },
+    {
+      "label": "Prov. Brabant Wallon",
+      "id": "BE31"
+    },
+    {
+      "label": "Arr. Nivelles",
+      "id": "BE310"
+    },
+    {
+      "label": "Prov. Hainaut",
+      "id": "BE32"
+    },
+    {
+      "label": "Arr. Ath",
+      "id": "BE321"
+    },
+    {
+      "label": "Arr. Charleroi",
+      "id": "BE322"
+    },
+    {
+      "label": "Arr. Mons",
+      "id": "BE323"
+    },
+    {
+      "label": "Arr. Mouscron",
+      "id": "BE324"
+    },
+    {
+      "label": "Arr. Soignies",
+      "id": "BE325"
+    },
+    {
+      "label": "Arr. Thuin",
+      "id": "BE326"
+    },
+    {
+      "label": "Arr. Tournai",
+      "id": "BE327"
+    },
+    {
+      "label": "Prov. Liège",
+      "id": "BE33"
+    },
+    {
+      "label": "Arr. Huy",
+      "id": "BE331"
+    },
+    {
+      "label": "Arr. Liège",
+      "id": "BE332"
+    },
+    {
+      "label": "Arr. Waremme",
+      "id": "BE334"
+    },
+    {
+      "label": "Arr. Verviers - communes francophones",
+      "id": "BE335"
+    },
+    {
+      "label": "Bezirk Verviers - Deutschsprachige Gemeinschaft",
+      "id": "BE336"
+    },
+    {
+      "label": "Prov. Luxembourg (BE)",
+      "id": "BE34"
+    },
+    {
+      "label": "Arr. Arlon",
+      "id": "BE341"
+    },
+    {
+      "label": "Arr. Bastogne",
+      "id": "BE342"
+    },
+    {
+      "label": "Arr. Marche-en-Famenne",
+      "id": "BE343"
+    },
+    {
+      "label": "Arr. Neufchâteau",
+      "id": "BE344"
+    },
+    {
+      "label": "Arr. Virton",
+      "id": "BE345"
+    },
+    {
+      "label": "Prov. Namur",
+      "id": "BE35"
+    },
+    {
+      "label": "Arr. Dinant",
+      "id": "BE351"
+    },
+    {
+      "label": "Arr. Namur",
+      "id": "BE352"
+    },
+    {
+      "label": "Arr. Philippeville",
+      "id": "BE353"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "BEZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "BEZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "BEZZZ"
+    }
+  ],
+  "DK": [
+    {
+      "label": "DANMARK",
+      "id": "DK"
+    },
+    {
+      "label": "DANMARK",
+      "id": "DK0"
+    },
+    {
+      "label": "Hovedstaden",
+      "id": "DK01"
+    },
+    {
+      "label": "Byen København",
+      "id": "DK011"
+    },
+    {
+      "label": "Københavns omegn",
+      "id": "DK012"
+    },
+    {
+      "label": "Nordsjælland",
+      "id": "DK013"
+    },
+    {
+      "label": "Bornholm",
+      "id": "DK014"
+    },
+    {
+      "label": "Sjælland",
+      "id": "DK02"
+    },
+    {
+      "label": "Østsjælland",
+      "id": "DK021"
+    },
+    {
+      "label": "Vest- og Sydsjælland",
+      "id": "DK022"
+    },
+    {
+      "label": "Syddanmark",
+      "id": "DK03"
+    },
+    {
+      "label": "Fyn",
+      "id": "DK031"
+    },
+    {
+      "label": "Sydjylland",
+      "id": "DK032"
+    },
+    {
+      "label": "Midtjylland",
+      "id": "DK04"
+    },
+    {
+      "label": "Vestjylland",
+      "id": "DK041"
+    },
+    {
+      "label": "Østjylland",
+      "id": "DK042"
+    },
+    {
+      "label": "Nordjylland",
+      "id": "DK05"
+    },
+    {
+      "label": "Nordjylland",
+      "id": "DK050"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "DKZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "DKZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "DKZZZ"
+    }
+  ],
+  "IS": [
+    {
+      "label": "Ísland",
+      "id": "IS"
+    },
+    {
+      "label": "Ísland",
+      "id": "IS0"
+    },
+    {
+      "label": "Ísland",
+      "id": "IS00"
+    },
+    {
+      "label": "Höfuðborgarsvæði",
+      "id": "IS001"
+    },
+    {
+      "label": "Landsbyggð",
+      "id": "IS002"
+    }
+  ],
+  "NL": [
+    {
+      "label": "NEDERLAND",
+      "id": "NL"
+    },
+    {
+      "label": "NOORD-NEDERLAND",
+      "id": "NL1"
+    },
+    {
+      "label": "Groningen",
+      "id": "NL11"
+    },
+    {
+      "label": "Oost-Groningen",
+      "id": "NL111"
+    },
+    {
+      "label": "Delfzijl en omgeving",
+      "id": "NL112"
+    },
+    {
+      "label": "Overig Groningen",
+      "id": "NL113"
+    },
+    {
+      "label": "Friesland (NL)",
+      "id": "NL12"
+    },
+    {
+      "label": "Noord-Friesland",
+      "id": "NL121"
+    },
+    {
+      "label": "Zuidwest-Friesland",
+      "id": "NL122"
+    },
+    {
+      "label": "Zuidoost-Friesland",
+      "id": "NL123"
+    },
+    {
+      "label": "Drenthe",
+      "id": "NL13"
+    },
+    {
+      "label": "Noord-Drenthe",
+      "id": "NL131"
+    },
+    {
+      "label": "Zuidoost-Drenthe",
+      "id": "NL132"
+    },
+    {
+      "label": "Zuidwest-Drenthe",
+      "id": "NL133"
+    },
+    {
+      "label": "OOST-NEDERLAND",
+      "id": "NL2"
+    },
+    {
+      "label": "Overijssel",
+      "id": "NL21"
+    },
+    {
+      "label": "Noord-Overijssel",
+      "id": "NL211"
+    },
+    {
+      "label": "Zuidwest-Overijssel",
+      "id": "NL212"
+    },
+    {
+      "label": "Twente",
+      "id": "NL213"
+    },
+    {
+      "label": "Gelderland",
+      "id": "NL22"
+    },
+    {
+      "label": "Veluwe",
+      "id": "NL221"
+    },
+    {
+      "label": "Zuidwest-Gelderland",
+      "id": "NL224"
+    },
+    {
+      "label": "Achterhoek",
+      "id": "NL225"
+    },
+    {
+      "label": "Arnhem/Nijmegen",
+      "id": "NL226"
+    },
+    {
+      "label": "Flevoland",
+      "id": "NL23"
+    },
+    {
+      "label": "Flevoland",
+      "id": "NL230"
+    },
+    {
+      "label": "WEST-NEDERLAND",
+      "id": "NL3"
+    },
+    {
+      "label": "Utrecht",
+      "id": "NL31"
+    },
+    {
+      "label": "Utrecht",
+      "id": "NL310"
+    },
+    {
+      "label": "Noord-Holland",
+      "id": "NL32"
+    },
+    {
+      "label": "Kop van Noord-Holland",
+      "id": "NL321"
+    },
+    {
+      "label": "Alkmaar en omgeving",
+      "id": "NL322"
+    },
+    {
+      "label": "IJmond",
+      "id": "NL323"
+    },
+    {
+      "label": "Agglomeratie Haarlem",
+      "id": "NL324"
+    },
+    {
+      "label": "Zaanstreek",
+      "id": "NL325"
+    },
+    {
+      "label": "Groot-Amsterdam",
+      "id": "NL326"
+    },
+    {
+      "label": "Het Gooi en Vechtstreek",
+      "id": "NL327"
+    },
+    {
+      "label": "Zuid-Holland",
+      "id": "NL33"
+    },
+    {
+      "label": "Agglomeratie 's-Gravenhage",
+      "id": "NL332"
+    },
+    {
+      "label": "Delft en Westland",
+      "id": "NL333"
+    },
+    {
+      "label": "Agglomeratie Leiden en Bollenstreek",
+      "id": "NL337"
+    },
+    {
+      "label": "Oost-Zuid-Holland",
+      "id": "NL338"
+    },
+    {
+      "label": "Groot-Rijnmond",
+      "id": "NL339"
+    },
+    {
+      "label": "Zuidoost-Zuid-Holland",
+      "id": "NL33A"
+    },
+    {
+      "label": "Zeeland",
+      "id": "NL34"
+    },
+    {
+      "label": "Zeeuwsch-Vlaanderen",
+      "id": "NL341"
+    },
+    {
+      "label": "Overig Zeeland",
+      "id": "NL342"
+    },
+    {
+      "label": "ZUID-NEDERLAND",
+      "id": "NL4"
+    },
+    {
+      "label": "Noord-Brabant",
+      "id": "NL41"
+    },
+    {
+      "label": "West-Noord-Brabant",
+      "id": "NL411"
+    },
+    {
+      "label": "Midden-Noord-Brabant",
+      "id": "NL412"
+    },
+    {
+      "label": "Noordoost-Noord-Brabant",
+      "id": "NL413"
+    },
+    {
+      "label": "Zuidoost-Noord-Brabant",
+      "id": "NL414"
+    },
+    {
+      "label": "Limburg (NL)",
+      "id": "NL42"
+    },
+    {
+      "label": "Noord-Limburg",
+      "id": "NL421"
+    },
+    {
+      "label": "Midden-Limburg",
+      "id": "NL422"
+    },
+    {
+      "label": "Zuid-Limburg",
+      "id": "NL423"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "NLZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "NLZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "NLZZZ"
+    }
+  ],
+  "PL": [
+    {
+      "label": "POLSKA",
+      "id": "PL"
+    },
+    {
+      "label": "REGION CENTRALNY",
+      "id": "PL1"
+    },
+    {
+      "label": "Łódzkie",
+      "id": "PL11"
+    },
+    {
+      "label": "Miasto Łódź",
+      "id": "PL113"
+    },
+    {
+      "label": "Łódzki",
+      "id": "PL114"
+    },
+    {
+      "label": "Piotrkowski",
+      "id": "PL115"
+    },
+    {
+      "label": "Sieradzki",
+      "id": "PL116"
+    },
+    {
+      "label": "Skierniewicki",
+      "id": "PL117"
+    },
+    {
+      "label": "Mazowieckie",
+      "id": "PL12"
+    },
+    {
+      "label": "Miasto Warszawa",
+      "id": "PL127"
+    },
+    {
+      "label": "Radomski",
+      "id": "PL128"
+    },
+    {
+      "label": "Warszawski wschodni",
+      "id": "PL129"
+    },
+    {
+      "label": "Warszawski zachodni",
+      "id": "PL12A"
+    },
+    {
+      "label": "Ciechanowski",
+      "id": "PL12B"
+    },
+    {
+      "label": "Płocki",
+      "id": "PL12C"
+    },
+    {
+      "label": "Ostrołęcki",
+      "id": "PL12D"
+    },
+    {
+      "label": "Siedlecki",
+      "id": "PL12E"
+    },
+    {
+      "label": "REGION POŁUDNIOWY",
+      "id": "PL2"
+    },
+    {
+      "label": "Małopolskie",
+      "id": "PL21"
+    },
+    {
+      "label": "Miasto Kraków",
+      "id": "PL213"
+    },
+    {
+      "label": "Krakowski",
+      "id": "PL214"
+    },
+    {
+      "label": "Tarnowski",
+      "id": "PL217"
+    },
+    {
+      "label": "Nowosądecki",
+      "id": "PL218"
+    },
+    {
+      "label": "Nowotarski",
+      "id": "PL219"
+    },
+    {
+      "label": "Oświęcimski",
+      "id": "PL21A"
+    },
+    {
+      "label": "Śląskie",
+      "id": "PL22"
+    },
+    {
+      "label": "Częstochowski",
+      "id": "PL224"
+    },
+    {
+      "label": "Bielski",
+      "id": "PL225"
+    },
+    {
+      "label": "Rybnicki",
+      "id": "PL227"
+    },
+    {
+      "label": "Bytomski",
+      "id": "PL228"
+    },
+    {
+      "label": "Gliwicki",
+      "id": "PL229"
+    },
+    {
+      "label": "Katowicki",
+      "id": "PL22A"
+    },
+    {
+      "label": "Sosnowiecki",
+      "id": "PL22B"
+    },
+    {
+      "label": "Tyski",
+      "id": "PL22C"
+    },
+    {
+      "label": "REGION WSCHODNI",
+      "id": "PL3"
+    },
+    {
+      "label": "Lubelskie",
+      "id": "PL31"
+    },
+    {
+      "label": "Bialski",
+      "id": "PL311"
+    },
+    {
+      "label": "Chełmsko-zamojski",
+      "id": "PL312"
+    },
+    {
+      "label": "Lubelski",
+      "id": "PL314"
+    },
+    {
+      "label": "Puławski",
+      "id": "PL315"
+    },
+    {
+      "label": "Podkarpackie",
+      "id": "PL32"
+    },
+    {
+      "label": "Krośnieński",
+      "id": "PL323"
+    },
+    {
+      "label": "Przemyski",
+      "id": "PL324"
+    },
+    {
+      "label": "Rzeszowski",
+      "id": "PL325"
+    },
+    {
+      "label": "Tarnobrzeski",
+      "id": "PL326"
+    },
+    {
+      "label": "Świętokrzyskie",
+      "id": "PL33"
+    },
+    {
+      "label": "Kielecki",
+      "id": "PL331"
+    },
+    {
+      "label": "Sandomiersko-jędrzejowski",
+      "id": "PL332"
+    },
+    {
+      "label": "Podlaskie",
+      "id": "PL34"
+    },
+    {
+      "label": "Białostocki",
+      "id": "PL343"
+    },
+    {
+      "label": "Łomżyński",
+      "id": "PL344"
+    },
+    {
+      "label": "Suwalski",
+      "id": "PL345"
+    },
+    {
+      "label": "REGION PÓŁNOCNO-ZACHODNI",
+      "id": "PL4"
+    },
+    {
+      "label": "Wielkopolskie",
+      "id": "PL41"
+    },
+    {
+      "label": "Pilski",
+      "id": "PL411"
+    },
+    {
+      "label": "Koniński",
+      "id": "PL414"
+    },
+    {
+      "label": "Miasto Poznań",
+      "id": "PL415"
+    },
+    {
+      "label": "Kaliski",
+      "id": "PL416"
+    },
+    {
+      "label": "Leszczyński",
+      "id": "PL417"
+    },
+    {
+      "label": "Poznański",
+      "id": "PL418"
+    },
+    {
+      "label": "Zachodniopomorskie",
+      "id": "PL42"
+    },
+    {
+      "label": "Miasto Szczecin",
+      "id": "PL424"
+    },
+    {
+      "label": "Koszaliński",
+      "id": "PL426"
+    },
+    {
+      "label": "Szczecinecko-pyrzycki",
+      "id": "PL427"
+    },
+    {
+      "label": "Szczeciński",
+      "id": "PL428"
+    },
+    {
+      "label": "Lubuskie",
+      "id": "PL43"
+    },
+    {
+      "label": "Gorzowski",
+      "id": "PL431"
+    },
+    {
+      "label": "Zielonogórski",
+      "id": "PL432"
+    },
+    {
+      "label": "REGION POŁUDNIOWO-ZACHODNI",
+      "id": "PL5"
+    },
+    {
+      "label": "Dolnośląskie",
+      "id": "PL51"
+    },
+    {
+      "label": "Miasto Wrocław",
+      "id": "PL514"
+    },
+    {
+      "label": "Jeleniogórski",
+      "id": "PL515"
+    },
+    {
+      "label": "Legnicko-Głogowski",
+      "id": "PL516"
+    },
+    {
+      "label": "Wałbrzyski",
+      "id": "PL517"
+    },
+    {
+      "label": "Wrocławski",
+      "id": "PL518"
+    },
+    {
+      "label": "Opolskie",
+      "id": "PL52"
+    },
+    {
+      "label": "Nyski",
+      "id": "PL523"
+    },
+    {
+      "label": "Opolski",
+      "id": "PL524"
+    },
+    {
+      "label": "REGION PÓŁNOCNY",
+      "id": "PL6"
+    },
+    {
+      "label": "Kujawsko-Pomorskie",
+      "id": "PL61"
+    },
+    {
+      "label": "Bydgosko-Toruński",
+      "id": "PL613"
+    },
+    {
+      "label": "Grudziądzki",
+      "id": "PL616"
+    },
+    {
+      "label": "Inowrocławski",
+      "id": "PL617"
+    },
+    {
+      "label": "Świecki",
+      "id": "PL618"
+    },
+    {
+      "label": "Włocławski",
+      "id": "PL619"
+    },
+    {
+      "label": "Warmińsko-Mazurskie",
+      "id": "PL62"
+    },
+    {
+      "label": "Elbląski",
+      "id": "PL621"
+    },
+    {
+      "label": "Olsztyński",
+      "id": "PL622"
+    },
+    {
+      "label": "Ełcki",
+      "id": "PL623"
+    },
+    {
+      "label": "Pomorskie",
+      "id": "PL63"
+    },
+    {
+      "label": "Trójmiejski",
+      "id": "PL633"
+    },
+    {
+      "label": "Gdański",
+      "id": "PL634"
+    },
+    {
+      "label": "Słupski",
+      "id": "PL636"
+    },
+    {
+      "label": "Chojnicki",
+      "id": "PL637"
+    },
+    {
+      "label": "Starogardzki",
+      "id": "PL638"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "PLZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "PLZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "PLZZZ"
+    }
+  ],
+  "ME": [
+    {
+      "label": "Crna Gora",
+      "id": "ME"
+    },
+    {
+      "label": "Crna Gora",
+      "id": "ME0"
+    },
+    {
+      "label": "Crna Gora",
+      "id": "ME00"
+    },
+    {
+      "label": "Crna Gora",
+      "id": "ME000"
+    }
+  ],
+  "RO": [
+    {
+      "label": "ROMÂNIA",
+      "id": "RO"
+    },
+    {
+      "label": "MACROREGIUNEA UNU",
+      "id": "RO1"
+    },
+    {
+      "label": "Nord-Vest",
+      "id": "RO11"
+    },
+    {
+      "label": "Bihor",
+      "id": "RO111"
+    },
+    {
+      "label": "Bistriţa-Năsăud",
+      "id": "RO112"
+    },
+    {
+      "label": "Cluj",
+      "id": "RO113"
+    },
+    {
+      "label": "Maramureş",
+      "id": "RO114"
+    },
+    {
+      "label": "Satu Mare",
+      "id": "RO115"
+    },
+    {
+      "label": "Sălaj",
+      "id": "RO116"
+    },
+    {
+      "label": "Centru",
+      "id": "RO12"
+    },
+    {
+      "label": "Alba",
+      "id": "RO121"
+    },
+    {
+      "label": "Braşov",
+      "id": "RO122"
+    },
+    {
+      "label": "Covasna",
+      "id": "RO123"
+    },
+    {
+      "label": "Harghita",
+      "id": "RO124"
+    },
+    {
+      "label": "Mureş",
+      "id": "RO125"
+    },
+    {
+      "label": "Sibiu",
+      "id": "RO126"
+    },
+    {
+      "label": "MACROREGIUNEA DOI",
+      "id": "RO2"
+    },
+    {
+      "label": "Nord-Est",
+      "id": "RO21"
+    },
+    {
+      "label": "Bacău",
+      "id": "RO211"
+    },
+    {
+      "label": "Botoşani",
+      "id": "RO212"
+    },
+    {
+      "label": "Iaşi",
+      "id": "RO213"
+    },
+    {
+      "label": "Neamţ",
+      "id": "RO214"
+    },
+    {
+      "label": "Suceava",
+      "id": "RO215"
+    },
+    {
+      "label": "Vaslui",
+      "id": "RO216"
+    },
+    {
+      "label": "Sud-Est",
+      "id": "RO22"
+    },
+    {
+      "label": "Brăila",
+      "id": "RO221"
+    },
+    {
+      "label": "Buzău",
+      "id": "RO222"
+    },
+    {
+      "label": "Constanţa",
+      "id": "RO223"
+    },
+    {
+      "label": "Galaţi",
+      "id": "RO224"
+    },
+    {
+      "label": "Tulcea",
+      "id": "RO225"
+    },
+    {
+      "label": "Vrancea",
+      "id": "RO226"
+    },
+    {
+      "label": "MACROREGIUNEA TREI",
+      "id": "RO3"
+    },
+    {
+      "label": "Sud - Muntenia",
+      "id": "RO31"
+    },
+    {
+      "label": "Argeş",
+      "id": "RO311"
+    },
+    {
+      "label": "Călăraşi",
+      "id": "RO312"
+    },
+    {
+      "label": "Dâmboviţa",
+      "id": "RO313"
+    },
+    {
+      "label": "Giurgiu",
+      "id": "RO314"
+    },
+    {
+      "label": "Ialomiţa",
+      "id": "RO315"
+    },
+    {
+      "label": "Prahova",
+      "id": "RO316"
+    },
+    {
+      "label": "Teleorman",
+      "id": "RO317"
+    },
+    {
+      "label": "Bucureşti - Ilfov",
+      "id": "RO32"
+    },
+    {
+      "label": "Bucureşti",
+      "id": "RO321"
+    },
+    {
+      "label": "Ilfov",
+      "id": "RO322"
+    },
+    {
+      "label": "MACROREGIUNEA PATRU",
+      "id": "RO4"
+    },
+    {
+      "label": "Sud-Vest Oltenia",
+      "id": "RO41"
+    },
+    {
+      "label": "Dolj",
+      "id": "RO411"
+    },
+    {
+      "label": "Gorj",
+      "id": "RO412"
+    },
+    {
+      "label": "Mehedinţi",
+      "id": "RO413"
+    },
+    {
+      "label": "Olt",
+      "id": "RO414"
+    },
+    {
+      "label": "Vâlcea",
+      "id": "RO415"
+    },
+    {
+      "label": "Vest",
+      "id": "RO42"
+    },
+    {
+      "label": "Arad",
+      "id": "RO421"
+    },
+    {
+      "label": "Caraş-Severin",
+      "id": "RO422"
+    },
+    {
+      "label": "Hunedoara",
+      "id": "RO423"
+    },
+    {
+      "label": "Timiş",
+      "id": "RO424"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "ROZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "ROZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "ROZZZ"
+    }
+  ],
+  "HU": [
+    {
+      "label": "MAGYARORSZÁG",
+      "id": "HU"
+    },
+    {
+      "label": "KÖZÉP-MAGYARORSZÁG",
+      "id": "HU1"
+    },
+    {
+      "label": "Közép-Magyarország",
+      "id": "HU10"
+    },
+    {
+      "label": "Budapest",
+      "id": "HU101"
+    },
+    {
+      "label": "Pest",
+      "id": "HU102"
+    },
+    {
+      "label": "DUNÁNTÚL",
+      "id": "HU2"
+    },
+    {
+      "label": "Közép-Dunántúl",
+      "id": "HU21"
+    },
+    {
+      "label": "Fejér",
+      "id": "HU211"
+    },
+    {
+      "label": "Komárom-Esztergom",
+      "id": "HU212"
+    },
+    {
+      "label": "Veszprém",
+      "id": "HU213"
+    },
+    {
+      "label": "Nyugat-Dunántúl",
+      "id": "HU22"
+    },
+    {
+      "label": "Győr-Moson-Sopron",
+      "id": "HU221"
+    },
+    {
+      "label": "Vas",
+      "id": "HU222"
+    },
+    {
+      "label": "Zala",
+      "id": "HU223"
+    },
+    {
+      "label": "Dél-Dunántúl",
+      "id": "HU23"
+    },
+    {
+      "label": "Baranya",
+      "id": "HU231"
+    },
+    {
+      "label": "Somogy",
+      "id": "HU232"
+    },
+    {
+      "label": "Tolna",
+      "id": "HU233"
+    },
+    {
+      "label": "ALFÖLD ÉS ÉSZAK",
+      "id": "HU3"
+    },
+    {
+      "label": "Észak-Magyarország",
+      "id": "HU31"
+    },
+    {
+      "label": "Borsod-Abaúj-Zemplén",
+      "id": "HU311"
+    },
+    {
+      "label": "Heves",
+      "id": "HU312"
+    },
+    {
+      "label": "Nógrád",
+      "id": "HU313"
+    },
+    {
+      "label": "Észak-Alföld",
+      "id": "HU32"
+    },
+    {
+      "label": "Hajdú-Bihar",
+      "id": "HU321"
+    },
+    {
+      "label": "Jász-Nagykun-Szolnok",
+      "id": "HU322"
+    },
+    {
+      "label": "Szabolcs-Szatmár-Bereg",
+      "id": "HU323"
+    },
+    {
+      "label": "Dél-Alföld",
+      "id": "HU33"
+    },
+    {
+      "label": "Bács-Kiskun",
+      "id": "HU331"
+    },
+    {
+      "label": "Békés",
+      "id": "HU332"
+    },
+    {
+      "label": "Csongrád",
+      "id": "HU333"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "HUZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "HUZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "HUZZZ"
+    }
+  ],
+  "FI": [
+    {
+      "label": "SUOMI / FINLAND",
+      "id": "FI"
+    },
+    {
+      "label": "MANNER-SUOMI",
+      "id": "FI1"
+    },
+    {
+      "label": "Länsi-Suomi",
+      "id": "FI19"
+    },
+    {
+      "label": "Keski-Suomi",
+      "id": "FI193"
+    },
+    {
+      "label": "Etelä-Pohjanmaa",
+      "id": "FI194"
+    },
+    {
+      "label": "Pohjanmaa",
+      "id": "FI195"
+    },
+    {
+      "label": "Satakunta",
+      "id": "FI196"
+    },
+    {
+      "label": "Pirkanmaa",
+      "id": "FI197"
+    },
+    {
+      "label": "Helsinki-Uusimaa",
+      "id": "FI1B"
+    },
+    {
+      "label": "Helsinki-Uusimaa",
+      "id": "FI1B1"
+    },
+    {
+      "label": "Etelä-Suomi",
+      "id": "FI1C"
+    },
+    {
+      "label": "Varsinais-Suomi",
+      "id": "FI1C1"
+    },
+    {
+      "label": "Kanta-Häme",
+      "id": "FI1C2"
+    },
+    {
+      "label": "Päijät-Häme",
+      "id": "FI1C3"
+    },
+    {
+      "label": "Kymenlaakso",
+      "id": "FI1C4"
+    },
+    {
+      "label": "Etelä-Karjala",
+      "id": "FI1C5"
+    },
+    {
+      "label": "Pohjois- ja Itä-Suomi",
+      "id": "FI1D"
+    },
+    {
+      "label": "Etelä-Savo",
+      "id": "FI1D1"
+    },
+    {
+      "label": "Pohjois-Savo",
+      "id": "FI1D2"
+    },
+    {
+      "label": "Pohjois-Karjala",
+      "id": "FI1D3"
+    },
+    {
+      "label": "Kainuu",
+      "id": "FI1D4"
+    },
+    {
+      "label": "Keski-Pohjanmaa",
+      "id": "FI1D5"
+    },
+    {
+      "label": "Pohjois-Pohjanmaa",
+      "id": "FI1D6"
+    },
+    {
+      "label": "Lappi",
+      "id": "FI1D7"
+    },
+    {
+      "label": "ÅLAND",
+      "id": "FI2"
+    },
+    {
+      "label": "Åland",
+      "id": "FI20"
+    },
+    {
+      "label": "Åland",
+      "id": "FI200"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "FIZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "FIZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "FIZZZ"
+    }
+  ],
+  "NO": [
+    {
+      "label": "Norge",
+      "id": "NO"
+    },
+    {
+      "label": "Norge",
+      "id": "NO0"
+    },
+    {
+      "label": "Oslo og Akershus",
+      "id": "NO01"
+    },
+    {
+      "label": "Oslo",
+      "id": "NO011"
+    },
+    {
+      "label": "Akershus",
+      "id": "NO012"
+    },
+    {
+      "label": "Hedmark og Oppland",
+      "id": "NO02"
+    },
+    {
+      "label": "Hedmark",
+      "id": "NO021"
+    },
+    {
+      "label": "Oppland",
+      "id": "NO022"
+    },
+    {
+      "label": "Sør-Østlandet",
+      "id": "NO03"
+    },
+    {
+      "label": "Østfold",
+      "id": "NO031"
+    },
+    {
+      "label": "Buskerud",
+      "id": "NO032"
+    },
+    {
+      "label": "Vestfold",
+      "id": "NO033"
+    },
+    {
+      "label": "Telemark",
+      "id": "NO034"
+    },
+    {
+      "label": "Agder og Rogaland",
+      "id": "NO04"
+    },
+    {
+      "label": "Aust-Agder",
+      "id": "NO041"
+    },
+    {
+      "label": "Vest-Agder",
+      "id": "NO042"
+    },
+    {
+      "label": "Rogaland",
+      "id": "NO043"
+    },
+    {
+      "label": "Vestlandet",
+      "id": "NO05"
+    },
+    {
+      "label": "Hordaland",
+      "id": "NO051"
+    },
+    {
+      "label": "Sogn og Fjordane",
+      "id": "NO052"
+    },
+    {
+      "label": "Møre og Romsdal",
+      "id": "NO053"
+    },
+    {
+      "label": "Trøndelag",
+      "id": "NO06"
+    },
+    {
+      "label": "Sør-Trøndelag",
+      "id": "NO061"
+    },
+    {
+      "label": "Nord-Trøndelag",
+      "id": "NO062"
+    },
+    {
+      "label": "Nord-Norge",
+      "id": "NO07"
+    },
+    {
+      "label": "Nordland",
+      "id": "NO071"
+    },
+    {
+      "label": "Troms",
+      "id": "NO072"
+    },
+    {
+      "label": "Finnmark",
+      "id": "NO073"
+    }
+  ],
+  "SE": [
+    {
+      "label": "SVERIGE",
+      "id": "SE"
+    },
+    {
+      "label": "ÖSTRA SVERIGE",
+      "id": "SE1"
+    },
+    {
+      "label": "Stockholm",
+      "id": "SE11"
+    },
+    {
+      "label": "Stockholms län",
+      "id": "SE110"
+    },
+    {
+      "label": "Östra Mellansverige",
+      "id": "SE12"
+    },
+    {
+      "label": "Uppsala län",
+      "id": "SE121"
+    },
+    {
+      "label": "Södermanlands län",
+      "id": "SE122"
+    },
+    {
+      "label": "Östergötlands län",
+      "id": "SE123"
+    },
+    {
+      "label": "Örebro län",
+      "id": "SE124"
+    },
+    {
+      "label": "Västmanlands län",
+      "id": "SE125"
+    },
+    {
+      "label": "SÖDRA SVERIGE",
+      "id": "SE2"
+    },
+    {
+      "label": "Småland med öarna",
+      "id": "SE21"
+    },
+    {
+      "label": "Jönköpings län",
+      "id": "SE211"
+    },
+    {
+      "label": "Kronobergs län",
+      "id": "SE212"
+    },
+    {
+      "label": "Kalmar län",
+      "id": "SE213"
+    },
+    {
+      "label": "Gotlands län",
+      "id": "SE214"
+    },
+    {
+      "label": "Sydsverige",
+      "id": "SE22"
+    },
+    {
+      "label": "Blekinge län",
+      "id": "SE221"
+    },
+    {
+      "label": "Skåne län",
+      "id": "SE224"
+    },
+    {
+      "label": "Västsverige",
+      "id": "SE23"
+    },
+    {
+      "label": "Hallands län",
+      "id": "SE231"
+    },
+    {
+      "label": "Västra Götalands län",
+      "id": "SE232"
+    },
+    {
+      "label": "NORRA SVERIGE",
+      "id": "SE3"
+    },
+    {
+      "label": "Norra Mellansverige",
+      "id": "SE31"
+    },
+    {
+      "label": "Värmlands län",
+      "id": "SE311"
+    },
+    {
+      "label": "Dalarnas län",
+      "id": "SE312"
+    },
+    {
+      "label": "Gävleborgs län",
+      "id": "SE313"
+    },
+    {
+      "label": "Mellersta Norrland",
+      "id": "SE32"
+    },
+    {
+      "label": "Västernorrlands län",
+      "id": "SE321"
+    },
+    {
+      "label": "Jämtlands län",
+      "id": "SE322"
+    },
+    {
+      "label": "Övre Norrland",
+      "id": "SE33"
+    },
+    {
+      "label": "Västerbottens län",
+      "id": "SE331"
+    },
+    {
+      "label": "Norrbottens län",
+      "id": "SE332"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "SEZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "SEZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "SEZZZ"
+    }
+  ],
+  "IE": [
+    {
+      "label": "IRELAND",
+      "id": "IE"
+    },
+    {
+      "label": "IRELAND",
+      "id": "IE0"
+    },
+    {
+      "label": "Border, Midland and Western",
+      "id": "IE01"
+    },
+    {
+      "label": "Border",
+      "id": "IE011"
+    },
+    {
+      "label": "Midland",
+      "id": "IE012"
+    },
+    {
+      "label": "West",
+      "id": "IE013"
+    },
+    {
+      "label": "Southern and Eastern",
+      "id": "IE02"
+    },
+    {
+      "label": "Dublin",
+      "id": "IE021"
+    },
+    {
+      "label": "Mid-East",
+      "id": "IE022"
+    },
+    {
+      "label": "Mid-West",
+      "id": "IE023"
+    },
+    {
+      "label": "South-East (IE)",
+      "id": "IE024"
+    },
+    {
+      "label": "South-West (IE)",
+      "id": "IE025"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "IEZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "IEZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "IEZZZ"
+    }
+  ],
+  "MT": [
+    {
+      "label": "MALTA",
+      "id": "MT"
+    },
+    {
+      "label": "MALTA",
+      "id": "MT0"
+    },
+    {
+      "label": "Malta",
+      "id": "MT00"
+    },
+    {
+      "label": "Malta",
+      "id": "MT001"
+    },
+    {
+      "label": "Gozo and Comino / Għawdex u Kemmuna",
+      "id": "MT002"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "MTZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "MTZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "MTZZZ"
+    }
+  ],
+  "CZ": [
+    {
+      "label": "ČESKÁ REPUBLIKA",
+      "id": "CZ"
+    },
+    {
+      "label": "ČESKÁ REPUBLIKA",
+      "id": "CZ0"
+    },
+    {
+      "label": "Praha",
+      "id": "CZ01"
+    },
+    {
+      "label": "Hlavní město Praha",
+      "id": "CZ010"
+    },
+    {
+      "label": "Střední Čechy",
+      "id": "CZ02"
+    },
+    {
+      "label": "Středočeský kraj",
+      "id": "CZ020"
+    },
+    {
+      "label": "Jihozápad",
+      "id": "CZ03"
+    },
+    {
+      "label": "Jihočeský kraj",
+      "id": "CZ031"
+    },
+    {
+      "label": "Plzeňský kraj",
+      "id": "CZ032"
+    },
+    {
+      "label": "Severozápad",
+      "id": "CZ04"
+    },
+    {
+      "label": "Karlovarský kraj",
+      "id": "CZ041"
+    },
+    {
+      "label": "Ústecký kraj",
+      "id": "CZ042"
+    },
+    {
+      "label": "Severovýchod",
+      "id": "CZ05"
+    },
+    {
+      "label": "Liberecký kraj",
+      "id": "CZ051"
+    },
+    {
+      "label": "Královéhradecký kraj",
+      "id": "CZ052"
+    },
+    {
+      "label": "Pardubický kraj",
+      "id": "CZ053"
+    },
+    {
+      "label": "Jihovýchod",
+      "id": "CZ06"
+    },
+    {
+      "label": "Kraj Vysočina",
+      "id": "CZ063"
+    },
+    {
+      "label": "Jihomoravský kraj",
+      "id": "CZ064"
+    },
+    {
+      "label": "Střední Morava",
+      "id": "CZ07"
+    },
+    {
+      "label": "Olomoucký kraj",
+      "id": "CZ071"
+    },
+    {
+      "label": "Zlínský kraj",
+      "id": "CZ072"
+    },
+    {
+      "label": "Moravskoslezsko",
+      "id": "CZ08"
+    },
+    {
+      "label": "Moravskoslezský kraj",
+      "id": "CZ080"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "CZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "CZZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "CZZZZ"
+    }
+  ],
+  "UK": [
+    {
+      "label": "UNITED KINGDOM",
+      "id": "UK"
+    },
+    {
+      "label": "NORTH EAST (ENGLAND)",
+      "id": "UKC"
+    },
+    {
+      "label": "Tees Valley and Durham",
+      "id": "UKC1"
+    },
+    {
+      "label": "Hartlepool and Stockton-on-Tees",
+      "id": "UKC11"
+    },
+    {
+      "label": "South Teesside",
+      "id": "UKC12"
+    },
+    {
+      "label": "Darlington",
+      "id": "UKC13"
+    },
+    {
+      "label": "Durham CC",
+      "id": "UKC14"
+    },
+    {
+      "label": "Northumberland and Tyne and Wear",
+      "id": "UKC2"
+    },
+    {
+      "label": "Northumberland",
+      "id": "UKC21"
+    },
+    {
+      "label": "Tyneside",
+      "id": "UKC22"
+    },
+    {
+      "label": "Sunderland",
+      "id": "UKC23"
+    },
+    {
+      "label": "NORTH WEST (ENGLAND)",
+      "id": "UKD"
+    },
+    {
+      "label": "Cumbria",
+      "id": "UKD1"
+    },
+    {
+      "label": "West Cumbria",
+      "id": "UKD11"
+    },
+    {
+      "label": "East Cumbria",
+      "id": "UKD12"
+    },
+    {
+      "label": "Greater Manchester",
+      "id": "UKD3"
+    },
+    {
+      "label": "Manchester",
+      "id": "UKD33"
+    },
+    {
+      "label": "Greater Manchester South West",
+      "id": "UKD34"
+    },
+    {
+      "label": "Greater Manchester South East",
+      "id": "UKD35"
+    },
+    {
+      "label": "Greater Manchester North West",
+      "id": "UKD36"
+    },
+    {
+      "label": "Greater Manchester North East",
+      "id": "UKD37"
+    },
+    {
+      "label": "Lancashire",
+      "id": "UKD4"
+    },
+    {
+      "label": "Blackburn with Darwen",
+      "id": "UKD41"
+    },
+    {
+      "label": "Blackpool",
+      "id": "UKD42"
+    },
+    {
+      "label": "Lancaster & Wyre",
+      "id": "UKD44"
+    },
+    {
+      "label": "Mid Lancashire",
+      "id": "UKD45"
+    },
+    {
+      "label": "East Lancashire",
+      "id": "UKD46"
+    },
+    {
+      "label": "Chorley & West Lancashire",
+      "id": "UKD47"
+    },
+    {
+      "label": "Cheshire",
+      "id": "UKD6"
+    },
+    {
+      "label": "Warrington",
+      "id": "UKD61"
+    },
+    {
+      "label": "Cheshire East",
+      "id": "UKD62"
+    },
+    {
+      "label": "Cheshire West and Chester",
+      "id": "UKD63"
+    },
+    {
+      "label": "Merseyside",
+      "id": "UKD7"
+    },
+    {
+      "label": "East Merseyside",
+      "id": "UKD71"
+    },
+    {
+      "label": "Liverpool",
+      "id": "UKD72"
+    },
+    {
+      "label": "Sefton",
+      "id": "UKD73"
+    },
+    {
+      "label": "Wirral",
+      "id": "UKD74"
+    },
+    {
+      "label": "YORKSHIRE AND THE HUMBER",
+      "id": "UKE"
+    },
+    {
+      "label": "East Yorkshire and Northern Lincolnshire",
+      "id": "UKE1"
+    },
+    {
+      "label": "Kingston upon Hull, City of",
+      "id": "UKE11"
+    },
+    {
+      "label": "East Riding of Yorkshire",
+      "id": "UKE12"
+    },
+    {
+      "label": "North and North East Lincolnshire",
+      "id": "UKE13"
+    },
+    {
+      "label": "North Yorkshire",
+      "id": "UKE2"
+    },
+    {
+      "label": "York",
+      "id": "UKE21"
+    },
+    {
+      "label": "North Yorkshire CC",
+      "id": "UKE22"
+    },
+    {
+      "label": "South Yorkshire",
+      "id": "UKE3"
+    },
+    {
+      "label": "Barnsley, Doncaster and Rotherham",
+      "id": "UKE31"
+    },
+    {
+      "label": "Sheffield",
+      "id": "UKE32"
+    },
+    {
+      "label": "West Yorkshire",
+      "id": "UKE4"
+    },
+    {
+      "label": "Bradford",
+      "id": "UKE41"
+    },
+    {
+      "label": "Leeds",
+      "id": "UKE42"
+    },
+    {
+      "label": "Calderdale and Kirklees",
+      "id": "UKE44"
+    },
+    {
+      "label": "Wakefield",
+      "id": "UKE45"
+    },
+    {
+      "label": "EAST MIDLANDS (ENGLAND)",
+      "id": "UKF"
+    },
+    {
+      "label": "Derbyshire and Nottinghamshire",
+      "id": "UKF1"
+    },
+    {
+      "label": "Derby",
+      "id": "UKF11"
+    },
+    {
+      "label": "East Derbyshire",
+      "id": "UKF12"
+    },
+    {
+      "label": "South and West Derbyshire",
+      "id": "UKF13"
+    },
+    {
+      "label": "Nottingham",
+      "id": "UKF14"
+    },
+    {
+      "label": "North Nottinghamshire",
+      "id": "UKF15"
+    },
+    {
+      "label": "South Nottinghamshire",
+      "id": "UKF16"
+    },
+    {
+      "label": "Leicestershire, Rutland and Northamptonshire",
+      "id": "UKF2"
+    },
+    {
+      "label": "Leicester",
+      "id": "UKF21"
+    },
+    {
+      "label": "Leicestershire CC and Rutland",
+      "id": "UKF22"
+    },
+    {
+      "label": "West Northamptonshire",
+      "id": "UKF24"
+    },
+    {
+      "label": "North Northamptonshire",
+      "id": "UKF25"
+    },
+    {
+      "label": "Lincolnshire",
+      "id": "UKF3"
+    },
+    {
+      "label": "Lincolnshire",
+      "id": "UKF30"
+    },
+    {
+      "label": "WEST MIDLANDS (ENGLAND)",
+      "id": "UKG"
+    },
+    {
+      "label": "Herefordshire, Worcestershire and Warwickshire",
+      "id": "UKG1"
+    },
+    {
+      "label": "Herefordshire, County of",
+      "id": "UKG11"
+    },
+    {
+      "label": "Worcestershire",
+      "id": "UKG12"
+    },
+    {
+      "label": "Warwickshire",
+      "id": "UKG13"
+    },
+    {
+      "label": "Shropshire and Staffordshire",
+      "id": "UKG2"
+    },
+    {
+      "label": "Telford and Wrekin",
+      "id": "UKG21"
+    },
+    {
+      "label": "Shropshire CC",
+      "id": "UKG22"
+    },
+    {
+      "label": "Stoke-on-Trent",
+      "id": "UKG23"
+    },
+    {
+      "label": "Staffordshire CC",
+      "id": "UKG24"
+    },
+    {
+      "label": "West Midlands",
+      "id": "UKG3"
+    },
+    {
+      "label": "Birmingham",
+      "id": "UKG31"
+    },
+    {
+      "label": "Solihull",
+      "id": "UKG32"
+    },
+    {
+      "label": "Coventry",
+      "id": "UKG33"
+    },
+    {
+      "label": "Dudley",
+      "id": "UKG36"
+    },
+    {
+      "label": "Sandwell",
+      "id": "UKG37"
+    },
+    {
+      "label": "Walsall",
+      "id": "UKG38"
+    },
+    {
+      "label": "Wolverhampton",
+      "id": "UKG39"
+    },
+    {
+      "label": "EAST OF ENGLAND",
+      "id": "UKH"
+    },
+    {
+      "label": "East Anglia",
+      "id": "UKH1"
+    },
+    {
+      "label": "Peterborough",
+      "id": "UKH11"
+    },
+    {
+      "label": "Cambridgeshire CC",
+      "id": "UKH12"
+    },
+    {
+      "label": "Suffolk",
+      "id": "UKH14"
+    },
+    {
+      "label": "Norwich & East Norfolk",
+      "id": "UKH15"
+    },
+    {
+      "label": "North & West Norfolk",
+      "id": "UKH16"
+    },
+    {
+      "label": "Breckland & South Norfolk",
+      "id": "UKH17"
+    },
+    {
+      "label": "Bedfordshire and Hertfordshire",
+      "id": "UKH2"
+    },
+    {
+      "label": "Luton",
+      "id": "UKH21"
+    },
+    {
+      "label": "Hertfordshire",
+      "id": "UKH23"
+    },
+    {
+      "label": "Bedford",
+      "id": "UKH24"
+    },
+    {
+      "label": "Central Bedfordshire",
+      "id": "UKH25"
+    },
+    {
+      "label": "Essex",
+      "id": "UKH3"
+    },
+    {
+      "label": "Southend-on-Sea",
+      "id": "UKH31"
+    },
+    {
+      "label": "Thurrock",
+      "id": "UKH32"
+    },
+    {
+      "label": "Essex Haven Gateway",
+      "id": "UKH34"
+    },
+    {
+      "label": "West Essex",
+      "id": "UKH35"
+    },
+    {
+      "label": "Heart of Essex",
+      "id": "UKH36"
+    },
+    {
+      "label": "Essex Thames Gateway",
+      "id": "UKH37"
+    },
+    {
+      "label": "LONDON",
+      "id": "UKI"
+    },
+    {
+      "label": "Inner London - West",
+      "id": "UKI3"
+    },
+    {
+      "label": "Camden & City of London",
+      "id": "UKI31"
+    },
+    {
+      "label": "Westminster",
+      "id": "UKI32"
+    },
+    {
+      "label": "Kensington and Chelsea & Hammersmith and Fulham",
+      "id": "UKI33"
+    },
+    {
+      "label": "Wandsworth",
+      "id": "UKI34"
+    },
+    {
+      "label": "Inner London - East",
+      "id": "UKI4"
+    },
+    {
+      "label": "Hackney & Newham",
+      "id": "UKI41"
+    },
+    {
+      "label": "Tower Hamlets",
+      "id": "UKI42"
+    },
+    {
+      "label": "Haringey & Islington",
+      "id": "UKI43"
+    },
+    {
+      "label": "Lewisham & Southwark",
+      "id": "UKI44"
+    },
+    {
+      "label": "Lambeth",
+      "id": "UKI45"
+    },
+    {
+      "label": "Outer London - East and North East",
+      "id": "UKI5"
+    },
+    {
+      "label": "Bexley & Greenwich",
+      "id": "UKI51"
+    },
+    {
+      "label": "Barking and Dagenham & Havering",
+      "id": "UKI52"
+    },
+    {
+      "label": "Redbridge & Waltham Forest",
+      "id": "UKI53"
+    },
+    {
+      "label": "Enfield",
+      "id": "UKI54"
+    },
+    {
+      "label": "Outer London - South",
+      "id": "UKI6"
+    },
+    {
+      "label": "Bromley",
+      "id": "UKI61"
+    },
+    {
+      "label": "Croydon",
+      "id": "UKI62"
+    },
+    {
+      "label": "Merton, Kingston upon Thames & Sutton",
+      "id": "UKI63"
+    },
+    {
+      "label": "Outer London - West and North West",
+      "id": "UKI7"
+    },
+    {
+      "label": "Barnet",
+      "id": "UKI71"
+    },
+    {
+      "label": "Brent",
+      "id": "UKI72"
+    },
+    {
+      "label": "Ealing",
+      "id": "UKI73"
+    },
+    {
+      "label": "Harrow & Hillingdon",
+      "id": "UKI74"
+    },
+    {
+      "label": "Hounslow & Richmond upon Thames",
+      "id": "UKI75"
+    },
+    {
+      "label": "SOUTH EAST (ENGLAND)",
+      "id": "UKJ"
+    },
+    {
+      "label": "Berkshire, Buckinghamshire and Oxfordshire",
+      "id": "UKJ1"
+    },
+    {
+      "label": "Berkshire",
+      "id": "UKJ11"
+    },
+    {
+      "label": "Milton Keynes",
+      "id": "UKJ12"
+    },
+    {
+      "label": "Buckinghamshire CC",
+      "id": "UKJ13"
+    },
+    {
+      "label": "Oxfordshire",
+      "id": "UKJ14"
+    },
+    {
+      "label": "Surrey, East and West Sussex",
+      "id": "UKJ2"
+    },
+    {
+      "label": "Brighton and Hove",
+      "id": "UKJ21"
+    },
+    {
+      "label": "East Sussex CC",
+      "id": "UKJ22"
+    },
+    {
+      "label": "West Surrey",
+      "id": "UKJ25"
+    },
+    {
+      "label": "East Surrey",
+      "id": "UKJ26"
+    },
+    {
+      "label": "West Sussex (South West)",
+      "id": "UKJ27"
+    },
+    {
+      "label": "West Sussex (North East)",
+      "id": "UKJ28"
+    },
+    {
+      "label": "Hampshire and Isle of Wight",
+      "id": "UKJ3"
+    },
+    {
+      "label": "Portsmouth",
+      "id": "UKJ31"
+    },
+    {
+      "label": "Southampton",
+      "id": "UKJ32"
+    },
+    {
+      "label": "Isle of Wight",
+      "id": "UKJ34"
+    },
+    {
+      "label": "South Hampshire",
+      "id": "UKJ35"
+    },
+    {
+      "label": "Central Hampshire",
+      "id": "UKJ36"
+    },
+    {
+      "label": "North Hampshire",
+      "id": "UKJ37"
+    },
+    {
+      "label": "Kent",
+      "id": "UKJ4"
+    },
+    {
+      "label": "Medway",
+      "id": "UKJ41"
+    },
+    {
+      "label": "Kent Thames Gateway",
+      "id": "UKJ43"
+    },
+    {
+      "label": "East Kent",
+      "id": "UKJ44"
+    },
+    {
+      "label": "Mid Kent",
+      "id": "UKJ45"
+    },
+    {
+      "label": "West Kent",
+      "id": "UKJ46"
+    },
+    {
+      "label": "SOUTH WEST (ENGLAND)",
+      "id": "UKK"
+    },
+    {
+      "label": "Gloucestershire, Wiltshire and Bristol/Bath area",
+      "id": "UKK1"
+    },
+    {
+      "label": "Bristol, City of",
+      "id": "UKK11"
+    },
+    {
+      "label": "Bath and North East Somerset, North Somerset and South Gloucestershire",
+      "id": "UKK12"
+    },
+    {
+      "label": "Gloucestershire",
+      "id": "UKK13"
+    },
+    {
+      "label": "Swindon",
+      "id": "UKK14"
+    },
+    {
+      "label": "Wiltshire CC",
+      "id": "UKK15"
+    },
+    {
+      "label": "Dorset and Somerset",
+      "id": "UKK2"
+    },
+    {
+      "label": "Bournemouth and Poole",
+      "id": "UKK21"
+    },
+    {
+      "label": "Dorset CC",
+      "id": "UKK22"
+    },
+    {
+      "label": "Somerset",
+      "id": "UKK23"
+    },
+    {
+      "label": "Cornwall and Isles of Scilly",
+      "id": "UKK3"
+    },
+    {
+      "label": "Cornwall and Isles of Scilly",
+      "id": "UKK30"
+    },
+    {
+      "label": "Devon",
+      "id": "UKK4"
+    },
+    {
+      "label": "Plymouth",
+      "id": "UKK41"
+    },
+    {
+      "label": "Torbay",
+      "id": "UKK42"
+    },
+    {
+      "label": "Devon CC",
+      "id": "UKK43"
+    },
+    {
+      "label": "WALES",
+      "id": "UKL"
+    },
+    {
+      "label": "West Wales and The Valleys",
+      "id": "UKL1"
+    },
+    {
+      "label": "Isle of Anglesey",
+      "id": "UKL11"
+    },
+    {
+      "label": "Gwynedd",
+      "id": "UKL12"
+    },
+    {
+      "label": "Conwy and Denbighshire",
+      "id": "UKL13"
+    },
+    {
+      "label": "South West Wales",
+      "id": "UKL14"
+    },
+    {
+      "label": "Central Valleys",
+      "id": "UKL15"
+    },
+    {
+      "label": "Gwent Valleys",
+      "id": "UKL16"
+    },
+    {
+      "label": "Bridgend and Neath Port Talbot",
+      "id": "UKL17"
+    },
+    {
+      "label": "Swansea",
+      "id": "UKL18"
+    },
+    {
+      "label": "East Wales",
+      "id": "UKL2"
+    },
+    {
+      "label": "Monmouthshire and Newport",
+      "id": "UKL21"
+    },
+    {
+      "label": "Cardiff and Vale of Glamorgan",
+      "id": "UKL22"
+    },
+    {
+      "label": "Flintshire and Wrexham",
+      "id": "UKL23"
+    },
+    {
+      "label": "Powys",
+      "id": "UKL24"
+    },
+    {
+      "label": "SCOTLAND",
+      "id": "UKM"
+    },
+    {
+      "label": "Eastern Scotland",
+      "id": "UKM2"
+    },
+    {
+      "label": "Angus and Dundee City",
+      "id": "UKM21"
+    },
+    {
+      "label": "Clackmannanshire and Fife",
+      "id": "UKM22"
+    },
+    {
+      "label": "East Lothian and Midlothian",
+      "id": "UKM23"
+    },
+    {
+      "label": "Scottish Borders",
+      "id": "UKM24"
+    },
+    {
+      "label": "Edinburgh, City of",
+      "id": "UKM25"
+    },
+    {
+      "label": "Falkirk",
+      "id": "UKM26"
+    },
+    {
+      "label": "Perth & Kinross and Stirling",
+      "id": "UKM27"
+    },
+    {
+      "label": "West Lothian",
+      "id": "UKM28"
+    },
+    {
+      "label": "South Western Scotland",
+      "id": "UKM3"
+    },
+    {
+      "label": "East Dunbartonshire, West Dunbartonshire and Helensburgh & Lomond",
+      "id": "UKM31"
+    },
+    {
+      "label": "Dumfries & Galloway",
+      "id": "UKM32"
+    },
+    {
+      "label": "East Ayrshire and North Ayrshire mainland",
+      "id": "UKM33"
+    },
+    {
+      "label": "Glasgow City",
+      "id": "UKM34"
+    },
+    {
+      "label": "Inverclyde, East Renfrewshire and Renfrewshire",
+      "id": "UKM35"
+    },
+    {
+      "label": "North Lanarkshire",
+      "id": "UKM36"
+    },
+    {
+      "label": "South Ayrshire",
+      "id": "UKM37"
+    },
+    {
+      "label": "South Lanarkshire",
+      "id": "UKM38"
+    },
+    {
+      "label": "North Eastern Scotland",
+      "id": "UKM5"
+    },
+    {
+      "label": "Aberdeen City and Aberdeenshire",
+      "id": "UKM50"
+    },
+    {
+      "label": "Highlands and Islands",
+      "id": "UKM6"
+    },
+    {
+      "label": "Caithness & Sutherland and Ross & Cromarty",
+      "id": "UKM61"
+    },
+    {
+      "label": "Inverness & Nairn and Moray, Badenoch & Strathspey",
+      "id": "UKM62"
+    },
+    {
+      "label": "Lochaber, Skye & Lochalsh, Arran & Cumbrae and Argyll & Bute",
+      "id": "UKM63"
+    },
+    {
+      "label": "Eilean Siar (Western Isles)",
+      "id": "UKM64"
+    },
+    {
+      "label": "Orkney Islands",
+      "id": "UKM65"
+    },
+    {
+      "label": "Shetland Islands",
+      "id": "UKM66"
+    },
+    {
+      "label": "NORTHERN IRELAND",
+      "id": "UKN"
+    },
+    {
+      "label": "Northern Ireland",
+      "id": "UKN0"
+    },
+    {
+      "label": "Belfast",
+      "id": "UKN01"
+    },
+    {
+      "label": "Outer Belfast",
+      "id": "UKN02"
+    },
+    {
+      "label": "East of Northern Ireland",
+      "id": "UKN03"
+    },
+    {
+      "label": "North of Northern Ireland",
+      "id": "UKN04"
+    },
+    {
+      "label": "West and South of Northern Ireland",
+      "id": "UKN05"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "UKZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "UKZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "UKZZZ"
+    }
+  ],
+  "SK": [
+    {
+      "label": "SLOVENSKO",
+      "id": "SK"
+    },
+    {
+      "label": "SLOVENSKO",
+      "id": "SK0"
+    },
+    {
+      "label": "Bratislavský kraj",
+      "id": "SK01"
+    },
+    {
+      "label": "Bratislavský kraj",
+      "id": "SK010"
+    },
+    {
+      "label": "Západné Slovensko",
+      "id": "SK02"
+    },
+    {
+      "label": "Trnavský kraj",
+      "id": "SK021"
+    },
+    {
+      "label": "Trenčiansky kraj",
+      "id": "SK022"
+    },
+    {
+      "label": "Nitriansky kraj",
+      "id": "SK023"
+    },
+    {
+      "label": "Stredné Slovensko",
+      "id": "SK03"
+    },
+    {
+      "label": "Žilinský kraj",
+      "id": "SK031"
+    },
+    {
+      "label": "Banskobystrický kraj",
+      "id": "SK032"
+    },
+    {
+      "label": "Východné Slovensko",
+      "id": "SK04"
+    },
+    {
+      "label": "Prešovský kraj",
+      "id": "SK041"
+    },
+    {
+      "label": "Košický kraj",
+      "id": "SK042"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "SKZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "SKZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "SKZZZ"
+    }
+  ],
+  "PT": [
+    {
+      "label": "PORTUGAL",
+      "id": "PT"
+    },
+    {
+      "label": "CONTINENTE",
+      "id": "PT1"
+    },
+    {
+      "label": "Norte",
+      "id": "PT11"
+    },
+    {
+      "label": "Alto Minho",
+      "id": "PT111"
+    },
+    {
+      "label": "Cávado",
+      "id": "PT112"
+    },
+    {
+      "label": "Ave",
+      "id": "PT119"
+    },
+    {
+      "label": "Área Metropolitana do Porto",
+      "id": "PT11A"
+    },
+    {
+      "label": "Alto Tâmega",
+      "id": "PT11B"
+    },
+    {
+      "label": "Tâmega e Sousa",
+      "id": "PT11C"
+    },
+    {
+      "label": "Douro",
+      "id": "PT11D"
+    },
+    {
+      "label": "Terras de Trás-os-Montes",
+      "id": "PT11E"
+    },
+    {
+      "label": "Algarve",
+      "id": "PT15"
+    },
+    {
+      "label": "Algarve",
+      "id": "PT150"
+    },
+    {
+      "label": "Centro (PT)",
+      "id": "PT16"
+    },
+    {
+      "label": "Oeste",
+      "id": "PT16B"
+    },
+    {
+      "label": "Região de Aveiro",
+      "id": "PT16D"
+    },
+    {
+      "label": "Região de Coimbra",
+      "id": "PT16E"
+    },
+    {
+      "label": "Região de Leiria",
+      "id": "PT16F"
+    },
+    {
+      "label": "Viseu Dão Lafões",
+      "id": "PT16G"
+    },
+    {
+      "label": "Beira Baixa",
+      "id": "PT16H"
+    },
+    {
+      "label": "Médio Tejo",
+      "id": "PT16I"
+    },
+    {
+      "label": "Beiras e Serra da Estrela",
+      "id": "PT16J"
+    },
+    {
+      "label": "Área Metropolitana de Lisboa",
+      "id": "PT17"
+    },
+    {
+      "label": "Área Metropolitana de Lisboa",
+      "id": "PT170"
+    },
+    {
+      "label": "Alentejo",
+      "id": "PT18"
+    },
+    {
+      "label": "Alentejo Litoral",
+      "id": "PT181"
+    },
+    {
+      "label": "Baixo Alentejo",
+      "id": "PT184"
+    },
+    {
+      "label": "Lezíria do Tejo",
+      "id": "PT185"
+    },
+    {
+      "label": "Alto Alentejo",
+      "id": "PT186"
+    },
+    {
+      "label": "Alentejo Central",
+      "id": "PT187"
+    },
+    {
+      "label": "REGIÃO AUTÓNOMA DOS AÇORES",
+      "id": "PT2"
+    },
+    {
+      "label": "Região Autónoma dos Açores",
+      "id": "PT20"
+    },
+    {
+      "label": "Região Autónoma dos Açores",
+      "id": "PT200"
+    },
+    {
+      "label": "REGIÃO AUTÓNOMA DA MADEIRA",
+      "id": "PT3"
+    },
+    {
+      "label": "Região Autónoma da Madeira",
+      "id": "PT30"
+    },
+    {
+      "label": "Região Autónoma da Madeira",
+      "id": "PT300"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "PTZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "PTZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "PTZZZ"
+    }
+  ],
+  "TR": [
+    {
+      "label": "Türkiye",
+      "id": "TR"
+    },
+    {
+      "label": "İstanbul",
+      "id": "TR1"
+    },
+    {
+      "label": "İstanbul",
+      "id": "TR10"
+    },
+    {
+      "label": "İstanbul",
+      "id": "TR100"
+    },
+    {
+      "label": "Bati Marmara",
+      "id": "TR2"
+    },
+    {
+      "label": "Tekirdağ",
+      "id": "TR21"
+    },
+    {
+      "label": "Tekirdağ",
+      "id": "TR211"
+    },
+    {
+      "label": "Edirne",
+      "id": "TR212"
+    },
+    {
+      "label": "Kırklareli",
+      "id": "TR213"
+    },
+    {
+      "label": "Balıkesir",
+      "id": "TR22"
+    },
+    {
+      "label": "Balıkesir",
+      "id": "TR221"
+    },
+    {
+      "label": "Çanakkale",
+      "id": "TR222"
+    },
+    {
+      "label": "Ege",
+      "id": "TR3"
+    },
+    {
+      "label": "İzmir",
+      "id": "TR31"
+    },
+    {
+      "label": "İzmir",
+      "id": "TR310"
+    },
+    {
+      "label": "Aydın",
+      "id": "TR32"
+    },
+    {
+      "label": "Aydın",
+      "id": "TR321"
+    },
+    {
+      "label": "Denizli",
+      "id": "TR322"
+    },
+    {
+      "label": "Muğla",
+      "id": "TR323"
+    },
+    {
+      "label": "Manisa",
+      "id": "TR33"
+    },
+    {
+      "label": "Manisa",
+      "id": "TR331"
+    },
+    {
+      "label": "Afyon",
+      "id": "TR332"
+    },
+    {
+      "label": "Kütahya",
+      "id": "TR333"
+    },
+    {
+      "label": "Uşak",
+      "id": "TR334"
+    },
+    {
+      "label": "Doğu Marmara",
+      "id": "TR4"
+    },
+    {
+      "label": "Bursa",
+      "id": "TR41"
+    },
+    {
+      "label": "Bursa",
+      "id": "TR411"
+    },
+    {
+      "label": "Eskişehir",
+      "id": "TR412"
+    },
+    {
+      "label": "Bilecik",
+      "id": "TR413"
+    },
+    {
+      "label": "Kocaeli",
+      "id": "TR42"
+    },
+    {
+      "label": "Kocaeli",
+      "id": "TR421"
+    },
+    {
+      "label": "Sakarya",
+      "id": "TR422"
+    },
+    {
+      "label": "Düzce",
+      "id": "TR423"
+    },
+    {
+      "label": "Bolu",
+      "id": "TR424"
+    },
+    {
+      "label": "Yalova",
+      "id": "TR425"
+    },
+    {
+      "label": "Bati Anadolu",
+      "id": "TR5"
+    },
+    {
+      "label": "Ankara",
+      "id": "TR51"
+    },
+    {
+      "label": "Ankara",
+      "id": "TR510"
+    },
+    {
+      "label": "Konya",
+      "id": "TR52"
+    },
+    {
+      "label": "Konya",
+      "id": "TR521"
+    },
+    {
+      "label": "Karaman",
+      "id": "TR522"
+    },
+    {
+      "label": "Akdeniz",
+      "id": "TR6"
+    },
+    {
+      "label": "Antalya",
+      "id": "TR61"
+    },
+    {
+      "label": "Antalya",
+      "id": "TR611"
+    },
+    {
+      "label": "Isparta",
+      "id": "TR612"
+    },
+    {
+      "label": "Burdur",
+      "id": "TR613"
+    },
+    {
+      "label": "Adana",
+      "id": "TR62"
+    },
+    {
+      "label": "Adana",
+      "id": "TR621"
+    },
+    {
+      "label": "İçel",
+      "id": "TR622"
+    },
+    {
+      "label": "Hatay",
+      "id": "TR63"
+    },
+    {
+      "label": "Hatay",
+      "id": "TR631"
+    },
+    {
+      "label": "Kahramanmaraş",
+      "id": "TR632"
+    },
+    {
+      "label": "Osmaniye",
+      "id": "TR633"
+    },
+    {
+      "label": "Orta Anadolu",
+      "id": "TR7"
+    },
+    {
+      "label": "Kırıkkale",
+      "id": "TR71"
+    },
+    {
+      "label": "Kırıkkale",
+      "id": "TR711"
+    },
+    {
+      "label": "Aksaray",
+      "id": "TR712"
+    },
+    {
+      "label": "Niğde",
+      "id": "TR713"
+    },
+    {
+      "label": "Nevşehir",
+      "id": "TR714"
+    },
+    {
+      "label": "Kırşehir",
+      "id": "TR715"
+    },
+    {
+      "label": "Kayseri",
+      "id": "TR72"
+    },
+    {
+      "label": "Kayseri",
+      "id": "TR721"
+    },
+    {
+      "label": "Sivas",
+      "id": "TR722"
+    },
+    {
+      "label": "Yozgat",
+      "id": "TR723"
+    },
+    {
+      "label": "Bati Karadeniz",
+      "id": "TR8"
+    },
+    {
+      "label": "Zonguldak",
+      "id": "TR81"
+    },
+    {
+      "label": "Zonguldak",
+      "id": "TR811"
+    },
+    {
+      "label": "Karabük",
+      "id": "TR812"
+    },
+    {
+      "label": "Bartın",
+      "id": "TR813"
+    },
+    {
+      "label": "Kastamonu",
+      "id": "TR82"
+    },
+    {
+      "label": "Kastamonu",
+      "id": "TR821"
+    },
+    {
+      "label": "Çankırı",
+      "id": "TR822"
+    },
+    {
+      "label": "Sinop",
+      "id": "TR823"
+    },
+    {
+      "label": "Samsun",
+      "id": "TR83"
+    },
+    {
+      "label": "Samsun",
+      "id": "TR831"
+    },
+    {
+      "label": "Tokat",
+      "id": "TR832"
+    },
+    {
+      "label": "Çorum",
+      "id": "TR833"
+    },
+    {
+      "label": "Amasya",
+      "id": "TR834"
+    },
+    {
+      "label": "Doğu Karadeniz",
+      "id": "TR9"
+    },
+    {
+      "label": "Trabzon",
+      "id": "TR90"
+    },
+    {
+      "label": "Trabzon",
+      "id": "TR901"
+    },
+    {
+      "label": "Ordu",
+      "id": "TR902"
+    },
+    {
+      "label": "Giresun",
+      "id": "TR903"
+    },
+    {
+      "label": "Rize",
+      "id": "TR904"
+    },
+    {
+      "label": "Artvin",
+      "id": "TR905"
+    },
+    {
+      "label": "Gümüşhane",
+      "id": "TR906"
+    },
+    {
+      "label": "Kuzeydoğu Anadolu",
+      "id": "TRA"
+    },
+    {
+      "label": "Erzurum",
+      "id": "TRA1"
+    },
+    {
+      "label": "Erzurum",
+      "id": "TRA11"
+    },
+    {
+      "label": "Erzincan",
+      "id": "TRA12"
+    },
+    {
+      "label": "Bayburt",
+      "id": "TRA13"
+    },
+    {
+      "label": "Ağrı",
+      "id": "TRA2"
+    },
+    {
+      "label": "Ağrı",
+      "id": "TRA21"
+    },
+    {
+      "label": "Kars",
+      "id": "TRA22"
+    },
+    {
+      "label": "Iğdır",
+      "id": "TRA23"
+    },
+    {
+      "label": "Ardahan",
+      "id": "TRA24"
+    },
+    {
+      "label": "Ortadoğu Anadolu",
+      "id": "TRB"
+    },
+    {
+      "label": "Malatya",
+      "id": "TRB1"
+    },
+    {
+      "label": "Malatya",
+      "id": "TRB11"
+    },
+    {
+      "label": "Elazığ",
+      "id": "TRB12"
+    },
+    {
+      "label": "Bingöl",
+      "id": "TRB13"
+    },
+    {
+      "label": "Tunceli",
+      "id": "TRB14"
+    },
+    {
+      "label": "Van",
+      "id": "TRB2"
+    },
+    {
+      "label": "Van",
+      "id": "TRB21"
+    },
+    {
+      "label": "Muş",
+      "id": "TRB22"
+    },
+    {
+      "label": "Bitlis",
+      "id": "TRB23"
+    },
+    {
+      "label": "Hakkari",
+      "id": "TRB24"
+    },
+    {
+      "label": "Güneydoğu Anadolu",
+      "id": "TRC"
+    },
+    {
+      "label": "Gaziantep",
+      "id": "TRC1"
+    },
+    {
+      "label": "Gaziantep",
+      "id": "TRC11"
+    },
+    {
+      "label": "Adıyaman",
+      "id": "TRC12"
+    },
+    {
+      "label": "Kilis",
+      "id": "TRC13"
+    },
+    {
+      "label": "Şanlıurfa",
+      "id": "TRC2"
+    },
+    {
+      "label": "Şanlıurfa",
+      "id": "TRC21"
+    },
+    {
+      "label": "Diyarbakır",
+      "id": "TRC22"
+    },
+    {
+      "label": "Mardin",
+      "id": "TRC3"
+    },
+    {
+      "label": "Mardin",
+      "id": "TRC31"
+    },
+    {
+      "label": "Batman",
+      "id": "TRC32"
+    },
+    {
+      "label": "Şırnak",
+      "id": "TRC33"
+    },
+    {
+      "label": "Siirt",
+      "id": "TRC34"
+    }
+  ],
+  "IT": [
+    {
+      "label": "ITALIA",
+      "id": "IT"
+    },
+    {
+      "label": "NORD-OVEST",
+      "id": "ITC"
+    },
+    {
+      "label": "Piemonte",
+      "id": "ITC1"
+    },
+    {
+      "label": "Torino",
+      "id": "ITC11"
+    },
+    {
+      "label": "Vercelli",
+      "id": "ITC12"
+    },
+    {
+      "label": "Biella",
+      "id": "ITC13"
+    },
+    {
+      "label": "Verbano-Cusio-Ossola",
+      "id": "ITC14"
+    },
+    {
+      "label": "Novara",
+      "id": "ITC15"
+    },
+    {
+      "label": "Cuneo",
+      "id": "ITC16"
+    },
+    {
+      "label": "Asti",
+      "id": "ITC17"
+    },
+    {
+      "label": "Alessandria",
+      "id": "ITC18"
+    },
+    {
+      "label": "Valle d'Aosta/Vallée d'Aoste",
+      "id": "ITC2"
+    },
+    {
+      "label": "Valle d'Aosta/Vallée d'Aoste",
+      "id": "ITC20"
+    },
+    {
+      "label": "Liguria",
+      "id": "ITC3"
+    },
+    {
+      "label": "Imperia",
+      "id": "ITC31"
+    },
+    {
+      "label": "Savona",
+      "id": "ITC32"
+    },
+    {
+      "label": "Genova",
+      "id": "ITC33"
+    },
+    {
+      "label": "La Spezia",
+      "id": "ITC34"
+    },
+    {
+      "label": "Lombardia",
+      "id": "ITC4"
+    },
+    {
+      "label": "Varese",
+      "id": "ITC41"
+    },
+    {
+      "label": "Como",
+      "id": "ITC42"
+    },
+    {
+      "label": "Lecco",
+      "id": "ITC43"
+    },
+    {
+      "label": "Sondrio",
+      "id": "ITC44"
+    },
+    {
+      "label": "Bergamo",
+      "id": "ITC46"
+    },
+    {
+      "label": "Brescia",
+      "id": "ITC47"
+    },
+    {
+      "label": "Pavia",
+      "id": "ITC48"
+    },
+    {
+      "label": "Lodi",
+      "id": "ITC49"
+    },
+    {
+      "label": "Cremona",
+      "id": "ITC4A"
+    },
+    {
+      "label": "Mantova",
+      "id": "ITC4B"
+    },
+    {
+      "label": "Milano",
+      "id": "ITC4C"
+    },
+    {
+      "label": "Monza e della Brianza",
+      "id": "ITC4D"
+    },
+    {
+      "label": "SUD",
+      "id": "ITF"
+    },
+    {
+      "label": "Abruzzo",
+      "id": "ITF1"
+    },
+    {
+      "label": "L'Aquila",
+      "id": "ITF11"
+    },
+    {
+      "label": "Teramo",
+      "id": "ITF12"
+    },
+    {
+      "label": "Pescara",
+      "id": "ITF13"
+    },
+    {
+      "label": "Chieti",
+      "id": "ITF14"
+    },
+    {
+      "label": "Molise",
+      "id": "ITF2"
+    },
+    {
+      "label": "Isernia",
+      "id": "ITF21"
+    },
+    {
+      "label": "Campobasso",
+      "id": "ITF22"
+    },
+    {
+      "label": "Campania",
+      "id": "ITF3"
+    },
+    {
+      "label": "Caserta",
+      "id": "ITF31"
+    },
+    {
+      "label": "Benevento",
+      "id": "ITF32"
+    },
+    {
+      "label": "Napoli",
+      "id": "ITF33"
+    },
+    {
+      "label": "Avellino",
+      "id": "ITF34"
+    },
+    {
+      "label": "Salerno",
+      "id": "ITF35"
+    },
+    {
+      "label": "Puglia",
+      "id": "ITF4"
+    },
+    {
+      "label": "Taranto",
+      "id": "ITF43"
+    },
+    {
+      "label": "Brindisi",
+      "id": "ITF44"
+    },
+    {
+      "label": "Lecce",
+      "id": "ITF45"
+    },
+    {
+      "label": "Foggia",
+      "id": "ITF46"
+    },
+    {
+      "label": "Bari",
+      "id": "ITF47"
+    },
+    {
+      "label": "Barletta-Andria-Trani",
+      "id": "ITF48"
+    },
+    {
+      "label": "Basilicata",
+      "id": "ITF5"
+    },
+    {
+      "label": "Potenza",
+      "id": "ITF51"
+    },
+    {
+      "label": "Matera",
+      "id": "ITF52"
+    },
+    {
+      "label": "Calabria",
+      "id": "ITF6"
+    },
+    {
+      "label": "Cosenza",
+      "id": "ITF61"
+    },
+    {
+      "label": "Crotone",
+      "id": "ITF62"
+    },
+    {
+      "label": "Catanzaro",
+      "id": "ITF63"
+    },
+    {
+      "label": "Vibo Valentia",
+      "id": "ITF64"
+    },
+    {
+      "label": "Reggio di Calabria",
+      "id": "ITF65"
+    },
+    {
+      "label": "ISOLE",
+      "id": "ITG"
+    },
+    {
+      "label": "Sicilia",
+      "id": "ITG1"
+    },
+    {
+      "label": "Trapani",
+      "id": "ITG11"
+    },
+    {
+      "label": "Palermo",
+      "id": "ITG12"
+    },
+    {
+      "label": "Messina",
+      "id": "ITG13"
+    },
+    {
+      "label": "Agrigento",
+      "id": "ITG14"
+    },
+    {
+      "label": "Caltanissetta",
+      "id": "ITG15"
+    },
+    {
+      "label": "Enna",
+      "id": "ITG16"
+    },
+    {
+      "label": "Catania",
+      "id": "ITG17"
+    },
+    {
+      "label": "Ragusa",
+      "id": "ITG18"
+    },
+    {
+      "label": "Siracusa",
+      "id": "ITG19"
+    },
+    {
+      "label": "Sardegna",
+      "id": "ITG2"
+    },
+    {
+      "label": "Sassari",
+      "id": "ITG25"
+    },
+    {
+      "label": "Nuoro",
+      "id": "ITG26"
+    },
+    {
+      "label": "Cagliari",
+      "id": "ITG27"
+    },
+    {
+      "label": "Oristano",
+      "id": "ITG28"
+    },
+    {
+      "label": "Olbia-Tempio",
+      "id": "ITG29"
+    },
+    {
+      "label": "Ogliastra",
+      "id": "ITG2A"
+    },
+    {
+      "label": "Medio Campidano",
+      "id": "ITG2B"
+    },
+    {
+      "label": "Carbonia-Iglesias",
+      "id": "ITG2C"
+    },
+    {
+      "label": "NORD-EST",
+      "id": "ITH"
+    },
+    {
+      "label": "Provincia Autonoma di Bolzano/Bozen",
+      "id": "ITH1"
+    },
+    {
+      "label": "Bolzano-Bozen",
+      "id": "ITH10"
+    },
+    {
+      "label": "Provincia Autonoma di Trento",
+      "id": "ITH2"
+    },
+    {
+      "label": "Trento",
+      "id": "ITH20"
+    },
+    {
+      "label": "Veneto",
+      "id": "ITH3"
+    },
+    {
+      "label": "Verona",
+      "id": "ITH31"
+    },
+    {
+      "label": "Vicenza",
+      "id": "ITH32"
+    },
+    {
+      "label": "Belluno",
+      "id": "ITH33"
+    },
+    {
+      "label": "Treviso",
+      "id": "ITH34"
+    },
+    {
+      "label": "Venezia",
+      "id": "ITH35"
+    },
+    {
+      "label": "Padova",
+      "id": "ITH36"
+    },
+    {
+      "label": "Rovigo",
+      "id": "ITH37"
+    },
+    {
+      "label": "Friuli-Venezia Giulia",
+      "id": "ITH4"
+    },
+    {
+      "label": "Pordenone",
+      "id": "ITH41"
+    },
+    {
+      "label": "Udine",
+      "id": "ITH42"
+    },
+    {
+      "label": "Gorizia",
+      "id": "ITH43"
+    },
+    {
+      "label": "Trieste",
+      "id": "ITH44"
+    },
+    {
+      "label": "Emilia-Romagna",
+      "id": "ITH5"
+    },
+    {
+      "label": "Piacenza",
+      "id": "ITH51"
+    },
+    {
+      "label": "Parma",
+      "id": "ITH52"
+    },
+    {
+      "label": "Reggio nell'Emilia",
+      "id": "ITH53"
+    },
+    {
+      "label": "Modena",
+      "id": "ITH54"
+    },
+    {
+      "label": "Bologna",
+      "id": "ITH55"
+    },
+    {
+      "label": "Ferrara",
+      "id": "ITH56"
+    },
+    {
+      "label": "Ravenna",
+      "id": "ITH57"
+    },
+    {
+      "label": "Forlì-Cesena",
+      "id": "ITH58"
+    },
+    {
+      "label": "Rimini",
+      "id": "ITH59"
+    },
+    {
+      "label": "CENTRO (IT)",
+      "id": "ITI"
+    },
+    {
+      "label": "Toscana",
+      "id": "ITI1"
+    },
+    {
+      "label": "Massa-Carrara",
+      "id": "ITI11"
+    },
+    {
+      "label": "Lucca",
+      "id": "ITI12"
+    },
+    {
+      "label": "Pistoia",
+      "id": "ITI13"
+    },
+    {
+      "label": "Firenze",
+      "id": "ITI14"
+    },
+    {
+      "label": "Prato",
+      "id": "ITI15"
+    },
+    {
+      "label": "Livorno",
+      "id": "ITI16"
+    },
+    {
+      "label": "Pisa",
+      "id": "ITI17"
+    },
+    {
+      "label": "Arezzo",
+      "id": "ITI18"
+    },
+    {
+      "label": "Siena",
+      "id": "ITI19"
+    },
+    {
+      "label": "Grosseto",
+      "id": "ITI1A"
+    },
+    {
+      "label": "Umbria",
+      "id": "ITI2"
+    },
+    {
+      "label": "Perugia",
+      "id": "ITI21"
+    },
+    {
+      "label": "Terni",
+      "id": "ITI22"
+    },
+    {
+      "label": "Marche",
+      "id": "ITI3"
+    },
+    {
+      "label": "Pesaro e Urbino",
+      "id": "ITI31"
+    },
+    {
+      "label": "Ancona",
+      "id": "ITI32"
+    },
+    {
+      "label": "Macerata",
+      "id": "ITI33"
+    },
+    {
+      "label": "Ascoli Piceno",
+      "id": "ITI34"
+    },
+    {
+      "label": "Fermo",
+      "id": "ITI35"
+    },
+    {
+      "label": "Lazio",
+      "id": "ITI4"
+    },
+    {
+      "label": "Viterbo",
+      "id": "ITI41"
+    },
+    {
+      "label": "Rieti",
+      "id": "ITI42"
+    },
+    {
+      "label": "Roma",
+      "id": "ITI43"
+    },
+    {
+      "label": "Latina",
+      "id": "ITI44"
+    },
+    {
+      "label": "Frosinone",
+      "id": "ITI45"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "ITZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "ITZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "ITZZZ"
+    }
+  ],
+  "SI": [
+    {
+      "label": "SLOVENIJA",
+      "id": "SI"
+    },
+    {
+      "label": "SLOVENIJA",
+      "id": "SI0"
+    },
+    {
+      "label": "Vzhodna Slovenija",
+      "id": "SI03"
+    },
+    {
+      "label": "Pomurska",
+      "id": "SI031"
+    },
+    {
+      "label": "Podravska",
+      "id": "SI032"
+    },
+    {
+      "label": "Koroška",
+      "id": "SI033"
+    },
+    {
+      "label": "Savinjska",
+      "id": "SI034"
+    },
+    {
+      "label": "Zasavska",
+      "id": "SI035"
+    },
+    {
+      "label": "Posavska",
+      "id": "SI036"
+    },
+    {
+      "label": "Jugovzhodna Slovenija",
+      "id": "SI037"
+    },
+    {
+      "label": "Primorsko-notranjska",
+      "id": "SI038"
+    },
+    {
+      "label": "Zahodna Slovenija",
+      "id": "SI04"
+    },
+    {
+      "label": "Osrednjeslovenska",
+      "id": "SI041"
+    },
+    {
+      "label": "Gorenjska",
+      "id": "SI042"
+    },
+    {
+      "label": "Goriška",
+      "id": "SI043"
+    },
+    {
+      "label": "Obalno-kraška",
+      "id": "SI044"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "SIZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "SIZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "SIZZZ"
+    }
+  ],
+  "LT": [
+    {
+      "label": "LIETUVA",
+      "id": "LT"
+    },
+    {
+      "label": "LIETUVA",
+      "id": "LT0"
+    },
+    {
+      "label": "Lietuva",
+      "id": "LT00"
+    },
+    {
+      "label": "Alytaus apskritis",
+      "id": "LT001"
+    },
+    {
+      "label": "Kauno apskritis",
+      "id": "LT002"
+    },
+    {
+      "label": "Klaipėdos apskritis",
+      "id": "LT003"
+    },
+    {
+      "label": "Marijampolės apskritis",
+      "id": "LT004"
+    },
+    {
+      "label": "Panevėžio apskritis",
+      "id": "LT005"
+    },
+    {
+      "label": "Šiaulių apskritis",
+      "id": "LT006"
+    },
+    {
+      "label": "Tauragės apskritis",
+      "id": "LT007"
+    },
+    {
+      "label": "Telšių apskritis",
+      "id": "LT008"
+    },
+    {
+      "label": "Utenos apskritis",
+      "id": "LT009"
+    },
+    {
+      "label": "Vilniaus apskritis",
+      "id": "LT00A"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "LTZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "LTZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "LTZZZ"
+    }
+  ],
+  "LV": [
+    {
+      "label": "LATVIJA",
+      "id": "LV"
+    },
+    {
+      "label": "LATVIJA",
+      "id": "LV0"
+    },
+    {
+      "label": "Latvija",
+      "id": "LV00"
+    },
+    {
+      "label": "Kurzeme",
+      "id": "LV003"
+    },
+    {
+      "label": "Latgale",
+      "id": "LV005"
+    },
+    {
+      "label": "Rīga",
+      "id": "LV006"
+    },
+    {
+      "label": "Pierīga",
+      "id": "LV007"
+    },
+    {
+      "label": "Vidzeme",
+      "id": "LV008"
+    },
+    {
+      "label": "Zemgale",
+      "id": "LV009"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "LVZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "LVZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "LVZZZ"
+    }
+  ],
+  "BG": [
+    {
+      "label": "БЪЛГАРИЯ (BULGARIA)",
+      "id": "BG"
+    },
+    {
+      "label": "СЕВЕРНА И ЮГОИЗТОЧНА БЪЛГАРИЯ (SEVERNA I YUGOIZTOCHNA BULGARIA)",
+      "id": "BG3"
+    },
+    {
+      "label": "Северозападен (Severozapaden)",
+      "id": "BG31"
+    },
+    {
+      "label": "Видин (Vidin)",
+      "id": "BG311"
+    },
+    {
+      "label": "Монтана (Montana)",
+      "id": "BG312"
+    },
+    {
+      "label": "Враца (Vratsa)",
+      "id": "BG313"
+    },
+    {
+      "label": "Плевен (Pleven)",
+      "id": "BG314"
+    },
+    {
+      "label": "Ловеч (Lovech)",
+      "id": "BG315"
+    },
+    {
+      "label": "Северен централен (Severen tsentralen)",
+      "id": "BG32"
+    },
+    {
+      "label": "Велико Търново (Veliko Tarnovo)",
+      "id": "BG321"
+    },
+    {
+      "label": "Габрово (Gabrovo)",
+      "id": "BG322"
+    },
+    {
+      "label": "Русе (Ruse)",
+      "id": "BG323"
+    },
+    {
+      "label": "Разград (Razgrad)",
+      "id": "BG324"
+    },
+    {
+      "label": "Силистра (Silistra)",
+      "id": "BG325"
+    },
+    {
+      "label": "Североизточен (Severoiztochen)",
+      "id": "BG33"
+    },
+    {
+      "label": "Варна (Varna)",
+      "id": "BG331"
+    },
+    {
+      "label": "Добрич (Dobrich)",
+      "id": "BG332"
+    },
+    {
+      "label": "Шумен (Shumen)",
+      "id": "BG333"
+    },
+    {
+      "label": "Търговище (Targovishte)",
+      "id": "BG334"
+    },
+    {
+      "label": "Югоизточен (Yugoiztochen)",
+      "id": "BG34"
+    },
+    {
+      "label": "Бургас (Burgas)",
+      "id": "BG341"
+    },
+    {
+      "label": "Сливен (Sliven)",
+      "id": "BG342"
+    },
+    {
+      "label": "Ямбол (Yambol)",
+      "id": "BG343"
+    },
+    {
+      "label": "Стара Загора (Stara Zagora)",
+      "id": "BG344"
+    },
+    {
+      "label": "ЮГОЗАПАДНА И ЮЖНА ЦЕНТРАЛНА БЪЛГАРИЯ (YUGOZAPADNA I YUZHNA TSENTRALNA BULGARIA)",
+      "id": "BG4"
+    },
+    {
+      "label": "Югозападен (Yugozapaden)",
+      "id": "BG41"
+    },
+    {
+      "label": "София (столица) (Sofia (stolitsa))",
+      "id": "BG411"
+    },
+    {
+      "label": "София (Sofia)",
+      "id": "BG412"
+    },
+    {
+      "label": "Благоевград (Blagoevgrad)",
+      "id": "BG413"
+    },
+    {
+      "label": "Перник (Pernik)",
+      "id": "BG414"
+    },
+    {
+      "label": "Кюстендил (Kyustendil)",
+      "id": "BG415"
+    },
+    {
+      "label": "Южен централен (Yuzhen tsentralen)",
+      "id": "BG42"
+    },
+    {
+      "label": "Пловдив (Plovdiv)",
+      "id": "BG421"
+    },
+    {
+      "label": "Хасково (Haskovo)",
+      "id": "BG422"
+    },
+    {
+      "label": "Пазарджик (Pazardzhik)",
+      "id": "BG423"
+    },
+    {
+      "label": "Смолян (Smolyan)",
+      "id": "BG424"
+    },
+    {
+      "label": "Кърджали (Kardzhali)",
+      "id": "BG425"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "BGZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "BGZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "BGZZZ"
+    }
+  ],
+  "DE": [
+    {
+      "label": "DEUTSCHLAND",
+      "id": "DE"
+    },
+    {
+      "label": "BADEN-WÜRTTEMBERG",
+      "id": "DE1"
+    },
+    {
+      "label": "Stuttgart",
+      "id": "DE11"
+    },
+    {
+      "label": "Stuttgart, Stadtkreis",
+      "id": "DE111"
+    },
+    {
+      "label": "Böblingen",
+      "id": "DE112"
+    },
+    {
+      "label": "Esslingen",
+      "id": "DE113"
+    },
+    {
+      "label": "Göppingen",
+      "id": "DE114"
+    },
+    {
+      "label": "Ludwigsburg",
+      "id": "DE115"
+    },
+    {
+      "label": "Rems-Murr-Kreis",
+      "id": "DE116"
+    },
+    {
+      "label": "Heilbronn, Stadtkreis",
+      "id": "DE117"
+    },
+    {
+      "label": "Heilbronn, Landkreis",
+      "id": "DE118"
+    },
+    {
+      "label": "Hohenlohekreis",
+      "id": "DE119"
+    },
+    {
+      "label": "Schwäbisch Hall",
+      "id": "DE11A"
+    },
+    {
+      "label": "Main-Tauber-Kreis",
+      "id": "DE11B"
+    },
+    {
+      "label": "Heidenheim",
+      "id": "DE11C"
+    },
+    {
+      "label": "Ostalbkreis",
+      "id": "DE11D"
+    },
+    {
+      "label": "Karlsruhe",
+      "id": "DE12"
+    },
+    {
+      "label": "Baden-Baden, Stadtkreis",
+      "id": "DE121"
+    },
+    {
+      "label": "Karlsruhe, Stadtkreis",
+      "id": "DE122"
+    },
+    {
+      "label": "Karlsruhe, Landkreis",
+      "id": "DE123"
+    },
+    {
+      "label": "Rastatt",
+      "id": "DE124"
+    },
+    {
+      "label": "Heidelberg, Stadtkreis",
+      "id": "DE125"
+    },
+    {
+      "label": "Mannheim, Stadtkreis",
+      "id": "DE126"
+    },
+    {
+      "label": "Neckar-Odenwald-Kreis",
+      "id": "DE127"
+    },
+    {
+      "label": "Rhein-Neckar-Kreis",
+      "id": "DE128"
+    },
+    {
+      "label": "Pforzheim, Stadtkreis",
+      "id": "DE129"
+    },
+    {
+      "label": "Calw",
+      "id": "DE12A"
+    },
+    {
+      "label": "Enzkreis",
+      "id": "DE12B"
+    },
+    {
+      "label": "Freudenstadt",
+      "id": "DE12C"
+    },
+    {
+      "label": "Freiburg",
+      "id": "DE13"
+    },
+    {
+      "label": "Freiburg im Breisgau, Stadtkreis",
+      "id": "DE131"
+    },
+    {
+      "label": "Breisgau-Hochschwarzwald",
+      "id": "DE132"
+    },
+    {
+      "label": "Emmendingen",
+      "id": "DE133"
+    },
+    {
+      "label": "Ortenaukreis",
+      "id": "DE134"
+    },
+    {
+      "label": "Rottweil",
+      "id": "DE135"
+    },
+    {
+      "label": "Schwarzwald-Baar-Kreis",
+      "id": "DE136"
+    },
+    {
+      "label": "Tuttlingen",
+      "id": "DE137"
+    },
+    {
+      "label": "Konstanz",
+      "id": "DE138"
+    },
+    {
+      "label": "Lörrach",
+      "id": "DE139"
+    },
+    {
+      "label": "Waldshut",
+      "id": "DE13A"
+    },
+    {
+      "label": "Tübingen",
+      "id": "DE14"
+    },
+    {
+      "label": "Reutlingen",
+      "id": "DE141"
+    },
+    {
+      "label": "Tübingen, Landkreis",
+      "id": "DE142"
+    },
+    {
+      "label": "Zollernalbkreis",
+      "id": "DE143"
+    },
+    {
+      "label": "Ulm, Stadtkreis",
+      "id": "DE144"
+    },
+    {
+      "label": "Alb-Donau-Kreis",
+      "id": "DE145"
+    },
+    {
+      "label": "Biberach",
+      "id": "DE146"
+    },
+    {
+      "label": "Bodenseekreis",
+      "id": "DE147"
+    },
+    {
+      "label": "Ravensburg",
+      "id": "DE148"
+    },
+    {
+      "label": "Sigmaringen",
+      "id": "DE149"
+    },
+    {
+      "label": "BAYERN",
+      "id": "DE2"
+    },
+    {
+      "label": "Oberbayern",
+      "id": "DE21"
+    },
+    {
+      "label": "Ingolstadt, Kreisfreie Stadt",
+      "id": "DE211"
+    },
+    {
+      "label": "München, Kreisfreie Stadt",
+      "id": "DE212"
+    },
+    {
+      "label": "Rosenheim, Kreisfreie Stadt",
+      "id": "DE213"
+    },
+    {
+      "label": "Altötting",
+      "id": "DE214"
+    },
+    {
+      "label": "Berchtesgadener Land",
+      "id": "DE215"
+    },
+    {
+      "label": "Bad Tölz-Wolfratshausen",
+      "id": "DE216"
+    },
+    {
+      "label": "Dachau",
+      "id": "DE217"
+    },
+    {
+      "label": "Ebersberg",
+      "id": "DE218"
+    },
+    {
+      "label": "Eichstätt",
+      "id": "DE219"
+    },
+    {
+      "label": "Erding",
+      "id": "DE21A"
+    },
+    {
+      "label": "Freising",
+      "id": "DE21B"
+    },
+    {
+      "label": "Fürstenfeldbruck",
+      "id": "DE21C"
+    },
+    {
+      "label": "Garmisch-Partenkirchen",
+      "id": "DE21D"
+    },
+    {
+      "label": "Landsberg am Lech",
+      "id": "DE21E"
+    },
+    {
+      "label": "Miesbach",
+      "id": "DE21F"
+    },
+    {
+      "label": "Mühldorf a. Inn",
+      "id": "DE21G"
+    },
+    {
+      "label": "München, Landkreis",
+      "id": "DE21H"
+    },
+    {
+      "label": "Neuburg-Schrobenhausen",
+      "id": "DE21I"
+    },
+    {
+      "label": "Pfaffenhofen a. d. Ilm",
+      "id": "DE21J"
+    },
+    {
+      "label": "Rosenheim, Landkreis",
+      "id": "DE21K"
+    },
+    {
+      "label": "Starnberg",
+      "id": "DE21L"
+    },
+    {
+      "label": "Traunstein",
+      "id": "DE21M"
+    },
+    {
+      "label": "Weilheim-Schongau",
+      "id": "DE21N"
+    },
+    {
+      "label": "Niederbayern",
+      "id": "DE22"
+    },
+    {
+      "label": "Landshut, Kreisfreie Stadt",
+      "id": "DE221"
+    },
+    {
+      "label": "Passau, Kreisfreie Stadt",
+      "id": "DE222"
+    },
+    {
+      "label": "Straubing, Kreisfreie Stadt",
+      "id": "DE223"
+    },
+    {
+      "label": "Deggendorf",
+      "id": "DE224"
+    },
+    {
+      "label": "Freyung-Grafenau",
+      "id": "DE225"
+    },
+    {
+      "label": "Kelheim",
+      "id": "DE226"
+    },
+    {
+      "label": "Landshut, Landkreis",
+      "id": "DE227"
+    },
+    {
+      "label": "Passau, Landkreis",
+      "id": "DE228"
+    },
+    {
+      "label": "Regen",
+      "id": "DE229"
+    },
+    {
+      "label": "Rottal-Inn",
+      "id": "DE22A"
+    },
+    {
+      "label": "Straubing-Bogen",
+      "id": "DE22B"
+    },
+    {
+      "label": "Dingolfing-Landau",
+      "id": "DE22C"
+    },
+    {
+      "label": "Oberpfalz",
+      "id": "DE23"
+    },
+    {
+      "label": "Amberg, Kreisfreie Stadt",
+      "id": "DE231"
+    },
+    {
+      "label": "Regensburg, Kreisfreie Stadt",
+      "id": "DE232"
+    },
+    {
+      "label": "Weiden i. d. Opf, Kreisfreie Stadt",
+      "id": "DE233"
+    },
+    {
+      "label": "Amberg-Sulzbach",
+      "id": "DE234"
+    },
+    {
+      "label": "Cham",
+      "id": "DE235"
+    },
+    {
+      "label": "Neumarkt i. d. OPf.",
+      "id": "DE236"
+    },
+    {
+      "label": "Neustadt a. d. Waldnaab",
+      "id": "DE237"
+    },
+    {
+      "label": "Regensburg, Landkreis",
+      "id": "DE238"
+    },
+    {
+      "label": "Schwandorf",
+      "id": "DE239"
+    },
+    {
+      "label": "Tirschenreuth",
+      "id": "DE23A"
+    },
+    {
+      "label": "Oberfranken",
+      "id": "DE24"
+    },
+    {
+      "label": "Bamberg, Kreisfreie Stadt",
+      "id": "DE241"
+    },
+    {
+      "label": "Bayreuth, Kreisfreie Stadt",
+      "id": "DE242"
+    },
+    {
+      "label": "Coburg, Kreisfreie Stadt",
+      "id": "DE243"
+    },
+    {
+      "label": "Hof, Kreisfreie Stadt",
+      "id": "DE244"
+    },
+    {
+      "label": "Bamberg, Landkreis",
+      "id": "DE245"
+    },
+    {
+      "label": "Bayreuth, Landkreis",
+      "id": "DE246"
+    },
+    {
+      "label": "Coburg, Landkreis",
+      "id": "DE247"
+    },
+    {
+      "label": "Forchheim",
+      "id": "DE248"
+    },
+    {
+      "label": "Hof, Landkreis",
+      "id": "DE249"
+    },
+    {
+      "label": "Kronach",
+      "id": "DE24A"
+    },
+    {
+      "label": "Kulmbach",
+      "id": "DE24B"
+    },
+    {
+      "label": "Lichtenfels",
+      "id": "DE24C"
+    },
+    {
+      "label": "Wunsiedel i. Fichtelgebirge",
+      "id": "DE24D"
+    },
+    {
+      "label": "Mittelfranken",
+      "id": "DE25"
+    },
+    {
+      "label": "Ansbach, Kreisfreie Stadt",
+      "id": "DE251"
+    },
+    {
+      "label": "Erlangen, Kreisfreie Stadt",
+      "id": "DE252"
+    },
+    {
+      "label": "Fürth, Kreisfreie Stadt",
+      "id": "DE253"
+    },
+    {
+      "label": "Nürnberg, Kreisfreie Stadt",
+      "id": "DE254"
+    },
+    {
+      "label": "Schwabach, Kreisfreie Stadt",
+      "id": "DE255"
+    },
+    {
+      "label": "Ansbach, Landkreis",
+      "id": "DE256"
+    },
+    {
+      "label": "Erlangen-Höchstadt",
+      "id": "DE257"
+    },
+    {
+      "label": "Fürth, Landkreis",
+      "id": "DE258"
+    },
+    {
+      "label": "Nürnberger Land",
+      "id": "DE259"
+    },
+    {
+      "label": "Neustadt a. d. Aisch-Bad Windsheim",
+      "id": "DE25A"
+    },
+    {
+      "label": "Roth",
+      "id": "DE25B"
+    },
+    {
+      "label": "Weißenburg-Gunzenhausen",
+      "id": "DE25C"
+    },
+    {
+      "label": "Unterfranken",
+      "id": "DE26"
+    },
+    {
+      "label": "Aschaffenburg, Kreisfreie Stadt",
+      "id": "DE261"
+    },
+    {
+      "label": "Schweinfurt, Kreisfreie Stadt",
+      "id": "DE262"
+    },
+    {
+      "label": "Würzburg, Kreisfreie Stadt",
+      "id": "DE263"
+    },
+    {
+      "label": "Aschaffenburg, Landkreis",
+      "id": "DE264"
+    },
+    {
+      "label": "Bad Kissingen",
+      "id": "DE265"
+    },
+    {
+      "label": "Rhön-Grabfeld",
+      "id": "DE266"
+    },
+    {
+      "label": "Haßberge",
+      "id": "DE267"
+    },
+    {
+      "label": "Kitzingen",
+      "id": "DE268"
+    },
+    {
+      "label": "Miltenberg",
+      "id": "DE269"
+    },
+    {
+      "label": "Main-Spessart",
+      "id": "DE26A"
+    },
+    {
+      "label": "Schweinfurt, Landkreis",
+      "id": "DE26B"
+    },
+    {
+      "label": "Würzburg, Landkreis",
+      "id": "DE26C"
+    },
+    {
+      "label": "Schwaben",
+      "id": "DE27"
+    },
+    {
+      "label": "Augsburg, Kreisfreie Stadt",
+      "id": "DE271"
+    },
+    {
+      "label": "Kaufbeuren, Kreisfreie Stadt",
+      "id": "DE272"
+    },
+    {
+      "label": "Kempten (Allgäu), Kreisfreie Stadt",
+      "id": "DE273"
+    },
+    {
+      "label": "Memmingen, Kreisfreie Stadt",
+      "id": "DE274"
+    },
+    {
+      "label": "Aichach-Friedberg",
+      "id": "DE275"
+    },
+    {
+      "label": "Augsburg, Landkreis",
+      "id": "DE276"
+    },
+    {
+      "label": "Dillingen a.d. Donau",
+      "id": "DE277"
+    },
+    {
+      "label": "Günzburg",
+      "id": "DE278"
+    },
+    {
+      "label": "Neu-Ulm",
+      "id": "DE279"
+    },
+    {
+      "label": "Lindau (Bodensee)",
+      "id": "DE27A"
+    },
+    {
+      "label": "Ostallgäu",
+      "id": "DE27B"
+    },
+    {
+      "label": "Unterallgäu",
+      "id": "DE27C"
+    },
+    {
+      "label": "Donau-Ries",
+      "id": "DE27D"
+    },
+    {
+      "label": "Oberallgäu",
+      "id": "DE27E"
+    },
+    {
+      "label": "BERLIN",
+      "id": "DE3"
+    },
+    {
+      "label": "Berlin",
+      "id": "DE30"
+    },
+    {
+      "label": "Berlin",
+      "id": "DE300"
+    },
+    {
+      "label": "BRANDENBURG",
+      "id": "DE4"
+    },
+    {
+      "label": "Brandenburg",
+      "id": "DE40"
+    },
+    {
+      "label": "Brandenburg an der Havel, Kreisfreie Stadt",
+      "id": "DE401"
+    },
+    {
+      "label": "Cottbus, Kreisfreie Stadt",
+      "id": "DE402"
+    },
+    {
+      "label": "Frankfurt (Oder), Kreisfreie Stadt",
+      "id": "DE403"
+    },
+    {
+      "label": "Potsdam, Kreisfreie Stadt",
+      "id": "DE404"
+    },
+    {
+      "label": "Barnim",
+      "id": "DE405"
+    },
+    {
+      "label": "Dahme-Spreewald",
+      "id": "DE406"
+    },
+    {
+      "label": "Elbe-Elster",
+      "id": "DE407"
+    },
+    {
+      "label": "Havelland",
+      "id": "DE408"
+    },
+    {
+      "label": "Märkisch-Oderland",
+      "id": "DE409"
+    },
+    {
+      "label": "Oberhavel",
+      "id": "DE40A"
+    },
+    {
+      "label": "Oberspreewald-Lausitz",
+      "id": "DE40B"
+    },
+    {
+      "label": "Oder-Spree",
+      "id": "DE40C"
+    },
+    {
+      "label": "Ostprignitz-Ruppin",
+      "id": "DE40D"
+    },
+    {
+      "label": "Potsdam-Mittelmark",
+      "id": "DE40E"
+    },
+    {
+      "label": "Prignitz",
+      "id": "DE40F"
+    },
+    {
+      "label": "Spree-Neiße",
+      "id": "DE40G"
+    },
+    {
+      "label": "Teltow-Fläming",
+      "id": "DE40H"
+    },
+    {
+      "label": "Uckermark",
+      "id": "DE40I"
+    },
+    {
+      "label": "BREMEN",
+      "id": "DE5"
+    },
+    {
+      "label": "Bremen",
+      "id": "DE50"
+    },
+    {
+      "label": "Bremen, Kreisfreie Stadt",
+      "id": "DE501"
+    },
+    {
+      "label": "Bremerhaven, Kreisfreie Stadt",
+      "id": "DE502"
+    },
+    {
+      "label": "HAMBURG",
+      "id": "DE6"
+    },
+    {
+      "label": "Hamburg",
+      "id": "DE60"
+    },
+    {
+      "label": "Hamburg",
+      "id": "DE600"
+    },
+    {
+      "label": "HESSEN",
+      "id": "DE7"
+    },
+    {
+      "label": "Darmstadt",
+      "id": "DE71"
+    },
+    {
+      "label": "Darmstadt, Kreisfreie Stadt",
+      "id": "DE711"
+    },
+    {
+      "label": "Frankfurt am Main, Kreisfreie Stadt",
+      "id": "DE712"
+    },
+    {
+      "label": "Offenbach am Main, Kreisfreie Stadt",
+      "id": "DE713"
+    },
+    {
+      "label": "Wiesbaden, Kreisfreie Stadt",
+      "id": "DE714"
+    },
+    {
+      "label": "Bergstraße",
+      "id": "DE715"
+    },
+    {
+      "label": "Darmstadt-Dieburg",
+      "id": "DE716"
+    },
+    {
+      "label": "Groß-Gerau",
+      "id": "DE717"
+    },
+    {
+      "label": "Hochtaunuskreis",
+      "id": "DE718"
+    },
+    {
+      "label": "Main-Kinzig-Kreis",
+      "id": "DE719"
+    },
+    {
+      "label": "Main-Taunus-Kreis",
+      "id": "DE71A"
+    },
+    {
+      "label": "Odenwaldkreis",
+      "id": "DE71B"
+    },
+    {
+      "label": "Offenbach, Landkreis",
+      "id": "DE71C"
+    },
+    {
+      "label": "Rheingau-Taunus-Kreis",
+      "id": "DE71D"
+    },
+    {
+      "label": "Wetteraukreis",
+      "id": "DE71E"
+    },
+    {
+      "label": "Gießen",
+      "id": "DE72"
+    },
+    {
+      "label": "Gießen, Landkreis",
+      "id": "DE721"
+    },
+    {
+      "label": "Lahn-Dill-Kreis",
+      "id": "DE722"
+    },
+    {
+      "label": "Limburg-Weilburg",
+      "id": "DE723"
+    },
+    {
+      "label": "Marburg-Biedenkopf",
+      "id": "DE724"
+    },
+    {
+      "label": "Vogelsbergkreis",
+      "id": "DE725"
+    },
+    {
+      "label": "Kassel",
+      "id": "DE73"
+    },
+    {
+      "label": "Kassel, Kreisfreie Stadt",
+      "id": "DE731"
+    },
+    {
+      "label": "Fulda",
+      "id": "DE732"
+    },
+    {
+      "label": "Hersfeld-Rotenburg",
+      "id": "DE733"
+    },
+    {
+      "label": "Kassel, Landkreis",
+      "id": "DE734"
+    },
+    {
+      "label": "Schwalm-Eder-Kreis",
+      "id": "DE735"
+    },
+    {
+      "label": "Waldeck-Frankenberg",
+      "id": "DE736"
+    },
+    {
+      "label": "Werra-Meißner-Kreis",
+      "id": "DE737"
+    },
+    {
+      "label": "MECKLENBURG-VORPOMMERN",
+      "id": "DE8"
+    },
+    {
+      "label": "Mecklenburg-Vorpommern",
+      "id": "DE80"
+    },
+    {
+      "label": "Rostock, Kreisfreie Stadt",
+      "id": "DE803"
+    },
+    {
+      "label": "Schwerin, Kreisfreie Stadt",
+      "id": "DE804"
+    },
+    {
+      "label": "Mecklenburgische Seenplatte",
+      "id": "DE80J"
+    },
+    {
+      "label": "Landkreis Rostock",
+      "id": "DE80K"
+    },
+    {
+      "label": "Vorpommern-Rügen",
+      "id": "DE80L"
+    },
+    {
+      "label": "Nordwestmecklenburg",
+      "id": "DE80M"
+    },
+    {
+      "label": "Vorpommern-Greifswald",
+      "id": "DE80N"
+    },
+    {
+      "label": "Ludwigslust-Parchim",
+      "id": "DE80O"
+    },
+    {
+      "label": "NIEDERSACHSEN",
+      "id": "DE9"
+    },
+    {
+      "label": "Braunschweig",
+      "id": "DE91"
+    },
+    {
+      "label": "Braunschweig, Kreisfreie Stadt",
+      "id": "DE911"
+    },
+    {
+      "label": "Salzgitter, Kreisfreie Stadt",
+      "id": "DE912"
+    },
+    {
+      "label": "Wolfsburg, Kreisfreie Stadt",
+      "id": "DE913"
+    },
+    {
+      "label": "Gifhorn",
+      "id": "DE914"
+    },
+    {
+      "label": "Göttingen",
+      "id": "DE915"
+    },
+    {
+      "label": "Goslar",
+      "id": "DE916"
+    },
+    {
+      "label": "Helmstedt",
+      "id": "DE917"
+    },
+    {
+      "label": "Northeim",
+      "id": "DE918"
+    },
+    {
+      "label": "Osterode am Harz",
+      "id": "DE919"
+    },
+    {
+      "label": "Peine",
+      "id": "DE91A"
+    },
+    {
+      "label": "Wolfenbüttel",
+      "id": "DE91B"
+    },
+    {
+      "label": "Hannover",
+      "id": "DE92"
+    },
+    {
+      "label": "Diepholz",
+      "id": "DE922"
+    },
+    {
+      "label": "Hameln-Pyrmont",
+      "id": "DE923"
+    },
+    {
+      "label": "Hildesheim",
+      "id": "DE925"
+    },
+    {
+      "label": "Holzminden",
+      "id": "DE926"
+    },
+    {
+      "label": "Nienburg (Weser)",
+      "id": "DE927"
+    },
+    {
+      "label": "Schaumburg",
+      "id": "DE928"
+    },
+    {
+      "label": "Region Hannover",
+      "id": "DE929"
+    },
+    {
+      "label": "Lüneburg",
+      "id": "DE93"
+    },
+    {
+      "label": "Celle",
+      "id": "DE931"
+    },
+    {
+      "label": "Cuxhaven",
+      "id": "DE932"
+    },
+    {
+      "label": "Harburg",
+      "id": "DE933"
+    },
+    {
+      "label": "Lüchow-Dannenberg",
+      "id": "DE934"
+    },
+    {
+      "label": "Lüneburg, Landkreis",
+      "id": "DE935"
+    },
+    {
+      "label": "Osterholz",
+      "id": "DE936"
+    },
+    {
+      "label": "Rotenburg (Wümme)",
+      "id": "DE937"
+    },
+    {
+      "label": "Heidekreis",
+      "id": "DE938"
+    },
+    {
+      "label": "Stade",
+      "id": "DE939"
+    },
+    {
+      "label": "Uelzen",
+      "id": "DE93A"
+    },
+    {
+      "label": "Verden",
+      "id": "DE93B"
+    },
+    {
+      "label": "Weser-Ems",
+      "id": "DE94"
+    },
+    {
+      "label": "Delmenhorst, Kreisfreie Stadt",
+      "id": "DE941"
+    },
+    {
+      "label": "Emden, Kreisfreie Stadt",
+      "id": "DE942"
+    },
+    {
+      "label": "Oldenburg (Oldenburg), Kreisfreie Stadt",
+      "id": "DE943"
+    },
+    {
+      "label": "Osnabrück, Kreisfreie Stadt",
+      "id": "DE944"
+    },
+    {
+      "label": "Wilhelmshaven, Kreisfreie Stadt",
+      "id": "DE945"
+    },
+    {
+      "label": "Ammerland",
+      "id": "DE946"
+    },
+    {
+      "label": "Aurich",
+      "id": "DE947"
+    },
+    {
+      "label": "Cloppenburg",
+      "id": "DE948"
+    },
+    {
+      "label": "Emsland",
+      "id": "DE949"
+    },
+    {
+      "label": "Friesland (DE)",
+      "id": "DE94A"
+    },
+    {
+      "label": "Grafschaft Bentheim",
+      "id": "DE94B"
+    },
+    {
+      "label": "Leer",
+      "id": "DE94C"
+    },
+    {
+      "label": "Oldenburg, Landkreis",
+      "id": "DE94D"
+    },
+    {
+      "label": "Osnabrück, Landkreis",
+      "id": "DE94E"
+    },
+    {
+      "label": "Vechta",
+      "id": "DE94F"
+    },
+    {
+      "label": "Wesermarsch",
+      "id": "DE94G"
+    },
+    {
+      "label": "Wittmund",
+      "id": "DE94H"
+    },
+    {
+      "label": "NORDRHEIN-WESTFALEN",
+      "id": "DEA"
+    },
+    {
+      "label": "Düsseldorf",
+      "id": "DEA1"
+    },
+    {
+      "label": "Düsseldorf, Kreisfreie Stadt",
+      "id": "DEA11"
+    },
+    {
+      "label": "Duisburg, Kreisfreie Stadt",
+      "id": "DEA12"
+    },
+    {
+      "label": "Essen, Kreisfreie Stadt",
+      "id": "DEA13"
+    },
+    {
+      "label": "Krefeld, Kreisfreie Stadt",
+      "id": "DEA14"
+    },
+    {
+      "label": "Mönchengladbach, Kreisfreie Stadt",
+      "id": "DEA15"
+    },
+    {
+      "label": "Mülheim an der Ruhr,Kreisfreie Stadt",
+      "id": "DEA16"
+    },
+    {
+      "label": "Oberhausen, Kreisfreie Stadt",
+      "id": "DEA17"
+    },
+    {
+      "label": "Remscheid, Kreisfreie Stadt",
+      "id": "DEA18"
+    },
+    {
+      "label": "Solingen, Kreisfreie Stadt",
+      "id": "DEA19"
+    },
+    {
+      "label": "Wuppertal, Kreisfreie Stadt",
+      "id": "DEA1A"
+    },
+    {
+      "label": "Kleve",
+      "id": "DEA1B"
+    },
+    {
+      "label": "Mettmann",
+      "id": "DEA1C"
+    },
+    {
+      "label": "Rhein-Kreis Neuss",
+      "id": "DEA1D"
+    },
+    {
+      "label": "Viersen",
+      "id": "DEA1E"
+    },
+    {
+      "label": "Wesel",
+      "id": "DEA1F"
+    },
+    {
+      "label": "Köln",
+      "id": "DEA2"
+    },
+    {
+      "label": "Bonn, Kreisfreie Stadt",
+      "id": "DEA22"
+    },
+    {
+      "label": "Köln, Kreisfreie Stadt",
+      "id": "DEA23"
+    },
+    {
+      "label": "Leverkusen, Kreisfreie Stadt",
+      "id": "DEA24"
+    },
+    {
+      "label": "Düren",
+      "id": "DEA26"
+    },
+    {
+      "label": "Rhein-Erft-Kreis",
+      "id": "DEA27"
+    },
+    {
+      "label": "Euskirchen",
+      "id": "DEA28"
+    },
+    {
+      "label": "Heinsberg",
+      "id": "DEA29"
+    },
+    {
+      "label": "Oberbergischer Kreis",
+      "id": "DEA2A"
+    },
+    {
+      "label": "Rheinisch-Bergischer Kreis",
+      "id": "DEA2B"
+    },
+    {
+      "label": "Rhein-Sieg-Kreis",
+      "id": "DEA2C"
+    },
+    {
+      "label": "Städteregion Aachen",
+      "id": "DEA2D"
+    },
+    {
+      "label": "Münster",
+      "id": "DEA3"
+    },
+    {
+      "label": "Bottrop, Kreisfreie Stadt",
+      "id": "DEA31"
+    },
+    {
+      "label": "Gelsenkirchen, Kreisfreie Stadt",
+      "id": "DEA32"
+    },
+    {
+      "label": "Münster, Kreisfreie Stadt",
+      "id": "DEA33"
+    },
+    {
+      "label": "Borken",
+      "id": "DEA34"
+    },
+    {
+      "label": "Coesfeld",
+      "id": "DEA35"
+    },
+    {
+      "label": "Recklinghausen",
+      "id": "DEA36"
+    },
+    {
+      "label": "Steinfurt",
+      "id": "DEA37"
+    },
+    {
+      "label": "Warendorf",
+      "id": "DEA38"
+    },
+    {
+      "label": "Detmold",
+      "id": "DEA4"
+    },
+    {
+      "label": "Bielefeld, Kreisfreie Stadt",
+      "id": "DEA41"
+    },
+    {
+      "label": "Gütersloh",
+      "id": "DEA42"
+    },
+    {
+      "label": "Herford",
+      "id": "DEA43"
+    },
+    {
+      "label": "Höxter",
+      "id": "DEA44"
+    },
+    {
+      "label": "Lippe",
+      "id": "DEA45"
+    },
+    {
+      "label": "Minden-Lübbecke",
+      "id": "DEA46"
+    },
+    {
+      "label": "Paderborn",
+      "id": "DEA47"
+    },
+    {
+      "label": "Arnsberg",
+      "id": "DEA5"
+    },
+    {
+      "label": "Bochum, Kreisfreie Stadt",
+      "id": "DEA51"
+    },
+    {
+      "label": "Dortmund, Kreisfreie Stadt",
+      "id": "DEA52"
+    },
+    {
+      "label": "Hagen, Kreisfreie Stadt",
+      "id": "DEA53"
+    },
+    {
+      "label": "Hamm, Kreisfreie Stadt",
+      "id": "DEA54"
+    },
+    {
+      "label": "Herne, Kreisfreie Stadt",
+      "id": "DEA55"
+    },
+    {
+      "label": "Ennepe-Ruhr-Kreis",
+      "id": "DEA56"
+    },
+    {
+      "label": "Hochsauerlandkreis",
+      "id": "DEA57"
+    },
+    {
+      "label": "Märkischer Kreis",
+      "id": "DEA58"
+    },
+    {
+      "label": "Olpe",
+      "id": "DEA59"
+    },
+    {
+      "label": "Siegen-Wittgenstein",
+      "id": "DEA5A"
+    },
+    {
+      "label": "Soest",
+      "id": "DEA5B"
+    },
+    {
+      "label": "Unna",
+      "id": "DEA5C"
+    },
+    {
+      "label": "RHEINLAND-PFALZ",
+      "id": "DEB"
+    },
+    {
+      "label": "Koblenz",
+      "id": "DEB1"
+    },
+    {
+      "label": "Koblenz, Kreisfreie Stadt",
+      "id": "DEB11"
+    },
+    {
+      "label": "Ahrweiler",
+      "id": "DEB12"
+    },
+    {
+      "label": "Altenkirchen (Westerwald)",
+      "id": "DEB13"
+    },
+    {
+      "label": "Bad Kreuznach",
+      "id": "DEB14"
+    },
+    {
+      "label": "Birkenfeld",
+      "id": "DEB15"
+    },
+    {
+      "label": "Cochem-Zell",
+      "id": "DEB16"
+    },
+    {
+      "label": "Mayen-Koblenz",
+      "id": "DEB17"
+    },
+    {
+      "label": "Neuwied",
+      "id": "DEB18"
+    },
+    {
+      "label": "Rhein-Hunsrück-Kreis",
+      "id": "DEB19"
+    },
+    {
+      "label": "Rhein-Lahn-Kreis",
+      "id": "DEB1A"
+    },
+    {
+      "label": "Westerwaldkreis",
+      "id": "DEB1B"
+    },
+    {
+      "label": "Trier",
+      "id": "DEB2"
+    },
+    {
+      "label": "Trier, Kreisfreie Stadt",
+      "id": "DEB21"
+    },
+    {
+      "label": "Bernkastel-Wittlich",
+      "id": "DEB22"
+    },
+    {
+      "label": "Eifelkreis Bitburg-Prüm",
+      "id": "DEB23"
+    },
+    {
+      "label": "Vulkaneifel",
+      "id": "DEB24"
+    },
+    {
+      "label": "Trier-Saarburg",
+      "id": "DEB25"
+    },
+    {
+      "label": "Rheinhessen-Pfalz",
+      "id": "DEB3"
+    },
+    {
+      "label": "Frankenthal (Pfalz), Kreisfreie Stadt",
+      "id": "DEB31"
+    },
+    {
+      "label": "Kaiserslautern, Kreisfreie Stadt",
+      "id": "DEB32"
+    },
+    {
+      "label": "Landau in der Pfalz, Kreisfreie Stadt",
+      "id": "DEB33"
+    },
+    {
+      "label": "Ludwigshafen am Rhein, Kreisfreie Stadt",
+      "id": "DEB34"
+    },
+    {
+      "label": "Mainz, Kreisfreie Stadt",
+      "id": "DEB35"
+    },
+    {
+      "label": "Neustadt an der Weinstraße, Kreisfreie Stadt",
+      "id": "DEB36"
+    },
+    {
+      "label": "Pirmasens, Kreisfreie Stadt",
+      "id": "DEB37"
+    },
+    {
+      "label": "Speyer, Kreisfreie Stadt",
+      "id": "DEB38"
+    },
+    {
+      "label": "Worms, Kreisfreie Stadt",
+      "id": "DEB39"
+    },
+    {
+      "label": "Zweibrücken, Kreisfreie Stadt",
+      "id": "DEB3A"
+    },
+    {
+      "label": "Alzey-Worms",
+      "id": "DEB3B"
+    },
+    {
+      "label": "Bad Dürkheim",
+      "id": "DEB3C"
+    },
+    {
+      "label": "Donnersbergkreis",
+      "id": "DEB3D"
+    },
+    {
+      "label": "Germersheim",
+      "id": "DEB3E"
+    },
+    {
+      "label": "Kaiserslautern, Landkreis",
+      "id": "DEB3F"
+    },
+    {
+      "label": "Kusel",
+      "id": "DEB3G"
+    },
+    {
+      "label": "Südliche Weinstraße",
+      "id": "DEB3H"
+    },
+    {
+      "label": "Rhein-Pfalz-Kreis",
+      "id": "DEB3I"
+    },
+    {
+      "label": "Mainz-Bingen",
+      "id": "DEB3J"
+    },
+    {
+      "label": "Südwestpfalz",
+      "id": "DEB3K"
+    },
+    {
+      "label": "SAARLAND",
+      "id": "DEC"
+    },
+    {
+      "label": "Saarland",
+      "id": "DEC0"
+    },
+    {
+      "label": "Regionalverband Saarbrücken",
+      "id": "DEC01"
+    },
+    {
+      "label": "Merzig-Wadern",
+      "id": "DEC02"
+    },
+    {
+      "label": "Neunkirchen",
+      "id": "DEC03"
+    },
+    {
+      "label": "Saarlouis",
+      "id": "DEC04"
+    },
+    {
+      "label": "Saarpfalz-Kreis",
+      "id": "DEC05"
+    },
+    {
+      "label": "St. Wendel",
+      "id": "DEC06"
+    },
+    {
+      "label": "SACHSEN",
+      "id": "DED"
+    },
+    {
+      "label": "Dresden",
+      "id": "DED2"
+    },
+    {
+      "label": "Dresden, Kreisfreie Stadt",
+      "id": "DED21"
+    },
+    {
+      "label": "Bautzen",
+      "id": "DED2C"
+    },
+    {
+      "label": "Görlitz",
+      "id": "DED2D"
+    },
+    {
+      "label": "Meißen",
+      "id": "DED2E"
+    },
+    {
+      "label": "Sächsische Schweiz-Osterzgebirge",
+      "id": "DED2F"
+    },
+    {
+      "label": "Chemnitz",
+      "id": "DED4"
+    },
+    {
+      "label": "Chemnitz, Kreisfreie Stadt",
+      "id": "DED41"
+    },
+    {
+      "label": "Erzgebirgskreis",
+      "id": "DED42"
+    },
+    {
+      "label": "Mittelsachsen",
+      "id": "DED43"
+    },
+    {
+      "label": "Vogtlandkreis",
+      "id": "DED44"
+    },
+    {
+      "label": "Zwickau",
+      "id": "DED45"
+    },
+    {
+      "label": "Leipzig",
+      "id": "DED5"
+    },
+    {
+      "label": "Leipzig, Kreisfreie Stadt",
+      "id": "DED51"
+    },
+    {
+      "label": "Leipzig",
+      "id": "DED52"
+    },
+    {
+      "label": "Nordsachsen",
+      "id": "DED53"
+    },
+    {
+      "label": "SACHSEN-ANHALT",
+      "id": "DEE"
+    },
+    {
+      "label": "Sachsen-Anhalt",
+      "id": "DEE0"
+    },
+    {
+      "label": "Dessau-Roßlau, Kreisfreie Stadt",
+      "id": "DEE01"
+    },
+    {
+      "label": "Halle (Saale), Kreisfreie Stadt",
+      "id": "DEE02"
+    },
+    {
+      "label": "Magdeburg, Kreisfreie Stadt",
+      "id": "DEE03"
+    },
+    {
+      "label": "Altmarkkreis Salzwedel",
+      "id": "DEE04"
+    },
+    {
+      "label": "Anhalt-Bitterfeld",
+      "id": "DEE05"
+    },
+    {
+      "label": "Jerichower Land",
+      "id": "DEE06"
+    },
+    {
+      "label": "Börde",
+      "id": "DEE07"
+    },
+    {
+      "label": "Burgenland (DE)",
+      "id": "DEE08"
+    },
+    {
+      "label": "Harz",
+      "id": "DEE09"
+    },
+    {
+      "label": "Mansfeld-Südharz",
+      "id": "DEE0A"
+    },
+    {
+      "label": "Saalekreis",
+      "id": "DEE0B"
+    },
+    {
+      "label": "Salzlandkreis",
+      "id": "DEE0C"
+    },
+    {
+      "label": "Stendal",
+      "id": "DEE0D"
+    },
+    {
+      "label": "Wittenberg",
+      "id": "DEE0E"
+    },
+    {
+      "label": "SCHLESWIG-HOLSTEIN",
+      "id": "DEF"
+    },
+    {
+      "label": "Schleswig-Holstein",
+      "id": "DEF0"
+    },
+    {
+      "label": "Flensburg, Kreisfreie Stadt",
+      "id": "DEF01"
+    },
+    {
+      "label": "Kiel, Kreisfreie Stadt",
+      "id": "DEF02"
+    },
+    {
+      "label": "Lübeck, Kreisfreie Stadt",
+      "id": "DEF03"
+    },
+    {
+      "label": "Neumünster, Kreisfreie Stadt",
+      "id": "DEF04"
+    },
+    {
+      "label": "Dithmarschen",
+      "id": "DEF05"
+    },
+    {
+      "label": "Herzogtum Lauenburg",
+      "id": "DEF06"
+    },
+    {
+      "label": "Nordfriesland",
+      "id": "DEF07"
+    },
+    {
+      "label": "Ostholstein",
+      "id": "DEF08"
+    },
+    {
+      "label": "Pinneberg",
+      "id": "DEF09"
+    },
+    {
+      "label": "Plön",
+      "id": "DEF0A"
+    },
+    {
+      "label": "Rendsburg-Eckernförde",
+      "id": "DEF0B"
+    },
+    {
+      "label": "Schleswig-Flensburg",
+      "id": "DEF0C"
+    },
+    {
+      "label": "Segeberg",
+      "id": "DEF0D"
+    },
+    {
+      "label": "Steinburg",
+      "id": "DEF0E"
+    },
+    {
+      "label": "Stormarn",
+      "id": "DEF0F"
+    },
+    {
+      "label": "THÜRINGEN",
+      "id": "DEG"
+    },
+    {
+      "label": "Thüringen",
+      "id": "DEG0"
+    },
+    {
+      "label": "Erfurt, Kreisfreie Stadt",
+      "id": "DEG01"
+    },
+    {
+      "label": "Gera, Kreisfreie Stadt",
+      "id": "DEG02"
+    },
+    {
+      "label": "Jena, Kreisfreie Stadt",
+      "id": "DEG03"
+    },
+    {
+      "label": "Suhl, Kreisfreie Stadt",
+      "id": "DEG04"
+    },
+    {
+      "label": "Weimar, Kreisfreie Stadt",
+      "id": "DEG05"
+    },
+    {
+      "label": "Eichsfeld",
+      "id": "DEG06"
+    },
+    {
+      "label": "Nordhausen",
+      "id": "DEG07"
+    },
+    {
+      "label": "Unstrut-Hainich-Kreis",
+      "id": "DEG09"
+    },
+    {
+      "label": "Kyffhäuserkreis",
+      "id": "DEG0A"
+    },
+    {
+      "label": "Schmalkalden-Meiningen",
+      "id": "DEG0B"
+    },
+    {
+      "label": "Gotha",
+      "id": "DEG0C"
+    },
+    {
+      "label": "Sömmerda",
+      "id": "DEG0D"
+    },
+    {
+      "label": "Hildburghausen",
+      "id": "DEG0E"
+    },
+    {
+      "label": "Ilm-Kreis",
+      "id": "DEG0F"
+    },
+    {
+      "label": "Weimarer Land",
+      "id": "DEG0G"
+    },
+    {
+      "label": "Sonneberg",
+      "id": "DEG0H"
+    },
+    {
+      "label": "Saalfeld-Rudolstadt",
+      "id": "DEG0I"
+    },
+    {
+      "label": "Saale-Holzland-Kreis",
+      "id": "DEG0J"
+    },
+    {
+      "label": "Saale-Orla-Kreis",
+      "id": "DEG0K"
+    },
+    {
+      "label": "Greiz",
+      "id": "DEG0L"
+    },
+    {
+      "label": "Altenburger Land",
+      "id": "DEG0M"
+    },
+    {
+      "label": "Eisenach, Kreisfreie Stadt",
+      "id": "DEG0N"
+    },
+    {
+      "label": "Wartburgkreis",
+      "id": "DEG0P"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "DEZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "DEZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "DEZZZ"
+    }
+  ],
+  "CY": [
+    {
+      "label": "ΚΥΠΡΟΣ (KÝPROS)",
+      "id": "CY"
+    },
+    {
+      "label": "ΚΥΠΡΟΣ",
+      "id": "CY0"
+    },
+    {
+      "label": "Κύπρος",
+      "id": "CY00"
+    },
+    {
+      "label": "Κύπρος",
+      "id": "CY000"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "CYZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "CYZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "CYZZZ"
+    }
+  ],
+  "LU": [
+    {
+      "label": "LUXEMBOURG",
+      "id": "LU"
+    },
+    {
+      "label": "LUXEMBOURG",
+      "id": "LU0"
+    },
+    {
+      "label": "Luxembourg",
+      "id": "LU00"
+    },
+    {
+      "label": "Luxembourg",
+      "id": "LU000"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "LUZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "LUZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "LUZZZ"
+    }
+  ],
+  "FR": [
+    {
+      "label": "FRANCE",
+      "id": "FR"
+    },
+    {
+      "label": "ÎLE DE FRANCE",
+      "id": "FR1"
+    },
+    {
+      "label": "Île de France",
+      "id": "FR10"
+    },
+    {
+      "label": "Paris",
+      "id": "FR101"
+    },
+    {
+      "label": "Seine-et-Marne",
+      "id": "FR102"
+    },
+    {
+      "label": "Yvelines",
+      "id": "FR103"
+    },
+    {
+      "label": "Essonne",
+      "id": "FR104"
+    },
+    {
+      "label": "Hauts-de-Seine",
+      "id": "FR105"
+    },
+    {
+      "label": "Seine-Saint-Denis",
+      "id": "FR106"
+    },
+    {
+      "label": "Val-de-Marne",
+      "id": "FR107"
+    },
+    {
+      "label": "Val-d'Oise",
+      "id": "FR108"
+    },
+    {
+      "label": "BASSIN PARISIEN",
+      "id": "FR2"
+    },
+    {
+      "label": "Champagne-Ardenne",
+      "id": "FR21"
+    },
+    {
+      "label": "Ardennes",
+      "id": "FR211"
+    },
+    {
+      "label": "Aube",
+      "id": "FR212"
+    },
+    {
+      "label": "Marne",
+      "id": "FR213"
+    },
+    {
+      "label": "Haute-Marne",
+      "id": "FR214"
+    },
+    {
+      "label": "Picardie",
+      "id": "FR22"
+    },
+    {
+      "label": "Aisne",
+      "id": "FR221"
+    },
+    {
+      "label": "Oise",
+      "id": "FR222"
+    },
+    {
+      "label": "Somme",
+      "id": "FR223"
+    },
+    {
+      "label": "Haute-Normandie",
+      "id": "FR23"
+    },
+    {
+      "label": "Eure",
+      "id": "FR231"
+    },
+    {
+      "label": "Seine-Maritime",
+      "id": "FR232"
+    },
+    {
+      "label": "Centre",
+      "id": "FR24"
+    },
+    {
+      "label": "Cher",
+      "id": "FR241"
+    },
+    {
+      "label": "Eure-et-Loir",
+      "id": "FR242"
+    },
+    {
+      "label": "Indre",
+      "id": "FR243"
+    },
+    {
+      "label": "Indre-et-Loire",
+      "id": "FR244"
+    },
+    {
+      "label": "Loir-et-Cher",
+      "id": "FR245"
+    },
+    {
+      "label": "Loiret",
+      "id": "FR246"
+    },
+    {
+      "label": "Basse-Normandie",
+      "id": "FR25"
+    },
+    {
+      "label": "Calvados",
+      "id": "FR251"
+    },
+    {
+      "label": "Manche",
+      "id": "FR252"
+    },
+    {
+      "label": "Orne",
+      "id": "FR253"
+    },
+    {
+      "label": "Bourgogne",
+      "id": "FR26"
+    },
+    {
+      "label": "Côte-d'Or",
+      "id": "FR261"
+    },
+    {
+      "label": "Nièvre",
+      "id": "FR262"
+    },
+    {
+      "label": "Saône-et-Loire",
+      "id": "FR263"
+    },
+    {
+      "label": "Yonne",
+      "id": "FR264"
+    },
+    {
+      "label": "NORD - PAS-DE-CALAIS",
+      "id": "FR3"
+    },
+    {
+      "label": "Nord - Pas-de-Calais",
+      "id": "FR30"
+    },
+    {
+      "label": "Nord",
+      "id": "FR301"
+    },
+    {
+      "label": "Pas-de-Calais",
+      "id": "FR302"
+    },
+    {
+      "label": "EST",
+      "id": "FR4"
+    },
+    {
+      "label": "Lorraine",
+      "id": "FR41"
+    },
+    {
+      "label": "Meurthe-et-Moselle",
+      "id": "FR411"
+    },
+    {
+      "label": "Meuse",
+      "id": "FR412"
+    },
+    {
+      "label": "Moselle",
+      "id": "FR413"
+    },
+    {
+      "label": "Vosges",
+      "id": "FR414"
+    },
+    {
+      "label": "Alsace",
+      "id": "FR42"
+    },
+    {
+      "label": "Bas-Rhin",
+      "id": "FR421"
+    },
+    {
+      "label": "Haut-Rhin",
+      "id": "FR422"
+    },
+    {
+      "label": "Franche-Comté",
+      "id": "FR43"
+    },
+    {
+      "label": "Doubs",
+      "id": "FR431"
+    },
+    {
+      "label": "Jura",
+      "id": "FR432"
+    },
+    {
+      "label": "Haute-Saône",
+      "id": "FR433"
+    },
+    {
+      "label": "Territoire de Belfort",
+      "id": "FR434"
+    },
+    {
+      "label": "OUEST",
+      "id": "FR5"
+    },
+    {
+      "label": "Pays de la Loire",
+      "id": "FR51"
+    },
+    {
+      "label": "Loire-Atlantique",
+      "id": "FR511"
+    },
+    {
+      "label": "Maine-et-Loire",
+      "id": "FR512"
+    },
+    {
+      "label": "Mayenne",
+      "id": "FR513"
+    },
+    {
+      "label": "Sarthe",
+      "id": "FR514"
+    },
+    {
+      "label": "Vendée",
+      "id": "FR515"
+    },
+    {
+      "label": "Bretagne",
+      "id": "FR52"
+    },
+    {
+      "label": "Côtes-d'Armor",
+      "id": "FR521"
+    },
+    {
+      "label": "Finistère",
+      "id": "FR522"
+    },
+    {
+      "label": "Ille-et-Vilaine",
+      "id": "FR523"
+    },
+    {
+      "label": "Morbihan",
+      "id": "FR524"
+    },
+    {
+      "label": "Poitou-Charentes",
+      "id": "FR53"
+    },
+    {
+      "label": "Charente",
+      "id": "FR531"
+    },
+    {
+      "label": "Charente-Maritime",
+      "id": "FR532"
+    },
+    {
+      "label": "Deux-Sèvres",
+      "id": "FR533"
+    },
+    {
+      "label": "Vienne",
+      "id": "FR534"
+    },
+    {
+      "label": "SUD-OUEST",
+      "id": "FR6"
+    },
+    {
+      "label": "Aquitaine",
+      "id": "FR61"
+    },
+    {
+      "label": "Dordogne",
+      "id": "FR611"
+    },
+    {
+      "label": "Gironde",
+      "id": "FR612"
+    },
+    {
+      "label": "Landes",
+      "id": "FR613"
+    },
+    {
+      "label": "Lot-et-Garonne",
+      "id": "FR614"
+    },
+    {
+      "label": "Pyrénées-Atlantiques",
+      "id": "FR615"
+    },
+    {
+      "label": "Midi-Pyrénées",
+      "id": "FR62"
+    },
+    {
+      "label": "Ariège",
+      "id": "FR621"
+    },
+    {
+      "label": "Aveyron",
+      "id": "FR622"
+    },
+    {
+      "label": "Haute-Garonne",
+      "id": "FR623"
+    },
+    {
+      "label": "Gers",
+      "id": "FR624"
+    },
+    {
+      "label": "Lot",
+      "id": "FR625"
+    },
+    {
+      "label": "Hautes-Pyrénées",
+      "id": "FR626"
+    },
+    {
+      "label": "Tarn",
+      "id": "FR627"
+    },
+    {
+      "label": "Tarn-et-Garonne",
+      "id": "FR628"
+    },
+    {
+      "label": "Limousin",
+      "id": "FR63"
+    },
+    {
+      "label": "Corrèze",
+      "id": "FR631"
+    },
+    {
+      "label": "Creuse",
+      "id": "FR632"
+    },
+    {
+      "label": "Haute-Vienne",
+      "id": "FR633"
+    },
+    {
+      "label": "CENTRE-EST",
+      "id": "FR7"
+    },
+    {
+      "label": "Rhône-Alpes",
+      "id": "FR71"
+    },
+    {
+      "label": "Ain",
+      "id": "FR711"
+    },
+    {
+      "label": "Ardèche",
+      "id": "FR712"
+    },
+    {
+      "label": "Drôme",
+      "id": "FR713"
+    },
+    {
+      "label": "Isère",
+      "id": "FR714"
+    },
+    {
+      "label": "Loire",
+      "id": "FR715"
+    },
+    {
+      "label": "Rhône",
+      "id": "FR716"
+    },
+    {
+      "label": "Savoie",
+      "id": "FR717"
+    },
+    {
+      "label": "Haute-Savoie",
+      "id": "FR718"
+    },
+    {
+      "label": "Auvergne",
+      "id": "FR72"
+    },
+    {
+      "label": "Allier",
+      "id": "FR721"
+    },
+    {
+      "label": "Cantal",
+      "id": "FR722"
+    },
+    {
+      "label": "Haute-Loire",
+      "id": "FR723"
+    },
+    {
+      "label": "Puy-de-Dôme",
+      "id": "FR724"
+    },
+    {
+      "label": "MÉDITERRANÉE",
+      "id": "FR8"
+    },
+    {
+      "label": "Languedoc-Roussillon",
+      "id": "FR81"
+    },
+    {
+      "label": "Aude",
+      "id": "FR811"
+    },
+    {
+      "label": "Gard",
+      "id": "FR812"
+    },
+    {
+      "label": "Hérault",
+      "id": "FR813"
+    },
+    {
+      "label": "Lozère",
+      "id": "FR814"
+    },
+    {
+      "label": "Pyrénées-Orientales",
+      "id": "FR815"
+    },
+    {
+      "label": "Provence-Alpes-Côte d'Azur",
+      "id": "FR82"
+    },
+    {
+      "label": "Alpes-de-Haute-Provence",
+      "id": "FR821"
+    },
+    {
+      "label": "Hautes-Alpes",
+      "id": "FR822"
+    },
+    {
+      "label": "Alpes-Maritimes",
+      "id": "FR823"
+    },
+    {
+      "label": "Bouches-du-Rhône",
+      "id": "FR824"
+    },
+    {
+      "label": "Var",
+      "id": "FR825"
+    },
+    {
+      "label": "Vaucluse",
+      "id": "FR826"
+    },
+    {
+      "label": "Corse",
+      "id": "FR83"
+    },
+    {
+      "label": "Corse-du-Sud",
+      "id": "FR831"
+    },
+    {
+      "label": "Haute-Corse",
+      "id": "FR832"
+    },
+    {
+      "label": "DÉPARTEMENTS D'OUTRE-MER",
+      "id": "FRA"
+    },
+    {
+      "label": "Guadeloupe",
+      "id": "FRA1"
+    },
+    {
+      "label": "Guadeloupe",
+      "id": "FRA10"
+    },
+    {
+      "label": "Martinique",
+      "id": "FRA2"
+    },
+    {
+      "label": "Martinique",
+      "id": "FRA20"
+    },
+    {
+      "label": "Guyane",
+      "id": "FRA3"
+    },
+    {
+      "label": "Guyane",
+      "id": "FRA30"
+    },
+    {
+      "label": "La Réunion",
+      "id": "FRA4"
+    },
+    {
+      "label": "La Réunion",
+      "id": "FRA40"
+    },
+    {
+      "label": "Mayotte",
+      "id": "FRA5"
+    },
+    {
+      "label": "Mayotte",
+      "id": "FRA50"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "FRZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "FRZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "FRZZZ"
+    }
+  ],
+  "LI": [
+    {
+      "label": "Liechtenstein",
+      "id": "LI"
+    },
+    {
+      "label": "Liechtenstein",
+      "id": "LI0"
+    },
+    {
+      "label": "Liechtenstein",
+      "id": "LI00"
+    },
+    {
+      "label": "Liechtenstein",
+      "id": "LI000"
+    }
+  ],
+  "EL": [
+    {
+      "label": "ΕΛΛΑΔΑ (ELLADA)",
+      "id": "EL"
+    },
+    {
+      "label": "ATTIKΗ",
+      "id": "EL3"
+    },
+    {
+      "label": "Aττική",
+      "id": "EL30"
+    },
+    {
+      "label": "Βόρειος Τομέας Αθηνών",
+      "id": "EL301"
+    },
+    {
+      "label": "Δυτικός Τομέας Αθηνών",
+      "id": "EL302"
+    },
+    {
+      "label": "Κεντρικός Τομέας Αθηνών",
+      "id": "EL303"
+    },
+    {
+      "label": "Νότιος Τομέας Αθηνών",
+      "id": "EL304"
+    },
+    {
+      "label": "Ανατολική Αττική",
+      "id": "EL305"
+    },
+    {
+      "label": "Δυτική Αττική",
+      "id": "EL306"
+    },
+    {
+      "label": "Πειραιάς, Νήσοι",
+      "id": "EL307"
+    },
+    {
+      "label": "NΗΣΙΑ ΑΙΓΑΙΟΥ, KΡΗΤΗ",
+      "id": "EL4"
+    },
+    {
+      "label": "Βόρειο Αιγαίο",
+      "id": "EL41"
+    },
+    {
+      "label": "Λέσβος, Λήμνος",
+      "id": "EL411"
+    },
+    {
+      "label": "Ικαρία, Σάμος",
+      "id": "EL412"
+    },
+    {
+      "label": "Χίος",
+      "id": "EL413"
+    },
+    {
+      "label": "Νότιο Αιγαίο",
+      "id": "EL42"
+    },
+    {
+      "label": "Κάλυμνος, Κάρπαθος, Κως, Ρόδος",
+      "id": "EL421"
+    },
+    {
+      "label": "Άνδρος, Θήρα, Κέα, Μήλος, Μύκονος, Νάξος, Πάρος, Σύρος, Τήνος",
+      "id": "EL422"
+    },
+    {
+      "label": "Κρήτη",
+      "id": "EL43"
+    },
+    {
+      "label": "Ηράκλειο",
+      "id": "EL431"
+    },
+    {
+      "label": "Λασίθι",
+      "id": "EL432"
+    },
+    {
+      "label": "Ρεθύμνη",
+      "id": "EL433"
+    },
+    {
+      "label": "Χανιά",
+      "id": "EL434"
+    },
+    {
+      "label": "ΒΟΡΕΙΑ ΕΛΛΑΔΑ",
+      "id": "EL5"
+    },
+    {
+      "label": "Aνατολική Μακεδονία, Θράκη",
+      "id": "EL51"
+    },
+    {
+      "label": "Έβρος",
+      "id": "EL511"
+    },
+    {
+      "label": "Ξάνθη",
+      "id": "EL512"
+    },
+    {
+      "label": "Ροδόπη",
+      "id": "EL513"
+    },
+    {
+      "label": "Δράμα",
+      "id": "EL514"
+    },
+    {
+      "label": "Θάσος, Καβάλα",
+      "id": "EL515"
+    },
+    {
+      "label": "Κεντρική Μακεδονία",
+      "id": "EL52"
+    },
+    {
+      "label": "Ημαθία",
+      "id": "EL521"
+    },
+    {
+      "label": "Θεσσαλονίκη",
+      "id": "EL522"
+    },
+    {
+      "label": "Κιλκίς",
+      "id": "EL523"
+    },
+    {
+      "label": "Πέλλα",
+      "id": "EL524"
+    },
+    {
+      "label": "Πιερία",
+      "id": "EL525"
+    },
+    {
+      "label": "Σέρρες",
+      "id": "EL526"
+    },
+    {
+      "label": "Χαλκιδική",
+      "id": "EL527"
+    },
+    {
+      "label": "Δυτική Μακεδονία",
+      "id": "EL53"
+    },
+    {
+      "label": "Γρεβενά, Κοζάνη",
+      "id": "EL531"
+    },
+    {
+      "label": "Καστοριά",
+      "id": "EL532"
+    },
+    {
+      "label": "Φλώρινα",
+      "id": "EL533"
+    },
+    {
+      "label": "Ήπειρος",
+      "id": "EL54"
+    },
+    {
+      "label": "Άρτα, Πρέβεζα",
+      "id": "EL541"
+    },
+    {
+      "label": "Θεσπρωτία",
+      "id": "EL542"
+    },
+    {
+      "label": "Ιωάννινα",
+      "id": "EL543"
+    },
+    {
+      "label": "ΚΕΝΤΡΙΚΗ ΕΛΛΑΔΑ",
+      "id": "EL6"
+    },
+    {
+      "label": "Θεσσαλία",
+      "id": "EL61"
+    },
+    {
+      "label": "Καρδίτσα, Τρίκαλα",
+      "id": "EL611"
+    },
+    {
+      "label": "Λάρισα",
+      "id": "EL612"
+    },
+    {
+      "label": "Μαγνησία",
+      "id": "EL613"
+    },
+    {
+      "label": "Ιόνια Νησιά",
+      "id": "EL62"
+    },
+    {
+      "label": "Ζάκυνθος",
+      "id": "EL621"
+    },
+    {
+      "label": "Κέρκυρα",
+      "id": "EL622"
+    },
+    {
+      "label": "Ιθάκη, Κεφαλληνία",
+      "id": "EL623"
+    },
+    {
+      "label": "Λευκάδα",
+      "id": "EL624"
+    },
+    {
+      "label": "Δυτική Ελλάδα",
+      "id": "EL63"
+    },
+    {
+      "label": "Αιτωλοακαρνανία",
+      "id": "EL631"
+    },
+    {
+      "label": "Αχαΐα",
+      "id": "EL632"
+    },
+    {
+      "label": "Ηλεία",
+      "id": "EL633"
+    },
+    {
+      "label": "Στερεά Ελλάδα",
+      "id": "EL64"
+    },
+    {
+      "label": "Βοιωτία",
+      "id": "EL641"
+    },
+    {
+      "label": "Εύβοια",
+      "id": "EL642"
+    },
+    {
+      "label": "Ευρυτανία",
+      "id": "EL643"
+    },
+    {
+      "label": "Φθιώτιδα",
+      "id": "EL644"
+    },
+    {
+      "label": "Φωκίδα",
+      "id": "EL645"
+    },
+    {
+      "label": "Πελοπόννησος",
+      "id": "EL65"
+    },
+    {
+      "label": "Αργολίδα, Αρκαδία",
+      "id": "EL651"
+    },
+    {
+      "label": "Κορινθία",
+      "id": "EL652"
+    },
+    {
+      "label": "Λακωνία, Μεσσηνία",
+      "id": "EL653"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "ELZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "ELZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "ELZZZ"
+    }
+  ],
+  "CH": [
+    {
+      "label": "Schweiz/Suisse/Svizzera",
+      "id": "CH"
+    },
+    {
+      "label": "Schweiz/Suisse/Svizzera",
+      "id": "CH0"
+    },
+    {
+      "label": "Région lémanique",
+      "id": "CH01"
+    },
+    {
+      "label": "Vaud",
+      "id": "CH011"
+    },
+    {
+      "label": "Valais",
+      "id": "CH012"
+    },
+    {
+      "label": "Genève",
+      "id": "CH013"
+    },
+    {
+      "label": "Espace Mittelland",
+      "id": "CH02"
+    },
+    {
+      "label": "Bern",
+      "id": "CH021"
+    },
+    {
+      "label": "Freiburg",
+      "id": "CH022"
+    },
+    {
+      "label": "Solothurn",
+      "id": "CH023"
+    },
+    {
+      "label": "Neuchâtel",
+      "id": "CH024"
+    },
+    {
+      "label": "Jura",
+      "id": "CH025"
+    },
+    {
+      "label": "Nordwestschweiz",
+      "id": "CH03"
+    },
+    {
+      "label": "Basel-Stadt",
+      "id": "CH031"
+    },
+    {
+      "label": "Basel-Landschaft",
+      "id": "CH032"
+    },
+    {
+      "label": "Aargau",
+      "id": "CH033"
+    },
+    {
+      "label": "Zürich",
+      "id": "CH04"
+    },
+    {
+      "label": "Zürich",
+      "id": "CH040"
+    },
+    {
+      "label": "Ostschweiz",
+      "id": "CH05"
+    },
+    {
+      "label": "Glarus",
+      "id": "CH051"
+    },
+    {
+      "label": "Schaffhausen",
+      "id": "CH052"
+    },
+    {
+      "label": "Appenzell Ausserrhoden",
+      "id": "CH053"
+    },
+    {
+      "label": "Appenzell Innerrhoden",
+      "id": "CH054"
+    },
+    {
+      "label": "St. Gallen",
+      "id": "CH055"
+    },
+    {
+      "label": "Graubünden",
+      "id": "CH056"
+    },
+    {
+      "label": "Thurgau",
+      "id": "CH057"
+    },
+    {
+      "label": "Zentralschweiz",
+      "id": "CH06"
+    },
+    {
+      "label": "Luzern",
+      "id": "CH061"
+    },
+    {
+      "label": "Uri",
+      "id": "CH062"
+    },
+    {
+      "label": "Schwyz",
+      "id": "CH063"
+    },
+    {
+      "label": "Obwalden",
+      "id": "CH064"
+    },
+    {
+      "label": "Nidwalden",
+      "id": "CH065"
+    },
+    {
+      "label": "Zug",
+      "id": "CH066"
+    },
+    {
+      "label": "Ticino",
+      "id": "CH07"
+    },
+    {
+      "label": "Ticino",
+      "id": "CH070"
+    }
+  ],
+  "HR": [
+    {
+      "label": "HRVATSKA",
+      "id": "HR"
+    },
+    {
+      "label": "HRVATSKA",
+      "id": "HR0"
+    },
+    {
+      "label": "Jadranska Hrvatska",
+      "id": "HR03"
+    },
+    {
+      "label": "Primorsko-goranska županija",
+      "id": "HR031"
+    },
+    {
+      "label": "Ličko-senjska županija",
+      "id": "HR032"
+    },
+    {
+      "label": "Zadarska županija",
+      "id": "HR033"
+    },
+    {
+      "label": "Šibensko-kninska županija",
+      "id": "HR034"
+    },
+    {
+      "label": "Splitsko-dalmatinska županija",
+      "id": "HR035"
+    },
+    {
+      "label": "Istarska županija",
+      "id": "HR036"
+    },
+    {
+      "label": "Dubrovačko-neretvanska županija",
+      "id": "HR037"
+    },
+    {
+      "label": "Kontinentalna Hrvatska",
+      "id": "HR04"
+    },
+    {
+      "label": "Grad Zagreb",
+      "id": "HR041"
+    },
+    {
+      "label": "Zagrebačka županija",
+      "id": "HR042"
+    },
+    {
+      "label": "Krapinsko-zagorska županija",
+      "id": "HR043"
+    },
+    {
+      "label": "Varaždinska županija",
+      "id": "HR044"
+    },
+    {
+      "label": "Koprivničko-križevačka županija",
+      "id": "HR045"
+    },
+    {
+      "label": "Međimurska županija",
+      "id": "HR046"
+    },
+    {
+      "label": "Bjelovarsko-bilogorska županija",
+      "id": "HR047"
+    },
+    {
+      "label": "Virovitičko-podravska županija",
+      "id": "HR048"
+    },
+    {
+      "label": "Požeško-slavonska županija",
+      "id": "HR049"
+    },
+    {
+      "label": "Brodsko-posavska županija",
+      "id": "HR04A"
+    },
+    {
+      "label": "Osječko-baranjska županija",
+      "id": "HR04B"
+    },
+    {
+      "label": "Vukovarsko-srijemska županija",
+      "id": "HR04C"
+    },
+    {
+      "label": "Karlovačka županija",
+      "id": "HR04D"
+    },
+    {
+      "label": "Sisačko-moslavačka županija",
+      "id": "HR04E"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "HRZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "HRZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "HRZZZ"
+    }
+  ],
+  "EE": [
+    {
+      "label": "EESTI",
+      "id": "EE"
+    },
+    {
+      "label": "EESTI",
+      "id": "EE0"
+    },
+    {
+      "label": "Eesti",
+      "id": "EE00"
+    },
+    {
+      "label": "Põhja-Eesti",
+      "id": "EE001"
+    },
+    {
+      "label": "Lääne-Eesti",
+      "id": "EE004"
+    },
+    {
+      "label": "Kesk-Eesti",
+      "id": "EE006"
+    },
+    {
+      "label": "Kirde-Eesti",
+      "id": "EE007"
+    },
+    {
+      "label": "Lõuna-Eesti",
+      "id": "EE008"
+    },
+    {
+      "label": "EXTRA-REGIO NUTS 1",
+      "id": "EEZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 2",
+      "id": "EEZZ"
+    },
+    {
+      "label": "Extra-Regio NUTS 3",
+      "id": "EEZZZ"
+    }
+  ],
+  "MK": [
+    {
+      "label": "Poranešna Jugoslovenska Republika Makedonija",
+      "id": "MK"
+    },
+    {
+      "label": "Poranešna Jugoslovenska Republika Makedonija",
+      "id": "MK0"
+    },
+    {
+      "label": "Poranešna Jugoslovenska Republika Makedonija",
+      "id": "MK00"
+    },
+    {
+      "label": "Vardarski",
+      "id": "MK001"
+    },
+    {
+      "label": "Istočen",
+      "id": "MK002"
+    },
+    {
+      "label": "Jugozapaden",
+      "id": "MK003"
+    },
+    {
+      "label": "Jugoistočen",
+      "id": "MK004"
+    },
+    {
+      "label": "Pelagoniski",
+      "id": "MK005"
+    },
+    {
+      "label": "Pološki",
+      "id": "MK006"
+    },
+    {
+      "label": "Severoistočen",
+      "id": "MK007"
+    },
+    {
+      "label": "Skopski",
+      "id": "MK008"
+    }
+  ]
+}

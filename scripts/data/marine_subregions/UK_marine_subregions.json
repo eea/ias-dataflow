@@ -1,0 +1,18 @@
+[
+  {
+    "label": "Celtic Seas",
+    "id": "ACS"
+  },
+  {
+    "label": "Greater North Sea",
+    "id": "ANS"
+  },
+  {
+    "label": "North East Atlantic",
+    "id": "ATL"
+  },
+  {
+    "label": "White Sea",
+    "id": "WHI"
+  }
+]

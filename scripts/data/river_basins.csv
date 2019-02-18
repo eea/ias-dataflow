@@ -1,0 +1,319 @@
+country,name
+DE,Donau - Donau (BY)
+DE,Rhein - Mittelrhein
+DE,Rhein - Niederrhein
+DE,Rhein - Deltarhein
+DE,Rhein - Main
+DE,Rhein - Mosel/Saar
+DE,Rhein - Bodensee/Alpenrhein
+DE,Rhein - Neckar
+DE,Rhein - Hochrhein
+DE,Rhein - Oberrhein
+DE,"Ems - Obere Ems, Ems/Nordradde, Hase"
+DE,"Ems - Leda-Jümme, Untere Ems, Ems-Ästuar"
+DE,Weser - Werra
+DE,Weser - Fulda/Diemel
+DE,Weser - Weser
+DE,Weser - Leine
+DE,Weser - Tide-Weser
+DE,Weser - Aller
+DE,Elbe - Mittlere Elbe/Elde
+DE,Elbe - KOR HAV
+DE,Elbe - Mulde-Elbe-Schwarze Elster
+DE,Elbe - Tideelbe
+DE,"Elbe - Saale, Obere Moldau, Berounka, Eger und Untere Elbe"
+DE,Oder
+DE,Maas
+DE,Eider
+DE,Schlei/Trave
+DE,Warnow/Peene
+ES,MINHO-SIL RIVER BASIN DISTRICT
+ES,GALICIAN COAST
+ES,EASTERN CANTABRIAN
+ES,WESTERN CANTABRIAN
+ES,DOURO
+ES,TAGUS
+ES,MELILLA
+ES,LANZAROTE
+ES,TENERIFE
+ES,LA PALMA
+ES,THE GOMERA
+ES,EL HIERRO
+ES,CEUTA
+ES,JUCAR
+ES,EBRO
+ES,CATALAN RIVER BASIN DISTRICT
+ES,BALEARIC ISLANDS
+ES,GRAN CANARIA
+ES,FUERTEVENTURA
+ES,GUADIANA
+ES,GUADALQUIVIR
+ES,ANDALUSIA MEDITERRANEAN BASINS
+ES,GUADALETE AND BARBATE
+ES,"TINTO, ODIEL AND PIEDRAS"
+ES,SEGURA
+SE,1. Bothnian Bay (International drainage basin Nordland - Sweden)
+SE,1. Bothnian Bay (International drainage basin Troms - Sweden)
+SE,1. Bothnian Bay (International district Torne river - Sweden)
+SE,1. Bothnian Bay (Sweden)
+SE,2. Bothnian Sea (International drainage basin Trondelagsfylkene - Sweden)
+SE,2. Bothnian Sea (Sweden)
+SE,3. North Baltic Sea (Sweden)
+SE,4. South Baltic Sea (Sweden)
+SE,5. Skagerrak and Kattegat (International drainage basin Glomma - Sweden)
+SE,5. Skagerrak and Kattegat (Sweden)
+AT,Danube
+AT,Rhine
+AT,Elbe
+BE,Scheldt
+BE,Scheldt
+BE,Meuse
+BE,Meuse
+BE,Scheldt
+BE,Rhine
+BE,Scheldt
+BE,Seine
+BG,Danube River Basin District
+BG,Black Sea River Basin District
+BG,East Aegean River Basin District
+BG,West Aegean River Basin District
+CY,Cyprus
+CZ,Danube - Other tributaries of the Danube
+CZ,Danube - Dyje
+CZ,Danube - Morava and tributaries of the Váh
+CZ,Elbe - Berounka
+CZ,Elbe - Lower Vltava
+CZ,Elbe - Upper and middle Elbe
+CZ,Elbe - Upper Vltava
+CZ,"Elbe - Ohře, lower Elbe and other tributaries of the Elbe"
+CZ,Odra - Upper Odra
+CZ,Odra - Lužická Nisa and other tributaries of the Odra
+DE,Donau - Donau (BY)
+DE,Rhein - Mittelrhein
+DE,Rhein - Niederrhein
+DE,Rhein - Deltarhein
+DE,Rhein - Main
+DE,Rhein - Mosel/Saar
+DE,Rhein - Bodensee/Alpenrhein
+DE,Rhein - Neckar
+DE,Rhein - Hochrhein
+DE,Rhein - Oberrhein
+DE,"Ems - Obere Ems, Ems/Nordradde, Hase"
+DE,"Ems - Leda-Jümme, Untere Ems, Ems-Ästuar"
+DE,Weser - Werra
+DE,Weser - Fulda/Diemel
+DE,Weser - Weser
+DE,Weser - Leine
+DE,Weser - Tide-Weser
+DE,Weser - Aller
+DE,Elbe - Mittlere Elbe/Elde
+DE,Elbe - KOR HAV
+DE,Elbe - Mulde-Elbe-Schwarze Elster
+DE,Elbe - Tideelbe
+DE,"Elbe - Saale, Obere Moldau, Berounka, Eger und Untere Elbe"
+DE,Oder - Oder
+DE,Maas - Maas
+DE,Eider - Eider
+DE,Schlei/Trave - FGE Schlei/Trave
+DE,Warnow/Peene - FGE Warnow/Peene
+DK,River Basin District Jylland og Fyn
+DK,River Basin District Sjaelland
+DK,River Basin District Bornholm
+DK,International River Basin District
+EE,Lääne-Eesti veskond
+EE,Ida-Eesti veskond
+EE,Koiva veskond
+ES,MINHO-SIL RIVER BASIN DISTRICT
+ES,GALICIAN COAST
+ES,EASTERN CANTABRIAN
+ES,WESTERN CANTABRIAN
+ES,DOURO
+ES,TAGUS
+ES,MELILLA
+ES,LANZAROTE
+ES,TENERIFE
+ES,LA PALMA
+ES,THE GOMERA
+ES,EL HIERRO
+ES,CEUTA
+ES,JUCAR
+ES,EBRO
+ES,CATALAN RIVER BASIN DISTRICT
+ES,BALEARIC ISLANDS
+ES,GRAN CANARIA
+ES,FUERTEVENTURA
+ES,GUADIANA
+ES,GUADALQUIVIR
+ES,ANDALUSIA MEDITERRANEAN BASINS
+ES,GUADALETE AND BARBATE
+ES,"TINTO, ODIEL AND PIEDRAS"
+ES,SEGURA
+FI,Vuoksi River Basin District
+FI,Kymijoki-Gulf of Finland River Basin District
+FI,Kokemäenjoki-Archipelago Sea-Bothnian Sea River Basin District
+FI,Oulujoki-Iijoki River Basin District
+FI,Kemijoki River Basin District
+FI,Tornionjoki IRBD
+FI,"Teno, Näätämöjoki and Paatsjoki IRBD"
+FI,Åland River Basin District
+FR,"L'Escaut, la Somme et les cours d'eau côtiers de la Manche et de la mer du Nord"
+FR,La Meuse
+FR,La Sambre
+FR,Le Rhin
+FR,Le Rhône et les cours d'eau côtiers méditerranéens
+FR,Les cours d'eau de la Corse
+FR,Les cours d'eau de la Réunion
+FR,Les cours d'eau de Mayotte
+FR,"L'Adour, la Garonne, la Dordogne, la Charente et les cours d'eau côtiers charentais et aquitains"
+FR,"La Loire, les cours d'eau côtiers vendéens et bretons"
+FR,La Seine et les cours d'eau côtiers normands
+FR,Les cours d'eau de la Guadeloupe
+FR,Les cours d'eau de la Martinique
+FR,Les fleuves et cours d'eau côtiers de la Guyane
+HR,Danube river basin district - Drava and Danube sub-basin
+HR,Danube river basin district - Sava sub-basin
+HR,Adriatic river basin district - Adriatic river basin district
+HU,Hungarian part of the Danube River Basin District - Balaton
+HU,Hungarian part of the Danube River Basin District - Drava
+HU,Hungarian part of the Danube River Basin District - Danube
+HU,Hungarian part of the Danube River Basin District - Tisa
+IE,Neagh Bann
+IE,North Western
+IE,Republic of Ireland
+IT,Eastern Alps District
+IT,Padan District
+IT,North Appennines District
+IT,Pilot river basin district Serchio
+IT,Central Appennines District
+IT,South Appennines District
+IT,Sardinia District
+IT,Sicily District
+LU,Rhine - Moselle-Sarre
+LU,Meuse
+LV,Daugava river basin district
+LV,Gauja river basin district
+LV,Lielupe river basin district
+LV,Venta river basin district
+MT,Malta
+NL,Eems
+NL,Maas
+NL,Rijn
+NL,Schelde
+PL,Obszar Dorzecza Dunaju
+PL,Obszar Dorzecza Wisły
+PL,Obszar Dorzecza Świeżej
+PL,Obszar Dorzecza Jarft
+PL,Obszar Dorzecza Łaby
+PL,Obszar Dorzecza Odry
+PL,Obszar Dorzecza Pregoły
+PL,Obszar Dorzecza Niemna
+PL,Obszar Dorzecza Dniestru
+PL,Obszar Dorzecza Ücker
+PT,Minho and Lima
+PT,Madeira
+PT,"Cavado, Ave and Leca"
+PT,Douro
+PT,"Vouga, Mondego and Lis"
+PT,Tagus and West Rivers
+PT,Sado and Mira
+PT,Guadiana
+PT,Algarve Rivers
+PT,Azores
+RO,Danube River Basin District - Banat River basin
+RO,Danube River Basin District - Siret River basin
+RO,Danube River Basin District - Prut River basin
+RO,Danube River Basin District - Jiu River basin
+RO,Danube River Basin District - Olt River basin
+RO,Danube River Basin District - Arges Vedea River basin
+RO,Danube River Basin District - Buzau Ialomita River Basin
+RO,Danube River Basin District - Dobrogea Litoral River basin
+RO,Danube River Basin District - Mures River basin
+RO,Danube River Basin District - Crisuri river basin
+RO,Danube River Basin District - Somes Tisa River basin
+SE,1. Bothnian Bay (International drainage basin Nordland - Sweden)
+SE,1. Bothnian Bay (International drainage basin Troms - Sweden)
+SE,1. Bothnian Bay (International district Torne river - Sweden)
+SE,1. Bothnian Bay (Sweden)
+SE,2. Bothnian Sea (International drainage basin Trondelagsfylkene - Sweden)
+SE,2. Bothnian Sea (Sweden)
+SE,3. North Baltic Sea (Sweden)
+SE,4. South Baltic Sea (Sweden)
+SE,5. Skagerrak and Kattegat (International drainage basin Glomma - Sweden)
+SE,5. Skagerrak and Kattegat (Sweden)
+SI,Danube river basin district
+SI,Adriatic river basin district
+SK,Visla - Dunajec and Poprad
+SK,Dunaj - Bodrog
+SK,Dunaj - Morava
+SK,Dunaj - Dunaj
+SK,Dunaj - Váh
+SK,Dunaj - Hron
+SK,Dunaj - Ipeľ
+SK,Dunaj - Slaná
+SK,Dunaj - Hornád
+SK,Dunaj - Bodva
+UK,Scotland - North East Scotland
+UK,Scotland - Tay
+UK,Scotland - Forth
+UK,Scotland - Clyde
+UK,Scotland - Argyll
+UK,Scotland - West Highland
+UK,Scotland - North Highland
+UK,Scotland - Orkney and Shetland
+UK,Solway Tweed
+UK,Northumbria
+UK,Humber
+UK,Anglian
+UK,Thames
+UK,Neagh Bann
+UK,North Western
+UK,North Eastern
+UK,Gibraltar
+UK,South East
+UK,South West
+UK,Severn
+UK,Western Wales
+UK,Dee
+UK,North West
+LT,Nemunas River Basin District - Curronian lagoon
+LT,Nemunas River Basin District - Baltic Sea coastal waters
+LT,Nemunas River Basin District - Subbasin of small tributaries of the Nemunas river (including Nemunas river)
+LT,Nemunas River Basin District - Merkys subbasin
+LT,Nemunas River Basin District - Subbasin of small tributaries of the Neris river (including Neris river)
+LT,Nemunas River Basin District - Zeimena subbasin
+LT,Nemunas River Basin District - Sventoji subbasin
+LT,Nemunas River Basin District - Nevezis subbasin
+LT,Nemunas River Basin District - Dubysa subbasin
+LT,Nemunas River Basin District - Sesupe subbasin
+LT,Nemunas River Basin District - Jura subbasin
+LT,Nemunas River Basin District - Minija subbasin
+LT,Nemunas River Basin District - River basin of Lithuanian coastal rivers
+LT,Nemunas River Basin District - Prieglius river basin
+LT,Lielupe River Basin District - Subbasin of small tributaries of the Lielupe river
+LT,Lielupe River Basin District - Musa subbasin
+LT,Lielupe River Basin District - Nemunelis subbasin
+LT,Venta River Basin District - Venta river basin
+LT,Venta River Basin District - Sventoji river basin
+LT,Venta River Basin District - Bartuva river basin
+LT,Dauguva River Basin District - Dauguva River Basin District
+GB,Neagh Bann
+GB,North Western
+IE,Eastern
+IE,Shannon
+IE,South Eastern
+IE,South Western
+IE,Western
+GR,Western Peloponnese
+GR,Northern Peloponnese
+GR,Eastern Peloponnese
+GR,Western Sterea Ellada
+GR,Epirus
+GR,Attica
+GR,Eastern Sterea Ellada
+GR,Thessalia
+GR,Western Macedonia
+GR,Central Macedonia
+GR,Eastern Macedonia
+GR,Thrace
+GR,Crete
+GR,Aegean Islands

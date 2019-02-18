@@ -1,0 +1,12 @@
+[
+  {
+    "regionCode": "ALP",
+    "realm": "terrestrial",
+    "name": "Alpine"
+  },
+  {
+    "regionCode": "CON",
+    "realm": "terrestrial",
+    "name": "Continental"
+  }
+]

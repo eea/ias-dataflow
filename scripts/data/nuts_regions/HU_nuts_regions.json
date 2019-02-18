@@ -1,0 +1,138 @@
+[
+  {
+    "label": "KÖZÉP-MAGYARORSZÁG",
+    "id": "HU1"
+  },
+  {
+    "label": "Budapest",
+    "id": "HU11"
+  },
+  {
+    "label": "Budapest",
+    "id": "HU110"
+  },
+  {
+    "label": "Pest",
+    "id": "HU12"
+  },
+  {
+    "label": "Pest",
+    "id": "HU120"
+  },
+  {
+    "label": "DUNÁNTÚL",
+    "id": "HU2"
+  },
+  {
+    "label": "Közép-Dunántúl",
+    "id": "HU21"
+  },
+  {
+    "label": "Fejér",
+    "id": "HU211"
+  },
+  {
+    "label": "Komárom-Esztergom",
+    "id": "HU212"
+  },
+  {
+    "label": "Veszprém",
+    "id": "HU213"
+  },
+  {
+    "label": "Nyugat-Dunántúl",
+    "id": "HU22"
+  },
+  {
+    "label": "Győr-Moson-Sopron",
+    "id": "HU221"
+  },
+  {
+    "label": "Vas",
+    "id": "HU222"
+  },
+  {
+    "label": "Zala",
+    "id": "HU223"
+  },
+  {
+    "label": "Dél-Dunántúl",
+    "id": "HU23"
+  },
+  {
+    "label": "Baranya",
+    "id": "HU231"
+  },
+  {
+    "label": "Somogy",
+    "id": "HU232"
+  },
+  {
+    "label": "Tolna",
+    "id": "HU233"
+  },
+  {
+    "label": "ALFÖLD ÉS ÉSZAK",
+    "id": "HU3"
+  },
+  {
+    "label": "Észak-Magyarország",
+    "id": "HU31"
+  },
+  {
+    "label": "Borsod-Abaúj-Zemplén",
+    "id": "HU311"
+  },
+  {
+    "label": "Heves",
+    "id": "HU312"
+  },
+  {
+    "label": "Nógrád",
+    "id": "HU313"
+  },
+  {
+    "label": "Észak-Alföld",
+    "id": "HU32"
+  },
+  {
+    "label": "Hajdú-Bihar",
+    "id": "HU321"
+  },
+  {
+    "label": "Jász-Nagykun-Szolnok",
+    "id": "HU322"
+  },
+  {
+    "label": "Szabolcs-Szatmár-Bereg",
+    "id": "HU323"
+  },
+  {
+    "label": "Dél-Alföld",
+    "id": "HU33"
+  },
+  {
+    "label": "Bács-Kiskun",
+    "id": "HU331"
+  },
+  {
+    "label": "Békés",
+    "id": "HU332"
+  },
+  {
+    "label": "Csongrád",
+    "id": "HU333"
+  },
+  {
+    "label": "EXTRA-REGIO NUTS 1",
+    "id": "HUZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 2",
+    "id": "HUZZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 3",
+    "id": "HUZZZ"
+  }
+]

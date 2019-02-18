@@ -1,0 +1,30 @@
+[
+  {
+    "label": "MALTA",
+    "id": "MT0"
+  },
+  {
+    "label": "Malta",
+    "id": "MT00"
+  },
+  {
+    "label": "Malta",
+    "id": "MT001"
+  },
+  {
+    "label": "Gozo and Comino/Għawdex u Kemmuna",
+    "id": "MT002"
+  },
+  {
+    "label": "EXTRA-REGIO NUTS 1",
+    "id": "MTZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 2",
+    "id": "MTZZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 3",
+    "id": "MTZZZ"
+  }
+]

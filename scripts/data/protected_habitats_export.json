@@ -1,0 +1,1867 @@
+{
+  "@context" : {
+    "@base" : "http://dd.eionet.europa.eu/vocabulary/art17_2018/habitats/",
+    "skos" : "http://www.w3.org/2004/02/skos/core#",
+    "concepts" : "skos:Concept",
+    "prefLabel" : "skos:prefLabel",
+    "broader" : "skos:broader",
+    "narrower" : "skos:narrower",
+    "@language" : "en"
+  },
+  "concepts" : [ {
+    "@id" : "1110",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Sandbanks which are slightly covered by sea water all the time",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1120",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Posidonia beds (Posidonion oceanicae)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1130",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Estuaries",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1140",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Mudflats and sandflats not covered by seawater at low tide",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1150",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Coastal lagoons",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1160",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Large shallow inlets and bays",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1170",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Reefs",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1180",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Submarine structures made by leaking gases",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1210",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Annual vegetation of drift lines",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1220",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Perennial vegetation of stony banks",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1230",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Vegetated sea cliffs of the Atlantic and Baltic Coasts",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1240",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Vegetated sea cliffs of the Mediterranean coasts with endemic Limonium spp.",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1250",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Vegetated sea cliffs with endemic flora of the Macaronesian coasts",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1310",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Salicornia and other annuals colonizing mud and sand",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1320",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Spartina swards (Spartinion maritimae)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1330",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Atlantic salt meadows (Glauco-Puccinellietalia maritimae)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1340",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Inland salt meadows",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1410",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Mediterranean salt meadows (Juncetalia maritimi)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1420",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Mediterranean and thermo-Atlantic halophilous scrubs (Sarcocornetea fruticosi)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1430",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Halo-nitrophilous scrubs (Pegano-Salsoletea)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1510",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Mediterranean salt steppes (Limonietalia)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1520",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Iberian gypsum vegetation (Gypsophiletalia)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1530",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Pannonic salt steppes and salt marshes",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1610",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Baltic esker islands with sandy, rocky and shingle beach vegetation and sublittoral vegetation",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1620",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Boreal Baltic islets and small islands",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1630",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Boreal Baltic coastal meadows",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1640",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Boreal Baltic sandy beaches with perennial vegetation",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "1650",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Boreal Baltic narrow inlets",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2110",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Embryonic shifting dunes",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2120",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Shifting dunes along the shoreline with Ammophila arenaria (\"white dunes\")",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2130",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Fixed coastal dunes with herbaceous vegetation (\"grey dunes\")",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2140",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Decalcified fixed dunes with Empetrum nigrum",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2150",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Atlantic decalcified fixed dunes (Calluno-Ulicetea)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2160",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Dunes with Hippopha� rhamnoides",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2170",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Dunes with Salix repens ssp. argentea (Salicion arenariae)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2180",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Wooded dunes of the Atlantic, Continental and Boreal region",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2190",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Humid dune slacks",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "21A0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Machairs (* in Ireland)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2210",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Crucianellion maritimae fixed beach dunes",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2220",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Dunes with Euphorbia terracina",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2230",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Malcolmietalia dune grasslands",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2240",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Brachypodietalia dune grasslands with annuals",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2250",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Coastal dunes with Juniperus spp.",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2260",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Cisto-Lavenduletalia dune sclerophyllous scrubs",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2270",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Wooded dunes with Pinus pinea and/or Pinus pinaster",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2310",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Dry sand heaths with Calluna and Genista",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2320",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Dry sand heaths with Calluna and Empetrum nigrum",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2330",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Inland dunes with open Corynephorus and Agrostis grasslands",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "2340",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Pannonic inland dunes",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3110",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Oligotrophic waters containing very few minerals of sandy plains (Littorelletalia uniflorae)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3120",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Oligotrophic waters containing very few minerals generally on sandy soils of the West Mediterranean, with Isoetes spp.",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3130",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Oligotrophic to mesotrophic standing waters with vegetation of the Littorelletea uniflorae and/or of the Iso�to-Nanojuncetea",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3140",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Hard oligo-mesotrophic waters with benthic vegetation of Chara spp.",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3150",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Natural eutrophic lakes with Magnopotamion or Hydrocharition - type vegetation",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3160",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Natural dystrophic lakes and ponds",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3170",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Mediterranean temporary ponds",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3180",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Turloughs",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3190",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Lakes of gypsum karst",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "31A0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Transylvanian hot-spring lotus beds",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3210",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Fennoscandian natural rivers",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3220",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Alpine rivers and the herbaceous vegetation along their banks",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3230",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Alpine rivers and their ligneous vegetation with Myricaria germanica",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3240",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Alpine rivers and their ligneous vegetation with Salix elaeagnos",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3250",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Constantly flowing Mediterranean rivers with Glaucium flavum",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3260",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Water courses of plain to montane levels with the Ranunculion fluitantis and Callitricho-Batrachion vegetation",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3270",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Rivers with muddy banks with Chenopodion rubri p.p. and Bidention p.p. vegetation",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3280",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Constantly flowing Mediterranean rivers with Paspalo-Agrostidion species and hanging curtains of Salix and Populus alba",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "3290",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Intermittently flowing Mediterranean rivers of the Paspalo-Agrostidion",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "32A0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Tufa cascades of karstic rivers in the Dinaric Alps",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "4010",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Northern Atlantic wet heaths with Erica tetralix",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "4020",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Temperate Atlantic wet heaths with Erica ciliaris and Erica tetralix",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "4030",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "European dry heaths",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "4040",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Dry Atlantic coastal heaths with Erica vagans",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "4050",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Endemic macaronesian heaths",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "4060",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Alpine and Boreal heaths",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "4070",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Bushes with Pinus mugo and Rhododendron hirsutum (Mugo-Rhododendretum hirsuti)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "4080",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Sub-Arctic Salix spp. scrub",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "4090",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Endemic oro-Mediterranean heaths with gorse",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "40A0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Subcontinental peri-Pannonic scrub",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "40B0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Rhodope Potentilla fruticosa thickets",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "40C0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Ponto-Sarmatic deciduous thickets",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "5110",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Stable xerothermophilous formations with Buxus sempervirens on rock slopes (Berberidion p.p.)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "5120",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Mountain Cytisus purgans formations",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "5130",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Juniperus communis formations on heaths or calcareous grasslands",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "5140",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Cistus palhinhae formations on maritime wet heaths",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "5210",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Arborescent matorral with Juniperus spp.",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "5220",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Arborescent matorral with Zyziphus",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "5230",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Arborescent matorral with Laurus nobilis",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "5310",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Laurus nobilis thickets",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "5320",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Low formations of Euphorbia close to cliffs",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "5330",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Thermo-Mediterranean and pre-desert scrub",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "5410",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "West Mediterranean clifftop phryganas (Astragalo-Plantaginetum subulatae)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "5420",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Sarcopoterium spinosum phryganas",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "5430",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Endemic phryganas of the Euphorbio-Verbascion",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6110",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Rupicolous calcareous or basophilic grasslands of the Alysso-Sedion albi",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6120",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Xeric sand calcareous grasslands",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6130",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Calaminarian grasslands of the Violetalia calaminariae",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6140",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Siliceous Pyrenean Festuca eskia grasslands",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6150",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Siliceous alpine and boreal grasslands",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6160",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Oro-Iberian Festuca indigesta grasslands",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6170",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Alpine and subalpine calcareous grasslands",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6180",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Macaronesian mesophile grasslands",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6190",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Rupicolous pannonic grasslands (Stipo-Festucetalia pallentis)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6210",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Semi-natural dry grasslands and scrubland facies on calcareous substrates (Festuco-Brometalia) (* important orchid sites)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6220",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Pseudo-steppe with grasses and annuals of the Thero-Brachypodietea",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6230",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Species-rich Nardus grasslands, on siliceous substrates in mountain areas (and submountain areas, in Continental Europe)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6240",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Sub-Pannonic steppic grasslands",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6250",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Pannonic loess steppic grasslands",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6260",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Pannonic sand steppes",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6270",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Fennoscandian lowland species-rich dry to mesic grasslands",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6280",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Nordic alvar and precambrian calcareous flatrocks",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "62A0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Eastern sub-Mediterranean dry grasslands (Scorzoneratalia villosae)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "62B0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Serpentinophilous grasslands of Cyprus",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "62C0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Ponto-Sarmatic steppes",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "62D0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Oro-Moesian acidophilous grasslands",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6310",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Dehesas with evergreen Quercus spp.",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6410",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Molinia meadows on calcareous, peaty or clayey-silt-laden soils (Molinion caeruleae)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6420",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Mediterranean tall humid grasslands of the Molinio-Holoschoenion",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6430",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Hydrophilous tall herb fringe communities of plains and of the montane to alpine levels",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6440",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Alluvial meadows of river valleys of the Cnidion dubii",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6450",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Northern boreal alluvial meadows",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6460",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Peat grasslands of Troodos",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6510",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Lowland hay meadows (Alopecurus pratensis, Sanguisorba officinalis)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6520",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Mountain hay meadows",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6530",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Fennoscandian wooded meadows",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "6540",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Sub-Mediterranean grasslands of the Molinio-Hordeion secalini",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "7110",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Active raised bogs",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "7120",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Degraded raised bogs still capable of natural regeneration",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "7130",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Blanket bogs (* if active bog)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "7140",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Transition mires and quaking bogs",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "7150",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Depressions on peat substrates of the Rhynchosporion",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "7160",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Fennoscandian mineral-rich springs and springfens",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "7210",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Calcareous fens with Cladium mariscus and species of the Caricion davallianae",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "7220",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Petrifying springs with tufa formation (Cratoneurion)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "7230",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Alkaline fens",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "7240",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Alpine pioneer formations of Caricion bicoloris-atrofuscae",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "7310",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Aapa mires",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "7320",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Palsa mires",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "8110",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Siliceous scree of the montane to snow levels (Androsacetalia alpinae and Galeopsietalia ladani)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "8120",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Calcareous and calcshist screes of the montane to alpine levels (Thlaspietea rotundifolii)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "8130",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Western Mediterranean and thermophilous scree",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "8140",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Eastern Mediterranean screes",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "8150",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Medio-European upland siliceous screes",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "8160",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Medio-European calcareous scree of hill and montane levels",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "8210",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Calcareous rocky slopes with chasmophytic vegetation",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "8220",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Siliceous rocky slopes with chasmophytic vegetation",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "8230",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Siliceous rock with pioneer vegetation of the Sedo-Scleranthion or of the Sedo albi-Veronicion dillenii",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "8240",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Limestone pavements",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "8310",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Caves not open to the public",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "8320",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Fields of lava and natural excavations",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "8330",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Submerged or partially submerged sea caves",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "8340",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Permanent glaciers",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9010",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Western Ta�ga",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9020",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Fennoscandian hemiboreal natural old broad-leaved deciduous forests (Quercus, Tilia, Acer, Fraxinus or Ulmus) rich in epiphytes",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9030",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Natural forests of primary succession stages of landupheaval coast",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9040",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Nordic subalpine/subarctic forests with Betula pubescens ssp. czerepanovii",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9050",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Fennoscandian herb-rich forests with Picea abies",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9060",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Coniferous forests on, or connected to, glaciofluvial eskers",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9070",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Fennoscandian wooded pastures",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9080",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Fennoscandian deciduous swamp woods",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9110",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Luzulo-Fagetum beech forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9120",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Atlantic acidophilous beech forests with Ilex and sometimes also Taxus in the shrublayer (Quercion robori-petraeae or Ilici-Fagenion)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9130",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Asperulo-Fagetum beech forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9140",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Medio-European subalpine beech woods with Acer and Rumex arifolius",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9150",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Medio-European limestone beech forests of the Cephalanthero-Fagion",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9160",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Sub-Atlantic and medio-European oak or oak-hornbeam forests of the Carpinion betuli",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9170",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Galio-Carpinetum oak-hornbeam forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9180",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Tilio-Acerion forests of slopes, screes and ravines",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9190",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Old acidophilous oak woods with Quercus robur on sandy plains",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91A0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Old sessile oak woods with Ilex and Blechnum in the British Isles",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91AA",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Eastern white oak woods",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91B0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Thermophilous Fraxinus angustifolia woods",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91BA",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Moesian silver fir forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91C0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Caledonian forest",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91CA",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Rhodopide and Balkan Range Scots pine forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91D0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Bog woodland",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91E0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Alluvial forests with Alnus glutinosa and Fraxinus excelsior (Alno-Padion, Alnion incanae, Salicion albae)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91F0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Riparian mixed forests of Quercus robur, Ulmus laevis and Ulmus minor, Fraxinus excelsior or Fraxinus angustifolia, along the great rivers (Ulmenion minoris)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91G0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Pannonic woods with Quercus petraea and Carpinus betulus",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91H0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Pannonian woods with Quercus pubescens",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91I0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Euro-Siberian steppic woods with Quercus spp.",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91J0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Taxus baccata woods of the British Isles",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91K0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Illyrian Fagus sylvatica forests (Aremonio-Fagion)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91L0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Illyrian oak-hornbeam forests (Erythronio-Carpinion)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91M0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Pannonian-Balkanic turkey oak-sessile oak forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91N0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Pannonic inland sand dune thicket (Junipero-Populetum albae)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91P0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Holy Cross fir forests (Abietetum polonicum)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91Q0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Western Carpathian calcicolous Pinus sylvestris forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91R0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Dinaric dolomite Scots pine forests (Genisto januensis-Pinetum)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91S0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Western Pontic beech forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91T0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Central European lichen Scots pine forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91U0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Sarmatic steppe pine forest",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91V0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Dacian Beech forests (Symphyto-Fagion)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91W0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Moesian beech forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91X0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Dobrogean beech forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91Y0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Dacian oak & hornbeam forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "91Z0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Moesian silver lime woods",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9210",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Apennine beech forests with Taxus and Ilex",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9220",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Apennine beech forests with Abies alba and beech forests with Abies nebrodensis",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9230",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Galicio-Portuguese oak woods with Quercus robur and Quercus pyrenaica",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9240",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Quercus faginea and Quercus canariensis Iberian woods",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9250",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Quercus trojana woods",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9260",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Castanea sativa woods",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9270",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Hellenic beech forests with Abies borisii-regis",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9280",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Quercus frainetto woods",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9290",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Cupressus forests (Acero-Cupression)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "92A0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Salix alba and Populus alba galleries",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "92B0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Riparian formations on intermittent Mediterranean water courses with Rhododendron ponticum, Salix and others",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "92C0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Platanus orientalis and Liquidambar orientalis woods (Platanion orientalis)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "92D0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Southern riparian galleries and thickets (Nerio-Tamaricetea and Securinegion tinctoriae)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9310",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Aegean Quercus brachyphylla woods",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9320",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Olea and Ceratonia forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9330",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Quercus suber forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9340",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Quercus ilex and Quercus rotundifolia forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9350",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Quercus macrolepis forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9360",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Macaronesian laurel forests (Laurus, Ocotea)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9370",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Palm groves of Phoenix",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9380",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Forests of Ilex aquifolium",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9390",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Scrub and low forest vegetation with Quercus alnifolia",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "93A0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Woodlands with Quercus infectoria (Anagyro foetidae-Quercetum infectoriae)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9410",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Acidophilous Picea forests of the montane to alpine levels (Vaccinio-Piceetea)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9420",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Alpine Larix decidua and/or Pinus cembra forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9430",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Subalpine and montane Pinus uncinata forests (* if on gypsum or limestone)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9510",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Southern Apennine Abies alba forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9520",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Abies pinsapo forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9530",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "(Sub-) Mediterranean pine forests with endemic black pines",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9540",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Mediterranean pine forests with endemic Mesogean pines",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9550",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Canarian endemic pine forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9560",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Endemic forests with Juniperus spp.",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9570",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Tetraclinis articulata forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9580",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Mediterranean Taxus baccata woods",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "9590",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Cedrus brevifolia forests (Cedrosetum brevifoliae)",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "95A0",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "High oro-Mediterranean pine forests",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabAll",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "All habitats",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenAbyssal",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Abyssal",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenAll",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "All benthic habitats",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenBathyalLowRock",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Lower bathyal rock and biogenic reef",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenBathyalLowSed",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Lower bathyal sediment",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenBathyalUpReef",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Upper bathyal rock and biogenic reef",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenBathyalUpSed",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Upper bathyal sediment",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenCircalitCoarSed",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Circalittoral coarse sediment",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenCircalitMud",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Circalittoral mud",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenCircalitMxdSed",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Circalittoral mixed sediment",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenCircalitRock",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Circalittoral rock and biogenic reef",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenCircalitSand",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Circalittoral sand",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenInfralitCoarSed",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Infralittoral coarse sediment",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenInfralitMud",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Infralittoral mud",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenInfralitMxdSed",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Infralittoral mixed sediment",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenInfralitRock",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Infralittoral rock and biogenic reef",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenInfralitSand",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Infralittoral sand",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenLitRock",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Littoral rock and biogenic reef",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenLitSed",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Littoral sediment",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenOffshCoarSed",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Offshore circalittoral coarse sediment",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenOffshMud",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Offshore circalittoral mud",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenOffshMxdSed",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Offshore circalittoral mixed sediment",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenOffshRock",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Offshore circalittoral rock and biogenic reef",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenOffshSand",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Offshore circalittoral sand",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabBenOther",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Other benthic habitats",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabOther",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Other habitats",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabPelagAll",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "All pelagic habitats",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabPelagCoastal",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Coastal",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabPelagOcean",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Oceanic/beyond shelf",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabPelagOther",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Other pelagic habitats",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabPelagShelf",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Shelf",
+      "@language" : "en"
+    } ]
+  }, {
+    "@id" : "HabPelagVarSalinity",
+    "@type" : "skos:Concept",
+    "prefLabel" : [ {
+      "@value" : "Variable salinity",
+      "@language" : "en"
+    } ]
+  } ]
+}

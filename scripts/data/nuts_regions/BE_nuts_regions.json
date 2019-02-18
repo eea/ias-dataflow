@@ -1,0 +1,246 @@
+[
+  {
+    "label": "RÉGION DE BRUXELLES-CAPITALE/BRUSSELS HOOFDSTEDELIJK GEWEST",
+    "id": "BE1"
+  },
+  {
+    "label": "Région de Bruxelles-Capitale/Brussels Hoofdstedelijk Gewest",
+    "id": "BE10"
+  },
+  {
+    "label": "Arr. (1) de Bruxelles-Capitale/Arr. van Brussel-Hoofdstad",
+    "id": "BE100"
+  },
+  {
+    "label": "VLAAMS GEWEST",
+    "id": "BE2"
+  },
+  {
+    "label": "Prov. (2)Antwerpen",
+    "id": "BE21"
+  },
+  {
+    "label": "Arr. Antwerpen",
+    "id": "BE211"
+  },
+  {
+    "label": "Arr. Mechelen",
+    "id": "BE212"
+  },
+  {
+    "label": "Arr. Turnhout",
+    "id": "BE213"
+  },
+  {
+    "label": "Prov. Limburg (BE)",
+    "id": "BE22"
+  },
+  {
+    "label": "Arr. Hasselt",
+    "id": "BE221"
+  },
+  {
+    "label": "Arr. Maaseik",
+    "id": "BE222"
+  },
+  {
+    "label": "Arr. Tongeren",
+    "id": "BE223"
+  },
+  {
+    "label": "Prov. Oost-Vlaanderen",
+    "id": "BE23"
+  },
+  {
+    "label": "Arr. Aalst",
+    "id": "BE231"
+  },
+  {
+    "label": "Arr. Dendermonde",
+    "id": "BE232"
+  },
+  {
+    "label": "Arr. Eeklo",
+    "id": "BE233"
+  },
+  {
+    "label": "Arr. Gent",
+    "id": "BE234"
+  },
+  {
+    "label": "Arr. Oudenaarde",
+    "id": "BE235"
+  },
+  {
+    "label": "Arr. Sint-Niklaas",
+    "id": "BE236"
+  },
+  {
+    "label": "Prov. Vlaams-Brabant",
+    "id": "BE24"
+  },
+  {
+    "label": "Arr. Halle-Vilvoorde",
+    "id": "BE241"
+  },
+  {
+    "label": "Arr. Leuven",
+    "id": "BE242"
+  },
+  {
+    "label": "Prov. West-Vlaanderen",
+    "id": "BE25"
+  },
+  {
+    "label": "Arr. Brugge",
+    "id": "BE251"
+  },
+  {
+    "label": "Arr. Diksmuide",
+    "id": "BE252"
+  },
+  {
+    "label": "Arr. Ieper",
+    "id": "BE253"
+  },
+  {
+    "label": "Arr. Kortrijk",
+    "id": "BE254"
+  },
+  {
+    "label": "Arr. Oostende",
+    "id": "BE255"
+  },
+  {
+    "label": "Arr. Roeselare",
+    "id": "BE256"
+  },
+  {
+    "label": "Arr. Tielt",
+    "id": "BE257"
+  },
+  {
+    "label": "Arr. Veurne",
+    "id": "BE258"
+  },
+  {
+    "label": "RÉGION WALLONNE",
+    "id": "BE3"
+  },
+  {
+    "label": "Prov. Brabant wallon",
+    "id": "BE31"
+  },
+  {
+    "label": "Arr. Nivelles",
+    "id": "BE310"
+  },
+  {
+    "label": "Prov. Hainaut",
+    "id": "BE32"
+  },
+  {
+    "label": "Arr. Ath",
+    "id": "BE321"
+  },
+  {
+    "label": "Arr. Charleroi",
+    "id": "BE322"
+  },
+  {
+    "label": "Arr. Mons",
+    "id": "BE323"
+  },
+  {
+    "label": "Arr. Mouscron",
+    "id": "BE324"
+  },
+  {
+    "label": "Arr. Soignies",
+    "id": "BE325"
+  },
+  {
+    "label": "Arr. Thuin",
+    "id": "BE326"
+  },
+  {
+    "label": "Arr. Tournai",
+    "id": "BE327"
+  },
+  {
+    "label": "Prov. Liège",
+    "id": "BE33"
+  },
+  {
+    "label": "Arr. Huy",
+    "id": "BE331"
+  },
+  {
+    "label": "Arr. Liège",
+    "id": "BE332"
+  },
+  {
+    "label": "Arr. Waremme",
+    "id": "BE334"
+  },
+  {
+    "label": "Arr. Verviers — communes francophones",
+    "id": "BE335"
+  },
+  {
+    "label": "Bezirk Verviers — Deutschsprachige Gemeinschaft",
+    "id": "BE336"
+  },
+  {
+    "label": "Prov. Luxembourg (BE)",
+    "id": "BE34"
+  },
+  {
+    "label": "Arr. Arlon",
+    "id": "BE341"
+  },
+  {
+    "label": "Arr. Bastogne",
+    "id": "BE342"
+  },
+  {
+    "label": "Arr. Marche-en-Famenne",
+    "id": "BE343"
+  },
+  {
+    "label": "Arr. Neufchâteau",
+    "id": "BE344"
+  },
+  {
+    "label": "Arr. Virton",
+    "id": "BE345"
+  },
+  {
+    "label": "Prov. Namur",
+    "id": "BE35"
+  },
+  {
+    "label": "Arr. Dinant",
+    "id": "BE351"
+  },
+  {
+    "label": "Arr. Namur",
+    "id": "BE352"
+  },
+  {
+    "label": "Arr. Philippeville",
+    "id": "BE353"
+  },
+  {
+    "label": "EXTRA-REGIO NUTS 1",
+    "id": "BEZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 2",
+    "id": "BEZZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 3",
+    "id": "BEZZZ"
+  }
+]

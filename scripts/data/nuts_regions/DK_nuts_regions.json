@@ -1,0 +1,82 @@
+[
+  {
+    "label": "DANMARK",
+    "id": "DK0"
+  },
+  {
+    "label": "Hovedstaden",
+    "id": "DK01"
+  },
+  {
+    "label": "Byen København",
+    "id": "DK011"
+  },
+  {
+    "label": "Københavns omegn",
+    "id": "DK012"
+  },
+  {
+    "label": "Nordsjælland",
+    "id": "DK013"
+  },
+  {
+    "label": "Bornholm",
+    "id": "DK014"
+  },
+  {
+    "label": "Sjælland",
+    "id": "DK02"
+  },
+  {
+    "label": "Østsjælland",
+    "id": "DK021"
+  },
+  {
+    "label": "Vest- og Sydsjælland",
+    "id": "DK022"
+  },
+  {
+    "label": "Syddanmark",
+    "id": "DK03"
+  },
+  {
+    "label": "Fyn",
+    "id": "DK031"
+  },
+  {
+    "label": "Sydjylland",
+    "id": "DK032"
+  },
+  {
+    "label": "Midtjylland",
+    "id": "DK04"
+  },
+  {
+    "label": "Vestjylland",
+    "id": "DK041"
+  },
+  {
+    "label": "Østjylland",
+    "id": "DK042"
+  },
+  {
+    "label": "Nordjylland",
+    "id": "DK05"
+  },
+  {
+    "label": "Nordjylland",
+    "id": "DK050"
+  },
+  {
+    "label": "EXTRA-REGIO NUTS 1",
+    "id": "DKZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 2",
+    "id": "DKZZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 3",
+    "id": "DKZZZ"
+  }
+]

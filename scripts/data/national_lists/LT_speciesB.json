@@ -1,0 +1,177 @@
+[
+  {
+    "cname": "Uosialapis klevas",
+    "code": "R00116",
+    "name": "Acer negundo"
+  },
+  {
+    "cname": "Varpinė medlieva",
+    "code": "R00835",
+    "name": "Amelanchier stolonifera = Amelanchier spicata"
+  },
+  {
+    "cname": "Luzitaninis arionas",
+    "code": "R01414",
+    "name": "Arion lusitanicus"
+  },
+  {
+    "cname": "Ilgakotis lakišius",
+    "code": "R18515",
+    "name": "Bidens frondosa"
+  },
+  {
+    "cname": "Kanadinė berniklė",
+    "code": "R02253",
+    "name": "Branta canadensis"
+  },
+  {
+    "cname": "Puošnusis vėžlys",
+    "code": "R03552",
+    "name": "Chrysemys picta"
+  },
+  {
+    "cname": "Šluotinis sausakrūmis",
+    "code": "R04771",
+    "name": "Cytisus scoparius"
+  },
+  {
+    "cname": "Gauruotoji šoniplauka",
+    "code": "R05139",
+    "name": "Dikerogammarus villosus"
+  },
+  {
+    "cname": "Dygliavaisis virkštenis",
+    "code": "R05386",
+    "name": "Echinocystis lobata"
+  },
+  {
+    "cname": "Kanadinė elodėja",
+    "code": "R05500",
+    "name": "Elodea canadensis"
+  },
+  {
+    "cname": "Vienametė šiušelė",
+    "code": "R05820",
+    "name": "Erigeron annuus"
+  },
+  {
+    "cname": "Muilinė guboja",
+    "code": "R06957",
+    "name": "Gypsophila paniculata"
+  },
+  {
+    "cname": "Sosnovskio barštis",
+    "code": "R07252",
+    "name": "Heracleum sosnowskyi"
+  },
+  {
+    "cname": "Bitinė sprigė",
+    "code": "R07719",
+    "name": "Impatiens grandulifera"
+  },
+  {
+    "cname": "Smulkiažiedė sprigė",
+    "code": "R07724",
+    "name": "Impatiens parviflora"
+  },
+  {
+    "cname": "Gausialapis lubinas",
+    "code": "R08861",
+    "name": "Lupinus polyphyllus"
+  },
+  {
+    "cname": "Juodažiotis grundalas",
+    "code": "R09930",
+    "name": "Neogobius melanostomus"
+  },
+  {
+    "cname": "Kanadinė audinė",
+    "code": "R09952",
+    "name": "Neovison vison"
+  },
+  {
+    "cname": "Mangutas",
+    "code": "R10085",
+    "name": "Nyctereutes procyonoides"
+  },
+  {
+    "cname": "Ondatra",
+    "code": "R10336",
+    "name": "Ondatra zibethicus"
+  },
+  {
+    "cname": "Rainuotasis vėžys",
+    "code": "R10443",
+    "name": "Orconectes limosus"
+  },
+  {
+    "cname": "Žymėtasis vėžys",
+    "code": "R10676",
+    "name": "Pacifastacus leniusculus"
+  },
+  {
+    "cname": "Ežerinė mizidė",
+    "code": "R10811",
+    "name": "Paramysis (Serrapalpisis) lacustris = Paramysis lacustris"
+  },
+  {
+    "cname": "Nuodėgulinis grundalas",
+    "code": "R11034",
+    "name": "Perccottus glenii"
+  },
+  {
+    "cname": "Kietašarvė šoniplauka",
+    "code": "R12047",
+    "name": "Pontogammarus robustoides"
+  },
+  {
+    "cname": "Pietinė vijasraigė",
+    "code": "R12141",
+    "name": "Potamopyrgus antipodarum"
+  },
+  {
+    "cname": "Paprastasis meškėnas",
+    "code": "R12260",
+    "name": "Procyon lotor"
+  },
+  {
+    "cname": "Vėlyvoji ieva",
+    "code": "R12340",
+    "name": "Prunus serotina"
+  },
+  {
+    "cname": "Pilkoji žiurkė",
+    "code": "R12864",
+    "name": "Rattus norvegicus"
+  },
+  {
+    "cname": "Baltažiedė robinija",
+    "code": "R13059",
+    "name": "Robinia pseudoacacia"
+  },
+  {
+    "cname": "Raukšlėtalapis erškėtis",
+    "code": "R13131",
+    "name": "Rosa rugosa"
+  },
+  {
+    "cname": "Tankiažiedė rūgštynė",
+    "code": "R13241",
+    "name": "Rumex confertus"
+  },
+  {
+    "cname": "Kanadinė rykštenė",
+    "code": "R14288",
+    "name": "Solidago canadensis"
+  },
+  {
+    "cname": "Didžioji rykštenė",
+    "code": "R14292",
+    "name": "Solidago gigantea"
+  },
+  {
+    "cname": "Raštuotasis vėžlys",
+    "code": "R18154",
+    "name": "Trachemys scripta"
+  }
+]

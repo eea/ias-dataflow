@@ -1,0 +1,358 @@
+row_number,country,MSscientificName,cName,EASINcode,EASINscientificName,SpeciesCode,entryForWebform
+1,EE,Acroptilon repens,,R12919,Rhaponticum repens,R12919,Rhaponticum repens = Acroptilon repens
+2,EE,Ambrosia spp.,,,,N00001,Ambrosia spp.
+3,EE,Ameiurus melas,,R00826,,R00826,Ameiurus melas
+4,EE,Ameiurus nebulosus,,R00828,,R00828,Ameiurus nebulosus
+5,EE,Astacus leptodactylus,,R01586,,R01586,Astacus leptodactylus
+6,EE,Bidens frondosa,,R18515,,R18515,Bidens frondosa
+7,EE,Castor canadensis,,R02919,,R02919,Castor canadensis
+8,EE,Cervus nippon,,R03227,,R03227,Cervus nippon
+9,EE,Dama dama,,R04810,,R04810,Dama dama
+10,EE,Egeria densa,,R05431,,R05431,Egeria densa
+11,EE,Elodea nuttallii,,R05501,,R05501,Elodea nuttallii
+12,EE,Heracleum mantegazzianum,,R07248,,R07248,Heracleum mantegazzianum
+13,EE,Heracleum sosnowskyi,,R07252,,R07252,Heracleum sosnowskyi
+14,EE,Impatiens glandulifera,,R07719,,R07719,Impatiens glandulifera
+15,EE,Lepomis auritus,,R08374,,R08374,Lepomis auritus
+16,EE,Lepomis gibbosus,,R08376,,R08376,Lepomis gibbosus
+17,EE,Lepomis macrochirus,,,,,Lepomis macrochirus
+18,EE,Lutra canadensis,,,,,Lutra canadensis
+19,EE,Mustela vison,,R09952,Neovison vison,R09952,Neovison vison = Mustela vison
+20,EE,Neogobius fluviatilis,,R09924,,R09924,Neogobius fluviatilis
+21,EE,Neogobius gymnotrachelus,,R09927,,R09927,Neogobius gymnotrachelus
+22,EE,Nyctereutes procyonoides,,R10085,,R10085,Nyctereutes procyonoides
+23,EE,Odocoileus virginianus,,R10135,,R10135,Odocoileus virginianus
+24,EE,Ondatra zibethicus,,R10336,,R10336,Ondatra zibethicus
+25,EE,Opsariichthys uncirostris,,,,,Opsariichthys uncirostris
+26,EE,Orconectes limosus,,R10443,,R10443,Orconectes limosus
+27,EE,Oryctolagus cuniculus,,R10532,,R10532,Oryctolagus cuniculus
+28,EE,Ovis ammon,,,,,Ovis ammon
+29,EE,Oxyura jamaicensis,,R10652,,R10652,Oxyura jamaicensis
+30,EE,Pacifascatus leniusculus,,R10676,Pacifastacus leniusculus,R10676,Pacifastacus leniusculus = Pacifascatus leniusculus
+31,EE,Perccottus glenii,,R11034,,R11034,Perccottus glenii
+32,EE,Pseudorasbora parva,,R12451,,R12451,Pseudorasbora parva
+33,EE,Reynoutria japonica,,R18201,Fallopia japonica,R18201,Fallopia japonica = Reynoutria japonica
+34,EE,Reynoutria sachalinensis,,R18205,Fallopia sachalinensis,R18205,Fallopia sachalinensis = Reynoutria sachalinensis
+35,EE,Reynoutria x bohemica,,R18189,Fallopia x bohemica,R18189,Fallopia x bohemica = Reynoutria x bohemica
+36,EE,Sciurus carolinensis,,R13698,,R13698,Sciurus carolinensis
+37,EE,Solidago canadensis,,R14288,,R14288,Solidago canadensis
+38,EE,Solidago gigantea,,R14292,,R14292,Solidago gigantea
+39,EE,Umbra pygmaea,,R15685,,R15685,Umbra pygmaea
+40,ES,Acacia dealbata,,R00039,,R00039,Acacia dealbata
+41,ES,Acacia farnesiana,,R00041,,R00041,Acacia farnesiana
+42,ES,Acacia salicina,,R00052,,R00052,Acacia salicina
+43,ES,Achatina fulica,,R19254,Lissachatina fulica,R19254,Achatina fulica = Lissachatina fulica
+44,ES,Acridotheres spp.,,,,N00002,Acridotheres spp.
+45,ES,Acrothamnion preissii,,R00226,,R00226,Acrothamnion preissii
+46,ES,Aedes albopictus,,R17713,,R17713,Aedes albopictus
+47,ES,Agave americana,,R00382,Agave americana subsp. americana (?),,Agave americana
+48,ES,Ageratina adenophora,,R00394,,R00394,Ageratina adenophora
+49,ES,Ageratina riparia,,R00396,,R00396,Ageratina riparia
+50,ES,Ailanthus altissima,,R00460,,R00460,Ailanthus altissima
+51,ES,Alburnus alburnus,,R00481,,R00481,Alburnus alburnus
+52,ES,Alopochen aegyptiacus,,R00644,Alopochen aegyptiaca,R00644,Alopochen aegyptiacus = Alopochen aegyptiaca
+53,ES,Alternanthera philoxeroides,,R00669,,R00669,Alternanthera philoxeroides
+54,ES,Amandava amandava,,R00713,,R00713,Amandava amandava
+55,ES,Ambrosia artemisiifolia,,R00818,,R00818,Ambrosia artemisiifolia
+56,ES,Ameiurus melas,,R00826,,R00826,Ameiurus melas
+57,ES,Ammotragus lervia,,R00858,,R00858,Ammotragus lervia
+58,ES,Ampullariidae Family,,,,N00022,Ampullariidae spp.
+59,ES,Araujia sericifera,,R01344,,R01344,Araujia sericifera
+60,ES,Arbutus unedo,,R01346,,R01346,Arbutus unedo
+61,ES,Armadillidium vulgare,,R01436,,R01436,Armadillidium vulgare
+62,ES,Arundo donax,,R01515,,R01515,Arundo donax
+63,ES,Asparagopsis armata,,R01543,,R01543,Asparagopsis armata
+64,ES,Asparagopsis taxiformis,,R01544,,R01544,Asparagopsis taxiformis
+65,ES,Asparagus asparagoides,,R01546,,R01546,Asparagus asparagoides
+66,ES,Atelerix albiventris,,,,,Atelerix albiventris
+67,ES,Atriplex semilunaris,,R01721,,R01721,Atriplex semilunaris
+68,ES,Australoheros facetus,,R03607,,R03607,Australoheros facetus
+69,ES,Azolla spp.,,,,N00003,Azolla spp.
+70,ES,Baccharis halimifolia,,R01830,,R01830,Baccharis halimifolia
+71,ES,Batrachocytrium dendrobatidis,,R01933,Batrachochytrium dendrobatidis,R01933,Batrachocytrium dendrobatidis = Batrachochytrium dendrobatidis
+72,ES,Branta canadensis,,R02253,,R02253,Branta canadensis
+73,ES,Buddleja davidii,,R02410,,R02410,Buddleja davidii
+74,ES,Bufo marinus,,,,,Bufo marinus = Rhinella marina
+75,ES,Bursaphelenchus xylophilus,,R02459,,R02459,Bursaphelenchus xylophilus
+76,ES,Cabomba caroliniana,,R02476,,R02476,Cabomba caroliniana
+77,ES,Calotropis procera,,R02594,,R02594,Calotropis procera
+78,ES,Carcinus maenas,,,,,Carcinus maenas
+79,ES,Carpobrotus acinaciformis,,R02860,,R02860,Carpobrotus acinaciformis
+80,ES,Carpobrotus edulis,,R02862,,R02862,Carpobrotus edulis
+81,ES,Caulerpa racemosa,,,,,Caulerpa racemosa
+82,ES,Caulerpa taxifolia,,R02956,,R02956,Caulerpa taxifolia
+83,ES,Centranthus ruber,,R03088,Centranthus ruber subsp. ruber (?),,Centranthus ruber
+84,ES,Channa spp.,,,,N00004,Channa spp.
+85,ES,Cherax destructor,,R03444,,R03444,Cherax destructor
+86,ES,Chrysemys picta,,R03552,,R03552,Chrysemys picta
+87,ES,Codium fragile,,R03843,Codium fragile subsp. fragile (?),R03843,Codium fragile
+88,ES,Colubridae Family,,,,N00020,Colubridae spp.
+89,ES,Corbicula fluminea,,R04013,,R04013,Corbicula fluminea
+90,ES,Cordylophora caspia,,R04027,,R04027,Cordylophora caspia
+91,ES,Cortaderia spp.,,,,N00005,Cortaderia spp.
+92,ES,Cotula coronopifolia,,R04264,,R04264,Cotula coronopifolia
+93,ES,Coturnix japonica,,R04272,,R04272,Coturnix japonica
+94,ES,Crassula helmsii,,R04306,,R04306,Crassula helmsii
+95,ES,Crepidula fornicata,,R04358,,R04358,Crepidula fornicata
+96,ES,Cylindropuntia spp.,,,,N00006,Cylindropuntia spp.
+97,ES,Cyprinus carpio,,R04750,Cyprinus carpi,R04750,Cyprinus carpi = Cyprinus carpio
+98,ES,Cyrtomium falcatum,,R04756,,R04756,Cyrtomium falcatum
+99,ES,Cytisus scoparius,,R04771,,R04771,Cytisus scoparius
+100,ES,Didymosphenia geminata,,,,,Didymosphenia geminata
+101,ES,Dikerogammarus villosus,,R05139,,R05139,Dikerogammarus villosus
+102,ES,Dreissena bugensis,,,,,Dreissena bugensis
+103,ES,Dreissena polymorpha,,R05292,,R05292,Dreissena polymorpha
+104,ES,Duttaphrynus melanostictus,,,,,Duttaphrynus melanostictus
+105,ES,Dysdera crocata,,R05343,,R05343,Dysdera crocata
+106,ES,Dyspanopeus sayi,,R05349,,R05349,Dyspanopeus sayi
+107,ES,Egeria densa,,R05431,,R05431,Egeria densa
+108,ES,Eichhornia crassipes,,R05440,,R05440,Eichhornia crassipes
+109,ES,Elaphe guttata,,R10739,Pantherophis guttatus,R10739,Elaphe guttata = Pantherophis guttatus
+110,ES,Elodea canadensis,,R05500,,R05500,Elodea canadensis
+111,ES,Elodea nuttallii,,R05501,,R05501,Elodea nuttallii
+112,ES,Eriocheir sinensis,,R05836,,R05836,Eriocheir sinensis
+113,ES,Eschscholzia californica,,R05979,,R05979,Eschscholzia californica
+114,ES,Esox lucius,,R05980,,R05980,Esox lucius
+115,ES,Estrilda spp.,,,,N00007,Estrilda spp.
+116,ES,Euplectes spp.,,,,N00008,Euplectes spp.
+117,ES,Fallopia baldschuanica,,R18445,,R18445,Fallopia baldschuanica
+118,ES,Fallopia japonica,,R18201,,R18201,Fallopia japonica
+119,ES,Ficopomatus enigmaticus,,R06316,,R06316,Ficopomatus enigmaticus
+120,ES,Fundulus heteroclitus,,R06466,Fundulus heteroclitus heteroclitus,R06466,Fundulus heteroclitus = Fundulus heteroclitus heteroclitus
+121,ES,Furcraea foetida,,R06469,,R06469,Furcraea foetida
+122,ES,Gambusia holbrooki,,R06574,,R06574,Gambusia holbrooki
+123,ES,Gracilaria vermiculophylla,,R06855,,R06855,Gracilaria vermiculophylla
+124,ES,Grateloupia turuturu,,R06885,,R06885,Grateloupia turuturu
+125,ES,Harmonia axyridis,,R07073,,R07073,Harmonia axyridis
+126,ES,Hedychium gardnerianum,,R07106,,R07106,Hedychium gardnerianum
+127,ES,Helianthus tuberosus,,R07136,,R07136,Helianthus tuberosus
+128,ES,Hemiechinus auritus,,R17643,,R17643,Hemiechinus auritus
+129,ES,Heracleum mantegazzianum,,R07248,,R07248,Heracleum mantegazzianum
+130,ES,Herpestes javanicus,,R07276,,R07276,Herpestes javanicus
+131,ES,Hydrocotyle ranunculoides,,R07537,,R07537,Hydrocotyle ranunculoides
+132,ES,Ictalurus punctatus,,R07692,,R07692,Ictalurus punctatus
+133,ES,Ipomoea indica,,R07765,,R07765,Ipomoea indica
+134,ES,Lasius neglectus,,R08182,,R08182,Lasius neglectus
+135,ES,Leiothrix lutea,,R08283,,R08283,Leiothrix lutea
+136,ES,Lepomis gibbosus,,R08376,,R08376,Lepomis gibbosus
+137,ES,Leptoglossus occidentalis,,R08399,,R08399,Leptoglossus occidentalis
+138,ES,Leucaena leucocephala,,R08440,,R08440,Leucaena leucocephala
+139,ES,Limnoperna securis,,,,,Limnoperna securis
+140,ES,Linepithema humile,,R08610,,R08610,Linepithema humile
+141,ES,Lithobates catesbeianus,,R08679,,R08679,Lithobates catesbeianus
+142,ES,Lophocladia lallemandii,,R08782,,R08782,Lophocladia lallemandii
+143,ES,Ludwigia spp. [except L. palustris],,,,N00009,"Ludwigia spp.(except Ludwigia palustris, Ludwigia peploides, Ludwigia grandiflora)"
+144,ES,Maireana brevifolia,,R08998,,R08998,Maireana brevifolia
+145,ES,Melanoides tuberculatus,,,,,Melanoides tuberculatus
+146,ES,Micropterus salmoides,,R09442,,R09442,Micropterus salmoides
+147,ES,Misgurnus anguillicaudatus,,R09519,,R09519,Misgurnus anguillicaudatus
+148,ES,Mnemiopsis leidyi,,R09524,,R09524,Mnemiopsis leidyi
+149,ES,Monochamus spp. (no European species),,,,N00010,Monochamus spp. (non European species)
+150,ES,Monomorium destructor,,R09577,,R09577,Monomorium destructor
+151,ES,Myiopsitta monachus,,R09715,,R09715,Myiopsitta monachus
+152,ES,Myocastor coypus,,R09720,,R09720,Myocastor coypus
+153,ES,Myriophyllum aquaticum,,R18934,,R18934,Myriophyllum aquaticum
+154,ES,Mytilopsis leucophaeata,,R09775,,R09775,Mytilopsis leucophaeata
+155,ES,Nassella neesiana,,R09852,,R09852,Nassella neesiana
+156,ES,Nasua spp.,,,,N00011,Nasua spp. (except Nasua nasua)
+157,ES,Neovison vison,,R09952,,R09952,Neovison vison
+158,ES,Nyctereutes procyonoides,,R10085,,R10085,Nyctereutes procyonoides
+159,ES,Nymphaea mexicana,,R10094,,R10094,Nymphaea mexicana
+160,ES,Ommatoiulus moreletii,,R10309,,R10309,Ommatoiulus moreletii
+161,ES,Oncorhynchus mykiss,,R10330,,R10330,Oncorhynchus mykiss
+162,ES,Ondatra zibethicus,,R10336,,R10336,Ondatra zibethicus
+163,ES,Opuntia dillenii,,R18942,,R18942,Opuntia dillenii
+164,ES,Opuntia maxima,,R10422,,R10422,Opuntia maxima
+165,ES,Opuntia stricta,,R10428,,R10428,Opuntia stricta
+166,ES,Orconectes limosus,,R10443,,R10443,Orconectes limosus
+167,ES,Ovis musimon,,R10605,Ovis aries,R10605,Ovis musimon = Ovis aries
+168,ES,Oxalis pes-caprae,,R10619,,R10619,Oxalis pes-caprae
+169,ES,Oxyura jamaicensis,,R10652,,R10652,Oxyura jamaicensis
+170,ES,Pacifastacus leniusculus,,R10676,,R10676,Pacifastacus leniusculus
+171,ES,Paratrechina longicornis,,R10852,,R10852,Paratrechina longicornis
+172,ES,Paysandisia archon,,R10954,,R10954,Paysandisia archon
+173,ES,Pennisetum clandestinum,,R18186,,R18186,Pennisetum clandestinum
+174,ES,Pennisetum purpureum,,R02999,Cenchrus purpureus,R02999,Pennisetum purpureum = Cenchrus purpureus
+175,ES,Pennisetum setaceum,,R03000,,R03000,Pennisetum setaceum
+176,ES,Pennisetum villosum,,R11023,,R11023,Pennisetum villosum
+177,ES,Perca fluviatilis,,R11032,,R11032,Perca fluviatilis
+178,ES,Percnon gibbesi,,R11035,,R11035,Percnon gibbesi
+179,ES,Phoenix dactylifera,,R11352,,R11352,Phoenix dactylifera
+180,ES,Pistia stratiotes,,R11671,,R11671,Pistia stratiotes
+181,ES,Ploceus spp.,,,,N00012,Ploceus spp.
+182,ES,Potamocorbula amurensis,,,,,Potamocorbula amurensis
+183,ES,Potamopyrgus antipodarum,,R12141,,R12141,Potamopyrgus antipodarum
+184,ES,Procambarus clarkii,,R12250,,R12250,Procambarus clarkii
+185,ES,Procyon lotor,,R12260,,R12260,Procyon lotor
+186,ES,Pseudorasbora parva,,R12451,,R12451,Pseudorasbora parva
+187,ES,Psittacula krameri,,R12477,,R12477,Psittacula krameri
+188,ES,Pterois volitans,,,,,Pterois volitans
+189,ES,Pycnonotus cafer,,R12684,,R12684,Pycnonotus cafer
+190,ES,Pycnonotus jocosus,,R12685,,R12685,Pycnonotus jocosus
+191,ES,Quelea quelea,,R12754,,R12754,Quelea quelea
+192,ES,Rattus norvegicus,,R12864,,R12864,Rattus norvegicus
+193,ES,Rattus rattus,,R12865,,R12865,Rattus rattus
+194,ES,Rhithropanopeus harrisii,,R12942,,R12942,Rhithropanopeus harrisii
+195,ES,Rhopilema nomadica,,R12995,,R12995,Rhopilema nomadica
+196,ES,Rhynchophorus ferrugineus,,R13007,,R13007,Rhynchophorus ferrugineus
+197,ES,Ricinus communis,,R13044,,R13044,Ricinus communis
+198,ES,Rousettus aegyptiacus,,,,,Rousettus aegyptiacus
+199,ES,Rutilus rutilus,,R13316,,R13316,Rutilus rutilus
+200,ES,Salvelinus fontinalis,,R13462,,R13462,Salvelinus fontinalis
+201,ES,Salvinia spp.,,,,N00013,Salvinia spp.
+202,ES,Sander lucioperca,,R13510,,R13510,Sander lucioperca
+203,ES,Sargassum muticum,,R13548,,R13548,Sargassum muticum
+204,ES,Scardinius erythrophthalmus,,R13617,,R13617,Scardinius erythrophthalmus
+205,ES,Sciuridae Family except Sciourus vulgaris,,,,N00021,"Sciuridae spp. (except Sciurus carolinensis,Sciurus niger,Callosciurus erythraeus)"
+206,ES,Senecio inaequidens,,R13872,,R13872,Senecio inaequidens
+207,ES,Silurus glanis,,R14099,,R14099,Silurus glanis
+208,ES,Sinanodonta woodiana,,R14111,,R14111,Sinanodonta woodiana
+209,ES,Spartina alterniflora,,R14362,,R14362,Spartina alterniflora
+210,ES,Spartina densiflora,,R14365,,R14365,Spartina densiflora
+211,ES,Spartina patens,,,,,Spartina patens
+212,ES,Spartium junceum,,R14371,,R14371,Spartium junceum
+213,ES,Streptopelia roseogrisea,,R14642,,R14642,Streptopelia roseogrisea
+214,ES,Stypopodium schimperi,,R14703,,R14703,Stypopodium schimperi
+215,ES,Tapinoma melanocephalum,,R14908,,R14908,Tapinoma melanocephalum
+216,ES,Threskiornis aethiopicus,,R15136,,R15136,Threskiornis aethiopicus
+217,ES,Trachemys scripta,,R18154,,R18154,Trachemys scripta
+218,ES,Tradescantia fluminensis,,R15301,,R15301,Tradescantia fluminensis
+219,ES,Triops longicaudatus,,,,,Triops longicaudatus
+220,ES,Ulex europaeus,,R15662,,R15662,Ulex europaeus
+221,ES,Undaria pinnatifida,,R15692,,R15692,Undaria pinnatifida
+222,ES,Vespa spp. (no European species),,,,N00014,Vespa spp. (non European species)
+223,ES,Womersleyella setacea,,R16172,,R16172,Womersleyella setacea
+224,ES,Xenopus laevis,,R16225,,R16225,Xenopus laevis
+225,FR,Branta canadensis,Bernache du Canada,R02253,,R02253,Branta canadensis
+226,FR,Castor canadensis,Castor canadien,R02919,,R02919,Castor canadensis
+227,FR,Cervus nippon,Cerf sika,R03227,,R03227,Cervus nippon
+228,FR,Chrysemys spp.,,,,N00015,Chrysemys spp.
+229,FR,Clemmys spp.,,,,N00016,Clemmys spp.
+230,FR,Graptemys spp.,,,,N00017,Graptemys spp.
+231,FR,Macropus rufogriseus,Wallaby de Benett,R08965,,R08965,Macropus rufogriseus
+232,FR,Neovison vison,Vison d'Amérique,R09952,,R09952,Neovison vison
+233,FR,Pelophylax bedriagae,Grenouille verte de Bedriaga,R10996,,R10996,Pelophylax bedriagae
+234,FR,Pseudemys spp.,,,,N00018,Pseudemys spp.
+235,FR,Psittacula krameri,Perruche à collier,R12477,,R12477,Psittacula krameri
+236,FR,Rana kurtmuelleri,Grenouille verte des Balkans,R10999,Pelophylax kurtmuelleri,R10999,Pelophylax kurtmuelleri = Rana kurtmuelleri
+237,FR,Rattus norvegicus,Rat surmulot,R12864,,R12864,Rattus norvegicus
+238,FR,Sylvilagus floridanus,Lapin américain,R14750,,R14750,Sylvilagus floridanus
+239,FR,Trachemys spp.,,,,N00019,Trachemys spp.
+240,FR,Xenopus laevis,Xenope lisse,R16225,,R16225,Xenopus laevis
+241,IE,Allium triquetrum,Three-cornered leek,R00595,,R00595,Allium triquetrum
+242,IE,Anser anser,Greylag goose,R01070,,R01070,Anser anser
+243,IE,Aponogeton distachyos,Cape pondweed,R01255,,R01255,Aponogeton distachyos
+244,IE,Azolla filiculoides,Water fern,R01826,,R01826,Azolla filiculoides
+245,IE,Balanus improvisus,Bay barnacle,R17488,Amphibalanus improvisus,R17488,Amphibalanus improvisus = Balanus improvisus
+246,IE,Branta canadensis,Canada goose,R02253,,R02253,Branta canadensis
+247,IE,Bufo bufo,Common toad,R19497,,R19497,Bufo bufo
+248,IE,Cabomba caroliniana,Fanwort,R02476,,R02476,Cabomba caroliniana
+249,IE,Caprella mutica,Japanese skeleton shrimp,R02720,,R02720,Caprella mutica
+250,IE,Capreolus capreolus,Roe deer,R19496,,R19496,Capreolus capreolus
+251,IE,Carpobrotus edulis,Hottentot-fig,R02862,,R02862,Carpobrotus edulis
+252,IE,Ceratostoma inornatum,Asian oyster drill,R10109,Ocenebra inornata,R10109,Ocenebra inornata = Ceratostoma inornatum
+253,IE,Cervus nippon,Sika deer,R03227,,R03227,Cervus nippon
+254,IE,Corbicula fluminea,Asian river clam,R04013,,R04013,Corbicula fluminea
+255,IE,Crassula helmsii,New Zealand pigmyweed,R04306,,R04306,Crassula helmsii
+256,IE,Crepidula fornicata,Slipper limpet,R04358,,R04358,Crepidula fornicata
+257,IE,Cyprinus carpio,Carp,R04750,Cyprinus carpi,R04750,Cyprinus carpi = Cyprinus carpio
+258,IE,Dama dama,Fallow deer,R04810,,R04810,Dama dama
+259,IE,Didemnum species,A colonial sea squirt,,,N00023,Didemnum spp.
+260,IE,Dikerogammarus villosus,Freshwater shrimp,R05139,,R05139,Dikerogammarus villosus
+261,IE,Dreissena polymorpha,Zebra mussel,R05292,,R05292,Dreissena polymorpha
+262,IE,Dreissena rostriformis,Quagga Mussel,R05291,,R05291,Dreissena rostriformis
+263,IE,Egeria densa,Large-flowered waterweed,R05431,,R05431,Egeria densa
+264,IE,Elodea species,Waterweeds,,,N00024,Elodea spp.
+265,IE,Erinaceus europaeus,Hedgehog,R05832,,R05832,Erinaceus europaeus
+266,IE,Eriocheir sinensis,Chinese mitten crab,R05836,,R05836,Eriocheir sinensis
+267,IE,Fallopia japonica,Japanese knotweed,R18201,,R18201,Fallopia japonica
+268,IE,Fallopia sachalinensis,Giant knotweed,R18205,,R18205,Fallopia sachalinensis
+269,IE,Grateloupia doryphora,A red alga,R17242,Alexandrium monilatum,R17242,Alexandrium monilatum = Grateloupia doryphora
+270,IE,Gunnera manicata,Brazilian giant-rhubarb,R06922,,R06922,Gunnera manicata
+271,IE,Gunnera tinctoria,Giant-rhubarb,R06923,,R06923,Gunnera tinctoria
+272,IE,Harmonia axyridis,Harlequin Ladybird,R07073,,R07073,Harmonia axyridis
+273,IE,Heracleum mantegazzianum,Giant hogweed,R07248,,R07248,Heracleum mantegazzianum
+274,IE,Hippophae rhamnoides,Sea-buckthorn,R18921,,R18921,Hippophae rhamnoides
+275,IE,Hyacinthoides hispanica,Spanish bluebell,R07501,Hippophaë rhamnoides,R07501,Hippophaë rhamnoides = Hyacinthoides hispanica
+276,IE,Hydrocotyle ranunculoides,Floating pennywort,R07537,,R07537,Hydrocotyle ranunculoides
+277,IE,Hydropotes inermis,Chinese water deer,R07547,,R07547,Hydropotes inermis
+278,IE,Impatiens glandulifera,Himalayan balsam,R07719,,R07719,Impatiens glandulifera
+279,IE,Juncus planifolius,Broad-leaved rush,R07908,,R07908,Juncus planifolius
+280,IE,Lagarosiphon major,Curly waterweed,R08062,,R08062,Lagarosiphon major
+281,IE,Lepus europaeus,Brown hare,R08430,,R08430,Lepus europaeus
+282,IE,Leuciscus cephalus,Chub,R17625,Squalius cephalus,R17625,Squalius cephalus = Leuciscus cephalus
+283,IE,Leuciscus leuciscus,Dace,R08458,,R08458,Leuciscus leuciscus
+284,IE,Ludwigia species,Water-primrose,,,N00025,Ludwigia spp.
+285,IE,Lysichiton americanus,American skunk-cabbage,R08915,,R08915,Lysichiton americanus
+286,IE,Muntiacus reevesi,Muntjac deer,R09640,,R09640,Muntiacus reevesi
+287,IE,Mustela erminea hibernicus,Irish stoat,R09669,Mustela erminea (?),R09669,Mustela erminea (?) = Mustela erminea hibernicus
+288,IE,Myocastor coypus,Coypu,R09720,,R09720,Myocastor coypus
+289,IE,Myriophyllum aquaticum,Parrots feather,R18934,,R18934,Myriophyllum aquaticum
+290,IE,Neovison vison,American mink,R09952,,R09952,Neovison vison
+291,IE,Nymphoides peltata,Fringed water-lily,R10097,,R10097,Nymphoides peltata
+292,IE,Ondatra zibethicus,Muskrat,R10336,,R10336,Ondatra zibethicus
+293,IE,Orconectes limosus,,R10443,,R10443,Orconectes limosus
+294,IE,Orconectes virilis,,R10445,,R10445,Orconectes virilis
+295,IE,Oxyura jamaicensis,Ruddy duck,R10652,,R10652,Oxyura jamaicensis
+296,IE,Pacifastacus leniusculus,,R10676,,R10676,Pacifastacus leniusculus
+297,IE,Perophora japonica,A colonial sea squirt,R11120,,R11120,Perophora japonica
+298,IE,Persicaria perfoliata,Mile-a-minute weed,R19287,,R19287,Persicaria perfoliata
+299,IE,Persicaria wallichii,Himalayan knotweed,R11145,,R11145,Persicaria wallichii
+300,IE,Pistia stratiotes,Water lettuce,R11671,,R11671,Pistia stratiotes
+301,IE,Procambarus clarkii,,R12250,,R12250,Procambarus clarkii
+302,IE,Procambarus fallax f. virginalis,,R17660,,R17660,Procambarus fallax f. virginalis
+303,IE,Rana catesbeiana,American bullfrog,R08679,Lithobates catesbeianus,R08679,Lithobates catesbeianus = Rana catesbeiana
+304,IE,Rapana venosa,Asian rapa whelk,R12842,,R12842,Rapana venosa
+305,IE,Rattus norvegicus,Brown rat,R12864,,R12864,Rattus norvegicus
+306,IE,Rattus rattus,Black rat,R12865,,R12865,Rattus rattus
+307,IE,Rhododendron ponticum,Rhododendron,R12976,,R12976,Rhododendron ponticum
+308,IE,Rubus spectabilis,Salmonberry,R13208,,R13208,Rubus spectabilis
+309,IE,Rutilus rutilus,Roach,R13316,,R13316,Rutilus rutilus
+310,IE,Salvinia molesta,Giant salvinia,R13499,,R13499,Salvinia molesta
+311,IE,Sargassum muticum,Wireweed,R13548,,R13548,Sargassum muticum
+312,IE,Sciurus carolinensis,Grey squirrel,R13698,,R13698,Sciurus carolinensis
+313,IE,Spartina species,Cord-grasses,,,N00026,Spartina spp.
+314,IE,Strix aluco,Tawny owl,R14650,,R14650,Strix aluco
+315,IE,Styela clava,Stalked sea squirt,R14696,,R14696,Styela clava
+316,IE,Sus scrofa,Wild boar,R14739,,R14739,Sus scrofa
+317,IE,Tamias sibiricus,Siberian chipmunk,R14882,,R14882,Tamias sibiricus
+318,IE,Trapa natans,Water chestnut,R15324,,R15324,Trapa natans
+319,IE,Undaria pinnatifida,Wakame,R15692,,R15692,Undaria pinnatifida
+320,IE,Urosalpinx cinerea,American oyster drill,R15759,,R15759,Urosalpinx cinerea
+321,IE,Vulpes vulpes,Fox,R16120,,R16120,Vulpes vulpes
+322,IE,Zostera japonica,Dwarf eel-grass,,,,Zostera japonica
+323,LT,Acer negundo,Uosialapis klevas,R00116,,R00116,Acer negundo
+324,LT,Amelanchier spicata,Varpinė medlieva,R00835,Amelanchier stolonifera,R00835,Amelanchier stolonifera = Amelanchier spicata
+325,LT,Arion lusitanicus,Luzitaninis arionas,R01414,,R01414,Arion lusitanicus
+326,LT,Bidens frondosa,Ilgakotis lakišius,R18515,,R18515,Bidens frondosa
+327,LT,Branta canadensis,Kanadinė berniklė,R02253,,R02253,Branta canadensis
+328,LT,Chrysemys picta,Puošnusis vėžlys,R03552,,R03552,Chrysemys picta
+329,LT,Cytisus scoparius,Šluotinis sausakrūmis,R04771,,R04771,Cytisus scoparius
+330,LT,Dikerogammarus villosus,Gauruotoji šoniplauka,R05139,,R05139,Dikerogammarus villosus
+331,LT,Echinocystis lobata,Dygliavaisis virkštenis,R05386,,R05386,Echinocystis lobata
+332,LT,Elodea canadensis,Kanadinė elodėja,R05500,,R05500,Elodea canadensis
+333,LT,Erigeron annuus,Vienametė šiušelė,R05820,,R05820,Erigeron annuus
+334,LT,Gypsophila paniculata,Muilinė guboja,R06957,,R06957,Gypsophila paniculata
+335,LT,Heracleum sosnowskyi,Sosnovskio barštis,R07252,,R07252,Heracleum sosnowskyi
+336,LT,Impatiens grandulifera,Bitinė sprigė,R07719,,R07719,Impatiens grandulifera
+337,LT,Impatiens parviflora,Smulkiažiedė sprigė,R07724,,R07724,Impatiens parviflora
+338,LT,Lupinus polyphyllus,Gausialapis lubinas,R08861,,R08861,Lupinus polyphyllus
+339,LT,Neogobius melanostomus,Juodažiotis grundalas,R09930,,R09930,Neogobius melanostomus
+340,LT,Neovison vison,Kanadinė audinė,R09952,,R09952,Neovison vison
+341,LT,Nyctereutes procyonoides,Mangutas,R10085,,R10085,Nyctereutes procyonoides
+342,LT,Ondatra zibethicus,Ondatra,R10336,,R10336,Ondatra zibethicus
+343,LT,Orconectes limosus,Rainuotasis vėžys,R10443,,R10443,Orconectes limosus
+344,LT,Pacifastacus leniusculus,Žymėtasis vėžys,R10676,,R10676,Pacifastacus leniusculus
+345,LT,Paramysis lacustris,Ežerinė mizidė,R10811,Paramysis (Serrapalpisis) lacustris,R10811,Paramysis (Serrapalpisis) lacustris = Paramysis lacustris
+346,LT,Perccottus glenii,Nuodėgulinis grundalas,R11034,,R11034,Perccottus glenii
+347,LT,Pontogammarus robustoides,Kietašarvė šoniplauka,R12047,,R12047,Pontogammarus robustoides
+348,LT,Potamopyrgus antipodarum,Pietinė vijasraigė,R12141,,R12141,Potamopyrgus antipodarum
+349,LT,Procyon lotor,Paprastasis meškėnas,R12260,,R12260,Procyon lotor
+350,LT,Prunus serotina,Vėlyvoji ieva,R12340,,R12340,Prunus serotina
+351,LT,Rattus norvegicus,Pilkoji žiurkė,R12864,,R12864,Rattus norvegicus
+352,LT,Robinia pseudoacacia,Baltažiedė robinija,R13059,,R13059,Robinia pseudoacacia
+353,LT,Rosa rugosa,Raukšlėtalapis erškėtis,R13131,,R13131,Rosa rugosa
+354,LT,Rumex confertus,Tankiažiedė rūgštynė,R13241,,R13241,Rumex confertus
+355,LT,Solidago canadensis,Kanadinė rykštenė,R14288,,R14288,Solidago canadensis
+356,LT,Solidago gigantea,Didžioji rykštenė,R14292,,R14292,Solidago gigantea
+357,LT,Trachemys scripta,Raštuotasis vėžlys,R18154,,R18154,Trachemys scripta

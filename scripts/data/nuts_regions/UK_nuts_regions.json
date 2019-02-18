@@ -1,0 +1,942 @@
+[
+  {
+    "label": "NORTH EAST (ENGLAND)",
+    "id": "UKC"
+  },
+  {
+    "label": "Tees Valley and Durham",
+    "id": "UKC1"
+  },
+  {
+    "label": "Hartlepool and Stockton-on-Tees",
+    "id": "UKC11"
+  },
+  {
+    "label": "South Teesside",
+    "id": "UKC12"
+  },
+  {
+    "label": "Darlington",
+    "id": "UKC13"
+  },
+  {
+    "label": "Durham CC",
+    "id": "UKC14"
+  },
+  {
+    "label": "Northumberland and Tyne and Wear",
+    "id": "UKC2"
+  },
+  {
+    "label": "Northumberland",
+    "id": "UKC21"
+  },
+  {
+    "label": "Tyneside",
+    "id": "UKC22"
+  },
+  {
+    "label": "Sunderland",
+    "id": "UKC23"
+  },
+  {
+    "label": "NORTH WEST (ENGLAND)",
+    "id": "UKD"
+  },
+  {
+    "label": "Cumbria",
+    "id": "UKD1"
+  },
+  {
+    "label": "West Cumbria",
+    "id": "UKD11"
+  },
+  {
+    "label": "East Cumbria",
+    "id": "UKD12"
+  },
+  {
+    "label": "Greater Manchester",
+    "id": "UKD3"
+  },
+  {
+    "label": "Manchester",
+    "id": "UKD33"
+  },
+  {
+    "label": "Greater Manchester South West",
+    "id": "UKD34"
+  },
+  {
+    "label": "Greater Manchester South East",
+    "id": "UKD35"
+  },
+  {
+    "label": "Greater Manchester North West",
+    "id": "UKD36"
+  },
+  {
+    "label": "Greater Manchester North East",
+    "id": "UKD37"
+  },
+  {
+    "label": "Lancashire",
+    "id": "UKD4"
+  },
+  {
+    "label": "Blackburn with Darwen",
+    "id": "UKD41"
+  },
+  {
+    "label": "Blackpool",
+    "id": "UKD42"
+  },
+  {
+    "label": "Lancaster and Wyre",
+    "id": "UKD44"
+  },
+  {
+    "label": "Mid Lancashire",
+    "id": "UKD45"
+  },
+  {
+    "label": "East Lancashire",
+    "id": "UKD46"
+  },
+  {
+    "label": "Chorley and West Lancashire",
+    "id": "UKD47"
+  },
+  {
+    "label": "Cheshire",
+    "id": "UKD6"
+  },
+  {
+    "label": "Warrington",
+    "id": "UKD61"
+  },
+  {
+    "label": "Cheshire East",
+    "id": "UKD62"
+  },
+  {
+    "label": "Cheshire West and Chester",
+    "id": "UKD63"
+  },
+  {
+    "label": "Merseyside",
+    "id": "UKD7"
+  },
+  {
+    "label": "East Merseyside",
+    "id": "UKD71"
+  },
+  {
+    "label": "Liverpool",
+    "id": "UKD72"
+  },
+  {
+    "label": "Sefton",
+    "id": "UKD73"
+  },
+  {
+    "label": "Wirral",
+    "id": "UKD74"
+  },
+  {
+    "label": "YORKSHIRE AND THE HUMBER",
+    "id": "UKE"
+  },
+  {
+    "label": "East Yorkshire and Northern Lincolnshire",
+    "id": "UKE1"
+  },
+  {
+    "label": "Kingston upon Hull, City of",
+    "id": "UKE11"
+  },
+  {
+    "label": "East Riding of Yorkshire",
+    "id": "UKE12"
+  },
+  {
+    "label": "North and North East Lincolnshire",
+    "id": "UKE13"
+  },
+  {
+    "label": "North Yorkshire",
+    "id": "UKE2"
+  },
+  {
+    "label": "York",
+    "id": "UKE21"
+  },
+  {
+    "label": "North Yorkshire CC",
+    "id": "UKE22"
+  },
+  {
+    "label": "South Yorkshire",
+    "id": "UKE3"
+  },
+  {
+    "label": "Barnsley, Doncaster and Rotherham",
+    "id": "UKE31"
+  },
+  {
+    "label": "Sheffield",
+    "id": "UKE32"
+  },
+  {
+    "label": "West Yorkshire",
+    "id": "UKE4"
+  },
+  {
+    "label": "Bradford",
+    "id": "UKE41"
+  },
+  {
+    "label": "Leeds",
+    "id": "UKE42"
+  },
+  {
+    "label": "Calderdale and Kirklees",
+    "id": "UKE44"
+  },
+  {
+    "label": "Wakefield",
+    "id": "UKE45"
+  },
+  {
+    "label": "EAST MIDLANDS (ENGLAND)",
+    "id": "UKF"
+  },
+  {
+    "label": "Derbyshire and Nottinghamshire",
+    "id": "UKF1"
+  },
+  {
+    "label": "Derby",
+    "id": "UKF11"
+  },
+  {
+    "label": "East Derbyshire",
+    "id": "UKF12"
+  },
+  {
+    "label": "South and West Derbyshire",
+    "id": "UKF13"
+  },
+  {
+    "label": "Nottingham",
+    "id": "UKF14"
+  },
+  {
+    "label": "North Nottinghamshire",
+    "id": "UKF15"
+  },
+  {
+    "label": "South Nottinghamshire",
+    "id": "UKF16"
+  },
+  {
+    "label": "Leicestershire, Rutland and Northamptonshire",
+    "id": "UKF2"
+  },
+  {
+    "label": "Leicester",
+    "id": "UKF21"
+  },
+  {
+    "label": "Leicestershire CC and Rutland",
+    "id": "UKF22"
+  },
+  {
+    "label": "West Northamptonshire",
+    "id": "UKF24"
+  },
+  {
+    "label": "North Northamptonshire",
+    "id": "UKF25"
+  },
+  {
+    "label": "Lincolnshire",
+    "id": "UKF3"
+  },
+  {
+    "label": "Lincolnshire",
+    "id": "UKF30"
+  },
+  {
+    "label": "WEST MIDLANDS (ENGLAND)",
+    "id": "UKG"
+  },
+  {
+    "label": "Herefordshire, Worcestershire and Warwickshire",
+    "id": "UKG1"
+  },
+  {
+    "label": "Herefordshire, County of",
+    "id": "UKG11"
+  },
+  {
+    "label": "Worcestershire",
+    "id": "UKG12"
+  },
+  {
+    "label": "Warwickshire",
+    "id": "UKG13"
+  },
+  {
+    "label": "Shropshire and Staffordshire",
+    "id": "UKG2"
+  },
+  {
+    "label": "Telford and Wrekin",
+    "id": "UKG21"
+  },
+  {
+    "label": "Shropshire CC",
+    "id": "UKG22"
+  },
+  {
+    "label": "Stoke-on-Trent",
+    "id": "UKG23"
+  },
+  {
+    "label": "Staffordshire CC",
+    "id": "UKG24"
+  },
+  {
+    "label": "West Midlands",
+    "id": "UKG3"
+  },
+  {
+    "label": "Birmingham",
+    "id": "UKG31"
+  },
+  {
+    "label": "Solihull",
+    "id": "UKG32"
+  },
+  {
+    "label": "Coventry",
+    "id": "UKG33"
+  },
+  {
+    "label": "Dudley",
+    "id": "UKG36"
+  },
+  {
+    "label": "Sandwell",
+    "id": "UKG37"
+  },
+  {
+    "label": "Walsall",
+    "id": "UKG38"
+  },
+  {
+    "label": "Wolverhampton",
+    "id": "UKG39"
+  },
+  {
+    "label": "EAST OF ENGLAND",
+    "id": "UKH"
+  },
+  {
+    "label": "East Anglia",
+    "id": "UKH1"
+  },
+  {
+    "label": "Peterborough",
+    "id": "UKH11"
+  },
+  {
+    "label": "Cambridgeshire CC",
+    "id": "UKH12"
+  },
+  {
+    "label": "Suffolk",
+    "id": "UKH14"
+  },
+  {
+    "label": "Norwich and East Norfolk",
+    "id": "UKH15"
+  },
+  {
+    "label": "North and West Norfolk",
+    "id": "UKH16"
+  },
+  {
+    "label": "Breckland and South Norfolk",
+    "id": "UKH17"
+  },
+  {
+    "label": "Bedfordshire and Hertfordshire",
+    "id": "UKH2"
+  },
+  {
+    "label": "Luton",
+    "id": "UKH21"
+  },
+  {
+    "label": "Hertfordshire",
+    "id": "UKH23"
+  },
+  {
+    "label": "Bedford",
+    "id": "UKH24"
+  },
+  {
+    "label": "Central Bedfordshire",
+    "id": "UKH25"
+  },
+  {
+    "label": "Essex",
+    "id": "UKH3"
+  },
+  {
+    "label": "Southend-on-Sea",
+    "id": "UKH31"
+  },
+  {
+    "label": "Thurrock",
+    "id": "UKH32"
+  },
+  {
+    "label": "Essex Haven Gateway",
+    "id": "UKH34"
+  },
+  {
+    "label": "West Essex",
+    "id": "UKH35"
+  },
+  {
+    "label": "Heart of Essex",
+    "id": "UKH36"
+  },
+  {
+    "label": "Essex Thames Gateway",
+    "id": "UKH37"
+  },
+  {
+    "label": "LONDON",
+    "id": "UKI"
+  },
+  {
+    "label": "Inner London — West",
+    "id": "UKI3"
+  },
+  {
+    "label": "Camden and City of London",
+    "id": "UKI31"
+  },
+  {
+    "label": "Westminster",
+    "id": "UKI32"
+  },
+  {
+    "label": "Kensington & Chelsea and Hammersmith & Fulham",
+    "id": "UKI33"
+  },
+  {
+    "label": "Wandsworth",
+    "id": "UKI34"
+  },
+  {
+    "label": "Inner London — East",
+    "id": "UKI4"
+  },
+  {
+    "label": "Hackney and Newham",
+    "id": "UKI41"
+  },
+  {
+    "label": "Tower Hamlets",
+    "id": "UKI42"
+  },
+  {
+    "label": "Haringey and Islington",
+    "id": "UKI43"
+  },
+  {
+    "label": "Lewisham and Southwark",
+    "id": "UKI44"
+  },
+  {
+    "label": "Lambeth",
+    "id": "UKI45"
+  },
+  {
+    "label": "Outer London — East and North East",
+    "id": "UKI5"
+  },
+  {
+    "label": "Bexley and Greenwich",
+    "id": "UKI51"
+  },
+  {
+    "label": "Barking & Dagenham and Havering",
+    "id": "UKI52"
+  },
+  {
+    "label": "Redbridge and Waltham Forest",
+    "id": "UKI53"
+  },
+  {
+    "label": "Enfield",
+    "id": "UKI54"
+  },
+  {
+    "label": "Outer London — South",
+    "id": "UKI6"
+  },
+  {
+    "label": "Bromley",
+    "id": "UKI61"
+  },
+  {
+    "label": "Croydon",
+    "id": "UKI62"
+  },
+  {
+    "label": "Merton, Kingston upon Thames and Sutton",
+    "id": "UKI63"
+  },
+  {
+    "label": "Outer London — West and North West",
+    "id": "UKI7"
+  },
+  {
+    "label": "Barnet",
+    "id": "UKI71"
+  },
+  {
+    "label": "Brent",
+    "id": "UKI72"
+  },
+  {
+    "label": "Ealing",
+    "id": "UKI73"
+  },
+  {
+    "label": "Harrow and Hillingdon",
+    "id": "UKI74"
+  },
+  {
+    "label": "Hounslow and Richmond upon Thames",
+    "id": "UKI75"
+  },
+  {
+    "label": "SOUTH EAST (ENGLAND)",
+    "id": "UKJ"
+  },
+  {
+    "label": "Berkshire, Buckinghamshire and Oxfordshire",
+    "id": "UKJ1"
+  },
+  {
+    "label": "Berkshire",
+    "id": "UKJ11"
+  },
+  {
+    "label": "Milton Keynes",
+    "id": "UKJ12"
+  },
+  {
+    "label": "Buckinghamshire CC",
+    "id": "UKJ13"
+  },
+  {
+    "label": "Oxfordshire",
+    "id": "UKJ14"
+  },
+  {
+    "label": "Surrey, East and West Sussex",
+    "id": "UKJ2"
+  },
+  {
+    "label": "Brighton and Hove",
+    "id": "UKJ21"
+  },
+  {
+    "label": "East Sussex CC",
+    "id": "UKJ22"
+  },
+  {
+    "label": "West Surrey",
+    "id": "UKJ25"
+  },
+  {
+    "label": "East Surrey",
+    "id": "UKJ26"
+  },
+  {
+    "label": "West Sussex (South West)",
+    "id": "UKJ27"
+  },
+  {
+    "label": "West Sussex (North East)",
+    "id": "UKJ28"
+  },
+  {
+    "label": "Hampshire and Isle of Wight",
+    "id": "UKJ3"
+  },
+  {
+    "label": "Portsmouth",
+    "id": "UKJ31"
+  },
+  {
+    "label": "Southampton",
+    "id": "UKJ32"
+  },
+  {
+    "label": "Isle of Wight",
+    "id": "UKJ34"
+  },
+  {
+    "label": "South Hampshire",
+    "id": "UKJ35"
+  },
+  {
+    "label": "Central Hampshire",
+    "id": "UKJ36"
+  },
+  {
+    "label": "North Hampshire",
+    "id": "UKJ37"
+  },
+  {
+    "label": "Kent",
+    "id": "UKJ4"
+  },
+  {
+    "label": "Medway",
+    "id": "UKJ41"
+  },
+  {
+    "label": "Kent Thames Gateway",
+    "id": "UKJ43"
+  },
+  {
+    "label": "East Kent",
+    "id": "UKJ44"
+  },
+  {
+    "label": "Mid Kent",
+    "id": "UKJ45"
+  },
+  {
+    "label": "West Kent",
+    "id": "UKJ46"
+  },
+  {
+    "label": "SOUTH WEST (ENGLAND)",
+    "id": "UKK"
+  },
+  {
+    "label": "Gloucestershire, Wiltshire and Bristol/Bath area",
+    "id": "UKK1"
+  },
+  {
+    "label": "Bristol, City of",
+    "id": "UKK11"
+  },
+  {
+    "label": "Bath and North East Somerset, North Somerset and South Gloucestershire",
+    "id": "UKK12"
+  },
+  {
+    "label": "Gloucestershire",
+    "id": "UKK13"
+  },
+  {
+    "label": "Swindon",
+    "id": "UKK14"
+  },
+  {
+    "label": "Wiltshire CC",
+    "id": "UKK15"
+  },
+  {
+    "label": "Dorset and Somerset",
+    "id": "UKK2"
+  },
+  {
+    "label": "Bournemouth and Poole",
+    "id": "UKK21"
+  },
+  {
+    "label": "Dorset CC",
+    "id": "UKK22"
+  },
+  {
+    "label": "Somerset",
+    "id": "UKK23"
+  },
+  {
+    "label": "Cornwall and Isles of Scilly",
+    "id": "UKK3"
+  },
+  {
+    "label": "Cornwall and Isles of Scilly",
+    "id": "UKK30"
+  },
+  {
+    "label": "Devon",
+    "id": "UKK4"
+  },
+  {
+    "label": "Plymouth",
+    "id": "UKK41"
+  },
+  {
+    "label": "Torbay",
+    "id": "UKK42"
+  },
+  {
+    "label": "Devon CC",
+    "id": "UKK43"
+  },
+  {
+    "label": "WALES",
+    "id": "UKL"
+  },
+  {
+    "label": "West Wales and The Valleys",
+    "id": "UKL1"
+  },
+  {
+    "label": "Isle of Anglesey",
+    "id": "UKL11"
+  },
+  {
+    "label": "Gwynedd",
+    "id": "UKL12"
+  },
+  {
+    "label": "Conwy and Denbighshire",
+    "id": "UKL13"
+  },
+  {
+    "label": "South West Wales",
+    "id": "UKL14"
+  },
+  {
+    "label": "Central Valleys",
+    "id": "UKL15"
+  },
+  {
+    "label": "Gwent Valleys",
+    "id": "UKL16"
+  },
+  {
+    "label": "Bridgend and Neath Port Talbot",
+    "id": "UKL17"
+  },
+  {
+    "label": "Swansea",
+    "id": "UKL18"
+  },
+  {
+    "label": "East Wales",
+    "id": "UKL2"
+  },
+  {
+    "label": "Monmouthshire and Newport",
+    "id": "UKL21"
+  },
+  {
+    "label": "Cardiff and Vale of Glamorgan",
+    "id": "UKL22"
+  },
+  {
+    "label": "Flintshire and Wrexham",
+    "id": "UKL23"
+  },
+  {
+    "label": "Powys",
+    "id": "UKL24"
+  },
+  {
+    "label": "SCOTLAND",
+    "id": "UKM"
+  },
+  {
+    "label": "North Eastern Scotland",
+    "id": "UKM5"
+  },
+  {
+    "label": "Aberdeen City and Aberdeenshire",
+    "id": "UKM50"
+  },
+  {
+    "label": "Highlands and Islands",
+    "id": "UKM6"
+  },
+  {
+    "label": "Caithness & Sutherland and Ross & Cromarty",
+    "id": "UKM61"
+  },
+  {
+    "label": "Inverness & Nairn and Moray, Badenoch & Strathspey",
+    "id": "UKM62"
+  },
+  {
+    "label": "Lochaber, Skye & Lochalsh, Arran & Cumbrae and Argyll & Bute",
+    "id": "UKM63"
+  },
+  {
+    "label": "Na h-Eileanan Siar (Western Isles)",
+    "id": "UKM64"
+  },
+  {
+    "label": "Orkney Islands",
+    "id": "UKM65"
+  },
+  {
+    "label": "Shetland Islands",
+    "id": "UKM66"
+  },
+  {
+    "label": "Eastern Scotland",
+    "id": "UKM7"
+  },
+  {
+    "label": "Angus and Dundee City",
+    "id": "UKM71"
+  },
+  {
+    "label": "Clackmannanshire and Fife",
+    "id": "UKM72"
+  },
+  {
+    "label": "East Lothian and Midlothian",
+    "id": "UKM73"
+  },
+  {
+    "label": "Edinburgh, City of",
+    "id": "UKM75"
+  },
+  {
+    "label": "Falkirk",
+    "id": "UKM76"
+  },
+  {
+    "label": "Perth & Kinross and Stirling",
+    "id": "UKM77"
+  },
+  {
+    "label": "West Lothian",
+    "id": "UKM78"
+  },
+  {
+    "label": "West Central Scotland",
+    "id": "UKM8"
+  },
+  {
+    "label": "East Dunbartonshire, West Dunbartonshire and Helensburgh & Lomond",
+    "id": "UKM81"
+  },
+  {
+    "label": "Glasgow City",
+    "id": "UKM82"
+  },
+  {
+    "label": "Inverclyde, East Renfrewshire and Renfrewshire",
+    "id": "UKM83"
+  },
+  {
+    "label": "North Lanarkshire",
+    "id": "UKM84"
+  },
+  {
+    "label": "Southern Scotland",
+    "id": "UKM9"
+  },
+  {
+    "label": "Scottish Borders",
+    "id": "UKM91"
+  },
+  {
+    "label": "Dumfries & Galloway",
+    "id": "UKM92"
+  },
+  {
+    "label": "East Ayrshire and North Ayrshire mainland",
+    "id": "UKM93"
+  },
+  {
+    "label": "South Ayrshire",
+    "id": "UKM94"
+  },
+  {
+    "label": "South Lanarkshire",
+    "id": "UKM95"
+  },
+  {
+    "label": "NORTHERN IRELAND",
+    "id": "UKN"
+  },
+  {
+    "label": "Northern Ireland",
+    "id": "UKN0"
+  },
+  {
+    "label": "Belfast",
+    "id": "UKN06"
+  },
+  {
+    "label": "Armagh City, Banbridge and Craigavon",
+    "id": "UKN07"
+  },
+  {
+    "label": "Newry, Mourne and Down",
+    "id": "UKN08"
+  },
+  {
+    "label": "Ards and North Down",
+    "id": "UKN09"
+  },
+  {
+    "label": "Derry City and Strabane",
+    "id": "UKN10"
+  },
+  {
+    "label": "Mid Ulster",
+    "id": "UKN11"
+  },
+  {
+    "label": "Causeway Coast and Glens",
+    "id": "UKN12"
+  },
+  {
+    "label": "Antrim and Newtownabbey",
+    "id": "UKN13"
+  },
+  {
+    "label": "Lisburn and Castlereagh",
+    "id": "UKN14"
+  },
+  {
+    "label": "Mid and East Antrim",
+    "id": "UKN15"
+  },
+  {
+    "label": "Fermanagh and Omagh",
+    "id": "UKN16"
+  },
+  {
+    "label": "EXTRA-REGIO NUTS 1",
+    "id": "UKZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 2",
+    "id": "UKZZ"
+  },
+  {
+    "label": "Extra-Regio NUTS 3",
+    "id": "UKZZZ"
+  }
+]
