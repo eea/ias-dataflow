@@ -133,3 +133,9 @@ declare function functx:value-intersect
 
   distinct-values($arg1[.=$arg2])
  } ;
+
+declare function functx:is-a-number
+  ( $value as xs:anyAtomicType? )  as xs:boolean {
+
+   string(number($value)) != 'NaN'
+ } ;
