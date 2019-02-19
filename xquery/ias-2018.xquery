@@ -79,11 +79,13 @@ declare function ias:runChecks02($root as element()) as element()* {
             ias:failsafeWrapper("A8",
                     "Question 5 - additional information on species, distribution, spread and reproduction patterns",
                     $root, scripts:checkA8#3),
+
             ias:failsafeWrapper("A9", "Question 7 - Information on permits, Year", $root, scripts:checkA9#3),
             ias:failsafeWrapper("A10", "Question 7 - Information on permits, Purpose of permit", $root, scripts:checkA10#3),
             ias:failsafeWrapper("A11", "Question 7 - Information on permits, Number of permits", $root, scripts:checkA11#3),
             ias:failsafeWrapper("A12", "Question 7 - Information on permits, Total number or volume", $root, scripts:checkA12#3),
             ias:failsafeWrapper("A13", "Question 7 - Information on permits, Unit", $root, scripts:checkA13#3),
+
             ias:failsafeWrapper("A15", "Question 9 – information on inspections, Year", $root, scripts:checkA15#3),
             ias:failsafeWrapper("A16", "Question 9 – information on inspections, Purpose of permit", $root, scripts:checkA16#3),
             ias:failsafeWrapper("A17", "Question 9 – information on inspections, Number of establishments", $root, scripts:checkA17#3),
@@ -96,17 +98,23 @@ declare function ias:runChecks02($root as element()) as element()* {
                     "Question 9 – information on inspections, Number or volumen of permitted specimens corresponding to permits held by establishments",
                     $root, scripts:checkA21#3),
             ias:failsafeWrapper("A22", "Question 9 – information on inspections, Unit", $root, scripts:checkA22#3),
-            ias:failsafeWrapper("A24", "Question 11 – rapid eradication measures , Rapid eradication measures executed", $root, scripts:notYet#3),
-            ias:failsafeWrapper("A59", "Question 12 – rapid eradication measures – impacted non-targeted species, PopulationId", $root, scripts:notYet#3),
-            ias:failsafeWrapper("A25", "Question 12 – rapid eradication measures – impacted non-targeted species, Starting date", $root, scripts:notYet#3),
-            ias:failsafeWrapper("A26", "Question 12 – rapid eradication measures – impacted non-targeted species, End date", $root, scripts:notYet#3),
-            ias:failsafeWrapper("A29", "Question 12 – rapid eradication measures – impacted non-targeted species, Administrative unit - NUTS", $root, scripts:notYet#3),
-            ias:failsafeWrapper("A30", "Question 12 – rapid eradication measures – impacted non-targeted species, Biogeograpical region", $root, scripts:notYet#3),
+
+            ias:failsafeWrapper("A24", "Question 11 – rapid eradication measures , Rapid eradication measures executed", $root, scripts:checkA24#3),
+            ias:failsafeWrapper("A59", "Question 12 – rapid eradication measures – impacted non-targeted species, PopulationId", $root, scripts:checkA59#3),
+            ias:failsafeWrapper("A25", "Question 12 – rapid eradication measures – impacted non-targeted species, Starting date", $root, scripts:checkA25#3),
+            ias:failsafeWrapper("A26", "Question 12 – rapid eradication measures – impacted non-targeted species, End date", $root, scripts:checkA26#3),
+            ias:failsafeWrapper("A29", "Question 12 – rapid eradication measures – impacted non-targeted species, Administrative unit - NUTS", $root, scripts:checkA29#3),
+            ias:failsafeWrapper("A30", "Question 12 – rapid eradication measures – impacted non-targeted species, Biogeograpical region", $root, scripts:checkA30#3),
             ias:failsafeWrapper("A31", "Question 12 – rapid eradication measures – impacted non-targeted species, River basin sub-unit", $root, scripts:notYet#3),
-            ias:failsafeWrapper("A32", "Question 12 – rapid eradication measures – impacted non-targeted species, Marine sub-region", $root, scripts:notYet#3),
-            ias:failsafeWrapper("A35", "Question 12 – rapid eradication measures – impacted non-targeted species, Methods used", $root, scripts:notYet#3),
+            ias:failsafeWrapper("A32", "Question 12 – rapid eradication measures – impacted non-targeted species, Marine sub-region", $root, scripts:checkA32#3),
+            ias:failsafeWrapper("A35", "Question 12 – rapid eradication measures – impacted non-targeted species, Methods used", $root, scripts:checkA35#3),
             ias:failsafeWrapper("A36", "Question 12 – rapid eradication measures – impacted non-targeted species, Impacted non-targeted species", $root, scripts:notYet#3),
-            ias:failsafeWrapper("A37", "Question 12 – rapid eradication measures – impacted non-targeted species, Impact of the measure(s) per non-targeted species", $root, scripts:notYet#3)
+            ias:failsafeWrapper("A37", "Question 12 – rapid eradication measures – impacted non-targeted species, Impact of the measure(s) per non-targeted species", $root, scripts:notYet#3),
+
+            ias:failsafeWrapper("A39", "Question 14 – management measures", $root, scripts:checkA39#3),
+            ias:failsafeWrapper("A60", "Question 14 – management measures, Population Id", $root, scripts:checkA60#3),
+            ias:failsafeWrapper("A40", "Question 15 – management measures, Population Id, Start date", $root, scripts:checkA40#3),
+            ias:failsafeWrapper("A41", "Question 15 – management measures, Population Id, End date", $root, scripts:checkA41#3)
         }</div>
 };
 
