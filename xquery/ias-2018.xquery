@@ -108,13 +108,29 @@ declare function ias:runChecks02($root as element()) as element()* {
             ias:failsafeWrapper("A31", "Question 12 – rapid eradication measures – impacted non-targeted species, River basin sub-unit", $root, scripts:notYet#3),
             ias:failsafeWrapper("A32", "Question 12 – rapid eradication measures – impacted non-targeted species, Marine sub-region", $root, scripts:checkA32#3),
             ias:failsafeWrapper("A35", "Question 12 – rapid eradication measures – impacted non-targeted species, Methods used", $root, scripts:checkA35#3),
-            ias:failsafeWrapper("A36", "Question 12 – rapid eradication measures – impacted non-targeted species, Impacted non-targeted species", $root, scripts:notYet#3),
-            ias:failsafeWrapper("A37", "Question 12 – rapid eradication measures – impacted non-targeted species, Impact of the measure(s) per non-targeted species", $root, scripts:notYet#3),
+            ias:failsafeWrapper("A36", "Question 12 – rapid eradication measures – impacted non-targeted species, Impacted non-targeted species", $root, scripts:checkA36#3),
+            ias:failsafeWrapper("A37", "Question 12 – rapid eradication measures – impacted non-targeted species, Impact of the measure(s) per non-targeted species", $root, scripts:checkA37#3),
 
             ias:failsafeWrapper("A39", "Question 14 – management measures", $root, scripts:checkA39#3),
             ias:failsafeWrapper("A60", "Question 14 – management measures, Population Id", $root, scripts:checkA60#3),
-            ias:failsafeWrapper("A40", "Question 15 – management measures, Population Id, Start date", $root, scripts:checkA40#3),
-            ias:failsafeWrapper("A41", "Question 15 – management measures, Population Id, End date", $root, scripts:checkA41#3)
+            ias:failsafeWrapper("A40", "Question 15 – management measures, Start date", $root, scripts:checkA40#3),
+            ias:failsafeWrapper("A41", "Question 15 – management measures, End date", $root, scripts:checkA41#3),
+            ias:failsafeWrapper("A42", "Question 15 – management measures, Ongoing", $root, scripts:notYet#3),
+            ias:failsafeWrapper("A43", "Question 15 – management measures, Objective", $root, scripts:checkA43#3),
+            ias:failsafeWrapper("A44", "Question 15 – management measures, Administrative unit - NUTS", $root, scripts:checkA44#3),
+            ias:failsafeWrapper("A45", "Question 15 – management measures, Biogeograpical region", $root, scripts:checkA45#3),
+            ias:failsafeWrapper("A46", "Question 15 – management measures, River basin sub-unit", $root, scripts:notYet#3),
+            ias:failsafeWrapper("A47", "Question 15 – management measures, Marine sub-region", $root, scripts:checkA47#3),
+            ias:failsafeWrapper("A50", "Question 15 – management measures, Methods used", $root, scripts:checkA50#3),
+            ias:failsafeWrapper("A51", "Question 15 – management measures, Effectiveness of the measures", $root, scripts:checkA51#3),
+            ias:failsafeWrapper("A52", "Question 15 – management measures, Impacted non-targeted species", $root, scripts:checkA52#3),
+            ias:failsafeWrapper("A53", "Question 15 – management measures, Impact of the measure(s) per non-targeted species", $root, scripts:checkA53#3),
+
+            ias:failsafeWrapper("A55", "Question 15 – management measures, Habitats Directive Annex II, IV or V species", $root, scripts:checkA55#3),
+            ias:failsafeWrapper("A56", "Question 15 – management measures, Habitats Directive Annex I habitat type", $root, scripts:checkA56#3),
+            ias:failsafeWrapper("A57", "Question 15 – management measures, Birds Directive species", $root, scripts:notYet#3),
+            ias:failsafeWrapper("A58", "Question 15 – management measures, Ecosystem services", $root, scripts:checkA58#3)
+
         }</div>
 };
 
