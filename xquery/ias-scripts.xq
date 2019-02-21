@@ -19,6 +19,7 @@ declare namespace xlink = "http://www.w3.org/1999/xlink";
 
 import module namespace functx = "http://www.functx.com" at "ias-functx.xq";
 import module namespace geo = "http://expath.org/ns/geo";
+import module namespace http = "http://expath.org/ns/http-client";
 
 declare variable $scripts:MSG_LIMIT as xs:integer := 1000;
 declare variable $scripts:docErrorMessages as document-node() := fn:doc('./docs/cdrqaqc.xml');
@@ -36,6 +37,8 @@ declare variable $scripts:vocabMeasuresObj := 'http://dd.eionet.europa.eu/vocabu
 declare variable $scripts:vocabMeasuresEffect := 'http://dd.eionet.europa.eu/vocabulary/ias/measuresEffectiveness';
 declare variable $scripts:vocabHDspecies := 'http://dd.eionet.europa.eu/vocabulary/art17_2018/HDspecies';
 declare variable $scripts:vocabHabitats := 'http://dd.eionet.europa.eu/vocabulary/art17_2018/habitats';
+declare variable $scripts:vocabMeasures := 'http://dd.eionet.europa.eu/vocabulary/ias/measures';
+declare variable $scripts:vocabPathways := 'http://dd.eionet.europa.eu/vocabulary/ias/pathways';
 
 
 (:~
@@ -326,6 +329,32 @@ declare function scripts:checkCodeListL2(
         scripts:renderResult($refcode, $rulename, $type, count($data), $details)
 };
 
+declare function scripts:checkCodeListL1(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $level1_seq as element()*,
+        $type as xs:string,
+        $element_name as xs:string,
+        $codeListUrl as xs:string,
+        $hdrs as xs:string+
+) as element()* {
+    let $validConcepts := scripts:getValidConcepts($codeListUrl)
+
+    let $data :=
+        for $node in $level1_seq
+            let $row_id := $node/*:row_id
+            let $code := $node/*[local-name() = $element_name]
+            where string-length($code) > 0 and not($code = $validConcepts)
+            let $d := (string($row_id + 1), $code)
+
+            return scripts:createData((1), (2), $d)
+
+    let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
+
+    return
+        scripts:renderResult($refcode, $rulename, $type, count($data), $details)
+};
+
 
 (:~
     Population Id check
@@ -497,7 +526,33 @@ declare function scripts:checkA3(
     return scripts:notYet($refcode, $rulename, $root)
 };
 
-(:~
+declare function scripts:checkSpeciesPresence(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element(),
+        $type as xs:string,
+        $seq as element()*,
+        $hdrs as xs:string+
+) as element()* {
+    (:let $codeListUrl := $scripts:vocabSpeciesPresence:)
+    (:let $validConcepts := scripts:getValidConcepts($codeListUrl):)
+
+    let $data :=
+        for $node in $seq
+            let $present := $node//*:present_in_MS => functx:if-empty('')
+            where not($present = ('true', 'false', 'unknown'))
+
+            let $EASINcode := $node/*:EASINCode
+            let $d := ($EASINcode, $present)
+            return scripts:createData((1), (2), $d)
+
+    let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
+
+    return
+        scripts:renderResult($refcode, $rulename, $type, count($data), $details)
+};
+
+(:
     A4
 :)
 declare function scripts:checkA4(
@@ -506,45 +561,24 @@ declare function scripts:checkA4(
         $root as element()
 ) as element()* {
     let $type := 'blocker'
-    (:let $codeListUrl := $scripts:vocabSpeciesPresence:)
-    (:let $validConcepts := scripts:getValidConcepts($codeListUrl):)
-    let $seq := $root//*:sectionASpecies
-            /*:Row[fn:string-length(*:present_in_MS) > 0]
-
-    let $data :=
-        for $species in $seq
-            let $present := $species//*:present_in_MS => functx:if-empty('')
-            where not($present = ('true', 'false', 'unknown'))
-
-            let $EASINcode := $species/*:EASINCode
-            let $d := ($EASINcode, $present)
-            return scripts:createData((1), (2), $d)
-
+    let $seq := $root//*:sectionASpecies/*:Row[fn:string-length(*:present_in_MS) > 0]
     let $hdrs := ('EASINcode', 'Present in MS')
-    let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
-    return
-        scripts:renderResult($refcode, $rulename, $type, count($data), $details)
+    return scripts:checkSpeciesPresence($refcode, $rulename, $root,
+        $type, $seq, $hdrs)
 };
 
-(:~
-    A5
-:)
-declare function scripts:checkA5(
+declare function scripts:checkReproductionPatterns(
         $refcode as xs:string,
         $rulename as xs:string,
-        $root as element()
+        $type as xs:string,
+        $seq as element()*
 ) as element()* {
-    let $type := 'blocker'
     let $codeListUrl := $scripts:vocabReproductionPatterns
     let $validConcepts := scripts:getValidConcepts($codeListUrl)
-    let $seq := $root//*:sectionASpecies
-            /*:Row[fn:string-length(*:reproduction_pattern) > 0]
 
     let $data :=
         for $species in $seq
-            let $present := $species//*:present_in_MS => functx:if-empty('')
-            where $present = 'true'
             let $value := $species//*:reproduction_pattern => functx:if-empty('')
             where not($value = $validConcepts)
 
@@ -559,27 +593,40 @@ declare function scripts:checkA5(
         scripts:renderResult($refcode, $rulename, $type, count($data), $details)
 };
 
+
 (:~
-    A6
+    A5
 :)
-declare function scripts:checkA6(
+declare function scripts:checkA5(
         $refcode as xs:string,
         $rulename as xs:string,
         $root as element()
 ) as element()* {
     let $type := 'error'
+    let $seq := $root//*:sectionASpecies/*:Row[*:present_in_MS = 'true'
+            and fn:string-length(*:reproduction_pattern) > 0]
+
+    return scripts:checkReproductionPatterns(
+        $refcode, $rulename, $type, $seq)
+};
+
+declare function scripts:checkSpreadPatterns(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element(),
+        $type as xs:string,
+        $seq as element()*,
+        $section as xs:string
+) as element()* {
     let $codeListUrl := $scripts:vocabSpreadPatterns
     let $validConcepts := scripts:getValidConcepts($codeListUrl)
-    let $seq := $root//*:sectionASpecies/*:Row
 
     let $info := 'Spread pattern is not found in the codelist'
     let $data1 :=
         for $species in $seq
-            let $present := $species//*:present_in_MS => functx:if-empty('')
-            where $present = 'true'
             let $speciesRowId := $species/*:row_id => fn:number()
 
-            let $seqSpreadPatterns := $root//*:spreadPatterns/*:Row[*:section = 'A'
+            let $seqSpreadPatterns := $root//*:spreadPatterns/*:Row[*:section = $section
                 and *:parent_row_id = $speciesRowId]
 
             for $spreadPattern in $seqSpreadPatterns
@@ -599,11 +646,9 @@ declare function scripts:checkA6(
 
     let $data2 :=
         for $species in $seq
-            let $present := $species//*:present_in_MS => functx:if-empty('')
-            where $present = 'true'
             let $speciesRowId := $species/*:row_id => fn:number()
 
-            let $spreadPatterns := $root//*:spreadPatterns/*:Row[*:section = 'A'
+            let $spreadPatterns := $root//*:spreadPatterns/*:Row[*:section = $section
                 and *:parent_row_id = $speciesRowId]/functx:if-empty(*:spread_pattern, '')
 
             let $valuesA := functx:value-intersect($mandatoryPatternsA, $spreadPatterns)
@@ -627,6 +672,22 @@ declare function scripts:checkA6(
 
     return
         scripts:renderResult($refcode, $rulename, $type, count($data), $details)
+};
+
+(:~
+    A6
+:)
+declare function scripts:checkA6(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $type := 'error'
+    let $seq := $root//*:sectionASpecies/*:Row[*:present_in_MS = 'true']
+    let $section := 'A'
+
+    return scripts:checkSpreadPatterns($refcode, $rulename, $root,
+        $type, $seq, $section)
 };
 
 (:~
@@ -1131,13 +1192,13 @@ declare function scripts:checkYesNo(
         $hdrs as xs:string+
 ) as element()* {
     let $data :=
-        for $species in $seq
-            let $value := $species//*[local-name() = $element_name]
+        for $node in $seq
+            let $value := $node//*[local-name() = $element_name]
                 => functx:if-empty('')
 
             where not($value = ('true', 'false'))
 
-            let $EASINcode := $species/*:EASINCode
+            let $EASINcode := $node/*:EASINCode
             let $d := ($EASINcode, $value)
 
             return scripts:createData((1), (2), $d)
@@ -1748,4 +1809,309 @@ declare function scripts:checkA58(
 
     return scripts:checkCodeListL2($refcode, $rulename, $species_seq, $level2_seq,
         $type, $element_name, $codeListUrl, $hdrs )
+};
+
+(:
+    B1
+:)
+
+declare function scripts:checkB1(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $type := 'blocker'
+    let $hdrs := ('National list of IAS of Member State concern established?')
+
+    let $data :=
+        let $value := $root//*:reporting//*:has_national_list_MS
+            => functx:if-empty('')
+
+        return
+        if(not($value = ('true', 'false')))
+        then
+            let $d := ($value)
+            return scripts:createData((1), (1), $d)
+        else ()
+
+    let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
+
+    return
+        scripts:renderResult($refcode, $rulename, $type, count($data), $details)
+};
+
+(:
+    B4
+:)
+
+declare function scripts:checkB4(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $type := 'blocker'
+    let $seq := $root//*:sectionBSpecies/*:Row[fn:string-length(*:present_in_MS) > 0]
+    let $hdrs := ('EASINcode', 'Present in MS')
+    let $has_national_list_MS := $root//*:reporting//*:has_national_list_MS
+            => functx:if-empty('')
+
+    return if($has_national_list_MS = 'true')
+        then
+            scripts:checkSpeciesPresence($refcode, $rulename, $root,
+                $type, $seq, $hdrs)
+        else ()
+};
+
+(:~
+    B5b
+:)
+declare function scripts:checkB5b(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $type := 'blocker'
+    let $seq := $root//*:sectionBSpecies/*:Row[*:present_in_MS = 'true'
+            and fn:string-length(*:reproduction_pattern) > 0]
+    let $has_national_list_MS := $root//*:reporting//*:has_national_list_MS
+            => functx:if-empty('')
+
+    return if($has_national_list_MS = 'true')
+        then
+            scripts:checkReproductionPatterns($refcode, $rulename, $type, $seq)
+        else ()
+};
+
+(:~
+    B5c
+:)
+declare function scripts:checkB5c(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $type := 'error'
+    let $seq := $root//*:sectionBSpecies/*:Row[*:present_in_MS = 'true']
+    let $section := 'B'
+    let $has_national_list_MS := $root//*:reporting//*:has_national_list_MS
+            => functx:if-empty('')
+
+    return if($has_national_list_MS = 'true')
+        then
+            scripts:checkSpreadPatterns($refcode, $rulename, $root,
+                $type, $seq, $section)
+        else ()
+};
+
+(:~
+    B6
+:)
+
+declare function scripts:checkB6(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $type := 'error'
+    let $codeListUrl := $scripts:vocabMeasures
+    let $species_seq := $root//*:sectionBSpecies/*:Row[*:present_in_MS = 'true']
+    let $level2_seq := $root//*:sectionBMeasures/*:Row
+    let $element_name := 'measure'
+    let $hdrs := ('EASINcode', 'Measure')
+
+    return scripts:checkCodeListL2($refcode, $rulename, $species_seq, $level2_seq,
+        $type, $element_name, $codeListUrl, $hdrs )
+};
+
+declare function scripts:checkUriExists(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element(),
+        $type as xs:string,
+        $hdrs as xs:string+,
+        $element_name as xs:string
+) as element()* {
+    let $data :=
+        let $value := $root//*:sectionC//*[local-name() = $element_name]
+            => functx:if-empty('-')
+        
+        let $response :=
+            try {
+                http:send-request(
+                    <http:request method='get' status-only='true' timeout='5'/>, $value)
+            }
+            catch * {
+                <http:response status="404"/>
+            }
+
+        return
+            if (not($response/@*:status = 200))
+            then
+                let $d := ($value)
+                return scripts:createData((1), (1), $d)
+            else ()
+
+    let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
+
+    return
+        scripts:renderResult($refcode, $rulename, $type, count($data), $details)
+
+};
+
+(:
+    C1
+:)
+
+declare function scripts:checkC1(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $element_name := 'weblink_permits'
+    let $hdrs := ('Link to information - Art. 8(7)')
+    let $value := $root//*:sectionC//*[local-name() = $element_name]
+        => functx:if-empty('')
+
+    return if($value = '')
+    then
+        let $type := 'error'
+        let $data := scripts:createData((1), (1), ('-'))
+        let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
+        return
+            scripts:renderResult($refcode, $rulename, $type, count($data), $details)
+
+    else
+        scripts:checkUriExists($refcode, $rulename, $root, 'info',
+            $hdrs, $element_name)
+};
+
+(:
+    C2
+:)
+
+declare function scripts:checkC2(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $element_name := 'action_plans'
+    let $hdrs := ('Documents describing action plans – Art. 13(2)')
+    let $value := $root//*:sectionC//*[local-name() = $element_name]
+        => functx:if-empty('')
+
+    return if($value = '')
+    then
+        let $type := 'error'
+        let $data := scripts:createData((1), (1), ('-'))
+        let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
+        return
+            scripts:renderResult($refcode, $rulename, $type, count($data), $details)
+
+    else
+        scripts:checkUriExists($refcode, $rulename, $root, 'info',
+            $hdrs, $element_name)
+};
+
+(:
+    C3
+:)
+declare function scripts:checkC3(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $type := 'blocker'
+    let $codeListUrl := $scripts:vocabPathways
+    let $level1_seq := $root//*:priorityPathway/*:Row
+    let $element_name := 'pathway_code'
+    let $hdrs := ('Row number', 'Pathway')
+
+    return scripts:checkCodeListL1($refcode, $rulename, $level1_seq,
+        $type, $element_name, $codeListUrl, $hdrs )
+};
+
+
+(:
+    C4
+:)
+
+declare function scripts:checkC4(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $element_name := 'surveillance_system'
+    let $hdrs := ('Documents describing surveillance system – Art. 14')
+
+    return
+        scripts:checkUriExists($refcode, $rulename, $root, 'info',
+            $hdrs, $element_name)
+};
+
+(:
+    C5
+:)
+
+declare function scripts:checkC5(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $element_name := 'official_control_system'
+    let $hdrs := ('Documents describing official control system – Art. 15')
+
+    return
+        scripts:checkUriExists($refcode, $rulename, $root, 'info',
+            $hdrs, $element_name)
+};
+
+(:
+    C6
+:)
+
+declare function scripts:checkC6(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $element_name := 'measures_inform_public'
+    let $hdrs := ('Documents describing measures taken to inform the public')
+
+    return
+        scripts:checkUriExists($refcode, $rulename, $root, 'info',
+            $hdrs, $element_name)
+};
+
+(:
+    C7
+:)
+
+declare function scripts:checkC7(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $element_name := 'cost_of_action'
+    let $hdrs := ('Documents describing cost of actions')
+
+    return
+        scripts:checkUriExists($refcode, $rulename, $root, 'info',
+            $hdrs, $element_name)
+};
+
+(:
+    C8
+:)
+
+declare function scripts:checkC8(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $element_name := 'additional_information'
+    let $hdrs := ('Document with additional information')
+
+    return
+        scripts:checkUriExists($refcode, $rulename, $root, 'info',
+            $hdrs, $element_name)
 };

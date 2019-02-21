@@ -130,7 +130,6 @@ declare function ias:runChecks02($root as element()) as element()* {
             ias:failsafeWrapper("A56", "Question 15 – management measures, Habitats Directive Annex I habitat type", $root, scripts:checkA56#3),
             ias:failsafeWrapper("A57", "Question 15 – management measures, Birds Directive species", $root, scripts:notYet#3),
             ias:failsafeWrapper("A58", "Question 15 – management measures, Ecosystem services", $root, scripts:checkA58#3)
-
         }</div>
 };
 
@@ -144,8 +143,14 @@ declare function ias:runChecks03($root as element()) as element()* {
     return
         <div class="ias header">{$rulename}</div>,
         <div class="ias table parent">{
-            ias:failsafeWrapper("B1", "Question 1 - National list established yes/no", $root, scripts:notYet#3),
-            ias:failsafeWrapper("B2", "Question 2 - Scientific name", $root, scripts:notYet#3)
+            ias:failsafeWrapper("B1", "Question 1 - National list established yes/no", $root, scripts:checkB1#3),
+            ias:failsafeWrapper("B2", "Question 2 - Scientific name", $root, scripts:notYet#3),
+            ias:failsafeWrapper("B3", "Question 3 – common name", $root, scripts:notYet#3),
+            ias:failsafeWrapper("B4", "Question 4 - presence", $root, scripts:checkB4#3),
+            (:ias:failsafeWrapper("S2", "Question 5 - Distribution maps", $root, scripts:notYet#3),:)
+            ias:failsafeWrapper("B5b", "Question 5 - Reproduction patterns", $root, scripts:checkB5b#3),
+            ias:failsafeWrapper("B5c", "Question 5 - Spread patterns", $root, scripts:checkB5c#3),
+            ias:failsafeWrapper("B6", "Question 6 - measures", $root, scripts:checkB6#3)
         }</div>
 };
 
@@ -159,8 +164,15 @@ declare function ias:runChecks04($root as element()) as element()* {
     return
         <div class="ias header">{$rulename}</div>,
         <div class="ias table parent">{
-            ias:failsafeWrapper("C1", "Question 1 – Link to information - Art. 8(7)", $root, scripts:notYet#3),
-            ias:failsafeWrapper("C2", "Question 2 – documents describing action plans – Art. 13(2)", $root, scripts:notYet#3)
+            ias:failsafeWrapper("C1", "Question 1 – Link to information - Art. 8(7)", $root, scripts:checkC1#3),
+            ias:failsafeWrapper("C2", "Question 2 – documents describing action plans – Art. 13(2)", $root, scripts:checkC2#3),
+            ias:failsafeWrapper("C3a", "Question 3 – priority pathways, Pathway", $root, scripts:checkC3#3),
+            ias:failsafeWrapper("C3b", "Question 3 – priority pathways, Species from the Union list, which uses this pathway", $root, scripts:notYet#3),
+            ias:failsafeWrapper("C4", "Question 4 - documents describing surveillance system – Art. 14", $root, scripts:checkC4#3),
+            ias:failsafeWrapper("C5", "Question 5 – documents describing official control system – Art. 15", $root, scripts:checkC5#3),
+            ias:failsafeWrapper("C6", "Question 6 – documents describing measures taken to inform the public", $root, scripts:checkC6#3),
+            ias:failsafeWrapper("C7", "Question 7– cost of actions", $root, scripts:checkC7#3),
+            ias:failsafeWrapper("C8", "Question 8 – document with additional information", $root, scripts:checkC8#3)
         }</div>
 };
 
