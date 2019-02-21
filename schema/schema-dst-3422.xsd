@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:datasets="http://dd.eionet.europa.eu/namespaces/1" xmlns:dd884="http://dd.eionet.europa.eu/namespaces/884" xmlns:dd885="http://dd.eionet.europa.eu/namespaces/885" xmlns:dd887="http://dd.eionet.europa.eu/namespaces/887" xmlns:dd888="http://dd.eionet.europa.eu/namespaces/888" xmlns:dd889="http://dd.eionet.europa.eu/namespaces/889" xmlns:dd890="http://dd.eionet.europa.eu/namespaces/890" xmlns:dd891="http://dd.eionet.europa.eu/namespaces/891" xmlns:dd892="http://dd.eionet.europa.eu/namespaces/892" xmlns:dd893="http://dd.eionet.europa.eu/namespaces/893" xmlns:dd894="http://dd.eionet.europa.eu/namespaces/894" xmlns:dd895="http://dd.eionet.europa.eu/namespaces/895" xmlns:dd896="http://dd.eionet.europa.eu/namespaces/896" xmlns:dd897="http://dd.eionet.europa.eu/namespaces/897" xmlns:dd898="http://dd.eionet.europa.eu/namespaces/898" xmlns:dd899="http://dd.eionet.europa.eu/namespaces/899" xmlns:dd900="http://dd.eionet.europa.eu/namespaces/900" xmlns:dd901="http://dd.eionet.europa.eu/namespaces/901" xmlns:dd902="http://dd.eionet.europa.eu/namespaces/902" xmlns:dd903="http://dd.eionet.europa.eu/namespaces/903" xmlns:dd904="http://dd.eionet.europa.eu/namespaces/904" xmlns:dd905="http://dd.eionet.europa.eu/namespaces/905" xmlns:dd906="http://dd.eionet.europa.eu/namespaces/906" xmlns:dd907="http://dd.eionet.europa.eu/namespaces/907" xmlns:dd908="http://dd.eionet.europa.eu/namespaces/908" xmlns:ddattrs="http://dd.eionet.europa.eu/namespaces/3" xmlns:isoattrs="http://dd.eionet.europa.eu/namespaces/2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://dd.eionet.europa.eu/namespaces/884" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema.xsd">
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/897" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11393.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/907" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11394.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/906" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11395.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/893" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11396.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/892" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11397.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/895" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11398.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/891" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11399.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/908" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11400.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/888" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11401.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/900" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11402.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/889" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11403.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/885" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11404.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/887" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11405.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/902" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11406.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/890" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11407.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/901" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11408.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/896" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11409.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/904" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11410.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/899" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11411.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/903" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11412.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/898" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11413.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/894" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11414.xsd"/>
+    <xs:import namespace="http://dd.eionet.europa.eu/namespaces/905" schemaLocation="http://dd.eionet.europa.eu/v2/dataset/3422/schema-tbl-11415.xsd"/>
+    <xs:element name="IAS">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                <isoattrs:Name>Invasive Alien Species</isoattrs:Name>
+                <ddattrs:Version>1.0</ddattrs:Version>
+                <ddattrs:Owner>Sabine Roscher</ddattrs:Owner>
+                <ddattrs:Responsible>Sabine Roscher</ddattrs:Responsible>
+                <ddattrs:Consulted>Sabine Roscher</ddattrs:Consulted>
+                <ddattrs:Consulted>Claudia Ifrim</ddattrs:Consulted>
+                <ddattrs:Consulted>Sabine Roscher</ddattrs:Consulted>
+                <ddattrs:Consulted>Claudia Ifrim</ddattrs:Consulted>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd897:sectionBMeasures"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd907:protectedHabitats"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd906:protectedSpecies"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd893:permitsIssuedReported"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd892:spreadPatterns"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd895:inspectionsPermitsReported"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd891:priorityPathway"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd908:ecosystems"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd888:sectionBSpecies"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd900:biogeographicalRegion"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd889:sectionC"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd885:reporting"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd887:sectionASpecies"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd902:marineSubRegions"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd890:distributionMap"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd901:riverBasinSubUnit"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd896:inspectionsPermits"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd904:observedNegativeImpacts"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd899:partTerritory"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd903:methodsUsed"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd898:sectionAMeasures"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd894:permitedSpecimens"/>
+                <xs:element maxOccurs="1" minOccurs="1" ref="dd905:infoImpactSpecies"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
