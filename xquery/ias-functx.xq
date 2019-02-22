@@ -139,3 +139,9 @@ declare function functx:is-a-number
 
    string(number($value)) != 'NaN'
  } ;
+
+declare function functx:trim
+  ( $arg as xs:string? )  as xs:string {
+
+   replace(replace($arg,'\s+$',''),'^\s+','')
+ } ;

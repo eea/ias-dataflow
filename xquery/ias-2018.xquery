@@ -166,8 +166,8 @@ declare function ias:runChecks04($root as element()) as element()* {
         <div class="ias table parent">{
             ias:failsafeWrapper("C1", "Question 1 – Link to information - Art. 8(7)", $root, scripts:checkC1#3),
             ias:failsafeWrapper("C2", "Question 2 – documents describing action plans – Art. 13(2)", $root, scripts:checkC2#3),
-            ias:failsafeWrapper("C3a", "Question 3 – priority pathways, Pathway", $root, scripts:checkC3#3),
-            ias:failsafeWrapper("C3b", "Question 3 – priority pathways, Species from the Union list, which uses this pathway", $root, scripts:notYet#3),
+            ias:failsafeWrapper("C3a", "Question 3 – priority pathways, Pathway", $root, scripts:checkC3a#3),
+            ias:failsafeWrapper("C3b", "Question 3 – priority pathways, Species from the Union list, which uses this pathway", $root, scripts:checkC3b#3),
             ias:failsafeWrapper("C4", "Question 4 - documents describing surveillance system – Art. 14", $root, scripts:checkC4#3),
             ias:failsafeWrapper("C5", "Question 5 – documents describing official control system – Art. 15", $root, scripts:checkC5#3),
             ias:failsafeWrapper("C6", "Question 6 – documents describing measures taken to inform the public", $root, scripts:checkC6#3),

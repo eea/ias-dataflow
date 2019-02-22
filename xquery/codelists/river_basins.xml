@@ -1,0 +1,1274 @@
+<dataroot generated="2019-02-22T16:44:10">
+  <row>
+    <country>DE</country>
+    <name>Donau - Donau (BY)</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Mittelrhein</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Niederrhein</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Deltarhein</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Main</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Mosel/Saar</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Bodensee/Alpenrhein</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Neckar</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Hochrhein</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Oberrhein</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Ems - Obere Ems, Ems/Nordradde, Hase</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Ems - Leda-Jümme, Untere Ems, Ems-Ästuar</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Weser - Werra</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Weser - Fulda/Diemel</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Weser - Weser</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Weser - Leine</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Weser - Tide-Weser</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Weser - Aller</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Elbe - Mittlere Elbe/Elde</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Elbe - KOR HAV</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Elbe - Mulde-Elbe-Schwarze Elster</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Elbe - Tideelbe</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Elbe - Saale, Obere Moldau, Berounka, Eger und Untere Elbe</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Oder</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Maas</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Eider</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Schlei/Trave</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Warnow/Peene</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>MINHO-SIL RIVER BASIN DISTRICT</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>GALICIAN COAST</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>EASTERN CANTABRIAN</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>WESTERN CANTABRIAN</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>DOURO</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>TAGUS</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>MELILLA</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>LANZAROTE</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>TENERIFE</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>LA PALMA</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>THE GOMERA</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>EL HIERRO</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>CEUTA</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>JUCAR</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>EBRO</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>CATALAN RIVER BASIN DISTRICT</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>BALEARIC ISLANDS</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>GRAN CANARIA</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>FUERTEVENTURA</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>GUADIANA</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>GUADALQUIVIR</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>ANDALUSIA MEDITERRANEAN BASINS</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>GUADALETE AND BARBATE</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>TINTO, ODIEL AND PIEDRAS</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>SEGURA</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>1. Bothnian Bay (International drainage basin Nordland - Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>1. Bothnian Bay (International drainage basin Troms - Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>1. Bothnian Bay (International district Torne river - Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>1. Bothnian Bay (Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>2. Bothnian Sea (International drainage basin Trondelagsfylkene - Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>2. Bothnian Sea (Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>3. North Baltic Sea (Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>4. South Baltic Sea (Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>5. Skagerrak and Kattegat (International drainage basin Glomma - Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>5. Skagerrak and Kattegat (Sweden)</name>
+  </row>
+  <row>
+    <country>AT</country>
+    <name>Danube</name>
+  </row>
+  <row>
+    <country>AT</country>
+    <name>Rhine</name>
+  </row>
+  <row>
+    <country>AT</country>
+    <name>Elbe</name>
+  </row>
+  <row>
+    <country>BE</country>
+    <name>Scheldt</name>
+  </row>
+  <row>
+    <country>BE</country>
+    <name>Scheldt</name>
+  </row>
+  <row>
+    <country>BE</country>
+    <name>Meuse</name>
+  </row>
+  <row>
+    <country>BE</country>
+    <name>Meuse</name>
+  </row>
+  <row>
+    <country>BE</country>
+    <name>Scheldt</name>
+  </row>
+  <row>
+    <country>BE</country>
+    <name>Rhine</name>
+  </row>
+  <row>
+    <country>BE</country>
+    <name>Scheldt</name>
+  </row>
+  <row>
+    <country>BE</country>
+    <name>Seine</name>
+  </row>
+  <row>
+    <country>BG</country>
+    <name>Danube River Basin District</name>
+  </row>
+  <row>
+    <country>BG</country>
+    <name>Black Sea River Basin District</name>
+  </row>
+  <row>
+    <country>BG</country>
+    <name>East Aegean River Basin District</name>
+  </row>
+  <row>
+    <country>BG</country>
+    <name>West Aegean River Basin District</name>
+  </row>
+  <row>
+    <country>CY</country>
+    <name>Cyprus</name>
+  </row>
+  <row>
+    <country>CZ</country>
+    <name>Danube - Other tributaries of the Danube</name>
+  </row>
+  <row>
+    <country>CZ</country>
+    <name>Danube - Dyje</name>
+  </row>
+  <row>
+    <country>CZ</country>
+    <name>Danube - Morava and tributaries of the Váh</name>
+  </row>
+  <row>
+    <country>CZ</country>
+    <name>Elbe - Berounka</name>
+  </row>
+  <row>
+    <country>CZ</country>
+    <name>Elbe - Lower Vltava</name>
+  </row>
+  <row>
+    <country>CZ</country>
+    <name>Elbe - Upper and middle Elbe</name>
+  </row>
+  <row>
+    <country>CZ</country>
+    <name>Elbe - Upper Vltava</name>
+  </row>
+  <row>
+    <country>CZ</country>
+    <name>Elbe - Ohře, lower Elbe and other tributaries of the Elbe</name>
+  </row>
+  <row>
+    <country>CZ</country>
+    <name>Odra - Upper Odra</name>
+  </row>
+  <row>
+    <country>CZ</country>
+    <name>Odra - Lužická Nisa and other tributaries of the Odra</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Donau - Donau (BY)</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Mittelrhein</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Niederrhein</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Deltarhein</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Main</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Mosel/Saar</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Bodensee/Alpenrhein</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Neckar</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Hochrhein</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Rhein - Oberrhein</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Ems - Obere Ems, Ems/Nordradde, Hase</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Ems - Leda-Jümme, Untere Ems, Ems-Ästuar</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Weser - Werra</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Weser - Fulda/Diemel</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Weser - Weser</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Weser - Leine</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Weser - Tide-Weser</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Weser - Aller</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Elbe - Mittlere Elbe/Elde</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Elbe - KOR HAV</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Elbe - Mulde-Elbe-Schwarze Elster</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Elbe - Tideelbe</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Elbe - Saale, Obere Moldau, Berounka, Eger und Untere Elbe</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Oder - Oder</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Maas - Maas</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Eider - Eider</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Schlei/Trave - FGE Schlei/Trave</name>
+  </row>
+  <row>
+    <country>DE</country>
+    <name>Warnow/Peene - FGE Warnow/Peene</name>
+  </row>
+  <row>
+    <country>DK</country>
+    <name>River Basin District Jylland og Fyn</name>
+  </row>
+  <row>
+    <country>DK</country>
+    <name>River Basin District Sjaelland</name>
+  </row>
+  <row>
+    <country>DK</country>
+    <name>River Basin District Bornholm</name>
+  </row>
+  <row>
+    <country>DK</country>
+    <name>International River Basin District</name>
+  </row>
+  <row>
+    <country>EE</country>
+    <name>Lääne-Eesti veskond</name>
+  </row>
+  <row>
+    <country>EE</country>
+    <name>Ida-Eesti veskond</name>
+  </row>
+  <row>
+    <country>EE</country>
+    <name>Koiva veskond</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>MINHO-SIL RIVER BASIN DISTRICT</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>GALICIAN COAST</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>EASTERN CANTABRIAN</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>WESTERN CANTABRIAN</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>DOURO</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>TAGUS</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>MELILLA</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>LANZAROTE</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>TENERIFE</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>LA PALMA</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>THE GOMERA</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>EL HIERRO</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>CEUTA</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>JUCAR</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>EBRO</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>CATALAN RIVER BASIN DISTRICT</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>BALEARIC ISLANDS</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>GRAN CANARIA</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>FUERTEVENTURA</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>GUADIANA</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>GUADALQUIVIR</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>ANDALUSIA MEDITERRANEAN BASINS</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>GUADALETE AND BARBATE</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>TINTO, ODIEL AND PIEDRAS</name>
+  </row>
+  <row>
+    <country>ES</country>
+    <name>SEGURA</name>
+  </row>
+  <row>
+    <country>FI</country>
+    <name>Vuoksi River Basin District</name>
+  </row>
+  <row>
+    <country>FI</country>
+    <name>Kymijoki-Gulf of Finland River Basin District</name>
+  </row>
+  <row>
+    <country>FI</country>
+    <name>Kokemäenjoki-Archipelago Sea-Bothnian Sea River Basin District</name>
+  </row>
+  <row>
+    <country>FI</country>
+    <name>Oulujoki-Iijoki River Basin District</name>
+  </row>
+  <row>
+    <country>FI</country>
+    <name>Kemijoki River Basin District</name>
+  </row>
+  <row>
+    <country>FI</country>
+    <name>Tornionjoki IRBD</name>
+  </row>
+  <row>
+    <country>FI</country>
+    <name>Teno, Näätämöjoki and Paatsjoki IRBD</name>
+  </row>
+  <row>
+    <country>FI</country>
+    <name>Åland River Basin District</name>
+  </row>
+  <row>
+    <country>FR</country>
+    <name>L'Escaut, la Somme et les cours d'eau côtiers de la Manche et de la mer du Nord</name>
+  </row>
+  <row>
+    <country>FR</country>
+    <name>La Meuse</name>
+  </row>
+  <row>
+    <country>FR</country>
+    <name>La Sambre</name>
+  </row>
+  <row>
+    <country>FR</country>
+    <name>Le Rhin</name>
+  </row>
+  <row>
+    <country>FR</country>
+    <name>Le Rhône et les cours d'eau côtiers méditerranéens</name>
+  </row>
+  <row>
+    <country>FR</country>
+    <name>Les cours d'eau de la Corse</name>
+  </row>
+  <row>
+    <country>FR</country>
+    <name>Les cours d'eau de la Réunion</name>
+  </row>
+  <row>
+    <country>FR</country>
+    <name>Les cours d'eau de Mayotte</name>
+  </row>
+  <row>
+    <country>FR</country>
+    <name>L'Adour, la Garonne, la Dordogne, la Charente et les cours d'eau côtiers charentais et aquitains</name>
+  </row>
+  <row>
+    <country>FR</country>
+    <name>La Loire, les cours d'eau côtiers vendéens et bretons</name>
+  </row>
+  <row>
+    <country>FR</country>
+    <name>La Seine et les cours d'eau côtiers normands</name>
+  </row>
+  <row>
+    <country>FR</country>
+    <name>Les cours d'eau de la Guadeloupe</name>
+  </row>
+  <row>
+    <country>FR</country>
+    <name>Les cours d'eau de la Martinique</name>
+  </row>
+  <row>
+    <country>FR</country>
+    <name>Les fleuves et cours d'eau côtiers de la Guyane</name>
+  </row>
+  <row>
+    <country>HR</country>
+    <name>Danube river basin district - Drava and Danube sub-basin</name>
+  </row>
+  <row>
+    <country>HR</country>
+    <name>Danube river basin district - Sava sub-basin</name>
+  </row>
+  <row>
+    <country>HR</country>
+    <name>Adriatic river basin district - Adriatic river basin district</name>
+  </row>
+  <row>
+    <country>HU</country>
+    <name>Hungarian part of the Danube River Basin District - Balaton</name>
+  </row>
+  <row>
+    <country>HU</country>
+    <name>Hungarian part of the Danube River Basin District - Drava</name>
+  </row>
+  <row>
+    <country>HU</country>
+    <name>Hungarian part of the Danube River Basin District - Danube</name>
+  </row>
+  <row>
+    <country>HU</country>
+    <name>Hungarian part of the Danube River Basin District - Tisa</name>
+  </row>
+  <row>
+    <country>IE</country>
+    <name>Neagh Bann</name>
+  </row>
+  <row>
+    <country>IE</country>
+    <name>North Western</name>
+  </row>
+  <row>
+    <country>IE</country>
+    <name>Republic of Ireland</name>
+  </row>
+  <row>
+    <country>IT</country>
+    <name>Eastern Alps District</name>
+  </row>
+  <row>
+    <country>IT</country>
+    <name>Padan District</name>
+  </row>
+  <row>
+    <country>IT</country>
+    <name>North Appennines District</name>
+  </row>
+  <row>
+    <country>IT</country>
+    <name>Pilot river basin district Serchio</name>
+  </row>
+  <row>
+    <country>IT</country>
+    <name>Central Appennines District</name>
+  </row>
+  <row>
+    <country>IT</country>
+    <name>South Appennines District</name>
+  </row>
+  <row>
+    <country>IT</country>
+    <name>Sardinia District</name>
+  </row>
+  <row>
+    <country>IT</country>
+    <name>Sicily District</name>
+  </row>
+  <row>
+    <country>LU</country>
+    <name>Rhine - Moselle-Sarre</name>
+  </row>
+  <row>
+    <country>LU</country>
+    <name>Meuse</name>
+  </row>
+  <row>
+    <country>LV</country>
+    <name>Daugava river basin district</name>
+  </row>
+  <row>
+    <country>LV</country>
+    <name>Gauja river basin district</name>
+  </row>
+  <row>
+    <country>LV</country>
+    <name>Lielupe river basin district</name>
+  </row>
+  <row>
+    <country>LV</country>
+    <name>Venta river basin district</name>
+  </row>
+  <row>
+    <country>MT</country>
+    <name>Malta</name>
+  </row>
+  <row>
+    <country>NL</country>
+    <name>Eems</name>
+  </row>
+  <row>
+    <country>NL</country>
+    <name>Maas</name>
+  </row>
+  <row>
+    <country>NL</country>
+    <name>Rijn</name>
+  </row>
+  <row>
+    <country>NL</country>
+    <name>Schelde</name>
+  </row>
+  <row>
+    <country>PL</country>
+    <name>Obszar Dorzecza Dunaju</name>
+  </row>
+  <row>
+    <country>PL</country>
+    <name>Obszar Dorzecza Wisły</name>
+  </row>
+  <row>
+    <country>PL</country>
+    <name>Obszar Dorzecza Świeżej</name>
+  </row>
+  <row>
+    <country>PL</country>
+    <name>Obszar Dorzecza Jarft</name>
+  </row>
+  <row>
+    <country>PL</country>
+    <name>Obszar Dorzecza Łaby</name>
+  </row>
+  <row>
+    <country>PL</country>
+    <name>Obszar Dorzecza Odry</name>
+  </row>
+  <row>
+    <country>PL</country>
+    <name>Obszar Dorzecza Pregoły</name>
+  </row>
+  <row>
+    <country>PL</country>
+    <name>Obszar Dorzecza Niemna</name>
+  </row>
+  <row>
+    <country>PL</country>
+    <name>Obszar Dorzecza Dniestru</name>
+  </row>
+  <row>
+    <country>PL</country>
+    <name>Obszar Dorzecza Ücker</name>
+  </row>
+  <row>
+    <country>PT</country>
+    <name>Minho and Lima</name>
+  </row>
+  <row>
+    <country>PT</country>
+    <name>Madeira</name>
+  </row>
+  <row>
+    <country>PT</country>
+    <name>Cavado, Ave and Leca</name>
+  </row>
+  <row>
+    <country>PT</country>
+    <name>Douro</name>
+  </row>
+  <row>
+    <country>PT</country>
+    <name>Vouga, Mondego and Lis</name>
+  </row>
+  <row>
+    <country>PT</country>
+    <name>Tagus and West Rivers</name>
+  </row>
+  <row>
+    <country>PT</country>
+    <name>Sado and Mira</name>
+  </row>
+  <row>
+    <country>PT</country>
+    <name>Guadiana</name>
+  </row>
+  <row>
+    <country>PT</country>
+    <name>Algarve Rivers</name>
+  </row>
+  <row>
+    <country>PT</country>
+    <name>Azores</name>
+  </row>
+  <row>
+    <country>RO</country>
+    <name>Danube River Basin District - Banat River basin</name>
+  </row>
+  <row>
+    <country>RO</country>
+    <name>Danube River Basin District - Siret River basin</name>
+  </row>
+  <row>
+    <country>RO</country>
+    <name>Danube River Basin District - Prut River basin</name>
+  </row>
+  <row>
+    <country>RO</country>
+    <name>Danube River Basin District - Jiu River basin</name>
+  </row>
+  <row>
+    <country>RO</country>
+    <name>Danube River Basin District - Olt River basin</name>
+  </row>
+  <row>
+    <country>RO</country>
+    <name>Danube River Basin District - Arges Vedea River basin</name>
+  </row>
+  <row>
+    <country>RO</country>
+    <name>Danube River Basin District - Buzau Ialomita River Basin</name>
+  </row>
+  <row>
+    <country>RO</country>
+    <name>Danube River Basin District - Dobrogea Litoral River basin</name>
+  </row>
+  <row>
+    <country>RO</country>
+    <name>Danube River Basin District - Mures River basin</name>
+  </row>
+  <row>
+    <country>RO</country>
+    <name>Danube River Basin District - Crisuri river basin</name>
+  </row>
+  <row>
+    <country>RO</country>
+    <name>Danube River Basin District - Somes Tisa River basin</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>1. Bothnian Bay (International drainage basin Nordland - Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>1. Bothnian Bay (International drainage basin Troms - Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>1. Bothnian Bay (International district Torne river - Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>1. Bothnian Bay (Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>2. Bothnian Sea (International drainage basin Trondelagsfylkene - Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>2. Bothnian Sea (Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>3. North Baltic Sea (Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>4. South Baltic Sea (Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>5. Skagerrak and Kattegat (International drainage basin Glomma - Sweden)</name>
+  </row>
+  <row>
+    <country>SE</country>
+    <name>5. Skagerrak and Kattegat (Sweden)</name>
+  </row>
+  <row>
+    <country>SI</country>
+    <name>Danube river basin district</name>
+  </row>
+  <row>
+    <country>SI</country>
+    <name>Adriatic river basin district</name>
+  </row>
+  <row>
+    <country>SK</country>
+    <name>Visla - Dunajec and Poprad</name>
+  </row>
+  <row>
+    <country>SK</country>
+    <name>Dunaj - Bodrog</name>
+  </row>
+  <row>
+    <country>SK</country>
+    <name>Dunaj - Morava</name>
+  </row>
+  <row>
+    <country>SK</country>
+    <name>Dunaj - Dunaj</name>
+  </row>
+  <row>
+    <country>SK</country>
+    <name>Dunaj - Váh</name>
+  </row>
+  <row>
+    <country>SK</country>
+    <name>Dunaj - Hron</name>
+  </row>
+  <row>
+    <country>SK</country>
+    <name>Dunaj - Ipeľ</name>
+  </row>
+  <row>
+    <country>SK</country>
+    <name>Dunaj - Slaná</name>
+  </row>
+  <row>
+    <country>SK</country>
+    <name>Dunaj - Hornád</name>
+  </row>
+  <row>
+    <country>SK</country>
+    <name>Dunaj - Bodva</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Scotland - North East Scotland</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Scotland - Tay</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Scotland - Forth</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Scotland - Clyde</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Scotland - Argyll</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Scotland - West Highland</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Scotland - North Highland</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Scotland - Orkney and Shetland</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Solway Tweed</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Northumbria</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Humber</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Anglian</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Thames</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Neagh Bann</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>North Western</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>North Eastern</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Gibraltar</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>South East</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>South West</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Severn</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Western Wales</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>Dee</name>
+  </row>
+  <row>
+    <country>UK</country>
+    <name>North West</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Nemunas River Basin District - Curronian lagoon</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Nemunas River Basin District - Baltic Sea coastal waters</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Nemunas River Basin District - Subbasin of small tributaries of the Nemunas river (including Nemunas river)</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Nemunas River Basin District - Merkys subbasin</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Nemunas River Basin District - Subbasin of small tributaries of the Neris river (including Neris river)</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Nemunas River Basin District - Zeimena subbasin</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Nemunas River Basin District - Sventoji subbasin</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Nemunas River Basin District - Nevezis subbasin</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Nemunas River Basin District - Dubysa subbasin</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Nemunas River Basin District - Sesupe subbasin</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Nemunas River Basin District - Jura subbasin</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Nemunas River Basin District - Minija subbasin</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Nemunas River Basin District - River basin of Lithuanian coastal rivers</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Nemunas River Basin District - Prieglius river basin</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Lielupe River Basin District - Subbasin of small tributaries of the Lielupe river</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Lielupe River Basin District - Musa subbasin</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Lielupe River Basin District - Nemunelis subbasin</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Venta River Basin District - Venta river basin</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Venta River Basin District - Sventoji river basin</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Venta River Basin District - Bartuva river basin</name>
+  </row>
+  <row>
+    <country>LT</country>
+    <name>Dauguva River Basin District - Dauguva River Basin District</name>
+  </row>
+  <row>
+    <country>GB</country>
+    <name>Neagh Bann</name>
+  </row>
+  <row>
+    <country>GB</country>
+    <name>North Western</name>
+  </row>
+  <row>
+    <country>IE</country>
+    <name>Eastern</name>
+  </row>
+  <row>
+    <country>IE</country>
+    <name>Shannon</name>
+  </row>
+  <row>
+    <country>IE</country>
+    <name>South Eastern</name>
+  </row>
+  <row>
+    <country>IE</country>
+    <name>South Western</name>
+  </row>
+  <row>
+    <country>IE</country>
+    <name>Western</name>
+  </row>
+  <row>
+    <country>GR</country>
+    <name>Western Peloponnese</name>
+  </row>
+  <row>
+    <country>GR</country>
+    <name>Northern Peloponnese</name>
+  </row>
+  <row>
+    <country>GR</country>
+    <name>Eastern Peloponnese</name>
+  </row>
+  <row>
+    <country>GR</country>
+    <name>Western Sterea Ellada</name>
+  </row>
+  <row>
+    <country>GR</country>
+    <name>Epirus</name>
+  </row>
+  <row>
+    <country>GR</country>
+    <name>Attica</name>
+  </row>
+  <row>
+    <country>GR</country>
+    <name>Eastern Sterea Ellada</name>
+  </row>
+  <row>
+    <country>GR</country>
+    <name>Thessalia</name>
+  </row>
+  <row>
+    <country>GR</country>
+    <name>Western Macedonia</name>
+  </row>
+  <row>
+    <country>GR</country>
+    <name>Central Macedonia</name>
+  </row>
+  <row>
+    <country>GR</country>
+    <name>Eastern Macedonia</name>
+  </row>
+  <row>
+    <country>GR</country>
+    <name>Thrace</name>
+  </row>
+  <row>
+    <country>GR</country>
+    <name>Crete</name>
+  </row>
+  <row>
+    <country>GR</country>
+    <name>Aegean Islands</name>
+  </row>
+</dataroot>

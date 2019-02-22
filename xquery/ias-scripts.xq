@@ -39,7 +39,10 @@ declare variable $scripts:vocabHDspecies := 'http://dd.eionet.europa.eu/vocabula
 declare variable $scripts:vocabHabitats := 'http://dd.eionet.europa.eu/vocabulary/art17_2018/habitats';
 declare variable $scripts:vocabMeasures := 'http://dd.eionet.europa.eu/vocabulary/ias/measures';
 declare variable $scripts:vocabPathways := 'http://dd.eionet.europa.eu/vocabulary/ias/pathways';
+declare variable $scripts:codesRiverBasins := fn:doc('./codelists/river_basins.xml');
 
+declare variable $scripts:species := fn:doc('./species.xml');
+declare variable $scripts:EASINcodes := $scripts:species//element/speciesCode;
 
 (:~
  : --------------
@@ -509,8 +512,31 @@ declare function scripts:checkA2(
         $root as element()
 ) as element()* {
     let $type := 'blocker'
+    let $countryCode := $root//*:reporting/*:Row/*:CountryCode
+    let $seq := $root//*:sectionASpecies/*:Row
 
-    return scripts:notYet($refcode, $rulename, $root)
+    let $data :=
+        for $species in $seq
+            let $EASINCode := $species/*:EASINCode => functx:if-empty('')
+            let $common_name_national := $species/*:common_name_national
+                 => functx:if-empty('') => normalize-space() => functx:trim()
+
+            let $element_name := concat($countryCode, '_CommonName')
+            let $commonName_fromlist := $scripts:species
+                //element[*:speciesCode = $EASINCode]/*[local-name() = $element_name]
+                    => functx:if-empty('') => normalize-space() => functx:trim()
+
+            where not($common_name_national = $commonName_fromlist)
+
+            let $d := ($EASINCode, $common_name_national)
+            return scripts:createData((1), (2), $d)
+
+    let $hdrs := ('EASIN Code', 'Common name national reported')
+    let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
+
+    return
+        scripts:renderResult($refcode, $rulename, $type, count($data), $details)
+
 };
 
 (:~
@@ -2013,9 +2039,9 @@ declare function scripts:checkC2(
 };
 
 (:
-    C3
+    C3a
 :)
-declare function scripts:checkC3(
+declare function scripts:checkC3a(
         $refcode as xs:string,
         $rulename as xs:string,
         $root as element()
@@ -2030,6 +2056,33 @@ declare function scripts:checkC3(
         $type, $element_name, $codeListUrl, $hdrs )
 };
 
+(:
+    C3b
+:)
+declare function scripts:checkC3b(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $type := 'error'
+    let $level1_seq := $root//*:priorityPathway/*:Row
+    let $element_name := 'EASINCode'
+    let $hdrs := ('Row number', 'EASINCode')
+
+    let $data :=
+        for $node in $level1_seq
+            let $row_id := $node/*:row_id
+            let $code := $node/*[local-name() = $element_name]
+            where string-length($code) > 0 and not($code = $scripts:EASINcodes)
+            let $d := (string($row_id + 1), $code)
+
+            return scripts:createData((1), (2), $d)
+
+    let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
+
+    return
+        scripts:renderResult($refcode, $rulename, $type, count($data), $details)
+};
 
 (:
     C4
