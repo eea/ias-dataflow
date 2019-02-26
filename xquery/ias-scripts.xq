@@ -39,9 +39,10 @@ declare variable $scripts:vocabHDspecies := 'http://dd.eionet.europa.eu/vocabula
 declare variable $scripts:vocabHabitats := 'http://dd.eionet.europa.eu/vocabulary/art17_2018/habitats';
 declare variable $scripts:vocabMeasures := 'http://dd.eionet.europa.eu/vocabulary/ias/measures';
 declare variable $scripts:vocabPathways := 'http://dd.eionet.europa.eu/vocabulary/ias/pathways';
-declare variable $scripts:codesRiverBasins := fn:doc('./codelists/river_basins.xml');
 
-declare variable $scripts:species := fn:doc('./species.xml');
+declare variable $scripts:codesRiverBasins := fn:doc('./codelists/river_basins.xml');
+declare variable $scripts:codesEcosystems := fn:doc('./codelists/ecosystems.xml');
+declare variable $scripts:species := fn:doc('./codelists/species_a.xml');
 declare variable $scripts:EASINcodes := $scripts:species//element/speciesCode;
 
 (:~
@@ -318,7 +319,10 @@ declare function scripts:checkCodeListL2(
             let $EASINcode := $species/*:EASINCode
 
             for $l2 in $level2_seq
-                where $l2/*:parent_row_id = $species_row_id
+                let $parent_row_id := functx:substring-before-if-contains(
+                    $l2/*:parent_row_id, '_'
+                )
+                where $parent_row_id = $species_row_id
 
                 let $code := $l2/*[local-name() = $element_name]
                 where string-length($code) > 0 and not($code = $validConcepts)
@@ -514,6 +518,7 @@ declare function scripts:checkA2(
     let $type := 'blocker'
     let $countryCode := $root//*:reporting/*:Row/*:CountryCode
     let $seq := $root//*:sectionASpecies/*:Row
+    let $element_name := concat($countryCode, '_CommonName')
 
     let $data :=
         for $species in $seq
@@ -521,7 +526,6 @@ declare function scripts:checkA2(
             let $common_name_national := $species/*:common_name_national
                  => functx:if-empty('') => normalize-space() => functx:trim()
 
-            let $element_name := concat($countryCode, '_CommonName')
             let $commonName_fromlist := $scripts:species
                 //element[*:speciesCode = $EASINCode]/*[local-name() = $element_name]
                     => functx:if-empty('') => normalize-space() => functx:trim()
@@ -538,6 +542,81 @@ declare function scripts:checkA2(
         scripts:renderResult($refcode, $rulename, $type, count($data), $details)
 
 };
+declare function scripts:isCountryValid(
+    $common_name as xs:string?,
+    $countryCode as xs:string?
+) as xs:boolean {
+    let $countries := functx:get-matches($common_name, '\[[^\[\]]+\]')
+    (:let $asd:= trace($countries, '$countries: '):)
+
+    let $notOK :=
+        for $c in $countries
+            let $code := substring-before($c, ']') => substring-after('[')
+            (:let $asd:= trace($code, 'code: '):)
+            where string-length($code) > 0
+
+            return if($code = $countryCode)
+                then ()
+                else $c
+
+    return count($notOK) = 0
+};
+
+declare function scripts:checkCommonName(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element(),
+        $seq as element()*
+) as element()* {
+    let $regex := '([^;\[\]]+(\[[A-Z]{2}\])?)+'
+    let $countryCode := $root//*:reporting/*:Row/*:CountryCode
+    let $element_name := concat($countryCode, '_CommonName')
+
+    let $data1 :=
+        for $species in $seq
+            let $EASINCode := $species/*:EASINCode => functx:if-empty('')
+            let $common_name_national := $species/*:common_name_national
+                 => functx:if-empty('') => normalize-space() => functx:trim()
+
+            let $commonName_fromlist := $scripts:species
+                //element[*:speciesCode = $EASINCode]/*[local-name() = $element_name]
+                    => functx:if-empty('') => normalize-space() => functx:trim()
+
+            where not($common_name_national = $commonName_fromlist)
+                and fn:matches($common_name_national, $regex, 'm')
+                and scripts:isCountryValid($common_name_national, $countryCode) = true()
+
+            let $d := ($EASINCode, $common_name_national)
+            return scripts:createData((1), (2), $d)
+
+    let $data2 :=
+        for $species in $seq
+            let $EASINCode := $species/*:EASINCode => functx:if-empty('')
+            let $common_name_national := $species/*:common_name_national
+                 => functx:if-empty('') => normalize-space() => functx:trim()
+
+            let $commonName_fromlist := $scripts:species
+                //element[*:speciesCode = $EASINCode]/*[local-name() = $element_name]
+                    => functx:if-empty('') => normalize-space() => functx:trim()
+
+            where not($common_name_national = $commonName_fromlist)
+                and not(fn:matches($common_name_national, $regex, 'm')
+                        and scripts:isCountryValid($common_name_national, $countryCode) = true())
+
+            let $d := ($EASINCode, $common_name_national)
+            return scripts:createData((1), (2), $d)
+
+    let $hdrs := ('EASIN Code', 'Common name')
+    let $details :=
+        <div class="ias">{
+            if (empty($data1)) then () else scripts:getDetails($refcode, "info", $hdrs, $data1),
+            if (empty($data2)) then () else scripts:getDetails($refcode, "error", $hdrs, $data2)
+        }</div>
+    (:let $details := scripts:getDetails($refcode, 'info', $hdrs, $data1):)
+
+    return
+        scripts:renderResult($refcode, $rulename, 'error', count(($data1, $data2)), $details)
+};
 
 (:~
     A3
@@ -547,10 +626,11 @@ declare function scripts:checkA3(
         $rulename as xs:string,
         $root as element()
 ) as element()* {
-    let $type := 'warning'
+    let $seq := $root//*:sectionASpecies/*:Row
 
-    return scripts:notYet($refcode, $rulename, $root)
+    return scripts:checkCommonName($refcode, $rulename, $root, $seq)
 };
+
 
 declare function scripts:checkSpeciesPresence(
         $refcode as xs:string,
@@ -1413,6 +1493,61 @@ declare function scripts:checkA30(
         $level3_seq, $type, $element_name, $codeListUrl, $hdrs )
 };
 
+declare function scripts:checkRiverBasin(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element(),
+        $species_seq as element()*,
+        $level2_seq as element()*,
+        $level3_seq as element()*,
+        $type as xs:string
+) as element()* {
+    let $countryCode := $root//*:reporting//*:CountryCode => functx:if-empty('')
+    let $codes := $scripts:codesRiverBasins//row[country = $countryCode]/name
+    let $hdrs := ('EASINcode', 'River basin code')
+
+    let $data :=
+        for $species in $species_seq
+            let $species_row_id := $species/*:row_id
+            let $EASINcode := $species/*:EASINCode
+
+            for $l2 in $level2_seq
+                where $l2/*:parent_row_id = $species_row_id
+                let $par_row_id := $l2/*:row_id
+
+                for $l3 in $level3_seq
+                    where $l3/*:parent_row_id = $par_row_id
+                    let $name := $l3/*:name
+                    where not($name = $codes)
+                    let $d := ($EASINcode, $name)
+
+                    return scripts:createData((1), (2), $d)
+
+    let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
+
+    return
+        scripts:renderResult($refcode, $rulename, $type, count($data), $details)
+};
+
+(:
+    A31
+:)
+
+declare function scripts:checkA31(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $type := 'error'
+    let $species_seq := $root//*:sectionASpecies/*:Row[*:present_in_MS = 'true'
+        and *:permits_issued = 'true']
+    let $level2_seq := $root//*:sectionAMeasures/*:Row[*:measure_type = 'eradication']
+    let $level3_seq := $root//*:riverBasinSubUnit/*:Row
+
+    return scripts:checkRiverBasin($refcode, $rulename, $root, $species_seq,
+            $level2_seq, $level3_seq, $type)
+};
+
 (:
     A32
 :)
@@ -1676,6 +1811,25 @@ declare function scripts:checkA45(
 };
 
 (:
+    A46
+:)
+
+declare function scripts:checkA46(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $type := 'error'
+    let $species_seq := $root//*:sectionASpecies/*:Row[*:present_in_MS = 'true'
+        and *:subject_management_measures = 'true']
+    let $level2_seq := $root//*:sectionAMeasures/*:Row[*:measure_type = 'management']
+    let $level3_seq := $root//*:riverBasinSubUnit/*:Row
+
+    return scripts:checkRiverBasin($refcode, $rulename, $root, $species_seq,
+            $level2_seq, $level3_seq, $type)
+};
+
+(:
     A47
 :)
 
@@ -1827,14 +1981,36 @@ declare function scripts:checkA58(
         $root as element()
 ) as element()* {
     let $type := 'error'
-    let $codeListUrl := $scripts:vocabHabitats
-    let $species_seq := $root//*:sectionASpecies/*:Row
+    let $codes := $scripts:codesEcosystems
+    let $species_seq := $root//*:sectionASpecies/*:Row[*:present_in_MS = 'true']
     let $level2_seq := $root//*:ecosystems/*:Row
-    let $element_name := 'group'
     let $hdrs := ('EASINcode', 'Ecosystem services')
 
-    return scripts:checkCodeListL2($refcode, $rulename, $species_seq, $level2_seq,
-        $type, $element_name, $codeListUrl, $hdrs )
+    let $data :=
+        for $species in $species_seq
+            let $species_row_id := $species/*:row_id
+            let $EASINcode := $species/*:EASINCode
+
+            for $l2 in $level2_seq
+                let $parent_row_id := functx:substring-before-if-contains(
+                    $l2/*:parent_row_id, '_'
+                )
+                where $parent_row_id = $species_row_id
+
+                let $group := $l2/*:group
+                let $class := $l2/*:class
+                let $groupOK := $codes//element[class = $class]/group = $group
+                let $classOK := $codes//element[group = $group]/class = $class
+
+                where not($groupOK and $classOK)
+                let $d := ($EASINcode, concat($group,' - ', $class))
+
+                return scripts:createData((1), (2), $d)
+
+    let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
+
+    return
+        scripts:renderResult($refcode, $rulename, $type, count($data), $details)
 };
 
 (:
@@ -1865,6 +2041,21 @@ declare function scripts:checkB1(
     return
         scripts:renderResult($refcode, $rulename, $type, count($data), $details)
 };
+
+(:~
+    B3
+:)
+declare function scripts:checkB3(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $seq := $root//*:sectionBSpecies/*:Row
+
+    (:return scripts:checkCommonName($refcode, $rulename, $root, $seq):)
+    return scripts:notYet($refcode, $rulename, $root)
+};
+
 
 (:
     B4

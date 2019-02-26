@@ -1,0 +1,212 @@
+<root>
+    <element>
+        <class>Cultivated crops</class>
+        <group>Biomass</group>
+    </element>
+    <element>
+        <class>Reared animals and their outputs</class>
+        <group>Biomass</group>
+    </element>
+    <element>
+        <class>Wild plants, algae and their outputs</class>
+        <group>Biomass</group>
+    </element>
+    <element>
+        <class>Wild animals and their outputs</class>
+        <group>Biomass</group>
+    </element>
+    <element>
+        <class>Plants and algae from in-situ aquaculture</class>
+        <group>Biomass</group>
+    </element>
+    <element>
+        <class>Animals from in-situ aquaculture</class>
+        <group>Biomass</group>
+    </element>
+    <element>
+        <class>Surface water for drinking</class>
+        <group>Water</group>
+    </element>
+    <element>
+        <class>Ground water for drinking</class>
+        <group>Water</group>
+    </element>
+    <element>
+        <class>
+            Fibres and other materials from plants, algae and animals for direct use or processing
+        </class>
+        <group>Biomass</group>
+    </element>
+    <element>
+        <class>
+            Materials from plants, algae and animals for agricultural use
+        </class>
+        <group>Biomass</group>
+    </element>
+    <element>
+        <class>Genetic materials from all biota</class>
+        <group>Biomass</group>
+    </element>
+    <element>
+        <class>Surface water for non-drinking purposes</class>
+        <group>Water</group>
+    </element>
+    <element>
+        <class>Ground water for non-drinking purposes</class>
+        <group>Water</group>
+    </element>
+    <element>
+        <class>Plant-based resources</class>
+        <group>Biomass-based energy sources</group>
+    </element>
+    <element>
+        <class>Animal-based resources</class>
+        <group>Mechanical energy</group>
+    </element>
+    <element>
+        <class>
+            Bio-remediation by micro-organisms, algae, plants, and animals
+        </class>
+        <group>Mediation by biota</group>
+    </element>
+    <element>
+        <class>
+            Bio-chemical detoxification / decomposition / mineralisation in land / soil, freshwater and marine systems including sediments; decomposition / detoxification of waste and toxic materials e.g. waste water cleaning, degrading oil spills by marine bacteria, (phyto)degradation, (rhizo)degradation etc.
+        </class>
+        <group>Mediation by biota</group>
+    </element>
+    <element>
+        <class>
+            Filtration/sequestration/storage/accumulation by ecosystems
+        </class>
+        <group>Mediation by ecosystems</group>
+    </element>
+    <element>
+        <class>
+            Dilution by atmosphere, freshwater and marine ecosystems
+        </class>
+        <group>Mediation by ecosystems</group>
+    </element>
+    <element>
+        <class>Mediation of smell/noise/visual impacts</class>
+        <group>Mediation by ecosystems</group>
+    </element>
+    <element>
+        <class>Mass stabilisation and control of erosion rates</class>
+        <group>Mass flows</group>
+    </element>
+    <element>
+        <class>Buffering and attenuation of mass flows</class>
+        <group>Mass flows</group>
+    </element>
+    <element>
+        <class>Hydrological cycle and water flow maintenance</class>
+        <group>Liquid flows</group>
+    </element>
+    <element>
+        <class>Flood protection</class>
+        <group>Liquid flows</group>
+    </element>
+    <element>
+        <class>Storm protection</class>
+        <group>Gaseous / air flows</group>
+    </element>
+    <element>
+        <class>Ventilation and transpiration</class>
+        <group>Gaseous / air flows</group>
+    </element>
+    <element>
+        <class>Pollination and seed dispersal</class>
+        <group>
+            Lifecycle maintenance, habitat and gene pool protection
+        </group>
+    </element>
+    <element>
+        <class>Maintaining nursery populations and habitats</class>
+        <group>
+            Lifecycle maintenance, habitat and gene pool protection
+        </group>
+    </element>
+    <element>
+        <class>Pest control</class>
+        <group>Pest and disease control</group>
+    </element>
+    <element>
+        <class>Disease control</class>
+        <group>Pest and disease control</group>
+    </element>
+    <element>
+        <class>Weathering processes</class>
+        <group>Soil formation and composition</group>
+    </element>
+    <element>
+        <class>Decomposition and fixing processes</class>
+        <group>Soil formation and composition</group>
+    </element>
+    <element>
+        <class>Chemical condition of freshwaters</class>
+        <group>Water conditions</group>
+    </element>
+    <element>
+        <class>Chemical condition of salt waters</class>
+        <group>Water conditions</group>
+    </element>
+    <element>
+        <class>
+            Global climate regulation by reduction of greenhouse gas concentrations
+        </class>
+        <group>Atmospheric composition and climate regulation</group>
+    </element>
+    <element>
+        <class>Micro and regional climate regulation</class>
+        <group>Atmospheric composition and climate regulation</group>
+    </element>
+    <element>
+        <class>
+            Experiential use of plants, animals and land-/seascapes in different environmental settings
+        </class>
+        <group>Physical and experiential interactions</group>
+    </element>
+    <element>
+        <class>
+            Physical use of land-/seascapes in different environmental settings
+        </class>
+        <group>Physical and experiential interactions</group>
+    </element>
+    <element>
+        <class>Scientific</class>
+        <group>Intellectual and representational interactions</group>
+    </element>
+    <element>
+        <class>Educational</class>
+        <group>Intellectual and representational interactions</group>
+    </element>
+    <element>
+        <class>Heritage, cultural</class>
+        <group>Intellectual and representational interactions</group>
+    </element>
+    <element>
+        <class>Entertainment</class>
+        <group>Intellectual and representational interactions</group>
+    </element>
+    <element>
+        <class>Aesthetic</class>
+        <group>Intellectual and representational interactions</group>
+    </element>
+    <element>
+        <class>Symbolic</class>
+        <group>Spiritual and/or emblematic</group>
+    </element>
+    <element>
+        <class>Sacred and/or religious</class>
+        <group>Spiritual and/or emblematic</group>
+    </element>
+    <element>
+        <class>Existence</class>
+        <group>Other cultural outputs</group>
+    </element>
+    <element>
+        <class>Bequest</class>
+        <group>Other cultural outputs</group>
+    </element>
+</root>

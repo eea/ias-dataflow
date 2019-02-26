@@ -105,7 +105,7 @@ declare function ias:runChecks02($root as element()) as element()* {
             ias:failsafeWrapper("A26", "Question 12 – rapid eradication measures – impacted non-targeted species, End date", $root, scripts:checkA26#3),
             ias:failsafeWrapper("A29", "Question 12 – rapid eradication measures – impacted non-targeted species, Administrative unit - NUTS", $root, scripts:checkA29#3),
             ias:failsafeWrapper("A30", "Question 12 – rapid eradication measures – impacted non-targeted species, Biogeograpical region", $root, scripts:checkA30#3),
-            ias:failsafeWrapper("A31", "Question 12 – rapid eradication measures – impacted non-targeted species, River basin sub-unit", $root, scripts:notYet#3),
+            ias:failsafeWrapper("A31", "Question 12 – rapid eradication measures – impacted non-targeted species, River basin sub-unit", $root, scripts:checkA31#3),
             ias:failsafeWrapper("A32", "Question 12 – rapid eradication measures – impacted non-targeted species, Marine sub-region", $root, scripts:checkA32#3),
             ias:failsafeWrapper("A35", "Question 12 – rapid eradication measures – impacted non-targeted species, Methods used", $root, scripts:checkA35#3),
             ias:failsafeWrapper("A36", "Question 12 – rapid eradication measures – impacted non-targeted species, Impacted non-targeted species", $root, scripts:checkA36#3),
@@ -119,7 +119,7 @@ declare function ias:runChecks02($root as element()) as element()* {
             ias:failsafeWrapper("A43", "Question 15 – management measures, Objective", $root, scripts:checkA43#3),
             ias:failsafeWrapper("A44", "Question 15 – management measures, Administrative unit - NUTS", $root, scripts:checkA44#3),
             ias:failsafeWrapper("A45", "Question 15 – management measures, Biogeograpical region", $root, scripts:checkA45#3),
-            ias:failsafeWrapper("A46", "Question 15 – management measures, River basin sub-unit", $root, scripts:notYet#3),
+            ias:failsafeWrapper("A46", "Question 15 – management measures, River basin sub-unit", $root, scripts:checkA46#3),
             ias:failsafeWrapper("A47", "Question 15 – management measures, Marine sub-region", $root, scripts:checkA47#3),
             ias:failsafeWrapper("A50", "Question 15 – management measures, Methods used", $root, scripts:checkA50#3),
             ias:failsafeWrapper("A51", "Question 15 – management measures, Effectiveness of the measures", $root, scripts:checkA51#3),
@@ -145,7 +145,7 @@ declare function ias:runChecks03($root as element()) as element()* {
         <div class="ias table parent">{
             ias:failsafeWrapper("B1", "Question 1 - National list established yes/no", $root, scripts:checkB1#3),
             ias:failsafeWrapper("B2", "Question 2 - Scientific name", $root, scripts:notYet#3),
-            ias:failsafeWrapper("B3", "Question 3 – common name", $root, scripts:notYet#3),
+            ias:failsafeWrapper("B3", "Question 3 – common name", $root, scripts:checkB3#3),
             ias:failsafeWrapper("B4", "Question 4 - presence", $root, scripts:checkB4#3),
             (:ias:failsafeWrapper("S2", "Question 5 - Distribution maps", $root, scripts:notYet#3),:)
             ias:failsafeWrapper("B5b", "Question 5 - Reproduction patterns", $root, scripts:checkB5b#3),

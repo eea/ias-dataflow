@@ -145,3 +145,20 @@ declare function functx:trim
 
    replace(replace($arg,'\s+$',''),'^\s+','')
  } ;
+
+declare function functx:substring-before-if-contains
+  ( $arg as xs:string? ,
+    $delim as xs:string )  as xs:string? {
+
+   if (contains($arg,$delim))
+   then substring-before($arg,$delim)
+   else $arg
+ } ;
+
+declare function functx:get-matches
+  ( $string as xs:string? ,
+    $regex as xs:string )  as xs:string* {
+
+   functx:get-matches-and-non-matches($string,$regex)/
+     string(self::match)
+ } ;
