@@ -206,7 +206,7 @@ const form = (country, formData) => ({
 					selected: '',
 					name: 'inspireMetadata_sectionA',
 					label: 'INSPIRE metadata for SECTION A',
-					extensions: ['.shp','.geojson','.gml','.zip'],
+					extensions: ['.zip', '.xml'],
 				},
 				distributionMap_sectionB: {
 					type: 'file',
@@ -220,7 +220,7 @@ const form = (country, formData) => ({
 					selected: '',
 					name: 'inspireMetadata_sectionB',
 					label: 'INSPIRE metadata for SECTION B',
-					extensions: ['.shp','.geojson','.gml','.zip'],
+					extensions: ['.zip', '.xml'],
 				},
 			}
 		}
