@@ -144,7 +144,7 @@ declare function ias:runChecks03($root as element()) as element()* {
         <div class="ias header">{$rulename}</div>,
         <div class="ias table parent">{
             ias:failsafeWrapper("B1", "Question 1 - National list established yes/no", $root, scripts:checkB1#3),
-            ias:failsafeWrapper("B2", "Question 2 - Scientific name", $root, scripts:notYet#3),
+            ias:failsafeWrapper("B2", "Question 2 - Scientific name", $root, scripts:checkB2#3),
             ias:failsafeWrapper("B3", "Question 3 – common name", $root, scripts:checkB3#3),
             ias:failsafeWrapper("B4", "Question 4 - presence", $root, scripts:checkB4#3),
             (:ias:failsafeWrapper("S2", "Question 5 - Distribution maps", $root, scripts:notYet#3),:)

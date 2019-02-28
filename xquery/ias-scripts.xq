@@ -42,8 +42,10 @@ declare variable $scripts:vocabPathways := 'http://dd.eionet.europa.eu/vocabular
 
 declare variable $scripts:codesRiverBasins := fn:doc('./codelists/river_basins.xml');
 declare variable $scripts:codesEcosystems := fn:doc('./codelists/ecosystems.xml');
-declare variable $scripts:species := fn:doc('./codelists/species_a.xml');
-declare variable $scripts:EASINcodes := $scripts:species//element/speciesCode;
+declare variable $scripts:speciesA := fn:doc('./codelists/species_a.xml');
+declare variable $scripts:speciesB := fn:doc('./codelists/species_b.xml');
+declare variable $scripts:nationalListCustom := fn:doc('./codelists/national_list_custom.xml');
+declare variable $scripts:EASINcodes := $scripts:speciesA//element/speciesCode;
 
 (:~
  : --------------
@@ -235,6 +237,80 @@ declare function scripts:renderResult(
 
                         <div class="ias col quarter right middle">
                             <span class="ias nowrap">{concat($errCount, ' ', $errType)}</span>
+                        </div>
+
+                        <div class="ias col ten center middle">
+                            {if ($showRecords) then
+                                $label
+                            else ' '}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- details table -->
+                {if ($showRecords) then
+                    ($toggle, $details)
+                else
+                    ()
+                }
+            </div>
+        </div>
+};
+
+declare function scripts:renderResult2(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $errTypeMain as xs:string,
+        $errTypeAlt as xs:string,
+        $errCountMain as xs:integer,
+        $errCountAlt as xs:integer,
+        $details as element()*
+) {
+    let $id := random:integer(65536)
+
+    let $label :=
+        <label class="ias" for="toggle-{$id}">
+            <span class="ias link">More...</span>
+        </label>
+
+    let $toggle :=
+        <input class="ias toggle" id="toggle-{$id}" type="checkbox" />
+
+    let $showRecords := (($errCountMain + $errCountAlt) > 0)
+
+    let $type := if($showRecords)
+        then if($errCountMain > 0)
+            then $errTypeMain
+            else $errTypeAlt
+        else 'pass'
+
+    let $errTypeMain := if($errCountMain > 1)
+        then concat($errTypeMain, 's')
+        else $errTypeMain
+
+    let $errTypeAlt := if($errCountAlt > 1)
+        then concat($errTypeAlt, 's')
+        else $errTypeAlt
+
+    let $typesMessage := concat($errCountMain, ' ', $errTypeMain, ', ',
+                            $errCountAlt, ' ', $errTypeAlt)
+    return
+        <div class="ias row">
+            <div class="ias col outer noborder">
+
+                <!-- report table -->
+                <div class="ias table">
+                    <div class="ias row">
+                        <div class="ias col ten center middle">
+                            <span class="ias medium {$type}">{$refcode}</span>
+                        </div>
+
+                        <div class="ias col left middle">
+                            <span class="ias">{$rulename}</span>
+                        </div>
+
+                        <div class="ias col quarter right middle">
+                            <span class="ias nowrap">{$typesMessage}</span>
                         </div>
 
                         <div class="ias col ten center middle">
@@ -526,7 +602,7 @@ declare function scripts:checkA2(
             let $common_name_national := $species/*:common_name_national
                  => functx:if-empty('') => normalize-space() => functx:trim()
 
-            let $commonName_fromlist := $scripts:species
+            let $commonName_fromlist := $scripts:speciesA
                 //element[*:speciesCode = $EASINCode]/*[local-name() = $element_name]
                     => functx:if-empty('') => normalize-space() => functx:trim()
 
@@ -578,7 +654,7 @@ declare function scripts:checkCommonName(
             let $common_name_national := $species/*:common_name_national
                  => functx:if-empty('') => normalize-space() => functx:trim()
 
-            let $commonName_fromlist := $scripts:species
+            let $commonName_fromlist := $scripts:speciesA
                 //element[*:speciesCode = $EASINCode]/*[local-name() = $element_name]
                     => functx:if-empty('') => normalize-space() => functx:trim()
 
@@ -595,7 +671,7 @@ declare function scripts:checkCommonName(
             let $common_name_national := $species/*:common_name_national
                  => functx:if-empty('') => normalize-space() => functx:trim()
 
-            let $commonName_fromlist := $scripts:species
+            let $commonName_fromlist := $scripts:speciesA
                 //element[*:speciesCode = $EASINCode]/*[local-name() = $element_name]
                     => functx:if-empty('') => normalize-space() => functx:trim()
 
@@ -615,7 +691,7 @@ declare function scripts:checkCommonName(
     (:let $details := scripts:getDetails($refcode, 'info', $hdrs, $data1):)
 
     return
-        scripts:renderResult($refcode, $rulename, 'error', count(($data1, $data2)), $details)
+        scripts:renderResult2($refcode, $rulename, 'error', 'info', count($data2), count($data1), $details)
 };
 
 (:~
@@ -2043,6 +2119,48 @@ declare function scripts:checkB1(
 };
 
 (:~
+    B2
+:)
+declare function scripts:checkB2(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $type := 'error'
+    let $seq := $root//*:sectionBSpecies/*:Row
+    let $countryCode := $root//*:reporting/*:Row/*:CountryCode
+
+    let $data :=
+        for $species in $seq
+            let $EASINCode := $species/*:EASINCode => functx:if-empty('')
+            let $scientific_name := $species/*:scientific_name
+                 => functx:if-empty('') => normalize-space() => functx:trim()
+
+            where not($scientific_name = '')
+
+            let $scientific_name_CustomList := $scripts:nationalListCustom
+                //row[*:SpeciesCode = $EASINCode and *:country = $countryCode]/MSscientificName
+                    => functx:if-empty('') => normalize-space() => functx:trim()
+
+            where not($scientific_name_CustomList = $scientific_name)
+
+            let $scientific_name_speciesB := $scripts:speciesB
+                //row[*:R_ID = $EASINCode]/NAME
+                    => functx:if-empty('') => normalize-space() => functx:trim()
+
+            where not($scientific_name_speciesB = $scientific_name)
+
+            let $d := ($EASINCode, $scientific_name)
+            return scripts:createData((1), (2), $d)
+
+    let $hdrs := ('EASIN Code', 'Scientific name')
+    let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
+
+    return
+        scripts:renderResult($refcode, $rulename, $type, count($data), $details)
+};
+
+(:~
     B3
 :)
 declare function scripts:checkB3(
@@ -2051,9 +2169,54 @@ declare function scripts:checkB3(
         $root as element()
 ) as element()* {
     let $seq := $root//*:sectionBSpecies/*:Row
+    let $regex := '([^;\[\]]+(\[[A-Z]{2}\])?)+'
+    let $countryCode := $root//*:reporting/*:Row/*:CountryCode
 
-    (:return scripts:checkCommonName($refcode, $rulename, $root, $seq):)
-    return scripts:notYet($refcode, $rulename, $root)
+    let $data1 :=
+        for $species in $seq
+            let $EASINCode := $species/*:EASINCode => functx:if-empty('')
+            let $common_name_national := $species/*:common_name_national
+                 => functx:if-empty('') => normalize-space() => functx:trim()
+
+            where not($common_name_national = '')
+
+            let $commonName_fromlist := $scripts:nationalListCustom
+                //row[*:SpeciesCode = $EASINCode and *:country = $countryCode]/cName
+                    => functx:if-empty('') => normalize-space() => functx:trim()
+
+            where not($common_name_national = $commonName_fromlist)
+                and fn:matches($common_name_national, $regex, 'm')
+                and scripts:isCountryValid($common_name_national, $countryCode) = true()
+
+            let $d := ($EASINCode, $common_name_national)
+            return scripts:createData((1), (2), $d)
+
+    let $data2 :=
+        for $species in $seq
+            let $EASINCode := $species/*:EASINCode => functx:if-empty('')
+            let $common_name_national := $species/*:common_name_national
+                 => functx:if-empty('') => normalize-space() => functx:trim()
+
+            let $commonName_fromlist := $scripts:nationalListCustom
+                //row[*:SpeciesCode = $EASINCode and *:country = $countryCode]/cName
+                    => functx:if-empty('') => normalize-space() => functx:trim()
+
+            where not($common_name_national = $commonName_fromlist)
+                and not(fn:matches($common_name_national, $regex, 'm')
+                        and scripts:isCountryValid($common_name_national, $countryCode) = true())
+
+            let $d := ($EASINCode, $common_name_national)
+            return scripts:createData((1), (2), $d)
+
+    let $hdrs := ('EASIN Code', 'Common name')
+    let $details :=
+        <div class="ias">{
+            if (empty($data1)) then () else scripts:getDetails($refcode, "info", $hdrs, $data1),
+            if (empty($data2)) then () else scripts:getDetails($refcode, "error", $hdrs, $data2)
+        }</div>
+
+    return
+        scripts:renderResult2($refcode, $rulename, 'error', 'info', count($data2), count($data1), $details)
 };
 
 
