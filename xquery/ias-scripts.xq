@@ -618,20 +618,34 @@ declare function scripts:checkA2(
         scripts:renderResult($refcode, $rulename, $type, count($data), $details)
 
 };
+declare function scripts:isValidCommonName(
+    $common_name as xs:string
+)as xs:boolean {
+    let $names := fn:tokenize($common_name, ';')
+    let $regex := '^[^\[\]\{\}]+(\[[A-Z]{2}\])?$'
+    (:let $regexes := ('^[^\[\]\{\}]+$', '^[^\[\]\{\}]+(\[[A-Z]{2}\])$'):)
+
+    let $noMatches :=
+        for $name in $names
+            (: for regex in $regexes :)
+            where not(fn:matches($name, $regex, 'm'))
+            return $name
+
+    return count($noMatches) = 0
+};
+
 declare function scripts:isCountryValid(
     $common_name as xs:string?,
-    $countryCode as xs:string?
+    $validConcepts as xs:string*
 ) as xs:boolean {
     let $countries := functx:get-matches($common_name, '\[[^\[\]]+\]')
-    (:let $asd:= trace($countries, '$countries: '):)
 
     let $notOK :=
         for $c in $countries
             let $code := substring-before($c, ']') => substring-after('[')
-            (:let $asd:= trace($code, 'code: '):)
             where string-length($code) > 0
 
-            return if($code = $countryCode)
+            return if($code = $validConcepts)
                 then ()
                 else $c
 
@@ -644,9 +658,10 @@ declare function scripts:checkCommonName(
         $root as element(),
         $seq as element()*
 ) as element()* {
-    let $regex := '([^;\[\]]+(\[[A-Z]{2}\])?)+'
     let $countryCode := $root//*:reporting/*:Row/*:CountryCode
     let $element_name := concat($countryCode, '_CommonName')
+    let $codeListUrl := $scripts:vocabCountries
+    let $validConcepts := scripts:getValidConcepts($codeListUrl)
 
     let $data1 :=
         for $species in $seq
@@ -659,8 +674,8 @@ declare function scripts:checkCommonName(
                     => functx:if-empty('') => normalize-space() => functx:trim()
 
             where not($common_name_national = $commonName_fromlist)
-                and fn:matches($common_name_national, $regex, 'm')
-                and scripts:isCountryValid($common_name_national, $countryCode) = true()
+                and scripts:isValidCommonName($common_name_national)
+                and scripts:isCountryValid($common_name_national, $validConcepts) = true()
 
             let $d := ($EASINCode, $common_name_national)
             return scripts:createData((1), (2), $d)
@@ -676,8 +691,8 @@ declare function scripts:checkCommonName(
                     => functx:if-empty('') => normalize-space() => functx:trim()
 
             where not($common_name_national = $commonName_fromlist)
-                and not(fn:matches($common_name_national, $regex, 'm')
-                        and scripts:isCountryValid($common_name_national, $countryCode) = true())
+                and not(scripts:isValidCommonName($common_name_national)
+                        and scripts:isCountryValid($common_name_national, $validConcepts) = true())
 
             let $d := ($EASINCode, $common_name_national)
             return scripts:createData((1), (2), $d)
@@ -2169,8 +2184,9 @@ declare function scripts:checkB3(
         $root as element()
 ) as element()* {
     let $seq := $root//*:sectionBSpecies/*:Row
-    let $regex := '([^;\[\]]+(\[[A-Z]{2}\])?)+'
     let $countryCode := $root//*:reporting/*:Row/*:CountryCode
+    let $codeListUrl := $scripts:vocabCountries
+    let $validConcepts := scripts:getValidConcepts($codeListUrl)
 
     let $data1 :=
         for $species in $seq
@@ -2185,7 +2201,7 @@ declare function scripts:checkB3(
                     => functx:if-empty('') => normalize-space() => functx:trim()
 
             where not($common_name_national = $commonName_fromlist)
-                and fn:matches($common_name_national, $regex, 'm')
+                and scripts:isValidCommonName($common_name_national)
                 and scripts:isCountryValid($common_name_national, $countryCode) = true()
 
             let $d := ($EASINCode, $common_name_national)
@@ -2202,7 +2218,7 @@ declare function scripts:checkB3(
                     => functx:if-empty('') => normalize-space() => functx:trim()
 
             where not($common_name_national = $commonName_fromlist)
-                and not(fn:matches($common_name_national, $regex, 'm')
+                and not(scripts:isValidCommonName($common_name_national)
                         and scripts:isCountryValid($common_name_national, $countryCode) = true())
 
             let $d := ($EASINCode, $common_name_national)
