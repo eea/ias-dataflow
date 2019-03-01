@@ -606,7 +606,7 @@ export default {
       let emptyInstance = JSON.parse(JSON.stringify(this.jsonemptyinstance))
       let data = JSON.parse(JSON.stringify(this.dataset))
 			let reportID = `${this.currentCountry}-2015-2018`
-			// console.log(reportingId)
+			// console.log(reportID)
 			emptyInstance.IAS.reporting.Row.has_national_list_MS = data.tabs.tab_2.ias_list.selected
 			emptyInstance.IAS.reporting.Row.reportID = reportID
 			emptyInstance.IAS.reporting.Row.StartYear = 2015
@@ -619,9 +619,9 @@ export default {
 			this.sectionASpecies(data, emptyInstance, reportID)
 			this.sectionBSpecies(data, emptyInstance, reportID)
 			this.sectionC(data, emptyInstance, reportID)
-			this.distributionMaps(data, emptyInstance, reportID)
-			console.log(emptyInstance)
-			saveInstance(emptyInstance).then(r => {
+            this.distributionMaps(data, emptyInstance, reportID)
+            // console.log(emptyInstance)
+            saveInstance(emptyInstance).then(r => {
 				  this.showAlert()
 			}).catch(error => { 
 				console.log(error)
@@ -643,13 +643,11 @@ export default {
 		sectionC(data, emptyInstance, reportID){
 			const structure = JSON.parse(JSON.stringify(this.structure.sectionC))
 			const section = data.tabs.tab_3.form_fields
-			structure.reportID = reportID
+            structure.reportID = reportID
 
 			Object.keys(section).forEach(field => {
 				if(structure.hasOwnProperty(field)) structure[field] = section[field].selected
-			})
-
-
+            })
 			section.priority_pathways.fields.forEach((pathway, pathway_index) => {
 				pathway.EASINCode.selected.forEach((species, species_index) => {
 				const priorityPathway = JSON.parse(JSON.stringify(this.structure.priorityPathway))
@@ -659,9 +657,9 @@ export default {
 					priorityPathway.EASINCode = species
 					emptyInstance.IAS.priorityPathway.Row.push(priorityPathway)
 				})
-			})
-			emptyInstance.IAS.sectionC.Row.push(structure)
-			console.log('c',emptyInstance)
+            })
+            emptyInstance.IAS.sectionC.Row.push(structure)
+            // console.log('Section C: ', emptyInstance.IAS)
 		},
 
 		sectionBSpecies(data, emptyInstance, reportID){
@@ -673,7 +671,7 @@ export default {
 				structure.row_id = index
 				structure.EASINCode = section.EASINCode.selected
                 
-                console.log('-------', structure.common_name_national, section.common_name_national.selected)
+                // console.log('-------', structure.common_name_national, section.common_name_national.selected)
 				structure.common_name_national = section.common_name_national.selected
 
 
@@ -711,9 +709,8 @@ export default {
                 })
 				
 				emptyInstance.IAS.sectionBSpecies.Row.push(structure)
-				console.log('b', emptyInstance)
+				console.log('Section B: ', emptyInstance)
 			})
-
 		},
 
 		sectionASpecies(data, emptyInstance, reportID){
@@ -828,7 +825,7 @@ export default {
 							emptyInstance.IAS.inspectionsPermitsReported.Row.push(inspectionsPermitsReported)
 
 						})
-						
+					console.log("Section A: ", emptyInstance)
 				}
 
 				// eradication measures - table 2
@@ -1051,7 +1048,7 @@ export default {
 				})
 
 				emptyInstance.IAS.sectionASpecies.Row.push(structure)
-				console.log(emptyInstance.IAS)
+				// console.log(emptyInstance.IAS)
 			})
 			
 		},
