@@ -428,7 +428,7 @@ declare function scripts:checkCodeListL1(
             let $row_id := $node/*:row_id
             let $code := $node/*[local-name() = $element_name]
             where string-length($code) > 0 and not($code = $validConcepts)
-            let $d := (string($row_id + 1), $code)
+            let $d := (string($row_id), $code)
 
             return scripts:createData((1), (2), $d)
 
@@ -1743,7 +1743,7 @@ declare function scripts:checkA36(
     let $species_seq := $root//*:sectionASpecies/*:Row[*:eradication_measures = 'true']
     let $level2_seq := $root//*:sectionAMeasures/*:Row[*:measure_type = 'eradication']
     let $level3_seq := $root//*:observedNegativeImpacts/*:Row
-    let $hdrs := ('Additional message', 'EASINcode', 'Row number', 'Element name')
+    let $hdrs := ('Additional message', 'EASINcode', 'Row id', 'Element name')
     let $element_name := 'non_targeted_species'
 
     return scripts:checkImpactedSpecies($refcode, $rulename, $species_seq,
@@ -1763,7 +1763,7 @@ declare function scripts:checkA37(
     let $species_seq := $root//*:sectionASpecies/*:Row[*:eradication_measures = 'true']
     let $level2_seq := $root//*:sectionAMeasures/*:Row[*:measure_type = 'eradication']
     let $level3_seq := $root//*:observedNegativeImpacts/*:Row
-    let $hdrs := ('Additional message', 'EASINcode', 'Row number', 'Element name')
+    let $hdrs := ('Additional message', 'EASINcode', 'Row id', 'Element name')
     let $element_name := 'species'
 
     return scripts:checkImpactedSpecies($refcode, $rulename, $species_seq,
@@ -1837,6 +1837,41 @@ declare function scripts:checkA41(
 
     return scripts:checkEndDate($refcode, $rulename, $root, $measure_type,
             $type, $seq, $hdrs)
+};
+
+(:
+    A42
+:)
+declare function scripts:checkA42(
+        $refcode as xs:string,
+        $rulename as xs:string,
+        $root as element()
+) as element()* {
+    let $type := 'error'
+    let $hdrs := ('EASINcode', 'Row Id', 'Ongoing')
+    let $measure_type := 'management'
+    let $seq := $root//*:sectionASpecies/*:Row[*:subject_management_measures = 'true']
+    let $endYear := $root//*:reporting//*:EndYear
+
+    let $data :=
+        for $species in $seq
+            let $species_row_id := $species/*:row_id
+            let $measures := $root//*:sectionAMeasures/*:Row[*:parent_row_id = $species_row_id
+                and *:measure_type = $measure_type]
+            let $EASINcode := $species/*:EASINCode
+
+            for $measure in $measures
+                let $end_date := $measure/*:end_date
+                where not($end_date castable as xs:date and $endYear castable as xs:date)
+                    or xs:date($end_date) > xs:date($endYear)
+                let $d := ($EASINcode, $measure//*:row_id, $end_date)
+
+                return scripts:createData((1), (3), $d)
+
+    let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
+
+    return
+        scripts:renderResult($refcode, $rulename, $type, count($data), $details)
 };
 
 (:~
@@ -1995,7 +2030,7 @@ declare function scripts:checkA52(
     let $species_seq := $root//*:sectionASpecies/*:Row[*:subject_management_measures = 'true']
     let $level2_seq := $root//*:sectionAMeasures/*:Row[*:measure_type = 'management']
     let $level3_seq := $root//*:observedNegativeImpacts/*:Row
-    let $hdrs := ('Additional message', 'EASINcode', 'Row number', 'Element name')
+    let $hdrs := ('Additional message', 'EASINcode', 'Row id', 'Element name')
     let $element_name := 'non_targeted_species'
 
     return scripts:checkImpactedSpecies($refcode, $rulename, $species_seq,
@@ -2015,7 +2050,7 @@ declare function scripts:checkA53(
     let $species_seq := $root//*:sectionASpecies/*:Row[*:subject_management_measures = 'true']
     let $level2_seq := $root//*:sectionAMeasures/*:Row[*:measure_type = 'management']
     let $level3_seq := $root//*:observedNegativeImpacts/*:Row
-    let $hdrs := ('Additional message', 'EASINcode', 'Row number', 'Element name')
+    let $hdrs := ('Additional message', 'EASINcode', 'Row id', 'Element name')
     let $element_name := 'species'
 
     return scripts:checkImpactedSpecies($refcode, $rulename, $species_seq,
@@ -2420,7 +2455,7 @@ declare function scripts:checkC3a(
     let $codeListUrl := $scripts:vocabPathways
     let $level1_seq := $root//*:priorityPathway/*:Row
     let $element_name := 'pathway_code'
-    let $hdrs := ('Row number', 'Pathway')
+    let $hdrs := ('Row id', 'Pathway')
 
     return scripts:checkCodeListL1($refcode, $rulename, $level1_seq,
         $type, $element_name, $codeListUrl, $hdrs )
@@ -2437,14 +2472,14 @@ declare function scripts:checkC3b(
     let $type := 'error'
     let $level1_seq := $root//*:priorityPathway/*:Row
     let $element_name := 'EASINCode'
-    let $hdrs := ('Row number', 'EASINCode')
+    let $hdrs := ('Row id', 'EASINCode')
 
     let $data :=
         for $node in $level1_seq
             let $row_id := $node/*:row_id
             let $code := $node/*[local-name() = $element_name]
             where string-length($code) > 0 and not($code = $scripts:EASINcodes)
-            let $d := (string($row_id + 1), $code)
+            let $d := (string($row_id), $code)
 
             return scripts:createData((1), (2), $d)
 

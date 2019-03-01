@@ -115,7 +115,7 @@ declare function ias:runChecks02($root as element()) as element()* {
             ias:failsafeWrapper("A60", "Question 14 – management measures, Population Id", $root, scripts:checkA60#3),
             ias:failsafeWrapper("A40", "Question 15 – management measures, Start date", $root, scripts:checkA40#3),
             ias:failsafeWrapper("A41", "Question 15 – management measures, End date", $root, scripts:checkA41#3),
-            ias:failsafeWrapper("A42", "Question 15 – management measures, Ongoing", $root, scripts:notYet#3),
+            ias:failsafeWrapper("A42", "Question 15 – management measures, Ongoing", $root, scripts:checkA42#3),
             ias:failsafeWrapper("A43", "Question 15 – management measures, Objective", $root, scripts:checkA43#3),
             ias:failsafeWrapper("A44", "Question 15 – management measures, Administrative unit - NUTS", $root, scripts:checkA44#3),
             ias:failsafeWrapper("A45", "Question 15 – management measures, Biogeograpical region", $root, scripts:checkA45#3),
