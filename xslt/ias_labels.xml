@@ -18,15 +18,15 @@
     <priority_pathways>
         <options>
             <element>
-                <text>5.1 Corridor - Interconnected waterways/basins/seas</text>
+                <text>5.1  Corridor - Interconnected waterways/basins/seas</text>
                 <value>CR1</value>
             </element>
             <element>
-                <text>5.2 Corridor - Tunnels and land bridges</text>
+                <text>5.2  Corridor - Tunnels and land bridges</text>
                 <value>CR2</value>
             </element>
             <element>
-                <text>2.1 Escape from confinement - Agriculture (including biofuel feedstocks)</text>
+                <text>2.1  Escape from confinement - Agriculture (including biofuel feedstocks)</text>
                 <value>EC1</value>
             </element>
             <element>
@@ -106,87 +106,87 @@
                 <value>RN8</value>
             </element>
             <element>
-                <text>3.1 Transport ? contaminant - Contaminant nursery material</text>
+                <text>3.1 Transport - contaminant - Contaminant nursery material</text>
                 <value>TC1</value>
             </element>
             <element>
-                <text>3.10 Transport ? contaminant - Transportation of habitat material (soil, vegetation, ?)</text>
+                <text>3.10 Transport - contaminant - Transportation of habitat material (soil, vegetation, ?)</text>
                 <value>TC10</value>
             </element>
             <element>
-                <text>3.2 Transport ? contaminant - Contaminated bait</text>
+                <text>3.2 Transport - contaminant - Contaminated bait</text>
                 <value>TC2</value>
             </element>
             <element>
-                <text>3.3 Transport ? contaminant - Food contaminant (including of live food)</text>
+                <text>3.3 Transport - contaminant - Food contaminant (including of live food)</text>
                 <value>TC3</value>
             </element>
             <element>
-                <text>3.4 Transport ? contaminant - Contaminant on animals (except parasites, species transported by host/vector)</text>
+                <text>3.4 Transport - contaminant - Contaminant on animals (except parasites, species transported by host/vector)</text>
                 <value>TC4</value>
             </element>
             <element>
-                <text>3.5 Transport ? contaminant - Parasites on animals (including species transported by host and vector)</text>
+                <text>3.5 Transport - contaminant - Parasites on animals (including species transported by host and vector)</text>
                 <value>TC5</value>
             </element>
             <element>
-                <text>3.6 Transport ? contaminant - Contaminant on plants (except parasites, species transported by host/vector)</text>
+                <text>3.6 Transport - contaminant - Contaminant on plants (except parasites, species transported by host/vector)</text>
                 <value>TC6</value>
             </element>
             <element>
-                <text>3.7 Transport ? contaminant - Parasites on plants (including species transported by host and vector)</text>
+                <text>3.7 Transport - contaminant - Parasites on plants (including species transported by host and vector)</text>
                 <value>TC7</value>
             </element>
             <element>
-                <text>3.8 Transport ? contaminant - Seed contaminant</text>
+                <text>3.8 Transport - contaminant - Seed contaminant</text>
                 <value>TC8</value>
             </element>
             <element>
-                <text>3.9 Transport ? contaminant - Timber trade</text>
+                <text>3.9 Transport - contaminant - Timber trade</text>
                 <value>TC9</value>
             </element>
             <element>
-                <text>4.1 Transport ? stowaway - Angling/fishing equipment</text>
+                <text>4.1 Transport - stowaway - Angling/fishing equipment</text>
                 <value>TS1</value>
             </element>
             <element>
-                <text>4.10 Transport ? stowaway - Vehicles (car, train, ?)</text>
+                <text>4.10 Transport - stowaway - Vehicles (car, train, ?)</text>
                 <value>TS10</value>
             </element>
             <element>
-                <text>4.11 Transport ? stowaway - Other means of transport</text>
+                <text>4.11 Transport - stowaway - Other means of transport</text>
                 <value>TS11</value>
             </element>
             <element>
-                <text>4.2 Transport ? stowaway - Container/bulk</text>
+                <text>4.2 Transport - stowaway - Container/bulk</text>
                 <value>TS2</value>
             </element>
             <element>
-                <text>4.3 Transport ? stowaway - Hitchhikers in or on airplane</text>
+                <text>4.3 Transport - stowaway - Hitchhikers in or on airplane</text>
                 <value>TS3</value>
             </element>
             <element>
-                <text>4.4 Transport ? stowaway - Hitchhikers on ship/boat (excluding ballast water and hull fouling)</text>
+                <text>4.4 Transport - stowaway - Hitchhikers on ship/boat (excluding ballast water and hull fouling)</text>
                 <value>TS4</value>
             </element>
             <element>
-                <text>4.5 Transport ? stowaway - Machinery/equipment</text>
+                <text>4.5 Transport - stowaway - Machinery/equipment</text>
                 <value>TS5</value>
             </element>
             <element>
-                <text>4.6 Transport ? stowaway - People and their luggage/equipment (in particular tourism)</text>
+                <text>4.6 Transport - stowaway - People and their luggage/equipment (in particular tourism)</text>
                 <value>TS6</value>
             </element>
             <element>
-                <text>4.7 Transport ? stowaway - Organic packing material, in particular wood packaging</text>
+                <text>4.7 Transport - stowaway - Organic packing material, in particular wood packaging</text>
                 <value>TS7</value>
             </element>
             <element>
-                <text>4.8 Transport ? stowaway - Ship/boat ballast water</text>
+                <text>4.8 Transport - stowaway - Ship/boat ballast water</text>
                 <value>TS8</value>
             </element>
             <element>
-                <text>4.9 Transport ? stowaway - Ship/boat hull fouling</text>
+                <text>4.9 Transport - stowaway - Ship/boat hull fouling</text>
                 <value>TS9</value>
             </element>
             <element>
