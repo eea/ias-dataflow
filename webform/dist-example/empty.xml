@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<IAS xmlns="http://dd.eionet.europa.eu/namespaces/884" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:schemaLocation="http://dd.eionet.europa.eu/namespaces/884  http://dd.eionet.europa.eu/v2/dataset/3421/schema-dst-3421.xsd">
+<IAS xmlns="http://dd.eionet.europa.eu/namespaces/884" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://dd.eionet.europa.eu/namespaces/884  http://dd.eionet.europa.eu/v2/dataset/3424/schema-dst-3424.xsd">
   <noPrefillData>True</noPrefillData>
   <inspectionsPermitsReported xmlns="http://dd.eionet.europa.eu/namespaces/895">
     <Row>
@@ -38,6 +37,8 @@
       <file_cost_of_action/>
       <additional_information/>
       <file_additional_information/>
+      <measures_inform_public/>
+      <file_measures_inform_public/>
     </Row>
   </sectionC>
   <sectionBSpecies xmlns="http://dd.eionet.europa.eu/namespaces/888">
