@@ -303,7 +303,7 @@ export default {
                     "IAS": {
                         "@xmlns": "http://dd.eionet.europa.eu/namespaces/884",
                         "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-                        "@xsi:schemaLocation": "http://dd.eionet.europa.eu/namespaces/884  http://dd.eionet.europa.eu/v2/dataset/3422/schema-dst-3422.xsd",
+                        "@xsi:schemaLocation": "http://dd.eionet.europa.eu/namespaces/884  http://dd.eionet.europa.eu/v2/dataset/3424/schema-dst-3424.xsd",
                         "inspectionsPermitsReported": {
                             "@xmlns": "http://dd.eionet.europa.eu/namespaces/895",
                             "Row": [
