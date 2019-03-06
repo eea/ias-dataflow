@@ -276,74 +276,44 @@
                         <name>spread_patterns</name>
                         <options>
                             <element>
-                                <index>a</index>
-                                <text>
-                                    a) The species was already widely spread before 2015
-                                </text>
-                                <value>0</value>
+                                <text>a) The species was already widely spread before 2015</text>
+                                <value>widelySpread</value>
                             </element>
                             <element>
-                                <index>b</index>
-                                <text>
-                                    b) The species predominantly entered through natural dispersal from a neighbouring country
-                                </text>
-                                <value>1</value>
+                                <text>b) The species predominantly entered through natural dispersal from a neighbouring country</text>
+                                <value>enteredNeighbourCountry</value>
                             </element>
                             <element>
-                                <index>c</index>
-                                <text>
-                                    c) The species predominantly entered with unintentional human assistance
-                                </text>
-                                <value>2</value>
+                                <text>c) The species predominantly entered with unintentional human assistance</text>
+                                <value>enteredUnintentional</value>
                             </element>
                             <element>
-                                <index>d</index>
-                                <text>
-                                    d) The species predominantly entered with intentional human assistance
-                                </text>
-                                <value>3</value>
+                                <text>d) The species predominantly entered with intentional human assistance</text>
+                                <value>enteredIntentional</value>
                             </element>
                             <element>
-                                <index>e</index>
-                                <text>
-                                    e) There is no evidence of new entries into the Member State
-                                </text>
-                                <value>4</value>
+                                <text>e) There is no evidence of new entries into the Member State</text>
+                                <value>enteredNot</value>
                             </element>
                             <element>
-                                <index>f</index>
-                                <text>
-                                    f) The species predominantly spread through natural dispersal
-                                </text>
-                                <value>5</value>
+                                <text>f) The species predominantly spread through natural dispersal</text>
+                                <value>spreadNatural</value>
                             </element>
                             <element>
-                                <index>g</index>
-                                <text>
-                                    g) The species predominantly spread with unintentional human assistance
-                                </text>
-                                <value>6</value>
+                                <text>g) The species predominantly spread with unintentional human assistance</text>
+                                <value>spreadUnintentional</value>
                             </element>
                             <element>
-                                <index>h</index>
-                                <text>
-                                    h) The species predominantly spread with intentional human assistance
-                                </text>
-                                <value>7</value>
+                                <text>h) The species predominantly spread with intentional human assistance</text>
+                                <value>spreadIntentional</value>
                             </element>
                             <element>
-                                <index>i</index>
-                                <text>
-                                    i) There is no evidence of spread within the Member State
-                                </text>
-                                <value>8</value>
+                                <text>i) There is no evidence of spread within the Member State</text>
+                                <value>spreadNotMs</value>
                             </element>
                             <element>
-                                <index>j</index>
-                                <text>
-                                    j) The species spread from the Member State into other Member State(s)
-                                </text>
-                                <value>9</value>
+                                <text>j) The species spread from the Member State into other Member State(s)</text>
+                                <value>spreadMs</value>
                             </element>
                         </options>
                         <patternType>spread</patternType>
