@@ -22,7 +22,7 @@ import module namespace geo = "http://expath.org/ns/geo";
 import module namespace http = "http://expath.org/ns/http-client";
 
 declare variable $scripts:MSG_LIMIT as xs:integer := 1000;
-declare variable $scripts:docErrorMessages as document-node() := fn:doc('./docs/cdrqaqc.xml');
+declare variable $scripts:docErrorMessages as document-node() := fn:doc('http://dd.eionet.europa.eu/vocabulary/ias/cdrqaqc/codelist');
 declare variable $scripts:vocabCountries := 'http://dd.eionet.europa.eu/vocabulary/ias/countries';
 declare variable $scripts:vocabSpeciesPresence := 'http://dd.eionet.europa.eu/vocabulary/ias/speciesPresence';
 declare variable $scripts:vocabReproductionPatterns := 'http://dd.eionet.europa.eu/vocabulary/ias/reproductionPatterns';
@@ -40,11 +40,11 @@ declare variable $scripts:vocabHabitats := 'http://dd.eionet.europa.eu/vocabular
 declare variable $scripts:vocabMeasures := 'http://dd.eionet.europa.eu/vocabulary/ias/measures';
 declare variable $scripts:vocabPathways := 'http://dd.eionet.europa.eu/vocabulary/ias/pathways';
 
-declare variable $scripts:codesRiverBasins := fn:doc('./codelists/river_basins.xml');
-declare variable $scripts:codesEcosystems := fn:doc('./codelists/ecosystems.xml');
-declare variable $scripts:speciesA := fn:doc('./codelists/species_a.xml');
-declare variable $scripts:speciesB := fn:doc('./codelists/species_b.xml');
-declare variable $scripts:nationalListCustom := fn:doc('./codelists/national_list_custom.xml');
+declare variable $scripts:codesRiverBasins := fn:doc('https://converterstest.eionet.europa.eu/xmlfile/river_basins.xml');
+declare variable $scripts:codesEcosystems := fn:doc('https://converterstest.eionet.europa.eu/xmlfile/ecosystems.xml');
+declare variable $scripts:speciesA := fn:doc('https://converterstest.eionet.europa.eu/xmlfile/species_a.xml');
+declare variable $scripts:speciesB := fn:doc('https://converterstest.eionet.europa.eu/xmlfile/species_b.xml');
+declare variable $scripts:nationalListCustom := fn:doc('https://converterstest.eionet.europa.eu/xmlfile/national_list_custom.xml');
 declare variable $scripts:EASINcodes := $scripts:speciesA//element/speciesCode;
 
 (:~
