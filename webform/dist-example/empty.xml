@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<IAS xmlns="http://dd.eionet.europa.eu/namespaces/884" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://dd.eionet.europa.eu/namespaces/884  http://dd.eionet.europa.eu/v2/dataset/3424/schema-dst-3424.xsd">
+<IAS xmlns="http://dd.eionet.europa.eu/namespaces/884" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://dd.eionet.europa.eu/namespaces/884  http://dd.eionet.europa.eu/v2/dataset/3426/schema-dst-3426.xsd">
   <noPrefillData>True</noPrefillData>
   <inspectionsPermitsReported xmlns="http://dd.eionet.europa.eu/namespaces/895">
     <Row>
@@ -46,7 +46,7 @@
       <reportID/>
       <EASINCode/>
       <scientific_name/>
-      <common_name_naltional/>
+      <common_name_national/>
       <present_in_MS/>
       <reproduction_pattern/>
       <additional_information/>
@@ -67,7 +67,7 @@
     <Row>
       <reportID/>
       <EASINCode/>
-      <common_name_naltional/>
+      <common_name_national/>
       <present_in_MS/>
       <reproduction_pattern/>
       <additional_information/>

@@ -100,7 +100,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         from: path.resolve(__dirname, '../static/river_basins'),
         to: config.build.assetsSubDirectory
       },{
-        from: path.resolve(__dirname, '../static/speciesb'),
+        from: path.resolve(__dirname, '../static/speciesB'),
         to: config.build.assetsSubDirectory
       },{
         from: path.resolve(__dirname, '../static'),
