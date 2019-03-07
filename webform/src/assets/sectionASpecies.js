@@ -23,7 +23,7 @@ const species = (currentSpecies, country, formData) => ({
 		name: 'common_name',
 		type: 'nonInput',
 		selected: currentSpecies.speciesCNameEN,
-		label: 'Common name of the species (english) : Egyptian goose'
+		label: 'Common name of the species (english)'
 	},
 
 	common_name_national: {
@@ -133,8 +133,7 @@ const species = (currentSpecies, country, formData) => ({
 		label: 'Have permits been issued for this species during the reporting period?',
 		options: [
 			{text: 'Yes', value: true},
-			{text: 'No', value: false},
-			{text: 'Currently unknown', value: 'unknown'}
+			{text: 'No', value: false}
 		],
 		get validation() {
 			if(this.selected === null) {
@@ -149,8 +148,7 @@ const species = (currentSpecies, country, formData) => ({
 		label: 'Has the species been subject to rapid eradication measures during the reporting period?',
 		options: [
 			{text: 'Yes', value: true},
-			{text: 'No', value: false},
-			{text: 'Currently unknown', value: 'unknown'}
+			{text: 'No', value: false}
 		],
 		get validation() {
 			if(this.selected === null) {
@@ -190,8 +188,7 @@ const species = (currentSpecies, country, formData) => ({
 		label: 'Has the species been subject to management measures during the reporting period?',
 		options: [
 			{text: 'Yes', value: true},
-			{text: 'No', value: false},
-			{text: 'Currently unknown', value: 'unknown'}
+			{text: 'No', value: false}
 		],
 		get validation() {
 			if(this.selected === null) {

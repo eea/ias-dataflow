@@ -83,6 +83,9 @@ const form = (country, formData) => ({
 						}
 					}
 				},
+				priority_pathways: {
+					fields: [pathway()]
+				},
 				file_action_plans: {
 					type: 'file',
 					selected: null,
@@ -165,9 +168,6 @@ const form = (country, formData) => ({
 							return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
 						}
 					}
-				},
-				priority_pathways: {
-					fields: [pathway()]
 				},
 				file_cost_of_action: {
 					type: 'file',
