@@ -1523,7 +1523,7 @@ const species = [
     "EUNIScode": 11328,
     "EE_CommonName": "hallorav",
     "RO_CommonName": "Veveriță cenușie",
-    "FR_CommonName": "Écureuil gris de Caroline;Écureuil gris ",
+    "FR_CommonName": "Écureuil gris de Caroline;Écureuil gris",
     "IT_CommonName": "Scoiattolo grigio;Sciurus carolinensis;Scoiattolo grigio americano;SCOIATTOLO GRIGIO ;Scoiattolo grigio orientale",
     "phylum": "Chordata",
     "SE_CommonName": "gråekorre",
