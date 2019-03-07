@@ -1371,7 +1371,7 @@ const species = [
     "EUNIScode": 258990,
     "EE_CommonName": "punane soovähk",
     "RO_CommonName": "Rac de Louisiana",
-    "FR_CommonName": "Écrevisse rouge des marais ;Écrevisse rouge de Louisiane ;Écrevisse de Louisiane",
+    "FR_CommonName": "Écrevisse rouge des marais ;Écrevisse rouge de Louisiane ;Écrevisse de Louisiane",
     "IT_CommonName": "Gambero rosso della Louisiana;Gambero killer;Gambero rosso americano;Gambero della Louisiana",
     "phylum": "Arthropoda",
     "SE_CommonName": "röd sumpkräfta",
