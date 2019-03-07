@@ -22,6 +22,7 @@ import module namespace geo = "http://expath.org/ns/geo";
 import module namespace http = "http://expath.org/ns/http-client";
 
 declare variable $scripts:MSG_LIMIT as xs:integer := 1000;
+
 declare variable $scripts:docErrorMessages as document-node() := fn:doc('http://dd.eionet.europa.eu/vocabulary/ias/cdrqaqc/codelist');
 declare variable $scripts:vocabCountries := 'http://dd.eionet.europa.eu/vocabulary/ias/countries';
 declare variable $scripts:vocabSpeciesPresence := 'http://dd.eionet.europa.eu/vocabulary/ias/speciesPresence';
@@ -114,14 +115,20 @@ declare function scripts:getValidConcepts($url as xs:string) as xs:string* {
 
 declare function scripts:getMsg(
     $refcode as xs:string
-) as xs:string {
-    let $url := 'http://dd.eionet.europa.eu/vocabulary/art17_2018/cdrqaqc/'
+) as element()+ {
+    let $url := 'http://dd.eionet.europa.eu/vocabulary/ias/cdrqaqc/'
     let $id := fn:concat($url, $refcode)
 
-    let $errorMsg := $scripts:docErrorMessages//*:containeditems/*:value[@id = $id]/fn:concat(*:label, ' ', *:definition)
+    (:let $errorMsg := $scripts:docErrorMessages//*:containeditems/*:value[@id = $id]/fn:concat(*:label, ' ', *:definition):)
+    let $label := $scripts:docErrorMessages//*:containeditems/*:value[@id = $id]/*:label
+    let $def := $scripts:docErrorMessages//*:containeditems/*:value[@id = $id]/*:definition
+    let $errorMsg := (
+            <div>{$label/text()}</div>,
+            <div>{$def/text()}</div>)
 
-    return if(fn:empty($errorMsg))
-        then '#Error message missing'
+
+    return if(functx:if-empty($label, '') = '')
+        then <div>#Error message missing</div>
         else $errorMsg
 
 };
