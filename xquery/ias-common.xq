@@ -75,6 +75,8 @@ span.ias.info { color: #fff; background-color: #5bc0de }
 span.ias.pass { color: #fff; background-color: #5cb85c }
 span.ias.message { color: #fff; background-color: #999 }
 
+p.ias.error-text {margin: 0;}
+
 ]]>
     </style>
 };

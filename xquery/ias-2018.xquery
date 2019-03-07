@@ -70,7 +70,7 @@ declare function ias:runChecks02($root as element()) as element()* {
     return
         <div class="ias header">{$rulename}</div>,
         <div class="ias table parent">{
-            ias:failsafeWrapper("A1", "Question 1 - Scientific name", $root, scripts:checkA1#3),
+            (:ias:failsafeWrapper("A1", "Question 1 - Scientific name", $root, scripts:checkA1#3),:)
             ias:failsafeWrapper("A2", "Question 1 - EASIN Id", $root, scripts:checkA2#3),
             ias:failsafeWrapper("A3", "Question 2 - Common name", $root, scripts:checkA3#3),
             ias:failsafeWrapper("A4", "Question 3 - Presence", $root, scripts:checkA4#3),
@@ -128,7 +128,7 @@ declare function ias:runChecks02($root as element()) as element()* {
 
             ias:failsafeWrapper("A55", "Question 15 – management measures, Habitats Directive Annex II, IV or V species", $root, scripts:checkA55#3),
             ias:failsafeWrapper("A56", "Question 15 – management measures, Habitats Directive Annex I habitat type", $root, scripts:checkA56#3),
-            ias:failsafeWrapper("A57", "Question 15 – management measures, Birds Directive species", $root, scripts:notYet#3),
+            (:ias:failsafeWrapper("A57", "Question 15 – management measures, Birds Directive species", $root, scripts:notYet#3),:)
             ias:failsafeWrapper("A58", "Question 15 – management measures, Ecosystem services", $root, scripts:checkA58#3)
         }</div>
 };

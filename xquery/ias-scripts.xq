@@ -30,7 +30,7 @@ declare variable $scripts:vocabReproductionPatterns := 'http://dd.eionet.europa.
 declare variable $scripts:vocabSpreadPatterns := 'http://dd.eionet.europa.eu/vocabulary/ias/spreadPatterns';
 declare variable $scripts:vocabPurposesPermits := 'http://dd.eionet.europa.eu/vocabulary/ias/purposesPermits';
 declare variable $scripts:vocabUnits := 'http://dd.eionet.europa.eu/vocabulary/ias/units';
-declare variable $scripts:vocabMethodsUsed := 'http://dd.eionet.europa.eu/vocabulary/ias/methodsUsed';
+declare variable $scripts:vocabMethodsUsed := 'http://dd.eionet.europa.eu/vocabulary/ias/measuresMethods';
 declare variable $scripts:vocabNuts := 'http://dd.eionet.europa.eu/vocabulary/common/nuts2016';
 declare variable $scripts:vocabBioGeoReg := 'http://dd.eionet.europa.eu/vocabulary/ias/bioGeoReg';
 declare variable $scripts:vocabMarineRegions := 'http://dd.eionet.europa.eu/vocabulary/msfd/regions';
@@ -113,6 +113,15 @@ declare function scripts:getValidConcepts($url as xs:string) as xs:string* {
                 /functx:substring-after-last(@rdf:about, '/')
 };
 
+declare function scripts:getValidPrefLabels($url as xs:string) as xs:string* {
+    let $valid := "http://dd.eionet.europa.eu/vocabulary/datadictionary/status/valid"
+
+    let $url := $url || "/rdf"
+    return
+        doc($url)//skos:Concept[adms:status/@rdf:resource = $valid]
+                /fn:replace(skos:prefLabel, ' ', '')
+};
+
 declare function scripts:getMsg(
     $refcode as xs:string
 ) as element()+ {
@@ -123,12 +132,12 @@ declare function scripts:getMsg(
     let $label := $scripts:docErrorMessages//*:containeditems/*:value[@id = $id]/*:label
     let $def := $scripts:docErrorMessages//*:containeditems/*:value[@id = $id]/*:definition
     let $errorMsg := (
-            <div>{$label/text()}</div>,
-            <div>{$def/text()}</div>)
+            <p class="ias error-text">{$label/text()}</p>,
+            <p class="ias error-text">{$def/text()}</p>)
 
 
     return if(functx:if-empty($label, '') = '')
-        then <div>#Error message missing</div>
+        then <p class="ias error-text">#Error message missing</p>
         else $errorMsg
 
 };
@@ -356,6 +365,7 @@ declare function scripts:checkCodeList(
         $hdrs as xs:string+
 ) as element()* {
     let $validConcepts := scripts:getValidConcepts($codeListUrl)
+    let $validPrefLabels := scripts:getValidPrefLabels($codeListUrl)
 
     let $data :=
         for $species in $species_seq
@@ -371,7 +381,7 @@ declare function scripts:checkCodeList(
                 for $l3 in $level3_seq
                     where $l3/*:parent_row_id = $par_row_id
                     let $code := $l3/*[local-name() = $element_name]
-                    where not($code = $validConcepts)
+                    where not($code = $validConcepts or $code = $validPrefLabels)
                     let $d := ($EASINcode, $code)
 
                     return scripts:createData((1), (2), $d)
@@ -522,7 +532,7 @@ declare function scripts:checkG2(
     let $yearFrom := $root//*:reporting//*:StartYear => functx:if-empty('')
 
     let $data :=
-        if(not($yearFrom = '2015-01-01'))
+        if(not($yearFrom = '2015-01-01' or $yearFrom = '2015'))
         then
             let $d := ($yearFrom)
             return scripts:createData((1), (1), $d)
@@ -548,7 +558,7 @@ declare function scripts:checkG3(
     let $yearEnd := $root//*:reporting//*:EndYear => functx:if-empty('')
 
     let $data :=
-        if(not($yearEnd = '2018-12-31'))
+        if(not($yearEnd = '2018-12-31' or $yearEnd = '2018'))
         then
             let $d := ($yearEnd)
             return scripts:createData((1), (1), $d)
@@ -2160,7 +2170,7 @@ declare function scripts:checkB1(
 
     let $data :=
         let $value := $root//*:reporting//*:has_national_list_MS
-            => functx:if-empty('')
+            => functx:if-empty('-')
 
         return
         if(not($value = ('true', 'false')))
