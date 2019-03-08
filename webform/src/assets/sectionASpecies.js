@@ -130,6 +130,7 @@ const species = (currentSpecies, country, formData) => ({
 		name: 'permits_issued',
 		type: 'select',
 		selected: null,
+    info: 'Information on the permits issued for this species (to be completed only for invasive alien species of Union concern)',
 		label: 'Have permits been issued for this species during the reporting period?',
 		options: [
 			{text: 'Yes', value: true},
@@ -145,6 +146,7 @@ const species = (currentSpecies, country, formData) => ({
 		name: 'eradication_measures',
 		type: 'select',
 		selected: null,
+    info: 'Information on rapid eradication measure(s) taken for this species (Article 17 of Regulation (EU) No 1143/2014)',
 		label: 'Has the species been subject to rapid eradication measures during the reporting period?',
 		options: [
 			{text: 'Yes', value: true},
@@ -185,6 +187,7 @@ const species = (currentSpecies, country, formData) => ({
 		name: 'subject_management_measures',
 		type: 'select',
 		selected: null,
+    info: 'Information on management measure(s) taken for this species (Article 19 of Regulation (EU) No 1143/2014)',
 		label: 'Has the species been subject to management measures during the reporting period?',
 		options: [
 			{text: 'Yes', value: true},

@@ -1090,47 +1090,6 @@
         <updDate>2018-07-18</updDate>
     </element>
     <element>
-        <BG_CommonName>Енотовидно куче</BG_CommonName>
-        <CZ_CommonName>
-            psík mývalovitý;liška mořská;pes kunovitý;mývalovec kuní;liška jezerní;liška japonská
-        </CZ_CommonName>
-        <DE_CommonName>Marderhund</DE_CommonName>
-        <DK_CommonName>Mårhund</DK_CommonName>
-        <EE_CommonName>kährik;kährikkoer</EE_CommonName>
-        <ES_CommonName>Perro mapache</ES_CommonName>
-        <EUNIScode>11316</EUNIScode>
-        <FI_CommonName>supikoira</FI_CommonName>
-        <FR_CommonName>Chien viverrin</FR_CommonName>
-        <GR_CommonName>Νυκτερευτής</GR_CommonName>
-        <HR_CommonName/>
-        <HU_CommonName>nyestkutya</HU_CommonName>
-        <IE_CommonName>no common name</IE_CommonName>
-        <IT_CommonName>Tanuki;Cane procione;Cane viverrino</IT_CommonName>
-        <LT_CommonName>usūrinis šuo;mangutas</LT_CommonName>
-        <LV_CommonName>jenotsuns</LV_CommonName>
-        <MT_CommonName>no common name</MT_CommonName>
-        <NL_CommonName>Wasbeerhond</NL_CommonName>
-        <PL_CommonName>Junat;Jenot</PL_CommonName>
-        <PT_CommonName>Cão-guaxinim;cão-mapache</PT_CommonName>
-        <RO_CommonName>Câine enot</RO_CommonName>
-        <SE_CommonName>mårdhund</SE_CommonName>
-        <SI_CommonName>rakunasti pes</SI_CommonName>
-        <SK_CommonName>psík medvedíkovitý</SK_CommonName>
-        <UK_CommonName>Tanuki;Raccoon Dog</UK_CommonName>
-        <class>Mammalia</class>
-        <family>Canidae</family>
-        <freshwater>true</freshwater>
-        <kingdom>Animalia</kingdom>
-        <order>Carnivora</order>
-        <phylum>Chordata</phylum>
-        <speciesCNameEN>Raccoon dog</speciesCNameEN>
-        <speciesCode>R10085</speciesCode>
-        <speciesName>Nyctereutes procyonoides</speciesName>
-        <speciesNameLegi>Nyctereutes procyonoides Gray, 1834</speciesNameLegi>
-        <terrestrial>true</terrestrial>
-        <updDate>2018-07-18</updDate>
-    </element>
-    <element>
         <BG_CommonName>Ондатра;бизам;Мускусен плъх</BG_CommonName>
         <CZ_CommonName>ondatra pižmová</CZ_CommonName>
         <DE_CommonName>Bisamratte</DE_CommonName>

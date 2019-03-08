@@ -48,7 +48,7 @@
 
 							<FieldGenerator :field="species.additional_information"></FieldGenerator>
 								<b-card class="inner-card">
-									<h6 class="text-center">Information on the permits issued for this species (to be completed only for invasive alien species of Union concern)</h6>
+									<h6 class="text-center">{{species.permits_issued.info}}</h6>
 									<hr>
 									<h5>
 										<b-input-group :prepend="species.permits_issued.label">
@@ -62,7 +62,7 @@
 
 								
 							<b-card class="inner-card">
-								<h6 class="text-center">Information on rapid eradication measure(s) taken for this species (Article 17 of Regulation (EU) No 1143/2014)</h6>
+								<h6 class="text-center">{{species.eradication_measures.info}}</h6>
 								<hr>
 								<h5>
 									<b-input-group :prepend="species.eradication_measures.label">
@@ -75,6 +75,8 @@
 							</b-card>
 								
 							<b-card class="inner-card">
+                <h6 class="text-center">{{species.subject_management_measures.info}}</h6>
+                <hr>
 								<h5>
 									<b-input-group :prepend="species.subject_management_measures.label">
 										<FieldGenerator :field="species.subject_management_measures"></FieldGenerator> 
