@@ -1876,5 +1876,4 @@ const species = [
     "DK_CommonName": "Ræveegern"
   }
 ]
-
-export default species
+export default species.sort((a,b) => a.speciesNameLegi.localeCompare(b.speciesNameLegi))
