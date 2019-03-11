@@ -199,7 +199,8 @@ const form = (country, formData) => ({
 					selected: '',
 					name: 'distributionMap_sectionA',
 					label: 'Distribution map for SECTION A',
-					extensions: ['.shp','.geojson','.gml','.zip'],
+          info: 'If you wish to upload a shapefile, please create a zip archive that contains the necessary files (.dbf, .prj, .sbn, .shx, .shp, .shx)',
+					extensions: ['.geojson','.gml','.zip'],
 				},
 				inspireMetadata_sectionA: {
 					type: 'file',
@@ -213,7 +214,8 @@ const form = (country, formData) => ({
 					selected: '',
 					name: 'distributionMap_sectionB',
 					label: 'Distribution map for SECTION B',
-					extensions: ['.shp','.geojson','.gml','.zip'],
+          info: 'If you wish to upload a shapefile, please create a zip archive that contains the necessary files (.dbf, .prj, .sbn, .shx, .shp, .shx)',
+					extensions: ['.geojson','.gml','.zip'],
 				},
 				inspireMetadata_sectionB: {
 					type: 'file',

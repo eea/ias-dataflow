@@ -11,6 +11,8 @@
         </b-input-group-append>
       </b-input-group>
       <b-badge class="mb-2" variant="default"><b>Allowed file extension : {{field.extensions.join(', ')}}</b></b-badge>
+      <br>
+      <b-badge class="mb-2" variant="default">{{field.info}}</b-badge>
       <div v-if="field.selected" class="d-flex mb-4">
         <div class="file-upload-location">File uploaded: <a :href="field.selected">{{field.selected}}</a></div>
         <div class="remove-file-button ml-3">
