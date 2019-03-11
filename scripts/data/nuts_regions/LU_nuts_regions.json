@@ -1,26 +1,30 @@
 [
   {
-    "label": "LUXEMBOURG",
-    "id": "LU0"
+    "id": "LU",
+    "label": "LUXEMBOURG"
   },
   {
-    "label": "Luxembourg",
-    "id": "LU00"
+    "id": "LU0",
+    "label": "LUXEMBOURG"
   },
   {
-    "label": "Luxembourg",
-    "id": "LU000"
+    "id": "LU00",
+    "label": "Luxembourg"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "LUZ"
+    "id": "LU000",
+    "label": "Luxembourg"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "LUZZ"
+    "id": "LUZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "LUZZZ"
+    "id": "LUZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "LUZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

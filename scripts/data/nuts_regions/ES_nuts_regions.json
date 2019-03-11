@@ -1,354 +1,358 @@
 [
   {
-    "label": "NOROESTE",
-    "id": "ES1"
+    "id": "ES",
+    "label": "ESPAÑA"
   },
   {
-    "label": "Galicia",
-    "id": "ES11"
+    "id": "ES1",
+    "label": "NOROESTE"
   },
   {
-    "label": "A Coruña",
-    "id": "ES111"
+    "id": "ES11",
+    "label": "Galicia"
   },
   {
-    "label": "Lugo",
-    "id": "ES112"
+    "id": "ES111",
+    "label": "A Coruña"
   },
   {
-    "label": "Ourense",
-    "id": "ES113"
+    "id": "ES112",
+    "label": "Lugo"
   },
   {
-    "label": "Pontevedra",
-    "id": "ES114"
+    "id": "ES113",
+    "label": "Ourense"
   },
   {
-    "label": "Principado de Asturias",
-    "id": "ES12"
+    "id": "ES114",
+    "label": "Pontevedra"
   },
   {
-    "label": "Asturias",
-    "id": "ES120"
+    "id": "ES12",
+    "label": "Principado de Asturias"
   },
   {
-    "label": "Cantabria",
-    "id": "ES13"
+    "id": "ES120",
+    "label": "Asturias"
   },
   {
-    "label": "Cantabria",
-    "id": "ES130"
+    "id": "ES13",
+    "label": "Cantabria"
   },
   {
-    "label": "NORESTE",
-    "id": "ES2"
+    "id": "ES130",
+    "label": "Cantabria"
   },
   {
-    "label": "País Vasco",
-    "id": "ES21"
+    "id": "ES2",
+    "label": "NORESTE"
   },
   {
-    "label": "Araba/Álava",
-    "id": "ES211"
+    "id": "ES21",
+    "label": "País Vasco"
   },
   {
-    "label": "Gipuzkoa",
-    "id": "ES212"
+    "id": "ES211",
+    "label": "Araba/Álava"
   },
   {
-    "label": "Bizkaia",
-    "id": "ES213"
+    "id": "ES212",
+    "label": "Gipuzkoa"
   },
   {
-    "label": "Comunidad Foral de Navarra",
-    "id": "ES22"
+    "id": "ES213",
+    "label": "Bizkaia"
   },
   {
-    "label": "Navarra",
-    "id": "ES220"
+    "id": "ES22",
+    "label": "Comunidad Foral de Navarra"
   },
   {
-    "label": "La Rioja",
-    "id": "ES23"
+    "id": "ES220",
+    "label": "Navarra"
   },
   {
-    "label": "La Rioja",
-    "id": "ES230"
+    "id": "ES23",
+    "label": "La Rioja"
   },
   {
-    "label": "Aragón",
-    "id": "ES24"
+    "id": "ES230",
+    "label": "La Rioja"
   },
   {
-    "label": "Huesca",
-    "id": "ES241"
+    "id": "ES24",
+    "label": "Aragón"
   },
   {
-    "label": "Teruel",
-    "id": "ES242"
+    "id": "ES241",
+    "label": "Huesca"
   },
   {
-    "label": "Zaragoza",
-    "id": "ES243"
+    "id": "ES242",
+    "label": "Teruel"
   },
   {
-    "label": "COMUNIDAD DE MADRID",
-    "id": "ES3"
+    "id": "ES243",
+    "label": "Zaragoza"
   },
   {
-    "label": "Comunidad de Madrid",
-    "id": "ES30"
+    "id": "ES3",
+    "label": "COMUNIDAD DE MADRID"
   },
   {
-    "label": "Madrid",
-    "id": "ES300"
+    "id": "ES30",
+    "label": "Comunidad de Madrid"
   },
   {
-    "label": "CENTRO (ES)",
-    "id": "ES4"
+    "id": "ES300",
+    "label": "Madrid"
   },
   {
-    "label": "Castilla y León",
-    "id": "ES41"
+    "id": "ES4",
+    "label": "CENTRO (ES)"
   },
   {
-    "label": "Ávila",
-    "id": "ES411"
+    "id": "ES41",
+    "label": "Castilla y León"
   },
   {
-    "label": "Burgos",
-    "id": "ES412"
+    "id": "ES411",
+    "label": "Ávila"
   },
   {
-    "label": "León",
-    "id": "ES413"
+    "id": "ES412",
+    "label": "Burgos"
   },
   {
-    "label": "Palencia",
-    "id": "ES414"
+    "id": "ES413",
+    "label": "León"
   },
   {
-    "label": "Salamanca",
-    "id": "ES415"
+    "id": "ES414",
+    "label": "Palencia"
   },
   {
-    "label": "Segovia",
-    "id": "ES416"
+    "id": "ES415",
+    "label": "Salamanca"
   },
   {
-    "label": "Soria",
-    "id": "ES417"
+    "id": "ES416",
+    "label": "Segovia"
   },
   {
-    "label": "Valladolid",
-    "id": "ES418"
+    "id": "ES417",
+    "label": "Soria"
   },
   {
-    "label": "Zamora",
-    "id": "ES419"
+    "id": "ES418",
+    "label": "Valladolid"
   },
   {
-    "label": "Castilla-La Mancha",
-    "id": "ES42"
+    "id": "ES419",
+    "label": "Zamora"
   },
   {
-    "label": "Albacete",
-    "id": "ES421"
+    "id": "ES42",
+    "label": "Castilla-La Mancha"
   },
   {
-    "label": "Ciudad Real",
-    "id": "ES422"
+    "id": "ES421",
+    "label": "Albacete"
   },
   {
-    "label": "Cuenca",
-    "id": "ES423"
+    "id": "ES422",
+    "label": "Ciudad Real"
   },
   {
-    "label": "Guadalajara",
-    "id": "ES424"
+    "id": "ES423",
+    "label": "Cuenca"
   },
   {
-    "label": "Toledo",
-    "id": "ES425"
+    "id": "ES424",
+    "label": "Guadalajara"
   },
   {
-    "label": "Extremadura",
-    "id": "ES43"
+    "id": "ES425",
+    "label": "Toledo"
   },
   {
-    "label": "Badajoz",
-    "id": "ES431"
+    "id": "ES43",
+    "label": "Extremadura"
   },
   {
-    "label": "Cáceres",
-    "id": "ES432"
+    "id": "ES431",
+    "label": "Badajoz"
   },
   {
-    "label": "ESTE",
-    "id": "ES5"
+    "id": "ES432",
+    "label": "Cáceres"
   },
   {
-    "label": "Cataluña",
-    "id": "ES51"
+    "id": "ES5",
+    "label": "ESTE"
   },
   {
-    "label": "Barcelona",
-    "id": "ES511"
+    "id": "ES51",
+    "label": "Cataluña"
   },
   {
-    "label": "Girona",
-    "id": "ES512"
+    "id": "ES511",
+    "label": "Barcelona"
   },
   {
-    "label": "Lleida",
-    "id": "ES513"
+    "id": "ES512",
+    "label": "Girona"
   },
   {
-    "label": "Tarragona",
-    "id": "ES514"
+    "id": "ES513",
+    "label": "Lleida"
   },
   {
-    "label": "Comunidad Valenciana",
-    "id": "ES52"
+    "id": "ES514",
+    "label": "Tarragona"
   },
   {
-    "label": "Alicante/Alacant",
-    "id": "ES521"
+    "id": "ES52",
+    "label": "Comunidad Valenciana"
   },
   {
-    "label": "Castellón/Castelló",
-    "id": "ES522"
+    "id": "ES521",
+    "label": "Alicante / Alacant"
   },
   {
-    "label": "Valencia/València",
-    "id": "ES523"
+    "id": "ES522",
+    "label": "Castellón / Castelló"
   },
   {
-    "label": "Illes Balears",
-    "id": "ES53"
+    "id": "ES523",
+    "label": "Valencia / València"
   },
   {
-    "label": "Eivissa y Formentera",
-    "id": "ES531"
+    "id": "ES53",
+    "label": "Illes Balears"
   },
   {
-    "label": "Mallorca",
-    "id": "ES532"
+    "id": "ES531",
+    "label": "Eivissa y Formentera"
   },
   {
-    "label": "Menorca",
-    "id": "ES533"
+    "id": "ES532",
+    "label": "Mallorca"
   },
   {
-    "label": "SUR",
-    "id": "ES6"
+    "id": "ES533",
+    "label": "Menorca"
   },
   {
-    "label": "Andalucía",
-    "id": "ES61"
+    "id": "ES6",
+    "label": "SUR"
   },
   {
-    "label": "Almería",
-    "id": "ES611"
+    "id": "ES61",
+    "label": "Andalucía"
   },
   {
-    "label": "Cádiz",
-    "id": "ES612"
+    "id": "ES611",
+    "label": "Almería"
   },
   {
-    "label": "Córdoba",
-    "id": "ES613"
+    "id": "ES612",
+    "label": "Cádiz"
   },
   {
-    "label": "Granada",
-    "id": "ES614"
+    "id": "ES613",
+    "label": "Córdoba"
   },
   {
-    "label": "Huelva",
-    "id": "ES615"
+    "id": "ES614",
+    "label": "Granada"
   },
   {
-    "label": "Jaén",
-    "id": "ES616"
+    "id": "ES615",
+    "label": "Huelva"
   },
   {
-    "label": "Málaga",
-    "id": "ES617"
+    "id": "ES616",
+    "label": "Jaén"
   },
   {
-    "label": "Sevilla",
-    "id": "ES618"
+    "id": "ES617",
+    "label": "Málaga"
   },
   {
-    "label": "Región de Murcia",
-    "id": "ES62"
+    "id": "ES618",
+    "label": "Sevilla"
   },
   {
-    "label": "Murcia",
-    "id": "ES620"
+    "id": "ES62",
+    "label": "Región de Murcia"
   },
   {
-    "label": "Ciudad Autónoma de Ceuta",
-    "id": "ES63"
+    "id": "ES620",
+    "label": "Murcia"
   },
   {
-    "label": "Ceuta",
-    "id": "ES630"
+    "id": "ES63",
+    "label": "Ciudad Autónoma de Ceuta"
   },
   {
-    "label": "Ciudad Autónoma de Melilla",
-    "id": "ES64"
+    "id": "ES630",
+    "label": "Ceuta"
   },
   {
-    "label": "Melilla",
-    "id": "ES640"
+    "id": "ES64",
+    "label": "Ciudad Autónoma de Melilla"
   },
   {
-    "label": "CANARIAS",
-    "id": "ES7"
+    "id": "ES640",
+    "label": "Melilla"
   },
   {
-    "label": "Canarias",
-    "id": "ES70"
+    "id": "ES7",
+    "label": "CANARIAS"
   },
   {
-    "label": "El Hierro",
-    "id": "ES703"
+    "id": "ES70",
+    "label": "Canarias"
   },
   {
-    "label": "Fuerteventura",
-    "id": "ES704"
+    "id": "ES703",
+    "label": "El Hierro"
   },
   {
-    "label": "Gran Canaria",
-    "id": "ES705"
+    "id": "ES704",
+    "label": "Fuerteventura"
   },
   {
-    "label": "La Gomera",
-    "id": "ES706"
+    "id": "ES705",
+    "label": "Gran Canaria"
   },
   {
-    "label": "La Palma",
-    "id": "ES707"
+    "id": "ES706",
+    "label": "La Gomera"
   },
   {
-    "label": "Lanzarote",
-    "id": "ES708"
+    "id": "ES707",
+    "label": "La Palma"
   },
   {
-    "label": "Tenerife",
-    "id": "ES709"
+    "id": "ES708",
+    "label": "Lanzarote"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "ESZ"
+    "id": "ES709",
+    "label": "Tenerife"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "ESZZ"
+    "id": "ESZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "ESZZZ"
+    "id": "ESZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "ESZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

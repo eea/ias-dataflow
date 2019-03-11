@@ -1,66 +1,70 @@
 [
   {
-    "label": "SLOVENSKO",
-    "id": "SK0"
+    "id": "SK",
+    "label": "SLOVENSKO"
   },
   {
-    "label": "Bratislavský kraj",
-    "id": "SK01"
+    "id": "SK0",
+    "label": "SLOVENSKO"
   },
   {
-    "label": "Bratislavský kraj",
-    "id": "SK010"
+    "id": "SK01",
+    "label": "Bratislavský kraj"
   },
   {
-    "label": "Západné Slovensko",
-    "id": "SK02"
+    "id": "SK010",
+    "label": "Bratislavský kraj"
   },
   {
-    "label": "Trnavský kraj",
-    "id": "SK021"
+    "id": "SK02",
+    "label": "Západné Slovensko"
   },
   {
-    "label": "Trenčiansky kraj",
-    "id": "SK022"
+    "id": "SK021",
+    "label": "Trnavský kraj"
   },
   {
-    "label": "Nitriansky kraj",
-    "id": "SK023"
+    "id": "SK022",
+    "label": "Trenčiansky kraj"
   },
   {
-    "label": "Stredné Slovensko",
-    "id": "SK03"
+    "id": "SK023",
+    "label": "Nitriansky kraj"
   },
   {
-    "label": "Žilinský kraj",
-    "id": "SK031"
+    "id": "SK03",
+    "label": "Stredné Slovensko"
   },
   {
-    "label": "Banskobystrický kraj",
-    "id": "SK032"
+    "id": "SK031",
+    "label": "Žilinský kraj"
   },
   {
-    "label": "Východné Slovensko",
-    "id": "SK04"
+    "id": "SK032",
+    "label": "Banskobystrický kraj"
   },
   {
-    "label": "Prešovský kraj",
-    "id": "SK041"
+    "id": "SK04",
+    "label": "Východné Slovensko"
   },
   {
-    "label": "Košický kraj",
-    "id": "SK042"
+    "id": "SK041",
+    "label": "Prešovský kraj"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "SKZ"
+    "id": "SK042",
+    "label": "Košický kraj"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "SKZZ"
+    "id": "SKZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "SKZZZ"
+    "id": "SKZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "SKZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

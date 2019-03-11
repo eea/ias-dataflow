@@ -1,238 +1,242 @@
 [
   {
-    "label": "NOORD-NEDERLAND",
-    "id": "NL1"
+    "id": "NL",
+    "label": "NEDERLAND"
   },
   {
-    "label": "Groningen",
-    "id": "NL11"
+    "id": "NL1",
+    "label": "NOORD-NEDERLAND"
   },
   {
-    "label": "Oost-Groningen",
-    "id": "NL111"
+    "id": "NL11",
+    "label": "Groningen"
   },
   {
-    "label": "Delfzijl en omgeving",
-    "id": "NL112"
+    "id": "NL111",
+    "label": "Oost-Groningen"
   },
   {
-    "label": "Overig Groningen",
-    "id": "NL113"
+    "id": "NL112",
+    "label": "Delfzijl en omgeving"
   },
   {
-    "label": "Friesland (NL)",
-    "id": "NL12"
+    "id": "NL113",
+    "label": "Overig Groningen"
   },
   {
-    "label": "Noord-Friesland",
-    "id": "NL124"
+    "id": "NL12",
+    "label": "Friesland (NL)"
   },
   {
-    "label": "Zuidwest-Friesland",
-    "id": "NL125"
+    "id": "NL124",
+    "label": "Noord-Friesland"
   },
   {
-    "label": "Zuidoost-Friesland",
-    "id": "NL126"
+    "id": "NL125",
+    "label": "Zuidwest-Friesland"
   },
   {
-    "label": "Drenthe",
-    "id": "NL13"
+    "id": "NL126",
+    "label": "Zuidoost-Friesland"
   },
   {
-    "label": "Noord-Drenthe",
-    "id": "NL131"
+    "id": "NL13",
+    "label": "Drenthe"
   },
   {
-    "label": "Zuidoost-Drenthe",
-    "id": "NL132"
+    "id": "NL131",
+    "label": "Noord-Drenthe"
   },
   {
-    "label": "Zuidwest-Drenthe",
-    "id": "NL133"
+    "id": "NL132",
+    "label": "Zuidoost-Drenthe"
   },
   {
-    "label": "OOST-NEDERLAND",
-    "id": "NL2"
+    "id": "NL133",
+    "label": "Zuidwest-Drenthe"
   },
   {
-    "label": "Overijssel",
-    "id": "NL21"
+    "id": "NL2",
+    "label": "OOST-NEDERLAND"
   },
   {
-    "label": "Noord-Overijssel",
-    "id": "NL211"
+    "id": "NL21",
+    "label": "Overijssel"
   },
   {
-    "label": "Zuidwest-Overijssel",
-    "id": "NL212"
+    "id": "NL211",
+    "label": "Noord-Overijssel"
   },
   {
-    "label": "Twente",
-    "id": "NL213"
+    "id": "NL212",
+    "label": "Zuidwest-Overijssel"
   },
   {
-    "label": "Gelderland",
-    "id": "NL22"
+    "id": "NL213",
+    "label": "Twente"
   },
   {
-    "label": "Veluwe",
-    "id": "NL221"
+    "id": "NL22",
+    "label": "Gelderland"
   },
   {
-    "label": "Zuidwest-Gelderland",
-    "id": "NL224"
+    "id": "NL221",
+    "label": "Veluwe"
   },
   {
-    "label": "Achterhoek",
-    "id": "NL225"
+    "id": "NL224",
+    "label": "Zuidwest-Gelderland"
   },
   {
-    "label": "Arnhem/Nijmegen",
-    "id": "NL226"
+    "id": "NL225",
+    "label": "Achterhoek"
   },
   {
-    "label": "Flevoland",
-    "id": "NL23"
+    "id": "NL226",
+    "label": "Arnhem/Nijmegen"
   },
   {
-    "label": "Flevoland",
-    "id": "NL230"
+    "id": "NL23",
+    "label": "Flevoland"
   },
   {
-    "label": "WEST-NEDERLAND",
-    "id": "NL3"
+    "id": "NL230",
+    "label": "Flevoland"
   },
   {
-    "label": "Utrecht",
-    "id": "NL31"
+    "id": "NL3",
+    "label": "WEST-NEDERLAND"
   },
   {
-    "label": "Utrecht",
-    "id": "NL310"
+    "id": "NL31",
+    "label": "Utrecht"
   },
   {
-    "label": "Noord-Holland",
-    "id": "NL32"
+    "id": "NL310",
+    "label": "Utrecht"
   },
   {
-    "label": "Kop van Noord-Holland",
-    "id": "NL321"
+    "id": "NL32",
+    "label": "Noord-Holland"
   },
   {
-    "label": "IJmond",
-    "id": "NL323"
+    "id": "NL321",
+    "label": "Kop van Noord-Holland"
   },
   {
-    "label": "Agglomeratie Haarlem",
-    "id": "NL324"
+    "id": "NL323",
+    "label": "IJmond"
   },
   {
-    "label": "Zaanstreek",
-    "id": "NL325"
+    "id": "NL324",
+    "label": "Agglomeratie Haarlem"
   },
   {
-    "label": "Het Gooi en Vechtstreek",
-    "id": "NL327"
+    "id": "NL325",
+    "label": "Zaanstreek"
   },
   {
-    "label": "Alkmaar en omgeving",
-    "id": "NL328"
+    "id": "NL327",
+    "label": "Het Gooi en Vechtstreek"
   },
   {
-    "label": "Groot-Amsterdam",
-    "id": "NL329"
+    "id": "NL328",
+    "label": "Alkmaar en omgeving"
   },
   {
-    "label": "Zuid-Holland",
-    "id": "NL33"
+    "id": "NL329",
+    "label": "Groot-Amsterdam"
   },
   {
-    "label": "Agglomeratie “s-Gravenhage",
-    "id": "NL332"
+    "id": "NL33",
+    "label": "Zuid-Holland"
   },
   {
-    "label": "Delft en Westland",
-    "id": "NL333"
+    "id": "NL332",
+    "label": "Agglomeratie ’s-Gravenhage"
   },
   {
-    "label": "Agglomeratie Leiden en Bollenstreek",
-    "id": "NL337"
+    "id": "NL333",
+    "label": "Delft en Westland"
   },
   {
-    "label": "Zuidoost-Zuid-Holland",
-    "id": "NL33A"
+    "id": "NL337",
+    "label": "Agglomeratie Leiden en Bollenstreek"
   },
   {
-    "label": "Oost-Zuid-Holland",
-    "id": "NL33B"
+    "id": "NL33A",
+    "label": "Zuidoost-Zuid-Holland"
   },
   {
-    "label": "Groot-Rijnmond",
-    "id": "NL33C"
+    "id": "NL33B",
+    "label": "Oost-Zuid-Holland"
   },
   {
-    "label": "Zeeland",
-    "id": "NL34"
+    "id": "NL33C",
+    "label": "Groot-Rijnmond"
   },
   {
-    "label": "Zeeuwsch-Vlaanderen",
-    "id": "NL341"
+    "id": "NL34",
+    "label": "Zeeland"
   },
   {
-    "label": "Overig Zeeland",
-    "id": "NL342"
+    "id": "NL341",
+    "label": "Zeeuwsch-Vlaanderen"
   },
   {
-    "label": "ZUID-NEDERLAND",
-    "id": "NL4"
+    "id": "NL342",
+    "label": "Overig Zeeland"
   },
   {
-    "label": "Noord-Brabant",
-    "id": "NL41"
+    "id": "NL4",
+    "label": "ZUID-NEDERLAND"
   },
   {
-    "label": "West-Noord-Brabant",
-    "id": "NL411"
+    "id": "NL41",
+    "label": "Noord-Brabant"
   },
   {
-    "label": "Midden-Noord-Brabant",
-    "id": "NL412"
+    "id": "NL411",
+    "label": "West-Noord-Brabant"
   },
   {
-    "label": "Noordoost-Noord-Brabant",
-    "id": "NL413"
+    "id": "NL412",
+    "label": "Midden-Noord-Brabant"
   },
   {
-    "label": "Zuidoost-Noord-Brabant",
-    "id": "NL414"
+    "id": "NL413",
+    "label": "Noordoost-Noord-Brabant"
   },
   {
-    "label": "Limburg (NL)",
-    "id": "NL42"
+    "id": "NL414",
+    "label": "Zuidoost-Noord-Brabant"
   },
   {
-    "label": "Noord-Limburg",
-    "id": "NL421"
+    "id": "NL42",
+    "label": "Limburg (NL)"
   },
   {
-    "label": "Midden-Limburg",
-    "id": "NL422"
+    "id": "NL421",
+    "label": "Noord-Limburg"
   },
   {
-    "label": "Zuid-Limburg",
-    "id": "NL423"
+    "id": "NL422",
+    "label": "Midden-Limburg"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "NLZ"
+    "id": "NL423",
+    "label": "Zuid-Limburg"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "NLZZ"
+    "id": "NLZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "NLZZZ"
+    "id": "NLZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "NLZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

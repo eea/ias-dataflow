@@ -1,62 +1,66 @@
 [
   {
-    "label": "IRELAND",
-    "id": "IE0"
+    "id": "IE",
+    "label": "IRELAND"
   },
   {
-    "label": "Northern and Western",
-    "id": "IE04"
+    "id": "IE0",
+    "label": "IRELAND"
   },
   {
-    "label": "Border",
-    "id": "IE041"
+    "id": "IE04",
+    "label": "Northern and Western"
   },
   {
-    "label": "West",
-    "id": "IE042"
+    "id": "IE041",
+    "label": "Border"
   },
   {
-    "label": "Southern",
-    "id": "IE05"
+    "id": "IE042",
+    "label": "West"
   },
   {
-    "label": "Mid-West",
-    "id": "IE051"
+    "id": "IE05",
+    "label": "Southern"
   },
   {
-    "label": "South-East",
-    "id": "IE052"
+    "id": "IE051",
+    "label": "Mid-West"
   },
   {
-    "label": "South-West",
-    "id": "IE053"
+    "id": "IE052",
+    "label": "South-East"
   },
   {
-    "label": "Eastern and Midland",
-    "id": "IE06"
+    "id": "IE053",
+    "label": "South-West"
   },
   {
-    "label": "Dublin",
-    "id": "IE061"
+    "id": "IE06",
+    "label": "Eastern and Midland"
   },
   {
-    "label": "Mid-East",
-    "id": "IE062"
+    "id": "IE061",
+    "label": "Dublin"
   },
   {
-    "label": "Midland",
-    "id": "IE063"
+    "id": "IE062",
+    "label": "Mid-East"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "IEZ"
+    "id": "IE063",
+    "label": "Midland"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "IEZZ"
+    "id": "IEZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "IEZZZ"
+    "id": "IEZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "IEZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

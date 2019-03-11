@@ -6,7 +6,7 @@ from pprint import pprint
 def firstTwo(string):
     return string[:2]
 
-input_file = open('./data/nuts_regions.json','r')
+input_file = open('./data/nuts_regions_2018.json','r')
 
 data = json.loads(input_file.read())
 

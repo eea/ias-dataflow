@@ -1,1834 +1,1838 @@
 [
   {
-    "label": "BADEN-WÜRTTEMBERG",
-    "id": "DE1"
+    "id": "DE",
+    "label": "DEUTSCHLAND"
   },
   {
-    "label": "Stuttgart",
-    "id": "DE11"
+    "id": "DE1",
+    "label": "BADEN-WÜRTTEMBERG"
   },
   {
-    "label": "Stuttgart, Stadtkreis",
-    "id": "DE111"
+    "id": "DE11",
+    "label": "Stuttgart"
   },
   {
-    "label": "Böblingen",
-    "id": "DE112"
+    "id": "DE111",
+    "label": "Stuttgart, Stadtkreis"
   },
   {
-    "label": "Esslingen",
-    "id": "DE113"
+    "id": "DE112",
+    "label": "Böblingen"
   },
   {
-    "label": "Göppingen",
-    "id": "DE114"
+    "id": "DE113",
+    "label": "Esslingen"
   },
   {
-    "label": "Ludwigsburg",
-    "id": "DE115"
+    "id": "DE114",
+    "label": "Göppingen"
   },
   {
-    "label": "Rems-Murr-Kreis",
-    "id": "DE116"
+    "id": "DE115",
+    "label": "Ludwigsburg"
   },
   {
-    "label": "Heilbronn, Stadtkreis",
-    "id": "DE117"
+    "id": "DE116",
+    "label": "Rems-Murr-Kreis"
   },
   {
-    "label": "Heilbronn, Landkreis",
-    "id": "DE118"
+    "id": "DE117",
+    "label": "Heilbronn, Stadtkreis"
   },
   {
-    "label": "Hohenlohekreis",
-    "id": "DE119"
+    "id": "DE118",
+    "label": "Heilbronn, Landkreis"
   },
   {
-    "label": "Schwäbisch Hall",
-    "id": "DE11A"
+    "id": "DE119",
+    "label": "Hohenlohekreis"
   },
   {
-    "label": "Main-Tauber-Kreis",
-    "id": "DE11B"
+    "id": "DE11A",
+    "label": "Schwäbisch Hall"
   },
   {
-    "label": "Heidenheim",
-    "id": "DE11C"
+    "id": "DE11B",
+    "label": "Main-Tauber-Kreis"
   },
   {
-    "label": "Ostalbkreis",
-    "id": "DE11D"
+    "id": "DE11C",
+    "label": "Heidenheim"
   },
   {
-    "label": "Karlsruhe",
-    "id": "DE12"
+    "id": "DE11D",
+    "label": "Ostalbkreis"
   },
   {
-    "label": "Baden-Baden, Stadtkreis",
-    "id": "DE121"
+    "id": "DE12",
+    "label": "Karlsruhe"
   },
   {
-    "label": "Karlsruhe, Stadtkreis",
-    "id": "DE122"
+    "id": "DE121",
+    "label": "Baden-Baden, Stadtkreis"
   },
   {
-    "label": "Karlsruhe, Landkreis",
-    "id": "DE123"
+    "id": "DE122",
+    "label": "Karlsruhe, Stadtkreis"
   },
   {
-    "label": "Rastatt",
-    "id": "DE124"
+    "id": "DE123",
+    "label": "Karlsruhe, Landkreis"
   },
   {
-    "label": "Heidelberg, Stadtkreis",
-    "id": "DE125"
+    "id": "DE124",
+    "label": "Rastatt"
   },
   {
-    "label": "Mannheim, Stadtkreis",
-    "id": "DE126"
+    "id": "DE125",
+    "label": "Heidelberg, Stadtkreis"
   },
   {
-    "label": "Neckar-Odenwald-Kreis",
-    "id": "DE127"
+    "id": "DE126",
+    "label": "Mannheim, Stadtkreis"
   },
   {
-    "label": "Rhein-Neckar-Kreis",
-    "id": "DE128"
+    "id": "DE127",
+    "label": "Neckar-Odenwald-Kreis"
   },
   {
-    "label": "Pforzheim, Stadtkreis",
-    "id": "DE129"
+    "id": "DE128",
+    "label": "Rhein-Neckar-Kreis"
   },
   {
-    "label": "Calw",
-    "id": "DE12A"
+    "id": "DE129",
+    "label": "Pforzheim, Stadtkreis"
   },
   {
-    "label": "Enzkreis",
-    "id": "DE12B"
+    "id": "DE12A",
+    "label": "Calw"
   },
   {
-    "label": "Freudenstadt",
-    "id": "DE12C"
+    "id": "DE12B",
+    "label": "Enzkreis"
   },
   {
-    "label": "Freiburg",
-    "id": "DE13"
+    "id": "DE12C",
+    "label": "Freudenstadt"
   },
   {
-    "label": "Freiburg im Breisgau, Stadtkreis",
-    "id": "DE131"
+    "id": "DE13",
+    "label": "Freiburg"
   },
   {
-    "label": "Breisgau-Hochschwarzwald",
-    "id": "DE132"
+    "id": "DE131",
+    "label": "Freiburg im Breisgau, Stadtkreis"
   },
   {
-    "label": "Emmendingen",
-    "id": "DE133"
+    "id": "DE132",
+    "label": "Breisgau-Hochschwarzwald"
   },
   {
-    "label": "Ortenaukreis",
-    "id": "DE134"
+    "id": "DE133",
+    "label": "Emmendingen"
   },
   {
-    "label": "Rottweil",
-    "id": "DE135"
+    "id": "DE134",
+    "label": "Ortenaukreis"
   },
   {
-    "label": "Schwarzwald-Baar-Kreis",
-    "id": "DE136"
+    "id": "DE135",
+    "label": "Rottweil"
   },
   {
-    "label": "Tuttlingen",
-    "id": "DE137"
+    "id": "DE136",
+    "label": "Schwarzwald-Baar-Kreis"
   },
   {
-    "label": "Konstanz",
-    "id": "DE138"
+    "id": "DE137",
+    "label": "Tuttlingen"
   },
   {
-    "label": "Lörrach",
-    "id": "DE139"
+    "id": "DE138",
+    "label": "Konstanz"
   },
   {
-    "label": "Waldshut",
-    "id": "DE13A"
+    "id": "DE139",
+    "label": "Lörrach"
   },
   {
-    "label": "Tübingen",
-    "id": "DE14"
+    "id": "DE13A",
+    "label": "Waldshut"
   },
   {
-    "label": "Reutlingen",
-    "id": "DE141"
+    "id": "DE14",
+    "label": "Tübingen"
   },
   {
-    "label": "Tübingen, Landkreis",
-    "id": "DE142"
+    "id": "DE141",
+    "label": "Reutlingen"
   },
   {
-    "label": "Zollernalbkreis",
-    "id": "DE143"
+    "id": "DE142",
+    "label": "Tübingen, Landkreis"
   },
   {
-    "label": "Ulm, Stadtkreis",
-    "id": "DE144"
+    "id": "DE143",
+    "label": "Zollernalbkreis"
   },
   {
-    "label": "Alb-Donau-Kreis",
-    "id": "DE145"
+    "id": "DE144",
+    "label": "Ulm, Stadtkreis"
   },
   {
-    "label": "Biberach",
-    "id": "DE146"
+    "id": "DE145",
+    "label": "Alb-Donau-Kreis"
   },
   {
-    "label": "Bodenseekreis",
-    "id": "DE147"
+    "id": "DE146",
+    "label": "Biberach"
   },
   {
-    "label": "Ravensburg",
-    "id": "DE148"
+    "id": "DE147",
+    "label": "Bodenseekreis"
   },
   {
-    "label": "Sigmaringen",
-    "id": "DE149"
+    "id": "DE148",
+    "label": "Ravensburg"
   },
   {
-    "label": "BAYERN",
-    "id": "DE2"
+    "id": "DE149",
+    "label": "Sigmaringen"
   },
   {
-    "label": "Oberbayern",
-    "id": "DE21"
+    "id": "DE2",
+    "label": "BAYERN"
   },
   {
-    "label": "Ingolstadt, Kreisfreie Stadt",
-    "id": "DE211"
+    "id": "DE21",
+    "label": "Oberbayern"
   },
   {
-    "label": "München, Kreisfreie Stadt",
-    "id": "DE212"
+    "id": "DE211",
+    "label": "Ingolstadt, Kreisfreie Stadt"
   },
   {
-    "label": "Rosenheim, Kreisfreie Stadt",
-    "id": "DE213"
+    "id": "DE212",
+    "label": "München, Kreisfreie Stadt"
   },
   {
-    "label": "Altötting",
-    "id": "DE214"
+    "id": "DE213",
+    "label": "Rosenheim, Kreisfreie Stadt"
   },
   {
-    "label": "Berchtesgadener Land",
-    "id": "DE215"
+    "id": "DE214",
+    "label": "Altötting"
   },
   {
-    "label": "Bad Tölz-Wolfratshausen",
-    "id": "DE216"
+    "id": "DE215",
+    "label": "Berchtesgadener Land"
   },
   {
-    "label": "Dachau",
-    "id": "DE217"
+    "id": "DE216",
+    "label": "Bad Tölz-Wolfratshausen"
   },
   {
-    "label": "Ebersberg",
-    "id": "DE218"
+    "id": "DE217",
+    "label": "Dachau"
   },
   {
-    "label": "Eichstätt",
-    "id": "DE219"
+    "id": "DE218",
+    "label": "Ebersberg"
   },
   {
-    "label": "Erding",
-    "id": "DE21A"
+    "id": "DE219",
+    "label": "Eichstätt"
   },
   {
-    "label": "Freising",
-    "id": "DE21B"
+    "id": "DE21A",
+    "label": "Erding"
   },
   {
-    "label": "Fürstenfeldbruck",
-    "id": "DE21C"
+    "id": "DE21B",
+    "label": "Freising"
   },
   {
-    "label": "Garmisch-Partenkirchen",
-    "id": "DE21D"
+    "id": "DE21C",
+    "label": "Fürstenfeldbruck"
   },
   {
-    "label": "Landsberg am Lech",
-    "id": "DE21E"
+    "id": "DE21D",
+    "label": "Garmisch-Partenkirchen"
   },
   {
-    "label": "Miesbach",
-    "id": "DE21F"
+    "id": "DE21E",
+    "label": "Landsberg am Lech"
   },
   {
-    "label": "Mühldorf a. Inn",
-    "id": "DE21G"
+    "id": "DE21F",
+    "label": "Miesbach"
   },
   {
-    "label": "München, Landkreis",
-    "id": "DE21H"
+    "id": "DE21G",
+    "label": "Mühldorf a. Inn"
   },
   {
-    "label": "Neuburg-Schrobenhausen",
-    "id": "DE21I"
+    "id": "DE21H",
+    "label": "München, Landkreis"
   },
   {
-    "label": "Pfaffenhofen a. d. Ilm",
-    "id": "DE21J"
+    "id": "DE21I",
+    "label": "Neuburg-Schrobenhausen"
   },
   {
-    "label": "Rosenheim, Landkreis",
-    "id": "DE21K"
+    "id": "DE21J",
+    "label": "Pfaffenhofen a. d. Ilm"
   },
   {
-    "label": "Starnberg",
-    "id": "DE21L"
+    "id": "DE21K",
+    "label": "Rosenheim, Landkreis"
   },
   {
-    "label": "Traunstein",
-    "id": "DE21M"
+    "id": "DE21L",
+    "label": "Starnberg"
   },
   {
-    "label": "Weilheim-Schongau",
-    "id": "DE21N"
+    "id": "DE21M",
+    "label": "Traunstein"
   },
   {
-    "label": "Niederbayern",
-    "id": "DE22"
+    "id": "DE21N",
+    "label": "Weilheim-Schongau"
   },
   {
-    "label": "Landshut, Kreisfreie Stadt",
-    "id": "DE221"
+    "id": "DE22",
+    "label": "Niederbayern"
   },
   {
-    "label": "Passau, Kreisfreie Stadt",
-    "id": "DE222"
+    "id": "DE221",
+    "label": "Landshut, Kreisfreie Stadt"
   },
   {
-    "label": "Straubing, Kreisfreie Stadt",
-    "id": "DE223"
+    "id": "DE222",
+    "label": "Passau, Kreisfreie Stadt"
   },
   {
-    "label": "Deggendorf",
-    "id": "DE224"
+    "id": "DE223",
+    "label": "Straubing, Kreisfreie Stadt"
   },
   {
-    "label": "Freyung-Grafenau",
-    "id": "DE225"
+    "id": "DE224",
+    "label": "Deggendorf"
   },
   {
-    "label": "Kelheim",
-    "id": "DE226"
+    "id": "DE225",
+    "label": "Freyung-Grafenau"
   },
   {
-    "label": "Landshut, Landkreis",
-    "id": "DE227"
+    "id": "DE226",
+    "label": "Kelheim"
   },
   {
-    "label": "Passau, Landkreis",
-    "id": "DE228"
+    "id": "DE227",
+    "label": "Landshut, Landkreis"
   },
   {
-    "label": "Regen",
-    "id": "DE229"
+    "id": "DE228",
+    "label": "Passau, Landkreis"
   },
   {
-    "label": "Rottal-Inn",
-    "id": "DE22A"
+    "id": "DE229",
+    "label": "Regen"
   },
   {
-    "label": "Straubing-Bogen",
-    "id": "DE22B"
+    "id": "DE22A",
+    "label": "Rottal-Inn"
   },
   {
-    "label": "Dingolfing-Landau",
-    "id": "DE22C"
+    "id": "DE22B",
+    "label": "Straubing-Bogen"
   },
   {
-    "label": "Oberpfalz",
-    "id": "DE23"
+    "id": "DE22C",
+    "label": "Dingolfing-Landau"
   },
   {
-    "label": "Amberg, Kreisfreie Stadt",
-    "id": "DE231"
+    "id": "DE23",
+    "label": "Oberpfalz"
   },
   {
-    "label": "Regensburg, Kreisfreie Stadt",
-    "id": "DE232"
+    "id": "DE231",
+    "label": "Amberg, Kreisfreie Stadt"
   },
   {
-    "label": "Weiden i. d. Opf, Kreisfreie Stadt",
-    "id": "DE233"
+    "id": "DE232",
+    "label": "Regensburg, Kreisfreie Stadt"
   },
   {
-    "label": "Amberg-Sulzbach",
-    "id": "DE234"
+    "id": "DE233",
+    "label": "Weiden i. d. Opf, Kreisfreie Stadt"
   },
   {
-    "label": "Cham",
-    "id": "DE235"
+    "id": "DE234",
+    "label": "Amberg-Sulzbach"
   },
   {
-    "label": "Neumarkt i. d. OPf.",
-    "id": "DE236"
+    "id": "DE235",
+    "label": "Cham"
   },
   {
-    "label": "Neustadt a. d. Waldnaab",
-    "id": "DE237"
+    "id": "DE236",
+    "label": "Neumarkt i. d. OPf."
   },
   {
-    "label": "Regensburg, Landkreis",
-    "id": "DE238"
+    "id": "DE237",
+    "label": "Neustadt a. d. Waldnaab"
   },
   {
-    "label": "Schwandorf",
-    "id": "DE239"
+    "id": "DE238",
+    "label": "Regensburg, Landkreis"
   },
   {
-    "label": "Tirschenreuth",
-    "id": "DE23A"
+    "id": "DE239",
+    "label": "Schwandorf"
   },
   {
-    "label": "Oberfranken",
-    "id": "DE24"
+    "id": "DE23A",
+    "label": "Tirschenreuth"
   },
   {
-    "label": "Bamberg, Kreisfreie Stadt",
-    "id": "DE241"
+    "id": "DE24",
+    "label": "Oberfranken"
   },
   {
-    "label": "Bayreuth, Kreisfreie Stadt",
-    "id": "DE242"
+    "id": "DE241",
+    "label": "Bamberg, Kreisfreie Stadt"
   },
   {
-    "label": "Coburg, Kreisfreie Stadt",
-    "id": "DE243"
+    "id": "DE242",
+    "label": "Bayreuth, Kreisfreie Stadt"
   },
   {
-    "label": "Hof, Kreisfreie Stadt",
-    "id": "DE244"
+    "id": "DE243",
+    "label": "Coburg, Kreisfreie Stadt"
   },
   {
-    "label": "Bamberg, Landkreis",
-    "id": "DE245"
+    "id": "DE244",
+    "label": "Hof, Kreisfreie Stadt"
   },
   {
-    "label": "Bayreuth, Landkreis",
-    "id": "DE246"
+    "id": "DE245",
+    "label": "Bamberg, Landkreis"
   },
   {
-    "label": "Coburg, Landkreis",
-    "id": "DE247"
+    "id": "DE246",
+    "label": "Bayreuth, Landkreis"
   },
   {
-    "label": "Forchheim",
-    "id": "DE248"
+    "id": "DE247",
+    "label": "Coburg, Landkreis"
   },
   {
-    "label": "Hof, Landkreis",
-    "id": "DE249"
+    "id": "DE248",
+    "label": "Forchheim"
   },
   {
-    "label": "Kronach",
-    "id": "DE24A"
+    "id": "DE249",
+    "label": "Hof, Landkreis"
   },
   {
-    "label": "Kulmbach",
-    "id": "DE24B"
+    "id": "DE24A",
+    "label": "Kronach"
   },
   {
-    "label": "Lichtenfels",
-    "id": "DE24C"
+    "id": "DE24B",
+    "label": "Kulmbach"
   },
   {
-    "label": "Wunsiedel i. Fichtelgebirge",
-    "id": "DE24D"
+    "id": "DE24C",
+    "label": "Lichtenfels"
   },
   {
-    "label": "Mittelfranken",
-    "id": "DE25"
+    "id": "DE24D",
+    "label": "Wunsiedel i. Fichtelgebirge"
   },
   {
-    "label": "Ansbach, Kreisfreie Stadt",
-    "id": "DE251"
+    "id": "DE25",
+    "label": "Mittelfranken"
   },
   {
-    "label": "Erlangen, Kreisfreie Stadt",
-    "id": "DE252"
+    "id": "DE251",
+    "label": "Ansbach, Kreisfreie Stadt"
   },
   {
-    "label": "Fürth, Kreisfreie Stadt",
-    "id": "DE253"
+    "id": "DE252",
+    "label": "Erlangen, Kreisfreie Stadt"
   },
   {
-    "label": "Nürnberg, Kreisfreie Stadt",
-    "id": "DE254"
+    "id": "DE253",
+    "label": "Fürth, Kreisfreie Stadt"
   },
   {
-    "label": "Schwabach, Kreisfreie Stadt",
-    "id": "DE255"
+    "id": "DE254",
+    "label": "Nürnberg, Kreisfreie Stadt"
   },
   {
-    "label": "Ansbach, Landkreis",
-    "id": "DE256"
+    "id": "DE255",
+    "label": "Schwabach, Kreisfreie Stadt"
   },
   {
-    "label": "Erlangen-Höchstadt",
-    "id": "DE257"
+    "id": "DE256",
+    "label": "Ansbach, Landkreis"
   },
   {
-    "label": "Fürth, Landkreis",
-    "id": "DE258"
+    "id": "DE257",
+    "label": "Erlangen-Höchstadt"
   },
   {
-    "label": "Nürnberger Land",
-    "id": "DE259"
+    "id": "DE258",
+    "label": "Fürth, Landkreis"
   },
   {
-    "label": "Neustadt a. d. Aisch-Bad Windsheim",
-    "id": "DE25A"
+    "id": "DE259",
+    "label": "Nürnberger Land"
   },
   {
-    "label": "Roth",
-    "id": "DE25B"
+    "id": "DE25A",
+    "label": "Neustadt a. d. Aisch-Bad Windsheim"
   },
   {
-    "label": "Weißenburg-Gunzenhausen",
-    "id": "DE25C"
+    "id": "DE25B",
+    "label": "Roth"
   },
   {
-    "label": "Unterfranken",
-    "id": "DE26"
+    "id": "DE25C",
+    "label": "Weißenburg-Gunzenhausen"
   },
   {
-    "label": "Aschaffenburg, Kreisfreie Stadt",
-    "id": "DE261"
+    "id": "DE26",
+    "label": "Unterfranken"
   },
   {
-    "label": "Schweinfurt, Kreisfreie Stadt",
-    "id": "DE262"
+    "id": "DE261",
+    "label": "Aschaffenburg, Kreisfreie Stadt"
   },
   {
-    "label": "Würzburg, Kreisfreie Stadt",
-    "id": "DE263"
+    "id": "DE262",
+    "label": "Schweinfurt, Kreisfreie Stadt"
   },
   {
-    "label": "Aschaffenburg, Landkreis",
-    "id": "DE264"
+    "id": "DE263",
+    "label": "Würzburg, Kreisfreie Stadt"
   },
   {
-    "label": "Bad Kissingen",
-    "id": "DE265"
+    "id": "DE264",
+    "label": "Aschaffenburg, Landkreis"
   },
   {
-    "label": "Rhön-Grabfeld",
-    "id": "DE266"
+    "id": "DE265",
+    "label": "Bad Kissingen"
   },
   {
-    "label": "Haßberge",
-    "id": "DE267"
+    "id": "DE266",
+    "label": "Rhön-Grabfeld"
   },
   {
-    "label": "Kitzingen",
-    "id": "DE268"
+    "id": "DE267",
+    "label": "Haßberge"
   },
   {
-    "label": "Miltenberg",
-    "id": "DE269"
+    "id": "DE268",
+    "label": "Kitzingen"
   },
   {
-    "label": "Main-Spessart",
-    "id": "DE26A"
+    "id": "DE269",
+    "label": "Miltenberg"
   },
   {
-    "label": "Schweinfurt, Landkreis",
-    "id": "DE26B"
+    "id": "DE26A",
+    "label": "Main-Spessart"
   },
   {
-    "label": "Würzburg, Landkreis",
-    "id": "DE26C"
+    "id": "DE26B",
+    "label": "Schweinfurt, Landkreis"
   },
   {
-    "label": "Schwaben",
-    "id": "DE27"
+    "id": "DE26C",
+    "label": "Würzburg, Landkreis"
   },
   {
-    "label": "Augsburg, Kreisfreie Stadt",
-    "id": "DE271"
+    "id": "DE27",
+    "label": "Schwaben"
   },
   {
-    "label": "Kaufbeuren, Kreisfreie Stadt",
-    "id": "DE272"
+    "id": "DE271",
+    "label": "Augsburg, Kreisfreie Stadt"
   },
   {
-    "label": "Kempten (Allgäu), Kreisfreie Stadt",
-    "id": "DE273"
+    "id": "DE272",
+    "label": "Kaufbeuren, Kreisfreie Stadt"
   },
   {
-    "label": "Memmingen, Kreisfreie Stadt",
-    "id": "DE274"
+    "id": "DE273",
+    "label": "Kempten (Allgäu), Kreisfreie Stadt"
   },
   {
-    "label": "Aichach-Friedberg",
-    "id": "DE275"
+    "id": "DE274",
+    "label": "Memmingen, Kreisfreie Stadt"
   },
   {
-    "label": "Augsburg, Landkreis",
-    "id": "DE276"
+    "id": "DE275",
+    "label": "Aichach-Friedberg"
   },
   {
-    "label": "Dillingen a.d. Donau",
-    "id": "DE277"
+    "id": "DE276",
+    "label": "Augsburg, Landkreis"
   },
   {
-    "label": "Günzburg",
-    "id": "DE278"
+    "id": "DE277",
+    "label": "Dillingen a.d. Donau"
   },
   {
-    "label": "Neu-Ulm",
-    "id": "DE279"
+    "id": "DE278",
+    "label": "Günzburg"
   },
   {
-    "label": "Lindau (Bodensee)",
-    "id": "DE27A"
+    "id": "DE279",
+    "label": "Neu-Ulm"
   },
   {
-    "label": "Ostallgäu",
-    "id": "DE27B"
+    "id": "DE27A",
+    "label": "Lindau (Bodensee)"
   },
   {
-    "label": "Unterallgäu",
-    "id": "DE27C"
+    "id": "DE27B",
+    "label": "Ostallgäu"
   },
   {
-    "label": "Donau-Ries",
-    "id": "DE27D"
+    "id": "DE27C",
+    "label": "Unterallgäu"
   },
   {
-    "label": "Oberallgäu",
-    "id": "DE27E"
+    "id": "DE27D",
+    "label": "Donau-Ries"
   },
   {
-    "label": "BERLIN",
-    "id": "DE3"
+    "id": "DE27E",
+    "label": "Oberallgäu"
   },
   {
-    "label": "Berlin",
-    "id": "DE30"
+    "id": "DE3",
+    "label": "BERLIN"
   },
   {
-    "label": "Berlin",
-    "id": "DE300"
+    "id": "DE30",
+    "label": "Berlin"
   },
   {
-    "label": "BRANDENBURG",
-    "id": "DE4"
+    "id": "DE300",
+    "label": "Berlin"
   },
   {
-    "label": "Brandenburg",
-    "id": "DE40"
+    "id": "DE4",
+    "label": "BRANDENBURG"
   },
   {
-    "label": "Brandenburg an der Havel, Kreisfreie Stadt",
-    "id": "DE401"
+    "id": "DE40",
+    "label": "Brandenburg"
   },
   {
-    "label": "Cottbus, Kreisfreie Stadt",
-    "id": "DE402"
+    "id": "DE401",
+    "label": "Brandenburg an der Havel, Kreisfreie Stadt"
   },
   {
-    "label": "Frankfurt (Oder), Kreisfreie Stadt",
-    "id": "DE403"
+    "id": "DE402",
+    "label": "Cottbus, Kreisfreie Stadt"
   },
   {
-    "label": "Potsdam, Kreisfreie Stadt",
-    "id": "DE404"
+    "id": "DE403",
+    "label": "Frankfurt (Oder), Kreisfreie Stadt"
   },
   {
-    "label": "Barnim",
-    "id": "DE405"
+    "id": "DE404",
+    "label": "Potsdam, Kreisfreie Stadt"
   },
   {
-    "label": "Dahme-Spreewald",
-    "id": "DE406"
+    "id": "DE405",
+    "label": "Barnim"
   },
   {
-    "label": "Elbe-Elster",
-    "id": "DE407"
+    "id": "DE406",
+    "label": "Dahme-Spreewald"
   },
   {
-    "label": "Havelland",
-    "id": "DE408"
+    "id": "DE407",
+    "label": "Elbe-Elster"
   },
   {
-    "label": "Märkisch-Oderland",
-    "id": "DE409"
+    "id": "DE408",
+    "label": "Havelland"
   },
   {
-    "label": "Oberhavel",
-    "id": "DE40A"
+    "id": "DE409",
+    "label": "Märkisch-Oderland"
   },
   {
-    "label": "Oberspreewald-Lausitz",
-    "id": "DE40B"
+    "id": "DE40A",
+    "label": "Oberhavel"
   },
   {
-    "label": "Oder-Spree",
-    "id": "DE40C"
+    "id": "DE40B",
+    "label": "Oberspreewald-Lausitz"
   },
   {
-    "label": "Ostprignitz-Ruppin",
-    "id": "DE40D"
+    "id": "DE40C",
+    "label": "Oder-Spree"
   },
   {
-    "label": "Potsdam-Mittelmark",
-    "id": "DE40E"
+    "id": "DE40D",
+    "label": "Ostprignitz-Ruppin"
   },
   {
-    "label": "Prignitz",
-    "id": "DE40F"
+    "id": "DE40E",
+    "label": "Potsdam-Mittelmark"
   },
   {
-    "label": "Spree-Neiße",
-    "id": "DE40G"
+    "id": "DE40F",
+    "label": "Prignitz"
   },
   {
-    "label": "Teltow-Fläming",
-    "id": "DE40H"
+    "id": "DE40G",
+    "label": "Spree-Neiße"
   },
   {
-    "label": "Uckermark",
-    "id": "DE40I"
+    "id": "DE40H",
+    "label": "Teltow-Fläming"
   },
   {
-    "label": "BREMEN",
-    "id": "DE5"
+    "id": "DE40I",
+    "label": "Uckermark"
   },
   {
-    "label": "Bremen",
-    "id": "DE50"
+    "id": "DE5",
+    "label": "BREMEN"
   },
   {
-    "label": "Bremen, Kreisfreie Stadt",
-    "id": "DE501"
+    "id": "DE50",
+    "label": "Bremen"
   },
   {
-    "label": "Bremerhaven, Kreisfreie Stadt",
-    "id": "DE502"
+    "id": "DE501",
+    "label": "Bremen, Kreisfreie Stadt"
   },
   {
-    "label": "HAMBURG",
-    "id": "DE6"
+    "id": "DE502",
+    "label": "Bremerhaven, Kreisfreie Stadt"
   },
   {
-    "label": "Hamburg",
-    "id": "DE60"
+    "id": "DE6",
+    "label": "HAMBURG"
   },
   {
-    "label": "Hamburg",
-    "id": "DE600"
+    "id": "DE60",
+    "label": "Hamburg"
   },
   {
-    "label": "HESSEN",
-    "id": "DE7"
+    "id": "DE600",
+    "label": "Hamburg"
   },
   {
-    "label": "Darmstadt",
-    "id": "DE71"
+    "id": "DE7",
+    "label": "HESSEN"
   },
   {
-    "label": "Darmstadt, Kreisfreie Stadt",
-    "id": "DE711"
+    "id": "DE71",
+    "label": "Darmstadt"
   },
   {
-    "label": "Frankfurt am Main, Kreisfreie Stadt",
-    "id": "DE712"
+    "id": "DE711",
+    "label": "Darmstadt, Kreisfreie Stadt"
   },
   {
-    "label": "Offenbach am Main, Kreisfreie Stadt",
-    "id": "DE713"
+    "id": "DE712",
+    "label": "Frankfurt am Main, Kreisfreie Stadt"
   },
   {
-    "label": "Wiesbaden, Kreisfreie Stadt",
-    "id": "DE714"
+    "id": "DE713",
+    "label": "Offenbach am Main, Kreisfreie Stadt"
   },
   {
-    "label": "Bergstraße",
-    "id": "DE715"
+    "id": "DE714",
+    "label": "Wiesbaden, Kreisfreie Stadt"
   },
   {
-    "label": "Darmstadt-Dieburg",
-    "id": "DE716"
+    "id": "DE715",
+    "label": "Bergstraße"
   },
   {
-    "label": "Groß-Gerau",
-    "id": "DE717"
+    "id": "DE716",
+    "label": "Darmstadt-Dieburg"
   },
   {
-    "label": "Hochtaunuskreis",
-    "id": "DE718"
+    "id": "DE717",
+    "label": "Groß-Gerau"
   },
   {
-    "label": "Main-Kinzig-Kreis",
-    "id": "DE719"
+    "id": "DE718",
+    "label": "Hochtaunuskreis"
   },
   {
-    "label": "Main-Taunus-Kreis",
-    "id": "DE71A"
+    "id": "DE719",
+    "label": "Main-Kinzig-Kreis"
   },
   {
-    "label": "Odenwaldkreis",
-    "id": "DE71B"
+    "id": "DE71A",
+    "label": "Main-Taunus-Kreis"
   },
   {
-    "label": "Offenbach, Landkreis",
-    "id": "DE71C"
+    "id": "DE71B",
+    "label": "Odenwaldkreis"
   },
   {
-    "label": "Rheingau-Taunus-Kreis",
-    "id": "DE71D"
+    "id": "DE71C",
+    "label": "Offenbach, Landkreis"
   },
   {
-    "label": "Wetteraukreis",
-    "id": "DE71E"
+    "id": "DE71D",
+    "label": "Rheingau-Taunus-Kreis"
   },
   {
-    "label": "Gießen",
-    "id": "DE72"
+    "id": "DE71E",
+    "label": "Wetteraukreis"
   },
   {
-    "label": "Gießen, Landkreis",
-    "id": "DE721"
+    "id": "DE72",
+    "label": "Gießen"
   },
   {
-    "label": "Lahn-Dill-Kreis",
-    "id": "DE722"
+    "id": "DE721",
+    "label": "Gießen, Landkreis"
   },
   {
-    "label": "Limburg-Weilburg",
-    "id": "DE723"
+    "id": "DE722",
+    "label": "Lahn-Dill-Kreis"
   },
   {
-    "label": "Marburg-Biedenkopf",
-    "id": "DE724"
+    "id": "DE723",
+    "label": "Limburg-Weilburg"
   },
   {
-    "label": "Vogelsbergkreis",
-    "id": "DE725"
+    "id": "DE724",
+    "label": "Marburg-Biedenkopf"
   },
   {
-    "label": "Kassel",
-    "id": "DE73"
+    "id": "DE725",
+    "label": "Vogelsbergkreis"
   },
   {
-    "label": "Kassel, Kreisfreie Stadt",
-    "id": "DE731"
+    "id": "DE73",
+    "label": "Kassel"
   },
   {
-    "label": "Fulda",
-    "id": "DE732"
+    "id": "DE731",
+    "label": "Kassel, Kreisfreie Stadt"
   },
   {
-    "label": "Hersfeld-Rotenburg",
-    "id": "DE733"
+    "id": "DE732",
+    "label": "Fulda"
   },
   {
-    "label": "Kassel, Landkreis",
-    "id": "DE734"
+    "id": "DE733",
+    "label": "Hersfeld-Rotenburg"
   },
   {
-    "label": "Schwalm-Eder-Kreis",
-    "id": "DE735"
+    "id": "DE734",
+    "label": "Kassel, Landkreis"
   },
   {
-    "label": "Waldeck-Frankenberg",
-    "id": "DE736"
+    "id": "DE735",
+    "label": "Schwalm-Eder-Kreis"
   },
   {
-    "label": "Werra-Meißner-Kreis",
-    "id": "DE737"
+    "id": "DE736",
+    "label": "Waldeck-Frankenberg"
   },
   {
-    "label": "MECKLENBURG-VORPOMMERN",
-    "id": "DE8"
+    "id": "DE737",
+    "label": "Werra-Meißner-Kreis"
   },
   {
-    "label": "Mecklenburg-Vorpommern",
-    "id": "DE80"
+    "id": "DE8",
+    "label": "MECKLENBURG-VORPOMMERN"
   },
   {
-    "label": "Rostock, Kreisfreie Stadt",
-    "id": "DE803"
+    "id": "DE80",
+    "label": "Mecklenburg-Vorpommern"
   },
   {
-    "label": "Schwerin, Kreisfreie Stadt",
-    "id": "DE804"
+    "id": "DE803",
+    "label": "Rostock, Kreisfreie Stadt"
   },
   {
-    "label": "Mecklenburgische Seenplatte",
-    "id": "DE80J"
+    "id": "DE804",
+    "label": "Schwerin, Kreisfreie Stadt"
   },
   {
-    "label": "Vorpommern-Greifswald",
-    "id": "DE80N"
+    "id": "DE80J",
+    "label": "Mecklenburgische Seenplatte"
   },
   {
-    "label": "Landkreis Rostock",
-    "id": "DE80K"
+    "id": "DE80K",
+    "label": "Landkreis Rostock"
   },
   {
-    "label": "Vorpommern-Rügen",
-    "id": "DE80L"
+    "id": "DE80L",
+    "label": "Vorpommern-Rügen"
   },
   {
-    "label": "Nordwestmecklenburg",
-    "id": "DE80M"
+    "id": "DE80M",
+    "label": "Nordwestmecklenburg"
   },
   {
-    "label": "Ludwigslust-Parchim",
-    "id": "DE80O"
+    "id": "DE80N",
+    "label": "Vorpommern-Greifswald"
   },
   {
-    "label": "NIEDERSACHSEN",
-    "id": "DE9"
+    "id": "DE80O",
+    "label": "Ludwigslust-Parchim"
   },
   {
-    "label": "Braunschweig",
-    "id": "DE91"
+    "id": "DE9",
+    "label": "NIEDERSACHSEN"
   },
   {
-    "label": "Braunschweig, Kreisfreie Stadt",
-    "id": "DE911"
+    "id": "DE91",
+    "label": "Braunschweig"
   },
   {
-    "label": "Salzgitter, Kreisfreie Stadt",
-    "id": "DE912"
+    "id": "DE911",
+    "label": "Braunschweig, Kreisfreie Stadt"
   },
   {
-    "label": "Wolfsburg, Kreisfreie Stadt",
-    "id": "DE913"
+    "id": "DE912",
+    "label": "Salzgitter, Kreisfreie Stadt"
   },
   {
-    "label": "Gifhorn",
-    "id": "DE914"
+    "id": "DE913",
+    "label": "Wolfsburg, Kreisfreie Stadt"
   },
   {
-    "label": "Goslar",
-    "id": "DE916"
+    "id": "DE914",
+    "label": "Gifhorn"
   },
   {
-    "label": "Helmstedt",
-    "id": "DE917"
+    "id": "DE916",
+    "label": "Goslar"
   },
   {
-    "label": "Northeim",
-    "id": "DE918"
+    "id": "DE917",
+    "label": "Helmstedt"
   },
   {
-    "label": "Peine",
-    "id": "DE91A"
+    "id": "DE918",
+    "label": "Northeim"
   },
   {
-    "label": "Wolfenbüttel",
-    "id": "DE91B"
+    "id": "DE91A",
+    "label": "Peine"
   },
   {
-    "label": "Göttingen",
-    "id": "DE91C"
+    "id": "DE91B",
+    "label": "Wolfenbüttel"
   },
   {
-    "label": "Hannover",
-    "id": "DE92"
+    "id": "DE91C",
+    "label": "Göttingen"
   },
   {
-    "label": "Diepholz",
-    "id": "DE922"
+    "id": "DE92",
+    "label": "Hannover"
   },
   {
-    "label": "Hameln-Pyrmont",
-    "id": "DE923"
+    "id": "DE922",
+    "label": "Diepholz"
   },
   {
-    "label": "Hildesheim",
-    "id": "DE925"
+    "id": "DE923",
+    "label": "Hameln-Pyrmont"
   },
   {
-    "label": "Holzminden",
-    "id": "DE926"
+    "id": "DE925",
+    "label": "Hildesheim"
   },
   {
-    "label": "Nienburg (Weser)",
-    "id": "DE927"
+    "id": "DE926",
+    "label": "Holzminden"
   },
   {
-    "label": "Schaumburg",
-    "id": "DE928"
+    "id": "DE927",
+    "label": "Nienburg (Weser)"
   },
   {
-    "label": "Region Hannover",
-    "id": "DE929"
+    "id": "DE928",
+    "label": "Schaumburg"
   },
   {
-    "label": "Lüneburg",
-    "id": "DE93"
+    "id": "DE929",
+    "label": "Region Hannover"
   },
   {
-    "label": "Celle",
-    "id": "DE931"
+    "id": "DE93",
+    "label": "Lüneburg"
   },
   {
-    "label": "Cuxhaven",
-    "id": "DE932"
+    "id": "DE931",
+    "label": "Celle"
   },
   {
-    "label": "Harburg",
-    "id": "DE933"
+    "id": "DE932",
+    "label": "Cuxhaven"
   },
   {
-    "label": "Lüchow-Dannenberg",
-    "id": "DE934"
+    "id": "DE933",
+    "label": "Harburg"
   },
   {
-    "label": "Lüneburg, Landkreis",
-    "id": "DE935"
+    "id": "DE934",
+    "label": "Lüchow-Dannenberg"
   },
   {
-    "label": "Osterholz",
-    "id": "DE936"
+    "id": "DE935",
+    "label": "Lüneburg, Landkreis"
   },
   {
-    "label": "Rotenburg (Wümme)",
-    "id": "DE937"
+    "id": "DE936",
+    "label": "Osterholz"
   },
   {
-    "label": "Heidekreis",
-    "id": "DE938"
+    "id": "DE937",
+    "label": "Rotenburg (Wümme)"
   },
   {
-    "label": "Stade",
-    "id": "DE939"
+    "id": "DE938",
+    "label": "Heidekreis"
   },
   {
-    "label": "Uelzen",
-    "id": "DE93A"
+    "id": "DE939",
+    "label": "Stade"
   },
   {
-    "label": "Verden",
-    "id": "DE93B"
+    "id": "DE93A",
+    "label": "Uelzen"
   },
   {
-    "label": "Weser-Ems",
-    "id": "DE94"
+    "id": "DE93B",
+    "label": "Verden"
   },
   {
-    "label": "Delmenhorst, Kreisfreie Stadt",
-    "id": "DE941"
+    "id": "DE94",
+    "label": "Weser-Ems"
   },
   {
-    "label": "Emden, Kreisfreie Stadt",
-    "id": "DE942"
+    "id": "DE941",
+    "label": "Delmenhorst, Kreisfreie Stadt"
   },
   {
-    "label": "Oldenburg (Oldenburg), Kreisfreie Stadt",
-    "id": "DE943"
+    "id": "DE942",
+    "label": "Emden, Kreisfreie Stadt"
   },
   {
-    "label": "Osnabrück, Kreisfreie Stadt",
-    "id": "DE944"
+    "id": "DE943",
+    "label": "Oldenburg (Oldenburg), Kreisfreie Stadt"
   },
   {
-    "label": "Wilhelmshaven, Kreisfreie Stadt",
-    "id": "DE945"
+    "id": "DE944",
+    "label": "Osnabrück, Kreisfreie Stadt"
   },
   {
-    "label": "Ammerland",
-    "id": "DE946"
+    "id": "DE945",
+    "label": "Wilhelmshaven, Kreisfreie Stadt"
   },
   {
-    "label": "Aurich",
-    "id": "DE947"
+    "id": "DE946",
+    "label": "Ammerland"
   },
   {
-    "label": "Cloppenburg",
-    "id": "DE948"
+    "id": "DE947",
+    "label": "Aurich"
   },
   {
-    "label": "Emsland",
-    "id": "DE949"
+    "id": "DE948",
+    "label": "Cloppenburg"
   },
   {
-    "label": "Friesland (DE)",
-    "id": "DE94A"
+    "id": "DE949",
+    "label": "Emsland"
   },
   {
-    "label": "Grafschaft Bentheim",
-    "id": "DE94B"
+    "id": "DE94A",
+    "label": "Friesland (DE)"
   },
   {
-    "label": "Leer",
-    "id": "DE94C"
+    "id": "DE94B",
+    "label": "Grafschaft Bentheim"
   },
   {
-    "label": "Oldenburg, Landkreis",
-    "id": "DE94D"
+    "id": "DE94C",
+    "label": "Leer"
   },
   {
-    "label": "Osnabrück, Landkreis",
-    "id": "DE94E"
+    "id": "DE94D",
+    "label": "Oldenburg, Landkreis"
   },
   {
-    "label": "Vechta",
-    "id": "DE94F"
+    "id": "DE94E",
+    "label": "Osnabrück, Landkreis"
   },
   {
-    "label": "Wesermarsch",
-    "id": "DE94G"
+    "id": "DE94F",
+    "label": "Vechta"
   },
   {
-    "label": "Wittmund",
-    "id": "DE94H"
+    "id": "DE94G",
+    "label": "Wesermarsch"
   },
   {
-    "label": "NORDRHEIN-WESTFALEN",
-    "id": "DEA"
+    "id": "DE94H",
+    "label": "Wittmund"
   },
   {
-    "label": "Düsseldorf",
-    "id": "DEA1"
+    "id": "DEA",
+    "label": "NORDRHEIN-WESTFALEN"
   },
   {
-    "label": "Düsseldorf, Kreisfreie Stadt",
-    "id": "DEA11"
+    "id": "DEA1",
+    "label": "Düsseldorf"
   },
   {
-    "label": "Duisburg, Kreisfreie Stadt",
-    "id": "DEA12"
+    "id": "DEA11",
+    "label": "Düsseldorf, Kreisfreie Stadt"
   },
   {
-    "label": "Essen, Kreisfreie Stadt",
-    "id": "DEA13"
+    "id": "DEA12",
+    "label": "Duisburg, Kreisfreie Stadt"
   },
   {
-    "label": "Krefeld, Kreisfreie Stadt",
-    "id": "DEA14"
+    "id": "DEA13",
+    "label": "Essen, Kreisfreie Stadt"
   },
   {
-    "label": "Mönchengladbach, Kreisfreie Stadt",
-    "id": "DEA15"
+    "id": "DEA14",
+    "label": "Krefeld, Kreisfreie Stadt"
   },
   {
-    "label": "Mülheim an der Ruhr, Kreisfreie Stadt",
-    "id": "DEA16"
+    "id": "DEA15",
+    "label": "Mönchengladbach, Kreisfreie Stadt"
   },
   {
-    "label": "Oberhausen, Kreisfreie Stadt",
-    "id": "DEA17"
+    "id": "DEA16",
+    "label": "Mülheim an der Ruhr, Kreisfreie Stadt"
   },
   {
-    "label": "Remscheid, Kreisfreie Stadt",
-    "id": "DEA18"
+    "id": "DEA17",
+    "label": "Oberhausen, Kreisfreie Stadt"
   },
   {
-    "label": "Solingen, Kreisfreie Stadt",
-    "id": "DEA19"
+    "id": "DEA18",
+    "label": "Remscheid, Kreisfreie Stadt"
   },
   {
-    "label": "Wuppertal, Kreisfreie Stadt",
-    "id": "DEA1A"
+    "id": "DEA19",
+    "label": "Solingen, Kreisfreie Stadt"
   },
   {
-    "label": "Kleve",
-    "id": "DEA1B"
+    "id": "DEA1A",
+    "label": "Wuppertal, Kreisfreie Stadt"
   },
   {
-    "label": "Mettmann",
-    "id": "DEA1C"
+    "id": "DEA1B",
+    "label": "Kleve"
   },
   {
-    "label": "Rhein-Kreis Neuss",
-    "id": "DEA1D"
+    "id": "DEA1C",
+    "label": "Mettmann"
   },
   {
-    "label": "Viersen",
-    "id": "DEA1E"
+    "id": "DEA1D",
+    "label": "Rhein-Kreis Neuss"
   },
   {
-    "label": "Wesel",
-    "id": "DEA1F"
+    "id": "DEA1E",
+    "label": "Viersen"
   },
   {
-    "label": "Köln",
-    "id": "DEA2"
+    "id": "DEA1F",
+    "label": "Wesel"
   },
   {
-    "label": "Bonn, Kreisfreie Stadt",
-    "id": "DEA22"
+    "id": "DEA2",
+    "label": "Köln"
   },
   {
-    "label": "Köln, Kreisfreie Stadt",
-    "id": "DEA23"
+    "id": "DEA22",
+    "label": "Bonn, Kreisfreie Stadt"
   },
   {
-    "label": "Leverkusen, Kreisfreie Stadt",
-    "id": "DEA24"
+    "id": "DEA23",
+    "label": "Köln, Kreisfreie Stadt"
   },
   {
-    "label": "Düren",
-    "id": "DEA26"
+    "id": "DEA24",
+    "label": "Leverkusen, Kreisfreie Stadt"
   },
   {
-    "label": "Rhein-Erft-Kreis",
-    "id": "DEA27"
+    "id": "DEA26",
+    "label": "Düren"
   },
   {
-    "label": "Euskirchen",
-    "id": "DEA28"
+    "id": "DEA27",
+    "label": "Rhein-Erft-Kreis"
   },
   {
-    "label": "Heinsberg",
-    "id": "DEA29"
+    "id": "DEA28",
+    "label": "Euskirchen"
   },
   {
-    "label": "Oberbergischer Kreis",
-    "id": "DEA2A"
+    "id": "DEA29",
+    "label": "Heinsberg"
   },
   {
-    "label": "Rheinisch-Bergischer Kreis",
-    "id": "DEA2B"
+    "id": "DEA2A",
+    "label": "Oberbergischer Kreis"
   },
   {
-    "label": "Rhein-Sieg-Kreis",
-    "id": "DEA2C"
+    "id": "DEA2B",
+    "label": "Rheinisch-Bergischer Kreis"
   },
   {
-    "label": "Städteregion Aachen",
-    "id": "DEA2D"
+    "id": "DEA2C",
+    "label": "Rhein-Sieg-Kreis"
   },
   {
-    "label": "Münster",
-    "id": "DEA3"
+    "id": "DEA2D",
+    "label": "Städteregion Aachen"
   },
   {
-    "label": "Bottrop, Kreisfreie Stadt",
-    "id": "DEA31"
+    "id": "DEA3",
+    "label": "Münster"
   },
   {
-    "label": "Gelsenkirchen, Kreisfreie Stadt",
-    "id": "DEA32"
+    "id": "DEA31",
+    "label": "Bottrop, Kreisfreie Stadt"
   },
   {
-    "label": "Münster, Kreisfreie Stadt",
-    "id": "DEA33"
+    "id": "DEA32",
+    "label": "Gelsenkirchen, Kreisfreie Stadt"
   },
   {
-    "label": "Borken",
-    "id": "DEA34"
+    "id": "DEA33",
+    "label": "Münster, Kreisfreie Stadt"
   },
   {
-    "label": "Coesfeld",
-    "id": "DEA35"
+    "id": "DEA34",
+    "label": "Borken"
   },
   {
-    "label": "Recklinghausen",
-    "id": "DEA36"
+    "id": "DEA35",
+    "label": "Coesfeld"
   },
   {
-    "label": "Steinfurt",
-    "id": "DEA37"
+    "id": "DEA36",
+    "label": "Recklinghausen"
   },
   {
-    "label": "Warendorf",
-    "id": "DEA38"
+    "id": "DEA37",
+    "label": "Steinfurt"
   },
   {
-    "label": "Detmold",
-    "id": "DEA4"
+    "id": "DEA38",
+    "label": "Warendorf"
   },
   {
-    "label": "Bielefeld, Kreisfreie Stadt",
-    "id": "DEA41"
+    "id": "DEA4",
+    "label": "Detmold"
   },
   {
-    "label": "Gütersloh",
-    "id": "DEA42"
+    "id": "DEA41",
+    "label": "Bielefeld, Kreisfreie Stadt"
   },
   {
-    "label": "Herford",
-    "id": "DEA43"
+    "id": "DEA42",
+    "label": "Gütersloh"
   },
   {
-    "label": "Höxter",
-    "id": "DEA44"
+    "id": "DEA43",
+    "label": "Herford"
   },
   {
-    "label": "Lippe",
-    "id": "DEA45"
+    "id": "DEA44",
+    "label": "Höxter"
   },
   {
-    "label": "Minden-Lübbecke",
-    "id": "DEA46"
+    "id": "DEA45",
+    "label": "Lippe"
   },
   {
-    "label": "Paderborn",
-    "id": "DEA47"
+    "id": "DEA46",
+    "label": "Minden-Lübbecke"
   },
   {
-    "label": "Arnsberg",
-    "id": "DEA5"
+    "id": "DEA47",
+    "label": "Paderborn"
   },
   {
-    "label": "Bochum, Kreisfreie Stadt",
-    "id": "DEA51"
+    "id": "DEA5",
+    "label": "Arnsberg"
   },
   {
-    "label": "Dortmund, Kreisfreie Stadt",
-    "id": "DEA52"
+    "id": "DEA51",
+    "label": "Bochum, Kreisfreie Stadt"
   },
   {
-    "label": "Hagen, Kreisfreie Stadt",
-    "id": "DEA53"
+    "id": "DEA52",
+    "label": "Dortmund, Kreisfreie Stadt"
   },
   {
-    "label": "Hamm, Kreisfreie Stadt",
-    "id": "DEA54"
+    "id": "DEA53",
+    "label": "Hagen, Kreisfreie Stadt"
   },
   {
-    "label": "Herne, Kreisfreie Stadt",
-    "id": "DEA55"
+    "id": "DEA54",
+    "label": "Hamm, Kreisfreie Stadt"
   },
   {
-    "label": "Ennepe-Ruhr-Kreis",
-    "id": "DEA56"
+    "id": "DEA55",
+    "label": "Herne, Kreisfreie Stadt"
   },
   {
-    "label": "Hochsauerlandkreis",
-    "id": "DEA57"
+    "id": "DEA56",
+    "label": "Ennepe-Ruhr-Kreis"
   },
   {
-    "label": "Märkischer Kreis",
-    "id": "DEA58"
+    "id": "DEA57",
+    "label": "Hochsauerlandkreis"
   },
   {
-    "label": "Olpe",
-    "id": "DEA59"
+    "id": "DEA58",
+    "label": "Märkischer Kreis"
   },
   {
-    "label": "Siegen-Wittgenstein",
-    "id": "DEA5A"
+    "id": "DEA59",
+    "label": "Olpe"
   },
   {
-    "label": "Soest",
-    "id": "DEA5B"
+    "id": "DEA5A",
+    "label": "Siegen-Wittgenstein"
   },
   {
-    "label": "Unna",
-    "id": "DEA5C"
+    "id": "DEA5B",
+    "label": "Soest"
   },
   {
-    "label": "RHEINLAND-PFALZ",
-    "id": "DEB"
+    "id": "DEA5C",
+    "label": "Unna"
   },
   {
-    "label": "Koblenz",
-    "id": "DEB1"
+    "id": "DEB",
+    "label": "RHEINLAND-PFALZ"
   },
   {
-    "label": "Koblenz, Kreisfreie Stadt",
-    "id": "DEB11"
+    "id": "DEB1",
+    "label": "Koblenz"
   },
   {
-    "label": "Ahrweiler",
-    "id": "DEB12"
+    "id": "DEB11",
+    "label": "Koblenz, Kreisfreie Stadt"
   },
   {
-    "label": "Altenkirchen (Westerwald)",
-    "id": "DEB13"
+    "id": "DEB12",
+    "label": "Ahrweiler"
   },
   {
-    "label": "Bad Kreuznach",
-    "id": "DEB14"
+    "id": "DEB13",
+    "label": "Altenkirchen (Westerwald)"
   },
   {
-    "label": "Birkenfeld",
-    "id": "DEB15"
+    "id": "DEB14",
+    "label": "Bad Kreuznach"
   },
   {
-    "label": "Mayen-Koblenz",
-    "id": "DEB17"
+    "id": "DEB15",
+    "label": "Birkenfeld"
   },
   {
-    "label": "Neuwied",
-    "id": "DEB18"
+    "id": "DEB17",
+    "label": "Mayen-Koblenz"
   },
   {
-    "label": "Rhein-Lahn-Kreis",
-    "id": "DEB1A"
+    "id": "DEB18",
+    "label": "Neuwied"
   },
   {
-    "label": "Westerwaldkreis",
-    "id": "DEB1B"
+    "id": "DEB1A",
+    "label": "Rhein-Lahn-Kreis"
   },
   {
-    "label": "Cochem-Zell",
-    "id": "DEB1C"
+    "id": "DEB1B",
+    "label": "Westerwaldkreis"
   },
   {
-    "label": "Rhein-Hunsrück-Kreis",
-    "id": "DEB1D"
+    "id": "DEB1C",
+    "label": "Cochem-Zell"
   },
   {
-    "label": "Trier",
-    "id": "DEB2"
+    "id": "DEB1D",
+    "label": "Rhein-Hunsrück-Kreis"
   },
   {
-    "label": "Trier, Kreisfreie Stadt",
-    "id": "DEB21"
+    "id": "DEB2",
+    "label": "Trier"
   },
   {
-    "label": "Bernkastel-Wittlich",
-    "id": "DEB22"
+    "id": "DEB21",
+    "label": "Trier, Kreisfreie Stadt"
   },
   {
-    "label": "Eifelkreis Bitburg-Prüm",
-    "id": "DEB23"
+    "id": "DEB22",
+    "label": "Bernkastel-Wittlich"
   },
   {
-    "label": "Vulkaneifel",
-    "id": "DEB24"
+    "id": "DEB23",
+    "label": "Eifelkreis Bitburg-Prüm"
   },
   {
-    "label": "Trier-Saarburg",
-    "id": "DEB25"
+    "id": "DEB24",
+    "label": "Vulkaneifel"
   },
   {
-    "label": "Rheinhessen-Pfalz",
-    "id": "DEB3"
+    "id": "DEB25",
+    "label": "Trier-Saarburg"
   },
   {
-    "label": "Frankenthal (Pfalz), Kreisfreie Stadt",
-    "id": "DEB31"
+    "id": "DEB3",
+    "label": "Rheinhessen-Pfalz"
   },
   {
-    "label": "Kaiserslautern, Kreisfreie Stadt",
-    "id": "DEB32"
+    "id": "DEB31",
+    "label": "Frankenthal (Pfalz), Kreisfreie Stadt"
   },
   {
-    "label": "Landau in der Pfalz, Kreisfreie Stadt",
-    "id": "DEB33"
+    "id": "DEB32",
+    "label": "Kaiserslautern, Kreisfreie Stadt"
   },
   {
-    "label": "Ludwigshafen am Rhein, Kreisfreie Stadt",
-    "id": "DEB34"
+    "id": "DEB33",
+    "label": "Landau in der Pfalz, Kreisfreie Stadt"
   },
   {
-    "label": "Mainz, Kreisfreie Stadt",
-    "id": "DEB35"
+    "id": "DEB34",
+    "label": "Ludwigshafen am Rhein, Kreisfreie Stadt"
   },
   {
-    "label": "Neustadt an der Weinstraße, Kreisfreie Stadt",
-    "id": "DEB36"
+    "id": "DEB35",
+    "label": "Mainz, Kreisfreie Stadt"
   },
   {
-    "label": "Pirmasens, Kreisfreie Stadt",
-    "id": "DEB37"
+    "id": "DEB36",
+    "label": "Neustadt an der Weinstraße, Kreisfreie Stadt"
   },
   {
-    "label": "Speyer, Kreisfreie Stadt",
-    "id": "DEB38"
+    "id": "DEB37",
+    "label": "Pirmasens, Kreisfreie Stadt"
   },
   {
-    "label": "Worms, Kreisfreie Stadt",
-    "id": "DEB39"
+    "id": "DEB38",
+    "label": "Speyer, Kreisfreie Stadt"
   },
   {
-    "label": "Zweibrücken, Kreisfreie Stadt",
-    "id": "DEB3A"
+    "id": "DEB39",
+    "label": "Worms, Kreisfreie Stadt"
   },
   {
-    "label": "Alzey-Worms",
-    "id": "DEB3B"
+    "id": "DEB3A",
+    "label": "Zweibrücken, Kreisfreie Stadt"
   },
   {
-    "label": "Bad Dürkheim",
-    "id": "DEB3C"
+    "id": "DEB3B",
+    "label": "Alzey-Worms"
   },
   {
-    "label": "Donnersbergkreis",
-    "id": "DEB3D"
+    "id": "DEB3C",
+    "label": "Bad Dürkheim"
   },
   {
-    "label": "Germersheim",
-    "id": "DEB3E"
+    "id": "DEB3D",
+    "label": "Donnersbergkreis"
   },
   {
-    "label": "Kaiserslautern, Landkreis",
-    "id": "DEB3F"
+    "id": "DEB3E",
+    "label": "Germersheim"
   },
   {
-    "label": "Kusel",
-    "id": "DEB3G"
+    "id": "DEB3F",
+    "label": "Kaiserslautern, Landkreis"
   },
   {
-    "label": "Südliche Weinstraße",
-    "id": "DEB3H"
+    "id": "DEB3G",
+    "label": "Kusel"
   },
   {
-    "label": "Rhein-Pfalz-Kreis",
-    "id": "DEB3I"
+    "id": "DEB3H",
+    "label": "Südliche Weinstraße"
   },
   {
-    "label": "Mainz-Bingen",
-    "id": "DEB3J"
+    "id": "DEB3I",
+    "label": "Rhein-Pfalz-Kreis"
   },
   {
-    "label": "Südwestpfalz",
-    "id": "DEB3K"
+    "id": "DEB3J",
+    "label": "Mainz-Bingen"
   },
   {
-    "label": "SAARLAND",
-    "id": "DEC"
+    "id": "DEB3K",
+    "label": "Südwestpfalz"
   },
   {
-    "label": "Saarland",
-    "id": "DEC0"
+    "id": "DEC",
+    "label": "SAARLAND"
   },
   {
-    "label": "Regionalverband Saarbrücken",
-    "id": "DEC01"
+    "id": "DEC0",
+    "label": "Saarland"
   },
   {
-    "label": "Merzig-Wadern",
-    "id": "DEC02"
+    "id": "DEC01",
+    "label": "Regionalverband Saarbrücken"
   },
   {
-    "label": "Neunkirchen",
-    "id": "DEC03"
+    "id": "DEC02",
+    "label": "Merzig-Wadern"
   },
   {
-    "label": "Saarlouis",
-    "id": "DEC04"
+    "id": "DEC03",
+    "label": "Neunkirchen"
   },
   {
-    "label": "Saarpfalz-Kreis",
-    "id": "DEC05"
+    "id": "DEC04",
+    "label": "Saarlouis"
   },
   {
-    "label": "St. Wendel",
-    "id": "DEC06"
+    "id": "DEC05",
+    "label": "Saarpfalz-Kreis"
   },
   {
-    "label": "SACHSEN",
-    "id": "DED"
+    "id": "DEC06",
+    "label": "St. Wendel"
   },
   {
-    "label": "Dresden",
-    "id": "DED2"
+    "id": "DED",
+    "label": "SACHSEN"
   },
   {
-    "label": "Dresden, Kreisfreie Stadt",
-    "id": "DED21"
+    "id": "DED2",
+    "label": "Dresden"
   },
   {
-    "label": "Bautzen",
-    "id": "DED2C"
+    "id": "DED21",
+    "label": "Dresden, Kreisfreie Stadt"
   },
   {
-    "label": "Görlitz",
-    "id": "DED2D"
+    "id": "DED2C",
+    "label": "Bautzen"
   },
   {
-    "label": "Meißen",
-    "id": "DED2E"
+    "id": "DED2D",
+    "label": "Görlitz"
   },
   {
-    "label": "Sächsische Schweiz-Osterzgebirge",
-    "id": "DED2F"
+    "id": "DED2E",
+    "label": "Meißen"
   },
   {
-    "label": "Chemnitz",
-    "id": "DED4"
+    "id": "DED2F",
+    "label": "Sächsische Schweiz-Osterzgebirge"
   },
   {
-    "label": "Chemnitz, Kreisfreie Stadt",
-    "id": "DED41"
+    "id": "DED4",
+    "label": "Chemnitz"
   },
   {
-    "label": "Erzgebirgskreis",
-    "id": "DED42"
+    "id": "DED41",
+    "label": "Chemnitz, Kreisfreie Stadt"
   },
   {
-    "label": "Mittelsachsen",
-    "id": "DED43"
+    "id": "DED42",
+    "label": "Erzgebirgskreis"
   },
   {
-    "label": "Vogtlandkreis",
-    "id": "DED44"
+    "id": "DED43",
+    "label": "Mittelsachsen"
   },
   {
-    "label": "Zwickau",
-    "id": "DED45"
+    "id": "DED44",
+    "label": "Vogtlandkreis"
   },
   {
-    "label": "Leipzig",
-    "id": "DED5"
+    "id": "DED45",
+    "label": "Zwickau"
   },
   {
-    "label": "Leipzig, Kreisfreie Stadt",
-    "id": "DED51"
+    "id": "DED5",
+    "label": "Leipzig"
   },
   {
-    "label": "Leipzig",
-    "id": "DED52"
+    "id": "DED51",
+    "label": "Leipzig, Kreisfreie Stadt"
   },
   {
-    "label": "Nordsachsen",
-    "id": "DED53"
+    "id": "DED52",
+    "label": "Leipzig"
   },
   {
-    "label": "SACHSEN-ANHALT",
-    "id": "DEE"
+    "id": "DED53",
+    "label": "Nordsachsen"
   },
   {
-    "label": "Sachsen-Anhalt",
-    "id": "DEE0"
+    "id": "DEE",
+    "label": "SACHSEN-ANHALT"
   },
   {
-    "label": "Dessau-Roßlau, Kreisfreie Stadt",
-    "id": "DEE01"
+    "id": "DEE0",
+    "label": "Sachsen-Anhalt"
   },
   {
-    "label": "Halle (Saale), Kreisfreie Stadt",
-    "id": "DEE02"
+    "id": "DEE01",
+    "label": "Dessau-Roßlau, Kreisfreie Stadt"
   },
   {
-    "label": "Magdeburg, Kreisfreie Stadt",
-    "id": "DEE03"
+    "id": "DEE02",
+    "label": "Halle (Saale), Kreisfreie Stadt"
   },
   {
-    "label": "Altmarkkreis Salzwedel",
-    "id": "DEE04"
+    "id": "DEE03",
+    "label": "Magdeburg, Kreisfreie Stadt"
   },
   {
-    "label": "Anhalt-Bitterfeld",
-    "id": "DEE05"
+    "id": "DEE04",
+    "label": "Altmarkkreis Salzwedel"
   },
   {
-    "label": "Jerichower Land",
-    "id": "DEE06"
+    "id": "DEE05",
+    "label": "Anhalt-Bitterfeld"
   },
   {
-    "label": "Börde",
-    "id": "DEE07"
+    "id": "DEE06",
+    "label": "Jerichower Land"
   },
   {
-    "label": "Burgenlandkreis",
-    "id": "DEE08"
+    "id": "DEE07",
+    "label": "Börde"
   },
   {
-    "label": "Harz",
-    "id": "DEE09"
+    "id": "DEE08",
+    "label": "Burgenlandkreis"
   },
   {
-    "label": "Mansfeld-Südharz",
-    "id": "DEE0A"
+    "id": "DEE09",
+    "label": "Harz"
   },
   {
-    "label": "Saalekreis",
-    "id": "DEE0B"
+    "id": "DEE0A",
+    "label": "Mansfeld-Südharz"
   },
   {
-    "label": "Salzlandkreis",
-    "id": "DEE0C"
+    "id": "DEE0B",
+    "label": "Saalekreis"
   },
   {
-    "label": "Stendal",
-    "id": "DEE0D"
+    "id": "DEE0C",
+    "label": "Salzlandkreis"
   },
   {
-    "label": "Wittenberg",
-    "id": "DEE0E"
+    "id": "DEE0D",
+    "label": "Stendal"
   },
   {
-    "label": "SCHLESWIG-HOLSTEIN",
-    "id": "DEF"
+    "id": "DEE0E",
+    "label": "Wittenberg"
   },
   {
-    "label": "Schleswig-Holstein",
-    "id": "DEF0"
+    "id": "DEF",
+    "label": "SCHLESWIG-HOLSTEIN"
   },
   {
-    "label": "Flensburg, Kreisfreie Stadt",
-    "id": "DEF01"
+    "id": "DEF0",
+    "label": "Schleswig-Holstein"
   },
   {
-    "label": "Kiel, Kreisfreie Stadt",
-    "id": "DEF02"
+    "id": "DEF01",
+    "label": "Flensburg, Kreisfreie Stadt"
   },
   {
-    "label": "Lübeck, Kreisfreie Stadt",
-    "id": "DEF03"
+    "id": "DEF02",
+    "label": "Kiel, Kreisfreie Stadt"
   },
   {
-    "label": "Neumünster, Kreisfreie Stadt",
-    "id": "DEF04"
+    "id": "DEF03",
+    "label": "Lübeck, Kreisfreie Stadt"
   },
   {
-    "label": "Dithmarschen",
-    "id": "DEF05"
+    "id": "DEF04",
+    "label": "Neumünster, Kreisfreie Stadt"
   },
   {
-    "label": "Herzogtum Lauenburg",
-    "id": "DEF06"
+    "id": "DEF05",
+    "label": "Dithmarschen"
   },
   {
-    "label": "Nordfriesland",
-    "id": "DEF07"
+    "id": "DEF06",
+    "label": "Herzogtum Lauenburg"
   },
   {
-    "label": "Ostholstein",
-    "id": "DEF08"
+    "id": "DEF07",
+    "label": "Nordfriesland"
   },
   {
-    "label": "Pinneberg",
-    "id": "DEF09"
+    "id": "DEF08",
+    "label": "Ostholstein"
   },
   {
-    "label": "Plön",
-    "id": "DEF0A"
+    "id": "DEF09",
+    "label": "Pinneberg"
   },
   {
-    "label": "Rendsburg-Eckernförde",
-    "id": "DEF0B"
+    "id": "DEF0A",
+    "label": "Plön"
   },
   {
-    "label": "Schleswig-Flensburg",
-    "id": "DEF0C"
+    "id": "DEF0B",
+    "label": "Rendsburg-Eckernförde"
   },
   {
-    "label": "Segeberg",
-    "id": "DEF0D"
+    "id": "DEF0C",
+    "label": "Schleswig-Flensburg"
   },
   {
-    "label": "Steinburg",
-    "id": "DEF0E"
+    "id": "DEF0D",
+    "label": "Segeberg"
   },
   {
-    "label": "Stormarn",
-    "id": "DEF0F"
+    "id": "DEF0E",
+    "label": "Steinburg"
   },
   {
-    "label": "THÜRINGEN",
-    "id": "DEG"
+    "id": "DEF0F",
+    "label": "Stormarn"
   },
   {
-    "label": "Thüringen",
-    "id": "DEG0"
+    "id": "DEG",
+    "label": "THÜRINGEN"
   },
   {
-    "label": "Erfurt, Kreisfreie Stadt",
-    "id": "DEG01"
+    "id": "DEG0",
+    "label": "Thüringen"
   },
   {
-    "label": "Gera, Kreisfreie Stadt",
-    "id": "DEG02"
+    "id": "DEG01",
+    "label": "Erfurt, Kreisfreie Stadt"
   },
   {
-    "label": "Jena, Kreisfreie Stadt",
-    "id": "DEG03"
+    "id": "DEG02",
+    "label": "Gera, Kreisfreie Stadt"
   },
   {
-    "label": "Suhl, Kreisfreie Stadt",
-    "id": "DEG04"
+    "id": "DEG03",
+    "label": "Jena, Kreisfreie Stadt"
   },
   {
-    "label": "Weimar, Kreisfreie Stadt",
-    "id": "DEG05"
+    "id": "DEG04",
+    "label": "Suhl, Kreisfreie Stadt"
   },
   {
-    "label": "Eichsfeld",
-    "id": "DEG06"
+    "id": "DEG05",
+    "label": "Weimar, Kreisfreie Stadt"
   },
   {
-    "label": "Nordhausen",
-    "id": "DEG07"
+    "id": "DEG06",
+    "label": "Eichsfeld"
   },
   {
-    "label": "Unstrut-Hainich-Kreis",
-    "id": "DEG09"
+    "id": "DEG07",
+    "label": "Nordhausen"
   },
   {
-    "label": "Kyffhäuserkreis",
-    "id": "DEG0A"
+    "id": "DEG09",
+    "label": "Unstrut-Hainich-Kreis"
   },
   {
-    "label": "Schmalkalden-Meiningen",
-    "id": "DEG0B"
+    "id": "DEG0A",
+    "label": "Kyffhäuserkreis"
   },
   {
-    "label": "Gotha",
-    "id": "DEG0C"
+    "id": "DEG0B",
+    "label": "Schmalkalden-Meiningen"
   },
   {
-    "label": "Sömmerda",
-    "id": "DEG0D"
+    "id": "DEG0C",
+    "label": "Gotha"
   },
   {
-    "label": "Hildburghausen",
-    "id": "DEG0E"
+    "id": "DEG0D",
+    "label": "Sömmerda"
   },
   {
-    "label": "Ilm-Kreis",
-    "id": "DEG0F"
+    "id": "DEG0E",
+    "label": "Hildburghausen"
   },
   {
-    "label": "Weimarer Land",
-    "id": "DEG0G"
+    "id": "DEG0F",
+    "label": "Ilm-Kreis"
   },
   {
-    "label": "Sonneberg",
-    "id": "DEG0H"
+    "id": "DEG0G",
+    "label": "Weimarer Land"
   },
   {
-    "label": "Saalfeld-Rudolstadt",
-    "id": "DEG0I"
+    "id": "DEG0H",
+    "label": "Sonneberg"
   },
   {
-    "label": "Saale-Holzland-Kreis",
-    "id": "DEG0J"
+    "id": "DEG0I",
+    "label": "Saalfeld-Rudolstadt"
   },
   {
-    "label": "Saale-Orla-Kreis",
-    "id": "DEG0K"
+    "id": "DEG0J",
+    "label": "Saale-Holzland-Kreis"
   },
   {
-    "label": "Greiz",
-    "id": "DEG0L"
+    "id": "DEG0K",
+    "label": "Saale-Orla-Kreis"
   },
   {
-    "label": "Altenburger Land",
-    "id": "DEG0M"
+    "id": "DEG0L",
+    "label": "Greiz"
   },
   {
-    "label": "Eisenach, Kreisfreie Stadt",
-    "id": "DEG0N"
+    "id": "DEG0M",
+    "label": "Altenburger Land"
   },
   {
-    "label": "Wartburgkreis",
-    "id": "DEG0P"
+    "id": "DEG0N",
+    "label": "Eisenach, Kreisfreie Stadt"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "DEZ"
+    "id": "DEG0P",
+    "label": "Wartburgkreis"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "DEZZ"
+    "id": "DEZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "DEZZZ"
+    "id": "DEZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "DEZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

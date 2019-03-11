@@ -176,4 +176,4 @@ const pathways = [
 	  "value": "UN1"
 	}
 ]
-export default pathways
+export default pathways.sort((a,b) => a.text.localeCompare(b.text))

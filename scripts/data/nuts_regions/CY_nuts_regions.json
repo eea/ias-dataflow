@@ -1,26 +1,30 @@
 [
   {
-    "label": "ΚΥΠΡΟΣ",
-    "id": "CY0"
+    "id": "CY",
+    "label": "ΚΥΠΡΟΣ (KYPROS)"
   },
   {
-    "label": "Κύπρος",
-    "id": "CY00"
+    "id": "CY0",
+    "label": "ΚΥΠΡΟΣ (Kypros)"
   },
   {
-    "label": "Κύπρος",
-    "id": "CY000"
+    "id": "CY00",
+    "label": "Κύπρος (Kypros)"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "CYZ"
+    "id": "CY000",
+    "label": "Κύπρος (Kypros)"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "CYZZ"
+    "id": "CYZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "CYZZZ"
+    "id": "CYZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "CYZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

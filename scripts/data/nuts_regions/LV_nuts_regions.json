@@ -1,46 +1,50 @@
 [
   {
-    "label": "LATVIJA",
-    "id": "LV0"
+    "id": "LV",
+    "label": "LATVIJA"
   },
   {
-    "label": "Latvija",
-    "id": "LV00"
+    "id": "LV0",
+    "label": "LATVIJA"
   },
   {
-    "label": "Kurzeme",
-    "id": "LV003"
+    "id": "LV00",
+    "label": "Latvija"
   },
   {
-    "label": "Latgale",
-    "id": "LV005"
+    "id": "LV003",
+    "label": "Kurzeme"
   },
   {
-    "label": "Rīga",
-    "id": "LV006"
+    "id": "LV005",
+    "label": "Latgale"
   },
   {
-    "label": "Pierīga",
-    "id": "LV007"
+    "id": "LV006",
+    "label": "Rīga"
   },
   {
-    "label": "Vidzeme",
-    "id": "LV008"
+    "id": "LV007",
+    "label": "Pierīga"
   },
   {
-    "label": "Zemgale",
-    "id": "LV009"
+    "id": "LV008",
+    "label": "Vidzeme"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "LVZ"
+    "id": "LV009",
+    "label": "Zemgale"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "LVZZ"
+    "id": "LVZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "LVZZZ"
+    "id": "LVZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "LVZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

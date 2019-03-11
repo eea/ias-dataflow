@@ -1,110 +1,114 @@
 [
   {
-    "label": "HRVATSKA",
-    "id": "HR0"
+    "id": "HR",
+    "label": "HRVATSKA"
   },
   {
-    "label": "Jadranska Hrvatska",
-    "id": "HR03"
+    "id": "HR0",
+    "label": "HRVATSKA"
   },
   {
-    "label": "Primorsko-goranska županija",
-    "id": "HR031"
+    "id": "HR03",
+    "label": "Jadranska Hrvatska"
   },
   {
-    "label": "Ličko-senjska županija",
-    "id": "HR032"
+    "id": "HR031",
+    "label": "Primorsko-goranska županija"
   },
   {
-    "label": "Zadarska županija",
-    "id": "HR033"
+    "id": "HR032",
+    "label": "Ličko-senjska županija"
   },
   {
-    "label": "Šibensko-kninska županija",
-    "id": "HR034"
+    "id": "HR033",
+    "label": "Zadarska županija"
   },
   {
-    "label": "Splitsko-dalmatinska županija",
-    "id": "HR035"
+    "id": "HR034",
+    "label": "Šibensko-kninska županija"
   },
   {
-    "label": "Istarska županija",
-    "id": "HR036"
+    "id": "HR035",
+    "label": "Splitsko-dalmatinska županija"
   },
   {
-    "label": "Dubrovačko-neretvanska županija",
-    "id": "HR037"
+    "id": "HR036",
+    "label": "Istarska županija"
   },
   {
-    "label": "Kontinentalna Hrvatska",
-    "id": "HR04"
+    "id": "HR037",
+    "label": "Dubrovačko-neretvanska županija"
   },
   {
-    "label": "Grad Zagreb",
-    "id": "HR041"
+    "id": "HR04",
+    "label": "Kontinentalna Hrvatska"
   },
   {
-    "label": "Zagrebačka županija",
-    "id": "HR042"
+    "id": "HR041",
+    "label": "Grad Zagreb"
   },
   {
-    "label": "Krapinsko-zagorska županija",
-    "id": "HR043"
+    "id": "HR042",
+    "label": "Zagrebačka županija"
   },
   {
-    "label": "Varaždinska županija",
-    "id": "HR044"
+    "id": "HR043",
+    "label": "Krapinsko-zagorska županija"
   },
   {
-    "label": "Koprivničko-križevačka županija",
-    "id": "HR045"
+    "id": "HR044",
+    "label": "Varaždinska županija"
   },
   {
-    "label": "Međimurska županija",
-    "id": "HR046"
+    "id": "HR045",
+    "label": "Koprivničko-križevačka županija"
   },
   {
-    "label": "Bjelovarsko-bilogorska županija",
-    "id": "HR047"
+    "id": "HR046",
+    "label": "Međimurska županija"
   },
   {
-    "label": "Virovitičko-podravska županija",
-    "id": "HR048"
+    "id": "HR047",
+    "label": "Bjelovarsko-bilogorska županija"
   },
   {
-    "label": "Požeško-slavonska županija",
-    "id": "HR049"
+    "id": "HR048",
+    "label": "Virovitičko-podravska županija"
   },
   {
-    "label": "Brodsko-posavska županija",
-    "id": "HR04A"
+    "id": "HR049",
+    "label": "Požeško-slavonska županija"
   },
   {
-    "label": "Osječko-baranjska županija",
-    "id": "HR04B"
+    "id": "HR04A",
+    "label": "Brodsko-posavska županija"
   },
   {
-    "label": "Vukovarsko-srijemska županija",
-    "id": "HR04C"
+    "id": "HR04B",
+    "label": "Osječko-baranjska županija"
   },
   {
-    "label": "Karlovačka županija",
-    "id": "HR04D"
+    "id": "HR04C",
+    "label": "Vukovarsko-srijemska županija"
   },
   {
-    "label": "Sisačko-moslavačka županija",
-    "id": "HR04E"
+    "id": "HR04D",
+    "label": "Karlovačka županija"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "HRZ"
+    "id": "HR04E",
+    "label": "Sisačko-moslavačka županija"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "HRZZ"
+    "id": "HRZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "HRZZZ"
+    "id": "HRZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "HRZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

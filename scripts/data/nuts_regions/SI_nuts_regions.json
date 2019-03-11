@@ -1,74 +1,78 @@
 [
   {
-    "label": "SLOVENIJA",
-    "id": "SI0"
+    "id": "SI",
+    "label": "SLOVENIJA"
   },
   {
-    "label": "Vzhodna Slovenija",
-    "id": "SI03"
+    "id": "SI0",
+    "label": "SLOVENIJA"
   },
   {
-    "label": "Pomurska",
-    "id": "SI031"
+    "id": "SI03",
+    "label": "Vzhodna Slovenija"
   },
   {
-    "label": "Podravska",
-    "id": "SI032"
+    "id": "SI031",
+    "label": "Pomurska"
   },
   {
-    "label": "Koroška",
-    "id": "SI033"
+    "id": "SI032",
+    "label": "Podravska"
   },
   {
-    "label": "Savinjska",
-    "id": "SI034"
+    "id": "SI033",
+    "label": "Koroška"
   },
   {
-    "label": "Zasavska",
-    "id": "SI035"
+    "id": "SI034",
+    "label": "Savinjska"
   },
   {
-    "label": "Posavska",
-    "id": "SI036"
+    "id": "SI035",
+    "label": "Zasavska"
   },
   {
-    "label": "Jugovzhodna Slovenija",
-    "id": "SI037"
+    "id": "SI036",
+    "label": "Posavska"
   },
   {
-    "label": "Primorsko-notranjska",
-    "id": "SI038"
+    "id": "SI037",
+    "label": "Jugovzhodna Slovenija"
   },
   {
-    "label": "Zahodna Slovenija",
-    "id": "SI04"
+    "id": "SI038",
+    "label": "Primorsko-notranjska"
   },
   {
-    "label": "Osrednjeslovenska",
-    "id": "SI041"
+    "id": "SI04",
+    "label": "Zahodna Slovenija"
   },
   {
-    "label": "Gorenjska",
-    "id": "SI042"
+    "id": "SI041",
+    "label": "Osrednjeslovenska"
   },
   {
-    "label": "Goriška",
-    "id": "SI043"
+    "id": "SI042",
+    "label": "Gorenjska"
   },
   {
-    "label": "Obalno-kraška",
-    "id": "SI044"
+    "id": "SI043",
+    "label": "Goriška"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "SIZ"
+    "id": "SI044",
+    "label": "Obalno-kraška"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "SIZZ"
+    "id": "SIZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "SIZZZ"
+    "id": "SIZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "SIZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

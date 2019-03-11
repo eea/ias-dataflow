@@ -1,154 +1,158 @@
 [
   {
-    "label": "CONTINENTE",
-    "id": "PT1"
+    "id": "PT",
+    "label": "PORTUGAL"
   },
   {
-    "label": "Norte",
-    "id": "PT11"
+    "id": "PT1",
+    "label": "CONTINENTE"
   },
   {
-    "label": "Alto Minho",
-    "id": "PT111"
+    "id": "PT11",
+    "label": "Norte"
   },
   {
-    "label": "Cávado",
-    "id": "PT112"
+    "id": "PT111",
+    "label": "Alto Minho"
   },
   {
-    "label": "Ave",
-    "id": "PT119"
+    "id": "PT112",
+    "label": "Cávado"
   },
   {
-    "label": "Área Metropolitana do Porto",
-    "id": "PT11A"
+    "id": "PT119",
+    "label": "Ave"
   },
   {
-    "label": "Alto Tâmega",
-    "id": "PT11B"
+    "id": "PT11A",
+    "label": "Área Metropolitana do Porto"
   },
   {
-    "label": "Tâmega e Sousa",
-    "id": "PT11C"
+    "id": "PT11B",
+    "label": "Alto Tâmega"
   },
   {
-    "label": "Douro",
-    "id": "PT11D"
+    "id": "PT11C",
+    "label": "Tâmega e Sousa"
   },
   {
-    "label": "Terras de Trás-os-Montes",
-    "id": "PT11E"
+    "id": "PT11D",
+    "label": "Douro"
   },
   {
-    "label": "Algarve",
-    "id": "PT15"
+    "id": "PT11E",
+    "label": "Terras de Trás-os-Montes"
   },
   {
-    "label": "Algarve",
-    "id": "PT150"
+    "id": "PT15",
+    "label": "Algarve"
   },
   {
-    "label": "Centro (PT)",
-    "id": "PT16"
+    "id": "PT150",
+    "label": "Algarve"
   },
   {
-    "label": "Oeste",
-    "id": "PT16B"
+    "id": "PT16",
+    "label": "Centro (PT)"
   },
   {
-    "label": "Região de Aveiro",
-    "id": "PT16D"
+    "id": "PT16B",
+    "label": "Oeste"
   },
   {
-    "label": "Região de Coimbra",
-    "id": "PT16E"
+    "id": "PT16D",
+    "label": "Região de Aveiro"
   },
   {
-    "label": "Região de Leiria",
-    "id": "PT16F"
+    "id": "PT16E",
+    "label": "Região de Coimbra"
   },
   {
-    "label": "Viseu Dão Lafões",
-    "id": "PT16G"
+    "id": "PT16F",
+    "label": "Região de Leiria"
   },
   {
-    "label": "Beira Baixa",
-    "id": "PT16H"
+    "id": "PT16G",
+    "label": "Viseu Dão Lafões"
   },
   {
-    "label": "Médio Tejo",
-    "id": "PT16I"
+    "id": "PT16H",
+    "label": "Beira Baixa"
   },
   {
-    "label": "Beiras e Serra da Estrela",
-    "id": "PT16J"
+    "id": "PT16I",
+    "label": "Médio Tejo"
   },
   {
-    "label": "Área Metropolitana de Lisboa",
-    "id": "PT17"
+    "id": "PT16J",
+    "label": "Beiras e Serra da Estrela"
   },
   {
-    "label": "Área Metropolitana de Lisboa",
-    "id": "PT170"
+    "id": "PT17",
+    "label": "Área Metropolitana de Lisboa"
   },
   {
-    "label": "Alentejo",
-    "id": "PT18"
+    "id": "PT170",
+    "label": "Área Metropolitana de Lisboa"
   },
   {
-    "label": "Alentejo Litoral",
-    "id": "PT181"
+    "id": "PT18",
+    "label": "Alentejo"
   },
   {
-    "label": "Baixo Alentejo",
-    "id": "PT184"
+    "id": "PT181",
+    "label": "Alentejo Litoral"
   },
   {
-    "label": "Lezíria do Tejo",
-    "id": "PT185"
+    "id": "PT184",
+    "label": "Baixo Alentejo"
   },
   {
-    "label": "Alto Alentejo",
-    "id": "PT186"
+    "id": "PT185",
+    "label": "Lezíria do Tejo"
   },
   {
-    "label": "Alentejo Central",
-    "id": "PT187"
+    "id": "PT186",
+    "label": "Alto Alentejo"
   },
   {
-    "label": "REGIÃO AUTÓNOMA DOS AÇORES",
-    "id": "PT2"
+    "id": "PT187",
+    "label": "Alentejo Central"
   },
   {
-    "label": "Região Autónoma dos Açores",
-    "id": "PT20"
+    "id": "PT2",
+    "label": "REGIÃO AUTÓNOMA DOS AÇORES"
   },
   {
-    "label": "Região Autónoma dos Açores",
-    "id": "PT200"
+    "id": "PT20",
+    "label": "Região Autónoma dos Açores"
   },
   {
-    "label": "REGIÃO AUTÓNOMA DA MADEIRA",
-    "id": "PT3"
+    "id": "PT200",
+    "label": "Região Autónoma dos Açores"
   },
   {
-    "label": "Região Autónoma da Madeira",
-    "id": "PT30"
+    "id": "PT3",
+    "label": "REGIÃO AUTÓNOMA DA MADEIRA"
   },
   {
-    "label": "Região Autónoma da Madeira",
-    "id": "PT300"
+    "id": "PT30",
+    "label": "Região Autónoma da Madeira"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "PTZ"
+    "id": "PT300",
+    "label": "Região Autónoma da Madeira"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "PTZZ"
+    "id": "PTZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "PTZZZ"
+    "id": "PTZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "PTZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

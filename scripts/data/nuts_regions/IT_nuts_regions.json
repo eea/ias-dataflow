@@ -1,558 +1,562 @@
 [
   {
-    "label": "NORD-OVEST",
-    "id": "ITC"
+    "id": "IT",
+    "label": "ITALIA"
   },
   {
-    "label": "Piemonte",
-    "id": "ITC1"
+    "id": "ITC",
+    "label": "NORD-OVEST"
   },
   {
-    "label": "Torino",
-    "id": "ITC11"
+    "id": "ITC1",
+    "label": "Piemonte"
   },
   {
-    "label": "Vercelli",
-    "id": "ITC12"
+    "id": "ITC11",
+    "label": "Torino"
   },
   {
-    "label": "Biella",
-    "id": "ITC13"
+    "id": "ITC12",
+    "label": "Vercelli"
   },
   {
-    "label": "Verbano-Cusio-Ossola",
-    "id": "ITC14"
+    "id": "ITC13",
+    "label": "Biella"
   },
   {
-    "label": "Novara",
-    "id": "ITC15"
+    "id": "ITC14",
+    "label": "Verbano-Cusio-Ossola"
   },
   {
-    "label": "Cuneo",
-    "id": "ITC16"
+    "id": "ITC15",
+    "label": "Novara"
   },
   {
-    "label": "Asti",
-    "id": "ITC17"
+    "id": "ITC16",
+    "label": "Cuneo"
   },
   {
-    "label": "Alessandria",
-    "id": "ITC18"
+    "id": "ITC17",
+    "label": "Asti"
   },
   {
-    "label": "Valle d’Aosta/Vallée d’Aoste",
-    "id": "ITC2"
+    "id": "ITC18",
+    "label": "Alessandria"
   },
   {
-    "label": "Valle d’Aosta/Vallée d’Aoste",
-    "id": "ITC20"
+    "id": "ITC2",
+    "label": "Valle d’Aosta/Vallée d’Aoste"
   },
   {
-    "label": "Liguria",
-    "id": "ITC3"
+    "id": "ITC20",
+    "label": "Valle d’Aosta/Vallée d’Aoste"
   },
   {
-    "label": "Imperia",
-    "id": "ITC31"
+    "id": "ITC3",
+    "label": "Liguria"
   },
   {
-    "label": "Savona",
-    "id": "ITC32"
+    "id": "ITC31",
+    "label": "Imperia"
   },
   {
-    "label": "Genova",
-    "id": "ITC33"
+    "id": "ITC32",
+    "label": "Savona"
   },
   {
-    "label": "La Spezia",
-    "id": "ITC34"
+    "id": "ITC33",
+    "label": "Genova"
   },
   {
-    "label": "Lombardia",
-    "id": "ITC4"
+    "id": "ITC34",
+    "label": "La Spezia"
   },
   {
-    "label": "Varese",
-    "id": "ITC41"
+    "id": "ITC4",
+    "label": "Lombardia"
   },
   {
-    "label": "Como",
-    "id": "ITC42"
+    "id": "ITC41",
+    "label": "Varese"
   },
   {
-    "label": "Lecco",
-    "id": "ITC43"
+    "id": "ITC42",
+    "label": "Como"
   },
   {
-    "label": "Sondrio",
-    "id": "ITC44"
+    "id": "ITC43",
+    "label": "Lecco"
   },
   {
-    "label": "Bergamo",
-    "id": "ITC46"
+    "id": "ITC44",
+    "label": "Sondrio"
   },
   {
-    "label": "Brescia",
-    "id": "ITC47"
+    "id": "ITC46",
+    "label": "Bergamo"
   },
   {
-    "label": "Pavia",
-    "id": "ITC48"
+    "id": "ITC47",
+    "label": "Brescia"
   },
   {
-    "label": "Lodi",
-    "id": "ITC49"
+    "id": "ITC48",
+    "label": "Pavia"
   },
   {
-    "label": "Cremona",
-    "id": "ITC4A"
+    "id": "ITC49",
+    "label": "Lodi"
   },
   {
-    "label": "Mantova",
-    "id": "ITC4B"
+    "id": "ITC4A",
+    "label": "Cremona"
   },
   {
-    "label": "Milano",
-    "id": "ITC4C"
+    "id": "ITC4B",
+    "label": "Mantova"
   },
   {
-    "label": "Monza e della Brianza",
-    "id": "ITC4D"
+    "id": "ITC4C",
+    "label": "Milano"
   },
   {
-    "label": "SUD",
-    "id": "ITF"
+    "id": "ITC4D",
+    "label": "Monza e della Brianza"
   },
   {
-    "label": "Abruzzo",
-    "id": "ITF1"
+    "id": "ITF",
+    "label": "SUD"
   },
   {
-    "label": "L’Aquila",
-    "id": "ITF11"
+    "id": "ITF1",
+    "label": "Abruzzo"
   },
   {
-    "label": "Teramo",
-    "id": "ITF12"
+    "id": "ITF11",
+    "label": "L’Aquila"
   },
   {
-    "label": "Pescara",
-    "id": "ITF13"
+    "id": "ITF12",
+    "label": "Teramo"
   },
   {
-    "label": "Chieti",
-    "id": "ITF14"
+    "id": "ITF13",
+    "label": "Pescara"
   },
   {
-    "label": "Molise",
-    "id": "ITF2"
+    "id": "ITF14",
+    "label": "Chieti"
   },
   {
-    "label": "Isernia",
-    "id": "ITF21"
+    "id": "ITF2",
+    "label": "Molise"
   },
   {
-    "label": "Campobasso",
-    "id": "ITF22"
+    "id": "ITF21",
+    "label": "Isernia"
   },
   {
-    "label": "Campania",
-    "id": "ITF3"
+    "id": "ITF22",
+    "label": "Campobasso"
   },
   {
-    "label": "Caserta",
-    "id": "ITF31"
+    "id": "ITF3",
+    "label": "Campania"
   },
   {
-    "label": "Benevento",
-    "id": "ITF32"
+    "id": "ITF31",
+    "label": "Caserta"
   },
   {
-    "label": "Napoli",
-    "id": "ITF33"
+    "id": "ITF32",
+    "label": "Benevento"
   },
   {
-    "label": "Avellino",
-    "id": "ITF34"
+    "id": "ITF33",
+    "label": "Napoli"
   },
   {
-    "label": "Salerno",
-    "id": "ITF35"
+    "id": "ITF34",
+    "label": "Avellino"
   },
   {
-    "label": "Puglia",
-    "id": "ITF4"
+    "id": "ITF35",
+    "label": "Salerno"
   },
   {
-    "label": "Taranto",
-    "id": "ITF43"
+    "id": "ITF4",
+    "label": "Puglia"
   },
   {
-    "label": "Brindisi",
-    "id": "ITF44"
+    "id": "ITF43",
+    "label": "Taranto"
   },
   {
-    "label": "Lecce",
-    "id": "ITF45"
+    "id": "ITF44",
+    "label": "Brindisi"
   },
   {
-    "label": "Foggia",
-    "id": "ITF46"
+    "id": "ITF45",
+    "label": "Lecce"
   },
   {
-    "label": "Bari",
-    "id": "ITF47"
+    "id": "ITF46",
+    "label": "Foggia"
   },
   {
-    "label": "Barletta-Andria-Trani",
-    "id": "ITF48"
+    "id": "ITF47",
+    "label": "Bari"
   },
   {
-    "label": "Basilicata",
-    "id": "ITF5"
+    "id": "ITF48",
+    "label": "Barletta-Andria-Trani"
   },
   {
-    "label": "Potenza",
-    "id": "ITF51"
+    "id": "ITF5",
+    "label": "Basilicata"
   },
   {
-    "label": "Matera",
-    "id": "ITF52"
+    "id": "ITF51",
+    "label": "Potenza"
   },
   {
-    "label": "Calabria",
-    "id": "ITF6"
+    "id": "ITF52",
+    "label": "Matera"
   },
   {
-    "label": "Cosenza",
-    "id": "ITF61"
+    "id": "ITF6",
+    "label": "Calabria"
   },
   {
-    "label": "Crotone",
-    "id": "ITF62"
+    "id": "ITF61",
+    "label": "Cosenza"
   },
   {
-    "label": "Catanzaro",
-    "id": "ITF63"
+    "id": "ITF62",
+    "label": "Crotone"
   },
   {
-    "label": "Vibo Valentia",
-    "id": "ITF64"
+    "id": "ITF63",
+    "label": "Catanzaro"
   },
   {
-    "label": "Reggio di Calabria",
-    "id": "ITF65"
+    "id": "ITF64",
+    "label": "Vibo Valentia"
   },
   {
-    "label": "ISOLE",
-    "id": "ITG"
+    "id": "ITF65",
+    "label": "Reggio di Calabria"
   },
   {
-    "label": "Sicilia",
-    "id": "ITG1"
+    "id": "ITG",
+    "label": "ISOLE"
   },
   {
-    "label": "Trapani",
-    "id": "ITG11"
+    "id": "ITG1",
+    "label": "Sicilia"
   },
   {
-    "label": "Palermo",
-    "id": "ITG12"
+    "id": "ITG11",
+    "label": "Trapani"
   },
   {
-    "label": "Messina",
-    "id": "ITG13"
+    "id": "ITG12",
+    "label": "Palermo"
   },
   {
-    "label": "Agrigento",
-    "id": "ITG14"
+    "id": "ITG13",
+    "label": "Messina"
   },
   {
-    "label": "Caltanissetta",
-    "id": "ITG15"
+    "id": "ITG14",
+    "label": "Agrigento"
   },
   {
-    "label": "Enna",
-    "id": "ITG16"
+    "id": "ITG15",
+    "label": "Caltanissetta"
   },
   {
-    "label": "Catania",
-    "id": "ITG17"
+    "id": "ITG16",
+    "label": "Enna"
   },
   {
-    "label": "Ragusa",
-    "id": "ITG18"
+    "id": "ITG17",
+    "label": "Catania"
   },
   {
-    "label": "Siracusa",
-    "id": "ITG19"
+    "id": "ITG18",
+    "label": "Ragusa"
   },
   {
-    "label": "Sardegna",
-    "id": "ITG2"
+    "id": "ITG19",
+    "label": "Siracusa"
   },
   {
-    "label": "Sassari",
-    "id": "ITG25"
+    "id": "ITG2",
+    "label": "Sardegna"
   },
   {
-    "label": "Nuoro",
-    "id": "ITG26"
+    "id": "ITG25",
+    "label": "Sassari"
   },
   {
-    "label": "Cagliari",
-    "id": "ITG27"
+    "id": "ITG26",
+    "label": "Nuoro"
   },
   {
-    "label": "Oristano",
-    "id": "ITG28"
+    "id": "ITG27",
+    "label": "Cagliari"
   },
   {
-    "label": "Olbia-Tempio",
-    "id": "ITG29"
+    "id": "ITG28",
+    "label": "Oristano"
   },
   {
-    "label": "Ogliastra",
-    "id": "ITG2A"
+    "id": "ITG29",
+    "label": "Olbia-Tempio"
   },
   {
-    "label": "Medio Campidano",
-    "id": "ITG2B"
+    "id": "ITG2A",
+    "label": "Ogliastra"
   },
   {
-    "label": "Carbonia-Iglesias",
-    "id": "ITG2C"
+    "id": "ITG2B",
+    "label": "Medio Campidano"
   },
   {
-    "label": "NORD-EST",
-    "id": "ITH"
+    "id": "ITG2C",
+    "label": "Carbonia-Iglesias"
   },
   {
-    "label": "Provincia Autonoma di Bolzano/Bozen (1)",
-    "id": "ITH1"
+    "id": "ITH",
+    "label": "NORD-EST"
   },
   {
-    "label": "Bolzano-Bozen",
-    "id": "ITH10"
+    "id": "ITH1",
+    "label": "Provincia Autonoma di Bolzano/Bozen"
   },
   {
-    "label": "Provincia Autonoma di Trento",
-    "id": "ITH2"
+    "id": "ITH10",
+    "label": "Bolzano-Bozen"
   },
   {
-    "label": "Trento",
-    "id": "ITH20"
+    "id": "ITH2",
+    "label": "Provincia Autonoma di Trento"
   },
   {
-    "label": "Veneto",
-    "id": "ITH3"
+    "id": "ITH20",
+    "label": "Trento"
   },
   {
-    "label": "Verona",
-    "id": "ITH31"
+    "id": "ITH3",
+    "label": "Veneto"
   },
   {
-    "label": "Vicenza",
-    "id": "ITH32"
+    "id": "ITH31",
+    "label": "Verona"
   },
   {
-    "label": "Belluno",
-    "id": "ITH33"
+    "id": "ITH32",
+    "label": "Vicenza"
   },
   {
-    "label": "Treviso",
-    "id": "ITH34"
+    "id": "ITH33",
+    "label": "Belluno"
   },
   {
-    "label": "Venezia",
-    "id": "ITH35"
+    "id": "ITH34",
+    "label": "Treviso"
   },
   {
-    "label": "Padova",
-    "id": "ITH36"
+    "id": "ITH35",
+    "label": "Venezia"
   },
   {
-    "label": "Rovigo",
-    "id": "ITH37"
+    "id": "ITH36",
+    "label": "Padova"
   },
   {
-    "label": "Friuli-Venezia Giulia",
-    "id": "ITH4"
+    "id": "ITH37",
+    "label": "Rovigo"
   },
   {
-    "label": "Pordenone",
-    "id": "ITH41"
+    "id": "ITH4",
+    "label": "Friuli-Venezia Giulia"
   },
   {
-    "label": "Udine",
-    "id": "ITH42"
+    "id": "ITH41",
+    "label": "Pordenone"
   },
   {
-    "label": "Gorizia",
-    "id": "ITH43"
+    "id": "ITH42",
+    "label": "Udine"
   },
   {
-    "label": "Trieste",
-    "id": "ITH44"
+    "id": "ITH43",
+    "label": "Gorizia"
   },
   {
-    "label": "Emilia-Romagna",
-    "id": "ITH5"
+    "id": "ITH44",
+    "label": "Trieste"
   },
   {
-    "label": "Piacenza",
-    "id": "ITH51"
+    "id": "ITH5",
+    "label": "Emilia-Romagna"
   },
   {
-    "label": "Parma",
-    "id": "ITH52"
+    "id": "ITH51",
+    "label": "Piacenza"
   },
   {
-    "label": "Reggio nell’Emilia",
-    "id": "ITH53"
+    "id": "ITH52",
+    "label": "Parma"
   },
   {
-    "label": "Modena",
-    "id": "ITH54"
+    "id": "ITH53",
+    "label": "Reggio nell’Emilia"
   },
   {
-    "label": "Bologna",
-    "id": "ITH55"
+    "id": "ITH54",
+    "label": "Modena"
   },
   {
-    "label": "Ferrara",
-    "id": "ITH56"
+    "id": "ITH55",
+    "label": "Bologna"
   },
   {
-    "label": "Ravenna",
-    "id": "ITH57"
+    "id": "ITH56",
+    "label": "Ferrara"
   },
   {
-    "label": "Forlì-Cesena",
-    "id": "ITH58"
+    "id": "ITH57",
+    "label": "Ravenna"
   },
   {
-    "label": "Rimini",
-    "id": "ITH59"
+    "id": "ITH58",
+    "label": "Forlì-Cesena"
   },
   {
-    "label": "CENTRO (IT)",
-    "id": "ITI"
+    "id": "ITH59",
+    "label": "Rimini"
   },
   {
-    "label": "Toscana",
-    "id": "ITI1"
+    "id": "ITI",
+    "label": "CENTRO (IT)"
   },
   {
-    "label": "Massa-Carrara",
-    "id": "ITI11"
+    "id": "ITI1",
+    "label": "Toscana"
   },
   {
-    "label": "Lucca",
-    "id": "ITI12"
+    "id": "ITI11",
+    "label": "Massa-Carrara"
   },
   {
-    "label": "Pistoia",
-    "id": "ITI13"
+    "id": "ITI12",
+    "label": "Lucca"
   },
   {
-    "label": "Firenze",
-    "id": "ITI14"
+    "id": "ITI13",
+    "label": "Pistoia"
   },
   {
-    "label": "Prato",
-    "id": "ITI15"
+    "id": "ITI14",
+    "label": "Firenze"
   },
   {
-    "label": "Livorno",
-    "id": "ITI16"
+    "id": "ITI15",
+    "label": "Prato"
   },
   {
-    "label": "Pisa",
-    "id": "ITI17"
+    "id": "ITI16",
+    "label": "Livorno"
   },
   {
-    "label": "Arezzo",
-    "id": "ITI18"
+    "id": "ITI17",
+    "label": "Pisa"
   },
   {
-    "label": "Siena",
-    "id": "ITI19"
+    "id": "ITI18",
+    "label": "Arezzo"
   },
   {
-    "label": "Grosseto",
-    "id": "ITI1A"
+    "id": "ITI19",
+    "label": "Siena"
   },
   {
-    "label": "Umbria",
-    "id": "ITI2"
+    "id": "ITI1A",
+    "label": "Grosseto"
   },
   {
-    "label": "Perugia",
-    "id": "ITI21"
+    "id": "ITI2",
+    "label": "Umbria"
   },
   {
-    "label": "Terni",
-    "id": "ITI22"
+    "id": "ITI21",
+    "label": "Perugia"
   },
   {
-    "label": "Marche",
-    "id": "ITI3"
+    "id": "ITI22",
+    "label": "Terni"
   },
   {
-    "label": "Pesaro e Urbino",
-    "id": "ITI31"
+    "id": "ITI3",
+    "label": "Marche"
   },
   {
-    "label": "Ancona",
-    "id": "ITI32"
+    "id": "ITI31",
+    "label": "Pesaro e Urbino"
   },
   {
-    "label": "Macerata",
-    "id": "ITI33"
+    "id": "ITI32",
+    "label": "Ancona"
   },
   {
-    "label": "Ascoli Piceno",
-    "id": "ITI34"
+    "id": "ITI33",
+    "label": "Macerata"
   },
   {
-    "label": "Fermo",
-    "id": "ITI35"
+    "id": "ITI34",
+    "label": "Ascoli Piceno"
   },
   {
-    "label": "Lazio",
-    "id": "ITI4"
+    "id": "ITI35",
+    "label": "Fermo"
   },
   {
-    "label": "Viterbo",
-    "id": "ITI41"
+    "id": "ITI4",
+    "label": "Lazio"
   },
   {
-    "label": "Rieti",
-    "id": "ITI42"
+    "id": "ITI41",
+    "label": "Viterbo"
   },
   {
-    "label": "Roma",
-    "id": "ITI43"
+    "id": "ITI42",
+    "label": "Rieti"
   },
   {
-    "label": "Latina",
-    "id": "ITI44"
+    "id": "ITI43",
+    "label": "Roma"
   },
   {
-    "label": "Frosinone",
-    "id": "ITI45"
+    "id": "ITI44",
+    "label": "Latina"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "ITZ"
+    "id": "ITI45",
+    "label": "Frosinone"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "ITZZ"
+    "id": "ITZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "ITZZZ"
+    "id": "ITZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "ITZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

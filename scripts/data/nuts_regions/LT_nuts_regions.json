@@ -1,66 +1,70 @@
 [
   {
-    "label": "LIETUVA",
-    "id": "LT0"
+    "id": "LT",
+    "label": "LIETUVA"
   },
   {
-    "label": "Sostinės regionas",
-    "id": "LT01"
+    "id": "LT0",
+    "label": "LIETUVA"
   },
   {
-    "label": "Vilniaus apskritis",
-    "id": "LT011"
+    "id": "LT01",
+    "label": "Sostinės regionas"
   },
   {
-    "label": "Vidurio ir vakarų Lietuvos regionas",
-    "id": "LT02"
+    "id": "LT011",
+    "label": "Vilniaus apskritis"
   },
   {
-    "label": "Alytaus apskritis",
-    "id": "LT021"
+    "id": "LT02",
+    "label": "Vidurio ir vakarų Lietuvos regionas"
   },
   {
-    "label": "Kauno apskritis",
-    "id": "LT022"
+    "id": "LT021",
+    "label": "Alytaus apskritis"
   },
   {
-    "label": "Klaipėdos apskritis",
-    "id": "LT023"
+    "id": "LT022",
+    "label": "Kauno apskritis"
   },
   {
-    "label": "Marijampolės apskritis",
-    "id": "LT024"
+    "id": "LT023",
+    "label": "Klaipėdos apskritis"
   },
   {
-    "label": "Panevėžio apskritis",
-    "id": "LT025"
+    "id": "LT024",
+    "label": "Marijampolės apskritis"
   },
   {
-    "label": "Šiaulių apskritis",
-    "id": "LT026"
+    "id": "LT025",
+    "label": "Panevėžio apskritis"
   },
   {
-    "label": "Tauragės apskritis",
-    "id": "LT027"
+    "id": "LT026",
+    "label": "Šiaulių apskritis"
   },
   {
-    "label": "Telšių apskritis",
-    "id": "LT028"
+    "id": "LT027",
+    "label": "Tauragės apskritis"
   },
   {
-    "label": "Utenos apskritis",
-    "id": "LT029"
+    "id": "LT028",
+    "label": "Telšių apskritis"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "LTZ"
+    "id": "LT029",
+    "label": "Utenos apskritis"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "LTZZ"
+    "id": "LTZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "LTZZZ"
+    "id": "LTZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "LTZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

@@ -1,42 +1,46 @@
 [
   {
-    "label": "EESTI",
-    "id": "EE0"
+    "id": "EE",
+    "label": "EESTI"
   },
   {
-    "label": "Eesti",
-    "id": "EE00"
+    "id": "EE0",
+    "label": "EESTI"
   },
   {
-    "label": "Põhja-Eesti",
-    "id": "EE001"
+    "id": "EE00",
+    "label": "Eesti"
   },
   {
-    "label": "Lääne-Eesti",
-    "id": "EE004"
+    "id": "EE001",
+    "label": "Põhja-Eesti"
   },
   {
-    "label": "Kesk-Eesti",
-    "id": "EE006"
+    "id": "EE004",
+    "label": "Lääne-Eesti"
   },
   {
-    "label": "Kirde-Eesti",
-    "id": "EE007"
+    "id": "EE006",
+    "label": "Kesk-Eesti"
   },
   {
-    "label": "Lõuna-Eesti",
-    "id": "EE008"
+    "id": "EE007",
+    "label": "Kirde-Eesti"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "EEZ"
+    "id": "EE008",
+    "label": "Lõuna-Eesti"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "EEZZ"
+    "id": "EEZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "EEZZZ"
+    "id": "EEZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "EEZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]
