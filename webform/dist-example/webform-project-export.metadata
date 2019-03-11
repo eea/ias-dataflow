@@ -100,17 +100,6 @@
     "fileType": "FILE"
   },
   {
-    "title": "CH_nuts_regions.json",
-    "file":
-    {
-      "name": "CH_nuts_regions.json"
-    },
-    "active": false,
-    "localForm": false,
-    "remoteForm": false,
-    "fileType": "FILE"
-  },
-  {
     "title": "CY_nuts_regions.json",
     "file":
     {
@@ -243,32 +232,10 @@
     "fileType": "FILE"
   },
   {
-    "title": "IS_nuts_regions.json",
-    "file":
-    {
-      "name": "IS_nuts_regions.json"
-    },
-    "active": false,
-    "localForm": false,
-    "remoteForm": false,
-    "fileType": "FILE"
-  },
-  {
     "title": "IT_nuts_regions.json",
     "file":
     {
       "name": "IT_nuts_regions.json"
-    },
-    "active": false,
-    "localForm": false,
-    "remoteForm": false,
-    "fileType": "FILE"
-  },
-  {
-    "title": "LI_nuts_regions.json",
-    "file":
-    {
-      "name": "LI_nuts_regions.json"
     },
     "active": false,
     "localForm": false,
@@ -309,28 +276,6 @@
     "fileType": "FILE"
   },
   {
-    "title": "ME_nuts_regions.json",
-    "file":
-    {
-      "name": "ME_nuts_regions.json"
-    },
-    "active": false,
-    "localForm": false,
-    "remoteForm": false,
-    "fileType": "FILE"
-  },
-  {
-    "title": "MK_nuts_regions.json",
-    "file":
-    {
-      "name": "MK_nuts_regions.json"
-    },
-    "active": false,
-    "localForm": false,
-    "remoteForm": false,
-    "fileType": "FILE"
-  },
-  {
     "title": "MT_nuts_regions.json",
     "file":
     {
@@ -346,17 +291,6 @@
     "file":
     {
       "name": "NL_nuts_regions.json"
-    },
-    "active": false,
-    "localForm": false,
-    "remoteForm": false,
-    "fileType": "FILE"
-  },
-  {
-    "title": "NO_nuts_regions.json",
-    "file":
-    {
-      "name": "NO_nuts_regions.json"
     },
     "active": false,
     "localForm": false,
@@ -423,17 +357,6 @@
     "file":
     {
       "name": "SK_nuts_regions.json"
-    },
-    "active": false,
-    "localForm": false,
-    "remoteForm": false,
-    "fileType": "FILE"
-  },
-  {
-    "title": "TR_nuts_regions.json",
-    "file":
-    {
-      "name": "TR_nuts_regions.json"
     },
     "active": false,
     "localForm": false,
