@@ -544,7 +544,7 @@ const species = [
     "speciesCNameEN": "Sosnowsky's hogweed",
     "BG_CommonName": "Sosnowski крава пащърнак",
     "terrestrial": true,
-    "speciesNameLegi": "Heracleum sosnowskyi Mande- nova",
+    "speciesNameLegi": "Heracleum sosnowskyi Mandenova",
     "HR_CommonName": "Sosnowskijev svinjski korov",
     "updDate": "2018-07-18",
     "HU_CommonName": "Szosznovszkij  medvetalp",
