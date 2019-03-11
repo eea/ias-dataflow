@@ -1,158 +1,162 @@
 [
   {
-    "label": "СЕВЕРНА И ЮГОИЗТОЧНА БЪЛГАРИЯ",
-    "id": "BG3"
+    "id": "BG",
+    "label": "БЪЛГАРИЯ (BULGARIA)"
   },
   {
-    "label": "Северозападен",
-    "id": "BG31"
+    "id": "BG3",
+    "label": "СЕВЕРНА И ЮГОИЗТОЧНА БЪЛГАРИЯ (SEVERNA I YUGOIZTOCHNA BULGARIA)"
   },
   {
-    "label": "Видин",
-    "id": "BG311"
+    "id": "BG31",
+    "label": "Северозападен (Severozapaden)"
   },
   {
-    "label": "Монтана",
-    "id": "BG312"
+    "id": "BG311",
+    "label": "Видин (Vidin)"
   },
   {
-    "label": "Враца",
-    "id": "BG313"
+    "id": "BG312",
+    "label": "Монтана (Montana)"
   },
   {
-    "label": "Плевен",
-    "id": "BG314"
+    "id": "BG313",
+    "label": "Враца (Vratsa)"
   },
   {
-    "label": "Ловеч",
-    "id": "BG315"
+    "id": "BG314",
+    "label": "Плевен (Pleven)"
   },
   {
-    "label": "Северен централен",
-    "id": "BG32"
+    "id": "BG315",
+    "label": "Ловеч (Lovech)"
   },
   {
-    "label": "Велико Търново",
-    "id": "BG321"
+    "id": "BG32",
+    "label": "Северен централен (Severen tsentralen)"
   },
   {
-    "label": "Габрово",
-    "id": "BG322"
+    "id": "BG321",
+    "label": "Велико Търново (Veliko Tarnovo)"
   },
   {
-    "label": "Русе",
-    "id": "BG323"
+    "id": "BG322",
+    "label": "Габрово (Gabrovo)"
   },
   {
-    "label": "Разград",
-    "id": "BG324"
+    "id": "BG323",
+    "label": "Русе (Ruse)"
   },
   {
-    "label": "Силистра",
-    "id": "BG325"
+    "id": "BG324",
+    "label": "Разград (Razgrad)"
   },
   {
-    "label": "Североизточен",
-    "id": "BG33"
+    "id": "BG325",
+    "label": "Силистра (Silistra)"
   },
   {
-    "label": "Варна",
-    "id": "BG331"
+    "id": "BG33",
+    "label": "Североизточен (Severoiztochen)"
   },
   {
-    "label": "Добрич",
-    "id": "BG332"
+    "id": "BG331",
+    "label": "Варна (Varna)"
   },
   {
-    "label": "Шумен",
-    "id": "BG333"
+    "id": "BG332",
+    "label": "Добрич (Dobrich)"
   },
   {
-    "label": "Търговище",
-    "id": "BG334"
+    "id": "BG333",
+    "label": "Шумен (Shumen)"
   },
   {
-    "label": "Югоизточен",
-    "id": "BG34"
+    "id": "BG334",
+    "label": "Търговище (Targovishte)"
   },
   {
-    "label": "Бургас",
-    "id": "BG341"
+    "id": "BG34",
+    "label": "Югоизточен (Yugoiztochen)"
   },
   {
-    "label": "Сливен",
-    "id": "BG342"
+    "id": "BG341",
+    "label": "Бургас (Burgas)"
   },
   {
-    "label": "Ямбол",
-    "id": "BG343"
+    "id": "BG342",
+    "label": "Сливен (Sliven)"
   },
   {
-    "label": "Стара Загора",
-    "id": "BG344"
+    "id": "BG343",
+    "label": "Ямбол (Yambol)"
   },
   {
-    "label": "ЮГОЗАПАДНА И ЮЖНА ЦЕНТРАЛНА БЪЛГАРИЯ",
-    "id": "BG4"
+    "id": "BG344",
+    "label": "Стара Загора (Stara Zagora)"
   },
   {
-    "label": "Югозападен",
-    "id": "BG41"
+    "id": "BG4",
+    "label": "ЮГОЗАПАДНА И ЮЖНА ЦЕНТРАЛНА БЪЛГАРИЯ (YUGOZAPADNA I YUZHNA TSENTRALNA BULGARIA)"
   },
   {
-    "label": "София (столица)",
-    "id": "BG411"
+    "id": "BG41",
+    "label": "Югозападен (Yugozapaden)"
   },
   {
-    "label": "София",
-    "id": "BG412"
+    "id": "BG411",
+    "label": "София (столица) (Sofia (stolitsa))"
   },
   {
-    "label": "Благоевград",
-    "id": "BG413"
+    "id": "BG412",
+    "label": "София (Sofia)"
   },
   {
-    "label": "Перник",
-    "id": "BG414"
+    "id": "BG413",
+    "label": "Благоевград (Blagoevgrad)"
   },
   {
-    "label": "Кюстендил",
-    "id": "BG415"
+    "id": "BG414",
+    "label": "Перник (Pernik)"
   },
   {
-    "label": "Южен централен",
-    "id": "BG42"
+    "id": "BG415",
+    "label": "Кюстендил (Kyustendil)"
   },
   {
-    "label": "Пловдив",
-    "id": "BG421"
+    "id": "BG42",
+    "label": "Южен централен (Yuzhen tsentralen)"
   },
   {
-    "label": "Хасково",
-    "id": "BG422"
+    "id": "BG421",
+    "label": "Пловдив (Plovdiv)"
   },
   {
-    "label": "Пазарджик",
-    "id": "BG423"
+    "id": "BG422",
+    "label": "Хасково (Haskovo)"
   },
   {
-    "label": "Смолян",
-    "id": "BG424"
+    "id": "BG423",
+    "label": "Пазарджик (Pazardzhik)"
   },
   {
-    "label": "Кърджали",
-    "id": "BG425"
+    "id": "BG424",
+    "label": "Смолян (Smolyan)"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "BGZ"
+    "id": "BG425",
+    "label": "Кърджали (Kardzhali)"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "BGZZ"
+    "id": "BGZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "BGZZZ"
+    "id": "BGZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "BGZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

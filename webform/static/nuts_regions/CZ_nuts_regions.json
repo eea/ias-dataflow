@@ -1,106 +1,110 @@
 [
   {
-    "label": "ČESKÁ REPUBLIKA",
-    "id": "CZ0"
+    "id": "CZ",
+    "label": "ČESKÁ REPUBLIKA"
   },
   {
-    "label": "Praha",
-    "id": "CZ01"
+    "id": "CZ0",
+    "label": "ČESKÁ REPUBLIKA"
   },
   {
-    "label": "Hlavní město Praha",
-    "id": "CZ010"
+    "id": "CZ01",
+    "label": "Praha"
   },
   {
-    "label": "Střední Čechy",
-    "id": "CZ02"
+    "id": "CZ010",
+    "label": "Hlavní město Praha"
   },
   {
-    "label": "Středočeský kraj",
-    "id": "CZ020"
+    "id": "CZ02",
+    "label": "Střední Čechy"
   },
   {
-    "label": "Jihozápad",
-    "id": "CZ03"
+    "id": "CZ020",
+    "label": "Středočeský kraj"
   },
   {
-    "label": "Jihočeský kraj",
-    "id": "CZ031"
+    "id": "CZ03",
+    "label": "Jihozápad"
   },
   {
-    "label": "Plzeňský kraj",
-    "id": "CZ032"
+    "id": "CZ031",
+    "label": "Jihočeský kraj"
   },
   {
-    "label": "Severozápad",
-    "id": "CZ04"
+    "id": "CZ032",
+    "label": "Plzeňský kraj"
   },
   {
-    "label": "Karlovarský kraj",
-    "id": "CZ041"
+    "id": "CZ04",
+    "label": "Severozápad"
   },
   {
-    "label": "Ústecký kraj",
-    "id": "CZ042"
+    "id": "CZ041",
+    "label": "Karlovarský kraj"
   },
   {
-    "label": "Severovýchod",
-    "id": "CZ05"
+    "id": "CZ042",
+    "label": "Ústecký kraj"
   },
   {
-    "label": "Liberecký kraj",
-    "id": "CZ051"
+    "id": "CZ05",
+    "label": "Severovýchod"
   },
   {
-    "label": "Královéhradecký kraj",
-    "id": "CZ052"
+    "id": "CZ051",
+    "label": "Liberecký kraj"
   },
   {
-    "label": "Pardubický kraj",
-    "id": "CZ053"
+    "id": "CZ052",
+    "label": "Královéhradecký kraj"
   },
   {
-    "label": "Jihovýchod",
-    "id": "CZ06"
+    "id": "CZ053",
+    "label": "Pardubický kraj"
   },
   {
-    "label": "Kraj Vysočina",
-    "id": "CZ063"
+    "id": "CZ06",
+    "label": "Jihovýchod"
   },
   {
-    "label": "Jihomoravský kraj",
-    "id": "CZ064"
+    "id": "CZ063",
+    "label": "Kraj Vysočina"
   },
   {
-    "label": "Střední Morava",
-    "id": "CZ07"
+    "id": "CZ064",
+    "label": "Jihomoravský kraj"
   },
   {
-    "label": "Olomoucký kraj",
-    "id": "CZ071"
+    "id": "CZ07",
+    "label": "Střední Morava"
   },
   {
-    "label": "Zlínský kraj",
-    "id": "CZ072"
+    "id": "CZ071",
+    "label": "Olomoucký kraj"
   },
   {
-    "label": "Moravskoslezsko",
-    "id": "CZ08"
+    "id": "CZ072",
+    "label": "Zlínský kraj"
   },
   {
-    "label": "Moravskoslezský kraj",
-    "id": "CZ080"
+    "id": "CZ08",
+    "label": "Moravskoslezsko"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "CZZ"
+    "id": "CZ080",
+    "label": "Moravskoslezský kraj"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "CZZZ"
+    "id": "CZZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "CZZZZ"
+    "id": "CZZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "CZZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

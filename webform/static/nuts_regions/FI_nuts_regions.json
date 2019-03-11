@@ -1,118 +1,122 @@
 [
   {
-    "label": "MANNER-SUOMI",
-    "id": "FI1"
+    "id": "FI",
+    "label": "SUOMI / FINLAND"
   },
   {
-    "label": "Länsi-Suomi",
-    "id": "FI19"
+    "id": "FI1",
+    "label": "MANNER-SUOMI"
   },
   {
-    "label": "Keski-Suomi",
-    "id": "FI193"
+    "id": "FI19",
+    "label": "Länsi-Suomi"
   },
   {
-    "label": "Etelä-Pohjanmaa",
-    "id": "FI194"
+    "id": "FI193",
+    "label": "Keski-Suomi"
   },
   {
-    "label": "Pohjanmaa",
-    "id": "FI195"
+    "id": "FI194",
+    "label": "Etelä-Pohjanmaa"
   },
   {
-    "label": "Satakunta",
-    "id": "FI196"
+    "id": "FI195",
+    "label": "Pohjanmaa"
   },
   {
-    "label": "Pirkanmaa",
-    "id": "FI197"
+    "id": "FI196",
+    "label": "Satakunta"
   },
   {
-    "label": "Helsinki-Uusimaa",
-    "id": "FI1B"
+    "id": "FI197",
+    "label": "Pirkanmaa"
   },
   {
-    "label": "Helsinki-Uusimaa",
-    "id": "FI1B1"
+    "id": "FI1B",
+    "label": "Helsinki-Uusimaa"
   },
   {
-    "label": "Etelä-Suomi",
-    "id": "FI1C"
+    "id": "FI1B1",
+    "label": "Helsinki-Uusimaa"
   },
   {
-    "label": "Varsinais-Suomi",
-    "id": "FI1C1"
+    "id": "FI1C",
+    "label": "Etelä-Suomi"
   },
   {
-    "label": "Kanta-Häme",
-    "id": "FI1C2"
+    "id": "FI1C1",
+    "label": "Varsinais-Suomi"
   },
   {
-    "label": "Päijät-Häme",
-    "id": "FI1C3"
+    "id": "FI1C2",
+    "label": "Kanta-Häme"
   },
   {
-    "label": "Kymenlaakso",
-    "id": "FI1C4"
+    "id": "FI1C3",
+    "label": "Päijät-Häme"
   },
   {
-    "label": "Etelä-Karjala",
-    "id": "FI1C5"
+    "id": "FI1C4",
+    "label": "Kymenlaakso"
   },
   {
-    "label": "Pohjois- ja Itä-Suomi",
-    "id": "FI1D"
+    "id": "FI1C5",
+    "label": "Etelä-Karjala"
   },
   {
-    "label": "Etelä-Savo",
-    "id": "FI1D1"
+    "id": "FI1D",
+    "label": "Pohjois- ja Itä-Suomi"
   },
   {
-    "label": "Pohjois-Savo",
-    "id": "FI1D2"
+    "id": "FI1D1",
+    "label": "Etelä-Savo"
   },
   {
-    "label": "Pohjois-Karjala",
-    "id": "FI1D3"
+    "id": "FI1D2",
+    "label": "Pohjois-Savo"
   },
   {
-    "label": "Keski-Pohjanmaa",
-    "id": "FI1D5"
+    "id": "FI1D3",
+    "label": "Pohjois-Karjala"
   },
   {
-    "label": "Lappi",
-    "id": "FI1D7"
+    "id": "FI1D5",
+    "label": "Keski-Pohjanmaa"
   },
   {
-    "label": "Kainuu",
-    "id": "FI1D8"
+    "id": "FI1D7",
+    "label": "Lappi"
   },
   {
-    "label": "Pohjois-Pohjanmaa",
-    "id": "FI1D9"
+    "id": "FI1D8",
+    "label": "Kainuu"
   },
   {
-    "label": "ÅLAND",
-    "id": "FI2"
+    "id": "FI1D9",
+    "label": "Pohjois-Pohjanmaa"
   },
   {
-    "label": "Åland",
-    "id": "FI20"
+    "id": "FI2",
+    "label": "ÅLAND"
   },
   {
-    "label": "Åland",
-    "id": "FI200"
+    "id": "FI20",
+    "label": "Åland"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "FIZ"
+    "id": "FI200",
+    "label": "Åland"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "FIZZ"
+    "id": "FIZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "FIZZZ"
+    "id": "FIZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "FIZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

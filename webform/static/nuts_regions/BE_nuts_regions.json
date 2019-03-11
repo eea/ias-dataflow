@@ -1,246 +1,250 @@
 [
   {
-    "label": "RÉGION DE BRUXELLES-CAPITALE/BRUSSELS HOOFDSTEDELIJK GEWEST",
-    "id": "BE1"
+    "id": "BE",
+    "label": "BELGIQUE-BELGIË"
   },
   {
-    "label": "Région de Bruxelles-Capitale/Brussels Hoofdstedelijk Gewest",
-    "id": "BE10"
+    "id": "BE1",
+    "label": "RÉGION DE BRUXELLES-CAPITALE/BRUSSELS HOOFDSTEDELIJK GEWEST"
   },
   {
-    "label": "Arr. (1) de Bruxelles-Capitale/Arr. van Brussel-Hoofdstad",
-    "id": "BE100"
+    "id": "BE10",
+    "label": "Région de Bruxelles-Capitale/ Brussels Hoofdstedelijk Gewest"
   },
   {
-    "label": "VLAAMS GEWEST",
-    "id": "BE2"
+    "id": "BE100",
+    "label": "Arr. de Bruxelles-Capitale/Arr. van Brussel-Hoofdstad"
   },
   {
-    "label": "Prov. (2)Antwerpen",
-    "id": "BE21"
+    "id": "BE2",
+    "label": "VLAAMS GEWEST"
   },
   {
-    "label": "Arr. Antwerpen",
-    "id": "BE211"
+    "id": "BE21",
+    "label": "Prov. Antwerpen"
   },
   {
-    "label": "Arr. Mechelen",
-    "id": "BE212"
+    "id": "BE211",
+    "label": "Arr. Antwerpen"
   },
   {
-    "label": "Arr. Turnhout",
-    "id": "BE213"
+    "id": "BE212",
+    "label": "Arr. Mechelen"
   },
   {
-    "label": "Prov. Limburg (BE)",
-    "id": "BE22"
+    "id": "BE213",
+    "label": "Arr. Turnhout"
   },
   {
-    "label": "Arr. Hasselt",
-    "id": "BE221"
+    "id": "BE22",
+    "label": "Prov. Limburg (BE)"
   },
   {
-    "label": "Arr. Maaseik",
-    "id": "BE222"
+    "id": "BE221",
+    "label": "Arr. Hasselt"
   },
   {
-    "label": "Arr. Tongeren",
-    "id": "BE223"
+    "id": "BE222",
+    "label": "Arr. Maaseik"
   },
   {
-    "label": "Prov. Oost-Vlaanderen",
-    "id": "BE23"
+    "id": "BE223",
+    "label": "Arr. Tongeren"
   },
   {
-    "label": "Arr. Aalst",
-    "id": "BE231"
+    "id": "BE23",
+    "label": "Prov. Oost-Vlaanderen"
   },
   {
-    "label": "Arr. Dendermonde",
-    "id": "BE232"
+    "id": "BE231",
+    "label": "Arr. Aalst"
   },
   {
-    "label": "Arr. Eeklo",
-    "id": "BE233"
+    "id": "BE232",
+    "label": "Arr. Dendermonde"
   },
   {
-    "label": "Arr. Gent",
-    "id": "BE234"
+    "id": "BE233",
+    "label": "Arr. Eeklo"
   },
   {
-    "label": "Arr. Oudenaarde",
-    "id": "BE235"
+    "id": "BE234",
+    "label": "Arr. Gent"
   },
   {
-    "label": "Arr. Sint-Niklaas",
-    "id": "BE236"
+    "id": "BE235",
+    "label": "Arr. Oudenaarde"
   },
   {
-    "label": "Prov. Vlaams-Brabant",
-    "id": "BE24"
+    "id": "BE236",
+    "label": "Arr. Sint-Niklaas"
   },
   {
-    "label": "Arr. Halle-Vilvoorde",
-    "id": "BE241"
+    "id": "BE24",
+    "label": "Prov. Vlaams-Brabant"
   },
   {
-    "label": "Arr. Leuven",
-    "id": "BE242"
+    "id": "BE241",
+    "label": "Arr. Halle-Vilvoorde"
   },
   {
-    "label": "Prov. West-Vlaanderen",
-    "id": "BE25"
+    "id": "BE242",
+    "label": "Arr. Leuven"
   },
   {
-    "label": "Arr. Brugge",
-    "id": "BE251"
+    "id": "BE25",
+    "label": "Prov. West-Vlaanderen"
   },
   {
-    "label": "Arr. Diksmuide",
-    "id": "BE252"
+    "id": "BE251",
+    "label": "Arr. Brugge"
   },
   {
-    "label": "Arr. Ieper",
-    "id": "BE253"
+    "id": "BE252",
+    "label": "Arr. Diksmuide"
   },
   {
-    "label": "Arr. Kortrijk",
-    "id": "BE254"
+    "id": "BE253",
+    "label": "Arr. Ieper"
   },
   {
-    "label": "Arr. Oostende",
-    "id": "BE255"
+    "id": "BE254",
+    "label": "Arr. Kortrijk"
   },
   {
-    "label": "Arr. Roeselare",
-    "id": "BE256"
+    "id": "BE255",
+    "label": "Arr. Oostende"
   },
   {
-    "label": "Arr. Tielt",
-    "id": "BE257"
+    "id": "BE256",
+    "label": "Arr. Roeselare"
   },
   {
-    "label": "Arr. Veurne",
-    "id": "BE258"
+    "id": "BE257",
+    "label": "Arr. Tielt"
   },
   {
-    "label": "RÉGION WALLONNE",
-    "id": "BE3"
+    "id": "BE258",
+    "label": "Arr. Veurne"
   },
   {
-    "label": "Prov. Brabant wallon",
-    "id": "BE31"
+    "id": "BE3",
+    "label": "RÉGION WALLONNE"
   },
   {
-    "label": "Arr. Nivelles",
-    "id": "BE310"
+    "id": "BE31",
+    "label": "Prov. Brabant Wallon"
   },
   {
-    "label": "Prov. Hainaut",
-    "id": "BE32"
+    "id": "BE310",
+    "label": "Arr. Nivelles"
   },
   {
-    "label": "Arr. Ath",
-    "id": "BE321"
+    "id": "BE32",
+    "label": "Prov. Hainaut"
   },
   {
-    "label": "Arr. Charleroi",
-    "id": "BE322"
+    "id": "BE321",
+    "label": "Arr. Ath"
   },
   {
-    "label": "Arr. Mons",
-    "id": "BE323"
+    "id": "BE322",
+    "label": "Arr. Charleroi"
   },
   {
-    "label": "Arr. Mouscron",
-    "id": "BE324"
+    "id": "BE323",
+    "label": "Arr. Mons"
   },
   {
-    "label": "Arr. Soignies",
-    "id": "BE325"
+    "id": "BE324",
+    "label": "Arr. Mouscron"
   },
   {
-    "label": "Arr. Thuin",
-    "id": "BE326"
+    "id": "BE325",
+    "label": "Arr. Soignies"
   },
   {
-    "label": "Arr. Tournai",
-    "id": "BE327"
+    "id": "BE326",
+    "label": "Arr. Thuin"
   },
   {
-    "label": "Prov. Liège",
-    "id": "BE33"
+    "id": "BE327",
+    "label": "Arr. Tournai"
   },
   {
-    "label": "Arr. Huy",
-    "id": "BE331"
+    "id": "BE33",
+    "label": "Prov. Liège"
   },
   {
-    "label": "Arr. Liège",
-    "id": "BE332"
+    "id": "BE331",
+    "label": "Arr. Huy"
   },
   {
-    "label": "Arr. Waremme",
-    "id": "BE334"
+    "id": "BE332",
+    "label": "Arr. Liège"
   },
   {
-    "label": "Arr. Verviers — communes francophones",
-    "id": "BE335"
+    "id": "BE334",
+    "label": "Arr. Waremme"
   },
   {
-    "label": "Bezirk Verviers — Deutschsprachige Gemeinschaft",
-    "id": "BE336"
+    "id": "BE335",
+    "label": "Arr. Verviers — communes francophones"
   },
   {
-    "label": "Prov. Luxembourg (BE)",
-    "id": "BE34"
+    "id": "BE336",
+    "label": "Bezirk Verviers — Deutschsprachige Gemeinschaft"
   },
   {
-    "label": "Arr. Arlon",
-    "id": "BE341"
+    "id": "BE34",
+    "label": "Prov. Luxembourg (BE)"
   },
   {
-    "label": "Arr. Bastogne",
-    "id": "BE342"
+    "id": "BE341",
+    "label": "Arr. Arlon"
   },
   {
-    "label": "Arr. Marche-en-Famenne",
-    "id": "BE343"
+    "id": "BE342",
+    "label": "Arr. Bastogne"
   },
   {
-    "label": "Arr. Neufchâteau",
-    "id": "BE344"
+    "id": "BE343",
+    "label": "Arr. Marche-en-Famenne"
   },
   {
-    "label": "Arr. Virton",
-    "id": "BE345"
+    "id": "BE344",
+    "label": "Arr. Neufchâteau"
   },
   {
-    "label": "Prov. Namur",
-    "id": "BE35"
+    "id": "BE345",
+    "label": "Arr. Virton"
   },
   {
-    "label": "Arr. Dinant",
-    "id": "BE351"
+    "id": "BE35",
+    "label": "Prov. Namur"
   },
   {
-    "label": "Arr. Namur",
-    "id": "BE352"
+    "id": "BE351",
+    "label": "Arr. Dinant"
   },
   {
-    "label": "Arr. Philippeville",
-    "id": "BE353"
+    "id": "BE352",
+    "label": "Arr. Namur"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "BEZ"
+    "id": "BE353",
+    "label": "Arr. Philippeville"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "BEZZ"
+    "id": "BEZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "BEZZZ"
+    "id": "BEZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "BEZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]

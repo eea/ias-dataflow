@@ -1,82 +1,86 @@
 [
   {
-    "label": "DANMARK",
-    "id": "DK0"
+    "id": "DK",
+    "label": "DANMARK"
   },
   {
-    "label": "Hovedstaden",
-    "id": "DK01"
+    "id": "DK0",
+    "label": "DANMARK"
   },
   {
-    "label": "Byen København",
-    "id": "DK011"
+    "id": "DK01",
+    "label": "Hovedstaden"
   },
   {
-    "label": "Københavns omegn",
-    "id": "DK012"
+    "id": "DK011",
+    "label": "Byen København"
   },
   {
-    "label": "Nordsjælland",
-    "id": "DK013"
+    "id": "DK012",
+    "label": "Københavns omegn"
   },
   {
-    "label": "Bornholm",
-    "id": "DK014"
+    "id": "DK013",
+    "label": "Nordsjælland"
   },
   {
-    "label": "Sjælland",
-    "id": "DK02"
+    "id": "DK014",
+    "label": "Bornholm"
   },
   {
-    "label": "Østsjælland",
-    "id": "DK021"
+    "id": "DK02",
+    "label": "Sjælland"
   },
   {
-    "label": "Vest- og Sydsjælland",
-    "id": "DK022"
+    "id": "DK021",
+    "label": "Østsjælland"
   },
   {
-    "label": "Syddanmark",
-    "id": "DK03"
+    "id": "DK022",
+    "label": "Vest- og Sydsjælland"
   },
   {
-    "label": "Fyn",
-    "id": "DK031"
+    "id": "DK03",
+    "label": "Syddanmark"
   },
   {
-    "label": "Sydjylland",
-    "id": "DK032"
+    "id": "DK031",
+    "label": "Fyn"
   },
   {
-    "label": "Midtjylland",
-    "id": "DK04"
+    "id": "DK032",
+    "label": "Sydjylland"
   },
   {
-    "label": "Vestjylland",
-    "id": "DK041"
+    "id": "DK04",
+    "label": "Midtjylland"
   },
   {
-    "label": "Østjylland",
-    "id": "DK042"
+    "id": "DK041",
+    "label": "Vestjylland"
   },
   {
-    "label": "Nordjylland",
-    "id": "DK05"
+    "id": "DK042",
+    "label": "Østjylland"
   },
   {
-    "label": "Nordjylland",
-    "id": "DK050"
+    "id": "DK05",
+    "label": "Nordjylland"
   },
   {
-    "label": "EXTRA-REGIO NUTS 1",
-    "id": "DKZ"
+    "id": "DK050",
+    "label": "Nordjylland"
   },
   {
-    "label": "Extra-Regio NUTS 2",
-    "id": "DKZZ"
+    "id": "DKZ",
+    "label": "EXTRA-REGIO NUTS 1"
   },
   {
-    "label": "Extra-Regio NUTS 3",
-    "id": "DKZZZ"
+    "id": "DKZZ",
+    "label": "Extra-Regio NUTS 2"
+  },
+  {
+    "id": "DKZZZ",
+    "label": "Extra-Regio NUTS 3"
   }
 ]
