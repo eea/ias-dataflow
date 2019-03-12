@@ -94,19 +94,16 @@
 
             getSupportingFiles()
               .then(({data}) => {
-                data.filter(file => {
-                  if(file === this.uploadedFile) {
-                    this.field.selected = `${envelope}/${this.uploadedFile}`
-                  }
-                })
-              })
+                this.field.selected = `${envelope}/${data[data.length - 1]}`
+            })
           }, error => console.log(error))
       },
       removeFile() {
         deleteFile(this.field.selected.replace(`${envelope}/`, ''))
           .then(({data}) => {
             console.log(`File ${data} deleted successfully`)
-          }, error => console.log(error))
+						this.field.selected = null
+          }, error => this.field.selected = null)
       }
     }
   }
