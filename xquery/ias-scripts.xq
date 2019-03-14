@@ -22,6 +22,7 @@ import module namespace geo = "http://expath.org/ns/geo";
 import module namespace http = "http://expath.org/ns/http-client";
 
 declare variable $scripts:MSG_LIMIT as xs:integer := 1000;
+declare variable $scripts:PRESENT_IN_MS as xs:string+ := ('true');
 
 declare variable $scripts:docErrorMessages as document-node() := fn:doc('http://dd.eionet.europa.eu/vocabulary/ias/cdrqaqc/codelist');
 declare variable $scripts:vocabCountries := 'http://dd.eionet.europa.eu/vocabulary/ias/countries';
@@ -362,15 +363,16 @@ declare function scripts:checkCodeList(
         $type as xs:string,
         $element_name as xs:string,
         $codeListUrl as xs:string,
-        $hdrs as xs:string+
+        $hdrs as xs:string+,
+        $conditionElement as xs:string
 ) as element()* {
     let $validConcepts := scripts:getValidConcepts($codeListUrl)
     let $validPrefLabels := scripts:getValidPrefLabels($codeListUrl)
 
     let $data :=
         for $species in $species_seq
-            let $present_in_MS := $species//*:present_in_MS => functx:if-empty('')
-            where $present_in_MS = 'true'
+            let $isMandatory := $species/*[local-name() = $conditionElement]/data()
+                    => functx:if-empty('')  = 'true'
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
@@ -380,11 +382,14 @@ declare function scripts:checkCodeList(
 
                 for $l3 in $level3_seq
                     where $l3/*:parent_row_id = $par_row_id
-                    let $code := $l3/*[local-name() = $element_name]
+                    let $code := $l3/*[local-name() = $element_name] => functx:if-empty('')
                     where not($code = $validConcepts or $code = $validPrefLabels)
-                    let $d := ($EASINcode, $code)
+                    let $row_id := $l3/*:row_id
+                    let $d := ($EASINcode, $row_id ,$code)
 
-                    return scripts:createData((1), (2), $d)
+                    return if(($code = '' and $isMandatory) or not($code = ''))
+                        then scripts:createData((1), (3), $d)
+                        else ()
 
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
@@ -407,7 +412,7 @@ declare function scripts:checkCodeListL2(
     let $data :=
         for $species in $species_seq
             let $present_in_MS := $species//*:present_in_MS => functx:if-empty('')
-            where $present_in_MS = 'true'
+            where $present_in_MS = $scripts:PRESENT_IN_MS
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
@@ -775,7 +780,7 @@ declare function scripts:checkA4(
         $root as element()
 ) as element()* {
     let $type := 'blocker'
-    let $seq := $root//*:sectionASpecies/*:Row[fn:string-length(*:present_in_MS) > 0]
+    let $seq := $root//*:sectionASpecies/*:Row
     let $hdrs := ('EASINcode', 'Present in MS')
 
     return scripts:checkSpeciesPresence($refcode, $rulename, $root,
@@ -786,7 +791,8 @@ declare function scripts:checkReproductionPatterns(
         $refcode as xs:string,
         $rulename as xs:string,
         $type as xs:string,
-        $seq as element()*
+        $seq as element()*,
+        $conditionElement as xs:string
 ) as element()* {
     let $codeListUrl := $scripts:vocabReproductionPatterns
     let $validConcepts := scripts:getValidConcepts($codeListUrl)
@@ -794,11 +800,17 @@ declare function scripts:checkReproductionPatterns(
     let $data :=
         for $species in $seq
             let $value := $species//*:reproduction_pattern => functx:if-empty('')
+
             where not($value = $validConcepts)
 
+            let $isMandatory := $species/*[local-name() = $conditionElement]/data()
+                    => functx:if-empty('')  = 'true'
             let $EASINcode := $species/*:EASINCode
             let $d := ($EASINcode, $value)
-            return scripts:createData((1), (2), $d)
+
+            return if(($value = '' and $isMandatory) or not($value = ''))
+                then scripts:createData((1), (2), $d)
+                else ()
 
     let $hdrs := ('EASINcode', 'Reproduction patterns')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
@@ -817,11 +829,11 @@ declare function scripts:checkA5(
         $root as element()
 ) as element()* {
     let $type := 'error'
-    let $seq := $root//*:sectionASpecies/*:Row[*:present_in_MS = 'true'
-            and fn:string-length(*:reproduction_pattern) > 0]
+    let $seq := $root//*:sectionASpecies/*:Row (:[*:present_in_MS = $scripts:PRESENT_IN_MS]:)
+    let $conditionElement := 'present_in_MS'
 
     return scripts:checkReproductionPatterns(
-        $refcode, $rulename, $type, $seq)
+            $refcode, $rulename, $type, $seq, $conditionElement)
 };
 
 declare function scripts:checkSpreadPatterns(
@@ -830,7 +842,8 @@ declare function scripts:checkSpreadPatterns(
         $root as element(),
         $type as xs:string,
         $seq as element()*,
-        $section as xs:string
+        $section as xs:string,
+        $conditionElement as xs:string
 ) as element()* {
     let $codeListUrl := $scripts:vocabSpreadPatterns
     let $validConcepts := scripts:getValidConcepts($codeListUrl)
@@ -847,9 +860,14 @@ declare function scripts:checkSpreadPatterns(
                 let $spread := $spreadPattern/*:spread_pattern => functx:if-empty('')
                 where not($spread = $validConcepts)
 
+                let $isMandatory := $species/*[local-name() = $conditionElement]/data()
+                        => functx:if-empty('') = 'true'
                 let $EASINcode := $species/*:EASINCode
                 let $d := ($info ,$EASINcode, $spread)
-                return scripts:createData((1), (3), $d)
+
+                return if(($spread = '' and $isMandatory) or not($spread = ''))
+                    then scripts:createData((1), (3), $d)
+                    else ()
 
     let $mandatoryPatternsA := ('enteredNeighbourCountry', 'enteredUnintentional',
         'enteredIntentional', 'enteredNot')
@@ -873,15 +891,20 @@ declare function scripts:checkSpreadPatterns(
             let $infoA := if(empty($valuesA)) then 'b/c/d/e' else ()
             let $infoB := if(empty($valuesB)) then 'f/g/h/I' else ()
 
+            let $isMandatory := $species/*[local-name() = $conditionElement]/data()
+                => functx:if-empty('') = 'true'
+
             let $EASINcode := $species/*:EASINCode
             let $info := string-join(($infoA, $infoB), ' and ')
             let $d := ($infoBase ,$EASINcode, $info)
 
-            return scripts:createData((1), (3), $d)
+            return if((empty(($valuesA, $valuesB)) and $isMandatory) or not(empty(($valuesA, $valuesB))))
+                then scripts:createData((1), (3), $d)
+                else ()
 
     let $data := ($data1, $data2)
 
-    let $hdrs := ('Additional info', 'EASINcode', 'Spread patterns')
+    let $hdrs := ('Additional info', 'EASINcode', 'Missing')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -897,11 +920,12 @@ declare function scripts:checkA6(
         $root as element()
 ) as element()* {
     let $type := 'error'
-    let $seq := $root//*:sectionASpecies/*:Row[*:present_in_MS = 'true']
+    let $seq := $root//*:sectionASpecies/*:Row (:[*:present_in_MS = $scripts:PRESENT_IN_MS]:)
     let $section := 'A'
+    let $conditionalElement := 'present_in_MS'
 
     return scripts:checkSpreadPatterns($refcode, $rulename, $root,
-        $type, $seq, $section)
+        $type, $seq, $section, $conditionalElement)
 };
 
 (:~
@@ -914,7 +938,7 @@ declare function scripts:checkA8(
 ) as element()* {
     let $type := 'blocker'
 
-    let $seq := $root//*:sectionASpecies/*:Row[fn:string-length(*:permits_issued) > 0]
+    let $seq := $root//*:sectionASpecies/*:Row
 
     let $data :=
         for $species in $seq
@@ -945,12 +969,12 @@ declare function scripts:checkA9(
 ) as element()* {
     let $type := 'error'
 
-    let $seq := $root//*:sectionASpecies/*:Row[fn:string-length(*:permits_issued) > 0]
+    let $seq := $root//*:sectionASpecies/*:Row
 
     let $data :=
         for $species in $seq
             let $permits_issued := $species//*:permits_issued => functx:if-empty('')
-            where $permits_issued = 'true'
+            let $isMandatory := $permits_issued = 'true'
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
@@ -958,17 +982,17 @@ declare function scripts:checkA9(
                     /*:Row[*:parent_row_id = $species_row_id]
 
             for $per in $permits
-                let $year := $per/*:year => fn:number()
-                where not($year > 2000 and $year < 2019)
+                let $row_id := $per/*:row_id
+                let $year := $per/*:year
+                let $yearNr := $year => fn:number()
+                where not($yearNr > 2000 and $yearNr < 2019)
 
-                return
-                    map {
-                        "sort" : (1),
-                        "marks" : (2),
-                        "data" : ($EASINcode, $year)
-                    }
+                let $d := ($EASINcode, $row_id, $year)
+                return if(($year = '' and $isMandatory) or not($year = ''))
+                    then scripts:createData((1), (3), $d)
+                    else ()
 
-    let $hdrs := ('EASINcode', 'Year')
+    let $hdrs := ('EASINcode', 'Permit row ID', 'Year')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -987,12 +1011,12 @@ declare function scripts:checkA10(
     let $type := 'blocker'
     let $codeListUrl := $scripts:vocabPurposesPermits
     let $validConcepts := scripts:getValidConcepts($codeListUrl)
-    let $seq := $root//*:sectionASpecies/*:Row[fn:string-length(*:permits_issued) > 0]
+    let $seq := $root//*:sectionASpecies/*:Row
 
     let $data :=
         for $species in $seq
             let $permits_issued := $species//*:permits_issued => functx:if-empty('')
-            where $permits_issued = 'true'
+            let $isMandatory := $permits_issued = 'true'
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
@@ -1000,13 +1024,16 @@ declare function scripts:checkA10(
                     /*:Row[*:parent_row_id = $species_row_id]
 
             for $per in $permits
+                let $row_id := $per/*:row_id
                 let $permit_purpose := $per/*:permit_purpose => functx:if-empty('')
                 where not($permit_purpose = $validConcepts)
-                let $d := ($EASINcode, $permit_purpose)
+                let $d := ($EASINcode, $row_id, $permit_purpose)
 
-                return scripts:createData((1), (2), $d)
+                return if(($permit_purpose = '' and $isMandatory) or not($permit_purpose = ''))
+                    then scripts:createData((1), (3), $d)
+                    else ()
 
-    let $hdrs := ('EASINcode', 'Purpose of permit')
+    let $hdrs := ('EASINcode', 'Permit row id', 'Purpose of permit')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -1023,12 +1050,12 @@ declare function scripts:checkA11(
         $root as element()
 ) as element()* {
     let $type := 'error'
-    let $seq := $root//*:sectionASpecies/*:Row[fn:string-length(*:permits_issued) > 0]
+    let $seq := $root//*:sectionASpecies/*:Row
 
     let $data :=
         for $species in $seq
             let $permits_issued := $species//*:permits_issued => functx:if-empty('')
-            where $permits_issued = 'true'
+            let $isMandatory := $permits_issued = 'true'
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
@@ -1036,13 +1063,18 @@ declare function scripts:checkA11(
                     /*:Row[*:parent_row_id = $species_row_id]
 
             for $per in $permits
+                let $row_id := $per/*:row_id
                 let $number_issued := $per/*:number_issued
-                where not(functx:is-a-number($number_issued) and $number_issued >= 0)
-                let $d := ($EASINcode, $number_issued)
+                let $ni := $number_issued => functx:if-empty('')
+                where not(functx:is-a-number($number_issued)
+                    and $number_issued => fn:number() >= 0)
+                let $d := ($EASINcode, $row_id, $ni)
 
-                return scripts:createData((1), (2), $d)
+                return if(($ni = '' and $isMandatory) or not($ni = ''))
+                    then scripts:createData((1), (3), $d)
+                    else ()
 
-    let $hdrs := ('EASINcode', 'Number of permits')
+    let $hdrs := ('EASINcode', 'Permit row ID', 'Number of permits')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -1059,12 +1091,12 @@ declare function scripts:checkA12(
         $root as element()
 ) as element()* {
     let $type := 'error'
-    let $seq := $root//*:sectionASpecies/*:Row[fn:string-length(*:permits_issued) > 0]
+    let $seq := $root//*:sectionASpecies/*:Row
 
     let $data :=
         for $species in $seq
             let $permits_issued := $species//*:permits_issued => functx:if-empty('')
-            where $permits_issued = 'true'
+            let $isMandatory := $permits_issued = 'true'
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
@@ -1077,13 +1109,17 @@ declare function scripts:checkA12(
                     and *:parent_row_id = $per_row_id]
 
                 for $ps in $permSpec
+                    let $row_id := $ps/*:row_id
                     let $value := $ps/*:value
+                    let $v := $value => functx:if-empty('')
                     where not(functx:is-a-number($value) and $value >= 0)
-                    let $d := ($EASINcode, $value)
+                    let $d := ($EASINcode, $per_row_id, $row_id, $v)
 
-                    return scripts:createData((1), (2), $d)
+                    return if(($v = '' and $isMandatory) or not($v = ''))
+                        then scripts:createData((1), (4), $d)
+                        else ()
 
-    let $hdrs := ('EASINcode', 'Total number or volume')
+    let $hdrs := ('EASINcode', 'Permit row ID', 'Specimen row ID','Total number or volume')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -1101,14 +1137,15 @@ declare function scripts:checkA13(
 ) as element()* {
     let $type := 'blocker'
     let $codeListUrl := $scripts:vocabUnits
-    let $species_seq := $root//*:sectionASpecies/*:Row[*:permits_issued = 'true']
+    let $species_seq := $root//*:sectionASpecies/*:Row
     let $level2_seq := $root//*:permitsIssuedReported/*:Row
     let $level3_seq := $root//*:permitedSpecimens/*:Row
     let $element_name := 'unit'
-    let $hdrs := ('EASINcode', 'Units')
+    let $hdrs := ('EASINcode', "Row ID", 'Units')
+    let $conditionElement := 'permits_issued'
 
     return scripts:checkCodeList($refcode, $rulename, $root, $species_seq, $level2_seq,
-        $level3_seq, $type, $element_name, $codeListUrl, $hdrs )
+        $level3_seq, $type, $element_name, $codeListUrl, $hdrs, $conditionElement)
 };
 
 (:~
@@ -1122,12 +1159,12 @@ declare function scripts:checkA15(
 ) as element()* {
     let $type := 'error'
 
-    let $seq := $root//*:sectionASpecies/*:Row[fn:string-length(*:permits_issued) > 0]
+    let $seq := $root//*:sectionASpecies/*:Row
 
     let $data :=
         for $species in $seq
             let $permits_issued := $species//*:permits_issued => functx:if-empty('')
-            where $permits_issued = 'true'
+            let $isMandatory := $permits_issued = 'true'
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
@@ -1135,17 +1172,17 @@ declare function scripts:checkA15(
                     /*:Row[*:parent_row_id = $species_row_id]
 
             for $ins in $inspections
-                let $year := $ins/*:year => fn:number()
-                where not($year > 2000 and $year < 2019)
+                let $row_id := $ins/*:row_id
+                let $year := $ins/*:year
+                let $yearNr := $year => fn:number()
+                where not($yearNr > 2000 and $yearNr < 2019)
+                let $d := ($EASINcode, $row_id, $year)
 
-                return
-                    map {
-                        "sort" : (1),
-                        "marks" : (2),
-                        "data" : ($EASINcode, $year)
-                    }
+                return if(($year = '' and $isMandatory) or not($year = ''))
+                    then scripts:createData((1), (3), $d)
+                    else ()
 
-    let $hdrs := ('EASINcode', 'Year')
+    let $hdrs := ('EASINcode', 'Inspection row ID', 'Year')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -1165,12 +1202,12 @@ declare function scripts:checkA16(
     let $type := 'blocker'
     let $codeListUrl := $scripts:vocabPurposesPermits
     let $validConcepts := scripts:getValidConcepts($codeListUrl)
-    let $seq := $root//*:sectionASpecies/*:Row[fn:string-length(*:permits_issued) > 0]
+    let $seq := $root//*:sectionASpecies/*:Row
 
     let $data :=
         for $species in $seq
             let $permits_issued := $species//*:permits_issued => functx:if-empty('')
-            where $permits_issued = 'true'
+            let $isMandatory := $permits_issued = 'true'
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
@@ -1178,13 +1215,16 @@ declare function scripts:checkA16(
                     /*:Row[*:parent_row_id = $species_row_id]
 
             for $ins in $inspections
+                let $row_id := $ins/*:row_id
                 let $permit_purpose := $ins/*:permit_purpose => functx:if-empty('')
                 where not($permit_purpose = $validConcepts)
-                let $d := ($EASINcode, $permit_purpose)
+                let $d := ($EASINcode, $row_id, $permit_purpose)
 
-                return scripts:createData((1), (2), $d)
+                return if(($permit_purpose = '' and $isMandatory) or not($permit_purpose = ''))
+                    then scripts:createData((1), (3), $d)
+                    else ()
 
-    let $hdrs := ('EASINcode', 'Purpose of permit')
+    let $hdrs := ('EASINcode', 'Inspection row ID', 'Purpose of permit')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -1206,7 +1246,7 @@ declare function scripts:checkA17(
     let $data :=
         for $species in $seq
             let $permits_issued := $species//*:permits_issued => functx:if-empty('')
-            where $permits_issued = 'true'
+            let $isMandatory := $permits_issued = 'true'
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
@@ -1214,14 +1254,18 @@ declare function scripts:checkA17(
                     /*:Row[*:parent_row_id = $species_row_id]
 
             for $ins in $inspections
+                let $row_id := $ins/*:row_id
                 let $number_establishment := $ins/*:number_establishment
+                let $ne := $number_establishment => functx:if-empty('')
                 where not(functx:is-a-number($number_establishment)
                     and $number_establishment >= 0)
-                let $d := ($EASINcode, $number_establishment)
+                let $d := ($EASINcode, $row_id, $ne)
 
-                return scripts:createData((1), (2), $d)
+                return if(($ne = '' and $isMandatory) or not($ne = ''))
+                    then scripts:createData((1), (3), $d)
+                    else ()
 
-    let $hdrs := ('EASINcode', 'Number of establishments')
+    let $hdrs := ('EASINcode', 'Inspection row ID', 'Number of establishments')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -1239,12 +1283,12 @@ declare function scripts:checkA18(
         $root as element()
 ) as element()* {
     let $type := 'error'
-    let $seq := $root//*:sectionASpecies/*:Row[fn:string-length(*:permits_issued) > 0]
+    let $seq := $root//*:sectionASpecies/*:Row
 
     let $data :=
         for $species in $seq
             let $permits_issued := $species//*:permits_issued => functx:if-empty('')
-            where $permits_issued = 'true'
+            let $isMandatory := $permits_issued = 'true'
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
@@ -1257,15 +1301,19 @@ declare function scripts:checkA18(
                     and *:inspection_status = 'complient']
 
                 for $ip in $insPerm
+                    let $row_id := $ip/*:row_id
                     let $inspection_status := $ip/*:inspection_status
                     let $value := $ip/*:value
+                    let $v := $value => functx:if-empty('')
                     where not(functx:is-a-number($value) and $value >= 0)
-                    let $d := ($EASINcode, $inspection_status, $value)
+                    let $d := ($EASINcode, $per_row_id, $row_id, $inspection_status, $v)
 
-                    return scripts:createData((1), (3), $d)
+                    return if(($v = '' and $isMandatory) or not($v = ''))
+                        then scripts:createData((1), (5), $d)
+                        else ()
 
-    let $hdrs := ('EASINcode', 'Inspection type',
-        'Number of volume of permitted specimens corresponding to permits')
+    let $hdrs := ('EASINcode', 'Inspection row ID', 'Inspection permit row ID',
+        'Inspection type', 'Number of volume')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -1284,14 +1332,15 @@ declare function scripts:checkA19(
 ) as element()* {
     let $type := 'error'
     let $codeListUrl := $scripts:vocabUnits
-    let $species_seq := $root//*:sectionASpecies/*:Row[*:permits_issued = 'true']
+    let $species_seq := $root//*:sectionASpecies/*:Row
     let $level2_seq := $root//*:inspectionsPermitsReported/*:Row
     let $level3_seq := $root//*:inspectionsPermits/*:Row[*:inspection_status = 'complient']
     let $element_name := 'unit'
-    let $hdrs := ('EASINcode', 'Units')
+    let $hdrs := ('EASINcode', "Row ID", 'Units')
+    let $conditionElement := 'permits_issued'
 
     return scripts:checkCodeList($refcode, $rulename, $root, $species_seq, $level2_seq,
-        $level3_seq, $type, $element_name, $codeListUrl, $hdrs )
+        $level3_seq, $type, $element_name, $codeListUrl, $hdrs, $conditionElement)
 };
 
 (:~
@@ -1304,12 +1353,15 @@ declare function scripts:checkA20(
         $root as element()
 ) as element()* {
     let $type := 'error'
-    let $seq := $root//*:sectionASpecies/*:Row[fn:string-length(*:permits_issued) > 0]
+    let $seq := $root//*:sectionASpecies/*:Row
+    let $msg1 := 'Invalid number of inspected establishments'
+    let $msg2 := 'Number of inspected establishments must be less or equal
+            to number of establisments'
 
     let $data :=
         for $species in $seq
             let $permits_issued := $species//*:permits_issued => functx:if-empty('')
-            where $permits_issued = 'true'
+            let $isMandatory := $permits_issued = 'true'
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
@@ -1317,14 +1369,32 @@ declare function scripts:checkA20(
                     /*:Row[*:parent_row_id = $species_row_id]
 
             for $ins in $inspections
+                let $row_id := $ins/*:row_id
                 let $number_inspected := $ins/*:number_inspected
-                where not(functx:is-a-number($number_inspected)
-                    and $number_inspected >= 0)
-                let $d := ($EASINcode, $number_inspected)
+                let $number_establishment := $ins/*:number_establishment
 
-                return scripts:createData((1), (2), $d)
+                let $ni := $number_inspected => functx:if-empty('')
+                let $ne := $number_establishment => functx:if-empty('')
 
-    let $hdrs := ('EASINcode', 'Number of inspected establishments')
+                let $msg :=
+                    if(not(functx:is-a-number($number_inspected)
+                        and $number_inspected >= 0))
+                    then $msg1
+                    else if ($number_inspected castable as xs:integer
+                            and $number_establishment castable as xs:integer
+                            and xs:integer($number_inspected) > xs:integer($number_establishment))
+                    then $msg2
+                    else ''
+
+                where string-length($msg) > 0
+                let $d := ($msg, $EASINcode, $row_id, $ni)
+
+                return if(($ni = '' and $isMandatory) or not($ni = ''))
+                    then scripts:createData((1), (4), $d)
+                    else ()
+
+    let $hdrs := ('Additional info' ,'EASINcode', 'Inspection row ID',
+        'Number of inspected establishments')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -1342,12 +1412,12 @@ declare function scripts:checkA21(
         $root as element()
 ) as element()* {
     let $type := 'error'
-    let $seq := $root//*:sectionASpecies/*:Row[fn:string-length(*:permits_issued) > 0]
+    let $seq := $root//*:sectionASpecies/*:Row
 
     let $data :=
         for $species in $seq
             let $permits_issued := $species//*:permits_issued => functx:if-empty('')
-            where $permits_issued = 'true'
+            let $isMandatory := $permits_issued = 'true'
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
@@ -1360,15 +1430,19 @@ declare function scripts:checkA21(
                     and *:inspection_status = 'noncompliant']
 
                 for $ip in $insPerm
+                    let $row_id := $ip/*:row_id
                     let $inspection_status := $ip/*:inspection_status
                     let $value := $ip/*:value
+                    let $v := $value => functx:if-empty('')
                     where not(functx:is-a-number($value) and $value >= 0)
-                    let $d := ($EASINcode, $inspection_status, $value)
+                    let $d := ($EASINcode, $per_row_id, $row_id, $inspection_status, $v)
 
-                    return scripts:createData((1), (3), $d)
+                    return if(($v = '' and $isMandatory) or not($v = ''))
+                        then scripts:createData((1), (5), $d)
+                        else ()
 
-    let $hdrs := ('EASINcode', 'Inspection type',
-        'Number or volumen of permitted specimens corresponding to permits held by establishments')
+    let $hdrs := ('EASINcode', 'Inspection row ID', 'Inspection permit row ID',
+        'Inspection type', 'Number or permitted specimens')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -1387,14 +1461,15 @@ declare function scripts:checkA22(
 ) as element()* {
     let $type := 'error'
     let $codeListUrl := $scripts:vocabUnits
-    let $species_seq := $root//*:sectionASpecies/*:Row[*:permits_issued = 'true']
+    let $species_seq := $root//*:sectionASpecies/*:Row
     let $level2_seq := $root//*:inspectionsPermitsReported/*:Row
     let $level3_seq := $root//*:inspectionsPermits/*:Row[*:inspection_status = 'noncompliant']
     let $element_name := 'unit'
-    let $hdrs := ('EASINcode', 'Units')
+    let $hdrs := ('EASINcode', "Row ID", 'Units')
+    let $conditionElement := 'permits_issued'
 
     return scripts:checkCodeList($refcode, $rulename, $root, $species_seq, $level2_seq,
-        $level3_seq, $type, $element_name, $codeListUrl, $hdrs )
+        $level3_seq, $type, $element_name, $codeListUrl, $hdrs, $conditionElement)
 };
 
 declare function scripts:checkYesNo(
@@ -1481,7 +1556,7 @@ declare function scripts:checkStartDate(
                 let $start_date := $measure/*:start_date
                 where not($start_date castable as xs:date)
                     or xs:date($start_date) < xs:date('2000-01-01')
-                let $d := ($EASINcode, $start_date)
+                let $d := ($EASINcode, $start_date => functx:if-empty(' '))
 
                 return scripts:createData((1), (2), $d)
 
@@ -1532,7 +1607,11 @@ declare function scripts:checkEndDate(
                 let $end_date := $measure/*:end_date
                 where not($end_date castable as xs:date and $start_date castable as xs:date)
                     or not(xs:date($end_date) > xs:date($start_date))
-                let $d := ($EASINcode, $start_date, $end_date)
+                let $d := (
+                    $EASINcode,
+                    $start_date => functx:if-empty(' '),
+                    $end_date => functx:if-empty(' ')
+                )
 
                 return scripts:createData((1), (3), $d)
 
@@ -1570,14 +1649,15 @@ declare function scripts:checkA29(
 ) as element()* {
     let $type := 'error'
     let $codeListUrl := $scripts:vocabNuts
-    let $species_seq := $root//*:sectionASpecies/*:Row[*:permits_issued = 'true']
+    let $species_seq := $root//*:sectionASpecies/*:Row
     let $level2_seq := $root//*:sectionAMeasures/*:Row[*:measure_type = 'eradication']
     let $level3_seq := $root//*:partTerritory/*:Row
     let $element_name := 'code'
-    let $hdrs := ('EASINcode', 'Code')
+    let $hdrs := ('EASINcode', "Row ID", 'Code')
+    let $conditionElement := 'permits_issued'
 
     return scripts:checkCodeList($refcode, $rulename, $root, $species_seq, $level2_seq,
-        $level3_seq, $type, $element_name, $codeListUrl, $hdrs )
+        $level3_seq, $type, $element_name, $codeListUrl, $hdrs, $conditionElement)
 };
 
 (:
@@ -1591,14 +1671,15 @@ declare function scripts:checkA30(
 ) as element()* {
     let $type := 'error'
     let $codeListUrl := $scripts:vocabBioGeoReg
-    let $species_seq := $root//*:sectionASpecies/*:Row[*:permits_issued = 'true']
+    let $species_seq := $root//*:sectionASpecies/*:Row
     let $level2_seq := $root//*:sectionAMeasures/*:Row[*:measure_type = 'eradication']
     let $level3_seq := $root//*:biogeographicalRegion/*:Row
     let $element_name := 'code'
-    let $hdrs := ('EASINcode', 'Code')
+    let $hdrs := ('EASINcode', "Row ID", 'Code')
+    let $conditionElement := 'permits_issued'
 
     return scripts:checkCodeList($refcode, $rulename, $root, $species_seq, $level2_seq,
-        $level3_seq, $type, $element_name, $codeListUrl, $hdrs )
+        $level3_seq, $type, $element_name, $codeListUrl, $hdrs, $conditionElement)
 };
 
 declare function scripts:checkRiverBasin(
@@ -1647,7 +1728,7 @@ declare function scripts:checkA31(
         $root as element()
 ) as element()* {
     let $type := 'error'
-    let $species_seq := $root//*:sectionASpecies/*:Row[*:present_in_MS = 'true'
+    let $species_seq := $root//*:sectionASpecies/*:Row[*:present_in_MS = $scripts:PRESENT_IN_MS
         and *:permits_issued = 'true']
     let $level2_seq := $root//*:sectionAMeasures/*:Row[*:measure_type = 'eradication']
     let $level3_seq := $root//*:riverBasinSubUnit/*:Row
@@ -1667,14 +1748,15 @@ declare function scripts:checkA32(
 ) as element()* {
     let $type := 'error'
     let $codeListUrl := $scripts:vocabMarineRegions
-    let $species_seq := $root//*:sectionASpecies/*:Row[*:permits_issued = 'true']
+    let $species_seq := $root//*:sectionASpecies/*:Row
     let $level2_seq := $root//*:sectionAMeasures/*:Row[*:measure_type = 'eradication']
     let $level3_seq := $root//*:marineSubRegions/*:Row
     let $element_name := 'code'
-    let $hdrs := ('EASINcode', 'Code')
+    let $hdrs := ('EASINcode', "Row ID", 'Code')
+    let $conditionElement := 'permits_issued'
 
     return scripts:checkCodeList($refcode, $rulename, $root, $species_seq, $level2_seq,
-        $level3_seq, $type, $element_name, $codeListUrl, $hdrs )
+        $level3_seq, $type, $element_name, $codeListUrl, $hdrs, $conditionElement)
 };
 
 (:~
@@ -1688,14 +1770,15 @@ declare function scripts:checkA35(
 ) as element()* {
     let $type := 'error'
     let $codeListUrl := $scripts:vocabMethodsUsed
-    let $species_seq := $root//*:sectionASpecies/*:Row[*:eradication_measures = 'true']
+    let $species_seq := $root//*:sectionASpecies/*:Row
     let $level2_seq := $root//*:sectionAMeasures/*:Row[*:measure_type = 'eradication']
     let $level3_seq := $root//*:methodsUsed/*:Row
     let $element_name := 'methods_used'
-    let $hdrs := ('EASINcode', 'Methods used')
+    let $hdrs := ('EASINcode', "Row ID", 'Methods used')
+    let $conditionElement := 'eradication_measures'
 
     return scripts:checkCodeList($refcode, $rulename, $root, $species_seq, $level2_seq,
-        $level3_seq, $type, $element_name, $codeListUrl, $hdrs )
+        $level3_seq, $type, $element_name, $codeListUrl, $hdrs, $conditionElement)
 };
 
 declare function scripts:checkImpactedSpecies(
@@ -1711,7 +1794,7 @@ declare function scripts:checkImpactedSpecies(
     let $data :=
         for $species in $species_seq
             let $present_in_MS := $species//*:present_in_MS => functx:if-empty('')
-            where $present_in_MS = 'true'
+            where $present_in_MS = $scripts:PRESENT_IN_MS
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
@@ -1719,6 +1802,8 @@ declare function scripts:checkImpactedSpecies(
                 where $l2/*:parent_row_id = $species_row_id
                 let $par_row_id := $l2/*:row_id
                 let $no_negative_impact := $l2/*:no_negative_impact => functx:if-empty('-')
+                where not($no_negative_impact = 'true')
+
                 let $impacts :=
                     for $l3 in $level3_seq
                         where $l3/*:parent_row_id = $par_row_id
@@ -1733,13 +1818,11 @@ declare function scripts:checkImpactedSpecies(
                         let $d := ($info, $EASINcode, $par_row_id, $element_name)
 
                         return scripts:createData((3), (4), $d)
-                else if(not($no_negative_impact = 'true'))
-                    then
-                        let $info := 'At least one entry of observed impact must be given, or "no negative impacts observed" must be ticked'
-                        let $d := ($info, $EASINcode, $par_row_id, '-')
+                else
+                    let $info := 'At least one entry of observed impact must be given, or "no negative impacts observed" must be ticked'
+                    let $d := ($info, $EASINcode, $par_row_id, '-')
 
-                        return scripts:createData((3), (0), $d)
-                else ()
+                    return scripts:createData((3), (0), $d)
 
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
@@ -1922,14 +2005,15 @@ declare function scripts:checkA44(
 ) as element()* {
     let $type := 'error'
     let $codeListUrl := $scripts:vocabNuts
-    let $species_seq := $root//*:sectionASpecies/*:Row[*:subject_management_measures = 'true']
+    let $species_seq := $root//*:sectionASpecies/*:Row
     let $level2_seq := $root//*:sectionAMeasures/*:Row[*:measure_type = 'management']
     let $level3_seq := $root//*:partTerritory/*:Row
     let $element_name := 'code'
-    let $hdrs := ('EASINcode', 'Code')
+    let $hdrs := ('EASINcode', "Row ID", 'Code')
+    let $conditionElement := 'subject_management_measures'
 
     return scripts:checkCodeList($refcode, $rulename, $root, $species_seq, $level2_seq,
-        $level3_seq, $type, $element_name, $codeListUrl, $hdrs )
+        $level3_seq, $type, $element_name, $codeListUrl, $hdrs, $conditionElement)
 };
 
 (:
@@ -1943,14 +2027,15 @@ declare function scripts:checkA45(
 ) as element()* {
     let $type := 'error'
     let $codeListUrl := $scripts:vocabBioGeoReg
-    let $species_seq := $root//*:sectionASpecies/*:Row[*:subject_management_measures = 'true']
+    let $species_seq := $root//*:sectionASpecies/*:Row
     let $level2_seq := $root//*:sectionAMeasures/*:Row[*:measure_type = 'management']
     let $level3_seq := $root//*:biogeographicalRegion/*:Row
     let $element_name := 'code'
-    let $hdrs := ('EASINcode', 'Code')
+    let $hdrs := ('EASINcode', "Row ID", 'Code')
+    let $conditionElement := 'subject_management_measures'
 
     return scripts:checkCodeList($refcode, $rulename, $root, $species_seq, $level2_seq,
-        $level3_seq, $type, $element_name, $codeListUrl, $hdrs )
+        $level3_seq, $type, $element_name, $codeListUrl, $hdrs, $conditionElement)
 };
 
 (:
@@ -1963,7 +2048,7 @@ declare function scripts:checkA46(
         $root as element()
 ) as element()* {
     let $type := 'error'
-    let $species_seq := $root//*:sectionASpecies/*:Row[*:present_in_MS = 'true'
+    let $species_seq := $root//*:sectionASpecies/*:Row[*:present_in_MS = $scripts:PRESENT_IN_MS
         and *:subject_management_measures = 'true']
     let $level2_seq := $root//*:sectionAMeasures/*:Row[*:measure_type = 'management']
     let $level3_seq := $root//*:riverBasinSubUnit/*:Row
@@ -1983,14 +2068,15 @@ declare function scripts:checkA47(
 ) as element()* {
     let $type := 'error'
     let $codeListUrl := $scripts:vocabMarineRegions
-    let $species_seq := $root//*:sectionASpecies/*:Row[*:subject_management_measures = 'true']
+    let $species_seq := $root//*:sectionASpecies/*:Row
     let $level2_seq := $root//*:sectionAMeasures/*:Row[*:measure_type = 'management']
     let $level3_seq := $root//*:marineSubRegions/*:Row
     let $element_name := 'code'
-    let $hdrs := ('EASINcode', 'Code')
+    let $hdrs := ('EASINcode', "Row ID", 'Code')
+    let $conditionElement := 'subject_management_measures'
 
     return scripts:checkCodeList($refcode, $rulename, $root, $species_seq, $level2_seq,
-        $level3_seq, $type, $element_name, $codeListUrl, $hdrs )
+        $level3_seq, $type, $element_name, $codeListUrl, $hdrs, $conditionElement)
 };
 
 (:~
@@ -2004,14 +2090,15 @@ declare function scripts:checkA50(
 ) as element()* {
     let $type := 'blocker'
     let $codeListUrl := $scripts:vocabMethodsUsed
-    let $species_seq := $root//*:sectionASpecies/*:Row[*:subject_management_measures = 'true']
+    let $species_seq := $root//*:sectionASpecies/*:Row
     let $level2_seq := $root//*:sectionAMeasures/*:Row[*:measure_type = 'management']
     let $level3_seq := $root//*:methodsUsed/*:Row
     let $element_name := 'methods_used'
-    let $hdrs := ('EASINcode', 'Methods used')
+    let $hdrs := ('EASINcode', "Row ID", 'Methods used')
+    let $conditionElement := 'subject_management_measures'
 
     return scripts:checkCodeList($refcode, $rulename, $root, $species_seq, $level2_seq,
-        $level3_seq, $type, $element_name, $codeListUrl, $hdrs )
+        $level3_seq, $type, $element_name, $codeListUrl, $hdrs, $conditionElement)
 };
 
 (:~
@@ -2125,7 +2212,7 @@ declare function scripts:checkA58(
 ) as element()* {
     let $type := 'error'
     let $codes := $scripts:codesEcosystems
-    let $species_seq := $root//*:sectionASpecies/*:Row[*:present_in_MS = 'true']
+    let $species_seq := $root//*:sectionASpecies/*:Row[*:present_in_MS = $scripts:PRESENT_IN_MS]
     let $level2_seq := $root//*:ecosystems/*:Row
     let $hdrs := ('EASINcode', 'Ecosystem services')
 
@@ -2319,14 +2406,16 @@ declare function scripts:checkB5b(
         $root as element()
 ) as element()* {
     let $type := 'blocker'
-    let $seq := $root//*:sectionBSpecies/*:Row[*:present_in_MS = 'true'
+    let $seq := $root//*:sectionBSpecies/*:Row[*:present_in_MS = $scripts:PRESENT_IN_MS
             and fn:string-length(*:reproduction_pattern) > 0]
     let $has_national_list_MS := $root//*:reporting//*:has_national_list_MS
             => functx:if-empty('')
+    let $conditionElement := ''
 
     return if($has_national_list_MS = 'true')
         then
-            scripts:checkReproductionPatterns($refcode, $rulename, $type, $seq)
+            scripts:checkReproductionPatterns(
+                    $refcode, $rulename, $type, $seq, $conditionElement)
         else ()
 };
 
@@ -2339,15 +2428,16 @@ declare function scripts:checkB5c(
         $root as element()
 ) as element()* {
     let $type := 'error'
-    let $seq := $root//*:sectionBSpecies/*:Row[*:present_in_MS = 'true']
+    let $seq := $root//*:sectionBSpecies/*:Row[*:present_in_MS = $scripts:PRESENT_IN_MS]
     let $section := 'B'
     let $has_national_list_MS := $root//*:reporting//*:has_national_list_MS
             => functx:if-empty('')
+    let $conditionalElement := ''
 
     return if($has_national_list_MS = 'true')
         then
             scripts:checkSpreadPatterns($refcode, $rulename, $root,
-                $type, $seq, $section)
+                $type, $seq, $section, $conditionalElement)
         else ()
 };
 
@@ -2362,7 +2452,7 @@ declare function scripts:checkB6(
 ) as element()* {
     let $type := 'error'
     let $codeListUrl := $scripts:vocabMeasures
-    let $species_seq := $root//*:sectionBSpecies/*:Row[*:present_in_MS = 'true']
+    let $species_seq := $root//*:sectionBSpecies/*:Row[*:present_in_MS = $scripts:PRESENT_IN_MS]
     let $level2_seq := $root//*:sectionBMeasures/*:Row
     let $element_name := 'measure'
     let $hdrs := ('EASINcode', 'Measure')
