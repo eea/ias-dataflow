@@ -10,7 +10,7 @@ div.ias.header { font-size: 16px; font-weight: 500; margin: 0.8em 0 0.4em 0 }
 
 div.ias.table { display: table; width: 100%; border-collapse: collapse }
 div.ias.row { display: table-row; }
-div.ias.col { display: table-cell; padding: 0.4em; border: 1pt solid #aaa }
+div.ias.col { min-width: 150px; display: table-cell; padding: 0.4em; border: 1pt solid #aaa }
 
 div.ias.inner { width: 80%; margin-left: 10%; margin-top: 0.4em; margin-bottom: 0.6em }
 div.ias.outer { padding-bottom: 0; border: 1pt solid #888 }
@@ -76,28 +76,48 @@ span.ias.pass { color: #fff; background-color: #5cb85c }
 span.ias.message { color: #fff; background-color: #999 }
 
 p.ias.error-text {margin: 0;}
+ul.ias.nomargin {margin: 0}
 
 ]]>
     </style>
 };
 
 declare function common:header() as element()* {
-    <h5>Please note that where an individual check identifies more than 1,000 errors, only the first 1,000 messages are shown in the results below.</h5>
+    <h5>Please consider the following notes:
+        <ul class="ias nomargin">
+            <li>where an individual check identifies more than 1,000 errors, only the first 1,000 messages are shown in the results below.</li>
+            <li>all Row ID numberings start from 0, this means that the first row has ID = 0, the second row has ID = 1.</li>
+        </ul>
+    </h5>
+};
+
+declare function common:createSummaryRow(
+        $allTypes as xs:string*,
+        $errType as xs:string
+) as element()? {
+    let $countTypes := fn:count($allTypes[. = $errType])
+
+    return if($countTypes > 0)
+        then <li>
+            <span style="font-weight:bold">{$countTypes}</span> checks are producing <span class="ias small {$errType}">{$errType}</span>
+        </li>
+        else ()
 };
 
 declare function common:feedback($records as element()*) as element(div) {
+    let $all := $records//@class[starts-with(., 'ias medium')]/string()
+    let $all := for $i in $all return tokenize($i, "\s+")
+
     let $status :=
-        let $all := $records//@class/string()
-        let $all := for $i in $all return tokenize($i, "\s+")
-        return
-            if ($all = "failed") then "failed"
-            else if ($all = "blocker") then "blocker"
-            else if ($all = "error") then "error"
-            else if ($all = "warning") then "warning"
-            else if ($all = "skipped") then "skipped"
-            else if ($all = "info") then "info"
-            else if ($all = "pass") then "ok"
-            else ""
+        if ($all = "failed") then "failed"
+        else if ($all = "blocker") then "blocker"
+        else if ($all = "error") then "error"
+        else if ($all = "warning") then "warning"
+        else if ($all = "skipped") then "skipped"
+        else if ($all = "info") then "info"
+        else if ($all = "pass") then "ok"
+        else ""
+
     let $feedbackMessage :=
         if ($status = "failed") then
             "QA failed to execute."
@@ -113,10 +133,24 @@ declare function common:feedback($records as element()*) as element(div) {
             "QA completed without errors"
         else
             "QA status is unknown"
+
+    let $errorSummary := (
+        <div class="ias header">QA RESULT SUMMARY</div>,
+        <ul class="ias nomargin">{
+            common:createSummaryRow($all, 'failed'),
+            common:createSummaryRow($all, 'blocker'),
+            common:createSummaryRow($all, 'error'),
+            common:createSummaryRow($all, 'warning'),
+            common:createSummaryRow($all, 'info')
+        }
+        </ul>
+    )
+
     return
         <div class="feedbacktext">
             {common:css()}
             <span id="feedbackStatus" class="{$status => upper-case()}" style="display:none">{$feedbackMessage}</span>
+            {$errorSummary}
             {$records}
         </div>
 };
