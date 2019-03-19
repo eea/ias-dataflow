@@ -76,9 +76,7 @@ declare function ias:runChecks02($root as element()) as element()* {
             ias:failsafeWrapper("A4", "Question 3 - Presence", $root, scripts:checkA4#3),
             ias:failsafeWrapper("A5", "Question 4 - Reproduction patterns", $root, scripts:checkA5#3),
             ias:failsafeWrapper("A6", "Question 4 - Spread patterns", $root, scripts:checkA6#3),
-            ias:failsafeWrapper("A8",
-                    "Question 5 - additional information on species, distribution, spread and reproduction patterns",
-                    $root, scripts:checkA8#3),
+            ias:failsafeWrapper("A8", "Question 6 - Permits issued (yes/no)", $root, scripts:checkA8#3),
 
             ias:failsafeWrapper("A9", "Question 7 - Information on permits, Year", $root, scripts:checkA9#3),
             ias:failsafeWrapper("A10", "Question 7 - Information on permits, Purpose of permit", $root, scripts:checkA10#3),
