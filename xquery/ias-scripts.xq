@@ -902,7 +902,7 @@ declare function scripts:checkA4(
     let $hdrs := ('EASINcode', 'Present in MS')
 
     return scripts:checkSpeciesPresence($refcode, $rulename, $root,
-        $type, $seq, $hdrs, '')
+        $type, $seq, $hdrs, 'true')
 };
 
 declare function scripts:checkReproductionPatterns(
