@@ -2501,16 +2501,16 @@ declare function scripts:checkB2(
     let $data :=
         for $species in $seq
             let $isMandatory := $hasList = 'true'
-                let $scientific_name := $species/*:scientific_name => functx:if-empty('')
+            let $scientific_name := $species/*:scientific_name => functx:if-empty('')
 
-                where $scientific_name = ''
-                let $EASINCode := $species/*:EASINCode => functx:if-empty('')
-                let $row_id := $species/*:row_id
+            where $isMandatory and not(fn:matches($scientific_name, '[a-zA-Z]'))
+            let $EASINCode := $species/*:EASINCode => functx:if-empty('')
+            let $row_id := $species/*:row_id
 
-                let $d := ($EASINCode, $row_id, $scientific_name)
-                return scripts:createData((1), (3), $d)
+            let $d := ($EASINCode, $row_id, $scientific_name)
+            return scripts:createData((1), (3), $d)
 
-    let $hdrs := ('EASIN Code', 'Scientific name')
+    let $hdrs := ('EASIN Code', 'Row ID', 'Scientific name')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -2657,12 +2657,15 @@ declare function scripts:checkUriExists(
         $root as element(),
         $type as xs:string,
         $hdrs as xs:string+,
-        $element_name as xs:string
+        $element_name as xs:string,
+        $isMandatory as xs:string
 ) as element()* {
     let $data :=
         let $value := $root//*:sectionC//*[local-name() = $element_name]
             => functx:if-empty('-')
-        
+
+        where not($value = '-') or $isMandatory = 'true'
+
         let $response :=
             try {
                 http:send-request(
@@ -2710,7 +2713,7 @@ declare function scripts:checkC1(
 
     else
         scripts:checkUriExists($refcode, $rulename, $root, 'info',
-            $hdrs, $element_name)
+            $hdrs, $element_name, 'false')
 };
 
 (:
@@ -2737,7 +2740,7 @@ declare function scripts:checkC2(
 
     else
         scripts:checkUriExists($refcode, $rulename, $root, 'info',
-            $hdrs, $element_name)
+            $hdrs, $element_name, 'false')
 };
 
 (:
@@ -2752,10 +2755,45 @@ declare function scripts:checkC3a(
     let $codeListUrl := $scripts:vocabPathways
     let $level1_seq := $root//*:priorityPathway/*:Row
     let $element_name := 'pathway_code'
-    let $hdrs := ('Row id', 'Pathway')
+    let $hdrs := ('Additional info', 'Row id', 'Pathway')
+    let $msgInvalid := 'Invalid code'
+    let $msgDuplicate := 'Duplicate code'
 
-    return scripts:checkCodeListL1($refcode, $rulename, $level1_seq,
-        $type, $element_name, $codeListUrl, $hdrs )
+    let $validConcepts := scripts:getValidConcepts($codeListUrl)
+    let $validNotations := scripts:getValidNotations($codeListUrl)
+
+    let $data1 :=
+        for $node in $level1_seq
+            let $row_id := $node/*:row_id
+            let $code := $node/*[local-name() = $element_name]
+            where not($code = $validConcepts or $code = $validNotations)
+            let $d := ($msgInvalid, string($row_id), $code)
+
+            return scripts:createData((1), (2), $d)
+
+    let $data2 :=
+        for $node at $ind in $level1_seq
+            let $row_id := $node/*:row_id
+            let $code := $node/*[local-name() = $element_name]
+            let $count := count(index-of($level1_seq[*:row_id ne $row_id]/*:pathway_code, $code))
+            where $count > 0 and not($code = subsequence($level1_seq[*:row_id = $row_id]/*:pathway_code, $ind + 1))
+            let $d := ($msgDuplicate, string($row_id), $code)
+
+            return scripts:createData((1), (3), $d)
+    let $data2 := $data2
+
+    let $details :=
+        <div class="ias">{
+            if (empty($data1)) then () else scripts:getDetails($refcode, $type, $hdrs, $data1),
+            if (empty($data2)) then () else scripts:getDetails($refcode, $type, $hdrs, $data2)
+        }</div>
+
+    (:let $details := scripts:getDetails($refcode, $type, $hdrs, $data):)
+
+    return
+        scripts:renderResult($refcode, $rulename, $type, count(($data1, $data2)), $details)
+    (:return scripts:checkCodeListL1($refcode, $rulename, $level1_seq,:)
+        (:$type, $element_name, $codeListUrl, $hdrs ):)
 };
 
 (:
@@ -2800,7 +2838,7 @@ declare function scripts:checkC4(
 
     return
         scripts:checkUriExists($refcode, $rulename, $root, 'info',
-            $hdrs, $element_name)
+            $hdrs, $element_name, 'true')
 };
 
 (:
@@ -2817,7 +2855,7 @@ declare function scripts:checkC5(
 
     return
         scripts:checkUriExists($refcode, $rulename, $root, 'info',
-            $hdrs, $element_name)
+            $hdrs, $element_name, 'true')
 };
 
 (:
@@ -2834,7 +2872,7 @@ declare function scripts:checkC6(
 
     return
         scripts:checkUriExists($refcode, $rulename, $root, 'info',
-            $hdrs, $element_name)
+            $hdrs, $element_name, 'false')
 };
 
 (:
@@ -2851,7 +2889,7 @@ declare function scripts:checkC7(
 
     return
         scripts:checkUriExists($refcode, $rulename, $root, 'info',
-            $hdrs, $element_name)
+            $hdrs, $element_name, 'false')
 };
 
 (:
@@ -2868,5 +2906,5 @@ declare function scripts:checkC8(
 
     return
         scripts:checkUriExists($refcode, $rulename, $root, 'info',
-            $hdrs, $element_name)
+            $hdrs, $element_name, 'false')
 };
