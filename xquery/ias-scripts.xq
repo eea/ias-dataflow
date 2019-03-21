@@ -2497,20 +2497,25 @@ declare function scripts:checkB2(
     let $seq := $root//*:sectionBSpecies/*:Row
     let $hasList := $root//*:reporting//*:has_national_list_MS
             => functx:if-empty('-')
+    let $isMandatory := $hasList = 'true'
 
     let $data :=
+        if($isMandatory and count($seq) = 0)
+        then
+            let $d := ('No species name reported', '-', '-', '-')
+            return scripts:createData((1), (4), $d)
+        else
         for $species in $seq
-            let $isMandatory := $hasList = 'true'
             let $scientific_name := $species/*:scientific_name => functx:if-empty('')
 
             where $isMandatory and not(fn:matches($scientific_name, '[a-zA-Z]'))
             let $EASINCode := $species/*:EASINCode => functx:if-empty('')
             let $row_id := $species/*:row_id
 
-            let $d := ($EASINCode, $row_id, $scientific_name)
-            return scripts:createData((1), (3), $d)
+            let $d := ('Invalid name', $EASINCode, $row_id, $scientific_name)
+            return scripts:createData((1), (4), $d)
 
-    let $hdrs := ('EASIN Code', 'Row ID', 'Scientific name')
+    let $hdrs := ('Additional info', 'EASIN Code', 'Row ID', 'Scientific name')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -2660,27 +2665,39 @@ declare function scripts:checkUriExists(
         $element_name as xs:string,
         $isMandatory as xs:string
 ) as element()* {
+    let $element_name_file := concat('file_', $element_name)
+
     let $data :=
         let $value := $root//*:sectionC//*[local-name() = $element_name]
+            => functx:if-empty('-')
+        let $value_file := $root//*:sectionC//*[local-name() = $element_name_file]
             => functx:if-empty('-')
 
         where not($value = '-') or $isMandatory = 'true'
 
-        let $response :=
-            try {
-                http:send-request(
-                    <http:request method='get' status-only='true' timeout='5'/>, $value)
-            }
-            catch * {
-                <http:response status="404"/>
-            }
-
         return
-            if (not($response/@*:status = 200))
+            if(functx:contains-any-of($value, ('http', 'www')))
             then
-                let $d := ($value)
-                return scripts:createData((1), (1), $d)
-            else ()
+                let $response :=
+                    try {
+                        http:send-request(
+                            <http:request method='get' status-only='true' timeout='10'/>, $value)
+                    }
+                    catch * {
+                        <http:response status="404"/>
+                    }
+                return
+                if (not($response/@*:status = 200))
+                then
+                    let $d := ($value)
+                    return scripts:createData((1), (1), $d)
+                else ()
+            else
+                if($value = '-' and $value_file = '-')
+                then
+                    let $d := ($value)
+                    return scripts:createData((1), (1), $d)
+                else ()
 
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
@@ -2726,11 +2743,14 @@ declare function scripts:checkC2(
         $root as element()
 ) as element()* {
     let $element_name := 'action_plans'
+    let $element_name_file := concat('file_', $element_name)
     let $hdrs := ('Documents describing action plans - Art. 13(2)')
     let $value := $root//*:sectionC//*[local-name() = $element_name]
         => functx:if-empty('')
+    let $value_file := $root//*:sectionC//*[local-name() = $element_name_file]
+        => functx:if-empty('')
 
-    return if($value = '')
+    return if($value = '' and $value_file = '')
     then
         let $type := 'error'
         let $data := scripts:createData((1), (1), ('-'))
@@ -2872,7 +2892,7 @@ declare function scripts:checkC6(
 
     return
         scripts:checkUriExists($refcode, $rulename, $root, 'info',
-            $hdrs, $element_name, 'false')
+            $hdrs, $element_name, 'true')
 };
 
 (:
@@ -2889,7 +2909,7 @@ declare function scripts:checkC7(
 
     return
         scripts:checkUriExists($refcode, $rulename, $root, 'info',
-            $hdrs, $element_name, 'false')
+            $hdrs, $element_name, 'true')
 };
 
 (:

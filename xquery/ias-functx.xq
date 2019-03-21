@@ -162,3 +162,11 @@ declare function functx:get-matches
    functx:get-matches-and-non-matches($string,$regex)/
      string(self::match)
  } ;
+
+declare function functx:contains-any-of
+  ( $arg as xs:string? ,
+    $searchStrings as xs:string* )  as xs:boolean {
+
+   some $searchString in $searchStrings
+   satisfies contains($arg,$searchString)
+ } ;
