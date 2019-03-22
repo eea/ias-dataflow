@@ -80,11 +80,7 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions, po
 		selected: [],
 		name: 'partTerritory',
 		label: 'Part of the territory',
-		options: nuts.map(n => ({ value: n.id, text: `${n.id} - ${n.label}` })),
-		get validation() {
-			if(!this.selected.length) 
-				return `${this.label} is required` 
-		}
+		options: nuts.map(n => ({ value: n.id, text: `${n.id} - ${n.label}` }))
 	},
 	biogeographicalRegion: {
 		type: 'multiselect',
@@ -144,8 +140,8 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions, po
 					field.species.disabled = false
 				}
 			})
-		if(this.riverBasinSubUnit.selected.length === 0 && this.marineSubRegions.selected.length === 0 && this.biogeographicalRegion.selected.length === 0) {
-			return 'At least one of the fields: Biogeographical regions(s), Marine sub-region(s), River basin sub-unit(s) are required'
+		if(this.partTerritory.selected.length === 0 &&this.riverBasinSubUnit.selected.length === 0 && this.marineSubRegions.selected.length === 0 && this.biogeographicalRegion.selected.length === 0) {
+			return 'At least one of the fields: Part of the territory, Biogeographical regions(s), Marine sub-region(s), River basin sub-unit(s) are required'
 		}
 	
 	}

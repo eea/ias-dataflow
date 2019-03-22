@@ -16,7 +16,7 @@
 			<b-collapse :id="`${species_index}_${type}_${measure_index}`" visible>
 				<p class="muted mt-2">Measure(s)</p>
 				<b-row class="mb-2 mt-2" v-for="(measure_field, measure_field_index) in measureTableFields" :key="`${measure_index}_${measure_field_index}`">
-					<b-col cols="12" v-if="measure_field === 'biogeographicalRegion'">
+					<b-col cols="12" v-if="measure_field === 'partTerritory'">
 							<b-badge variant="danger" v-if="measure.validation">{{measure.validation}}</b-badge>			
 					</b-col>
 					<b-col cols="2">
