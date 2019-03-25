@@ -1327,7 +1327,7 @@
       "name": "index.html"
     },
     "newXmlFileName": "ias-report-2018.xml",
-    "emptyInstanceUrl": "https://webq2test.eionet.europa.eu/download/project/ias/file/empty.xml",
+    "emptyInstanceUrl": "https://webforms.eionet.europa.eu/download/project/ias/file/empty.xml",
     "xmlSchema": "http://dd.eionet.europa.eu/v2/dataset/3426/schema-dst-3426.xsd",
     "active": true,
     "localForm": true,

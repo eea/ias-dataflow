@@ -42,11 +42,11 @@ declare variable $scripts:vocabHabitats := 'http://dd.eionet.europa.eu/vocabular
 declare variable $scripts:vocabMeasures := 'http://dd.eionet.europa.eu/vocabulary/ias/measures';
 declare variable $scripts:vocabPathways := 'http://dd.eionet.europa.eu/vocabulary/ias/pathways';
 
-declare variable $scripts:codesRiverBasins := fn:doc('https://converterstest.eionet.europa.eu/xmlfile/river_basins.xml');
-declare variable $scripts:codesEcosystems := fn:doc('https://converterstest.eionet.europa.eu/xmlfile/ecosystems.xml');
-declare variable $scripts:speciesA := fn:doc('https://converterstest.eionet.europa.eu/xmlfile/species_a.xml');
-declare variable $scripts:speciesB := fn:doc('https://converterstest.eionet.europa.eu/xmlfile/species_b.xml');
-declare variable $scripts:nationalListCustom := fn:doc('https://converterstest.eionet.europa.eu/xmlfile/national_list_custom.xml');
+declare variable $scripts:codesRiverBasins := fn:doc('https://converters.eionet.europa.eu/xmlfile/river_basins.xml');
+declare variable $scripts:codesEcosystems := fn:doc('https://converters.eionet.europa.eu/xmlfile/ecosystems.xml');
+declare variable $scripts:speciesA := fn:doc('https://converters.eionet.europa.eu/xmlfile/species_a.xml');
+declare variable $scripts:speciesB := fn:doc('https://converters.eionet.europa.eu/xmlfile/species_b.xml');
+declare variable $scripts:nationalListCustom := fn:doc('https://converters.eionet.europa.eu/xmlfile/national_list_custom.xml');
 declare variable $scripts:EASINcodes := $scripts:speciesA//element/speciesCode;
 
 (:~
