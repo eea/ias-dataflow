@@ -59,9 +59,13 @@ function getDomain(url) {
 
 export function saveInstance(data) {
     if (isTestSession) {
-        let datatowrite = JSON.stringify(data);
-        console.log(datatowrite);
-
+        return new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                let datatowrite = JSON.stringify(data);
+                console.log(datatowrite);
+                resolve("done!")
+            }, 1000)
+        })
     } else {
         let url = getWebQUrl("/saveXml");
         return post(url, data);
@@ -116,7 +120,7 @@ export function uploadFile(file) {
                     cache: false,
                     url: "http://localhost:8080/static/files.json",
                 }));
-            });
+            }, 1000);
         });
 
     } else {
@@ -157,12 +161,16 @@ export function getSupportingFiles() {
 
 export function deleteFile(fileName) {
     if (isTestSession) {
-        return axios({
-            method: "get",
-            withCredentials: true,
-            cache: false,
-            url: "http://localhost:8080/static/files.json"
-        })
+        return new Promise(function (resolve, reject) {
+            window.setTimeout(function () {
+                resolve(axios({
+                    method: "get",
+                    withCredentials: true,
+                    cache: false,
+                    url: "http://localhost:8080/static/files.json"
+                }));
+            }, 1000);
+        });
     } else {
 
         let deleteData = encodeURIComponent(`ids:list=${fileName}&manage_delObjects:method=Delete`)

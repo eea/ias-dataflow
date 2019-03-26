@@ -88,22 +88,30 @@
         }
       },
       submitFile() {
+        this.$store.dispatch('setDataLoading', true)
         uploadFile(this.file)
           .then(({data}) => {
-            
-
+            this.$store.dispatch('setDataLoading', false)
             getSupportingFiles()
               .then(({data}) => {
                 this.field.selected = `${envelope}/${data[data.length - 1]}`
             })
-          }, error => console.log(error))
+          }, (error) => {
+            this.$store.dispatch('setDataLoading', false)
+            console.log(error)
+          })
       },
       removeFile() {
+        this.$store.dispatch('setDataLoading', true)
         deleteFile(this.field.selected.replace(`${envelope}/`, ''))
           .then(({data}) => {
+            this.$store.dispatch('setDataLoading', false)
             console.log(`File ${data} deleted successfully`)
 						this.field.selected = null
-          }, error => this.field.selected = null)
+          }, (error) => {
+            this.$store.dispatch('setDataLoading', false)
+            this.field.selected = null
+          })
       }
     }
   }
