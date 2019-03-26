@@ -17,7 +17,8 @@ export default new Vuex.Store({
 	state: {
 		country: null,
 		form: null,
-		formData: {}
+		formData: {},
+		dataLoading: false
 	},
 
 	getters: {
@@ -61,6 +62,10 @@ export default new Vuex.Store({
 					resolve(context.state.formData)
 				});
 			});
+		},
+
+		setDataLoading({ commit }, value) {
+			commit('setDataLoadingValue', {value})	
 		}
 	},
 
@@ -135,6 +140,10 @@ export default new Vuex.Store({
 		},
 		addPathway(state) {
 			state.form.tabs.tab_3.form_fields.priority_pathways.fields.push(sectionCPathway())
+		},
+
+		setDataLoadingValue(state, {value}) {
+			state.dataLoading = value;
 		}
 	},
 })

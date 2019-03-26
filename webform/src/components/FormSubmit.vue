@@ -603,31 +603,29 @@ export default {
     },
 
     saveForm(){
-      let emptyInstance = JSON.parse(JSON.stringify(this.jsonemptyinstance))
-      let data = JSON.parse(JSON.stringify(this.dataset))
-			let reportID = `${this.currentCountry}-2015-2018`
-			// console.log(reportID)
-			emptyInstance.IAS.reporting.Row.has_national_list_MS = data.tabs.tab_2.ias_list.selected
-			emptyInstance.IAS.reporting.Row.reportID = reportID
-			emptyInstance.IAS.reporting.Row.StartYear = 2015
-			emptyInstance.IAS.reporting.Row.EndYear = 2018
-			emptyInstance.IAS.reporting.Row.CountryCode = this.currentCountry
+        let emptyInstance = JSON.parse(JSON.stringify(this.jsonemptyinstance))
+        let data = JSON.parse(JSON.stringify(this.dataset))
+        let reportID = `${this.currentCountry}-2015-2018`
+        // console.log(reportID)
+        emptyInstance.IAS.reporting.Row.has_national_list_MS = data.tabs.tab_2.ias_list.selected
+        emptyInstance.IAS.reporting.Row.reportID = reportID
+        emptyInstance.IAS.reporting.Row.StartYear = 2015
+        emptyInstance.IAS.reporting.Row.EndYear = 2018
+        emptyInstance.IAS.reporting.Row.CountryCode = this.currentCountry
 
+        this.$store.dispatch('setDataLoading', true)   
 
-
-
-			this.sectionASpecies(data, emptyInstance, reportID)
-			this.sectionBSpecies(data, emptyInstance, reportID)
-			this.sectionC(data, emptyInstance, reportID)
-            this.distributionMaps(data, emptyInstance, reportID)
-            // console.log(emptyInstance)
-            saveInstance(emptyInstance).then(r => {
-				  this.showAlert()
-			}).catch(error => { 
-				console.log(error)
-			})
-
-    
+        this.sectionASpecies(data, emptyInstance, reportID)
+        this.sectionBSpecies(data, emptyInstance, reportID)
+        this.sectionC(data, emptyInstance, reportID)
+        this.distributionMaps(data, emptyInstance, reportID)
+        saveInstance(emptyInstance).then(r => {
+            this.showAlert()
+            this.$store.dispatch('setDataLoading', false)
+        }).catch(error => { 
+            console.log(error)
+            this.$store.dispatch('setDataLoading', false)
+        })
     },
 
 		distributionMaps(data, emptyInstance, reportID) {

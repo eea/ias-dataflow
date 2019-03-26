@@ -27,10 +27,16 @@
 			</b-card>
 		</div>
 
-	
-      <div v-if="!prefilled" class="spinner">
+		<div v-if="!prefilled || $store.state.dataLoading" class="spinner-modal">
+			<div class="spinner-modal-content">
+				<div class="triple-spinner" />
+			</div>
+		</div>
+
+
+      <!-- <div v-if="!prefilled" class="lds-ripple">
         <div class="loader"></div>
-      </div>
+      </div> -->
 
   </b-container>
 </template>
@@ -489,45 +495,86 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
-.spinner {
-    z-index: 1;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0,0,0,0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.spinner-modal {
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.7);
 }
 
-.loader {
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-   border-top: 16px solid blue;
-   border-right: 16px solid green;
-   border-bottom: 16px solid red;
-   border-left: 16px solid pink;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
-  animation: spin 2s linear infinite;
+.spinner-modal-content {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	width: 50%;
+	transform: translate(-50%, -50%);
 }
 
-/* Safari */
+.triple-spinner {
+	display: block;
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 125px;
+	height: 125px;
+	margin: 0 auto;
+	border-radius: 50%;
+	border: 4px solid transparent;
+	border-top: 4px solid #FF5722;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+}
+
+.triple-spinner::before,
+.triple-spinner::after {
+	content: "";
+	position: absolute;
+	border-radius: 50%;
+	border: 4px solid transparent;
+}
+.triple-spinner::before {
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	bottom: 5px;
+	border-top-color: #FF9800;
+	-webkit-animation: spin 3s linear infinite;
+	animation: spin 3.5s linear infinite;
+}
+.triple-spinner::after {
+	top: 15px;
+	left: 15px;
+	right: 15px;
+	bottom: 15px;
+	border-top-color: #FFC107;
+	-webkit-animation: spin 1.5s linear infinite;
+	animation: spin 1.75s linear infinite;
+}
+
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
+    from {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+    }
+    to {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+    }
+  }
+  
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-@media (min-width: 1024px) {
-	.main-layout {
-		max-width: 82%
-	}
-}
+    from {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+    }
+    to {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+    }
+  }
 </style>
