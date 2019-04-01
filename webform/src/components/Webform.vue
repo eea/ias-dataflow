@@ -250,7 +250,9 @@ export default {
 			prefillData.forEach(species => {
 				const row_id = species.row_id
 				const sectionASpeciesStructure = section.find(sp => form.tabs.tab_1.form_fields.indexOf(sp) === row_id)
-
+				if(species.common_name_national) {
+					sectionASpeciesStructure.common_name_national.selected = species.common_name_national
+				}
 				sectionASpeciesStructure.present_in_MS.selected = species.present_in_MS
 				
 				if(species.present_in_MS) {

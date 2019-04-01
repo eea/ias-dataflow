@@ -71,6 +71,9 @@
           return ''
         }
       },
+			triggerSave() {
+				document.getElementById('save_button').click()
+			},
       handleFileUpload(e) {
         const fileNameArr = e.target.files[0].name.split('.')
         const extension = '.' + fileNameArr[fileNameArr.length - 1]
@@ -95,6 +98,7 @@
             getSupportingFiles()
               .then(({data}) => {
                 this.field.selected = `${envelope}/${data[data.length - 1]}`
+								this.triggerSave();
             })
           }, (error) => {
             this.$store.dispatch('setDataLoading', false)
@@ -108,9 +112,11 @@
             this.$store.dispatch('setDataLoading', false)
             console.log(`File ${data} deleted successfully`)
 						this.field.selected = null
+						this.triggerSave()
           }, (error) => {
             this.$store.dispatch('setDataLoading', false)
             this.field.selected = null
+						this.triggerSave()
           })
       }
     }

@@ -134,6 +134,7 @@ export function uploadFile(file) {
             withCredentials: true,
             async: false,
             cache: false,
+						timeout: 10000 * 58,
             contentType: false,
             processData: false,
             url: uploadUri,
