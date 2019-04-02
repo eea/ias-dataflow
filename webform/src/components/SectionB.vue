@@ -46,7 +46,7 @@
               <b-btn @click="$store.commit('addSectionBSpecies', 
               {selected_species: manual_species.species_scientific_name, common_name: manual_species.species_common_name});
                 manual_species.species_scientific_name = null;
-                manual_species.species_common_name = null" 
+                manual_species.species_common_name = null"
                 variant="primary">Add</b-btn>
             </b-col>
 

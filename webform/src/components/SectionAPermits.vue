@@ -89,7 +89,8 @@
 				</div>	
 
 			</div>
-
+		
+			<label class="mb-2 mt-2" style="display: flex;">	<fieldGenerator :field="species.inspectionsPermitsReported.no_inspections_reported"></fieldGenerator> {{species.inspectionsPermitsReported.no_inspections_reported.label}} </label>
 			<fieldGenerator :field="species.additional_information_inspections"></fieldGenerator>
 	</div>
 </template>

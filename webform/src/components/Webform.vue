@@ -267,6 +267,7 @@ export default {
 				sectionASpeciesStructure.additional_information_inspections.selected = species.additional_information_inspections
 
 				sectionASpeciesStructure.permits_issued.selected = species.permits_issued
+				sectionASpeciesStructure.inspectionsPermitsReported.no_inspections_reported.selected = species.no_inspections_reported
 				if(species.permits_issued) {
 					permitsIssuedReportedData.filter(p => p.parent_row_id === row_id).forEach((permit, permit_index) => {
 						const permit_row_id = permit.row_id
