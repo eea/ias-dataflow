@@ -364,10 +364,10 @@
     "fileType": "FILE"
   },
   {
-    "title": "UK_nuts_regions.json",
+    "title": "GB_nuts_regions.json",
     "file":
     {
-      "name": "UK_nuts_regions.json"
+      "name": "GB_nuts_regions.json"
     },
     "active": false,
     "localForm": false,
@@ -474,10 +474,10 @@
     "fileType": "FILE"
   },
   {
-    "title": "GR_marine_subregions.json",
+    "title": "EL_marine_subregions.json",
     "file":
     {
-      "name": "GR_marine_subregions.json"
+      "name": "EL_marine_subregions.json"
     },
     "active": false,
     "localForm": false,
@@ -650,10 +650,10 @@
     "fileType": "FILE"
   },
   {
-    "title": "UK_marine_subregions.json",
+    "title": "GB_marine_subregions.json",
     "file":
     {
-      "name": "UK_marine_subregions.json"
+      "name": "GB_marine_subregions.json"
     },
     "active": false,
     "localForm": false,
@@ -782,10 +782,10 @@
     "fileType": "FILE"
   },
   {
-    "title": "GR_biogeographical_regions.json",
+    "title": "EL_biogeographical_regions.json",
     "file":
     {
-      "name": "GR_biogeographical_regions.json"
+      "name": "EL_biogeographical_regions.json"
     },
     "active": false,
     "localForm": false,
@@ -958,10 +958,10 @@
     "fileType": "FILE"
   },
   {
-    "title": "UK_biogeographical_regions.json",
+    "title": "GB_biogeographical_regions.json",
     "file":
     {
-      "name": "UK_biogeographical_regions.json"
+      "name": "GB_biogeographical_regions.json"
     },
     "active": false,
     "localForm": false,
@@ -1079,10 +1079,10 @@
     "fileType": "FILE"
   },
   {
-    "title": "GR_river_basins.json",
+    "title": "EL_river_basins.json",
     "file":
     {
-      "name": "GR_river_basins.json"
+      "name": "EL_river_basins.json"
     },
     "active": false,
     "localForm": false,
@@ -1248,17 +1248,6 @@
     "file":
     {
       "name": "SK_river_basins.json"
-    },
-    "active": false,
-    "localForm": false,
-    "remoteForm": false,
-    "fileType": "FILE"
-  },
-  {
-    "title": "UK_river_basins.json",
-    "file":
-    {
-      "name": "UK_river_basins.json"
     },
     "active": false,
     "localForm": false,
