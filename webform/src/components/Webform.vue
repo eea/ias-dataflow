@@ -56,6 +56,7 @@ import permitsIssuedReported from '@/assets/permitsIssuedReported'
 import permitedSpecimens from '@/assets/permitedSpecimens'
 import inspectionsPermitsReported from '@/assets/inspectionsPermitsReported'
 import sectionAMeasures from '@/assets/sectionAMeasures'
+import sectionAMeasuresManagement from '@/assets/sectionAMeasuresManagement'
 import infoImpactSpecies from '@/assets/infoImpactSpecies'
 import observedNegativeImpacts from '@/assets/observedNegativeImpacts'
 
@@ -408,11 +409,9 @@ export default {
 
 				sectionASpeciesStructure.subject_management_measures.selected = species.subject_management_measures
 				if(species.subject_management_measures) {
-
-
 						sectionAMeasuresData.filter(m => m.parent_row_id === row_id && m.measure_type === 'management').forEach((measure, measure_index) => {
 						const measure_row_id = measure.row_id
-						const sectionAMeasuresStructure = sectionAMeasures({
+						const sectionAMeasuresStructure = sectionAMeasuresManagement({
 								nuts: this.$store.state.formData.nuts_regions,
 								b_regions: this.$store.state.formData.biogeographical_regions,
 								r_b_subunits: this.$store.state.formData.river_basins,

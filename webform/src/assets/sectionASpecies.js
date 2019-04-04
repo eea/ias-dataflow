@@ -1,5 +1,6 @@
 import permitsIssuedReported from './permitsIssuedReported'
 import sectionAMeasures from './sectionAMeasures'
+import sectionAMeasuresManagement from './sectionAMeasuresManagement'
 import inspectionsPermitsReported from './inspectionsPermitsReported'
 import infoImpactSpecies from './infoImpactSpecies'
 import spreadPatterns from './spreadPatterns'
@@ -173,7 +174,7 @@ const species = (currentSpecies, country, formData) => ({
 
 	sectionAMeasuresManagement: {
 		fields: [
-			sectionAMeasures({
+			sectionAMeasuresManagement({
 				nuts: formData.nuts_regions, 
 				b_regions: formData.biogeographical_regions,
 				r_b_subunits: formData.river_basins,

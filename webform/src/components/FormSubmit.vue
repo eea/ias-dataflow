@@ -932,6 +932,7 @@ export default {
 							sectionAMeasures.no_negative_impact = measure.no_negative_impact.selected
 							sectionAMeasures.measure_effectiveness = measure.measure_effectiveness.selected
 							sectionAMeasures.additional_information = measure.additional_information.selected
+							sectionAMeasures.measure_objective = measure.measure_objective.selected
 
 							// part of territory
 							measure.partTerritory.selected.forEach((territory, territory_index) => {
