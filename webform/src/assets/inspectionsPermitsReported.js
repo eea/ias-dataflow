@@ -5,6 +5,7 @@ const permits = () => ({
 		type: 'select',
 		label: 'Year',
 		selected: null,
+    disabled: false,
 		options: [
 			{text: 2015, value: 2015},
 			{text: 2016, value: 2016},
@@ -12,13 +13,15 @@ const permits = () => ({
 			{text: 2018, value: 2018}
 		],
 		get validation() {
-			if(!this.selected) 
+      if(this.disabled === true) return
+			if(!this.selected)
 				return `${this.label} is required ${this.type === 'number' ? ', can only contain numeric characters and must be 0 or more' : ''}`
 		}
 	},
 	permit_purpose: {
 		type: 'select',
 		label: 'Purpose of permit',
+    disabled: false,
 		selected: null,
 		options: [
 			{text: 'Permits for research', value: 'research'},
@@ -27,6 +30,7 @@ const permits = () => ({
 			{text: 'Permits for other activities after authorisation by the Commission (Article 9 of Regulation (EU) No 1143/2014)', value: 'other'}
 		],
 		get validation() {
+      if(this.disabled === true) return
 			if(!this.selected) 
 				return `${this.label} is required ${this.type === 'number' ? ', can only contain numeric characters and must be 0 or more' : ''}`
 		}
@@ -35,10 +39,12 @@ const permits = () => ({
 	number_establishment: {
 		type: 'number',
 		selected: null,
+    disabled: false,
 		name: 'number_establishment',
 		label: 'Number of establishments',
 		tooltip: 'Number of establishments subjected to the inspections',
 		get validation() {
+      if(this.disabled === true) return
 			if(!this.selected || this.selected < 0) 
 				return `${this.label} is required ${this.type === 'number' ? ', can only contain numeric characters and must be 0 or more' : ''}`
 		}
@@ -48,9 +54,11 @@ const permits = () => ({
 		type: 'number',
 		name: 'number_inspected',
 		selected: null,
+    disabled: false,
 		label: 'Inspected establishments non-compliant',
 		tooltip: 'Inspected establishments deemed non-compliant with the conditions set out in the permits',
 		get validation() {
+      if(this.disabled === true) return
 			if(!this.selected || this.selected < 0) 
 				return `${this.label} is required ${this.type === 'number' ? ', can only contain numeric characters and must be 0 or more' : ''}`
 		}
@@ -58,6 +66,7 @@ const permits = () => ({
 
 	get validation() {
 		const messages = []
+    if(this.number_inspected.disabled) return messages
 		this.inspectionsPermitsComplient.fields.forEach((field, index) => {
 			if((field.value.selected && this.inspectionsPermitsNoncompliant.fields[index].value.selected) && parseFloat(field.value.selected) < parseFloat(this.inspectionsPermitsNoncompliant.fields[index].value.selected)){
 				const message =  {index: index, error: `${this.inspectionsPermitsNoncompliant.label} cannot be greater than ${this.inspectionsPermitsComplient.label}`}
@@ -69,6 +78,7 @@ const permits = () => ({
 
 	inspectionsPermitsComplient: {
 		name: 'inspectionsPermitsComplient',
+    disabled: false,
 		label: 'Permitted specimens - permits held by the inspected est.',
 		type: 'complient',
 		fields: [
@@ -77,6 +87,7 @@ const permits = () => ({
 	},
 	inspectionsPermitsNoncompliant: {
 		name: 'inspectionsPermitsNoncompliant',
+    disabled: false,
 		label: 'Permitted specimens - permits held by the inspected est. non-compliant',
 		type: 'noncompliant',
 		fields: [

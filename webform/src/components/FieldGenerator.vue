@@ -29,6 +29,7 @@
           label="text"
           trackBy="value"
           v-b-tooltip
+          :disabled="field.disabled"
           :title="doSelectTitle(field)"
           v-model="field.selected"
           :options="field.options" />
