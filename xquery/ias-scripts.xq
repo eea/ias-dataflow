@@ -203,7 +203,7 @@ declare function scripts:getDetails(
 
             {if (fn:count($data) > 0)
             then
-                <div class="ias table inner">
+                <div class="ias table inner" error_type="{$type}" error_code="{$refcode}">
                     <div class="ias row">
                         {for $h in $hdrs
                         return

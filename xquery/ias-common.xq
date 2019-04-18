@@ -1,5 +1,7 @@
 module namespace common = "ias-common";
 
+declare namespace json = "http://basex.org/modules/json";
+
 declare function common:css() as element()* {
     <style>
         <![CDATA[
@@ -146,10 +148,43 @@ declare function common:feedback($records as element()*) as element(div) {
         </ul>
     )
 
+    let $feedbackJSON :=
+        let $data:=
+            for $rec in $records//div[@class = 'ias row']//div[@class='ias']
+            let $table_inner := $rec/div[@class='ias table inner']
+            let $error_type := $table_inner/@error_type/data()
+            let $error_code := $table_inner/@error_code/data()
+            let $error_message := $rec/div[starts-with(@class, 'ias inner msg')]/p
+
+            let $rows := $table_inner/div[@class="ias row"]
+            let $headers := $rows[1]/div/data()
+            let $reported_values := subsequence($rows, 2)
+
+            let $rep_vals :=
+                for $r in $reported_values
+                let $v := $r/div/data()
+                return array {$v}
+
+            let $node := map {
+                "error_type": $error_type,
+                "error_code": $error_code,
+                "error_message": string-join($error_message, '. '),
+                "headers": array {$headers},
+                "reported_values": array {$rep_vals}
+            }
+
+            return $node
+
+        return json:serialize(array {$data},
+                map { 'format': 'map', 'indent': 'no', 'escape': 'no'})
+
     return
         <div class="feedbacktext">
             {common:css()}
             <span id="feedbackStatus" class="{$status => upper-case()}" style="display:none">{$feedbackMessage}</span>
+            <div id="json-results" style="display: none">
+                {$feedbackJSON}
+            </div>
             {$errorSummary}
             {$records}
         </div>
