@@ -176,7 +176,7 @@ declare function common:feedback($records as element()*) as element(div) {
             return $node
 
         return json:serialize(array {$data},
-                map { 'format': 'map', 'indent': 'no', 'escape': 'no'})
+                map {'indent': 'no', 'escape': 'no'})
 
     return
         <div class="feedbacktext">
