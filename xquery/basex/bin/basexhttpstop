@@ -10,7 +10,7 @@ done
 MAIN="$( cd -P "$(dirname "$FILE")/.." && pwd )"
 
 # API, core, and library classes
-CP=$MAIN/BaseX.jar:$MAIN/lib/*:$MAIN/lib/custom/*:$CLASSPATH
+CP=$MAIN/BaseX.jar:$MAIN/lib/custom/*:$MAIN/lib/*:$CLASSPATH
 
 # Run code
-java -cp "$CP" $BASEX_JVM org.basex.BaseXHTTP "$@" stop
+exec java -cp "$CP" $BASEX_JVM org.basex.BaseXHTTP "$@" stop

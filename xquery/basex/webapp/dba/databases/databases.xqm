@@ -1,16 +1,18 @@
 (:~
  : Main page.
  :
- : @author Christian Grün, BaseX Team, 2014-17
+ : @author Christian Grün, BaseX Team 2005-19, BSD License
  :)
 module namespace dba = 'dba/databases';
 
-import module namespace cons = 'dba/cons' at '../modules/cons.xqm';
 import module namespace html = 'dba/html' at '../modules/html.xqm';
 import module namespace util = 'dba/util' at '../modules/util.xqm';
 
 (:~ Top category :)
 declare variable $dba:CAT := 'databases';
+
+(:~ Regular expression for backups. :)
+declare variable $dba:BACKUP-REGEX := '^(.*)-(\d{4}-\d\d-\d\d)-(\d\d)-(\d\d)-(\d\d)$';
 
 (:~
  : Main page.
@@ -34,23 +36,28 @@ function dba:databases(
   $info   as xs:string?,
   $error  as xs:string?
 ) as element(html) {
-  cons:check(),
-
   let $names := map:merge(db:list() ! map:entry(., true()))
   let $databases :=
     let $start := util:start($page, $sort)
     let $end := util:end($page, $sort)
     for $db in db:list-details()[position() = $start to $end]
-    return <row name='{ $db }' resources='{ $db/@resources }' size='{ $db/@size }'
-                date='{ $db/@modified-date }'/>
+    return map {
+      'name': $db,
+      'resources': $db/@resources,
+      'size': $db/@size,
+      'date': $db/@modified-date
+    }
   let $backups :=
-    let $regex := '^(.*)-(\d{4}-\d\d-\d\d)-(\d\d)-(\d\d)-(\d\d)$'
     for $backup in db:backups()
-    where matches($backup, $regex)
-    group by $name := replace($backup, $regex, '$1')
+    where matches($backup, $dba:BACKUP-REGEX)
+    group by $name := replace($backup, $dba:BACKUP-REGEX, '$1')
     where not($names($name))
-    let $date := replace(sort($backup)[last()], $regex, '$2T$3:$4:$5Z')
-    return <row name='{ $name }' resources='' size='(backup)' date='{ $date }'/>
+    let $date := replace(sort($backup)[last()], $dba:BACKUP-REGEX, '$2T$3:$4:$5Z')
+    return map {
+      'name': $name,
+      'size': '(backup)',
+      'date': $date
+    }
 
   return html:wrap(map { 'header': $dba:CAT, 'info': $info, 'error': $error },
     <tr>
@@ -59,21 +66,25 @@ function dba:databases(
           <h2>Databases</h2>
           {
             let $headers := (
-              <name>Name</name>,
-              <resources type='number' order='desc'>Count</resources>,
-              <size type='bytes' order='desc'>Bytes</size>,
-              <date type='dateTime' order='desc'>Last Modified</date>
+              map { 'key': 'name', 'label': 'Name' },
+              map { 'key': 'resources', 'label': 'Count', 'type': 'number', 'order': 'desc' },
+              map { 'key': 'size', 'label': 'Bytes', 'type': 'bytes', 'order': 'desc' },
+              map { 'key': 'date', 'label': 'Last Modified', 'type': 'dateTime', 'order': 'desc' }
             )
-            let $rows := ($databases, $backups)
+            let $entries := ($databases, $backups)
             let $buttons := (
               html:button('db-create', 'Create…'),
               html:button('db-optimize-all', 'Optimize'),
               html:button('db-drop', 'Drop', true())
             )
-            let $link := function($value) { 'database' }
             let $count := map:size($names) + count($backups)
-            return html:table($headers, $rows, $buttons, map { },
-              map { 'sort': $sort, 'link': $link, 'page': $page, 'count': $count })
+            let $options := map {
+              'sort': $sort,
+              'link': 'database',
+              'page': $page,
+              'count': $count
+            }
+            return html:table($headers, $entries, $buttons, map { }, $options)
           }
         </form>
       </td>
@@ -92,7 +103,6 @@ declare
   %rest:path("/dba/databases")
   %rest:query-param("action", "{$action}")
   %rest:query-param("name",   "{$names}")
-  %output:method("html")
 function dba:databases-redirect(
   $action  as xs:string,
   $names   as xs:string*

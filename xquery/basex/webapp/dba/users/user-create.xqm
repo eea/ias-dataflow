@@ -1,13 +1,13 @@
-
 (:~
  : Create new user.
  :
- : @author Christian Grün, BaseX Team, 2014-17
+ : @author Christian Grün, BaseX Team 2005-19, BSD License
  :)
 module namespace dba = 'dba/users';
 
-import module namespace cons = 'dba/cons' at '../modules/cons.xqm';
 import module namespace html = 'dba/html' at '../modules/html.xqm';
+import module namespace options = 'dba/options' at '../modules/options.xqm';
+import module namespace util = 'dba/util' at '../modules/util.xqm';
 
 (:~ Top category :)
 declare variable $dba:CAT := 'users';
@@ -34,7 +34,6 @@ function dba:user-create(
   $perm   as xs:string,
   $error  as xs:string?
 ) as element(html) {
-  cons:check(),
   html:wrap(map { 'header': $dba:CAT, 'error': $error },
     <tr>
       <td>
@@ -58,7 +57,7 @@ function dba:user-create(
               </td>
             </tr>
             <tr>
-              <td>Passsword:</td>
+              <td>Password:</td>
               <td>
                 <input type='password' name='pw' value='{ $pw }' id='pw'
                   autocomplete='new-password'/>
@@ -69,7 +68,7 @@ function dba:user-create(
               <td>Permission:</td>
               <td>
                 <select name='perm' size='5'>{
-                  for $p in $cons:PERMISSIONS
+                  for $p in $options:PERMISSIONS
                   return element option { attribute selected { }[$p = $perm], $p }
                 }</select>
                 <div class='small'/>
@@ -101,16 +100,15 @@ function dba:user-create(
   $pw    as xs:string,
   $perm  as xs:string
 ) as empty-sequence() {
-  cons:check(),
   try {
     if(user:exists($name)) then (
       error((), 'User already exists.')
     ) else (
       user:create($name, $pw, $perm)
     ),
-    cons:redirect($dba:CAT, map { 'info': 'User was created.' })
+    util:redirect($dba:CAT, map { 'info': 'User was created.' })
   } catch * {
-    cons:redirect('user-create', map {
+    util:redirect('user-create', map {
       'name': $name, 'pw': $pw, 'perm': $perm, 'error': $err:description
     })
   }

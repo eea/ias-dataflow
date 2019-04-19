@@ -1,11 +1,10 @@
 (:~
  : Database main page.
  :
- : @author Christian Grün, BaseX Team, 2014-17
+ : @author Christian Grün, BaseX Team 2005-19, BSD License
  :)
 module namespace dba = 'dba/databases';
 
-import module namespace cons = 'dba/cons' at '../modules/cons.xqm';
 import module namespace html = 'dba/html' at '../modules/html.xqm';
 import module namespace util = 'dba/util' at '../modules/util.xqm';
 
@@ -42,7 +41,6 @@ function dba:database(
   $info      as xs:string?,
   $error     as xs:string?
 ) as element() {
-  cons:check(),
   if(not($name)) then web:redirect("databases") else
 
   let $db-exists := db:exists($name)
@@ -53,7 +51,7 @@ function dba:database(
       'scripts': ('codemirror/lib/codemirror.js', 'codemirror/mode/xml/xml.js')
     },
     <tr>
-      <td width='49%'>
+      <td>
         <form action="{ $dba:SUB }" method="post" id="{ $dba:SUB }" class="update">
           <input type="hidden" name="name" value="{ $name }" id="name"/>
           <h2>{
@@ -63,30 +61,36 @@ function dba:database(
           {
             if($db-exists) then (
               let $headers := (
-                <resource>Name</resource>,
-                <type>Content type</type>,
-                <raw>Raw</raw>,
-                <size type='number' order='desc'>Size</size>
+                map { 'key': 'resource' , 'label': 'Name' },
+                map { 'key': 'type' , 'label': 'Content type' },
+                map { 'key': 'raw' , 'label': 'Raw' },
+                map { 'key': 'size' , 'label': 'Size', 'type': 'number', 'order': 'desc' }
               )
-              let $rows :=
+              let $entries :=
                 let $start := util:start($page, $sort)
                 let $end := util:end($page, $sort)
                 for $res in db:list-details($name)[position() = $start to $end]
-                return <row resource='{ $res }' type='{ $res/@content-type }'
-                            raw='{ if($res/@raw = 'true') then '✓' else '–' }'
-                            size='{ $res/@size }'/>
+                return map {
+                  'resource': $res,
+                  'type': $res/@content-type,
+                  'raw': if($res/@raw = 'true') then '✓' else '–',
+                  'size': $res/@size
+                }
               let $buttons := (
                 html:button('db-add', 'Add…'),
                 html:button('db-delete', 'Delete', true()),
                 html:button('db-copy', 'Copy…', false()),
                 html:button('db-alter', 'Rename…', false()),
-                html:button('db-optimize', 'Optimize…', false(), 'global')
+                html:button('db-optimize', 'Optimize…', false(), map { 'class': 'global' })
               )
-              let $map := map { 'name': $name }
-              let $link := function($value) { $dba:SUB }
-              let $count := count(db:list($name))
-              return html:table($headers, $rows, $buttons, $map,
-                map { 'sort': $sort, 'link': $link, 'page': $page, 'count': $count })
+              let $params := map { 'name': $name }
+              let $options := map {
+                'sort': $sort,
+                'link': $dba:SUB,
+                'page': $page,
+                'count': count(db:list($name))
+              }
+              return html:table($headers, $entries, $buttons, $params, $options)
             ) else ()
           }
         </form>
@@ -95,36 +99,44 @@ function dba:database(
           <h3>Backups</h3>
           {
             let $headers := (
-              <backup order='desc'>Name</backup>,
-              <size type='bytes'>Size</size>
+              map { 'key': 'backup', 'label': 'Name', 'order': 'desc' },
+              map { 'key': 'size', 'label': 'Size', 'type': 'bytes' },
+              map { 'key': 'action', 'label': 'Action', 'type': 'xml' }
             )
-            let $rows :=
+            let $entries :=
               for $backup in db:backups($name)
               order by $backup descending
-              return <row backup='{ $backup }' size='{ $backup/@size }'/>
+              return map {
+                'backup': $backup,
+                'size': $backup/@size,
+                'action': function() {
+                  html:link('Download', 'backup/' || encode-for-uri($backup) || '.zip')
+                }
+              }
             let $buttons := (
-              html:button('backup-create', 'Create', false(), 'global') update (
+              html:button('backup-create', 'Create', false(), map { 'class': 'global' }) update (
                 if($db-exists) then () else insert node attribute disabled { '' } into .
               ),
               html:button('backup-restore', 'Restore', true()),
               html:button('backup-drop', 'Drop', true())
             )
-            let $map := map { 'name': $name }
-            let $link := function($value) { 'backup/' || $value || '.zip' }
-            return html:table($headers, $rows, $buttons, $map, map { 'link': $link })
+            let $params := map { 'name': $name }
+            return html:table($headers, $entries, $buttons, $params, map { })
           }
         </form>
       </td>
       <td class='vertical'/>
-      <td width='49%'>{
+      <td>{
         if($resource) then (
           <h3>{ $resource }</h3>,
-          <form action="resource" method="post" id="resources" enctype="multipart/form-data">
+          <form action="resource" method="post" id="resources">
             <input type="hidden" name="name" value="{ $name }"/>
             <input type="hidden" name="resource" value="{ $resource }" id="resource"/>
-            { html:button('db-rename', 'Rename…') }
-            { html:button('db-download', 'Download') }
-            { html:button('db-replace', 'Replace…') }
+            {
+              html:button('db-rename', 'Rename…'), ' ',
+              html:button('db-download', 'Download'), ' ',
+              html:button('db-replace', 'Replace…')
+            }
           </form>,
           <h4>Enter your query…</h4>,
           <input style="width:100%" name="input" id="input" onkeyup='queryResource(false)'/>,

@@ -1,4 +1,3 @@
-
 /**
  * Toggles the selection of all check boxes in the corresponding form.
  * @param {checkbox} clicked header checkbox
@@ -8,10 +7,10 @@ function toggle(source) {
   var inputs = form.getElementsByTagName("INPUT");
   var checked = false;
   for(var i = 0; i < inputs.length; i++) {
-    if(inputs[i].type == "checkbox") inputs[i].checked = source.checked;
+    if(inputs[i].type === "checkbox") inputs[i].checked = source.checked;
   }
   buttons();
-};
+}
 
 /**
  * Refreshes the disabled property of form buttons after a checkbox has been clicked.
@@ -21,17 +20,17 @@ function buttons(source) {
   var forms = source ? [ getForm(source) ] : document.getElementsByTagName("FORM");
   for(var f = 0; f < forms.length; f++) {
     var form = forms[f];
-    if(form.className != "update") continue;
+    if(form.className !== "update") continue;
 
     var inputs = form.getElementsByTagName("INPUT");
     var checked = false;
     for(var i = 0; i < inputs.length; i++) {
-      checked |= inputs[i].type == "checkbox" && inputs[i].checked;
+      checked |= inputs[i].type === "checkbox" && inputs[i].checked;
     }
     var buttons = form.getElementsByTagName("BUTTON");
     for(var b = 0; b < buttons.length; b++) {
       var button = buttons[b];
-      if(button.className == "global") continue;
+      if(button.className === "global") continue;
 
       var values = [
         "backup", "backup-drop", "backup-restore",
@@ -40,11 +39,11 @@ function buttons(source) {
         "pattern-drop", "user-drop"
       ];
       for(var v = 0; v < values.length; v++) {
-        if(button.value == values[v]) button.disabled = !checked;
+        if(button.value === values[v]) button.disabled = !checked;
       }
     }
   }
-};
+}
 
 /**
  * Returns the ancestor form element
@@ -52,9 +51,9 @@ function buttons(source) {
  * @return {element} form element
  */
 function getForm(source) {
-  while(source.tagName.toUpperCase() != "FORM") source = source.parentElement;
+  while(source.tagName.toUpperCase() !== "FORM") source = source.parentElement;
   return source;
-};
+}
 
 /**
  * Displays an info message.
@@ -62,7 +61,7 @@ function getForm(source) {
  */
 function setInfo(message) {
   setText(message, "info");
-};
+}
 
 /**
  * Displays a warning message.
@@ -70,37 +69,40 @@ function setInfo(message) {
  */
 function setWarning(message) {
   setText(message, "warning");
-};
+}
 
 /**
- * Displays an error message. Stack trace info will be replaced.
- * @param {string} message  error message
+ * Displays an error message. Stack trace info will be removed.
+ * @param {string} message error message
  */
 function setError(message) {
   setText(message.replace(/Stack Trace:.*/, ""), "error");
-};
+}
 
 /**
  * Displays text with the specified type.
- * @param {string} message  message
- * @param {type}   type     message type (info, warning, error)
+ * @param {string} message message
+ * @param {type}   type    message type (info, warning, error)
  */
 function setText(message, type) {
   var info = document.getElementById("info");
   info.className = type;
-  info.textContent = message;
-};
+  var msg = message.replace(/^\[.*?\] /, "");
+  info.textContent = msg.length > 80 ? msg.substring(0, 80) + "…" : msg;
+  info.title = message;
+}
 
 /** Indicates how many queries are being evaluated. */
 var _running = 0;
 
 /**
  * Runs a query and shows the result.
- * @param {string} path   path to query service
- * @param {query}  query  query to be evaluated
- * @param {func}   func   function that processes the result
+ * @param {string} path  path to query service
+ * @param {string} query query to be evaluated
+ * @param {function} func  function that processes the result
+ * @param {boolean} reset reset query (jump to first results)
  */
-function query(path, query, func) {
+function query(path, query, func, reset) {
   _running++;
   setInfo("");
   var stop = document.getElementById("stop");
@@ -117,11 +119,15 @@ function query(path, query, func) {
   var resource = document.getElementById("resource");
   var sort = document.getElementById("sort");
   var page = document.getElementById("page");
-  var url = path +
-    "?name=" + encodeURIComponent(name ? name.value : "") +
-    "&resource=" + encodeURIComponent(resource ? resource.value : "") +
-    "&sort=" + encodeURIComponent(sort ? sort.value : "") +
-    "&page=" + encodeURIComponent(page ? page.value : "");
+  var time = document.getElementById("time");
+  var params =
+    (name ? "&name=" + encodeURIComponent(name.value) : "") +
+    (resource ? "&resource=" + encodeURIComponent(resource.value) : "") +
+    (sort ? "&sort=" + encodeURIComponent(sort.value) : "") +
+    (page && !reset ? "&page=" + encodeURIComponent(page.value) : "" ) +
+    (time && !reset ? "&time=" + encodeURIComponent(time.value) : "");
+  var url = path + params.replace(/^&/, "?");
+
   request("POST", url, query,
     function(request) {
       _running--;
@@ -133,14 +139,14 @@ function query(path, query, func) {
     },
     function(request) {
       _running--;
-      if(request.status != 460 || !_running) setErrorFromResponse(request);
+      if(request.status !== 460 || !_running) setErrorFromResponse(request);
     }
   )
-};
+}
 
 /**
  * Displays the error that is embedded in the HTTP response.
- * @param {object} request  HTTP request
+ * @param {object} request HTTP request
  */
 function setErrorFromResponse(request) {
   // normalize error message
@@ -148,93 +154,94 @@ function setErrorFromResponse(request) {
   var s = msg.indexOf("["), e1 = msg.indexOf("\n", s);
   if(s > -1) msg = msg.substring(s, e1 > s ? e1 : msg.length);
   msg = msg.replace(/\s+/g, " ");
-  if(msg.length > 100) msg = msg.substring(0, 100) + "…";
   // display correctly escaped feedback
   var html = document.createElement("div");
   html.innerHTML = msg;
   setError(html.innerText || html.textContent);
-};
+}
 
 /** Most recent log entry search string. */
 var _logInput;
 
 /**
  * Queries all log entries of a log file.
- * @param {boolean} enforce  enforce query execution
+ * @param {boolean} enforce enforce query execution
+ * @param {boolean} reset reset query (jump to first results)
  */
-function logEntries(enforce) {
+function logEntries(enforce, reset) {
   var input = document.getElementById("input").value.trim();
-  if(!enforce && _logInput == input) return false;
+  if(!enforce && _logInput === input) return false;
   _logInput = input;
   query("log", input, function(text) {
     document.getElementById("output").innerHTML = text;
-  });
+    if(reset) window.history.replaceState(null, "", replaceParam(window.location.href, "page", 1));
+  }, reset);
 
   // refresh browser history
   window.history.replaceState(null, "", replaceParam(window.location.href, "input", input));
-};
+}
 
 /** Most recent query search string. */
 var _dbInput;
 
 /**
  * Queries a database resource.
- * @param {boolean} enforce  enforce query execution
+ * @param {boolean} enforce enforce query execution
  */
 function queryResource(enforce) {
   var input = document.getElementById("input").value.trim();
-  if(!enforce && _dbInput == input) return false;
+  if(!enforce && _dbInput === input) return false;
   _dbInput = input;
   query("db-query", input, function(text) {
     _outputMirror.setValue(text);
   });
-};
+}
 
 /** Indicates if current query is updating. */
 var _updating;
 
 /**
  * Evaluates a query.
- * @param {boolean} reverse  reverse query execution mode (eval, update)
+ * @param {boolean} reverse reverse query execution mode (eval, update)
  */
 function runQuery(reverse) {
   // decide if query is read-only or updating
-  var updating = (document.getElementById("mode").selectedIndex == 1) ^ reverse;
-  var path = updating ? "update-query" : "eval-query";
+  var updating = (document.getElementById("mode").selectedIndex === 1) ^ reverse;
+  var path = updating ? "query-update" : "query-eval";
 
   // stop old query if mode was changed (each has its own %rest:single function)
-  if(_running && _updating != updating) stopQuery();
+  if(_running && _updating !== updating) stopQuery();
   _updating = updating;
 
   // run query
   query(path, document.getElementById("editor").value, function(text) {
     _outputMirror.setValue(text);
   });
-};
+}
 
 /**
  * Stops a query.
  */
 function stopQuery() {
   // stop query by sending empty sequence
-  query(_updating ? "update-query" : "eval-query", "()", function(text) {
+  query(_updating ? "query-update" : "query-eval", "()", function(text) {
     setInfo("Query was stopped.");
   });
-};
+}
 
 /**
  * Creates and sends an HTTP request.
- * @param {string}  method   HTTP method
- * @param {url}     url      URL to be called
- * @param {data}    data     data to be sent
- * @param {success} success  success function
- * @param {failure} failure  failure function
+ * @param {string}  method  HTTP method
+ * @param {url}     url     URL to be called
+ * @param {data}    data    data to be sent
+ * @param {success} success success function
+ * @param {failure} failure failure function
  */
 function request(method, url, data, success, failure) {
   var request = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
   request.onreadystatechange = function() {
-    if(request.readyState == 4) {
-      if(request.status == 200) {
+    if(request.readyState === 4) {
+      if(request.status === 200) {
         success(request);
       } else {
         failure(request);
@@ -245,7 +252,7 @@ function request(method, url, data, success, failure) {
   request.open(method, url, true);
   request.setRequestHeader("Content-Type", "text/plain");
   request.send(data);
-};
+}
 
 /** Link to the mirrored editor component. */
 var _editorMirror;
@@ -257,7 +264,7 @@ var _edit;
 
 /**
  * Loads the code mirror editor extension.
- * @param {boolean}  edit  editor (or read-only view)
+ * @param {boolean}  edit editor flag (vs. read-only view)
  */
 function loadCodeMirror(edit) {
   _edit = edit;
@@ -281,7 +288,7 @@ function loadCodeMirror(edit) {
     var outputArea = document.getElementById("output");
     _outputMirror = CodeMirror.fromTextArea(outputArea, {
       mode: "xml",
-      readOnly: true,
+      readOnly: true
     });
     _outputMirror.display.wrapper.style.border = "solid 1px grey";
 
@@ -306,22 +313,22 @@ function setDisplayHeight() {
   for(var e = 0; e < elems.length; e++) {
     var v = _edit ? p - elems[e].offsetHeight : elems[e].offsetTop;
     elems[e].CodeMirror.setSize("100%", Math.max(50, s - 20 - v));
-  };
+  }
 }
 
 /**
  * Adds the input string to the link target.
- * @param {link} source  clicked link
+ * @param {link} source clicked link
  */
 function addInput(source) {
   source.href = replaceParam(source.href, "input", document.getElementById("input").value.trim());
-};
+}
 
 /**
  * Replace a query parameter.
- * @param {string} url    url
- * @param {string} name   name
- * @param {string} value  value
+ * @param {string} url   url
+ * @param {string} name  name
+ * @param {string} value value
  * @returns {string} new url
  */
 function replaceParam(url, name, value) {
@@ -329,7 +336,7 @@ function replaceParam(url, name, value) {
   var qm = url.indexOf("?");
   var href = (qm < 0 ? url : url.substr(0, qm)) + "?" + key + encodeURIComponent(value);
   if(qm >= 0) {
-    var params = url.substr(qm + 1).split('&');
+    var params = url.substr(qm + 1).split("&");
     for(var p = 0; p < params.length; p++) {
       if(params[p].indexOf(key) < 0) href += "&" + params[p];
     }

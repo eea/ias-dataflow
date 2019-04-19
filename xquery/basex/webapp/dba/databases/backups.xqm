@@ -1,11 +1,10 @@
 (:~
  : Backup operations.
  :
- : @author Christian Grün, BaseX Team, 2014-17
+ : @author Christian Grün, BaseX Team 2005-19, BSD License
  :)
 module namespace dba = 'dba/databases';
 
-import module namespace cons = 'dba/cons' at '../modules/cons.xqm';
 import module namespace util = 'dba/util' at '../modules/util.xqm';
 
 (:~ Sub category :)
@@ -81,11 +80,10 @@ declare %updating function dba:action(
   $info    as xs:string,
   $action  as %updating function(*)
 ) as empty-sequence() {
-  cons:check(),
   try {
     updating $action(),
-    cons:redirect($dba:SUB, map { 'name': $name, 'info': $info })
+    util:redirect($dba:SUB, map { 'name': $name, 'info': $info })
   } catch * {
-    cons:redirect($dba:SUB, map { 'name': $name, 'error': $err:description })
+    util:redirect($dba:SUB, map { 'name': $name, 'error': $err:description })
   }
 };

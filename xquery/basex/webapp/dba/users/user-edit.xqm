@@ -1,11 +1,11 @@
 (:~
- : Edit database.
+ : Edit user.
  :
- : @author Christian Grün, BaseX Team, 2014-17
+ : @author Christian Grün, BaseX Team 2005-19, BSD License
  :)
-module namespace dba = 'dba/databases';
+module namespace dba = 'dba/users';
 
-import module namespace cons = 'dba/cons' at '../modules/cons.xqm';
+import module namespace util = 'dba/util' at '../modules/util.xqm';
 
 (:~ Sub category :)
 declare variable $dba:SUB := 'user';
@@ -32,7 +32,6 @@ function dba:user-edit(
   $pw       as xs:string,
   $perm     as xs:string
 ) as empty-sequence() {
-  cons:check(),
   try {
     let $old := user:list-details($name) return (
       if($name = $newname) then () else if(user:exists($newname)) then (
@@ -43,9 +42,9 @@ function dba:user-edit(
       if($pw = '') then () else user:password($name, $pw),
       if($perm = $old/@permission) then () else user:grant($name, $perm)
     ),
-    cons:redirect($dba:SUB, map { 'name': $newname, 'info': 'User was saved.' })
+    util:redirect($dba:SUB, map { 'name': $newname, 'info': 'User was saved.' })
   } catch * {
-    cons:redirect($dba:SUB, map {
+    util:redirect($dba:SUB, map {
       'name': $name, 'newname': $newname, 'pw': $pw, 'perm': $perm, 'error': $err:description
     })
   }

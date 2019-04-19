@@ -1,11 +1,10 @@
 (:~
  : Drop patterns.
  :
- : @author Christian Grün, BaseX Team, 2014-17
+ : @author Christian Grün, BaseX Team 2005-19, BSD License
  :)
 module namespace dba = 'dba/users';
 
-import module namespace cons = 'dba/cons' at '../modules/cons.xqm';
 import module namespace util = 'dba/util' at '../modules/util.xqm';
 
 (:~ Top category :)
@@ -23,17 +22,15 @@ declare
   %rest:path("/dba/pattern-drop")
   %rest:query-param("name",    "{$name}")
   %rest:query-param("pattern", "{$patterns}")
-  %output:method("html")
 function dba:pattern-drop(
   $name      as xs:string,
   $patterns  as xs:string*
 ) as empty-sequence() {
-  cons:check(),
   try {
     $patterns ! user:drop($name, .),
-    cons:redirect($dba:SUB, map {
+    util:redirect($dba:SUB, map {
       'name': $name, 'info': util:info($patterns, 'pattern', 'dropped') })
   } catch * {
-    cons:redirect($dba:SUB, map { 'error': $err:description })
+    util:redirect($dba:SUB, map { 'error': $err:description })
   }
 };

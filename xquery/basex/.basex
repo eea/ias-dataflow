@@ -1,8 +1,8 @@
 # General Options
 DEBUG = false
-DBPATH = /home/laszlo/work/basex/data
+DBPATH = /home/laszlo/work/projects/ias-dataflow/xquery/basex/data
 LOGPATH = .logs
-REPOPATH = /home/laszlo/work/basex/repo
+REPOPATH = /home/laszlo/work/projects/ias-dataflow/xquery/basex/repo
 LANG = English
 LANGKEYS = false
 FAIRLOCK = false
@@ -19,6 +19,7 @@ PROXYHOST =
 PROXYPORT = 0
 NONPROXYHOSTS = 
 IGNORECERT = false
+IGNOREHOSTNAME = false
 TIMEOUT = 30
 KEEPALIVE = 600
 PARALLEL = 8
@@ -26,10 +27,11 @@ LOG = true
 LOGMSGMAXLEN = 1000
 
 # HTTP Services
-WEBPATH = /home/laszlo/work/basex/webapp
+WEBPATH = /home/laszlo/work/projects/ias-dataflow/xquery/basex/webapp
 RESTPATH = 
 RESTXQPATH = 
 PARSERESTXQ = 3
+RESTXQERRORS = true
 HTTPLOCAL = false
 STOPPORT = 8985
 AUTHMETHOD = Basic

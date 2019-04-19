@@ -1,12 +1,12 @@
 (:~
  : Replace resource.
  :
- : @author Christian Grün, BaseX Team, 2014-17
+ : @author Christian Grün, BaseX Team 2005-19, BSD License
  :)
 module namespace dba = 'dba/databases';
 
-import module namespace cons = 'dba/cons' at '../../modules/cons.xqm';
 import module namespace html = 'dba/html' at '../../modules/html.xqm';
+import module namespace util = 'dba/util' at '../../modules/util.xqm';
 
 (:~ Top category :)
 declare variable $dba:CAT := 'databases';
@@ -32,7 +32,6 @@ function dba:db-replace(
   $resource  as xs:string,
   $error     as xs:string?
 ) as element(html) {
-  cons:check(),
   html:wrap(map { 'header': ($dba:CAT, $name), 'error': $error },
     <tr>
       <td>
@@ -79,7 +78,6 @@ function dba:db-replace-post(
   $resource  as xs:string,
   $file      as map(*)?
 ) as empty-sequence() {
-  cons:check(),
   try {
     let $key := map:keys($file)
     return if($key = '') then (
@@ -91,12 +89,12 @@ function dba:db-replace-post(
         fetch:xml-binary($file($key))
       )
       return db:replace($name, $resource, $input),
-      cons:redirect($dba:SUB, map {
+      util:redirect($dba:SUB, map {
         'name': $name, 'resource': $resource, 'info': 'Resource was replaced.'
       })
     )
   } catch * {
-    cons:redirect('db-replace', map {
+    util:redirect('db-replace', map {
       'name': $name, 'resource': $resource, 'error': $err:description
     })
   }

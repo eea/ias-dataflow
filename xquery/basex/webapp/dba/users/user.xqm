@@ -1,13 +1,12 @@
-
 (:~
- : User main page.
+ : User page.
  :
- : @author Christian Grün, BaseX Team, 2014-17
+ : @author Christian Grün, BaseX Team 2005-19, BSD License
  :)
 module namespace dba = 'dba/users';
 
-import module namespace cons = 'dba/cons' at '../modules/cons.xqm';
 import module namespace html = 'dba/html' at '../modules/html.xqm';
+import module namespace options = 'dba/options' at '../modules/options.xqm';
 
 (:~ Top category :)
 declare variable $dba:CAT := 'users';
@@ -15,7 +14,7 @@ declare variable $dba:CAT := 'users';
 declare variable $dba:SUB := 'user';
 
 (:~
- : Manage a single user.
+ : Returns a single user page.
  : @param  $name     user name
  : @param  $newname  new name
  : @param  $pw       password
@@ -42,7 +41,6 @@ function dba:user(
   $error    as xs:string?,
   $info     as xs:string?
 ) as element(html) {
-  cons:check(),
   let $user := user:list-details($name)
   let $admin := $name eq 'admin'
   return html:wrap(map { 'header': ($dba:CAT, $name), 'info': $info, 'error': $error },
@@ -72,7 +70,7 @@ function dba:user(
                 </tr>
               ),
               <tr>
-                <td>Passsword:</td>
+                <td>Password:</td>
                 <td>
                   <input type="password" name="pw" value="{ $pw }" id="pw"/> &#xa0;
                   <span class='note'>
@@ -87,7 +85,7 @@ function dba:user(
                   <td>
                     <select name="perm" size="5">{
                       let $perm := head(($perm, $user/@permission))
-                      for $p in $cons:PERMISSIONS
+                      for $p in $options:PERMISSIONS
                       return element option { attribute selected { }[$p = $perm], $p }
                     }</select>
                     <div class='small'/>
@@ -106,17 +104,18 @@ function dba:user(
             <div class='small'/>
             {
               let $headers := (
-                <pattern>Pattern</pattern>,
-                <perm>Local Permission</perm>
+                map { 'key': 'pattern', 'label': 'Pattern' },
+                map { 'key': 'permission', 'label': 'Local Permission' }
               )
-              let $rows :=
-                for $db in $user/database
-                return <row pattern='{ $db/@pattern }' perm='{ $db/@permission }'/>
+              let $entries := $user/database ! map {
+                'pattern': @pattern,
+                'permission': @permission
+              }
               let $buttons := if($admin) then () else (
                 html:button('pattern-add', 'Add…'),
                 html:button('pattern-drop', 'Drop', true())
               )
-              return html:table($headers, $rows, $buttons, map { }, map { })
+              return html:table($headers, $entries, $buttons, map { }, map { })
             }
           </form>
           <div class='note'>

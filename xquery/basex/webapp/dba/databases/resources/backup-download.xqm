@@ -1,11 +1,9 @@
 (:~
  : Download resources.
  :
- : @author Christian Grün, BaseX Team, 2014-17
+ : @author Christian Grün, BaseX Team 2005-19, BSD License
  :)
 module namespace dba = 'dba/databases';
-
-import module namespace cons = 'dba/cons' at '../../modules/cons.xqm';
 
 (:~
  : Downloads a database backup.
@@ -13,11 +11,17 @@ import module namespace cons = 'dba/cons' at '../../modules/cons.xqm';
  : @return binary data
  :)
 declare
+  %rest:GET
   %rest:path("/dba/backup/{$backup}")
-  %output:media-type("application/octet-stream")
 function dba:backup-download(
   $backup  as xs:string
-) as xs:base64Binary {
-  cons:check(),
-  file:read-binary(db:system()/globaloptions/dbpath || '/' || $backup)
+) as item()+ {
+  let $path := db:option('dbpath') || '/' || $backup
+  return (
+    web:response-header(
+      map { 'media-type': 'application/octet-stream' },
+      map { 'Content-Length': file:size($path) }
+    ),
+    file:read-binary($path)
+  )
 };
