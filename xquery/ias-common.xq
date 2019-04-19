@@ -14,7 +14,7 @@ div.ias.table { display: table; width: 100%; border-collapse: collapse }
 div.ias.row { display: table-row; }
 div.ias.col { min-width: 150px; display: table-cell; padding: 0.4em; border: 1pt solid #aaa }
 
-div.ias.inner { width: 80%; margin-left: 10%; margin-top: 0.4em; margin-bottom: 0.6em }
+div.ias.inner { width: 80%; margin-left: 0; margin-top: 0.4em; margin-bottom: 0.6em }
 div.ias.outer { padding-bottom: 0; border: 1pt solid #888 }
 div.ias.inner { border: 1pt solid #aaa }
 div.ias.parent { margin-bottom: 1.5em }
@@ -153,6 +153,7 @@ declare function common:feedback($records as element()*) as element(div) {
             for $rec in $records//div[@class = 'ias row']//div[@class='ias']
             let $table_inner := $rec/div[@class='ias table inner']
             let $error_type := $table_inner/@error_type/data()
+            where $error_type
             let $error_code := $table_inner/@error_code/data()
             let $error_message := $rec/div[starts-with(@class, 'ias inner msg')]/p
 

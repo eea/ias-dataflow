@@ -207,7 +207,7 @@ declare function scripts:getDetails(
                     <div class="ias row">
                         {for $h in $hdrs
                         return
-                            <div class="ias col inner th"><span class="ias nowrap">{$h}</span></div>
+                            <div class="ias col inner th"><span class="ias">{$h}</span></div>
                         }
                     </div>
                     {for $d in $data
@@ -1283,24 +1283,31 @@ declare function scripts:checkA15(
         for $species in $seq
             let $permits_issued := $species//*:permits_issued => functx:if-empty('')
             let $isMandatory := $permits_issued = 'true'
+            let $no_ins_rep := $species//*:no_inspections_reported
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
             let $inspections := $root//*:inspectionsPermitsReported
                     /*:Row[*:parent_row_id = $species_row_id]
 
+            return if(not($no_ins_rep = 'true') and count($inspections) = 0
+                and $isMandatory)
+            then
+                let $d := ("Inspection must be reported or 'No inspections reported' must be ticked", $EASINcode, '-', '-')
+                return scripts:createData((1), (), $d)
+            else
             for $ins in $inspections
                 let $row_id := $ins/*:row_id
                 let $year := $ins/*:year
                 let $yearNr := $year => fn:number()
                 where not($yearNr > 2000 and $yearNr < 2019)
-                let $d := ($EASINcode, $row_id, $year)
+                let $d := ('Year not valid', $EASINcode, $row_id, $year)
 
                 return if(($year = '' and $isMandatory) or not($year = ''))
-                    then scripts:createData((1), (3), $d)
+                    then scripts:createData((1), (4), $d)
                     else ()
 
-    let $hdrs := ('EASINcode', 'Inspection row ID', 'Year')
+    let $hdrs := ('Message', 'EASINcode', 'Inspection row ID', 'Value')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -1326,23 +1333,30 @@ declare function scripts:checkA16(
         for $species in $seq
             let $permits_issued := $species//*:permits_issued => functx:if-empty('')
             let $isMandatory := $permits_issued = 'true'
+            let $no_ins_rep := $species//*:no_inspections_reported
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
             let $inspections := $root//*:inspectionsPermitsReported
                     /*:Row[*:parent_row_id = $species_row_id]
 
+            return if(not($no_ins_rep = 'true') and count($inspections) = 0
+                and $isMandatory)
+            then
+                let $d := ("Inspection must be reported or 'No inspections reported' must be ticked", $EASINcode, '-', '-')
+                return scripts:createData((1), (), $d)
+            else
             for $ins in $inspections
                 let $row_id := $ins/*:row_id
                 let $permit_purpose := $ins/*:permit_purpose => functx:if-empty('')
                 where not($permit_purpose = $validConcepts)
-                let $d := ($EASINcode, $row_id, $permit_purpose)
+                let $d := ('Purpose of permit not valid', $EASINcode, $row_id, $permit_purpose)
 
                 return if(($permit_purpose = '' and $isMandatory) or not($permit_purpose = ''))
-                    then scripts:createData((1), (3), $d)
+                    then scripts:createData((1), (4), $d)
                     else ()
 
-    let $hdrs := ('EASINcode', 'Inspection row ID', 'Purpose of permit')
+    let $hdrs := ('Message', 'EASINcode', 'Inspection row ID', 'Value')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -1365,25 +1379,32 @@ declare function scripts:checkA17(
         for $species in $seq
             let $permits_issued := $species//*:permits_issued => functx:if-empty('')
             let $isMandatory := $permits_issued = 'true'
+            let $no_ins_rep := $species//*:no_inspections_reported
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
             let $inspections := $root//*:inspectionsPermitsReported
                     /*:Row[*:parent_row_id = $species_row_id]
 
+            return if(not($no_ins_rep = 'true') and count($inspections) = 0
+                and $isMandatory)
+            then
+                let $d := ("Inspection must be reported or 'No inspections reported' must be ticked", $EASINcode, '-', '-')
+                return scripts:createData((1), (), $d)
+            else
             for $ins in $inspections
                 let $row_id := $ins/*:row_id
                 let $number_establishment := $ins/*:number_establishment
                 let $ne := $number_establishment => functx:if-empty('')
                 where not(functx:is-a-number($number_establishment)
                     and $number_establishment >= 0)
-                let $d := ($EASINcode, $row_id, $ne)
+                let $d := ('Number of establishments not valid', $EASINcode, $row_id, $ne)
 
                 return if(($ne = '' and $isMandatory) or not($ne = ''))
-                    then scripts:createData((1), (3), $d)
+                    then scripts:createData((1), (4), $d)
                     else ()
 
-    let $hdrs := ('EASINcode', 'Inspection row ID', 'Number of establishments')
+    let $hdrs := ('Message', 'EASINcode', 'Inspection row ID', 'Number of establishments')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -1407,12 +1428,20 @@ declare function scripts:checkA18(
         for $species in $seq
             let $permits_issued := $species//*:permits_issued => functx:if-empty('')
             let $isMandatory := $permits_issued = 'true'
+            let $no_ins_rep := $species//*:no_inspections_reported
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
             let $inspections := $root//*:inspectionsPermitsReported
                     /*:Row[*:parent_row_id = $species_row_id]
 
+            return if(not($no_ins_rep = 'true') and count($inspections) = 0
+                and $isMandatory)
+            then
+                let $d := ("Inspection must be reported or 'No inspections reported' must be ticked",
+                    $EASINcode, '-', '-', '-', '-')
+                return scripts:createData((1), (), $d)
+            else
             for $ins in $inspections
                 let $per_row_id := $ins/*:row_id
                 let $insPerm := $root//*:inspectionsPermits/*:Row[*:parent_row_id = $per_row_id
@@ -1424,14 +1453,14 @@ declare function scripts:checkA18(
                     let $value := $ip/*:value
                     let $v := $value => functx:if-empty('')
                     where not(functx:is-a-number($value) and $value >= 0)
-                    let $d := ($EASINcode, $per_row_id, $row_id, $inspection_status, $v)
+                    let $d := ('Number of volume is not valid', $EASINcode, $per_row_id, $row_id, $inspection_status, $v)
 
                     return if(($v = '' and $isMandatory) or not($v = ''))
-                        then scripts:createData((1), (5), $d)
+                        then scripts:createData((1), (6), $d)
                         else ()
 
-    let $hdrs := ('EASINcode', 'Inspection row ID', 'Inspection permit row ID',
-        'Inspection type', 'Number of volume')
+    let $hdrs := ('Message', 'EASINcode', 'Inspection row ID', 'Inspection permit row ID',
+        'Inspection type', 'Value')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -1480,12 +1509,20 @@ declare function scripts:checkA20(
         for $species in $seq
             let $permits_issued := $species//*:permits_issued => functx:if-empty('')
             let $isMandatory := $permits_issued = 'true'
+            let $no_ins_rep := $species//*:no_inspections_reported
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
             let $inspections := $root//*:inspectionsPermitsReported
                     /*:Row[*:parent_row_id = $species_row_id]
 
+            return if(not($no_ins_rep = 'true') and count($inspections) = 0
+                and $isMandatory)
+            then
+                let $d := ("Inspection must be reported or 'No inspections reported' must be ticked",
+                    $EASINcode, '-', '-')
+                return scripts:createData((1), (), $d)
+            else
             for $ins in $inspections
                 let $row_id := $ins/*:row_id
                 let $number_inspected := $ins/*:number_inspected
@@ -1536,12 +1573,20 @@ declare function scripts:checkA21(
         for $species in $seq
             let $permits_issued := $species//*:permits_issued => functx:if-empty('')
             let $isMandatory := $permits_issued = 'true'
+            let $no_ins_rep := $species//*:no_inspections_reported
             let $species_row_id := $species/*:row_id
             let $EASINcode := $species/*:EASINCode
 
             let $inspections := $root//*:inspectionsPermitsReported
                     /*:Row[*:parent_row_id = $species_row_id]
 
+            return if(not($no_ins_rep = 'true') and count($inspections) = 0
+                and $isMandatory)
+            then
+                let $d := ("Inspection must be reported or 'No inspections reported' must be ticked",
+                    $EASINcode, '-', '-', '-', '-')
+                return scripts:createData((1), (), $d)
+            else
             for $ins in $inspections
                 let $per_row_id := $ins/*:row_id
                 let $insPerm := $root//*:inspectionsPermits/*:Row[*:parent_row_id = $per_row_id
@@ -1553,14 +1598,14 @@ declare function scripts:checkA21(
                     let $value := $ip/*:value
                     let $v := $value => functx:if-empty('')
                     where not(functx:is-a-number($value) and $value >= 0)
-                    let $d := ($EASINcode, $per_row_id, $row_id, $inspection_status, $v)
+                    let $d := ('Number or permitted specimens is not valid', $EASINcode, $per_row_id, $row_id, $inspection_status, $v)
 
                     return if(($v = '' and $isMandatory) or not($v = ''))
-                        then scripts:createData((1), (5), $d)
+                        then scripts:createData((1), (6), $d)
                         else ()
 
-    let $hdrs := ('EASINcode', 'Inspection row ID', 'Inspection permit row ID',
-        'Inspection type', 'Number or permitted specimens')
+    let $hdrs := ('Message', 'EASINcode', 'Inspection row ID', 'Inspection permit row ID',
+        'Inspection type', 'Value')
     let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
 
     return
@@ -1971,7 +2016,7 @@ declare function scripts:checkImpactedSpecies(
 
                         return scripts:createData((3), (4), $d)
                 else
-                    let $info := 'At least one entry of observed impact must be given, or "no negative impacts observed" must be ticked'
+                    let $info := "At least one entry of observed impact must be given, or 'no negative impacts observed' must be ticked"
                     let $d := ($info, $EASINcode, $par_row_id, '-')
 
                     return scripts:createData((3), (0), $d)
