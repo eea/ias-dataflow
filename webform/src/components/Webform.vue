@@ -194,7 +194,6 @@ export default {
 				const sectionBSpeciesStructure = sectionBSpecies(speciesStructure)
 				const spreadPatterns = this.sanitizeSection(data, 'spreadPatterns')
 				const sectionBMeasures = this.sanitizeSection(data, 'sectionBMeasures')
-				
 				sectionBSpeciesStructure.present_in_MS.selected = species.present_in_MS
 				
 				if(species.present_in_MS) {
@@ -212,6 +211,7 @@ export default {
 
 
  				sectionBMeasures.forEach(measure => {
+
           if(measure.measure && measure.parent_row_id === row_id) {
             sectionBSpeciesStructure.sectionBMeasures[
 							Object.keys(sectionBSpeciesStructure.sectionBMeasures).find(
