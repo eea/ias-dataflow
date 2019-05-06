@@ -74,13 +74,16 @@ const form = (country, formData) => ({
 					name: 'action_plans',
 					selected: null,
 					label: 'Action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014',
+          skipValidation: false,
 					get validation() {
-						if(!this.selected) {
-							return `${this.label} field is required`
-						}
-						if(this.selected && !(this.selected.includes('www.') || this.selected.includes('http://') || this.selected.includes('https://'))) {
-							return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
-						}
+					  if (!this.skipValidation) {
+              if(!this.selected) {
+                return `${this.label} field is required`
+              }
+              if(this.selected && !(this.selected.includes('www.') || this.selected.includes('http://') || this.selected.includes('https://'))) {
+                return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
+              }
+            }
 					}
 				},
 				priority_pathways: {
@@ -91,20 +94,31 @@ const form = (country, formData) => ({
 					selected: null,
 					name: 'file_action_plans',
 					label: 'File regarding the action plan(s) referred to in Article 13(2) of Regulation (EU) No 1143/2014',
-					extensions: ['.doc','.docx','.pdf','.zip','.dot','.docb','.dotx','.docm']
+					extensions: ['.doc','.docx','.pdf','.zip','.dot','.docb','.dotx','.docm'],
+          skipValidation: false,
+          get validation(){
+            if (!this.skipValidation) {
+              if(!this.selected) {
+                return `${this.label} field is required`
+              }
+            }
+          }
 				},
 				surveillance_system: {
 					type: 'textarea',
 					name: 'surveillance_system',
 					selected: null,
 					label: 'Description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014',
+          skipValidation: false,
 					get validation() {
-						if(!this.selected) {
-							return `${this.label} field is required`
-						}
-						if(this.selected && !(this.selected.includes('www.') || this.selected.includes('http://') || this.selected.includes('https://'))) {
-							return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
-						}
+					  if (!this.skipValidation) {
+              if(!this.selected) {
+                return `${this.label} field is required`
+              }
+              if(this.selected && !(this.selected.includes('www.') || this.selected.includes('http://') || this.selected.includes('https://'))) {
+                return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
+              }
+            }
 					}
 				},
 				file_surveillance_system: {
@@ -113,19 +127,30 @@ const form = (country, formData) => ({
 					name: 'file_surveillance_system',
 					label: 'File regarding the description of the surveillance system pursuant to Article 14 of Regulation (EU) No 1143/2014',
 					extensions: ['.doc','.docx','.pdf','.zip','.dot','.docb','.dotx','.docm'],
+          skipValidation: false,
+          get validation(){
+            if (!this.skipValidation) {
+              if(!this.selected) {
+                return `${this.label} field is required`
+              }
+            }
+          }
 				},
 				official_control_system: {
 					type: 'textarea',
 					name: 'official_control_system',
 					selected: null,
 					label: 'Description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014',
+          skipValidation: false,
 					get validation() {
-						if(!this.selected) {
-							return `${this.label} field is required`
-						}
-						if(this.selected && !(this.selected.includes('www.') || this.selected.includes('http://') || this.selected.includes('https://'))) {
-							return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
-						}
+					  if (!this.skipValidation) {
+              if(!this.selected) {
+                return `${this.label} field is required`
+              }
+              if(this.selected && !(this.selected.includes('www.') || this.selected.includes('http://') || this.selected.includes('https://'))) {
+                return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
+              }
+            }
 					}
 				},
 				file_official_control_system: {
@@ -133,19 +158,30 @@ const form = (country, formData) => ({
 					selected: '',
 					name: 'file_official_control_system',
 					label: 'File regarding the description of the official control system pursuant to Article 15 of Regulation (EU) No 1143/2014',
-					extensions: ['.doc','.docx','.pdf','.zip','.dot','.docb','.dotx','.docm']
+					extensions: ['.doc','.docx','.pdf','.zip','.dot','.docb','.dotx','.docm'],
+          skipValidation: false,
+          get validation(){
+            if (!this.skipValidation) {
+              if(!this.selected) {
+                return `${this.label} field is required`
+              }
+            }
+          }
 				},
 				measures_inform_public: {
 					type: 'textarea',
 					name: 'measures_inform_public',
 					label: 'Description of measures taken to inform the public',
+          skipValidation: false,
 					get validation() {
-						if(!this.selected) {
-							return `${this.label} field is required`
-						}
-						if(this.selected && !(this.selected.includes('www.') || this.selected.includes('http://') || this.selected.includes('https://'))) {
-							return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
-						}
+            if (!this.skipValidation) {
+              if(!this.selected) {
+                return `${this.label} field is required`
+              }
+              if(this.selected && !(this.selected.includes('www.') || this.selected.includes('http://') || this.selected.includes('https://'))) {
+                return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
+              }
+            }
 					}
 				},
 				file_measures_inform_public: {
@@ -153,20 +189,31 @@ const form = (country, formData) => ({
 					selected: '',
 					name: 'file_measures_inform_public',
 					label: 'File regarding the description of measures taken to inform the public',
-					extensions: ['.doc','.docx','.pdf','.zip','.dot','.docb','.dotx','.docm']
+					extensions: ['.doc','.docx','.pdf','.zip','.dot','.docb','.dotx','.docm'],
+          skipValidation: false,
+          get validation(){
+            if (!this.skipValidation) {
+              if(!this.selected) {
+                return `${this.label} field is required`
+              }
+            }
+          }
 				},
 				cost_of_action: {
 					type: 'textarea',
 					name: 'cost_of_action',
 					selected: null,
 					label: 'Cost of action undertaken to comply with the Regulation (EU) No 1143/2014',
+          skipValidation: false,
 					get validation() {
-						if(!this.selected) {
-							return `${this.label} field is required`
-						}
-						if(this.selected && !(this.selected.includes('www.') || this.selected.includes('http://') || this.selected.includes('https://'))) {
-							return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
-						}
+					  if (!this.skipValidation) {
+              if(!this.selected) {
+                return `${this.label} field is required`
+              }
+              if(this.selected && !(this.selected.includes('www.') || this.selected.includes('http://') || this.selected.includes('https://'))) {
+                return `${this.label} are malformed: all web links should be given in full, including the initial ‘http://’ or ‘https://’, if applicable`
+              }
+            }
 					}
 				},
 				file_cost_of_action: {
@@ -174,7 +221,15 @@ const form = (country, formData) => ({
 					selected: '',
 					name: 'file_cost_of_action',
 					label: 'File regarding the cost of action undertaken to comply with the Regulation (EU) No 1143/2014',
-					extensions: ['.doc','.docx','.pdf','.zip','.dot','.docb','.dotx','.docm']
+					extensions: ['.doc','.docx','.pdf','.zip','.dot','.docb','.dotx','.docm'],
+          skipValidation: false,
+          get validation(){
+					  if (!this.skipValidation) {
+              if(!this.selected) {
+                return `${this.label} field is required`
+              }
+            }
+          }
 				},
 				additional_information: {
 					type: 'textarea',
@@ -189,8 +244,68 @@ const form = (country, formData) => ({
 					label: 'File regarding the additional information (optional)',
 					extensions: ['.doc','.docx','.pdf','.zip','.dot','.docb','.dotx','.docm'],
 				},
-			}
+        get additionalValidation() {
+				  // action plans
+          if (this.action_plans.selected && !this.action_plans.validation) {
+            this.file_action_plans.skipValidation = true
+          } else {
+            this.file_action_plans.skipValidation = false
+          }
+          if (this.file_action_plans.selected) {
+            this.action_plans.skipValidation = true
+          } else {
+            this.action_plans.skipValidation = false
+          }
 
+				  // surveillance system
+          if (this.surveillance_system.selected && !this.surveillance_system.validation) {
+            this.file_surveillance_system.skipValidation = true
+          } else {
+            this.file_surveillance_system.skipValidation = false
+          }
+          if (this.file_surveillance_system.selected) {
+            this.surveillance_system.skipValidation = true
+          } else {
+            this.surveillance_system.skipValidation = false
+          }
+
+          // official control system
+          if (this.official_control_system.selected && !this.official_control_system.validation) {
+            this.file_official_control_system.skipValidation = true
+          } else {
+            this.file_official_control_system.skipValidation = false
+          }
+          if (this.file_official_control_system.selected) {
+            this.official_control_system.skipValidation = true
+          } else {
+            this.official_control_system.skipValidation = false
+          }
+
+				  // measures
+          if (this.measures_inform_public.selected && !this.measures_inform_public.validation) {
+            this.file_measures_inform_public.skipValidation = true
+          } else {
+            this.file_measures_inform_public.skipValidation = false
+          }
+          if (this.file_measures_inform_public.selected) {
+            this.measures_inform_public.skipValidation = true
+          } else {
+            this.measures_inform_public.skipValidation = false
+          }
+
+				  // cost of action
+				  if (this.cost_of_action.selected && !this.cost_of_action.validation) {
+            this.file_cost_of_action.skipValidation = true
+          } else {
+            this.file_cost_of_action.skipValidation = false
+          }
+          if (this.file_cost_of_action.selected) {
+            this.cost_of_action.skipValidation = true
+          } else {
+            this.cost_of_action.skipValidation = false
+          }
+        }
+			},
 		},
 		tab_4: {
 			form_fields: {
