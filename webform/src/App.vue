@@ -6,7 +6,6 @@
 
 <script>
 import Webform from './components/Webform.vue'
-// import './css/main.scss'
 
 export default {
   name: 'app',
