@@ -6,6 +6,7 @@ import permitedSpecimens from '@/assets/permitedSpecimens'
 import permitsIssuedReported from '@/assets/permitsIssuedReported'
 import inspectionsPermitsReported from '@/assets/inspectionsPermitsReported'
 import sectionAMeasures from '@/assets/sectionAMeasures'
+import sectionAMeasuresManagement from '@/assets/sectionAMeasuresManagement'
 import observedNegativeImpacts from '@/assets/observedNegativeImpacts'
 import infoImpactSpecies from '@/assets/infoImpactSpecies'
 import sectionBSpecies from '@/assets/sectionBSpecies'
@@ -93,13 +94,23 @@ export default new Vuex.Store({
 			state.form.tabs.tab_1.form_fields[species_index][section_type].fields.splice(row_index, 1)
 		},
 		AddPopulation(state, { species_index, type }) {
-			state.form.tabs.tab_1.form_fields[species_index][type].fields.push(sectionAMeasures({
-				nuts: state.formData.nuts_regions,
-				b_regions: state.formData.biogeographical_regions,
-				r_b_subunits: state.formData.river_basins,
-				marine_subregions: state.formData.marine_subregions,
-				population: `Population #${state.form.tabs.tab_1.form_fields[species_index][type].fields.length + 1}`
-			}))
+			if(type === 'sectionAMeasuresManagement') {
+				state.form.tabs.tab_1.form_fields[species_index][type].fields.push(sectionAMeasuresManagement({
+					nuts: state.formData.nuts_regions,
+					b_regions: state.formData.biogeographical_regions,
+					r_b_subunits: state.formData.river_basins,
+					marine_subregions: state.formData.marine_subregions,
+					population: `Population #${state.form.tabs.tab_1.form_fields[species_index][type].fields.length + 1}`
+				}))
+			} else {
+				state.form.tabs.tab_1.form_fields[species_index][type].fields.push(sectionAMeasures({
+					nuts: state.formData.nuts_regions,
+					b_regions: state.formData.biogeographical_regions,
+					r_b_subunits: state.formData.river_basins,
+					marine_subregions: state.formData.marine_subregions,
+					population: `Population #${state.form.tabs.tab_1.form_fields[species_index][type].fields.length + 1}`
+				}))
+			}
 		},
 
 		RemovePopulation(state, {species_index, type, measure_index}) {
