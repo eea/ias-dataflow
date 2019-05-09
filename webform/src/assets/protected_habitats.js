@@ -705,7 +705,7 @@ const protected_habitats = [
   },
   {
     "label": "Alluvial forests with Alnus glutinosa and Fraxinus excelsior (Alno-Padion, Alnion incanae, Salicion albae)",
-    "id": "91E0"
+    "id": "91"
   },
   {
     "label": "Riparian mixed forests of Quercus robur, Ulmus laevis and Ulmus minor, Fraxinus excelsior or Fraxinus angustifolia, along the great rivers (Ulmenion minoris)",
