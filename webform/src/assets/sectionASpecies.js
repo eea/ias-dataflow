@@ -57,7 +57,6 @@ const species = (currentSpecies, country, formData) => ({
         name: 'spreadPatterns',
 		selected: [],
 		get validation() {
-			console.log('here', this.selected)
 			if(
 				!((
 				this.selected.includes('enteredNeighbourCountry') || 
