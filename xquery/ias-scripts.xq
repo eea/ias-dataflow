@@ -1290,8 +1290,8 @@ declare function scripts:checkA15(
             let $inspections := $root//*:inspectionsPermitsReported
                     /*:Row[*:parent_row_id = $species_row_id]
 
-            return if(not($no_ins_rep = 'true') and count($inspections) = 0
-                and $isMandatory)
+            where not($no_ins_rep = 'true')
+            return if(count($inspections) = 0 and $isMandatory)
             then
                 let $d := ("Inspection must be reported or 'No inspections reported' must be ticked", $EASINcode, '-', '-')
                 return scripts:createData((1), (), $d)
@@ -1340,8 +1340,8 @@ declare function scripts:checkA16(
             let $inspections := $root//*:inspectionsPermitsReported
                     /*:Row[*:parent_row_id = $species_row_id]
 
-            return if(not($no_ins_rep = 'true') and count($inspections) = 0
-                and $isMandatory)
+            where not($no_ins_rep = 'true')
+            return if(count($inspections) = 0 and $isMandatory)
             then
                 let $d := ("Inspection must be reported or 'No inspections reported' must be ticked", $EASINcode, '-', '-')
                 return scripts:createData((1), (), $d)
@@ -1386,8 +1386,8 @@ declare function scripts:checkA17(
             let $inspections := $root//*:inspectionsPermitsReported
                     /*:Row[*:parent_row_id = $species_row_id]
 
-            return if(not($no_ins_rep = 'true') and count($inspections) = 0
-                and $isMandatory)
+            where not($no_ins_rep = 'true')
+            return if(count($inspections) = 0 and $isMandatory)
             then
                 let $d := ("Inspection must be reported or 'No inspections reported' must be ticked", $EASINcode, '-', '-')
                 return scripts:createData((1), (), $d)
@@ -1435,8 +1435,8 @@ declare function scripts:checkA18(
             let $inspections := $root//*:inspectionsPermitsReported
                     /*:Row[*:parent_row_id = $species_row_id]
 
-            return if(not($no_ins_rep = 'true') and count($inspections) = 0
-                and $isMandatory)
+            where not($no_ins_rep = 'true')
+            return if(count($inspections) = 0 and $isMandatory)
             then
                 let $d := ("Inspection must be reported or 'No inspections reported' must be ticked",
                     $EASINcode, '-', '-', '-', '-')
@@ -1479,7 +1479,7 @@ declare function scripts:checkA19(
 ) as element()* {
     let $type := 'error'
     let $codeListUrl := $scripts:vocabUnits
-    let $species_seq := $root//*:sectionASpecies/*:Row
+    let $species_seq := $root//*:sectionASpecies/*:Row[not(*:no_inspections_reported = 'true')]
     let $level2_seq := $root//*:inspectionsPermitsReported/*:Row
     let $level3_seq := $root//*:inspectionsPermits/*:Row[*:inspection_status = 'complient']
     let $element_name := 'unit'
@@ -1516,8 +1516,8 @@ declare function scripts:checkA20(
             let $inspections := $root//*:inspectionsPermitsReported
                     /*:Row[*:parent_row_id = $species_row_id]
 
-            return if(not($no_ins_rep = 'true') and count($inspections) = 0
-                and $isMandatory)
+            where not($no_ins_rep = 'true')
+            return if(count($inspections) = 0 and $isMandatory)
             then
                 let $d := ("Inspection must be reported or 'No inspections reported' must be ticked",
                     $EASINcode, '-', '-')
@@ -1580,8 +1580,8 @@ declare function scripts:checkA21(
             let $inspections := $root//*:inspectionsPermitsReported
                     /*:Row[*:parent_row_id = $species_row_id]
 
-            return if(not($no_ins_rep = 'true') and count($inspections) = 0
-                and $isMandatory)
+            where not($no_ins_rep = 'true')
+            return if(count($inspections) = 0 and $isMandatory)
             then
                 let $d := ("Inspection must be reported or 'No inspections reported' must be ticked",
                     $EASINcode, '-', '-', '-', '-')
@@ -1624,7 +1624,7 @@ declare function scripts:checkA22(
 ) as element()* {
     let $type := 'error'
     let $codeListUrl := $scripts:vocabUnits
-    let $species_seq := $root//*:sectionASpecies/*:Row
+    let $species_seq := $root//*:sectionASpecies/*:Row[not(*:no_inspections_reported = 'true')]
     let $level2_seq := $root//*:inspectionsPermitsReported/*:Row
     let $level3_seq := $root//*:inspectionsPermits/*:Row[*:inspection_status = 'noncompliant']
     let $element_name := 'unit'
