@@ -16,9 +16,10 @@ const permitedSpecimens = () => ({
 		label: 'Unit',
     disabled: false,
 		options: [
-			{text: 'KG of seeds', value: 'kgSeeds'},
+			{text: 'kg of seeds', value: 'kgSeeds'},
 			{text: 'kg of specimen', value: 'kgSpecimens'},
-			{text: 'Number of specimens', value: 'number'}
+			{text: 'specimens', value: 'number'},
+      {text: 'square decimeter', value: 'dm2'}
 		],
 		get validation() {
       if(this.disabled === true) return

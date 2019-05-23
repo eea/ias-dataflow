@@ -727,7 +727,7 @@ declare function scripts:checkA2(
         $rulename as xs:string,
         $root as element()
 ) as element()* {
-    let $type := 'blocker'
+    let $type := 'warning'
     let $countryCode := $root//*:reporting/*:Row/*:CountryCode
     let $seq := $root//*:sectionASpecies/*:Row
     let $element_name := concat($countryCode, '_CommonName')
