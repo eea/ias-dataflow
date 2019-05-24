@@ -166,7 +166,7 @@ export default {
       mergedPathways.forEach((pathway, index) => {
 				const priorityPathwayEmpty = JSON.parse(JSON.stringify(section.priority_pathways.fields[0]))
 				if(!Array.isArray(pathway.EASINCode)) pathway.EASINCode = [pathway.EASINCode]
-        priorityPathwayEmpty.pathway_code.selected = priorityPathwayEmpty.pathway_code.options.find(p => p.value == pathway.pathway_code).value
+        priorityPathwayEmpty.pathway_code.selected = pathway.pathway_code ? priorityPathwayEmpty.pathway_code.options.find(p => p.value == pathway.pathway_code).value : null
         priorityPathwayEmpty.EASINCode.selected = pathway.EASINCode.map(easincode => priorityPathwayEmpty.EASINCode.options.find(f => f.value == easincode).value)
         if(index === 0) {
 					priorityPathwayDestination[0].pathway_code.selected = priorityPathwayEmpty.pathway_code.selected
