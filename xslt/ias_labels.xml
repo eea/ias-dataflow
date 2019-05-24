@@ -10,8 +10,12 @@
                 <value>kgSpecimens</value>
             </element>
             <element>
-                <text>Number of specimen</text>
+                <text>specimens</text>
                 <value>number</value>
+            </element>
+            <element>
+                <text>square decimeter</text>
+                <value>dm2</value>
             </element>
         </options>
     </measurement_units>
