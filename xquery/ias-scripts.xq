@@ -55,6 +55,21 @@ declare variable $scripts:EASINcodes := $scripts:speciesA//element/speciesCode;
  : --------------
  :)
 
+declare function scripts:getCountryCode(
+    $root as element()
+) as xs:string {
+    let $countryCodeMap := map {
+        'GB': 'UK',
+        'EL': 'GR'
+    }
+    let $countryCode := $root//*:reporting//*:CountryCode => functx:if-empty('')
+
+    return if($countryCode = map:keys($countryCodeMap))
+        then $countryCodeMap($countryCode)
+        else $countryCode
+};
+
+
 declare function scripts:getMandatoryElement(
     $measure_type as xs:string
 ) as xs:string{
@@ -619,7 +634,7 @@ declare function scripts:checkG1(
 ) as element()* {
     let $type := 'blocker'
     let $codeListUrl := $scripts:vocabCountries
-    let $countryCode := $root//*:reporting//*:CountryCode => functx:if-empty('')
+    let $countryCode := scripts:getCountryCode($root)
 
     let $validConcepts := scripts:getValidConcepts($codeListUrl)
 
@@ -728,7 +743,7 @@ declare function scripts:checkA2(
         $root as element()
 ) as element()* {
     let $type := 'warning'
-    let $countryCode := $root//*:reporting/*:Row/*:CountryCode
+    let $countryCode := scripts:getCountryCode($root)
     let $seq := $root//*:sectionASpecies/*:Row
     let $element_name := concat($countryCode, '_CommonName')
 
@@ -794,7 +809,7 @@ declare function scripts:checkCommonName(
         $root as element(),
         $seq as element()*
 ) as element()* {
-    let $countryCode := $root//*:reporting/*:Row/*:CountryCode
+    let $countryCode := scripts:getCountryCode($root)
     let $element_name := concat($countryCode, '_CommonName')
     let $codeListUrl := $scripts:vocabCountries
     let $validConcepts := scripts:getValidConcepts($codeListUrl)
@@ -1873,7 +1888,7 @@ declare function scripts:checkRiverBasin(
         $type as xs:string,
         $conditionElement as xs:string
 ) as element()* {
-    let $countryCode := $root//*:reporting//*:CountryCode => functx:if-empty('')
+    let $countryCode := scripts:getCountryCode($root)
     let $codes := $scripts:codesRiverBasins//row[country = $countryCode]/name
     let $hdrs := ('EASINcode', 'Measure row ID', 'River basin row ID', 'River basin code')
     let $alternateMSG := 'At least one of the Administrative unit - NUTS, Biogeograpical region(s),
@@ -2501,7 +2516,7 @@ declare function scripts:checkB2_old(
 ) as element()* {
     let $type := 'error'
     let $seq := $root//*:sectionBSpecies/*:Row
-    let $countryCode := $root//*:reporting/*:Row/*:CountryCode
+    let $countryCode := scripts:getCountryCode($root)
 
     let $data :=
         for $species in $seq
@@ -2576,7 +2591,7 @@ declare function scripts:checkB3(
         $root as element()
 ) as element()* {
     let $seq := $root//*:sectionBSpecies/*:Row
-    let $countryCode := $root//*:reporting/*:Row/*:CountryCode
+    let $countryCode := scripts:getCountryCode($root)
     let $codeListUrl := $scripts:vocabCountries
     let $validConcepts := scripts:getValidConcepts($codeListUrl)
 
