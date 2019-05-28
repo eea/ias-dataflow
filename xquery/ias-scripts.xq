@@ -2597,26 +2597,29 @@ declare function scripts:checkB3(
 
     let $data1 :=
         for $species in $seq
-            let $EASINCode := $species/*:EASINCode => functx:if-empty('')
+            let $EASINCode := $species/*:EASINCode => functx:if-empty(' ')
+            let $scientific_name := $species/*:scientific_name/text()
             let $common_name_national := $species/*:common_name_national
                  => functx:if-empty('') => normalize-space() => functx:trim()
 
-            where not($common_name_national = '')
+            (:where not($common_name_national = ''):)
 
             let $commonName_fromlist := $scripts:nationalListCustom
                 //row[*:SpeciesCode = $EASINCode and *:country = $countryCode]/cName
                     => functx:if-empty('') => normalize-space() => functx:trim()
 
             where not($common_name_national = $commonName_fromlist)
-                and scripts:isValidCommonName($common_name_national)
-                and scripts:isCountryValid($common_name_national, $validConcepts) = true()
+                or $EASINCode = ' '
+            where scripts:isValidCommonName($common_name_national)
+            where scripts:isCountryValid($common_name_national, $validConcepts) = true()
 
-            let $d := ($EASINCode, $common_name_national)
-            return scripts:createData((1), (2), $d)
+            let $d := ($EASINCode, $scientific_name, $common_name_national)
+            return scripts:createData((1), (3), $d)
 
     let $data2 :=
         for $species in $seq
-            let $EASINCode := $species/*:EASINCode => functx:if-empty('')
+            let $EASINCode := $species/*:EASINCode => functx:if-empty(' ')
+            let $scientific_name := $species/*:scientific_name/text()
             let $common_name_national := $species/*:common_name_national
                  => functx:if-empty('') => normalize-space() => functx:trim()
 
@@ -2625,13 +2628,14 @@ declare function scripts:checkB3(
                     => functx:if-empty('') => normalize-space() => functx:trim()
 
             where not($common_name_national = $commonName_fromlist)
-                and not(scripts:isValidCommonName($common_name_national)
-                        and scripts:isCountryValid($common_name_national, $validConcepts) = true())
+                or $EASINCode = ' '
+            where not(scripts:isValidCommonName($common_name_national)
+                and scripts:isCountryValid($common_name_national, $validConcepts) = true())
 
-            let $d := ($EASINCode, $common_name_national)
-            return scripts:createData((1), (2), $d)
+            let $d := ($EASINCode, $scientific_name, $common_name_national)
+            return scripts:createData((1), (3), $d)
 
-    let $hdrs := ('EASIN Code', 'Common name')
+    let $hdrs := ('EASIN Code', 'Scientific name', 'Common name')
     let $details :=
         <div class="ias">{
             if (empty($data1)) then () else scripts:getDetails($refcode, "info", $hdrs, $data1),
