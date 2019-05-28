@@ -45,6 +45,10 @@ const sectionAMeasures = ({ nuts, b_regions, r_b_subunits, marine_subregions, po
 			{ text: 'Control', value: 'control' },
 			{ text: 'Eradication', value: 'eradication' }
 		],
+		get validation() {
+			if(!this.selected) 
+				return `${this.label} is required` 
+		}
 	},
 	no_negative_impact: {
 		type: 'checkbox',
