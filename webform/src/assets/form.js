@@ -44,7 +44,7 @@ const form = (country, formData) => ({
 					{text: 'No', value: false},
 				],
 				get validation() {
-					if(!this.selected) {
+					if(this.selected === null) {
 						return `Question regarding national list of invasive alien species field is required`
 					}
 				}
