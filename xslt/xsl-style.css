@@ -112,9 +112,6 @@ span.right span {
 span.right {
   float: right;
 }
-span.optional {
-    color: grey;
-}
 span.header {
   font-weight: bold;
 }
@@ -127,6 +124,7 @@ div.print-row + div.print-row {
 div.print-row + span.optional {
   display: block;
   padding-bottom: 0;
+  border-bottom: 1px solid #CCC;
 }
 .line-separated + .line-separated {
   border-top: solid 1px #CCC;
