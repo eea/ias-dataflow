@@ -3007,15 +3007,15 @@
                                             <options>
                                                 <element>
                                                     <text>Eradication</text>
-                                                    <value>0</value>
+                                                    <value>eradication</value>
                                                 </element>
                                                 <element>
                                                     <text>Control</text>
-                                                    <value>1</value>
+                                                    <value>control</value>
                                                 </element>
                                                 <element>
                                                     <text>Containment</text>
-                                                    <value>2</value>
+                                                    <value>containment</value>
                                                 </element>
                                             </options>
                                             <selected/>
