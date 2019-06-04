@@ -73,9 +73,9 @@ const permits = () => ({
 		]
 	},
 	get validation() {
-		if(parseFloat(this.number_valid.selected) > parseFloat(this.number_issued.selected)){
-			return `${this.number_valid.label} cannot be greater than ${this.number_issued.label}`
-		}
+		// if(parseFloat(this.number_valid.selected) > parseFloat(this.number_issued.selected)){
+		// 	return `${this.number_valid.label} cannot be greater than ${this.number_issued.label}`
+		// }
 	}
 })
 
