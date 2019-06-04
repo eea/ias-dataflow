@@ -2816,7 +2816,7 @@ declare function scripts:checkC2(
 
     return if($value = '' and $value_file = '')
     then
-        let $type := 'error'
+        let $type := 'info'
         let $data := scripts:createData((1), (1), ('-'))
         let $details := scripts:getDetails($refcode, $type, $hdrs, $data)
         return
