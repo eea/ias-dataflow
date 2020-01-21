@@ -181,10 +181,28 @@ const species = (currentSpecies) => ({
             name: 'restMeasures',
             label: "Restoration measures",
         },
+        restBreed: {
+          type: 'checkbox',
+          selected: false,
+          name: 'restBreed',
+          label: "Restriction to intentionally breed, including in contained holding",
+        },
+        restBring: {
+          type: 'checkbox',
+          selected: false,
+          name: 'restBring',
+          label: "Restriction to intentionally bring into the territory",
+        },
+        restKeep: {
+          type: 'checkbox',
+          selected: false,
+          name: 'restKeep',
+          label: "Restriction to intentionally bring into the territory",
+        },
         noMeasures: {
             type: 'checkbox',
             selected: false,
-            noMeasures: 'restTransport',
+            name: 'noMeasures',
             label: "The species is included in the national list but is not subject to any measures",
         },
         get validation() {
