@@ -197,7 +197,7 @@ const species = (currentSpecies) => ({
           type: 'checkbox',
           selected: false,
           name: 'restKeep',
-          label: "Restriction to intentionally bring into the territory",
+          label: "Restriction to intentionally keep, including in contained holding",
         },
         noMeasures: {
             type: 'checkbox',
